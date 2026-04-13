@@ -666,16 +666,30 @@ function CtaFooter() {
               Let's make sure they find you — and that when they do, someone's there.
             </p>
           </div>
-          <div className="rv d1" style={{ background: 'var(--green-800)', borderRadius: 'var(--radius)', padding: '40px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', transition: 'background-color 0.3s' }}
-            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-700)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-800)'; }}
+          <a href="mailto:hello@carelu.ai" className="rv d1" style={{
+            background: 'var(--green-800)', borderRadius: 'var(--radius)', padding: '44px 40px',
+            display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+            textDecoration: 'none', transition: 'background-color 0.3s, transform 0.3s',
+            position: 'relative', overflow: 'hidden', minHeight: 220,
+          }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-700)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-800)'; e.currentTarget.style.transform = 'translateY(0)'; }}
           >
-            <span style={{ fontSize: 'var(--text-xs)', color: 'rgba(255,255,255,0.5)' }}>Free demo · Live in 2 weeks · No engineering needed</span>
-            <a href="mailto:hello@carelu.ai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: 'var(--text-h3)', fontWeight: 500, color: '#fff', textDecoration: 'none' }}>
-              Request a Demo
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
+            {/* Subtle gradient overlay */}
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.04) 100%)', pointerEvents: 'none' }} />
+            <div style={{ position: 'relative' }}>
+              <span style={{ fontSize: 'var(--text-xs)', color: 'rgba(255,255,255,0.45)', letterSpacing: '1px', textTransform: 'uppercase' }}>Free demo · Live in 2 weeks</span>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 3vw, 36px)', color: '#fff', marginTop: 16, lineHeight: 1.15 }}>
+                See how it works for your practice.
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative', marginTop: 32, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+              <span style={{ fontSize: 18, fontWeight: 600, color: '#fff' }}>Request a Demo</span>
+              <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
       <footer style={{ ...W, padding: '48px 36px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
