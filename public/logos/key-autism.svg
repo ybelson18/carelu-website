@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" fill="none">
-  <!-- Puzzle piece icon -->
-  <rect x="8" y="14" width="10" height="10" rx="1" stroke="#888" stroke-width="1.2" fill="none"/>
-  <rect x="18" y="14" width="10" height="10" rx="1" stroke="#888" stroke-width="1.2" fill="none"/>
-  <rect x="8" y="24" width="10" height="10" rx="1" stroke="#888" stroke-width="1.2" fill="none"/>
-  <rect x="18" y="24" width="10" height="10" rx="1" stroke="#888" stroke-width="1.2" fill="none"/>
-  <text x="38" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#666">Key</text>
-  <text x="38" y="38" font-family="Arial, sans-serif" font-size="8" fill="#999" letter-spacing="0.5">Autism Services</text>
-</svg>

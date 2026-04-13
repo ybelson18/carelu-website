@@ -176,12 +176,12 @@ function Marquee() {
 
 // ── LOGO BAR ────────────────────────────────────
 const logos = [
-  { src: '/logos/golden-care.svg', alt: 'Golden Care Therapy', w: 155 },
-  { src: '/logos/total-care.svg', alt: 'Total Care Therapy', w: 120 },
-  { src: '/logos/supportive-care.svg', alt: 'Supportive Care ABA', w: 175 },
-  { src: '/logos/bridgecare.svg', alt: 'BridgeCare ABA Therapy', w: 175 },
-  { src: '/logos/key-autism.svg', alt: 'Key Autism Services', w: 125 },
-  { src: '/logos/grateful-care.svg', alt: 'Grateful Care ABA', w: 145 },
+  { src: '/logos/golden-care.png', alt: 'Golden Care Therapy', w: 150 },
+  { src: '/logos/key-autism.webp', alt: 'Key Autism Services', w: 130 },
+  { src: '/logos/supportive-care.png', alt: 'Supportive Care ABA', w: 170 },
+  { src: '/logos/cross-river.png', alt: 'Cross River Therapy', w: 120 },
+  { src: '/logos/strive-aba.png', alt: 'Strive ABA Therapy', w: 120 },
+  { src: '/logos/grateful-care.svg', alt: 'Grateful Care ABA', w: 140 },
 ];
 
 function LogoBar() {

@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" fill="none">
-  <!-- Heart icon -->
-  <path d="M18 16c-2.2-2.4-5.8-2.4-8 0-2.2 2.4-2.2 6.2 0 8.6L18 33l8-8.4c2.2-2.4 2.2-6.2 0-8.6-2.2-2.4-5.8-2.4-8 0z" stroke="#888" stroke-width="1.5" fill="none"/>
-  <circle cx="18" cy="22" r="2" fill="#888"/>
-  <text x="38" y="23" font-family="Georgia, serif" font-size="16" font-weight="400" fill="#666">Golden Care</text>
-  <text x="38" y="37" font-family="Arial, sans-serif" font-size="9" font-weight="400" letter-spacing="2" fill="#999" text-transform="uppercase">THERAPY</text>
-</svg>
