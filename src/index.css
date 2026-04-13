@@ -270,26 +270,16 @@ button { font-family: inherit; cursor: pointer; }
     border-radius: var(--radius) !important;
   }
 
-  /* Logo row: horizontal scroll on mobile like Ease */
-  .logo-section-mobile {
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 8px !important;
-  }
-  .logo-section-mobile::-webkit-scrollbar { display: none; }
+  /* Logo row: show only 3 on mobile */
+  .hide-mobile-logo { display: none !important; }
   .logo-row {
-    flex-wrap: nowrap !important;
-    justify-content: flex-start !important;
-    gap: 32px !important;
-    padding-right: 20px !important;
+    gap: 24px !important;
+    justify-content: center !important;
   }
   .logo-row img {
-    height: 32px !important;
+    height: 30px !important;
     width: auto !important;
-    flex-shrink: 0;
   }
-  .logo-header { display: none !important; }
 
   /* Sticky tour: hide sticky sidebar, show inline mockups */
   .tour-sticky { display: none !important; }

@@ -186,19 +186,16 @@ const logos = [
 
 function LogoBar() {
   return (
-    <div style={{ padding: '32px 0', overflow: 'hidden', borderBottom: '1px solid var(--gray-200)' }}>
-      <p className="logo-header" style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 24, padding: '0 36px' }}>
+    <div style={{ padding: '40px 36px', borderBottom: '1px solid var(--gray-200)' }}>
+      <p style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 28 }}>
         Trusted by behavioral health providers nationwide
       </p>
-      <div style={{ display: 'flex', width: 'max-content', animation: 'marqueeScroll 50s linear infinite' }}>
-        {[0, 1].map((set) => (
-          <div key={set} style={{ display: 'flex', alignItems: 'center', gap: 56, paddingRight: 56 }}>
-            {logos.map((logo) => (
-              <img key={`${set}-${logo.alt}`} src={logo.src} alt={logo.alt}
-                style={{ width: logo.w, height: 40, objectFit: 'contain', opacity: 0.4, filter: 'grayscale(100%)', flexShrink: 0 }}
-              />
-            ))}
-          </div>
+      <div className="logo-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
+        {logos.map((logo, i) => (
+          <img key={logo.alt} src={logo.src} alt={logo.alt}
+            className={i >= 3 ? 'hide-mobile-logo' : ''}
+            style={{ width: logo.w, height: 40, objectFit: 'contain', opacity: 0.4, filter: 'grayscale(100%)' }}
+          />
         ))}
       </div>
     </div>
