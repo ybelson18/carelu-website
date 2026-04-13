@@ -186,17 +186,19 @@ const logos = [
 
 function LogoBar() {
   return (
-    <div className="logo-section-mobile" style={{ padding: '40px 36px', overflow: 'hidden' }}>
-      <p className="logo-header" style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 28 }}>
+    <div style={{ padding: '32px 0', overflow: 'hidden', borderBottom: '1px solid var(--gray-200)' }}>
+      <p className="logo-header" style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 24, padding: '0 36px' }}>
         Trusted by behavioral health providers nationwide
       </p>
-      <div className="logo-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
-        {logos.map((logo) => (
-          <img key={logo.alt} src={logo.src} alt={logo.alt}
-            style={{ width: logo.w, height: 44, objectFit: 'contain', opacity: 0.45, filter: 'grayscale(100%)', transition: 'opacity 0.3s, filter 0.3s' }}
-            onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.filter = 'grayscale(0%)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.45'; e.currentTarget.style.filter = 'grayscale(100%)'; }}
-          />
+      <div style={{ display: 'flex', width: 'max-content', animation: 'marqueeScroll 50s linear infinite' }}>
+        {[0, 1].map((set) => (
+          <div key={set} style={{ display: 'flex', alignItems: 'center', gap: 56, paddingRight: 56 }}>
+            {logos.map((logo) => (
+              <img key={`${set}-${logo.alt}`} src={logo.src} alt={logo.alt}
+                style={{ width: logo.w, height: 40, objectFit: 'contain', opacity: 0.4, filter: 'grayscale(100%)', flexShrink: 0 }}
+              />
+            ))}
+          </div>
         ))}
       </div>
     </div>
@@ -702,8 +704,8 @@ export default function Landing() {
     <>
       <Nav />
       <Hero />
-      <Marquee />
       <LogoBar />
+      <Marquee />
       <Problem />
       <Promise />
       <StickyTour />
