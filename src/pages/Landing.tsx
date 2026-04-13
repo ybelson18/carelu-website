@@ -2,11 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { useReveal } from '../hooks/useReveal';
 
 /* ============================================================
-   CARELU — ORIGINAL VERSION
+   CARELU — v2 COPY REWRITE ($10M version)
    ============================================================
-   Feature-based copy with the full design system:
-   glassmorphism cards, gradient mesh hero, sticky product tour,
-   customer logos, marquee, animated counters, typing indicator.
+   Same design system. Upgraded copy: scenario-based,
+   emotional, specific. Every word earns its place.
    ============================================================ */
 
 const W: React.CSSProperties = { maxWidth: 1200, margin: '0 auto', padding: '0 36px' };
@@ -98,11 +97,14 @@ function Hero() {
         <div>
           <Pill>AI-Powered Intake for Behavioral Health</Pill>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-hero)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-2px', color: 'var(--green-900)', marginBottom: 28 }}>
-            <span className="hero-line">Fewer families lost.</span>
-            <span className="hero-line">More care <em style={{ fontStyle: 'italic' }}>delivered.</em></span>
+            <span className="hero-line">Right now, a family</span>
+            <span className="hero-line">is looking for <em style={{ fontStyle: 'italic' }}>help.</em></span>
           </h1>
-          <p className="hero-sub" style={{ fontSize: 18, color: 'var(--gray-600)', lineHeight: 1.75, maxWidth: 480, marginBottom: 44 }}>
-            Admit more patients, reduce staff workload, and accelerate revenue with the AI-native platform built for behavioral health providers.
+          <p className="hero-sub" style={{ fontSize: 18, color: 'var(--gray-600)', lineHeight: 1.75, maxWidth: 480, marginBottom: 20 }}>
+            They're texting your intake number at 11pm. Filling out a form on their lunch break. Calling between school pickups. The question isn't whether families need you — it's whether your front door is open when they arrive.
+          </p>
+          <p className="hero-sub" style={{ fontSize: 16, color: 'var(--gray-500)', lineHeight: 1.7, maxWidth: 440, marginBottom: 44 }}>
+            Carelu makes sure it is. Every channel. Every hour. Every family.
           </p>
           <div className="hero-cta" style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
             <a href="#cta" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'var(--text-body)', fontWeight: 600, color: '#fff', backgroundColor: 'var(--green-800)', padding: '18px 36px', borderRadius: 'var(--radius-sm)', textDecoration: 'none' }}
