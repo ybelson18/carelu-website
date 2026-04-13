@@ -96,7 +96,7 @@ function Hero() {
 
       <div className="mobile-stack" style={{ ...W, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
         <div className="hero-content-mobile">
-          <Pill>AI-Powered Intake for Behavioral Health</Pill>
+          <Pill>Care Enablement Platform</Pill>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-hero)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-2px', color: 'var(--green-900)', marginBottom: 28 }}>
             <span className="hero-line">Fewer families lost.</span>
             <span className="hero-line">More care <em style={{ fontStyle: 'italic' }}>delivered.</em></span>
@@ -158,8 +158,8 @@ function Hero() {
       </div>
 
       {/* Customer logos */}
-      <div style={{ ...W, marginTop: 80, paddingBottom: 20, position: 'relative', zIndex: 1 }} className="rv d5">
-        <p style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 32 }}>
+      <div style={{ ...W, marginTop: 80, paddingBottom: 20, position: 'relative', zIndex: 1 }} className="rv d5 logo-section-mobile">
+        <p className="logo-header" style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 32 }}>
           Trusted by behavioral health providers nationwide
         </p>
         <div className="logo-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
@@ -432,7 +432,7 @@ function StickyTour() {
               {mockups[tourSteps[activeIdx].mockup]}
             </div>
           </div>
-          <div>
+          <div className="tour-steps-col">
             {tourSteps.map((step, i) => (
               <div key={step.title} ref={(el) => { stepRefs.current[i] = el; }}
                 style={{

@@ -237,12 +237,19 @@ button { font-family: inherit; cursor: pointer; }
     gap: 32px !important;
   }
 
-  /* Hero content gets a sage card bg on mobile */
+  /* Hero content gets a sage card bg on mobile — tight like Ease */
   .hero-content-mobile {
     background: var(--sage-50);
     border-radius: var(--radius);
-    padding: 32px 24px !important;
+    padding: 28px 22px !important;
     margin-bottom: 0;
+  }
+  .hero-content-mobile h1 {
+    margin-bottom: 16px !important;
+    letter-spacing: -1px !important;
+  }
+  .hero-content-mobile p {
+    margin-bottom: 24px !important;
   }
 
   /* Hero visual hidden on mobile */
@@ -263,20 +270,32 @@ button { font-family: inherit; cursor: pointer; }
     border-radius: var(--radius) !important;
   }
 
-  /* Logo row */
+  /* Logo row: horizontal scroll on mobile like Ease */
+  .logo-section-mobile {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px !important;
+  }
+  .logo-section-mobile::-webkit-scrollbar { display: none; }
   .logo-row {
-    gap: 20px !important;
+    flex-wrap: nowrap !important;
     justify-content: flex-start !important;
+    gap: 32px !important;
+    padding-right: 20px !important;
   }
   .logo-row img {
     height: 32px !important;
     width: auto !important;
+    flex-shrink: 0;
   }
+  .logo-header { display: none !important; }
 
-  /* Sticky tour: no sticky, mockup on top */
-  .tour-sticky {
-    position: static !important;
-    margin-bottom: 32px;
+  /* Sticky tour: hide mockup, compact steps */
+  .tour-sticky { display: none !important; }
+  .tour-steps-col > div {
+    min-height: auto !important;
+    padding-bottom: 40px !important;
   }
 
   /* Impact grid: 2 cols */
