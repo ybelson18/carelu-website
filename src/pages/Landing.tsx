@@ -666,7 +666,7 @@ function CtaFooter() {
               Let's make sure they find you — and that when they do, someone's there.
             </p>
           </div>
-          <a href="mailto:hello@carelu.ai" className="rv d1" style={{
+          <a href="mailto:hello@carelu.ai" style={{
             background: 'var(--green-800)', borderRadius: 'var(--radius)', padding: '44px 40px',
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
             textDecoration: 'none', transition: 'background-color 0.3s, transform 0.3s',
