@@ -277,17 +277,21 @@ button { font-family: inherit; cursor: pointer; }
     border-radius: var(--radius) !important;
   }
 
-  /* Logo row: show 5 on mobile, single row */
+  /* Logo row on mobile: 5 slots, fixed width, no shifting */
   .hide-mobile-logo { display: none !important; }
   .logo-row {
-    gap: 10px !important;
+    gap: 8px !important;
     justify-content: center !important;
     flex-wrap: nowrap !important;
   }
+  .logo-row > div {
+    width: 60px !important;
+    min-width: 60px !important;
+    height: 28px !important;
+  }
   .logo-row img {
-    height: 20px !important;
-    width: auto !important;
-    flex-shrink: 0;
+    max-height: 24px !important;
+    max-width: 60px !important;
   }
 
   /* Sticky tour: hide sticky sidebar, show inline mockups */
