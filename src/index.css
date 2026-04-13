@@ -1,0 +1,210 @@
+/* ============================================================
+   CARELU — $1M DESIGN SYSTEM
+   ============================================================
+   Not a template. A crafted experience.
+   Every transition, every space, every curve — considered.
+   ============================================================ */
+
+:root {
+  --green-900: #1B2E1E;
+  --green-800: #2C3E2D;
+  --green-700: #3A5A3C;
+  --green-600: #4A7A4E;
+  --sage-300: #B8CDB2;
+  --sage-200: #D4E4CF;
+  --sage-100: #E4EFE0;
+  --sage-50: #F0F5EE;
+  --white: #FFFFFF;
+  --gray-50: #F8F8F7;
+  --gray-100: #F0EFED;
+  --gray-200: #E2E0DC;
+  --gray-300: #CCC9C4;
+  --gray-400: #A8A5A0;
+  --gray-500: #7A7672;
+  --gray-600: #55524E;
+  --gray-800: #2A2926;
+  --black: #1A1918;
+
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  /* Pushed 30% larger — type IS the design */
+  --text-hero: clamp(52px, 7vw, 88px);
+  --text-h2: clamp(36px, 4.5vw, 60px);
+  --text-h3: clamp(22px, 2.2vw, 28px);
+  --text-body: 17px;
+  --text-sm: 14px;
+  --text-xs: 12px;
+  --text-label: 11px;
+
+  --section-py: clamp(100px, 14vw, 180px);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --radius-pill: 999px;
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.0, 0, 0.2, 1);
+  --ease-dramatic: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root { min-height: 100vh; }
+a { color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+::selection { background: var(--sage-200); color: var(--green-900); }
+:focus-visible { outline: 2px solid var(--green-700); outline-offset: 3px; border-radius: 4px; }
+
+/* ── Scroll Reveals ─────────────────────────────── */
+.rv {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.9s var(--ease-dramatic), transform 0.9s var(--ease-dramatic);
+}
+.rv.visible { opacity: 1; transform: translateY(0); }
+.rv-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 1s var(--ease-dramatic), transform 1s var(--ease-dramatic);
+}
+.rv-scale.visible { opacity: 1; transform: scale(1); }
+.rv-left {
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: opacity 0.9s var(--ease-dramatic), transform 0.9s var(--ease-dramatic);
+}
+.rv-left.visible { opacity: 1; transform: translateX(0); }
+
+.d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
+.d5 { transition-delay: 0.5s; } .d6 { transition-delay: 0.6s; }
+
+/* ── Hero ───────────────────────────────────────── */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(48px); filter: blur(6px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.hero-line {
+  display: block; opacity: 0;
+  animation: heroIn 1s var(--ease-dramatic) forwards;
+}
+.hero-line:nth-child(1) { animation-delay: 0.1s; }
+.hero-line:nth-child(2) { animation-delay: 0.3s; }
+.hero-sub { opacity: 0; animation: heroIn 0.9s var(--ease-dramatic) 0.55s forwards; }
+.hero-cta { opacity: 0; animation: heroIn 0.8s var(--ease-dramatic) 0.75s forwards; }
+.hero-visual { opacity: 0; animation: heroIn 1s var(--ease-dramatic) 0.5s forwards; }
+
+/* ── Hero chat messages ─────────────────────────── */
+.hero-chat-msg { opacity: 0; animation: chatIn 0.5s var(--ease-out) forwards; }
+.hero-chat-msg:nth-child(1) { animation-delay: 1.2s; }
+.hero-chat-msg:nth-child(2) { animation-delay: 2.4s; }
+.hero-chat-msg:nth-child(3) { animation-delay: 3.2s; }
+
+@keyframes chatIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Typing indicator ───────────────────────────── */
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: scale(0.5); opacity: 0.3; }
+  40% { transform: scale(1); opacity: 1; }
+}
+.typing-indicator {
+  display: inline-flex; gap: 4px;
+  padding: 10px 16px; border-radius: 12px; background: var(--gray-50);
+}
+.typing-indicator span {
+  display: block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gray-400); animation: typingBounce 1.2s ease infinite;
+}
+.typing-indicator span:nth-child(2) { animation-delay: 0.15s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.3s; }
+
+/* ── Marquee ────────────────────────────────────── */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex; width: max-content;
+  animation: marqueeScroll 40s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ── Glassmorphism ──────────────────────────────── */
+.glass {
+  background: rgba(240, 245, 238, 0.5);
+  backdrop-filter: blur(24px) saturate(1.3);
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 8px 32px rgba(27,46,30,0.06);
+}
+
+/* ── Cards ──────────────────────────────────────── */
+.card-lift {
+  transition: transform 0.4s var(--ease-dramatic), box-shadow 0.4s var(--ease-dramatic);
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(27, 46, 30, 0.1);
+}
+
+/* ── Button ─────────────────────────────────────── */
+.btn-primary {
+  position: relative; overflow: hidden;
+  transition: background-color 0.2s, transform 0.15s;
+}
+.btn-primary::after {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
+  transform: translateX(-100%); transition: transform 0.6s var(--ease);
+}
+.btn-primary:hover::after { transform: translateX(100%); }
+.btn-primary:active { transform: scale(0.97); }
+
+/* ── Nav link ───────────────────────────────────── */
+.nav-link { position: relative; display: inline-block; }
+.nav-link::after {
+  content: ''; position: absolute; bottom: -3px; left: 0;
+  width: 0; height: 1.5px; background: var(--green-800);
+  transition: width 0.3s var(--ease-out);
+}
+.nav-link:hover::after { width: 100%; }
+
+/* ── Dot pulse ──────────────────────────────────── */
+@keyframes dotPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+.dot-pulse { animation: dotPulse 2.5s ease infinite; }
+
+/* ── Sticky tour active indicator ───────────────── */
+.tour-step { transition: opacity 0.5s var(--ease-dramatic); }
+.tour-step.dimmed { opacity: 0.25; }
+
+/* ── Reduced motion ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .rv, .rv-scale, .rv-left { opacity: 1; transform: none; }
+  .hero-line, .hero-sub, .hero-cta, .hero-visual { opacity: 1; filter: none; transform: none; }
+  .hero-chat-msg { opacity: 1; transform: none; }
+  .marquee-track { animation: none; }
+}
+
+@media (max-width: 900px) { .hide-mobile { display: none !important; } }

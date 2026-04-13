@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" fill="none">
+  <!-- Flower/leaf icon -->
+  <circle cx="16" cy="22" r="3" stroke="#888" stroke-width="1" fill="none"/>
+  <path d="M16 15c-2 0-4 2-4 4M16 15c2 0 4 2 4 4M12 22c-2 0-4 2-4 4M20 22c2 0 4 2 4 4M16 29c-2 0-4-2-4-4M16 29c2 0 4-2 4-4" stroke="#888" stroke-width="1" stroke-linecap="round"/>
+  <text x="32" y="22" font-family="Georgia, serif" font-size="14" fill="#666">Grateful</text>
+  <text x="32" y="36" font-family="Georgia, serif" font-size="14" fill="#666">Care <tspan font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#888">ABA</tspan></text>
+</svg>
