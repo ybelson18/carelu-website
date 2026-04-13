@@ -176,12 +176,11 @@ function Marquee() {
 
 // ── LOGO BAR ────────────────────────────────────
 const logos = [
+  { src: '/logos/strive-aba.png', alt: 'Strive ABA Therapy', w: 110 },
   { src: '/logos/golden-care.png', alt: 'Golden Care Therapy', w: 140 },
-  { src: '/logos/key-autism.webp', alt: 'Key Autism Services', w: 120 },
   { src: '/logos/grateful-care.avif', alt: 'Grateful Care ABA', w: 130 },
   { src: '/logos/supportive-care.png', alt: 'Supportive Care ABA', w: 160 },
   { src: '/logos/cross-river.png', alt: 'Cross River Therapy', w: 110 },
-  { src: '/logos/strive-aba.png', alt: 'Strive ABA Therapy', w: 110 },
 ];
 
 function LogoBar() {
