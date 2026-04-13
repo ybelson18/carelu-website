@@ -455,10 +455,14 @@ function StickyTour() {
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontStyle: 'italic', color: 'var(--gray-500)', marginBottom: 20 }}>{step.scenario}</div>
                 <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h3)', color: 'var(--green-900)', lineHeight: 1.2, marginBottom: 16 }}>{step.title}</h3>
                 <p style={{ fontSize: 'var(--text-sm)', color: 'var(--gray-500)', lineHeight: 1.7, marginBottom: 24, maxWidth: 420 }}>{step.desc}</p>
-                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
                   {step.pills.map((p) => (
                     <span key={p} style={{ fontSize: 'var(--text-xs)', fontWeight: 500, color: 'var(--green-800)', background: 'var(--sage-100)', padding: '5px 14px', borderRadius: 'var(--radius-pill)' }}>{p}</span>
                   ))}
+                </div>
+                {/* Inline mockup for mobile */}
+                <div className="tour-mockup-inline" style={{ display: 'none', background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: 20 }}>
+                  {mockups[step.mockup]}
                 </div>
               </div>
             ))}

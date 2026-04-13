@@ -291,11 +291,12 @@ button { font-family: inherit; cursor: pointer; }
   }
   .logo-header { display: none !important; }
 
-  /* Sticky tour: hide mockup, compact steps */
+  /* Sticky tour: hide sticky sidebar, show inline mockups */
   .tour-sticky { display: none !important; }
+  .tour-mockup-inline { display: block !important; }
   .tour-steps-col > div {
     min-height: auto !important;
-    padding-bottom: 40px !important;
+    padding-bottom: 48px !important;
   }
 
   /* Impact grid: 2 cols */
