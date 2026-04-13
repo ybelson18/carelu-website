@@ -95,7 +95,7 @@ function Hero() {
       </div>
 
       <div className="mobile-stack" style={{ ...W, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
-        <div>
+        <div className="hero-content-mobile">
           <Pill>AI-Powered Intake for Behavioral Health</Pill>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-hero)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-2px', color: 'var(--green-900)', marginBottom: 28 }}>
             <span className="hero-line">Fewer families lost.</span>
@@ -105,14 +105,14 @@ function Hero() {
             Admit more patients, reduce staff workload, and accelerate revenue with the AI-native platform built for behavioral health providers.
           </p>
           <div className="hero-cta" style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
-            <a href="#cta" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'var(--text-body)', fontWeight: 600, color: '#fff', backgroundColor: 'var(--green-800)', padding: '18px 36px', borderRadius: 'var(--radius-sm)', textDecoration: 'none' }}
+            <a href="#cta" className="btn-primary hero-cta-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'var(--text-body)', fontWeight: 600, color: '#fff', backgroundColor: 'var(--green-800)', padding: '18px 36px', borderRadius: 'var(--radius-sm)', textDecoration: 'none' }}
               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-700)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-800)'; }}
             >
               Request a Demo
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <span style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)' }}>Free · Setup in days, not months</span>
+            <span className="hide-mobile" style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)' }}>Free · Setup in days, not months</span>
           </div>
         </div>
 

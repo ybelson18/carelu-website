@@ -214,23 +214,72 @@ button { font-family: inherit; cursor: pointer; }
 
 @media (max-width: 768px) {
   :root {
-    --section-py: 72px;
-    --text-hero: clamp(36px, 9vw, 52px);
-    --text-h2: clamp(28px, 6vw, 40px);
-    --text-h3: clamp(20px, 4vw, 24px);
+    --section-py: 64px;
+    --text-hero: 38px;
+    --text-h2: 30px;
+    --text-h3: 22px;
+    --text-body: 15px;
+    --radius: 14px;
   }
 
-  /* All grids stack on mobile */
-  .mobile-stack { grid-template-columns: 1fr !important; }
+  body { font-size: 15px; }
 
-  /* Hero visual hidden on small screens - headline is enough */
+  /* ── Hero mobile: card-style like Ease ────────── */
+  .hero-mobile {
+    min-height: auto !important;
+    padding-top: 84px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .hero-mobile > div {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    gap: 32px !important;
+  }
+
+  /* Hero content gets a sage card bg on mobile */
+  .hero-content-mobile {
+    background: var(--sage-50);
+    border-radius: var(--radius);
+    padding: 32px 24px !important;
+    margin-bottom: 0;
+  }
+
+  /* Hero visual hidden on mobile */
   .hero-visual { display: none !important; }
 
-  /* Sticky tour: no sticky on mobile */
-  .tour-sticky { position: static !important; }
-  .tour-mockup-mobile { display: none; }
+  /* All grids stack */
+  .mobile-stack {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
 
-  /* Impact grid: 2 cols on mobile */
+  /* CTA button: full-width block on mobile like Ease */
+  .hero-cta-btn {
+    width: 100% !important;
+    justify-content: space-between !important;
+    padding: 20px 24px !important;
+    font-size: 16px !important;
+    border-radius: var(--radius) !important;
+  }
+
+  /* Logo row */
+  .logo-row {
+    gap: 20px !important;
+    justify-content: flex-start !important;
+  }
+  .logo-row img {
+    height: 32px !important;
+    width: auto !important;
+  }
+
+  /* Sticky tour: no sticky, mockup on top */
+  .tour-sticky {
+    position: static !important;
+    margin-bottom: 32px;
+  }
+
+  /* Impact grid: 2 cols */
   .impact-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
   /* Compliance grid: 1 col */
@@ -239,31 +288,51 @@ button { font-family: inherit; cursor: pointer; }
   /* CTA grid: stack */
   .cta-grid { grid-template-columns: 1fr !important; }
 
-  /* Logos: wrap tighter */
-  .logo-row { gap: 24px !important; }
-
-  /* Steps: simpler layout */
+  /* Steps: 2-col on mobile (name + desc) */
   .step-row {
     grid-template-columns: 1fr !important;
-    gap: 8px !important;
+    gap: 4px !important;
+    padding: 20px 0 !important;
   }
   .step-num { display: none; }
 
-  /* Tour steps: shorter on mobile */
-  .tour-step-mobile {
-    min-height: auto !important;
-    padding-bottom: 48px !important;
+  /* Sections: tighter horizontal padding */
+  .section-mobile {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 
-  /* Nav: tighter */
-  nav > div { padding: 0 20px !important; }
+  /* Nav */
+  nav > div {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    height: 56px !important;
+  }
 
-  /* Section padding tighter */
-  .mobile-px { padding-left: 20px !important; padding-right: 20px !important; }
+  /* Testimonial quote smaller */
+  .testi-quote {
+    font-size: 24px !important;
+  }
 
-  /* Hero: full height not needed on mobile */
-  .hero-mobile { min-height: auto !important; padding-top: 80px !important; }
+  /* Marquee: smaller text */
+  .marquee-track span {
+    font-size: 12px !important;
+  }
 
-  /* Product showcase: stack */
-  .showcase-grid { grid-template-columns: 1fr !important; }
+  /* Cards: rounder, more padding */
+  .card-lift {
+    border-radius: var(--radius) !important;
+  }
+
+  /* Footer */
+  footer {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 32px 20px !important;
+  }
+  footer > div:last-child {
+    flex-wrap: wrap;
+    gap: 12px !important;
+  }
 }
