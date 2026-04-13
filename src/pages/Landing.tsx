@@ -112,7 +112,7 @@ function Hero() {
               Request a Demo
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <span className="hide-mobile" style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)' }}>Free · Setup in days, not months</span>
+            <span className="hide-mobile" style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)' }}>Setup in days, not months</span>
           </div>
         </div>
 
@@ -205,19 +205,20 @@ function LogoBar() {
       const slotToSwap = currentSlot % SLOTS;
       setFadingSlot(slotToSwap);
 
+      // Swap logo while it's invisible, then fade back in
       setTimeout(() => {
         setSlots((prev) => {
           const next = [...prev];
           const pool = poolRef.current;
           if (pool.length === 0) return next;
-          // Take the first from pool, put the old one back
           const newLogoIdx = pool.shift()!;
           pool.push(prev[slotToSwap]);
           next[slotToSwap] = newLogoIdx;
           return next;
         });
-        setFadingSlot(-1);
-      }, 400);
+        // Small delay before fading in so new image loads
+        setTimeout(() => setFadingSlot(-1), 50);
+      }, 500);
 
       currentSlot++;
     }, 4000);
@@ -731,7 +732,7 @@ function CtaFooter() {
             {/* Subtle gradient overlay */}
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.04) 100%)', pointerEvents: 'none' }} />
             <div style={{ position: 'relative' }}>
-              <span style={{ fontSize: 'var(--text-xs)', color: 'rgba(255,255,255,0.45)', letterSpacing: '1px', textTransform: 'uppercase' }}>Free demo · Live in 2 weeks</span>
+              <span style={{ fontSize: 'var(--text-xs)', color: 'rgba(255,255,255,0.45)', letterSpacing: '1px', textTransform: 'uppercase' }}>Live in 2 weeks · No engineering needed</span>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 3vw, 36px)', color: '#fff', marginTop: 16, lineHeight: 1.15 }}>
                 See how it works for your practice.
               </div>
