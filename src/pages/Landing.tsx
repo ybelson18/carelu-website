@@ -83,7 +83,7 @@ function Nav() {
 // ── HERO ────────────────────────────────────────
 function Hero() {
   return (
-    <section style={{
+    <section className="hero-mobile" style={{
       minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center',
       paddingTop: 100, paddingBottom: 40, position: 'relative', overflow: 'hidden',
     }}>
@@ -94,7 +94,7 @@ function Hero() {
         <div style={{ position: 'absolute', width: 300, height: 300, top: '40%', left: '40%', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,205,178,0.2) 0%, transparent 70%)', filter: 'blur(50px)' }} />
       </div>
 
-      <div style={{ ...W, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
+      <div className="mobile-stack" style={{ ...W, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
         <div>
           <Pill>AI-Powered Intake for Behavioral Health</Pill>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-hero)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-2px', color: 'var(--green-900)', marginBottom: 28 }}>
@@ -162,7 +162,7 @@ function Hero() {
         <p style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 32 }}>
           Trusted by behavioral health providers nationwide
         </p>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
+        <div className="logo-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
           {[
             { src: '/logos/golden-care.svg', alt: 'Golden Care Therapy', w: 155 },
             { src: '/logos/total-care.svg', alt: 'Total Care Therapy', w: 120 },
@@ -213,7 +213,7 @@ function Problem() {
         </div>
 
         {/* Stats with subheads */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
           {[
             { val: 70, suf: '%', label: '', head: 'Gone before you start.', desc: 'of families abandon intake before completion. They wanted help. The process lost them.' },
             { val: 5, suf: '+', label: '', head: 'Duct tape and prayer.', desc: 'fragmented tools — forms, phone, email, CRM, fax — none of them talking to each other.' },
@@ -426,8 +426,8 @@ function StickyTour() {
           One family. One night. Start to finish.
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80 }}>
-          <div style={{ position: 'sticky', top: 120, alignSelf: 'start' }}>
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80 }}>
+          <div className="tour-sticky" style={{ position: 'sticky', top: 120, alignSelf: 'start' }}>
             <div style={{ background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: 28, transition: 'all 0.5s var(--ease-dramatic)' }}>
               {mockups[tourSteps[activeIdx].mockup]}
             </div>
@@ -479,8 +479,8 @@ function HowItWorks() {
             { n: '04', t: 'We follow up', d: "Something missing? Carelu texts, emails, and nudges — with the warmth of a person and the persistence of a machine." },
             { n: '05', t: 'You take over', d: 'Your clinical team gets a complete, organized, intake-ready case. They pick up where we left off.' },
           ].map((s, i) => (
-            <div key={s.n} className={`rv d${i + 1}`} style={{ display: 'grid', gridTemplateColumns: '48px 180px 1fr', gap: 24, alignItems: 'baseline', padding: '30px 0', borderBottom: i < 4 ? '1px solid var(--gray-200)' : 'none' }}>
-              <span style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)', fontWeight: 600 }}>{s.n}</span>
+            <div key={s.n} className={`rv d${i + 1} step-row`} style={{ display: 'grid', gridTemplateColumns: '48px 180px 1fr', gap: 24, alignItems: 'baseline', padding: '30px 0', borderBottom: i < 4 ? '1px solid var(--gray-200)' : 'none' }}>
+              <span className="step-num" style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)', fontWeight: 600 }}>{s.n}</span>
               <span style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--green-900)' }}>{s.t}</span>
               <span style={{ fontSize: 15, color: 'var(--gray-500)', lineHeight: 1.65 }}>{s.d}</span>
             </div>
@@ -500,7 +500,7 @@ function Impact() {
         <h2 className="rv-scale" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', marginBottom: 64 }}>
           The results speak louder than we can.
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+        <div className="impact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
           {[
             { v: 3, s: '×', t: 'More families admitted', d: 'Same team. Same hours. Triple the output.' },
             { v: 10, s: ' min', t: 'First contact to intake-ready', p: '<', d: 'What used to take 3–5 days.' },
@@ -548,7 +548,7 @@ function Testimonial() {
         </div>
 
         {/* Supporting proof */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
           {[
             { stat: '60% → 15%', desc: 'Family drop-off rate, first month with Carelu' },
             { stat: '5 minutes', desc: 'Average time to onboard a new provider location' },
@@ -570,14 +570,14 @@ function Compliance() {
   return (
     <section style={{ background: 'var(--gray-50)', paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)' }}>
       <div style={W}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80 }}>
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80 }}>
           <div className="rv">
             <Pill>Built for healthcare</Pill>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12 }}>
               Your compliance team will love us.
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
+          <div className="compliance-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
             {[
               'HIPAA-compliant with end-to-end encryption',
               'BAAs signed before you go live',
@@ -614,7 +614,7 @@ function Faq() {
   return (
     <section id="faq" style={{ paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)' }}>
       <div style={W}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 80 }}>
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 80 }}>
           <div className="rv">
             <Pill>Questions</Pill>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12, marginBottom: 16 }}>
@@ -648,7 +648,7 @@ function CtaFooter() {
   return (
     <>
       <section id="cta" style={{ padding: '0 36px 36px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 16, maxWidth: 1200, margin: '0 auto' }}>
+        <div className="cta-grid" style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 16, maxWidth: 1200, margin: '0 auto' }}>
           <div className="rv" style={{ background: 'var(--sage-100)', borderRadius: 'var(--radius)', padding: 'clamp(48px, 6vw, 72px)' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12, marginBottom: 20 }}>
               Somewhere right now, a parent is searching for care for their child.
@@ -669,7 +669,7 @@ function CtaFooter() {
           </div>
         </div>
       </section>
-      <footer style={{ ...W, padding: '48px 36px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <footer style={{ ...W, padding: '48px 36px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <span className="dot-pulse" style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: 'var(--green-600)', display: 'inline-block' }} />
           <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: 'var(--gray-400)' }}>carelu</span>

@@ -207,4 +207,63 @@ button { font-family: inherit; cursor: pointer; }
   .marquee-track { animation: none; }
 }
 
-@media (max-width: 900px) { .hide-mobile { display: none !important; } }
+/* ── Mobile Responsive ──────────────────────────── */
+@media (max-width: 900px) {
+  .hide-mobile { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-py: 72px;
+    --text-hero: clamp(36px, 9vw, 52px);
+    --text-h2: clamp(28px, 6vw, 40px);
+    --text-h3: clamp(20px, 4vw, 24px);
+  }
+
+  /* All grids stack on mobile */
+  .mobile-stack { grid-template-columns: 1fr !important; }
+
+  /* Hero visual hidden on small screens - headline is enough */
+  .hero-visual { display: none !important; }
+
+  /* Sticky tour: no sticky on mobile */
+  .tour-sticky { position: static !important; }
+  .tour-mockup-mobile { display: none; }
+
+  /* Impact grid: 2 cols on mobile */
+  .impact-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Compliance grid: 1 col */
+  .compliance-grid { grid-template-columns: 1fr !important; }
+
+  /* CTA grid: stack */
+  .cta-grid { grid-template-columns: 1fr !important; }
+
+  /* Logos: wrap tighter */
+  .logo-row { gap: 24px !important; }
+
+  /* Steps: simpler layout */
+  .step-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .step-num { display: none; }
+
+  /* Tour steps: shorter on mobile */
+  .tour-step-mobile {
+    min-height: auto !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* Nav: tighter */
+  nav > div { padding: 0 20px !important; }
+
+  /* Section padding tighter */
+  .mobile-px { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* Hero: full height not needed on mobile */
+  .hero-mobile { min-height: auto !important; padding-top: 80px !important; }
+
+  /* Product showcase: stack */
+  .showcase-grid { grid-template-columns: 1fr !important; }
+}
