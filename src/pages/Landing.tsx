@@ -395,7 +395,7 @@ function StickyTour() {
         {/* Timeline — 4 steps, no emojis */}
         {[
           { text: 'Family started intake via chat', time: 'Day 0, 3:12 PM', type: 'default' as const },
-          { text: 'SMS sent: "Hi Maria, we just need Lucas\'s diagnosis report to finish up."', time: 'Day 1, 9:00 AM', type: 'highlight' as const },
+          { text: 'SMS sent: "Hi Maria, we just need Lucas\'s diagnosis report to finish up."', time: 'Day 1, 9:00 AM', type: 'nudge' as const },
           { text: 'Maria uploaded diagnosis report via text', time: 'Day 1, 11:42 AM', type: 'default' as const },
           { text: 'Ready for assessment', time: 'Day 2, 10:16 AM', type: 'success' as const },
         ].map((e, i) => (
@@ -403,7 +403,7 @@ function StickyTour() {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
               <div style={{
                 width: 28, height: 28, borderRadius: '50%',
-                background: e.type === 'success' ? 'var(--green-600)' : e.type === 'highlight' ? '#F59E0B' : 'var(--gray-200)',
+                background: e.type === 'success' ? 'var(--green-600)' : e.type === 'nudge' ? 'var(--sage-300)' : 'var(--gray-200)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
                 {e.type === 'success' && <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>}
@@ -412,7 +412,7 @@ function StickyTour() {
             </div>
             <div style={{
               flex: 1, borderRadius: 'var(--radius-sm)', padding: '12px 16px',
-              background: e.type === 'success' ? 'rgba(74,122,78,0.08)' : e.type === 'highlight' ? '#FFF8E1' : 'var(--gray-50)',
+              background: e.type === 'success' ? 'rgba(74,122,78,0.08)' : e.type === 'nudge' ? 'var(--sage-50)' : 'var(--gray-50)',
               border: e.type === 'success' ? '1px solid rgba(74,122,78,0.2)' : 'none',
             }}>
               <div style={{ fontSize: 13, color: e.type === 'success' ? 'var(--green-700)' : 'var(--gray-600)', lineHeight: 1.45, fontWeight: e.type === 'success' ? 600 : 400 }}>{e.text}</div>
