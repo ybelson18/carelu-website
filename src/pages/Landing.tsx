@@ -102,7 +102,7 @@ function Hero() {
             <span className="hero-line">More care <em style={{ fontStyle: 'italic' }}>delivered.</em></span>
           </h1>
           <p className="hero-sub" style={{ fontSize: 18, color: 'var(--gray-600)', lineHeight: 1.75, maxWidth: 480, marginBottom: 44 }}>
-            Behind every inquiry is a family in crisis. Carelu makes sure none of them slip through the cracks — and turns every qualified family into a scheduled intake.
+            Behind every inquiry is a family in crisis. Carelu makes sure none of them slip through the cracks — and turns every family you can help into a scheduled intake.
           </p>
           <div className="hero-cta" style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
             <a href="#cta" className="btn-primary hero-cta-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'var(--text-body)', fontWeight: 600, color: '#fff', backgroundColor: 'var(--green-800)', padding: '18px 36px', borderRadius: 'var(--radius-sm)', textDecoration: 'none' }}
