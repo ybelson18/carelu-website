@@ -194,7 +194,7 @@ function LogoBar() {
         {logos.map((logo, i) => (
           <img key={logo.alt} src={logo.src} alt={logo.alt}
             className={i >= 3 ? 'hide-mobile-logo' : ''}
-            style={{ width: logo.w, height: 40, objectFit: 'contain', opacity: 0.4, filter: 'grayscale(100%)' }}
+            style={{ width: logo.w, height: 40, objectFit: 'contain', opacity: 0.7 }}
           />
         ))}
       </div>
