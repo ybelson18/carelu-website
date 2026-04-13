@@ -157,28 +157,6 @@ function Hero() {
         </div>
       </div>
 
-      {/* Customer logos */}
-      <div style={{ ...W, marginTop: 80, paddingBottom: 20, position: 'relative', zIndex: 1 }} className="rv d5 logo-section-mobile">
-        <p className="logo-header" style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 32 }}>
-          Trusted by behavioral health providers nationwide
-        </p>
-        <div className="logo-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
-          {[
-            { src: '/logos/golden-care.svg', alt: 'Golden Care Therapy', w: 155 },
-            { src: '/logos/total-care.svg', alt: 'Total Care Therapy', w: 120 },
-            { src: '/logos/supportive-care.svg', alt: 'Supportive Care ABA', w: 175 },
-            { src: '/logos/bridgecare.svg', alt: 'BridgeCare ABA Therapy', w: 175 },
-            { src: '/logos/key-autism.svg', alt: 'Key Autism Services', w: 125 },
-            { src: '/logos/grateful-care.svg', alt: 'Grateful Care ABA', w: 145 },
-          ].map((logo) => (
-            <img key={logo.alt} src={logo.src} alt={logo.alt}
-              style={{ width: logo.w, height: 44, objectFit: 'contain', opacity: 0.5, filter: 'grayscale(100%)', transition: 'opacity 0.3s, filter 0.3s' }}
-              onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.filter = 'grayscale(0%)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.5'; e.currentTarget.style.filter = 'grayscale(100%)'; }}
-            />
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
@@ -191,6 +169,35 @@ function Marquee() {
     <div style={{ borderTop: '1px solid var(--gray-200)', borderBottom: '1px solid var(--gray-200)', padding: '18px 0', overflow: 'hidden', userSelect: 'none' }}>
       <div className="marquee-track">
         {[0, 1].map((i) => <span key={i} style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-sm)', fontWeight: 500, color: 'var(--gray-400)', letterSpacing: '0.5px', whiteSpace: 'nowrap' }}>{text}</span>)}
+      </div>
+    </div>
+  );
+}
+
+// ── LOGO BAR ────────────────────────────────────
+const logos = [
+  { src: '/logos/golden-care.svg', alt: 'Golden Care Therapy', w: 155 },
+  { src: '/logos/total-care.svg', alt: 'Total Care Therapy', w: 120 },
+  { src: '/logos/supportive-care.svg', alt: 'Supportive Care ABA', w: 175 },
+  { src: '/logos/bridgecare.svg', alt: 'BridgeCare ABA Therapy', w: 175 },
+  { src: '/logos/key-autism.svg', alt: 'Key Autism Services', w: 125 },
+  { src: '/logos/grateful-care.svg', alt: 'Grateful Care ABA', w: 145 },
+];
+
+function LogoBar() {
+  return (
+    <div className="logo-section-mobile" style={{ padding: '40px 36px', overflow: 'hidden' }}>
+      <p className="logo-header" style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 28 }}>
+        Trusted by behavioral health providers nationwide
+      </p>
+      <div className="logo-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
+        {logos.map((logo) => (
+          <img key={logo.alt} src={logo.src} alt={logo.alt}
+            style={{ width: logo.w, height: 44, objectFit: 'contain', opacity: 0.45, filter: 'grayscale(100%)', transition: 'opacity 0.3s, filter 0.3s' }}
+            onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.filter = 'grayscale(0%)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.45'; e.currentTarget.style.filter = 'grayscale(100%)'; }}
+          />
+        ))}
       </div>
     </div>
   );
@@ -692,6 +699,7 @@ export default function Landing() {
       <Nav />
       <Hero />
       <Marquee />
+      <LogoBar />
       <Problem />
       <Promise />
       <StickyTour />
