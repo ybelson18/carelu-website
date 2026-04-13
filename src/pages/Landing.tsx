@@ -56,7 +56,7 @@ function Nav() {
   return (
     <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--gray-200)' }}>
       <div style={{ ...W, display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
-        <a href="/" style={{ fontFamily: 'var(--font-display)', fontSize: 26, color: 'var(--green-900)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
+        <a href="/" style={{ fontFamily: 'var(--font-logo)', fontSize: 26, color: 'var(--green-900)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
           <span className="dot-pulse" style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: 'var(--green-600)', display: 'inline-block' }} />
           carelu
         </a>
@@ -96,7 +96,7 @@ function Hero() {
 
       <div className="mobile-stack" style={{ ...W, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
         <div className="hero-content-mobile">
-          <Pill>Care Enablement Platform</Pill>
+          <Pill>The World's First Care Enablement Platform</Pill>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-hero)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-2px', color: 'var(--green-900)', marginBottom: 28 }}>
             <span className="hero-line">Fewer families lost.</span>
             <span className="hero-line">More care <em style={{ fontStyle: 'italic' }}>delivered.</em></span>
@@ -174,28 +174,81 @@ function Marquee() {
   );
 }
 
-// ── LOGO BAR ────────────────────────────────────
-const logos = [
-  { src: '/logos/strive-aba.png', alt: 'Strive ABA Therapy', w: 110 },
-  { src: '/logos/golden-care.png', alt: 'Golden Care Therapy', w: 140 },
-  { src: '/logos/grateful-care.avif', alt: 'Grateful Care ABA', w: 130 },
-  { src: '/logos/supportive-care.png', alt: 'Supportive Care ABA', w: 160 },
-  { src: '/logos/cross-river.png', alt: 'Cross River Therapy', w: 110 },
+// ── LOGO BAR — cycling logos ────────────────────
+const allLogos = [
+  { src: '/logos/strive-aba.png', alt: 'Strive ABA Therapy' },
+  { src: '/logos/golden-care.png', alt: 'Golden Care Therapy' },
+  { src: '/logos/grateful-care.avif', alt: 'Grateful Care ABA' },
+  { src: '/logos/supportive-care.png', alt: 'Supportive Care ABA' },
+  { src: '/logos/cross-river.png', alt: 'Cross River Therapy' },
+  { src: '/logos/totalcare.webp', alt: 'Total Care Therapy' },
+  { src: '/logos/above-beyond.webp', alt: 'Above and Beyond Therapy' },
+  { src: '/logos/blossom-aba.webp', alt: 'Blossom ABA Therapy' },
+  { src: '/logos/logo-p500.png', alt: 'ABA Provider' },
+  { src: '/logos/mastermind.avif', alt: 'Mastermind' },
+  { src: '/logos/link-margin.svg', alt: 'Link ABA' },
+  { src: '/logos/cropped-logo.png', alt: 'ABA Therapy Provider' },
 ];
 
+const SLOTS = 6;
+
 function LogoBar() {
+  const [slots, setSlots] = useState(() => Array.from({ length: SLOTS }, (_, i) => i));
+  const [fadingSlot, setFadingSlot] = useState(-1);
+  // Pool of logos not currently visible
+  const poolRef = useRef(Array.from({ length: allLogos.length - SLOTS }, (_, i) => i + SLOTS));
+
+  useEffect(() => {
+    let currentSlot = 0;
+
+    const timer = setInterval(() => {
+      const slotToSwap = currentSlot % SLOTS;
+      setFadingSlot(slotToSwap);
+
+      setTimeout(() => {
+        setSlots((prev) => {
+          const next = [...prev];
+          const pool = poolRef.current;
+          if (pool.length === 0) return next;
+          // Take the first from pool, put the old one back
+          const newLogoIdx = pool.shift()!;
+          pool.push(prev[slotToSwap]);
+          next[slotToSwap] = newLogoIdx;
+          return next;
+        });
+        setFadingSlot(-1);
+      }, 400);
+
+      currentSlot++;
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div style={{ padding: '40px 36px', borderBottom: '1px solid var(--gray-200)' }}>
       <p style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 28 }}>
         Trusted by behavioral health providers nationwide
       </p>
       <div className="logo-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
-        {logos.map((logo, i) => (
-          <img key={logo.alt} src={logo.src} alt={logo.alt}
-            className={i >= 5 ? 'hide-mobile-logo' : ''}
-            style={{ width: logo.w, height: 40, objectFit: 'contain', opacity: 0.7 }}
-          />
-        ))}
+        {slots.map((logoIdx, i) => {
+          const logo = allLogos[logoIdx];
+          return (
+            <div key={i} className={i >= 5 ? 'hide-mobile-logo' : ''}
+              style={{ height: 40, width: 140, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                style={{
+                  maxHeight: 40, maxWidth: 140, objectFit: 'contain',
+                  opacity: fadingSlot === i ? 0 : 0.7,
+                  transform: fadingSlot === i ? 'translateY(4px)' : 'translateY(0)',
+                  transition: 'opacity 0.4s ease, transform 0.4s ease',
+                }}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -695,7 +748,7 @@ function CtaFooter() {
       <footer style={{ ...W, padding: '48px 36px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <span className="dot-pulse" style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: 'var(--green-600)', display: 'inline-block' }} />
-          <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: 'var(--gray-400)' }}>carelu</span>
+          <span style={{ fontFamily: 'var(--font-logo)', fontSize: 18, color: 'var(--gray-400)' }}>carelu</span>
         </div>
         <div style={{ display: 'flex', gap: 24 }}>
           <span style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)' }}>HIPAA Compliant</span>
