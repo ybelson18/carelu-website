@@ -270,15 +270,15 @@ button { font-family: inherit; cursor: pointer; }
     border-radius: var(--radius) !important;
   }
 
-  /* Logo row: show only 3 on mobile, single row */
+  /* Logo row: show 5 on mobile, single row */
   .hide-mobile-logo { display: none !important; }
   .logo-row {
-    gap: 16px !important;
+    gap: 10px !important;
     justify-content: center !important;
     flex-wrap: nowrap !important;
   }
   .logo-row img {
-    height: 24px !important;
+    height: 20px !important;
     width: auto !important;
     flex-shrink: 0;
   }

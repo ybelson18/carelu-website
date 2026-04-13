@@ -192,7 +192,7 @@ function LogoBar() {
       <div className="logo-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
         {logos.map((logo, i) => (
           <img key={logo.alt} src={logo.src} alt={logo.alt}
-            className={i >= 3 ? 'hide-mobile-logo' : ''}
+            className={i >= 5 ? 'hide-mobile-logo' : ''}
             style={{ width: logo.w, height: 40, objectFit: 'contain', opacity: 0.7 }}
           />
         ))}
