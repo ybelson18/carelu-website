@@ -56,8 +56,8 @@ function Nav() {
   return (
     <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--gray-200)' }}>
       <div style={{ ...W, display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
-        <a href="/" style={{ fontFamily: 'var(--font-logo)', fontSize: 26, color: 'var(--green-900)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <span className="dot-pulse" style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: 'var(--green-600)', display: 'inline-block' }} />
+        <a href="/" style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 600, color: 'var(--green-900)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, letterSpacing: '-0.8px' }}>
+          <span className="dot-pulse" style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: 'var(--green-600)', display: 'inline-block' }} />
           carelu
         </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
@@ -749,7 +749,7 @@ function CtaFooter() {
       <footer style={{ ...W, padding: '48px 36px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <span className="dot-pulse" style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: 'var(--green-600)', display: 'inline-block' }} />
-          <span style={{ fontFamily: 'var(--font-logo)', fontSize: 18, color: 'var(--gray-400)' }}>carelu</span>
+          <span style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, color: 'var(--gray-400)', letterSpacing: '-0.5px' }}>carelu</span>
         </div>
         <div style={{ display: 'flex', gap: 24 }}>
           <span style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)' }}>HIPAA Compliant</span>
