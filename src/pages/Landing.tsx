@@ -132,7 +132,7 @@ function Nav() {
               onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--gray-500)'; }}
             >{t}</a>
           ))}
-          <a href="#cta" className="btn-primary" style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: '#fff', backgroundColor: 'var(--green-800)', padding: '10px 24px', borderRadius: 'var(--radius-sm)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}
+          <a href="/demo" className="btn-primary" style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: '#fff', backgroundColor: 'var(--green-800)', padding: '10px 24px', borderRadius: 'var(--radius-sm)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}
             onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-700)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-800)'; }}
           >
@@ -179,7 +179,7 @@ function Hero() {
             Behind every inquiry is a family in crisis. Carelu makes sure none of them slip through the cracks — and turns every family you can help into a scheduled intake.
           </p>
           <div className="hero-cta" style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
-            <a href="#cta" className="btn-primary hero-cta-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'var(--text-body)', fontWeight: 600, color: '#fff', backgroundColor: 'var(--green-800)', padding: '18px 36px', borderRadius: 'var(--radius-sm)', textDecoration: 'none' }}
+            <a href="/demo" className="btn-primary hero-cta-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'var(--text-body)', fontWeight: 600, color: '#fff', backgroundColor: 'var(--green-800)', padding: '18px 36px', borderRadius: 'var(--radius-sm)', textDecoration: 'none' }}
               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-700)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-800)'; }}
             >
@@ -794,7 +794,7 @@ function CtaFooter() {
               Let's make sure they find you — and that when they do, someone's there.
             </p>
           </div>
-          <a href="mailto:hello@carelu.ai" style={{
+          <a href="/demo" style={{
             background: 'var(--green-800)', borderRadius: 'var(--radius)', padding: '44px 40px',
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
             textDecoration: 'none', transition: 'background-color 0.3s, transform 0.3s',
