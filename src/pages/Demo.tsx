@@ -24,10 +24,7 @@ function Nav() {
           <span className="dot-pulse" style={{ width: 11, height: 11, borderRadius: '50%', backgroundColor: 'var(--green-700)', display: 'inline-block', marginTop: 7 }} />
           carelu
         </Link>
-        <Link to="/" style={{ fontSize: 14, fontWeight: 500, color: 'var(--gray-500)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          Back to home
-        </Link>
+        <span />{/* right side intentionally empty */}
       </div>
     </nav>
   );

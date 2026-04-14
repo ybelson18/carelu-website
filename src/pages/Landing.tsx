@@ -525,28 +525,39 @@ function StickyTour() {
           { text: 'SMS sent: "Hi Maria, we just need Lucas\'s diagnosis report to finish up."', time: 'Day 1, 9:00 AM', type: 'nudge' as const },
           { text: 'Maria uploaded diagnosis report via text', time: 'Day 1, 11:42 AM', type: 'default' as const },
           { text: 'Ready for assessment', time: 'Day 2, 10:16 AM', type: 'success' as const },
-        ].map((e, i) => (
-          <div key={i} style={{ display: 'flex', gap: 16, marginBottom: 16 }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-              <div style={{
-                width: 28, height: 28, borderRadius: '50%',
-                background: e.type === 'success' ? 'var(--green-600)' : e.type === 'nudge' ? 'var(--sage-300)' : 'var(--gray-200)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-              }}>
-                {e.type === 'success' && <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>}
+        ].map((e, i, arr) => {
+          const isSuccess = e.type === 'success';
+          // Each row gets progressively more saturated green to show progress
+          const rowBg = ['#F2EFEA', '#EBF1E5', '#E0EBD8', '#CFE0C5'][i];
+          const rowText = ['var(--gray-600)', 'var(--gray-600)', 'var(--green-800)', 'var(--green-900)'][i];
+          return (
+            <div key={i} style={{ display: 'flex', gap: 16, marginBottom: 16 }}>
+              {/* Left rail: only the final row has a checkmark; others are connected by a line */}
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 28, flexShrink: 0 }}>
+                {isSuccess ? (
+                  <div style={{
+                    width: 28, height: 28, borderRadius: '50%',
+                    background: 'var(--green-800)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+                  </div>
+                ) : (
+                  <div style={{ width: 28, height: 28 }} />
+                )}
+                {i < arr.length - 1 && <div style={{ width: 1, flex: 1, minHeight: 16, background: 'var(--sage-200)' }} />}
               </div>
-              {i < 3 && <div style={{ width: 1, height: 20, background: 'var(--gray-200)' }} />}
+              <div style={{
+                flex: 1, borderRadius: 'var(--radius-sm)', padding: '12px 16px',
+                background: rowBg,
+                border: isSuccess ? '1px solid rgba(27,46,30,0.18)' : 'none',
+              }}>
+                <div style={{ fontSize: 13, color: rowText, lineHeight: 1.45, fontWeight: isSuccess ? 600 : 400 }}>{e.text}</div>
+                <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 3 }}>{e.time}</div>
+              </div>
             </div>
-            <div style={{
-              flex: 1, borderRadius: 'var(--radius-sm)', padding: '12px 16px',
-              background: e.type === 'success' ? 'rgba(74,122,78,0.08)' : e.type === 'nudge' ? 'var(--sage-50)' : 'var(--gray-50)',
-              border: e.type === 'success' ? '1px solid rgba(74,122,78,0.2)' : 'none',
-            }}>
-              <div style={{ fontSize: 13, color: e.type === 'success' ? 'var(--green-700)' : 'var(--gray-600)', lineHeight: 1.45, fontWeight: e.type === 'success' ? 600 : 400 }}>{e.text}</div>
-              <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 3 }}>{e.time}</div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     ),
   };
@@ -599,23 +610,25 @@ function StickyTour() {
   );
 }
 
-// ── HOW IT WORKS ─────────────────────────────────
+// ── HOW IT WORKS — clean vertical list (original) ──
 function HowItWorks() {
+  const steps = [
+    { n: '01', t: 'They reach out', d: 'Chat, phone, text, form, fax — whatever feels right to them. Carelu answers in under 3 seconds.' },
+    { n: '02', t: 'We qualify', d: 'Insurance verified in real time. Eligibility confirmed. Red flags caught before they become problems.' },
+    { n: '03', t: 'We collect', d: 'Insurance cards, diagnosis reports, consent forms — gathered in the conversation. No portals. No email chains.' },
+    { n: '04', t: 'We follow up', d: "Something missing? Carelu texts, emails, and nudges — with the warmth of a person and the persistence of a machine." },
+    { n: '05', t: 'You take over', d: 'Your clinical team gets a complete, organized, intake-ready case. They pick up where we left off.' },
+  ];
+
   return (
-    <section id="how-it-works" style={{ paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)' }}>
+    <section id="how-it-works" style={{ paddingTop: 'calc(var(--section-py) + 80px)', paddingBottom: 'var(--section-py)' }}>
       <div style={W}>
         <Pill>The process</Pill>
         <h2 className="rv-left" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12, marginBottom: 72, maxWidth: 500 }}>
           From first text to admitted patient.
         </h2>
         <div style={{ maxWidth: 860 }}>
-          {[
-            { n: '01', t: 'They reach out', d: 'Chat, phone, text, form, fax — whatever feels right to them. Carelu answers in under 3 seconds.' },
-            { n: '02', t: 'We qualify', d: 'Insurance verified in real time. Eligibility confirmed. Red flags caught before they become problems.' },
-            { n: '03', t: 'We collect', d: 'Insurance cards, diagnosis reports, consent forms — gathered in the conversation. No portals. No email chains.' },
-            { n: '04', t: 'We follow up', d: "Something missing? Carelu texts, emails, and nudges — with the warmth of a person and the persistence of a machine." },
-            { n: '05', t: 'You take over', d: 'Your clinical team gets a complete, organized, intake-ready case. They pick up where we left off.' },
-          ].map((s, i) => (
+          {steps.map((s, i) => (
             <div key={s.n} className={`rv-left d${i + 1} step-row`} style={{ display: 'grid', gridTemplateColumns: '48px 180px 1fr', gap: 24, alignItems: 'baseline', padding: '30px 0', borderBottom: i < 4 ? '1px solid var(--gray-200)' : 'none' }}>
               <span className="step-num" style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)', fontWeight: 600 }}>{s.n}</span>
               <span style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--green-900)' }}>{s.t}</span>
