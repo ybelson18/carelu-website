@@ -1,5 +1,70 @@
 import { useState, useEffect, useRef } from 'react';
+import type { ReactNode } from 'react';
 import { useReveal } from '../hooks/useReveal';
+
+// ── SCROLL PROGRESS BAR ──
+function ScrollProgress() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let rafId = 0;
+    function update() {
+      if (!ref.current) return;
+      const scrolled = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? scrolled / max : 0;
+      ref.current.style.transform = `scaleX(${pct})`;
+    }
+    function onScroll() { cancelAnimationFrame(rafId); rafId = requestAnimationFrame(update); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+    return () => { cancelAnimationFrame(rafId); window.removeEventListener('scroll', onScroll); };
+  }, []);
+  return <div ref={ref} className="scroll-progress" style={{ width: '100%' }} />;
+}
+
+// ── TILT CARD — 3D rotation based on cursor ──
+function TiltCard({ children, style, className, max = 8 }: { children: ReactNode; style?: React.CSSProperties; className?: string; max?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current; if (!el) return;
+    if (window.innerWidth < 900) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    function onMove(e: MouseEvent) {
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      const rx = (y - 0.5) * -max;
+      const ry = (x - 0.5) * max;
+      el.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+    }
+    function onLeave() { if (el) el.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)'; }
+    el.addEventListener('mousemove', onMove);
+    el.addEventListener('mouseleave', onLeave);
+    return () => { el.removeEventListener('mousemove', onMove); el.removeEventListener('mouseleave', onLeave); };
+  }, [max]);
+  return <div ref={ref} className={`tilt-card ${className || ''}`} style={style}>{children}</div>;
+}
+
+
+// ── SPLIT WORDS — wraps words in staggered spans ──
+function SplitWords({ text, baseDelay = 0 }: { text: string; baseDelay?: number }) {
+  return (
+    <>
+      {text.split(' ').map((word, i) => (
+        <span
+          key={i}
+          className="hero-word"
+          style={{ animationDelay: `${baseDelay + i * 0.12}s`, marginRight: '0.25em' }}
+        >
+          {word}
+        </span>
+      ))}
+    </>
+  );
+}
+
+
 
 /* ============================================================
    CARELU — ORIGINAL VERSION
@@ -87,19 +152,28 @@ function Hero() {
       minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center',
       paddingTop: 132, paddingBottom: 40, position: 'relative', overflow: 'hidden',
     }}>
-      {/* Gradient mesh */}
+      {/* Gradient mesh — drifting orbs */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-        <div style={{ position: 'absolute', width: 700, height: 700, top: -200, right: -150, borderRadius: '50%', background: 'radial-gradient(circle, var(--sage-100) 0%, transparent 70%)', filter: 'blur(80px)', opacity: 0.7 }} />
-        <div style={{ position: 'absolute', width: 500, height: 500, bottom: -100, left: -100, borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,228,207,0.5) 0%, transparent 70%)', filter: 'blur(60px)' }} />
-        <div style={{ position: 'absolute', width: 300, height: 300, top: '40%', left: '40%', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,205,178,0.2) 0%, transparent 70%)', filter: 'blur(50px)' }} />
+        <div className="orb-drift-1" style={{ position: 'absolute', width: 700, height: 700, top: -200, right: -150, borderRadius: '50%', background: 'radial-gradient(circle, var(--sage-100) 0%, transparent 70%)', filter: 'blur(80px)', opacity: 0.7 }} />
+        <div className="orb-drift-2" style={{ position: 'absolute', width: 500, height: 500, bottom: -100, left: -100, borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,228,207,0.5) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+        <div className="orb-drift-3" style={{ position: 'absolute', width: 300, height: 300, top: '40%', left: '40%', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,205,178,0.2) 0%, transparent 70%)', filter: 'blur(50px)' }} />
       </div>
 
       <div className="mobile-stack" style={{ ...W, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
         <div className="hero-content-mobile">
           <Pill>The World's First Care Enablement Platform</Pill>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-hero)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-2px', color: 'var(--green-900)', marginBottom: 28 }}>
-            <span className="hero-line">Fewer families lost.</span>
-            <span className="hero-line">More care <em style={{ fontStyle: 'italic' }}>delivered.</em></span>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-hero)', fontWeight: 400, lineHeight: 1.05, letterSpacing: '-2px', color: 'var(--green-900)', marginBottom: 28, perspective: 1000 }}>
+            <div style={{ display: 'block' }}>
+              <SplitWords text="Fewer families lost." baseDelay={0.1} />
+            </div>
+            <div style={{ display: 'block' }}>
+              <SplitWords text="More care" baseDelay={0.5} />
+              {' '}
+              <span
+                className="hero-word"
+                style={{ animationDelay: '0.9s', fontStyle: 'italic', display: 'inline-block' }}
+              >delivered.</span>
+            </div>
           </h1>
           <p className="hero-sub" style={{ fontSize: 18, color: 'var(--gray-600)', lineHeight: 1.75, maxWidth: 480, marginBottom: 44 }}>
             Behind every inquiry is a family in crisis. Carelu makes sure none of them slip through the cracks — and turns every family you can help into a scheduled intake.
@@ -228,7 +302,7 @@ function LogoBar() {
 
   return (
     <div style={{ padding: '40px 36px', borderBottom: '1px solid var(--gray-200)' }}>
-      <p style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 28 }}>
+      <p className="rv-left" style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 28 }}>
         Trusted by behavioral health providers nationwide
       </p>
       <div className="logo-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
@@ -260,9 +334,9 @@ function Problem() {
   return (
     <section style={{ backgroundColor: 'var(--green-900)', color: '#fff', paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)' }}>
       <div style={W}>
-        <Pill dark>What's actually happening</Pill>
+        <div className="rv-left"><Pill dark>What's actually happening</Pill></div>
 
-        <div className="rv" style={{ marginBottom: 80 }}>
+        <div className="rv-left d1" style={{ marginBottom: 80 }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, lineHeight: 1.12, color: '#fff', maxWidth: 720 }}>
             A parent calls your office at 6pm. No one picks up. They try a web form — it's four pages long. They text your intake number — no response until Monday.
           </h2>
@@ -271,14 +345,14 @@ function Problem() {
           </p>
         </div>
 
-        {/* Stats with subheads */}
+        {/* Stats with subheads — staggered scale-pop */}
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
           {[
             { val: 70, suf: '%', label: '', head: 'Gone before you start.', desc: 'of families abandon intake before completion. They wanted help. The process lost them.' },
             { val: 5, suf: '+', label: '', head: 'Duct tape and prayer.', desc: 'fragmented tools — forms, phone, email, CRM, fax — none of them talking to each other.' },
             { val: 0, suf: '', label: 'Days', head: 'By then it\'s too late.', desc: 'of manual follow-up per case. Your team is chasing paperwork instead of helping families.' },
           ].map((s, i) => (
-            <div key={s.desc} className={`rv d${i + 1}`} style={{ background: 'rgba(255,255,255,0.04)', borderRadius: 'var(--radius)', padding: '44px 32px', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div key={s.desc} className={`rv-scale d${i + 1}`} style={{ background: 'rgba(255,255,255,0.04)', borderRadius: 'var(--radius)', padding: '44px 32px', border: '1px solid rgba(255,255,255,0.06)' }}>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 60, color: 'var(--sage-200)', lineHeight: 1, marginBottom: 8 }}>
                 {s.label || <Counter target={s.val} suffix={s.suf} />}
               </div>
@@ -480,8 +554,8 @@ function StickyTour() {
   return (
     <section id="platform" style={{ paddingTop: 'var(--section-py)', paddingBottom: 40 }}>
       <div style={W}>
-        <Pill>See it happen</Pill>
-        <h2 className="rv" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12, maxWidth: 600, marginBottom: 80 }}>
+        <div className="rv-left"><Pill>See it happen</Pill></div>
+        <h2 className="rv-left d1" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12, maxWidth: 600, marginBottom: 80 }}>
           One family. One night. Start to finish.
         </h2>
 
@@ -542,7 +616,7 @@ function HowItWorks() {
             { n: '04', t: 'We follow up', d: "Something missing? Carelu texts, emails, and nudges — with the warmth of a person and the persistence of a machine." },
             { n: '05', t: 'You take over', d: 'Your clinical team gets a complete, organized, intake-ready case. They pick up where we left off.' },
           ].map((s, i) => (
-            <div key={s.n} className={`rv d${i + 1} step-row`} style={{ display: 'grid', gridTemplateColumns: '48px 180px 1fr', gap: 24, alignItems: 'baseline', padding: '30px 0', borderBottom: i < 4 ? '1px solid var(--gray-200)' : 'none' }}>
+            <div key={s.n} className={`rv-left d${i + 1} step-row`} style={{ display: 'grid', gridTemplateColumns: '48px 180px 1fr', gap: 24, alignItems: 'baseline', padding: '30px 0', borderBottom: i < 4 ? '1px solid var(--gray-200)' : 'none' }}>
               <span className="step-num" style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)', fontWeight: 600 }}>{s.n}</span>
               <span style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--green-900)' }}>{s.t}</span>
               <span style={{ fontSize: 15, color: 'var(--gray-500)', lineHeight: 1.65 }}>{s.d}</span>
@@ -570,13 +644,13 @@ function Impact() {
             { v: 85, s: '%', t: 'Family completion rate', d: 'Industry average is under 30%.' },
             { v: 0, s: '', t: 'Manual follow-ups', d: 'Your team focuses on care, not chasing.' },
           ].map((s, i) => (
-            <div key={s.t} className={`rv d${i + 1} card-lift`} style={{ background: '#fff', borderRadius: 'var(--radius)', padding: '44px 28px' }}>
+            <TiltCard key={s.t} className={`rv-scale d${i + 1} card-lift`} max={6} style={{ background: '#fff', borderRadius: 'var(--radius)', padding: '44px 28px' }}>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 52, color: 'var(--green-800)', lineHeight: 1, marginBottom: 12 }}>
                 <Counter target={s.v} suffix={s.s} prefix={s.p || ''} />
               </div>
               <div style={{ fontWeight: 600, color: 'var(--black)', fontSize: 'var(--text-sm)', marginBottom: 6 }}>{s.t}</div>
               <div style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)', lineHeight: 1.5 }}>{s.d}</div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>
@@ -591,7 +665,7 @@ function Testimonial() {
       <div style={W}>
         <Pill>What providers say</Pill>
 
-        <blockquote className="rv" style={{
+        <blockquote className="rv-left" style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(28px, 4vw, 48px)',
           fontStyle: 'italic',
@@ -602,7 +676,7 @@ function Testimonial() {
         }}>
           "We were losing 60% of families before they ever completed intake. Carelu brought that number under 15% in the first month."
         </blockquote>
-        <div className="rv d2" style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 80 }}>
+        <div className="rv-left d2" style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 80 }}>
           <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'var(--sage-200)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 15, color: 'var(--green-800)' }}>MC</div>
           <div>
             <div style={{ fontSize: 'var(--text-body)', fontWeight: 600, color: 'var(--green-900)' }}>Maria C., Clinical Director</div>
@@ -617,7 +691,7 @@ function Testimonial() {
             { stat: '5 minutes', desc: 'Average time to onboard a new provider location' },
             { stat: '2 weeks', desc: 'From first call to fully live — no engineering needed' },
           ].map((s, i) => (
-            <div key={s.stat} className={`rv d${i + 3} card-lift`} style={{ background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: '36px 28px' }}>
+            <div key={s.stat} className={`rv-scale d${i + 3} card-lift`} style={{ background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: '36px 28px' }}>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, color: 'var(--green-800)', marginBottom: 8 }}>{s.stat}</div>
               <div style={{ fontSize: 'var(--text-sm)', color: 'var(--gray-500)', lineHeight: 1.5 }}>{s.desc}</div>
             </div>
@@ -634,7 +708,7 @@ function Compliance() {
     <section style={{ background: 'var(--gray-50)', paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)' }}>
       <div style={W}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80 }}>
-          <div className="rv">
+          <div className="rv-left">
             <Pill>Built for healthcare</Pill>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12 }}>
               Your compliance team will love us.
@@ -649,7 +723,7 @@ function Compliance() {
               'Payer-compliant communication — fewer denials',
               'Role-based access controls for all PHI',
             ].map((item, i) => (
-              <div key={item} className={`rv d${i + 1}`} style={{ display: 'flex', gap: 12, alignItems: 'start' }}>
+              <div key={item} className={`rv-right d${i + 1}`} style={{ display: 'flex', gap: 12, alignItems: 'start' }}>
                 <div style={{ width: 24, height: 24, borderRadius: 6, background: 'var(--green-800)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2 }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
@@ -678,7 +752,7 @@ function Faq() {
     <section id="faq" style={{ paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)' }}>
       <div style={W}>
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 80 }}>
-          <div className="rv">
+          <div className="rv-left">
             <Pill>Questions</Pill>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12, marginBottom: 16 }}>
               Let's clear things up.
@@ -689,7 +763,7 @@ function Faq() {
           </div>
           <div>
             {faqs.map((f, i) => (
-              <div key={i} className={`rv d${Math.min(i + 1, 5)}`} style={{ borderBottom: '1px solid var(--gray-200)' }}>
+              <div key={i} className={`rv-right d${Math.min(i + 1, 5)}`} style={{ borderBottom: '1px solid var(--gray-200)' }}>
                 <button onClick={() => setOpen(open === i ? null : i)} aria-expanded={open === i} style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '26px 0', border: 'none', background: 'none', textAlign: 'left', gap: 16 }}>
                   <span style={{ fontSize: 'var(--text-body)', fontWeight: 500, color: 'var(--black)' }}>{f.q}</span>
                   <span style={{ fontSize: 20, color: 'var(--gray-400)', transition: 'transform 0.3s var(--ease-dramatic)', display: 'inline-block', transform: open === i ? 'rotate(45deg)' : 'none', flexShrink: 0 }}>+</span>
@@ -712,7 +786,7 @@ function CtaFooter() {
     <>
       <section id="cta" style={{ padding: '0 36px 36px' }}>
         <div className="cta-grid" style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 16, maxWidth: 1200, margin: '0 auto' }}>
-          <div className="rv" style={{ background: 'var(--sage-100)', borderRadius: 'var(--radius)', padding: 'clamp(48px, 6vw, 72px)' }}>
+          <div className="rv-left" style={{ background: 'var(--sage-100)', borderRadius: 'var(--radius)', padding: 'clamp(48px, 6vw, 72px)' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12, marginBottom: 20 }}>
               Somewhere right now, a parent is searching for care for their child.
             </h2>
@@ -766,6 +840,7 @@ export default function Landing() {
   useReveal();
   return (
     <>
+      <ScrollProgress />
       <Nav />
       <Hero />
       <LogoBar />

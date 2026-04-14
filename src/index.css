@@ -85,9 +85,24 @@ button { font-family: inherit; cursor: pointer; }
 .rv-left {
   opacity: 0;
   transform: translateX(-48px);
-  transition: opacity 0.9s var(--ease-dramatic), transform 0.9s var(--ease-dramatic);
+  transition: opacity 0.7s var(--ease-dramatic), transform 0.7s var(--ease-dramatic);
+  will-change: transform, opacity;
 }
-.rv-left.visible { opacity: 1; transform: translateX(0); }
+.rv-left.visible { opacity: 1; transform: translateX(0); will-change: auto; }
+
+.rv-right {
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.7s var(--ease-dramatic), transform 0.7s var(--ease-dramatic);
+  will-change: transform, opacity;
+}
+.rv-right.visible { opacity: 1; transform: translateX(0); will-change: auto; }
+
+/* GPU-accelerate .rv and .rv-scale too */
+.rv { will-change: transform, opacity; }
+.rv.visible { will-change: auto; }
+.rv-scale { will-change: transform, opacity; }
+.rv-scale.visible { will-change: auto; }
 
 .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
 .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
@@ -139,6 +154,110 @@ button { font-family: inherit; cursor: pointer; }
 @keyframes logoFadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 0.7; transform: translateY(0); }
+}
+
+/* ── Cursor Aura (desktop only) ───────────────── */
+.cursor-aura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle, rgba(74, 122, 78, 0.12) 0%, transparent 60%);
+  transform: translate3d(-50%, -50%, 0);
+  transition: opacity 0.3s ease;
+  will-change: transform;
+  mix-blend-mode: multiply;
+}
+@media (max-width: 900px) { .cursor-aura { display: none; } }
+
+/* ── Scroll progress bar ──────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green-700), var(--sage-300));
+  transform-origin: 0 0;
+  transform: scaleX(0);
+  z-index: 1000;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+/* ── Hero word-by-word reveal ─────────────────── */
+@keyframes wordIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) rotateX(-30deg);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+    filter: blur(0);
+  }
+}
+.hero-word {
+  display: inline-block;
+  opacity: 0;
+  transform-origin: 0 100%;
+  animation: wordIn 0.9s var(--ease-dramatic) forwards;
+  will-change: transform, opacity, filter;
+}
+
+/* ── 3D tilt card ─────────────────────────────── */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+.tilt-card > * {
+  transform: translateZ(20px);
+}
+
+/* ── Magnetic button ──────────────────────────── */
+.magnetic {
+  transition: transform 0.3s var(--ease-dramatic);
+  will-change: transform;
+}
+
+/* ── Floating mesh orbs (ambient drift) ───────── */
+@keyframes orbDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-20px, 30px) scale(1.1); }
+  66% { transform: translate(15px, -20px) scale(0.95); }
+}
+@keyframes orbDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -15px) scale(1.05); }
+}
+@keyframes orbDrift3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-15px, 20px); }
+}
+.orb-drift-1 { animation: orbDrift1 18s ease-in-out infinite; }
+.orb-drift-2 { animation: orbDrift2 22s ease-in-out infinite; }
+.orb-drift-3 { animation: orbDrift3 16s ease-in-out infinite; }
+
+/* ── Slot machine number ──────────────────────── */
+.slot-digits {
+  display: inline-flex;
+  overflow: hidden;
+  height: 1em;
+  line-height: 1;
+}
+.slot-col {
+  display: flex;
+  flex-direction: column;
+  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.slot-col > span {
+  display: block;
+  height: 1em;
+  line-height: 1;
 }
 
 /* ── Marquee ────────────────────────────────────── */

@@ -19,7 +19,7 @@ export function useReveal() {
       { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
     );
 
-    document.querySelectorAll('.rv, .rv-scale, .rv-left').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.rv, .rv-scale, .rv-left, .rv-right').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 }
