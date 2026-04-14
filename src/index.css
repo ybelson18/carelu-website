@@ -329,7 +329,16 @@ button { font-family: inherit; cursor: pointer; }
   nav > div {
     padding-left: 20px !important;
     padding-right: 20px !important;
-    height: 56px !important;
+    height: 72px !important;
+  }
+  nav a[href="/"] {
+    font-size: 36px !important;
+    gap: 11px !important;
+    letter-spacing: -1.2px !important;
+  }
+  nav a[href="/"] > span:first-child {
+    width: 10px !important;
+    height: 10px !important;
   }
 
   /* Testimonial quote smaller */

@@ -1,13 +1,18 @@
 /* ============================================================
-   CARELU WORDMARK — "lu" treatments
-   Refining Variant C (pulsing dot + EB Garamond bold wordmark)
+   CARELU — Round 4: Designer's Final Cut
+   12 bolder, more conceptual directions
    ============================================================ */
 
 const animStyle = `
   @keyframes logoPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  @keyframes ekgPulse {
+    0% { stroke-dashoffset: 100; }
+    60% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -100; }
+  }
 `;
 
-function PulseDot({ size = 12 }: { size?: number }) {
+function Dot({ size = 10 }: { size?: number }) {
   return (
     <span style={{
       width: size, height: size, borderRadius: '50%', background: '#4A7A4E',
@@ -16,147 +21,192 @@ function PulseDot({ size = 12 }: { size?: number }) {
   );
 }
 
-const baseWord: React.CSSProperties = {
+const base = (size: number): React.CSSProperties => ({
   fontFamily: 'EB Garamond, serif',
-  fontWeight: 600,
-  color: '#1B2E1E',
-  letterSpacing: '-1px',
-  lineHeight: 1,
-};
+  fontSize: size, fontWeight: 600, color: '#1B2E1E',
+  letterSpacing: '-0.8px', lineHeight: 1,
+});
 
-// ── Treatment 1: Baseline (current Variant C) ──
-function T1({ size = 48 }: { size?: number }) {
-  return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 3 }}>
-      <PulseDot size={size / 4} />
-      <span style={{ ...baseWord, fontSize: size }}>carelu</span>
+// P1: Drop cap — huge C, smaller rest
+const P1 = ({ size = 56 }: { size?: number }) => (
+  <span style={{ display: 'inline-flex', alignItems: 'baseline' }}>
+    <span style={{ ...base(size * 1.8), lineHeight: 0.85, color: '#2C3E2D' }}>C</span>
+    <span style={{ ...base(size), marginLeft: -size / 10 }}>arelu</span>
+  </span>
+);
+
+// P2: EKG pulse line replaces the dot
+const P2 = ({ size = 56 }: { size?: number }) => (
+  <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 4 }}>
+    <svg width={size * 0.9} height={size / 2.5} viewBox="0 0 36 14" fill="none">
+      <path d="M0 7 L8 7 L11 2 L15 12 L19 5 L23 7 L36 7"
+        stroke="#4A7A4E" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"
+        strokeDasharray="100" style={{ animation: 'ekgPulse 2.8s ease infinite' }} />
+    </svg>
+    <span style={base(size)}>carelu</span>
+  </div>
+);
+
+// P3: Hand-signed / handwritten feel (using a script style via italic + tight)
+const P3 = ({ size = 56 }: { size?: number }) => (
+  <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 4 }}>
+    <Dot size={size / 5} />
+    <em style={{
+      fontFamily: 'EB Garamond, serif', fontSize: size * 1.1, fontWeight: 500,
+      fontStyle: 'italic', color: '#1B2E1E', letterSpacing: '-1.5px',
+    }}>carelu</em>
+  </div>
+);
+
+// P4: Monogram — 'cu' as an interlocked mark
+const P4 = ({ size = 56 }: { size?: number }) => (
+  <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 3 }}>
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
+      {/* 'c' */}
+      <path d="M24 12 C 22 10, 19 9, 16 9 C 11 9, 7 13, 7 19 C 7 25, 11 29, 16 29 C 19 29, 22 28, 24 26"
+        stroke="#2C3E2D" strokeWidth="3" fill="none" strokeLinecap="round" />
+      {/* 'u' intertwined */}
+      <path d="M18 15 L18 26 C 18 29, 20 31, 24 31 C 28 31, 30 29, 30 26 L 30 15"
+        stroke="#2C3E2D" strokeWidth="3" fill="none" strokeLinecap="round" />
+    </svg>
+    <span style={base(size)}>carelu</span>
+  </div>
+);
+
+// P5: Sun-rising arc — protective arc above wordmark
+const P5 = ({ size = 56 }: { size?: number }) => (
+  <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: size / 12 }}>
+    <svg width={size * 2.3} height={size / 3} viewBox="0 0 100 15" fill="none">
+      <path d="M5 14 Q 50 -5, 95 14" stroke="#4A7A4E" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+    </svg>
+    <div style={{ display: 'flex', alignItems: 'center', gap: size / 4 }}>
+      <Dot size={size / 5} />
+      <span style={base(size)}>carelu</span>
     </div>
-  );
-}
+  </div>
+);
 
-// ── Treatment 2: Italic "lu" — subtle flair on the ending ──
-function T2({ size = 48 }: { size?: number }) {
-  return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 3 }}>
-      <PulseDot size={size / 4} />
-      <span style={{ ...baseWord, fontSize: size }}>
-        care<em style={{ fontStyle: 'italic', fontWeight: 500 }}>lu</em>
-      </span>
-    </div>
-  );
-}
+// P6: Line-art geometric mark + wordmark
+const P6 = ({ size = 56 }: { size?: number }) => (
+  <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 3 }}>
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="15" stroke="#2C3E2D" strokeWidth="1.8" fill="none" />
+      <path d="M12 20 Q 20 12, 28 20 Q 20 28, 12 20" stroke="#2C3E2D" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+      <circle cx="20" cy="20" r="2.5" fill="#4A7A4E" />
+    </svg>
+    <span style={base(size)}>carelu</span>
+  </div>
+);
 
-// ── Treatment 3: Capital "L" — careLu as a proper noun ──
-function T3({ size = 48 }: { size?: number }) {
-  return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 3 }}>
-      <PulseDot size={size / 4} />
-      <span style={{ ...baseWord, fontSize: size }}>careLu</span>
-    </div>
-  );
-}
+// P7: Em-dash break — "care—lu"
+const P7 = ({ size = 56 }: { size?: number }) => (
+  <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 4 }}>
+    <Dot size={size / 5} />
+    <span style={base(size)}>
+      care
+      <span style={{ color: '#4A7A4E', margin: '0 0.1em' }}>—</span>
+      lu
+    </span>
+  </div>
+);
 
-// ── Treatment 4: Lighter "lu" — gives it air, elegant fade ──
-function T4({ size = 48 }: { size?: number }) {
-  return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 3 }}>
-      <PulseDot size={size / 4} />
-      <span style={{ ...baseWord, fontSize: size }}>
-        care<span style={{ fontWeight: 400, color: '#2C3E2D' }}>lu</span>
-      </span>
-    </div>
-  );
-}
-
-// ── Treatment 5: "lu" as a small-caps sub-mark ──
-function T5({ size = 48 }: { size?: number }) {
-  return (
-    <div style={{ display: 'inline-flex', alignItems: 'baseline', gap: size / 3 }}>
-      <PulseDot size={size / 4} />
-      <span style={{ ...baseWord, fontSize: size, display: 'inline-flex', alignItems: 'baseline' }}>
-        care
-        <span style={{
-          fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: size * 0.55,
-          letterSpacing: '2px', textTransform: 'uppercase', marginLeft: size / 14,
-          position: 'relative', top: -size / 32,
-        }}>LU</span>
-      </span>
-    </div>
-  );
-}
-
-// ── Treatment 6: Dot over the "l" — echoes the brand dot ──
-function T6({ size = 48 }: { size?: number }) {
-  return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 3 }}>
-      <PulseDot size={size / 4} />
-      <span style={{ ...baseWord, fontSize: size, position: 'relative', display: 'inline-block' }}>
-        care<span style={{ position: 'relative', display: 'inline-block' }}>
-          l
-          <span style={{
-            position: 'absolute',
-            top: -size * 0.08,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: size / 9,
-            height: size / 9,
-            borderRadius: '50%',
-            background: '#4A7A4E',
-          }} />
-        </span>u
-      </span>
-    </div>
-  );
-}
-
-// ── Treatment 7: Mirrored "c" and "u" — the word cups itself ──
-function T7({ size = 48 }: { size?: number }) {
-  // "u" is italic to echo the round open "c"
-  return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 3 }}>
-      <PulseDot size={size / 4} />
-      <span style={{ ...baseWord, fontSize: size }}>
-        care<span style={{ fontWeight: 500 }}>l</span>
-        <em style={{ fontStyle: 'italic', fontWeight: 500 }}>u</em>
-      </span>
-    </div>
-  );
-}
-
-// ── Treatment 8: Extended "u" with a little terminal flourish ──
-function T8({ size = 48 }: { size?: number }) {
-  return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 3 }}>
-      <PulseDot size={size / 4} />
+// P8: Tall ascenders — exaggerated 'l' height
+const P8 = ({ size = 56 }: { size?: number }) => (
+  <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 4 }}>
+    <Dot size={size / 5} />
+    <span style={{ ...base(size), display: 'inline-flex', alignItems: 'baseline' }}>
+      care
       <span style={{
-        ...baseWord, fontSize: size,
-        fontFeatureSettings: '"dlig" 1, "swsh" 1, "salt" 1',
-      }}>carelu</span>
-    </div>
-  );
-}
+        fontFamily: 'EB Garamond, serif', fontWeight: 400, fontSize: size * 1.35,
+        color: '#2C3E2D', lineHeight: 0.75, letterSpacing: '-2px',
+        marginLeft: size * 0.01,
+      }}>l</span>
+      u
+    </span>
+  </div>
+);
 
-function Card({ num, title, desc, children, recommendation }: {
-  num: string; title: string; desc: string; children: React.ReactNode; recommendation?: boolean;
+// P9: Emblem — wordmark inside a thin oval frame
+const P9 = ({ size = 56 }: { size?: number }) => (
+  <div style={{
+    display: 'inline-flex', alignItems: 'center', gap: size / 5,
+    padding: `${size / 5}px ${size / 2}px`, border: `1.5px solid #2C3E2D`, borderRadius: size * 2,
+  }}>
+    <Dot size={size / 6} />
+    <span style={{ ...base(size * 0.75), letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 500 }}>CARELU</span>
+  </div>
+);
+
+// P10: Gradient wordmark — subtle depth
+const P10 = ({ size = 56 }: { size?: number }) => (
+  <div style={{ display: 'inline-flex', alignItems: 'center', gap: size / 4 }}>
+    <Dot size={size / 5} />
+    <span style={{
+      fontFamily: 'EB Garamond, serif', fontSize: size, fontWeight: 600,
+      letterSpacing: '-0.8px', lineHeight: 1,
+      background: 'linear-gradient(180deg, #1B2E1E 0%, #4A7A4E 100%)',
+      WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+      backgroundClip: 'text',
+    }}>carelu</span>
+  </div>
+);
+
+// P11: Two dots — mirror brackets, no wordmark changes
+const P11 = ({ size = 56 }: { size?: number }) => (
+  <div style={{ display: 'inline-flex', alignItems: 'center' }}>
+    <Dot size={size / 5} />
+    <span style={{ ...base(size), margin: `0 ${size / 4}px` }}>carelu</span>
+    <span style={{
+      width: size / 5, height: size / 5, borderRadius: '50%',
+      border: `1.5px solid #4A7A4E`, display: 'inline-block',
+    }} />
+  </div>
+);
+
+// P12: Hidden dot — dot replaces the counter of the 'e' or 'a'
+const P12 = ({ size = 56 }: { size?: number }) => (
+  <span style={{ ...base(size), position: 'relative', display: 'inline-block' }}>
+    car
+    <span style={{ position: 'relative', display: 'inline-block' }}>
+      e
+      <span style={{
+        position: 'absolute',
+        top: size * 0.32,
+        left: size * 0.28,
+        width: size / 10,
+        height: size / 10,
+        borderRadius: '50%',
+        background: '#4A7A4E',
+        animation: 'logoPulse 2.5s ease infinite',
+      }} />
+    </span>
+    lu
+  </span>
+);
+
+function Card({ num, title, desc, children, risk }: {
+  num: string; title: string; desc: string; children: React.ReactNode; risk?: 'low' | 'medium' | 'high';
 }) {
+  const riskColor = risk === 'high' ? '#C89B5A' : risk === 'medium' ? '#7A7672' : '#4A7A4E';
   return (
-    <div style={{
-      border: recommendation ? '2px solid #2C3E2D' : '1px solid #E2E0DC',
-      borderRadius: 20, overflow: 'hidden', background: '#fff',
-      boxShadow: recommendation ? '0 8px 32px rgba(27,46,30,0.08)' : 'none',
-    }}>
-      <div style={{ padding: '24px 32px', borderBottom: '1px solid #E2E0DC' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 4, flexWrap: 'wrap' }}>
+    <div style={{ border: '1px solid #E2E0DC', borderRadius: 20, overflow: 'hidden', background: '#fff' }}>
+      <div style={{ padding: '22px 28px', borderBottom: '1px solid #E2E0DC' }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 4, flexWrap: 'wrap' }}>
           <span style={{ fontSize: 11, fontWeight: 700, color: '#2C3E2D', letterSpacing: 2, textTransform: 'uppercase' }}>{num}</span>
-          <h3 style={{ fontFamily: 'EB Garamond, serif', fontSize: 24, fontWeight: 500, color: '#1B2E1E' }}>{title}</h3>
-          {recommendation && <span style={{ fontSize: 10, fontWeight: 700, background: '#2C3E2D', color: '#fff', padding: '3px 10px', borderRadius: 20, letterSpacing: 1, textTransform: 'uppercase' }}>My pick</span>}
+          <h3 style={{ fontFamily: 'EB Garamond, serif', fontSize: 22, fontWeight: 500, color: '#1B2E1E' }}>{title}</h3>
+          {risk && (
+            <span style={{
+              fontSize: 9, fontWeight: 700, color: '#fff', background: riskColor,
+              padding: '3px 8px', borderRadius: 20, letterSpacing: 1, textTransform: 'uppercase',
+            }}>{risk}</span>
+          )}
         </div>
         <p style={{ fontSize: 13, color: '#55524E', lineHeight: 1.55 }}>{desc}</p>
       </div>
-      <div style={{ padding: '48px 32px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ padding: '52px 28px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {children}
       </div>
-      <div style={{ padding: '36px 32px', background: '#1B2E1E', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ padding: '40px 28px', background: '#1B2E1E', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ filter: 'invert(1) hue-rotate(180deg) brightness(1.6)' }}>{children}</div>
       </div>
     </div>
@@ -169,55 +219,79 @@ export default function LogosPreview() {
       <style>{animStyle}</style>
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
         <h1 style={{ fontFamily: 'EB Garamond, serif', fontSize: 48, fontWeight: 500, color: '#1B2E1E', marginBottom: 12, letterSpacing: '-1px' }}>
-          Treating the "lu"
+          Designer's Final Cut
         </h1>
-        <p style={{ fontSize: 17, color: '#55524E', marginBottom: 48, maxWidth: 620, lineHeight: 1.6 }}>
-          Variant C is the direction. Now refining how the "lu" ending is treated — since "lu" is the distinctive, unusual part of the name, it should feel intentional.
+        <p style={{ fontSize: 17, color: '#55524E', marginBottom: 16, maxWidth: 620, lineHeight: 1.6 }}>
+          12 more concepts, from conservative to conceptual. Each labeled by risk level.
+        </p>
+        <p style={{ fontSize: 13, color: '#7A7672', marginBottom: 40, maxWidth: 620, lineHeight: 1.6, fontStyle: 'italic' }}>
+          <span style={{ color: '#4A7A4E', fontWeight: 700 }}>Low</span> = safe, scales well, unambiguous ·{' '}
+          <span style={{ color: '#7A7672', fontWeight: 700 }}>Medium</span> = distinctive but recognizable ·{' '}
+          <span style={{ color: '#C89B5A', fontWeight: 700 }}>High</span> = bold, might polarize
         </p>
 
-        <div style={{ display: 'grid', gap: 24 }}>
-          <Card num="T1" title="Baseline — no special treatment" desc="Plain 'carelu' in EB Garamond bold. Feels slightly anticlimactic — 'care' has weight, 'lu' trails off.">
-            <T1 size={56} />
+        <div style={{ display: 'grid', gap: 20 }}>
+          <Card num="P1" title="Drop Cap" desc="Oversized 'C' nestles into 'arelu.' Editorial, like a book chapter opening. Instant gravitas." risk="medium">
+            <P1 size={56} />
           </Card>
 
-          <Card num="T2" title="Italic 'lu'" desc="The 'lu' goes italic and lighter weight. Reads like a signature — intentional, distinctive, adds a human touch." recommendation>
-            <T2 size={56} />
+          <Card num="P2" title="EKG Pulse" desc="The dot becomes a tiny heartbeat waveform. Literal healthcare cue, but subtle. Animates continuously." risk="high">
+            <P2 size={56} />
           </Card>
 
-          <Card num="T3" title="careLu (capital L)" desc="Treats 'Lu' as a proper noun — like a name. Bold move; makes the word feel like two concepts: care + Lu (a person/character). Risky but memorable.">
-            <T3 size={56} />
+          <Card num="P3" title="Signed Italic" desc="Entire wordmark in a tight italic weight — reads like a personal signature from the team." risk="low">
+            <P3 size={56} />
           </Card>
 
-          <Card num="T4" title="Lighter 'lu'" desc="Same weight structure as italic, but upright. The 'lu' breathes. Elegant fade into the ending.">
-            <T4 size={56} />
+          <Card num="P4" title="cu Monogram" desc="The first and last letters interlocked as a mark. 'Cu' = the bookends of care. A proper symbol you can license as a favicon." risk="medium">
+            <P4 size={56} />
           </Card>
 
-          <Card num="T5" title="'LU' as small sans caps" desc="Most dramatic contrast. The 'LU' becomes almost a sub-logo — like careLU™. Feels modern but might fight the serif too much.">
-            <T5 size={56} />
+          <Card num="P5" title="Sun-Rising Arc" desc="A thin arc crowns the wordmark — the dawn of care, a protective sky. Warm, aspirational." risk="medium">
+            <P5 size={56} />
           </Card>
 
-          <Card num="T6" title="Dot over the 'l'" desc="A tiny green dot sits atop the 'l' — echoing the brand pulse dot. The active signal embedded in the letterform itself.">
-            <T6 size={56} />
+          <Card num="P6" title="Geometric Lens" desc="Concentric shape with a green dot at center. Abstract but meaningful — the focus, the eye, the AI seeing each family." risk="medium">
+            <P6 size={56} />
           </Card>
 
-          <Card num="T7" title="Italic 'u' only (mirror the 'c')" desc="Just the 'u' leans into italic — its curve echoes the opening curve of the 'c'. Subtle bookending.">
-            <T7 size={56} />
+          <Card num="P7" title="Em-dash Break" desc="'care—lu' with a thin green em-dash separating the halves. Editorial, pause-full, intentional." risk="low">
+            <P7 size={56} />
           </Card>
 
-          <Card num="T8" title="Stylistic alternates enabled" desc="Lets EB Garamond's OpenType features do the work — swashes, ligatures, alternates. Most traditional/classical approach.">
-            <T8 size={56} />
+          <Card num="P8" title="Tall Ascender" desc="The 'l' becomes exaggeratedly tall — a vertical axis through the wordmark. Distinctive custom letterform." risk="high">
+            <P8 size={56} />
+          </Card>
+
+          <Card num="P9" title="Oval Emblem" desc="CARELU wide-spaced inside a thin oval — a classic healthcare crest, updated for 2026. Reads 'established.'" risk="medium">
+            <P9 size={56} />
+          </Card>
+
+          <Card num="P10" title="Gradient Wordmark" desc="The letters bleed from dark green to light green. Subtle depth, modern, polished." risk="low">
+            <P10 size={56} />
+          </Card>
+
+          <Card num="P11" title="Bracketed by Dots" desc="The pulsing dot + outline dot bookend the wordmark. Handoff story preserved, balanced." risk="low">
+            <P11 size={56} />
+          </Card>
+
+          <Card num="P12" title="Dot Inside the 'e'" desc="The pulsing dot sits inside the counter (hole) of the 'e.' Fused into the word itself — invisible until you look." risk="high">
+            <P12 size={56} />
           </Card>
         </div>
 
         <div style={{ marginTop: 48, padding: '32px', background: '#F0F5EE', borderRadius: 16, border: '1px solid #D4E4CF' }}>
-          <p style={{ fontSize: 15, color: '#1B2E1E', lineHeight: 1.7 }}>
-            <strong>My pick: T2 (Italic "lu")</strong>
+          <p style={{ fontSize: 15, color: '#1B2E1E', lineHeight: 1.7, marginBottom: 16 }}>
+            <strong>A designer's take:</strong>
           </p>
-          <p style={{ fontSize: 15, color: '#55524E', lineHeight: 1.7, marginTop: 12 }}>
-            It makes the "lu" feel <em>intentional</em> — like you MEANT for it to be distinctive. The italic connects visually because EB Garamond's italic is elegant and restrained (not flashy). It also echoes the tone of your brand: warm, considered, a little different. And it's simple — no custom letterforms needed, works with standard EB Garamond.
-          </p>
-          <p style={{ fontSize: 15, color: '#55524E', lineHeight: 1.7, marginTop: 12 }}>
-            <strong>Runner-up: T6 (Dot over the 'l').</strong> Embeds the brand's active-dot motif into the wordmark itself. More distinctive as a mark, but slightly busier.
+          <p style={{ fontSize: 14, color: '#55524E', lineHeight: 1.75 }}>
+            <strong>P3 (Signed Italic)</strong> is the most strategically right answer — warm, confident, unique, easy to license. It would be what a studio like Collins might pitch as the "deceptively simple" option.
+            <br /><br />
+            <strong>P4 (cu Monogram)</strong> is the right answer if you want a proper standalone mark for favicon/app icon. It has meaning ('cu' = the bookends of care) and it's ownable.
+            <br /><br />
+            <strong>P9 (Oval Emblem)</strong> is what a healthcare-first studio like Sub Rosa would pitch — reads "established," "trustworthy," "we've been here 50 years" (even though you're new).
+            <br /><br />
+            <strong>P1 (Drop Cap)</strong> is my wildcard pick — it has the most personality of the safer options.
           </p>
         </div>
       </div>
