@@ -56,8 +56,8 @@ function Nav() {
   return (
     <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--gray-200)' }}>
       <div style={{ ...W, display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 96 }}>
-        <a href="/" style={{ fontFamily: 'var(--font-display)', fontSize: 56, fontWeight: 600, color: 'var(--green-900)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 18, letterSpacing: '-2px', lineHeight: 1 }}>
-          <span className="dot-pulse" style={{ width: 14, height: 14, borderRadius: '50%', backgroundColor: 'var(--green-700)', display: 'inline-block', marginTop: 10 }} />
+        <a href="/" style={{ fontFamily: 'var(--font-display)', fontSize: 44, fontWeight: 500, color: 'var(--green-900)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 14, letterSpacing: '-1.2px', lineHeight: 1 }}>
+          <span className="dot-pulse" style={{ width: 11, height: 11, borderRadius: '50%', backgroundColor: 'var(--green-700)', display: 'inline-block', marginTop: 7 }} />
           carelu
         </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
