@@ -57,18 +57,17 @@ export default function Demo() {
 
         <div style={{ ...W, position: 'relative', zIndex: 1 }}>
           <h1 style={{
-            fontFamily: 'EB Garamond, serif', fontSize: 'clamp(56px, 8vw, 96px)',
-            fontWeight: 500, lineHeight: 0.95, letterSpacing: '-2px',
+            fontFamily: 'EB Garamond, serif', fontSize: 'clamp(48px, 7vw, 84px)',
+            fontWeight: 500, lineHeight: 1.05, letterSpacing: '-2px',
             color: 'var(--green-900)', marginBottom: 40, maxWidth: 900,
           }}>
-            Every family,<br />
-            <em style={{ fontStyle: 'italic' }}>welcomed.</em>
+            Somewhere right now, a parent is searching for <em style={{ fontStyle: 'italic' }}>care for their child.</em>
           </h1>
           <p style={{
             fontSize: 18, color: 'var(--gray-600)', lineHeight: 1.7,
-            maxWidth: 480, marginBottom: 56,
+            maxWidth: 520, marginBottom: 56,
           }}>
-            Behavioral health providers nationwide trust Carelu to capture, qualify, and admit every family that reaches out. Book a 20-minute demo to see how it works for your practice.
+            Behavioral health providers nationwide trust Carelu to capture, qualify, and admit more families. Book a demo to see how it works for your practice.
           </p>
 
           {/* Customer logos */}
