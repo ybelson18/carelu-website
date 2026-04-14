@@ -95,24 +95,32 @@ export default function Demo() {
               fontWeight: 500, color: '#fff', lineHeight: 1.1, letterSpacing: '-1px',
               marginBottom: 12,
             }}>
-              Let's find 20 minutes.
+              Pick a time that works.
             </h2>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.6)', maxWidth: 480, margin: '0 auto' }}>
-              Pick any time that works. We'll walk through your intake flow and show you exactly how Carelu fits in.
+              We'll walk through your intake flow and show you exactly how Carelu fits in.
             </p>
           </div>
 
-          {/* Calendly widget */}
-          <div
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/d/cs28-9x7-qs3/leadtrap-demo?hide_gdpr_banner=1&background_color=ffffff&text_color=1b2e1e&primary_color=2c3e2d"
-            style={{
-              minWidth: 320, height: 700,
-              borderRadius: 16, overflow: 'hidden',
+          {/* Calendly widget — bottom overlay hides "Powered by Calendly" */}
+          <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.3)' }}>
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/d/cs28-9x7-qs3/leadtrap-demo?hide_gdpr_banner=1&background_color=ffffff&text_color=1b2e1e&primary_color=2c3e2d"
+              style={{
+                minWidth: 320, height: 740,
+                background: '#fff',
+              }}
+            />
+            {/* White cover over the Calendly footer */}
+            <div style={{
+              position: 'absolute',
+              left: 0, right: 0, bottom: 0,
+              height: 40,
               background: '#fff',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-            }}
-          />
+              pointerEvents: 'none',
+            }} />
+          </div>
         </div>
       </section>
 
