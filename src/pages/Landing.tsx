@@ -239,10 +239,17 @@ function Hero() {
 function Marquee() {
   const items = ['AI-Powered Intake', 'HIPAA Compliant', 'Insurance Verification', 'ABA Therapy', 'Behavioral Health', '24/7 Availability', 'Document Collection', 'Zero Drop-Off', 'Home Care', 'Addiction Treatment'];
   const text = items.map((i) => `${i}  ·  `).join('');
+  // Render 4 copies so even on very wide screens there's never a visible gap.
+  // The CSS keyframe animates from 0 to -50% which equals exactly 2 copies shifting off-screen,
+  // while the other 2 copies are always visible → seamless infinite loop.
   return (
     <div style={{ borderTop: '1px solid var(--gray-200)', borderBottom: '1px solid var(--gray-200)', padding: '18px 0', overflow: 'hidden', userSelect: 'none' }}>
       <div className="marquee-track">
-        {[0, 1].map((i) => <span key={i} style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-sm)', fontWeight: 500, color: 'var(--gray-400)', letterSpacing: '0.5px', whiteSpace: 'nowrap' }}>{text}</span>)}
+        {[0, 1, 2, 3].map((i) => (
+          <span key={i} style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-sm)', fontWeight: 500, color: 'var(--gray-400)', letterSpacing: '0.5px', whiteSpace: 'nowrap' }}>
+            {text}
+          </span>
+        ))}
       </div>
     </div>
   );
