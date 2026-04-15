@@ -416,9 +416,25 @@ const tourSteps = [
   },
 ];
 
+function useCrossfade(value: number, holdMs: number = 650) {
+  const [current, setCurrent] = useState(value);
+  const [previous, setPrevious] = useState<number | null>(null);
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    if (value === current) return;
+    setPrevious(current);
+    setCurrent(value);
+    setTick((t) => t + 1);
+    const timeout = setTimeout(() => setPrevious(null), holdMs);
+    return () => clearTimeout(timeout);
+  }, [value, current, holdMs]);
+  return { current, previous, tick };
+}
+
 function StickyTour() {
   const [activeIdx, setActiveIdx] = useState(0);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const { current: mockupIdx, previous: prevMockupIdx, tick } = useCrossfade(activeIdx, 700);
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
@@ -528,8 +544,8 @@ function StickyTour() {
         ].map((e, i, arr) => {
           const isSuccess = e.type === 'success';
           // Each row gets progressively more saturated green to show progress
-          const rowBg = ['#F2EFEA', '#EBF1E5', '#E0EBD8', '#CFE0C5'][i];
-          const rowText = ['var(--gray-600)', 'var(--gray-600)', 'var(--green-800)', 'var(--green-900)'][i];
+          const rowBg = ['var(--sage-50)', 'var(--sage-100)', 'var(--sage-200)', 'var(--sage-300)'][i];
+          const rowText = ['var(--gray-600)', 'var(--green-800)', 'var(--green-800)', 'var(--green-900)'][i];
           return (
             <div key={i} style={{ display: 'flex', gap: 16, marginBottom: 16 }}>
               {/* Left rail: only the final row has a checkmark; others are connected by a line */}
@@ -572,8 +588,33 @@ function StickyTour() {
 
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80 }}>
           <div className="tour-sticky" style={{ position: 'sticky', top: 120, alignSelf: 'start' }}>
-            <div style={{ background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: 28, transition: 'all 0.5s var(--ease-dramatic)' }}>
-              {mockups[tourSteps[activeIdx].mockup]}
+            <div style={{ background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: 28, position: 'relative' }}>
+              {/* Relay-race crossfade: outgoing is absolute (doesn't affect height), incoming defines the card size */}
+              <div style={{ position: 'relative' }}>
+                {prevMockupIdx !== null && (
+                  <div
+                    key={`prev-${tick}`}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      animation: 'mockupRelayOut 560ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    {mockups[tourSteps[prevMockupIdx].mockup]}
+                  </div>
+                )}
+                <div
+                  key={`cur-${tick}`}
+                  style={{
+                    animation: prevMockupIdx !== null
+                      ? 'mockupRelayIn 640ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both'
+                      : 'none',
+                  }}
+                >
+                  {mockups[tourSteps[mockupIdx].mockup]}
+                </div>
+              </div>
             </div>
           </div>
           <div className="tour-steps-col">
@@ -610,7 +651,7 @@ function StickyTour() {
   );
 }
 
-// ── HOW IT WORKS — clean vertical list (original) ──
+// ── HOW IT WORKS — clean vertical list with drawing dividers ──
 function HowItWorks() {
   const steps = [
     { n: '01', t: 'They reach out', d: 'Chat, phone, text, form, fax — whatever feels right to them. Carelu answers in under 3 seconds.' },
@@ -625,14 +666,17 @@ function HowItWorks() {
       <div style={W}>
         <Pill>The process</Pill>
         <h2 className="rv-left" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12, marginBottom: 72, maxWidth: 500 }}>
-          From first text to admitted patient.
+          From first contact to admitted patient.
         </h2>
         <div style={{ maxWidth: 860 }}>
           {steps.map((s, i) => (
-            <div key={s.n} className={`rv-left d${i + 1} step-row`} style={{ display: 'grid', gridTemplateColumns: '48px 180px 1fr', gap: 24, alignItems: 'baseline', padding: '30px 0', borderBottom: i < 4 ? '1px solid var(--gray-200)' : 'none' }}>
-              <span className="step-num" style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)', fontWeight: 600 }}>{s.n}</span>
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--green-900)' }}>{s.t}</span>
-              <span style={{ fontSize: 15, color: 'var(--gray-500)', lineHeight: 1.65 }}>{s.d}</span>
+            <div key={s.n}>
+              <div className={`rv-left d${i + 1} step-row`} style={{ display: 'grid', gridTemplateColumns: '48px 180px 1fr', gap: 24, alignItems: 'baseline', padding: '30px 0' }}>
+                <span className="step-num" style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)', fontWeight: 600 }}>{s.n}</span>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--green-900)' }}>{s.t}</span>
+                <span style={{ fontSize: 15, color: 'var(--gray-500)', lineHeight: 1.65 }}>{s.d}</span>
+              </div>
+              {i < steps.length - 1 && <div className="step-divider" style={{ animationDelay: `${(i + 1) * 0.08}s` }} />}
             </div>
           ))}
         </div>
