@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Sage gradient orbs -->
+    <radialGradient id="orb1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4E4CF" stop-opacity="0.75"/>
+      <stop offset="70%" stop-color="#D4E4CF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E4EFE0" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#E4EFE0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#B8CDB2" stop-opacity="0.35"/>
+      <stop offset="70%" stop-color="#B8CDB2" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softblur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+
+    <!-- subtle paper texture via tiny noise -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0.9
+                             0 0 0 0 0.9
+                             0 0 0 0 0.85
+                             0 0 0 0.04 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Background: warm paper -->
+  <rect width="1200" height="630" fill="#FAF8F5"/>
+
+  <!-- Gradient mesh orbs -->
+  <g filter="url(#softblur)">
+    <circle cx="1050" cy="120" r="280" fill="url(#orb1)"/>
+    <circle cx="-40" cy="540" r="240" fill="url(#orb2)"/>
+    <circle cx="640" cy="380" r="200" fill="url(#orb3)"/>
+  </g>
+
+  <!-- Subtle grain overlay -->
+  <rect width="1200" height="630" fill="#FAF8F5" filter="url(#grain)" opacity="0.6"/>
+
+  <!-- Top-left: carelu wordmark + pulse dot -->
+  <g transform="translate(80, 80)">
+    <circle cx="12" cy="28" r="9" fill="#3A5A3C"/>
+    <text x="34" y="42" font-family="Georgia, 'EB Garamond', serif" font-size="42" font-weight="500" fill="#1B2E1E" letter-spacing="-0.8">carelu</text>
+  </g>
+
+  <!-- Top-right: tag -->
+  <g transform="translate(1050, 80)" text-anchor="end">
+    <rect x="-240" y="10" width="240" height="38" rx="19" fill="#E4EFE0"/>
+    <text x="-120" y="34" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#2C3E2D" letter-spacing="1" text-anchor="middle">CARE ENABLEMENT PLATFORM</text>
+  </g>
+
+  <!-- Main headline -->
+  <g transform="translate(80, 260)">
+    <text x="0" y="0" font-family="Georgia, 'EB Garamond', serif" font-size="92" font-weight="500" fill="#1B2E1E" letter-spacing="-2.5">
+      Fewer families lost.
+    </text>
+    <text x="0" y="100" font-family="Georgia, 'EB Garamond', serif" font-size="92" font-weight="500" fill="#1B2E1E" letter-spacing="-2.5">
+      More care <tspan font-style="italic" fill="#2C3E2D">delivered.</tspan>
+    </text>
+  </g>
+
+  <!-- Subheadline -->
+  <text x="80" y="510" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="400" fill="#55524E" letter-spacing="-0.2">
+    Behind every inquiry is a family in crisis. Carelu makes sure
+  </text>
+  <text x="80" y="540" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="400" fill="#55524E" letter-spacing="-0.2">
+    none of them slip through the cracks.
+  </text>
+
+  <!-- Bottom-right: domain -->
+  <g transform="translate(1120, 580)" text-anchor="end">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#7A7672" letter-spacing="0.5">carelu.com</text>
+  </g>
+
+  <!-- Bottom accent line -->
+  <line x1="80" y1="580" x2="200" y2="580" stroke="#3A5A3C" stroke-width="2" stroke-linecap="round"/>
+</svg>
