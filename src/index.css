@@ -51,6 +51,10 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+/* Offset anchor jumps so section headings clear the fixed nav */
+section[id] { scroll-margin-top: 110px; }
+@media (max-width: 768px) { section[id] { scroll-margin-top: 80px; } }
+
 body {
   font-family: var(--font-body);
   font-size: var(--text-body);
