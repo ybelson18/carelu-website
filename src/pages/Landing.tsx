@@ -416,25 +416,29 @@ const tourSteps = [
   },
 ];
 
-function useCrossfade(value: number, holdMs: number = 650) {
-  const [current, setCurrent] = useState(value);
-  const [previous, setPrevious] = useState<number | null>(null);
-  const [tick, setTick] = useState(0);
+/**
+ * Sequential transition: fade out → swap content → fade in.
+ * Container always wraps the displayed content exactly — no overlap, no empty space.
+ */
+function useSequentialSwap(value: number, fadeOutMs: number = 280) {
+  const [displayed, setDisplayed] = useState(value);
+  const [phase, setPhase] = useState<'in' | 'out'>('in');
   useEffect(() => {
-    if (value === current) return;
-    setPrevious(current);
-    setCurrent(value);
-    setTick((t) => t + 1);
-    const timeout = setTimeout(() => setPrevious(null), holdMs);
-    return () => clearTimeout(timeout);
-  }, [value, current, holdMs]);
-  return { current, previous, tick };
+    if (value === displayed) return;
+    setPhase('out');
+    const t = setTimeout(() => {
+      setDisplayed(value);
+      setPhase('in');
+    }, fadeOutMs);
+    return () => clearTimeout(t);
+  }, [value, displayed, fadeOutMs]);
+  return { displayed, phase };
 }
 
 function StickyTour() {
   const [activeIdx, setActiveIdx] = useState(0);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const { current: mockupIdx, previous: prevMockupIdx, tick } = useCrossfade(activeIdx, 700);
+  const { displayed: mockupIdx, phase } = useSequentialSwap(activeIdx, 280);
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
@@ -588,32 +592,22 @@ function StickyTour() {
 
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80 }}>
           <div className="tour-sticky" style={{ position: 'sticky', top: 120, alignSelf: 'start' }}>
-            <div style={{ background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: 28, position: 'relative' }}>
-              {/* Relay-race crossfade: outgoing is absolute (doesn't affect height), incoming defines the card size */}
-              <div style={{ position: 'relative' }}>
-                {prevMockupIdx !== null && (
-                  <div
-                    key={`prev-${tick}`}
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      animation: 'mockupRelayOut 560ms cubic-bezier(0.4, 0, 0.2, 1) forwards',
-                      pointerEvents: 'none',
-                    }}
-                  >
-                    {mockups[tourSteps[prevMockupIdx].mockup]}
-                  </div>
-                )}
-                <div
-                  key={`cur-${tick}`}
-                  style={{
-                    animation: prevMockupIdx !== null
-                      ? 'mockupRelayIn 640ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both'
-                      : 'none',
-                  }}
-                >
-                  {mockups[tourSteps[mockupIdx].mockup]}
-                </div>
+            <div style={{ background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: 28 }}>
+              {/*
+                Sequential fade: current mockup fades out (280ms), content swaps,
+                new mockup fades in (380ms). The card wraps the one displayed
+                mockup at all times, so no empty sage-green ever shows.
+              */}
+              <div
+                style={{
+                  opacity: phase === 'out' ? 0 : 1,
+                  transform: phase === 'out' ? 'translateY(6px) scale(0.99)' : 'translateY(0) scale(1)',
+                  transition: phase === 'out'
+                    ? 'opacity 0.28s ease-out, transform 0.28s ease-out'
+                    : 'opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1), transform 0.38s cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+              >
+                {mockups[tourSteps[mockupIdx].mockup]}
               </div>
             </div>
           </div>

@@ -174,17 +174,6 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 900px) { .cursor-aura { display: none; } }
 
 /* ── Timeline animation (sticky tour mockup) ───── */
-/* Relay-race crossfade for the sticky-tour mockup swap.
-   Outgoing and incoming are layered; incoming starts 220ms into the outgoing's fade
-   so both are visible together during the handoff (baton pass), then the outgoing unmounts. */
-@keyframes mockupRelayOut {
-  0%   { opacity: 1; transform: none; filter: blur(0); }
-  100% { opacity: 0; transform: translateY(-6px) scale(0.985); filter: blur(1px); }
-}
-@keyframes mockupRelayIn {
-  0%   { opacity: 0; transform: translateY(10px) scale(0.985); }
-  100% { opacity: 1; transform: none; }
-}
 @keyframes timelineDotIn {
   0% { opacity: 0; transform: scale(0); }
   60% { opacity: 1; transform: scale(1.25); }
