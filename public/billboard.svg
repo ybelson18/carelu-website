@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" width="1920" height="600">
+  <defs>
+    <radialGradient id="bborb1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4E4CF" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#D4E4CF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bborb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E4EFE0" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#E4EFE0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bborb3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#B8CDB2" stop-opacity="0.45"/>
+      <stop offset="70%" stop-color="#B8CDB2" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="bbblur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+    <filter id="bbgrain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="13"/>
+      <feColorMatrix values="0 0 0 0 0.9
+                             0 0 0 0 0.9
+                             0 0 0 0 0.85
+                             0 0 0 0.03 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Warm paper background -->
+  <rect width="1920" height="600" fill="#FAF8F5"/>
+
+  <!-- Sage gradient mesh orbs -->
+  <g filter="url(#bbblur)">
+    <circle cx="1700" cy="120" r="500" fill="url(#bborb1)"/>
+    <circle cx="200" cy="500" r="380" fill="url(#bborb2)"/>
+    <circle cx="1100" cy="300" r="340" fill="url(#bborb3)"/>
+  </g>
+
+  <!-- Subtle grain -->
+  <rect width="1920" height="600" fill="#FAF8F5" filter="url(#bbgrain)" opacity="0.5"/>
+
+  <!-- Headline — two lines, dominant -->
+  <g transform="translate(120, 240)">
+    <text x="0" y="0" font-family="Georgia, 'EB Garamond', serif" font-size="108" font-weight="500" fill="#1B2E1E" letter-spacing="-3.5">
+      You didn't go into care
+    </text>
+    <text x="0" y="130" font-family="Georgia, 'EB Garamond', serif" font-size="108" font-weight="500" fill="#1B2E1E" letter-spacing="-3.5">
+      to lose them at <tspan font-style="italic" fill="#2C3E2D">the front door.</tspan>
+    </text>
+  </g>
+
+  <!-- Bottom-right: carelu wordmark with green dot -->
+  <g transform="translate(1640, 510)">
+    <circle cx="14" cy="22" r="11" fill="#4A7A4E"/>
+    <text x="42" y="38" font-family="Georgia, 'EB Garamond', serif" font-size="52" font-weight="500" fill="#1B2E1E" letter-spacing="-1.2">carelu</text>
+  </g>
+
+  <!-- Bottom-left: domain (small, secondary) -->
+  <text x="120" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#7A7672" letter-spacing="0.6">carelu.com</text>
+</svg>
