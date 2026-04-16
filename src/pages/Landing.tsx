@@ -767,8 +767,8 @@ function Testimonial() {
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
           {[
             { stat: '60% → 15%', desc: 'Family drop-off rate, first month with Carelu' },
-            { stat: '5 minutes', desc: 'Average time to onboard a new provider location' },
-            { stat: '2 weeks', desc: 'From first call to fully live — no engineering needed' },
+            { stat: '0 missed', desc: 'Every lead followed up — no one falls through the cracks' },
+            { stat: '24 / 7', desc: 'Nights, weekends, holidays — never miss a family' },
           ].map((s, i) => (
             <div key={s.stat} className={`rv-scale d${i + 3} card-lift`} style={{ background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: '36px 28px' }}>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, color: 'var(--green-800)', marginBottom: 8 }}>{s.stat}</div>
