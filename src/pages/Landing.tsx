@@ -310,7 +310,7 @@ function LogoBar() {
   return (
     <div style={{ padding: '40px 36px', borderBottom: '1px solid var(--gray-200)' }}>
       <p className="rv-left" style={{ fontSize: 'var(--text-label)', fontWeight: 600, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '2.5px', textAlign: 'center', marginBottom: 28 }}>
-        Trusted by behavioral health providers nationwide
+        Helping providers connect thousands of families to care — every day
       </p>
       <div className="logo-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 44, flexWrap: 'wrap' }}>
         {slots.map((logoIdx, i) => {
