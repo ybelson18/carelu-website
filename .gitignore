@@ -3,3 +3,4 @@ dist
 .DS_Store
 *.bak
 .vercel
+public/product/demo.mp4

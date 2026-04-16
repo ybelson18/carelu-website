@@ -282,6 +282,49 @@ button { font-family: inherit; cursor: pointer; }
   will-change: transform;
 }
 
+/* ── Slot-machine digit roller ─────────────────── */
+.digit-roller {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.05em;
+  line-height: 1;
+  vertical-align: bottom;
+  position: relative;
+}
+.digit-col {
+  display: flex;
+  flex-direction: column;
+  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.digit-col > span {
+  display: block;
+  height: 1.05em;
+  line-height: 1.05;
+  text-align: center;
+}
+
+/* ── Breathing glow pulse ─────────────────────── */
+@keyframes glowBreathe {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -60%) scale(1); }
+  50% { opacity: 0.5; transform: translate(-50%, -60%) scale(1.1); }
+}
+.glow-breathe {
+  animation: glowBreathe 4s ease-in-out infinite;
+}
+
+/* ── Delayed fade-in for subtitle after counter ── */
+@keyframes delayedFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.counter-subtitle {
+  opacity: 0;
+}
+.counter-subtitle.show {
+  animation: delayedFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 /* ── Scroll progress bar ──────────────────────── */
 .scroll-progress {
   position: fixed;

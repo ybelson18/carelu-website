@@ -1,6 +1,46 @@
 import { useState, useEffect, useRef } from 'react';
-import type { ReactNode } from 'react';
 import { useReveal } from '../hooks/useReveal';
+
+// ── LIVE FAMILY COUNTER — grows ~200/day from a fixed baseline ──
+// ── LIVE FAMILY COUNT ──
+const BASELINE_DATE = new Date('2026-04-16T00:00:00Z').getTime();
+const BASELINE_COUNT = 35000;
+const GROWTH_PER_MS = 500 / (24 * 60 * 60 * 1000);
+
+function getLiveCount() {
+  return Math.floor(BASELINE_COUNT + Math.max(0, Date.now() - BASELINE_DATE) * GROWTH_PER_MS);
+}
+
+// ── LIVE COUNTER — ticks up in real time ──
+function LiveCounter() {
+  const [count, setCount] = useState(getLiveCount);
+
+  useEffect(() => {
+    const interval = setInterval(() => setCount(getLiveCount()), 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="rv-scale" style={{ textAlign: 'center', marginBottom: 56 }}>
+      <div style={{
+        fontFamily: 'var(--font-display)',
+        fontSize: 'clamp(64px, 10vw, 120px)',
+        color: 'var(--green-800)',
+        lineHeight: 1,
+        letterSpacing: '-3px',
+      }}>
+        {count.toLocaleString()}+
+      </div>
+      <div style={{ fontSize: 'var(--text-h3)', color: 'var(--gray-500)', marginTop: 8, marginBottom: 12 }}>
+        families connected to care
+      </div>
+      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+        <span className="dot-pulse" style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: 'var(--green-600)', display: 'inline-block' }} />
+        <span style={{ fontSize: 'var(--text-xs)', color: 'var(--green-700)', fontWeight: 600 }}>Live</span>
+      </div>
+    </div>
+  );
+}
 
 // ── SCROLL PROGRESS BAR ──
 function ScrollProgress() {
@@ -22,29 +62,7 @@ function ScrollProgress() {
   return <div ref={ref} className="scroll-progress" style={{ width: '100%' }} />;
 }
 
-// ── TILT CARD — 3D rotation based on cursor ──
-function TiltCard({ children, style, className, max = 8 }: { children: ReactNode; style?: React.CSSProperties; className?: string; max?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current; if (!el) return;
-    if (window.innerWidth < 900) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    function onMove(e: MouseEvent) {
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-      const rx = (y - 0.5) * -max;
-      const ry = (x - 0.5) * max;
-      el.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
-    }
-    function onLeave() { if (el) el.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)'; }
-    el.addEventListener('mousemove', onMove);
-    el.addEventListener('mouseleave', onLeave);
-    return () => { el.removeEventListener('mousemove', onMove); el.removeEventListener('mouseleave', onLeave); };
-  }, [max]);
-  return <div ref={ref} className={`tilt-card ${className || ''}`} style={style}>{children}</div>;
-}
+
 
 
 // ── SPLIT WORDS — wraps words in staggered spans ──
@@ -695,6 +713,9 @@ function Impact() {
         <h2 className="rv-scale" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', marginBottom: 64 }}>
           The results speak louder than we can.
         </h2>
+        {/* Live counter — compact card, green border */}
+        <LiveCounter />
+
         <div className="impact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
           {[
             { v: 3, s: '×', t: 'More families admitted', d: 'Same team. Same hours. Triple the output.' },
@@ -702,13 +723,13 @@ function Impact() {
             { v: 85, s: '%', t: 'Family completion rate', d: 'Industry average is under 30%.' },
             { v: 0, s: '', t: 'Manual follow-ups', d: 'Your team focuses on care, not chasing.' },
           ].map((s, i) => (
-            <TiltCard key={s.t} className={`rv-scale d${i + 1} card-lift`} max={6} style={{ background: '#fff', borderRadius: 'var(--radius)', padding: '44px 28px' }}>
+            <div key={s.t} className={`rv-scale d${i + 1} card-lift`} style={{ background: '#fff', borderRadius: 'var(--radius)', padding: '44px 28px' }}>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 52, color: 'var(--green-800)', lineHeight: 1, marginBottom: 12 }}>
                 <Counter target={s.v} suffix={s.s} prefix={s.p || ''} />
               </div>
               <div style={{ fontWeight: 600, color: 'var(--black)', fontSize: 'var(--text-sm)', marginBottom: 6 }}>{s.t}</div>
               <div style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-400)', lineHeight: 1.5 }}>{s.d}</div>
-            </TiltCard>
+            </div>
           ))}
         </div>
       </div>
@@ -838,6 +859,84 @@ function Faq() {
   );
 }
 
+// ── FOREST INTERSTITIAL — the "wow" moment ───────
+function ForestMoment() {
+  return (
+    <section style={{
+      position: 'relative', overflow: 'hidden',
+      minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      {/* Forest atmosphere — layered CSS gradients */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: `
+          radial-gradient(ellipse 80% 60% at 50% 20%, rgba(180, 160, 100, 0.25) 0%, transparent 60%),
+          radial-gradient(ellipse 60% 80% at 30% 70%, rgba(30, 60, 30, 0.9) 0%, transparent 50%),
+          radial-gradient(ellipse 50% 70% at 80% 60%, rgba(20, 50, 25, 0.85) 0%, transparent 50%),
+          radial-gradient(ellipse 100% 50% at 50% 0%, rgba(140, 130, 70, 0.2) 0%, transparent 40%),
+          radial-gradient(ellipse 40% 40% at 60% 30%, rgba(200, 180, 100, 0.12) 0%, transparent 50%),
+          linear-gradient(180deg, #0D1F0F 0%, #152A17 30%, #1B3520 50%, #14280F 70%, #0A1A0A 100%)
+        `,
+      }} />
+      {/* Light rays filtering through canopy */}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: `
+          linear-gradient(165deg, transparent 30%, rgba(200, 180, 100, 0.06) 40%, transparent 50%),
+          linear-gradient(195deg, transparent 40%, rgba(180, 170, 90, 0.05) 50%, transparent 60%),
+          linear-gradient(175deg, transparent 20%, rgba(220, 200, 120, 0.04) 30%, transparent 40%)
+        `,
+      }} />
+      {/* Mist layer */}
+      <div style={{
+        position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%',
+        background: 'linear-gradient(to top, rgba(15, 30, 15, 0.6) 0%, transparent 100%)',
+        pointerEvents: 'none',
+      }} />
+      {/* Soft light spots (like sunlight through leaves) */}
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+        <div className="orb-drift-1" style={{
+          position: 'absolute', width: 300, height: 300, top: '10%', left: '20%',
+          borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 180, 100, 0.08) 0%, transparent 60%)',
+          filter: 'blur(40px)',
+        }} />
+        <div className="orb-drift-2" style={{
+          position: 'absolute', width: 200, height: 200, top: '30%', right: '25%',
+          borderRadius: '50%', background: 'radial-gradient(circle, rgba(180, 200, 120, 0.06) 0%, transparent 60%)',
+          filter: 'blur(30px)',
+        }} />
+      </div>
+
+      {/* Content */}
+      <div className="rv-scale" style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: '80px 36px', maxWidth: 800 }}>
+        <h2 style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(36px, 5vw, 64px)',
+          fontWeight: 400,
+          color: '#fff',
+          lineHeight: 1.15,
+          letterSpacing: '-1.5px',
+          marginBottom: 24,
+          textShadow: '0 2px 40px rgba(0,0,0,0.3)',
+        }}>
+          Every family deserves a front door that's open.
+        </h2>
+        <a href="/demo" className="btn-primary" style={{
+          display: 'inline-flex', alignItems: 'center', gap: 10,
+          fontSize: 'var(--text-body)', fontWeight: 600,
+          color: 'var(--green-900)', backgroundColor: '#fff',
+          padding: '16px 32px', borderRadius: 'var(--radius-sm)',
+          textDecoration: 'none',
+          boxShadow: '0 4px 24px rgba(0,0,0,0.2)',
+        }}>
+          Request a Demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+  );
+}
+
 // ── CTA + FOOTER ─────────────────────────────────
 function CtaFooter() {
   return (
@@ -911,7 +1010,7 @@ export default function Landing() {
       <Testimonial />
       <Compliance />
       <Faq />
-      <CtaFooter />
+<CtaFooter />
     </>
   );
 }
