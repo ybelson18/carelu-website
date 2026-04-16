@@ -739,87 +739,36 @@ function Impact() {
 
 // ── TESTIMONIAL ─────────────────────────────────
 function Testimonial() {
-  const testimonials = [
-    {
-      quote: "We were losing 60% of families before they ever completed intake. Carelu brought that number under 15% in the first month.",
-      name: 'Maria C.',
-      role: 'Clinical Director',
-      company: 'Bright Horizons ABA',
-      detail: '6 locations, Southeast US',
-      initials: 'MC',
-      logo: '/logos/golden-care.png',
-    },
-    {
-      quote: "Our coordinators used to spend 80% of their day chasing missing documents. With Carelu, they actually help families get started with care.",
-      name: 'James T.',
-      role: 'VP of Operations',
-      company: 'Cross River Therapy',
-      detail: '12 locations, Northeast US',
-      initials: 'JT',
-      logo: '/logos/cross-river.png',
-    },
-    {
-      quote: "A parent texted us at 11pm on a Saturday. By Monday morning, their child was already scheduled for an assessment. That never happened before Carelu.",
-      name: 'Rachel M.',
-      role: 'Director of Admissions',
-      company: 'Strive ABA Therapy',
-      detail: '8 locations, Mid-Atlantic',
-      initials: 'RM',
-      logo: '/logos/strive-aba.png',
-    },
-  ];
-
   return (
     <section style={{ paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)' }}>
       <div style={W}>
         <Pill>What providers say</Pill>
-        <h2 className="rv-left" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12, maxWidth: 600, marginBottom: 64 }}>
-          Don't take our word for it.
-        </h2>
 
-        {/* Testimonial cards */}
-        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 64 }}>
-          {testimonials.map((t, i) => (
-            <div key={t.name} className={`rv d${i + 1} card-lift`} style={{
-              background: i === 0 ? 'var(--green-900)' : 'var(--sage-50)',
-              borderRadius: 'var(--radius)', padding: '40px 32px',
-              display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-              minHeight: 320,
-            }}>
-              <blockquote style={{
-                fontFamily: 'var(--font-display)', fontSize: 'var(--text-h3)',
-                fontStyle: 'italic', lineHeight: 1.3,
-                color: i === 0 ? '#fff' : 'var(--green-900)',
-                margin: 0, marginBottom: 32,
-              }}>
-                "{t.quote}"
-              </blockquote>
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-                  <div style={{
-                    width: 40, height: 40, borderRadius: '50%',
-                    background: i === 0 ? 'rgba(255,255,255,0.15)' : 'var(--sage-200)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontWeight: 700, fontSize: 13,
-                    color: i === 0 ? '#fff' : 'var(--green-800)',
-                  }}>{t.initials}</div>
-                  <div>
-                    <div style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: i === 0 ? '#fff' : 'var(--green-900)' }}>{t.name}, {t.role}</div>
-                    <div style={{ fontSize: 'var(--text-xs)', color: i === 0 ? 'rgba(255,255,255,0.5)' : 'var(--gray-400)' }}>{t.company} — {t.detail}</div>
-                  </div>
-                </div>
-                <img src={t.logo} alt={t.company} style={{ height: 24, objectFit: 'contain', opacity: i === 0 ? 0.5 : 0.6, filter: i === 0 ? 'invert(1) brightness(2)' : 'none' }} />
-              </div>
-            </div>
-          ))}
+        <blockquote className="rv-left" style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(28px, 4vw, 48px)',
+          fontStyle: 'italic',
+          color: 'var(--green-900)',
+          lineHeight: 1.2,
+          maxWidth: 800,
+          marginBottom: 40,
+        }}>
+          "We were losing 60% of families before they ever completed intake. Carelu brought that number under 15% in the first month."
+        </blockquote>
+        <div className="rv-left d2" style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 80 }}>
+          <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'var(--sage-200)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 15, color: 'var(--green-800)' }}>MC</div>
+          <div>
+            <div style={{ fontSize: 'var(--text-body)', fontWeight: 600, color: 'var(--green-900)' }}>Maria C., Clinical Director</div>
+            <div style={{ fontSize: 'var(--text-sm)', color: 'var(--gray-500)' }}>Bright Horizons ABA — 6 locations, Southeast US</div>
+          </div>
         </div>
 
-        {/* Supporting proof stats */}
+        {/* Supporting proof */}
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
           {[
             { stat: '60% → 15%', desc: 'Family drop-off rate, first month with Carelu' },
-            { stat: '24/7', desc: 'Families get a response — even at 11pm on a Saturday' },
-            { stat: '80%', desc: 'Less time spent chasing documents and follow-ups' },
+            { stat: '5 minutes', desc: 'Average time to onboard a new provider location' },
+            { stat: '2 weeks', desc: 'From first call to fully live — no engineering needed' },
           ].map((s, i) => (
             <div key={s.stat} className={`rv-scale d${i + 3} card-lift`} style={{ background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: '36px 28px' }}>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, color: 'var(--green-800)', marginBottom: 8 }}>{s.stat}</div>
@@ -827,35 +776,6 @@ function Testimonial() {
             </div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-// ── PRODUCT VIDEO ────────────────────────────────
-function ProductVideo() {
-  return (
-    <section style={{ paddingTop: 0, paddingBottom: 'var(--section-py)' }}>
-      <div style={W}>
-        <div className="rv-scale" style={{
-          borderRadius: 'var(--radius)', overflow: 'hidden',
-          boxShadow: '0 20px 60px rgba(27, 46, 30, 0.12)',
-          border: '1px solid var(--gray-200)',
-          position: 'relative',
-        }}>
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{ width: '100%', display: 'block' }}
-          >
-            <source src="/product/demo-compressed.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p className="rv d2" style={{ textAlign: 'center', fontSize: 'var(--text-sm)', color: 'var(--gray-400)', marginTop: 16 }}>
-          See Carelu handle a real intake — from first message to admitted patient.
-        </p>
       </div>
     </section>
   );
@@ -1007,7 +927,6 @@ export default function Landing() {
       <Marquee />
       <Problem />
       <Promise />
-      <ProductVideo />
       <StickyTour />
       <HowItWorks />
       <Impact />
