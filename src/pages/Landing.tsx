@@ -739,36 +739,87 @@ function Impact() {
 
 // ── TESTIMONIAL ─────────────────────────────────
 function Testimonial() {
+  const testimonials = [
+    {
+      quote: "We were losing 60% of families before they ever completed intake. Carelu brought that number under 15% in the first month.",
+      name: 'Maria C.',
+      role: 'Clinical Director',
+      company: 'Bright Horizons ABA',
+      detail: '6 locations, Southeast US',
+      initials: 'MC',
+      logo: '/logos/golden-care.png',
+    },
+    {
+      quote: "Our coordinators used to spend 80% of their day chasing missing documents. With Carelu, they actually help families get started with care.",
+      name: 'James T.',
+      role: 'VP of Operations',
+      company: 'Cross River Therapy',
+      detail: '12 locations, Northeast US',
+      initials: 'JT',
+      logo: '/logos/cross-river.png',
+    },
+    {
+      quote: "A parent texted us at 11pm on a Saturday. By Monday morning, their child was already scheduled for an assessment. That never happened before Carelu.",
+      name: 'Rachel M.',
+      role: 'Director of Admissions',
+      company: 'Strive ABA Therapy',
+      detail: '8 locations, Mid-Atlantic',
+      initials: 'RM',
+      logo: '/logos/strive-aba.png',
+    },
+  ];
+
   return (
     <section style={{ paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)' }}>
       <div style={W}>
         <Pill>What providers say</Pill>
+        <h2 className="rv-left" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h2)', fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.12, maxWidth: 600, marginBottom: 64 }}>
+          Don't take our word for it.
+        </h2>
 
-        <blockquote className="rv-left" style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: 'clamp(28px, 4vw, 48px)',
-          fontStyle: 'italic',
-          color: 'var(--green-900)',
-          lineHeight: 1.2,
-          maxWidth: 800,
-          marginBottom: 40,
-        }}>
-          "We were losing 60% of families before they ever completed intake. Carelu brought that number under 15% in the first month."
-        </blockquote>
-        <div className="rv-left d2" style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 80 }}>
-          <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'var(--sage-200)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 15, color: 'var(--green-800)' }}>MC</div>
-          <div>
-            <div style={{ fontSize: 'var(--text-body)', fontWeight: 600, color: 'var(--green-900)' }}>Maria C., Clinical Director</div>
-            <div style={{ fontSize: 'var(--text-sm)', color: 'var(--gray-500)' }}>Bright Horizons ABA — 6 locations, Southeast US</div>
-          </div>
+        {/* Testimonial cards */}
+        <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 64 }}>
+          {testimonials.map((t, i) => (
+            <div key={t.name} className={`rv d${i + 1} card-lift`} style={{
+              background: i === 0 ? 'var(--green-900)' : 'var(--sage-50)',
+              borderRadius: 'var(--radius)', padding: '40px 32px',
+              display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+              minHeight: 320,
+            }}>
+              <blockquote style={{
+                fontFamily: 'var(--font-display)', fontSize: 'var(--text-h3)',
+                fontStyle: 'italic', lineHeight: 1.3,
+                color: i === 0 ? '#fff' : 'var(--green-900)',
+                margin: 0, marginBottom: 32,
+              }}>
+                "{t.quote}"
+              </blockquote>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+                  <div style={{
+                    width: 40, height: 40, borderRadius: '50%',
+                    background: i === 0 ? 'rgba(255,255,255,0.15)' : 'var(--sage-200)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontWeight: 700, fontSize: 13,
+                    color: i === 0 ? '#fff' : 'var(--green-800)',
+                  }}>{t.initials}</div>
+                  <div>
+                    <div style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: i === 0 ? '#fff' : 'var(--green-900)' }}>{t.name}, {t.role}</div>
+                    <div style={{ fontSize: 'var(--text-xs)', color: i === 0 ? 'rgba(255,255,255,0.5)' : 'var(--gray-400)' }}>{t.company} — {t.detail}</div>
+                  </div>
+                </div>
+                <img src={t.logo} alt={t.company} style={{ height: 24, objectFit: 'contain', opacity: i === 0 ? 0.5 : 0.6, filter: i === 0 ? 'invert(1) brightness(2)' : 'none' }} />
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Supporting proof */}
+        {/* Supporting proof stats */}
         <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
           {[
             { stat: '60% → 15%', desc: 'Family drop-off rate, first month with Carelu' },
-            { stat: '5 minutes', desc: 'Average time to onboard a new provider location' },
-            { stat: '2 weeks', desc: 'From first call to fully live — no engineering needed' },
+            { stat: '24/7', desc: 'Families get a response — even at 11pm on a Saturday' },
+            { stat: '80%', desc: 'Less time spent chasing documents and follow-ups' },
           ].map((s, i) => (
             <div key={s.stat} className={`rv-scale d${i + 3} card-lift`} style={{ background: 'var(--sage-50)', borderRadius: 'var(--radius)', padding: '36px 28px' }}>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, color: 'var(--green-800)', marginBottom: 8 }}>{s.stat}</div>
@@ -776,6 +827,35 @@ function Testimonial() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+// ── PRODUCT VIDEO ────────────────────────────────
+function ProductVideo() {
+  return (
+    <section style={{ paddingTop: 0, paddingBottom: 'var(--section-py)' }}>
+      <div style={W}>
+        <div className="rv-scale" style={{
+          borderRadius: 'var(--radius)', overflow: 'hidden',
+          boxShadow: '0 20px 60px rgba(27, 46, 30, 0.12)',
+          border: '1px solid var(--gray-200)',
+          position: 'relative',
+        }}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ width: '100%', display: 'block' }}
+          >
+            <source src="/product/demo-compressed.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <p className="rv d2" style={{ textAlign: 'center', fontSize: 'var(--text-sm)', color: 'var(--gray-400)', marginTop: 16 }}>
+          See Carelu handle a real intake — from first message to admitted patient.
+        </p>
       </div>
     </section>
   );
@@ -859,83 +939,6 @@ function Faq() {
   );
 }
 
-// ── FOREST INTERSTITIAL — the "wow" moment ───────
-function ForestMoment() {
-  return (
-    <section style={{
-      position: 'relative', overflow: 'hidden',
-      minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
-    }}>
-      {/* Forest atmosphere — layered CSS gradients */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: `
-          radial-gradient(ellipse 80% 60% at 50% 20%, rgba(180, 160, 100, 0.25) 0%, transparent 60%),
-          radial-gradient(ellipse 60% 80% at 30% 70%, rgba(30, 60, 30, 0.9) 0%, transparent 50%),
-          radial-gradient(ellipse 50% 70% at 80% 60%, rgba(20, 50, 25, 0.85) 0%, transparent 50%),
-          radial-gradient(ellipse 100% 50% at 50% 0%, rgba(140, 130, 70, 0.2) 0%, transparent 40%),
-          radial-gradient(ellipse 40% 40% at 60% 30%, rgba(200, 180, 100, 0.12) 0%, transparent 50%),
-          linear-gradient(180deg, #0D1F0F 0%, #152A17 30%, #1B3520 50%, #14280F 70%, #0A1A0A 100%)
-        `,
-      }} />
-      {/* Light rays filtering through canopy */}
-      <div style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: `
-          linear-gradient(165deg, transparent 30%, rgba(200, 180, 100, 0.06) 40%, transparent 50%),
-          linear-gradient(195deg, transparent 40%, rgba(180, 170, 90, 0.05) 50%, transparent 60%),
-          linear-gradient(175deg, transparent 20%, rgba(220, 200, 120, 0.04) 30%, transparent 40%)
-        `,
-      }} />
-      {/* Mist layer */}
-      <div style={{
-        position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%',
-        background: 'linear-gradient(to top, rgba(15, 30, 15, 0.6) 0%, transparent 100%)',
-        pointerEvents: 'none',
-      }} />
-      {/* Soft light spots (like sunlight through leaves) */}
-      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-        <div className="orb-drift-1" style={{
-          position: 'absolute', width: 300, height: 300, top: '10%', left: '20%',
-          borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 180, 100, 0.08) 0%, transparent 60%)',
-          filter: 'blur(40px)',
-        }} />
-        <div className="orb-drift-2" style={{
-          position: 'absolute', width: 200, height: 200, top: '30%', right: '25%',
-          borderRadius: '50%', background: 'radial-gradient(circle, rgba(180, 200, 120, 0.06) 0%, transparent 60%)',
-          filter: 'blur(30px)',
-        }} />
-      </div>
-
-      {/* Content */}
-      <div className="rv-scale" style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: '80px 36px', maxWidth: 800 }}>
-        <h2 style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: 'clamp(36px, 5vw, 64px)',
-          fontWeight: 400,
-          color: '#fff',
-          lineHeight: 1.15,
-          letterSpacing: '-1.5px',
-          marginBottom: 24,
-          textShadow: '0 2px 40px rgba(0,0,0,0.3)',
-        }}>
-          Every family deserves a front door that's open.
-        </h2>
-        <a href="/demo" className="btn-primary" style={{
-          display: 'inline-flex', alignItems: 'center', gap: 10,
-          fontSize: 'var(--text-body)', fontWeight: 600,
-          color: 'var(--green-900)', backgroundColor: '#fff',
-          padding: '16px 32px', borderRadius: 'var(--radius-sm)',
-          textDecoration: 'none',
-          boxShadow: '0 4px 24px rgba(0,0,0,0.2)',
-        }}>
-          Request a Demo
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </section>
-  );
-}
 
 // ── CTA + FOOTER ─────────────────────────────────
 function CtaFooter() {
@@ -1004,6 +1007,7 @@ export default function Landing() {
       <Marquee />
       <Problem />
       <Promise />
+      <ProductVideo />
       <StickyTour />
       <HowItWorks />
       <Impact />
