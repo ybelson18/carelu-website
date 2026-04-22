@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useReveal } from '../hooks/useReveal';
+import NavDropdown from '../components/NavDropdown';
 
 // ── LIVE FAMILY COUNTER — grows ~200/day from a fixed baseline ──
 // ── LIVE FAMILY COUNT ──
@@ -150,6 +151,7 @@ function Nav() {
               onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--gray-500)'; }}
             >{t}</a>
           ))}
+          <span className="hide-mobile"><NavDropdown /></span>
           <a href="/demo" className="btn-primary" style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: '#fff', backgroundColor: 'var(--green-800)', padding: '10px 24px', borderRadius: 'var(--radius-sm)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}
             onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-700)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--green-800)'; }}
