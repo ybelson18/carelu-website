@@ -166,25 +166,50 @@ function StealthMock() {
    them in sync with the prerendered copy in leadtrap.html at the repo root.
    ============================================================================ */
 
+const hairline = '1px solid rgba(255,255,255,0.07)';
+
 const sectionCard = {
+  position: 'relative', overflow: 'hidden',
   background: '#0c0c11', border: '1px solid rgba(255,255,255,0.06)',
-  borderRadius: 20, padding: 'clamp(24px, 3.2vw, 36px)',
+  borderRadius: 20, padding: 'clamp(26px, 3.2vw, 40px)',
 } as const;
 
+/* Faint light source in the top-left of a card, matching the LeadTrap Suite
+   panel above — keeps the flat compliance copy from reading as a plain box. */
+function CardGlow({ strength = 0.1 }: { strength?: number }) {
+  return (
+    <div aria-hidden style={{
+      position: 'absolute', inset: 0, pointerEvents: 'none',
+      background: `radial-gradient(ellipse 70% 55% at 10% 0%, rgba(58,138,176,${strength}), transparent 68%)`,
+    }} />
+  );
+}
+
 const sectionKicker = {
-  fontSize: 11, fontWeight: 700, letterSpacing: '0.14em',
+  fontSize: 11, fontWeight: 700, letterSpacing: '0.16em',
   textTransform: 'uppercase', color: accent,
 } as const;
 
 const sectionH2 = {
-  fontFamily: 'var(--font-body)', fontSize: 'clamp(21px, 2.1vw, 26px)', fontWeight: 700,
-  color: '#fff', margin: '13px 0 0', lineHeight: 1.15, letterSpacing: '-0.02em',
+  fontFamily: 'var(--font-body)', fontSize: 'clamp(20px, 2vw, 25px)', fontWeight: 700,
+  color: '#fff', margin: '14px 0 0', lineHeight: 1.2, letterSpacing: '-0.02em',
+  maxWidth: 620,
 } as const;
 
 const bodyText = {
-  fontSize: 14, color: 'rgba(255,255,255,0.62)', lineHeight: 1.7, margin: '12px 0 0',
+  fontSize: 14, color: 'rgba(255,255,255,0.58)', lineHeight: 1.72, margin: '14px 0 0',
+  maxWidth: 660,
 } as const;
 
+const subLabel = {
+  fontSize: 10.5, fontWeight: 700, letterSpacing: '0.13em',
+  textTransform: 'uppercase', color: 'rgba(255,255,255,0.33)',
+} as const;
+
+const layer = { position: 'relative', zIndex: 1 } as const;
+
+/* Capabilities read as a spec sheet — a hairline-ruled label/description list —
+   rather than a card grid, which orphaned the fifth item on its own row. */
 function WhatWeDo() {
   const capabilities: [string, string][] = [
     ['Website chat', "An AI agent on the provider's website that answers every family day and night, asks the qualifying questions, and books the next step."],
@@ -195,22 +220,29 @@ function WhatWeDo() {
   ];
   return (
     <section style={sectionCard}>
-      <span style={sectionKicker}>What we do</span>
-      <h2 style={sectionH2}>AI intake and front-office software for behavioral health</h2>
-      <p style={{ ...bodyText, maxWidth: 760 }}>
-        {LEGAL_NAME} builds and operates the software that healthcare providers use to capture and
-        complete new patient intake. When a family reaches out to one of our provider customers, our
-        platform answers immediately, collects everything the practice needs to open a case, and hands
-        the finished record to the provider's team. It runs every day for practices across the United
-        States.
-      </p>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 18, marginTop: 26 }}>
-        {capabilities.map(([title, desc]) => (
-          <div key={title}>
-            <div style={{ fontSize: 14, fontWeight: 600, color: '#fff' }}>{title}</div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, margin: '7px 0 0' }}>{desc}</p>
-          </div>
-        ))}
+      <CardGlow />
+      <div style={layer}>
+        <span style={sectionKicker}>What we do</span>
+        <h2 style={sectionH2}>AI intake and front-office software for behavioral health</h2>
+        <p style={bodyText}>
+          {LEGAL_NAME} builds and operates the software that healthcare providers use to capture and
+          complete new patient intake. When a family reaches out to one of our provider customers, our
+          platform answers immediately, collects everything the practice needs to open a case, and hands
+          the finished record to the provider's team. It runs every day for practices across the United
+          States.
+        </p>
+        <div style={{ marginTop: 'clamp(24px, 2.6vw, 34px)', borderTop: hairline }}>
+          {capabilities.map(([title, desc]) => (
+            <div key={title} style={{
+              display: 'grid', gridTemplateColumns: 'clamp(130px, 22%, 220px) 1fr',
+              gap: 'clamp(16px, 3vw, 44px)', alignItems: 'baseline',
+              padding: '17px 0', borderBottom: hairline,
+            }}>
+              <div style={{ fontSize: 14.5, fontWeight: 600, color: '#fff', letterSpacing: '-0.01em' }}>{title}</div>
+              <p style={{ margin: 0, fontSize: 13.5, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, maxWidth: 640 }}>{desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -219,47 +251,96 @@ function WhatWeDo() {
 function WhoWeServe() {
   return (
     <section style={sectionCard}>
-      <span style={sectionKicker}>Who we serve</span>
-      <h2 style={sectionH2}>Providers are our customers. Families are who we reach.</h2>
-      <p style={bodyText}>
-        Our customers are provider organizations in the United States — ABA therapy and autism
-        services, and behavioral-health practices — from single clinics to multi-state groups. They pay
-        for the platform and control how it speaks to their community.
-      </p>
-      <p style={bodyText}>
-        The people who receive messages through the platform are the families and referral sources who
-        contacted one of those providers, and the practice owners and administrators who contact
-        LeadTrap through this website. We do not buy contact lists and we do not message anyone who did
-        not reach out first.
-      </p>
+      <div style={layer}>
+        <span style={sectionKicker}>Who we serve</span>
+        <h2 style={sectionH2}>Providers are our customers.<br />Families are who we reach.</h2>
+        <div style={{ marginTop: 'clamp(22px, 2.4vw, 30px)', display: 'grid', gap: 22 }}>
+          <div>
+            <span style={subLabel}>Our customers</span>
+            <p style={{ ...bodyText, marginTop: 8 }}>
+              Provider organizations in the United States — ABA therapy and autism services, and
+              behavioral-health practices — from single clinics to multi-state groups. They pay for the
+              platform and control how it speaks to their community.
+            </p>
+          </div>
+          <div style={{ borderTop: hairline, paddingTop: 22 }}>
+            <span style={subLabel}>Who receives our messages</span>
+            <p style={{ ...bodyText, marginTop: 8 }}>
+              The families and referral sources who contacted one of those providers, and the practice
+              owners and administrators who contact LeadTrap through this website. We do not buy contact
+              lists and we do not message anyone who did not reach out first.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
 
 function Texting() {
+  const points = [
+    <>Message frequency varies.</>,
+    <>Message and data rates may apply.</>,
+    <>Reply <B>STOP</B> to any message to opt out at any time. Reply <B>HELP</B> for help, or contact us at <A href={CONTACT.phoneHref}>{CONTACT.phone}</A> or <A href={`mailto:${CONTACT.email}`}>{CONTACT.email}</A>.</>,
+    <>Mobile opt-in data and consent are never sold, and are never shared with third parties or affiliates for their own marketing or promotional purposes.</>,
+  ];
   return (
     <section id="texting" style={sectionCard}>
-      <span style={sectionKicker}>Text messaging</span>
-      <h2 style={sectionH2}>How and when we text you</h2>
-      <p style={bodyText}>
-        You will receive text messages from {LEGAL_NAME} only if you submit an inquiry, demo request,
-        or intake form and check the SMS consent box on that form. <strong style={{ color: 'rgba(255,255,255,0.85)' }}>The box
-        is unchecked by default</strong>, and consent to receive text messages is not a condition of
-        purchase or of receiving any service from us. Texts relate to the request you submitted — a
-        reply to your question, scheduling, or an update on your intake.
-      </p>
-      <ul style={{ ...bodyText, paddingLeft: 20, marginTop: 14 }}>
-        <li style={{ marginBottom: 7 }}>Message frequency varies.</li>
-        <li style={{ marginBottom: 7 }}>Message and data rates may apply.</li>
-        <li style={{ marginBottom: 7 }}>Reply <strong style={{ color: 'rgba(255,255,255,0.85)' }}>STOP</strong> to any message to opt out at any time. Reply <strong style={{ color: 'rgba(255,255,255,0.85)' }}>HELP</strong> for help, or contact us at <a href={CONTACT.phoneHref} style={{ color: accent, textDecoration: 'none' }}>{CONTACT.phone}</a> or <a href={`mailto:${CONTACT.email}`} style={{ color: accent, textDecoration: 'none' }}>{CONTACT.email}</a>.</li>
-        <li style={{ marginBottom: 7 }}>Mobile opt-in data and consent are never sold, and are never shared with third parties or affiliates for their own marketing or promotional purposes.</li>
-      </ul>
-      <p style={{ ...bodyText, marginTop: 14 }}>
-        Full details are in our <a href="/privacy#sms" style={{ color: accent, textDecoration: 'none' }}>Privacy Policy</a> and <a href="/terms" style={{ color: accent, textDecoration: 'none' }}>Terms of Service</a>.
-      </p>
+      <CardGlow strength={0.13} />
+      <div style={layer}>
+        <span style={sectionKicker}>Text messaging</span>
+        <h2 style={sectionH2}>How and when we text you</h2>
+        <p style={bodyText}>
+          You will receive text messages from {LEGAL_NAME} only if you submit an inquiry, demo request,
+          or intake form and check the SMS consent box on that form. <B>The box is unchecked by
+          default</B>, and consent to receive text messages is not a condition of purchase or of
+          receiving any service from us. Texts relate to the request you submitted — a reply to your
+          question, scheduling, or an update on your intake.
+        </p>
+        <ul style={{ listStyle: 'none', margin: '22px 0 0', padding: 0, display: 'grid', gap: 13 }}>
+          {points.map((p, i) => (
+            <li key={i} style={{ display: 'flex', gap: 12, fontSize: 13.5, color: 'rgba(255,255,255,0.58)', lineHeight: 1.65 }}>
+              <span aria-hidden style={{ marginTop: 8, width: 5, height: 5, borderRadius: '50%', background: accent, flexShrink: 0, opacity: 0.8 }} />
+              <span>{p}</span>
+            </li>
+          ))}
+        </ul>
+        <p style={{ ...bodyText, fontSize: 13.5, marginTop: 22, paddingTop: 20, borderTop: hairline }}>
+          Full details are in our <A href="/privacy#sms">Privacy Policy</A> and <A href="/terms">Terms of Service</A>.
+        </p>
+      </div>
     </section>
   );
 }
+
+function B({ children }: { children: React.ReactNode }) {
+  return <strong style={{ color: 'rgba(255,255,255,0.88)', fontWeight: 600 }}>{children}</strong>;
+}
+function A({ href, children }: { href: string; children: React.ReactNode }) {
+  return <a href={href} style={{ color: accent, textDecoration: 'none', borderBottom: '1px solid rgba(58,138,176,0.35)' }}>{children}</a>;
+}
+
+/* Focus, hover and placeholder states can't be expressed inline, and the form
+   is the one part of this page people actually touch. */
+const formCss = `
+  .lt-field { width:100%; box-sizing:border-box; margin-top:7px; background:rgba(255,255,255,0.035);
+    border:1px solid rgba(255,255,255,0.12); border-radius:11px; padding:12px 14px; font-size:14px;
+    color:#fff; font-family:var(--font-body); outline:none;
+    transition:border-color .2s, background .2s, box-shadow .2s; }
+  .lt-field:hover { border-color:rgba(255,255,255,0.2); }
+  .lt-field:focus { border-color:rgba(58,138,176,0.8); background:rgba(255,255,255,0.06);
+    box-shadow:0 0 0 3px rgba(58,138,176,0.14); }
+  .lt-submit { border:none; cursor:pointer; font-size:14px; font-weight:600; font-family:var(--font-body);
+    color:#0a0a0c; background:#fff; padding:12px 24px; border-radius:100px;
+    transition:transform .2s cubic-bezier(0.16,1,0.3,1), box-shadow .2s; }
+  .lt-submit:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,0,0,0.45); }
+  .lt-submit:disabled { opacity:.6; cursor:default; transform:none; box-shadow:none; }
+  .lt-consent { display:flex; gap:11px; align-items:flex-start; font-size:12.5px;
+    color:rgba(255,255,255,0.5); line-height:1.6; cursor:pointer;
+    border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; transition:border-color .2s; }
+  .lt-consent:hover { border-color:rgba(255,255,255,0.16); }
+  .lt-consent input { margin-top:2px; accent-color:${accent}; width:15px; height:15px; flex-shrink:0; }
+`;
 
 /* Contact form. This is the opt-in point we register with the carriers: name,
    email, an optional phone number, and an unchecked consent checkbox carrying
@@ -277,13 +358,7 @@ function ContactForm() {
     () => (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('sent') === '1' ? 'done' : 'idle')
   );
 
-  const field = {
-    width: '100%', boxSizing: 'border-box' as const, marginTop: 6,
-    background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.14)',
-    borderRadius: 10, padding: '11px 13px', fontSize: 14, color: '#fff',
-    fontFamily: 'var(--font-body)', outline: 'none',
-  };
-  const label = { fontSize: 12.5, fontWeight: 600, color: 'rgba(255,255,255,0.7)' } as const;
+  const label = { fontSize: 12.5, fontWeight: 600, color: 'rgba(255,255,255,0.72)' } as const;
 
   async function submit(e: FormEvent) {
     e.preventDefault();
@@ -306,48 +381,47 @@ function ContactForm() {
 
   if (state === 'done') {
     return (
-      <p style={{ ...bodyText, marginTop: 0 }}>
-        Thank you — your message reached our team and someone will be in touch. You can also call us at{' '}
-        <a href={CONTACT.phoneHref} style={{ color: accent, textDecoration: 'none' }}>{CONTACT.phone}</a>.
-      </p>
+      <div style={{ border: hairline, borderRadius: 14, padding: 24 }}>
+        <div style={{ fontSize: 15, fontWeight: 600, color: '#fff' }}>Thank you — your message reached our team.</div>
+        <p style={{ ...bodyText, marginTop: 8, fontSize: 13.5 }}>
+          Someone will be in touch shortly. You can also call us at <A href={CONTACT.phoneHref}>{CONTACT.phone}</A>.
+        </p>
+      </div>
     );
   }
 
   return (
-    <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+    <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <style>{formCss}</style>
       <div>
         <label style={label} htmlFor="contact-name">Full name</label>
-        <input id="contact-name" style={field} type="text" autoComplete="name" required
+        <input id="contact-name" className="lt-field" type="text" autoComplete="name" required
           value={name} onChange={(e) => setName(e.target.value)} />
       </div>
       <div>
         <label style={label} htmlFor="contact-email">Email</label>
-        <input id="contact-email" style={field} type="email" autoComplete="email" required
+        <input id="contact-email" className="lt-field" type="email" autoComplete="email" required
           value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div>
-        <label style={label} htmlFor="contact-phone">Mobile phone <span style={{ fontWeight: 400, color: 'rgba(255,255,255,0.4)' }}>(optional)</span></label>
-        <input id="contact-phone" style={field} type="tel" autoComplete="tel"
+        <label style={label} htmlFor="contact-phone">Mobile phone <span style={{ fontWeight: 400, color: 'rgba(255,255,255,0.38)' }}>(optional)</span></label>
+        <input id="contact-phone" className="lt-field" type="tel" autoComplete="tel"
           value={phone} onChange={(e) => setPhone(e.target.value)} />
       </div>
       {/* Honeypot: never shown to a person, dropped server-side when filled. */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true"
         value={website} onChange={(e) => setWebsite(e.target.value)}
         style={{ position: 'absolute', left: -9999, width: 1, height: 1, opacity: 0 }} />
-      <label style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 12.5, color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, cursor: 'pointer' }}>
-        <input type="checkbox" checked={smsConsent} onChange={(e) => setSmsConsent(e.target.checked)}
-          style={{ marginTop: 3, accentColor: accent, width: 15, height: 15, flexShrink: 0 }} />
-        <span>{SMS_CONSENT_TEXT} See our <a href="/privacy#sms" style={{ color: accent, textDecoration: 'none' }}>Privacy Policy</a> and <a href="/terms" style={{ color: accent, textDecoration: 'none' }}>Terms of Service</a>.</span>
+      <label className="lt-consent">
+        <input type="checkbox" checked={smsConsent} onChange={(e) => setSmsConsent(e.target.checked)} />
+        <span>{SMS_CONSENT_TEXT} See our <A href="/privacy#sms">Privacy Policy</A> and <A href="/terms">Terms of Service</A>.</span>
       </label>
-      <button type="submit" disabled={state === 'sending'} style={{
-        alignSelf: 'flex-start', border: 'none', cursor: 'pointer',
-        fontSize: 14, fontWeight: 600, fontFamily: 'var(--font-body)',
-        color: '#0a0a0c', background: '#fff', padding: '11px 22px', borderRadius: 100,
-        opacity: state === 'sending' ? 0.6 : 1,
-      }}>{state === 'sending' ? 'Sending…' : 'Send message'}</button>
+      <button type="submit" className="lt-submit" disabled={state === 'sending'} style={{ alignSelf: 'flex-start' }}>
+        {state === 'sending' ? 'Sending…' : 'Send message'}
+      </button>
       {state === 'error' && (
         <p style={{ fontSize: 12.5, color: '#e0806f', margin: 0 }}>
-          Something went wrong. Email <a href={`mailto:${CONTACT.email}`} style={{ color: accent, textDecoration: 'none' }}>{CONTACT.email}</a> and we'll pick it up there.
+          Something went wrong. Email <A href={`mailto:${CONTACT.email}`}>{CONTACT.email}</A> and we'll pick it up there.
         </p>
       )}
     </form>
@@ -355,9 +429,15 @@ function ContactForm() {
 }
 
 function ContactBlock() {
+  const rows: [string, React.ReactNode][] = [
+    ['Email', <a href={`mailto:${CONTACT.email}`} style={{ color: '#fff', textDecoration: 'none' }}>{CONTACT.email}</a>],
+    ['Phone', <a href={CONTACT.phoneHref} style={{ color: '#fff', textDecoration: 'none' }}>{CONTACT.phone}</a>],
+    ['Address', <span style={{ color: '#fff' }}>{LEGAL_NAME}<br />{CONTACT.address}</span>],
+  ];
   return (
     <section id="contact" style={sectionCard}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'clamp(24px, 3vw, 48px)' }}>
+      <CardGlow strength={0.08} />
+      <div style={{ ...layer, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(28px, 4vw, 64px)' }}>
         <div>
           <span style={sectionKicker}>Contact</span>
           <h2 style={sectionH2}>Talk to us</h2>
@@ -365,23 +445,16 @@ function ContactBlock() {
             Whether you run a practice and want to see the platform, or you have a question about a
             message you received, reach us any of these ways.
           </p>
-          <dl style={{ margin: '24px 0 0', display: 'grid', gap: 16 }}>
-            <div>
-              <dt style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)' }}>Email</dt>
-              <dd style={{ margin: '5px 0 0', fontSize: 14.5 }}>
-                <a href={`mailto:${CONTACT.email}`} style={{ color: '#fff', textDecoration: 'none' }}>{CONTACT.email}</a>
-              </dd>
-            </div>
-            <div>
-              <dt style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)' }}>Phone</dt>
-              <dd style={{ margin: '5px 0 0', fontSize: 14.5 }}>
-                <a href={CONTACT.phoneHref} style={{ color: '#fff', textDecoration: 'none' }}>{CONTACT.phone}</a>
-              </dd>
-            </div>
-            <div>
-              <dt style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)' }}>Address</dt>
-              <dd style={{ margin: '5px 0 0', fontSize: 14.5, color: '#fff' }}>{LEGAL_NAME}<br />{CONTACT.address}</dd>
-            </div>
+          <dl style={{ margin: 'clamp(24px, 2.6vw, 32px) 0 0', borderTop: hairline }}>
+            {rows.map(([term, value]) => (
+              <div key={term} style={{
+                display: 'grid', gridTemplateColumns: 'clamp(84px, 26%, 120px) 1fr', gap: 18,
+                alignItems: 'baseline', padding: '15px 0', borderBottom: hairline,
+              }}>
+                <dt style={subLabel}>{term}</dt>
+                <dd style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6 }}>{value}</dd>
+              </div>
+            ))}
           </dl>
         </div>
         <div>
@@ -391,6 +464,7 @@ function ContactBlock() {
     </section>
   );
 }
+
 
 export default function Gateway() {
   const revealed = careluRevealed();

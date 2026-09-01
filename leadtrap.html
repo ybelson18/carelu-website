@@ -91,10 +91,11 @@
     </script>
 
     <!-- Styles for the prerendered block only. Everything is scoped under #pre
-         so nothing leaks into the React app that replaces it on mount. -->
+         so nothing leaks into the React app that replaces it on mount. Mirrors
+         the section styling in src/pages/Gateway.tsx. -->
     <style>
       body { margin: 0; background: #0a0a0c; }
-      #pre { background:#0a0a0c; color:rgba(255,255,255,0.62); font:15px/1.7 "DM Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+      #pre { background:#0a0a0c; color:rgba(255,255,255,0.58); font:15px/1.7 "DM Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
       #pre .wrap { max-width:1320px; margin:0 auto; padding:0 20px; }
       #pre nav { display:flex; align-items:center; justify-content:space-between; padding:24px 32px; max-width:1320px; margin:0 auto; }
       #pre .brand { display:inline-flex; align-items:center; gap:10px; color:#fff; font-weight:700; font-size:19px; letter-spacing:-0.02em; text-decoration:none; }
@@ -103,29 +104,73 @@
       #pre header { text-align:center; padding:34px 24px 30px; }
       #pre h1 { color:#fff; font-size:clamp(24px,3.4vw,42px); font-weight:600; letter-spacing:-0.03em; line-height:1.15; margin:0; }
       #pre .lede { margin:16px auto 0; max-width:640px; color:rgba(255,255,255,0.5); font-size:16px; }
-      #pre section { background:#0c0c11; border:1px solid rgba(255,255,255,0.06); border-radius:20px; padding:34px; margin-bottom:16px; }
-      #pre .kicker { font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#3a8ab0; }
-      #pre h2 { color:#fff; font-size:24px; font-weight:700; letter-spacing:-0.02em; margin:13px 0 0; line-height:1.2; }
-      #pre h3 { color:#fff; font-size:14px; font-weight:600; margin:0 0 6px; }
-      #pre p { margin:12px 0 0; max-width:760px; }
-      #pre ul { margin:14px 0 0; padding-left:20px; }
-      #pre li { margin-bottom:7px; }
-      #pre strong { color:rgba(255,255,255,0.88); }
-      #pre a { color:#3a8ab0; text-decoration:none; }
-      #pre .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; margin-top:26px; }
+
+      #pre section { position:relative; overflow:hidden; background:#0c0c11; border:1px solid rgba(255,255,255,0.06);
+        border-radius:20px; padding:clamp(26px,3.2vw,40px); margin-bottom:16px; }
+      #pre section.glow::before { content:""; position:absolute; inset:0; pointer-events:none;
+        background:radial-gradient(ellipse 70% 55% at 10% 0%, rgba(58,138,176,0.11), transparent 68%); }
+      #pre section > * { position:relative; z-index:1; }
+      #pre .kicker { font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#3a8ab0; }
+      #pre h2 { color:#fff; font-size:clamp(20px,2vw,25px); font-weight:700; letter-spacing:-0.02em; margin:14px 0 0; line-height:1.2; max-width:620px; }
+      #pre p { margin:14px 0 0; max-width:660px; }
+      #pre strong { color:rgba(255,255,255,0.88); font-weight:600; }
+      #pre a { color:#3a8ab0; text-decoration:none; border-bottom:1px solid rgba(58,138,176,0.35); }
+      #pre .brand, #pre .cta { border-bottom:none; }
+      #pre .sublabel { display:block; font-size:10.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:rgba(255,255,255,0.33); }
+
+      /* Capability spec sheet */
+      #pre .spec { margin-top:clamp(24px,2.6vw,34px); border-top:1px solid rgba(255,255,255,0.07); }
+      #pre .spec > div { display:grid; grid-template-columns:clamp(130px,22%,220px) 1fr; gap:clamp(16px,3vw,44px);
+        align-items:baseline; padding:17px 0; border-bottom:1px solid rgba(255,255,255,0.07); }
+      #pre .spec h3 { margin:0; color:#fff; font-size:14.5px; font-weight:600; letter-spacing:-0.01em; }
+      #pre .spec p { margin:0; font-size:13.5px; color:rgba(255,255,255,0.55); line-height:1.65; max-width:640px; }
+
       #pre .cols { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:16px; }
       #pre .cols > section { margin-bottom:0; }
-      #pre dt { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); }
-      #pre dd { margin:5px 0 16px; font-size:15px; color:#fff; }
-      #pre label { display:block; font-size:12.5px; font-weight:600; color:rgba(255,255,255,0.7); margin-top:14px; }
-      #pre input[type=text], #pre input[type=email], #pre input[type=tel] { width:100%; box-sizing:border-box; margin-top:6px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); border-radius:10px; padding:11px 13px; font-size:14px; color:#fff; font-family:inherit; }
-      #pre .consent { display:flex; gap:10px; align-items:flex-start; font-size:12.5px; font-weight:400; color:rgba(255,255,255,0.55); line-height:1.6; margin-top:16px; }
-      #pre .consent input { margin-top:3px; width:15px; height:15px; accent-color:#3a8ab0; flex-shrink:0; }
-      #pre button { margin-top:16px; border:none; cursor:pointer; font-size:14px; font-weight:600; font-family:inherit; color:#0a0a0c; background:#fff; padding:11px 22px; border-radius:100px; }
+      #pre .stack { margin-top:clamp(22px,2.4vw,30px); }
+      #pre .stack .part + .part { border-top:1px solid rgba(255,255,255,0.07); padding-top:22px; margin-top:22px; }
+      #pre .stack p { margin-top:8px; }
+
+      /* Disclosure points */
+      #pre ul.points { list-style:none; margin:22px 0 0; padding:0; }
+      #pre ul.points li { position:relative; padding-left:17px; margin-bottom:13px; font-size:13.5px;
+        color:rgba(255,255,255,0.58); line-height:1.65; }
+      #pre ul.points li::before { content:""; position:absolute; left:0; top:8px; width:5px; height:5px;
+        border-radius:50%; background:#3a8ab0; opacity:0.8; }
+      #pre .rule-top { margin-top:22px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.07); font-size:13.5px; }
+
+      /* Contact details */
+      #pre dl { margin:clamp(24px,2.6vw,32px) 0 0; border-top:1px solid rgba(255,255,255,0.07); }
+      #pre dl > div { display:grid; grid-template-columns:clamp(84px,26%,120px) 1fr; gap:18px; align-items:baseline;
+        padding:15px 0; border-bottom:1px solid rgba(255,255,255,0.07); }
+      #pre dt { font-size:10.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:rgba(255,255,255,0.33); }
+      #pre dd { margin:0; font-size:14.5px; line-height:1.6; color:#fff; }
+      #pre dd a { color:#fff; border-bottom:none; }
+
+      /* Form */
+      #pre form { display:flex; flex-direction:column; gap:16px; }
+      #pre label.field { display:block; font-size:12.5px; font-weight:600; color:rgba(255,255,255,0.72); }
+      #pre label.field span.opt { font-weight:400; color:rgba(255,255,255,0.38); }
+      #pre input[type=text], #pre input[type=email], #pre input[type=tel] { width:100%; box-sizing:border-box; margin-top:7px;
+        background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.12); border-radius:11px; padding:12px 14px;
+        font-size:14px; color:#fff; font-family:inherit; outline:none; transition:border-color .2s, background .2s, box-shadow .2s; }
+      #pre input[type=text]:hover, #pre input[type=email]:hover, #pre input[type=tel]:hover { border-color:rgba(255,255,255,0.2); }
+      #pre input[type=text]:focus, #pre input[type=email]:focus, #pre input[type=tel]:focus {
+        border-color:rgba(58,138,176,0.8); background:rgba(255,255,255,0.06); box-shadow:0 0 0 3px rgba(58,138,176,0.14); }
+      #pre .consent { display:flex; gap:11px; align-items:flex-start; font-size:12.5px; font-weight:400;
+        color:rgba(255,255,255,0.5); line-height:1.6; cursor:pointer; border:1px solid rgba(255,255,255,0.08);
+        border-radius:12px; padding:14px; transition:border-color .2s; }
+      #pre .consent:hover { border-color:rgba(255,255,255,0.16); }
+      #pre .consent input { margin-top:2px; width:15px; height:15px; accent-color:#3a8ab0; flex-shrink:0; }
+      #pre button { align-self:flex-start; border:none; cursor:pointer; font-size:14px; font-weight:600; font-family:inherit;
+        color:#0a0a0c; background:#fff; padding:12px 24px; border-radius:100px;
+        transition:transform .2s cubic-bezier(0.16,1,0.3,1), box-shadow .2s; }
+      #pre button:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,0,0,0.45); }
       #pre .hp { position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
+
       #pre footer { border-top:1px solid rgba(255,255,255,0.06); padding:26px 24px 34px; font-size:12.5px; color:rgba(255,255,255,0.35); }
-      #pre footer .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; }
-      #pre footer a { color:rgba(255,255,255,0.55); margin-right:18px; }
+      #pre footer .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; padding:0; }
+      #pre footer a { color:rgba(255,255,255,0.55); margin-right:18px; border-bottom:none; }
     </style>
   </head>
   <body>
@@ -138,16 +183,16 @@
 
       <header>
         <h1>LeadTrap is the agentic infrastructure company for growth.</h1>
-        <p class="lede">Vertical AI that captures, qualifies, and completes every inquiry — for the industries that run on intake.</p>
+        <p class="lede">Vertical AI that captures, qualifies, and completes every inquiry &mdash; for the industries that run on intake.</p>
       </header>
 
       <div class="wrap">
 
-        <section>
+        <section class="glow">
           <span class="kicker">What we do</span>
           <h2>AI intake and front-office software for behavioral health</h2>
           <p>LeadTrap, Inc. builds and operates the software that healthcare providers use to capture and complete new patient intake. When a family reaches out to one of our provider customers, our platform answers immediately, collects everything the practice needs to open a case, and hands the finished record to the provider's team. It runs every day for practices across the United States.</p>
-          <div class="grid">
+          <div class="spec">
             <div><h3>Website chat</h3><p>An AI agent on the provider's website that answers every family day and night, asks the qualifying questions, and books the next step.</p></div>
             <div><h3>Intake forms</h3><p>Hosted and embedded intake forms that collect demographics, insurance, and documents, and check eligibility before anyone picks up the phone.</p></div>
             <div><h3>SMS and email follow-up</h3><p>Automatic follow-up to the families and referral sources who asked to be contacted, so an inquiry is never dropped.</p></div>
@@ -159,49 +204,60 @@
         <div class="cols">
           <section>
             <span class="kicker">Who we serve</span>
-            <h2>Providers are our customers. Families are who we reach.</h2>
-            <p>Our customers are provider organizations in the United States — ABA therapy and autism services, and behavioral-health practices — from single clinics to multi-state groups. They pay for the platform and control how it speaks to their community.</p>
-            <p>The people who receive messages through the platform are the families and referral sources who contacted one of those providers, and the practice owners and administrators who contact LeadTrap through this website. We do not buy contact lists and we do not message anyone who did not reach out first.</p>
+            <h2>Providers are our customers.<br />Families are who we reach.</h2>
+            <div class="stack">
+              <div class="part">
+                <span class="sublabel">Our customers</span>
+                <p>Provider organizations in the United States &mdash; ABA therapy and autism services, and behavioral-health practices &mdash; from single clinics to multi-state groups. They pay for the platform and control how it speaks to their community.</p>
+              </div>
+              <div class="part">
+                <span class="sublabel">Who receives our messages</span>
+                <p>The families and referral sources who contacted one of those providers, and the practice owners and administrators who contact LeadTrap through this website. We do not buy contact lists and we do not message anyone who did not reach out first.</p>
+              </div>
+            </div>
           </section>
 
-          <section id="texting">
+          <section id="texting" class="glow">
             <span class="kicker">Text messaging</span>
             <h2>How and when we text you</h2>
-            <p>You will receive text messages from LeadTrap, Inc. only if you submit an inquiry, demo request, or intake form and check the SMS consent box on that form. <strong>The box is unchecked by default</strong>, and consent to receive text messages is not a condition of purchase or of receiving any service from us. Texts relate to the request you submitted — a reply to your question, scheduling, or an update on your intake.</p>
-            <ul>
+            <p>You will receive text messages from LeadTrap, Inc. only if you submit an inquiry, demo request, or intake form and check the SMS consent box on that form. <strong>The box is unchecked by default</strong>, and consent to receive text messages is not a condition of purchase or of receiving any service from us. Texts relate to the request you submitted &mdash; a reply to your question, scheduling, or an update on your intake.</p>
+            <ul class="points">
               <li>Message frequency varies.</li>
               <li>Message and data rates may apply.</li>
               <li>Reply <strong>STOP</strong> to any message to opt out at any time. Reply <strong>HELP</strong> for help, or contact us at <a href="tel:+13239908727">(323) 990-8727</a> or <a href="mailto:support@leadtrap.com">support@leadtrap.com</a>.</li>
               <li>Mobile opt-in data and consent are never sold, and are never shared with third parties or affiliates for their own marketing or promotional purposes.</li>
             </ul>
-            <p>Full details are in our <a href="/privacy#sms">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
+            <p class="rule-top">Full details are in our <a href="/privacy#sms">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
           </section>
         </div>
 
-        <section id="contact">
+        <section id="contact" class="glow">
           <div class="cols">
             <div>
               <span class="kicker">Contact</span>
               <h2>Talk to us</h2>
               <p>Whether you run a practice and want to see the platform, or you have a question about a message you received, reach us any of these ways.</p>
               <dl>
-                <dt>Email</dt>
-                <dd><a href="mailto:support@leadtrap.com">support@leadtrap.com</a></dd>
-                <dt>Phone</dt>
-                <dd><a href="tel:+13239908727">(323) 990-8727</a></dd>
-                <dt>Address</dt>
-                <dd>LeadTrap, Inc.<br />169 Madison Ave, STE 62431, New York, NY 10016</dd>
+                <div><dt>Email</dt><dd><a href="mailto:support@leadtrap.com">support@leadtrap.com</a></dd></div>
+                <div><dt>Phone</dt><dd><a href="tel:+13239908727">(323) 990-8727</a></dd></div>
+                <div><dt>Address</dt><dd>LeadTrap, Inc.<br />169 Madison Ave, STE 62431, New York, NY 10016</dd></div>
               </dl>
             </div>
             <div>
               <form action="/api/leads" method="post">
                 <input type="hidden" name="form" value="contact" />
-                <label for="pre-name">Full name</label>
-                <input id="pre-name" name="name" type="text" autocomplete="name" required />
-                <label for="pre-email">Email</label>
-                <input id="pre-email" name="email" type="email" autocomplete="email" required />
-                <label for="pre-phone">Mobile phone (optional)</label>
-                <input id="pre-phone" name="phone" type="tel" autocomplete="tel" />
+                <div>
+                  <label class="field" for="pre-name">Full name</label>
+                  <input id="pre-name" name="name" type="text" autocomplete="name" required />
+                </div>
+                <div>
+                  <label class="field" for="pre-email">Email</label>
+                  <input id="pre-email" name="email" type="email" autocomplete="email" required />
+                </div>
+                <div>
+                  <label class="field" for="pre-phone">Mobile phone <span class="opt">(optional)</span></label>
+                  <input id="pre-phone" name="phone" type="tel" autocomplete="tel" />
+                </div>
                 <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
                 <label class="consent">
                   <input type="checkbox" name="smsConsent" />
