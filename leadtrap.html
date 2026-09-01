@@ -1,22 +1,7 @@
 <!doctype html>
-<!-- ============================================================================
-     leadtrap.com homepage entry.
-
-     index.html is the Carelu entry: Carelu <title>, canonical, OG tags and
-     JSON-LD, patched at runtime by a script when the host happens to be
-     leadtrap.com. That patch needs JavaScript, so every no-JS client — carrier
-     / TCR A2P reviewers, OAuth verification bots, plain `view-source` — saw
-     Carelu head tags and an empty <div id="root"> on our own domain.
-
-     This file is a second Vite entry (see vite.config.ts) served at / for the
-     leadtrap.com host only (see vercel.json). It carries LeadTrap's own head
-     tags AND a full static rendering of the homepage inside #root, so the page
-     is complete with JavaScript disabled. main.tsx then mounts over it and
-     browsers get exactly the same React Gateway as before.
-
-     KEEP IN SYNC with src/pages/Gateway.tsx — same company description, same
-     SMS disclosure wording, same contact details and legal entity.
-     ============================================================================ -->
+<!-- leadtrap.com homepage. Prerendered: the head tags and the whole page body
+     are static, so the page is complete with JavaScript disabled; main.tsx then
+     mounts over #root. See middleware.ts for how it is served at /. -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
