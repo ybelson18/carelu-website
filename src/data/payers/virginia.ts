@@ -23,7 +23,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { label: 'Treatment auth', value: 'Required — units per CPT code (eff. 10/15/2025, new DMAS form)' },
       { label: '20-hr threshold', value: 'Requests ≥20 hrs/week need an individualized activity schedule' },
       { label: 'Rates (per 15 min)', value: '97153: $15.00 tech · $23.48 LABA · $46.63 LBA (licensure tiers)' },
-      { label: 'FFS auth vendor', value: 'Acentra Health (Atrezzo portal); MCOs run their own UM' },
+      { label: 'FFS auth vendor', value: 'Acentra Health — access via DMAS MES portal SSO (“FFS Service Authorization” tile) since 6/1/2026; MCOs run their own UM' },
+      { label: 'PA turnaround (CMS rule)', value: 'Since 1/1/2026: 72 hrs expedited / 7 days standard (extendable to 14) — FFS + all Cardinal Care MCOs' },
       { label: 'Staff screening', value: 'RBT NOT required — unlicensed techs under LBA/LABA supervision (18VAC85-150)' },
     ],
     sections: [
@@ -40,11 +41,21 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Treatment authorization',
         body: [
-          'All treatment hours require service authorization with a predetermined number of units for each treatment procedure code. Effective for dates of service October 15, 2025 and later, requests — fee-for-service and every Cardinal Care MCO alike — must itemize units per ABA CPT code on the new DMAS standardized preservice form (no more bundling under 97155), so intake and clinical planning need to align on requested intensity code by code. Requests at or above 20 hours/week (80 units) must include an individualized schedule of activities, and continued-stay requests need an updated ISP plus graphical progress data. There is no hard hour cap — EPSDT medical necessity governs. Fee-for-service authorizations go through Acentra Health\'s Atrezzo portal; MCO members follow their plan\'s process.',
+          'All treatment hours require service authorization with a predetermined number of units for each treatment procedure code. Effective for dates of service October 15, 2025 and later, requests — fee-for-service and every Cardinal Care MCO alike — must itemize units per ABA CPT code on the new DMAS standardized preservice form (no more bundling under 97155), so intake and clinical planning need to align on requested intensity code by code. Requests at or above 20 hours/week (80 units) must include an individualized schedule of activities, and continued-stay requests need an updated ISP plus graphical progress data. There is no hard hour cap — EPSDT medical necessity governs. Fee-for-service authorizations still run on Acentra Health\'s Atrezzo Next Generation (ANG) system, but the access path changed: DMAS added an "FFS Service Authorization" tile inside its Medicaid Enterprise System (MES) provider portal effective April 27, 2026, direct login to Atrezzo continued only through May 31, 2026, and effective June 1, 2026 every provider must reach FFS service authorizations through MES single sign-on and that tile rather than a direct Atrezzo/Kepro login (portal.kepro.com/Login/Login is retired for this purpose). DMAS\'s bulletin describes the access mechanism for FFS service authorizations generally rather than naming behavioral health/ABA specifically, but the change applies across all FFS service types, ABA included. MCO members continue to follow their plan\'s own process.',
         ],
         cites: [
           { title: 'DMAS bulletin — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
           { title: 'DMAS — MHS manual Appendix D (rev. 7/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS bulletin — new single sign-on requirement for FFS service authorization requests on the Acentra ANG platform (accessed 9/1/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/new-single-sign-requirement-ffs-service-authorization-requests-acentra-ang-platform' },
+        ],
+      },
+      {
+        h2: 'New: hard CMS prior-authorization turnaround deadlines (eff. 1/1/2026)',
+        body: [
+          'Effective January 1, 2026, the CMS Interoperability and Prior Authorization Final Rule imposes hard decision deadlines on prior-authorization requests — covering behavioral health/ABA — for DMAS FFS and every Cardinal Care MCO alike: 72 hours for expedited requests, and 7 calendar days for standard requests. The 7-day standard clock can extend to 14 days only if the member or provider requests the extension, or if DMAS/the MCO needs additional evidence and the extension is in the member\'s interest. Build these deadlines into your follow-up cadence — a standard ABA treatment-authorization request sitting past 7 days with no extension notice is worth escalating rather than assuming it\'s normal.',
+        ],
+        cites: [
+          { title: 'DMAS bulletin — Interoperability and Prior Authorization Final Rule implementation update (accessed 9/1/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/interoperability-and-prior-authorization-final-rule-implementation-update' },
         ],
       },
       {
@@ -100,6 +111,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — procedure fee files (CPT)', url: 'https://www.dmas.virginia.gov/for-providers/rates-and-rate-setting/procedure-fee-files-cpt-codes/' },
       { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
       { title: 'DMAS — service authorization (Acentra Health)', url: 'https://www.dmas.virginia.gov/for-providers/service-authorization/' },
+      { title: 'DMAS bulletin — new single sign-on requirement for FFS service authorization requests on the Acentra ANG platform', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/new-single-sign-requirement-ffs-service-authorization-requests-acentra-ang-platform' },
+      { title: 'DMAS bulletin — Interoperability and Prior Authorization Final Rule implementation update', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/interoperability-and-prior-authorization-final-rule-implementation-update' },
       { title: 'VirginiaABA — For Medicaid Providers (FAQ)', url: 'https://virginiaaba.org/resources/for-behavior-analysts/for-medicaid-providers/' },
       { title: '18VAC85-150-120 — supervisory responsibilities', url: 'https://www.law.cornell.edu/regulations/virginia/18VAC85-150-120' },
       { title: '18VAC85-150-130 — supervision of unlicensed personnel', url: 'https://law.lis.virginia.gov/admincode/title18/agency85/chapter150/section130/' },
@@ -114,6 +127,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment need prior authorization in Virginia?', a: 'No — 97151, 97152, and 0362T require no service authorization under DMAS rules (confirmed in the manual and the fee file\'s PA flags). Treatment codes do.' },
       { q: 'What does Virginia Medicaid pay for ABA?', a: 'Licensure-tiered rates per 15-minute unit: 97153 pays $15.00 (technician), $23.48 (LABA), $39.40 (LMHP), or $46.63 (LBA); assessment and QHP codes pay the LABA/LMHP/LBA tiers. Modifiers HN/TF/HO flag the tier.' },
       { q: 'Which MCOs run Virginia Medicaid ABA?', a: 'Aetna Better Health, Anthem HealthKeepers Plus, Humana Healthy Horizons (which replaced Molina on July 1, 2025), Sentara Community Plan, and UnitedHealthcare Community Plan — all on identical DMAS criteria and forms.' },
+      { q: 'How do I log in to submit a Virginia Medicaid FFS ABA service authorization?', a: 'As of June 1, 2026, through DMAS\'s Medicaid Enterprise System (MES) provider portal single sign-on and its "FFS Service Authorization" tile — direct login to Acentra\'s Atrezzo portal (portal.kepro.com) was retired for this purpose after May 31, 2026. MCO members still submit through their own plan\'s portal.' },
+      { q: 'How fast must Virginia Medicaid decide an ABA prior-authorization request?', a: 'Under the CMS Interoperability and Prior Authorization Final Rule (effective 1/1/2026), DMAS FFS and every Cardinal Care MCO must decide expedited requests within 72 hours and standard requests within 7 calendar days — extendable to 14 days only if the member/provider requests it, or DMAS/the MCO needs more evidence in the member\'s interest.' },
     ],
   },
 

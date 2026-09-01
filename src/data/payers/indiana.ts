@@ -33,13 +33,14 @@ export const indianaPayers: Record<string, PayerConfig> = {
         h2: 'Coverage & authorization',
         body: [
           'IHCP covers ABA when medically necessary for the treatment of ASD, and all ABA services require prior authorization — for fee-for-service through Acentra Health, and through each managed-care entity\'s own process for MCE members. The clinical bar is specific: an ASD diagnosis supported by a comprehensive diagnostic evaluation (CDE) performed by a doctoral-level HSPP psychologist, physician, APRN, or PA; a physician referral; and a behavior assessment that must include the Vineland (with the Maladaptive Behavior domain), the BASC parent rating questionnaire, and an age-appropriate direct skills assessment, signed by the lead analyst and a parent. A CDE older than one year needs an updated statement of need, referral, and current behavior assessment. One tool-currency note: IHCP will accept either the BASC-3 Parent Rating Questionnaire or its successor, BASC-4 (public release expected ~August 23, 2026), through October 1, 2026 — after that date only BASC-4 satisfies the requirement.',
-          'Each PA runs at most 6 months, up to 40 hours/week may be requested (more than 40 hours of direct therapy needs additional PA), and — since the 2026 rules — every ABA PA must include caregiver coaching (up to 18 hours per standard 6-month authorization), with a minimum of 1 hour of BCBA supervision per 8 hours of technician services.',
+          'Each PA runs at most 6 months, up to 40 hours/week may be requested (more than 40 hours of direct therapy needs additional PA), and — since the 2026 rules — every ABA PA must include caregiver coaching (up to 18 hours per standard 6-month authorization), with a minimum of 1 hour of BCBA supervision per 8 hours of technician services. IHCP Bulletin BT2026136 (8/18/2026) clarifies that floor rather than raising or lowering the ceiling: the required minimum can be reduced below the standard 12-hour/6-month caregiver-coaching floor from BT202662 when documented barriers exist — custody or foster-care disruptions, medical crises, homelessness, legal restrictions, and similar circumstances — provided a caregiver-coaching "improvement plan" is documented at reauthorization whenever the minimum wasn\'t met.',
         ],
         cites: [
           { title: 'IHCP — Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
           { title: 'IHCP Bulletin BT202562 — ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
           { title: 'IHCP — ABA prior authorization checklist', url: 'https://www.in.gov/medicaid/providers/files/ihcp-aba-prior-auth-checklist.pdf' },
           { title: 'IHCP Bulletin BT2026123 — BASC-3 PRQ to BASC-4 transition (7/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026123.pdf' },
+          { title: 'IHCP Bulletin BT2026136 — Minimum caregiver coaching/training requirements for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' },
         ],
       },
       {
@@ -97,6 +98,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Bulletin BT2026118 — ABA accreditation deadline reminder (7/14/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026118.pdf' },
       { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
       { title: 'IHCP Bulletin BT2026123 — BASC-3 PRQ to BASC-4 transition (7/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026123.pdf' },
+      { title: 'IHCP Bulletin BT2026136 — Minimum caregiver coaching/training requirements for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' },
       { title: 'IHCP — ABA prior authorization checklist', url: 'https://www.in.gov/medicaid/providers/files/ihcp-aba-prior-auth-checklist.pdf' },
       { title: 'IHCP Bulletin BT2024194 — ABA provider enrollment & high-risk screening', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2024194.pdf' },
       { title: 'IHCP Bulletin BT202519 — ABA enrollment FAQ', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202519.pdf' },

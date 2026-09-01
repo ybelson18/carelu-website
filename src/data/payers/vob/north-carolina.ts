@@ -20,21 +20,38 @@
      comes back dynamically in the 2120C NM1/PER loop, not from a
      fixed code list. This distinction is captured verbatim in
      medicaid271Notes rather than forced into a false MCO-name table.
-   - The current, in-force Clinical Coverage Policy 8F PDF (Amended
-     Date 2019-08-15, confirmed still the live version as of the
-     access date below) was opened directly. Its Attachment A
-     billing-code table lists ONLY 97151-97157 — 97158, 0362T, and
-     0373T do NOT appear anywhere in NC Medicaid's RB-BHT code set.
-     Per the "don't force the CPT list" rule, those three codes ship
-     as explicit 'not covered' entries below rather than being
-     silently omitted or filled with invented caps.
+   - MONTHLY REFRESH (access date 2026-09-01, see
+     REFRESH_ACCESS_DATE_202609): the Clinical Coverage Policy 8F
+     rewrite directed by HB 696 has been FINALIZED and PUBLISHED,
+     effective August 1, 2026 (Amended Date: August 1, 2026) — opened
+     directly at the new working URL (CCP_8F_CURRENT), corroborated by
+     NC Medicaid's 8/31/2026 bulletin (NC_MEDICAID_8F_BULLETIN_083126,
+     which itself supersedes an 8/5/2026 version of the same bulletin).
+     This supersedes the prior pass's "still unpublished/pending" note
+     below the access date it describes (NC_MEDICAID_8F_BLOG_072126,
+     now kept only as the historical pre-rewrite baseline). Its
+     Attachment A billing-code table still lists ONLY 97151-97157 —
+     97158, 0362T, and 0373T do NOT appear anywhere in NC Medicaid's
+     RB-BHT code set, unchanged by the rewrite. Per the "don't force
+     the CPT list" rule, those three codes ship as explicit 'not
+     covered' entries below rather than being silently omitted or
+     filled with invented caps. Newly codified this cycle: telehealth
+     removed entirely for 97152/97153/97154; 97155 telehealth capped
+     at 50% (not the 20% some 7/2026 reporting described) of billing
+     per beneficiary per 180 days; RBT/ABAT's 120-day certification
+     grace period now confirmed to run from 8/1/2026 for EXISTING
+     uncertified paraprofessionals too, not just new hires, with
+     non-reimbursement of non-certified paraprofessionals' claims
+     after the window; out-of-state LQASP/C-QP enrollment closes
+     8/2/2026; and existing prior authorizations are confirmed
+     unaffected by the move to a 90-day cadence for plans above 16
+     hours/week (future reauthorizations only).
    - HB 696 (Session Law 2026-1) was read from the ratified bill text
      directly. Its ABA provisions (§3C.18) are effective on enactment
-     — April 30, 2026 — NOT August 1, 2026; no primary source ties any
-     ABA rate or billing-rule change to 8/1/2026, and the amended CCP
-     8F itself remains unpublished (still in draft/rulemaking) as of
-     the access date. Any assumption of an 8/1/2026 effective date is
-     explicitly corrected here, not propagated.
+     — April 30, 2026 — NOT August 1, 2026 for the STATUTE itself; the
+     CCP 8F policy rewrite it directed is what took effect 8/1/2026
+     (see the monthly-refresh note above). No primary source ties any
+     ABA rate change to 8/1/2026.
    - No plan among Healthy Blue, AmeriHealth Caritas, or Carolina
      Complete Health publishes its own code-level unit caps, POS
      codes, or modifiers for RB-BHT — each defers wholesale to CCP 8F,
@@ -65,9 +82,18 @@ import type { VobExtension, EdiRouting, CodeGridEntry, RateTable, SourceRef, Stc
 import { cignaFamilyStc, uhcFamilyStc, aetnaFamilyStc, inheritFamilyStc } from './stc-defaults.js';
 
 const ACCESS_DATE = '2026-07-23';
+/* Monthly-refresh cycle date for sources fetched/re-verified this pass
+   (CCP 8F rewrite + corroborating bulletin) — distinct from the original
+   corpus-compile ACCESS_DATE above, which is left untouched for sources
+   not re-verified this cycle. */
+const REFRESH_ACCESS_DATE_202609 = '2026-09-01';
 
 function src(url: string, note?: string, staleRisk?: boolean): SourceRef {
   return { url, accessDate: ACCESS_DATE, note, staleRisk };
+}
+
+function srcAt(url: string, accessDate: string, note?: string, staleRisk?: boolean): SourceRef {
+  return { url, accessDate, note, staleRisk };
 }
 
 /* -------------------- shared source refs -------------------- */
@@ -105,9 +131,15 @@ const OPTUM_MODIFIER_FAQ = src(
   'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ABA-ModifierFAQ.pdf',
   "Optum ABA Modifier FAQ (BH4167b) — defines the HN/HO/HM/HP credential-tier modifiers, but states verbatim this is \"amending their current Provider Agreement as it applies to commercial members only.\" No NC-Medicaid-specific document was found extending this scheme to Medicaid claims — NOT applied to the UHC Community Plan NC codeGrid below on that basis."
 );
-const CCP_8F_CURRENT = src(
-  'https://medicaid.ncdhhs.gov/documents/files/8f/open',
-  'NC Medicaid Clinical Coverage Policy 8F (RB-BHT for ASD) — opened directly; stamped "Amended Date: August 15, 2019" and confirmed still the live, in-force version as of the access date (the amended 2026 rewrite remains unpublished). Attachment A\'s billing-code table lists only 97151-97157 — no 97158, 0362T, or 0373T anywhere in the document.'
+const CCP_8F_CURRENT = srcAt(
+  'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open',
+  REFRESH_ACCESS_DATE_202609,
+  'NC Medicaid Clinical Coverage Policy 8F (RB-BHT for ASD) — REWRITTEN and PUBLISHED this cycle, effective August 1, 2026 (Amended Date: August 1, 2026); opened directly and full-text extracted at the new working URL, replacing the stale https://medicaid.ncdhhs.gov/documents/files/8f-1/open and .../8f/open URLs, which still serve the pre-HB-696 Dec-2020 PDF and are superseded. Codified this rewrite: telehealth removed entirely (no documented-necessity exception) for 97152/97153/97154; 97151 retains telehealth with clinical justification; 97155 retains telehealth capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period; 97156/97157 retain their separate telephonic/KX caregiver-access-barrier exception, unchanged; the 10% LQASP observation floor is codified (10%-20% band above 200 paraprofessional hours/180 days, unchanged from before); RBT/ABAT certification required within 120 calendar days, with that grace-period clock starting August 1, 2026 for existing uncertified paraprofessional staff as well as new hires (claims for non-certified paraprofessionals are not reimbursed after the window); plans above 16 hours/week move to a 90-day initial-and-reauthorization cadence (plans at or under 16 hours/week keep 180-day); out-of-state BCBA/LQASP/C-QP enrollment closes, with all LQASPs/C-QPs required to enroll in-state effective August 2, 2026; existing prior authorizations are unaffected (no provider action needed, no reduction of existing PA duration — the new 90-day cadence binds only future reauthorizations). Attachment A\'s billing-code table still lists only 97151-97157 — no 97158, 0362T, or 0373T anywhere in the document.'
+);
+const NC_MEDICAID_8F_BULLETIN_083126 = srcAt(
+  'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31',
+  REFRESH_ACCESS_DATE_202609,
+  'NC Medicaid blog, "Updated Reminder: Requirements for Research-Based Behavioral Health Treatment Service Delivery," 8/31/2026 — this version supersedes an 8/5/2026 version of the same bulletin. Corroborates the finalized CCP 8F (eff. 8/1/2026) requirements captured in CCP_8F_CURRENT above, including the 50% (not 20%) telehealth cap on 97155, the removal of telehealth for 97152/97153/97154, the RBT/ABAT 120-day certification grace period running from 8/1/2026 for existing uncertified staff, and the August 2, 2026 in-state enrollment deadline for LQASPs/C-QPs.'
 );
 const NC_RATE_REVERSAL_BLOG = src(
   'https://medicaid.ncdhhs.gov/blog/2025/12/19/medicaid-rate-reduction-reversal-update',
@@ -123,7 +155,7 @@ const HB696_BILL_TEXT = src(
 );
 const NC_MEDICAID_8F_BLOG_072126 = src(
   'https://medicaid.ncdhhs.gov/blog/2026/07/21/reminder-requirements-research-based-behavioral-health-treatment-service-delivery',
-  'NC Medicaid blog, 7/21/2026 — confirms current RB-BHT requirements "will not be impacted by upcoming revisions to CCP 8F," i.e. the amended policy remained pending, not final, two days before this file\'s access date.'
+  'NC Medicaid blog, 7/21/2026 (historical/superseded) — confirmed at the time that current RB-BHT requirements "will not be impacted by upcoming revisions to CCP 8F," i.e. the amended policy remained pending, not final, as of that date. Superseded this cycle: the CCP 8F rewrite has since been finalized and published, effective 8/1/2026 — see CCP_8F_CURRENT and NC_MEDICAID_8F_BULLETIN_083126 above. Kept as the pre-rewrite baseline reference.'
 );
 const HEALTHY_BLUE_PROVIDER_MANUAL = src(
   'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf',
@@ -177,10 +209,36 @@ const WELLCARE_PROVIDER_RESOURCES = src(
 
 /* -------------------- codeGrid: north-carolina-medicaid -------------------- */
 
+/* Telehealth eligibility below reflects the REWRITTEN, PUBLISHED CCP 8F
+   (Amended Date: August 1, 2026) — confirmed this cycle from NC Medicaid's
+   current 8F policy page, corroborated by NC Medicaid's 8/31/2026 bulletin.
+   This supersedes the prior pass's inferred/pending framing entirely. */
 function ncMedicaidCoveredEntry(code: string, assessmentCode: boolean): CodeGridEntry {
-  const telehealthNote =
-    "Inferred only — GT modifier (video) confirmed across two independently-published, non-authoritative documents (WellCare's WNC.CP.109 clinical policy and a Healthy-Blue-reposted NC Medicaid COVID-era Telehealth Billing Code Summary), but neither is NC Medicaid's own current, non-emergency policy statement; the COVID bulletin explicitly sunsets with the state of emergency. HB 696 (S.L. 2026-1, effective 4/30/2026) separately restricts paraprofessional telehealth delivery and caps LQASP telehealth supervision at 50%, pending the amended CCP 8F, which remains unpublished as of the access date — verify current telehealth mechanics before relying on this." +
-    (assessmentCode ? '' : ' 97156/97157 additionally show KX (audio-only/telephonic) under documented caregiver-access-barrier criteria in the same two sources.');
+  const telehealthRemoved = code === '97152' || code === '97153' || code === '97154';
+  const cappedTelehealth = code === '97155';
+  const kxEligible = code === '97156' || code === '97157';
+
+  let telehealthNote: string;
+  let modifiers: string[];
+
+  if (telehealthRemoved) {
+    telehealthNote =
+      'No — telehealth was removed entirely for this code by the finalized CCP 8F (Amended Date: August 1, 2026); no documented-necessity exception remains for 97152, 97153, or 97154. Confirmed directly from NC Medicaid\'s current CCP 8F policy page, corroborated by its 8/31/2026 bulletin. (Prior framing carried this as telehealth-eligible via inference from other plans\' documents, pending an HB 696 restriction that had not yet been codified — that inference is now superseded: the finalized rule is an outright removal, not a restriction.)';
+    modifiers = [];
+  } else if (cappedTelehealth) {
+    telehealthNote =
+      'Yes, but capped — modifier GT (inferred; video), limited to a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period, per the finalized CCP 8F (Amended Date: August 1, 2026), corroborated by NC Medicaid\'s 8/31/2026 bulletin. NC Health News (7/15/2026, quoting DHHS) had reported this cap as 20% — the finalized policy sets it at 50%, not 20%; treat the 20% figure as superseded.';
+    modifiers = ['GT (inferred)'];
+  } else if (kxEligible) {
+    telehealthNote =
+      'Yes — modifier GT (inferred; video); ALSO telephonic-billable with modifier KX (inferred; audio-only) under documented caregiver-access-barrier criteria — unchanged by the finalized CCP 8F (Amended Date: August 1, 2026).';
+    modifiers = ['GT (inferred)', 'KX (inferred, audio-only, conditional)'];
+  } else {
+    telehealthNote =
+      'Yes — modifier GT (inferred; video), with clinical justification required, per the finalized CCP 8F (Amended Date: August 1, 2026).';
+    modifiers = ['GT (inferred, clinical justification required)'];
+  }
+
   return {
     covered: `Yes (${code})`,
     paRequired: 'Required — PA required for ALL RB-BHT services, assessment included (CCP 8F §5.0-5.2, Prior Approval)',
@@ -188,19 +246,21 @@ function ncMedicaidCoveredEntry(code: string, assessmentCode: boolean): CodeGrid
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
     telehealth: telehealthNote,
-    modifiers: assessmentCode ? ['GT (inferred)'] : ['GT (inferred)', 'KX (inferred, audio-only, conditional)'],
+    modifiers,
     notes:
-      'No confirmed unit-cap, cap-period, or POS-code table was located for this code in the current CCP 8F PDF or the NCTracks Fee Schedules Portal (a dynamic search tool, not a fetchable static document) this pass. Verify via: NCTracks Fee Schedules Portal / CCP 8F Attachment A.',
+      'No confirmed general unit-cap, cap-period, or POS-code table was located for this code in the current CCP 8F PDF or the NCTracks Fee Schedules Portal (a dynamic search tool, not a fetchable static document) this pass. Verify via: NCTracks Fee Schedules Portal / CCP 8F Attachment A. Telehealth eligibility/caps (this cell) ARE confirmed this cycle from the finalized, published CCP 8F (Amended Date 8/1/2026) — see the telehealth field above; exact modifier LETTER codes (GT/KX) remain inferred from plan-level documents rather than quoted verbatim from 8F itself.',
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
       unitCap: 'unverified',
       capPeriod: 'unverified',
       posAllowed: 'unverified',
-      telehealth: 'inferred',
+      telehealth: 'verified',
       modifiers: 'inferred',
     },
-    sources: [CCP_8F_CURRENT, WELLCARE_WNC_CP_109, HEALTHY_BLUE_TELEHEALTH_REPOST, HB696_BILL_TEXT, NC_MEDICAID_8F_BLOG_072126],
+    sources: assessmentCode
+      ? [CCP_8F_CURRENT, NC_MEDICAID_8F_BULLETIN_083126, HB696_BILL_TEXT, NC_MEDICAID_8F_BLOG_072126]
+      : [CCP_8F_CURRENT, NC_MEDICAID_8F_BULLETIN_083126, WELLCARE_WNC_CP_109, HEALTHY_BLUE_TELEHEALTH_REPOST, HB696_BILL_TEXT, NC_MEDICAID_8F_BLOG_072126],
   };
 }
 
@@ -214,7 +274,7 @@ function ncMedicaidNotCoveredEntry(code: string): CodeGridEntry {
     telehealth: 'N/A',
     modifiers: [],
     notes:
-      "Confirmed absent from both the current CCP 8F PDF (Amended Date 2019-08-15, still in force as of the access date) and the fee schedule restored 2026-01-05 — NC Medicaid's RB-BHT code set does not include this code, unlike some other states' ABA fee schedules.",
+      "Confirmed absent from both the current, finalized CCP 8F (Amended Date: August 1, 2026, rewritten and published this cycle) and the fee schedule restored 2026-01-05 — NC Medicaid's RB-BHT code set does not include this code, unlike some other states' ABA fee schedules. Unchanged by the 8/1/2026 rewrite.",
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',

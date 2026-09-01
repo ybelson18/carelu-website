@@ -25,6 +25,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { label: 'Diagnosis recency', value: 'No fixed expiry — but a Clinical Confirmation Form may be required, depending on age at diagnosis and time since' },
       { label: 'Rates (per 15 min, eff. 2/1/2026)', value: '97153: $24.41 BCBA · $20.91 BCaBA · $19.17 RBT/BT; 97151/97155: $38.34' },
       { label: 'Portals', value: 'Carelon ProviderConnect (auths) · Availity Essentials (claims)' },
+      { label: 'Telehealth floor (eff. 4/1/2026)', value: '97155, 97156/-U2, 97157: min. 25% in person, up to 75% telehealth (PT 60-26)' },
       { label: 'Staff screening', value: 'CJIS background check for every enrolled individual (via ePREP) + OIG exclusion checks of all staff every 30 days' },
     ],
     sections: [
@@ -64,10 +65,11 @@ export const marylandPayers: Record<string, PayerConfig> = {
       {
         h2: 'Workforce & billing rules worth knowing',
         body: [
-          'Only ABA groups, psychologists, BCBA-Ds, and BCBAs can bill directly — BCaBAs, RBTs, and BTs render under them. Maryland has an unusual workforce on-ramp: Behavior Technicians can enroll in Medicaid before earning RBT certification (specialty code 325), with a 90-day grace period to submit RBT proof. Licensed psychologists may render and bill ABA with an attestation (40 coursework hours in behavior analysis plus 1,500 supervised hours including ASD experience). Supervision has a hard floor — direction of BCaBA/RBT/BT staff must equal at least 10% of technician direct-service hours, and remote direction requires MDH/BHASO approval. Telehealth (GT modifier) is allowed only for direct supervision, parent training, and group parent training — direct 97153 treatment is not on the telehealth list. And Maryland is a payment-in-full program: providers may not balance-bill participants for covered or denied services.',
+          'Only ABA groups, psychologists, BCBA-Ds, and BCBAs can bill directly — BCaBAs, RBTs, and BTs render under them. Maryland has an unusual workforce on-ramp: Behavior Technicians can enroll in Medicaid before earning RBT certification (specialty code 325), with a 90-day grace period to submit RBT proof. Licensed psychologists may render and bill ABA with an attestation (40 coursework hours in behavior analysis plus 1,500 supervised hours including ASD experience). Supervision has a hard floor — direction of BCaBA/RBT/BT staff must equal at least 10% of technician direct-service hours, and remote direction requires MDH/BHASO approval. Telehealth (GT modifier) is allowed only for direct supervision (97155), parent training (97156/97156-U2), and group parent training (97157) — direct 97153 treatment is not on the telehealth list at all. And as of April 1, 2026, those three telehealth-eligible codes carry a new in-person floor: PT 60-26 ("ABA Transmittal No. 9," issued February 27, 2026) ends 100%-telehealth delivery for 97155, 97156/97156-U2, and 97157 — at least 25% of the service must now be rendered in person, with up to 75% allowed via telehealth, superseding the older PT 11-22 telehealth-continuation guidance. And Maryland is a payment-in-full program: providers may not balance-bill participants for covered or denied services.',
         ],
         cites: [
           { title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
+          { title: 'PT 60-26 — ABA Transmittal No. 9: Updates to ABA Telehealth (eff. 4/1/2026)', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT60-26_Updates_to_ABA_Telehealth.pdf' },
         ],
       },
       {
@@ -99,6 +101,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'MDH ABA Provider Manual (eff. Feb 1, 2026) — incl. fee schedule', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
       { title: 'MDH Applied Behavior Analysis program page', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/pages/home.aspx' },
       { title: 'PT 42-26 — ABA combination-of-service update + H2012 discontinuation', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT42-26_Updates_to_ABA_Combination_of_Service_Rules__and_Discontinuation_of_H2012.pdf' },
+      { title: 'PT 60-26 — ABA Transmittal No. 9: Updates to ABA Telehealth (eff. 4/1/2026)', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT60-26_Updates_to_ABA_Telehealth.pdf' },
       { title: 'MDH HealthChoice — Behavioral Health Coverage (carve-out)', url: 'https://health.maryland.gov/mmcp/healthchoice/Pages/BehavioralHealthCoverage.aspx' },
       { title: 'MDH HealthChoice home page', url: 'https://health.maryland.gov/mmcp/healthchoice/pages/home.aspx' },
       { title: 'Carelon Behavioral Health of Maryland — ABA providers', url: 'https://maryland.carelonbh.com/aba-providers/' },
@@ -114,6 +117,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'Which Maryland Medicaid MCO should we contact for ABA?', a: 'None of them. ABA is carved out of all nine HealthChoice MCOs and paid fee-for-service through Carelon. Authorizations go through ProviderConnect, claims through Availity — the MCO on the family\'s card never touches ABA.' },
       { q: 'What does Maryland Medicaid pay for ABA?', a: 'Per the fee schedule effective February 1, 2026: 97153 direct treatment pays $24.41/15-min unit at the BCBA tier, $20.91 BCaBA, $19.17 RBT/BT; 97151 assessment and 97155 pay $38.34; 97156 parent training pays $20.91 without the child present or $38.34 with (billed 97156-U2).' },
       { q: 'Is an autism diagnosis required for Maryland Medicaid ABA?', a: 'Yes — a confirmed ASD diagnosis (F84.0, F84.5, F84.8, or F84.9) made through a Comprehensive Diagnostic Evaluation by a qualified health care provider, plus a referral. Depending on the child\'s age at diagnosis and time elapsed, a Clinical Confirmation Form may also be required.' },
+      { q: 'Can Maryland Medicaid ABA be delivered 100% by telehealth?', a: 'Not for 97155 (RBT/BCaBA/BT supervision), 97156/97156-U2 (parent training), or 97157 (group parent training) — effective April 1, 2026, PT 60-26 ("ABA Transmittal No. 9") requires at least 25% of those three services to be rendered in person, with up to 75% allowed via telehealth. Direct 97153 treatment was never on the telehealth list at all.' },
     ],
   },
 
