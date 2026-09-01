@@ -1,11 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/",
-      "has": [{ "type": "host", "value": "(www\\.)?leadtrap\\.com" }],
-      "destination": "/leadtrap.html"
-    },
-    {
       "source": "/privacy",
       "has": [{ "type": "host", "value": "(www\\.)?leadtrap\\.com" }],
       "destination": "/static/leadtrap-privacy.html"
