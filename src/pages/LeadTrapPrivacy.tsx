@@ -22,9 +22,9 @@ const FAINT = 'rgba(255,255,255,0.4)';
 const BORDER = 'rgba(255,255,255,0.1)';
 const EFFECTIVE = 'August 31, 2026';
 
-function H2({ children }: { children: React.ReactNode }) {
+function H2({ children, id }: { children: React.ReactNode; id?: string }) {
   return (
-    <h2 style={{
+    <h2 id={id} style={{
       fontFamily: 'var(--font-body)', fontSize: 21, fontWeight: 600,
       color: '#fff', letterSpacing: '-0.02em', margin: '44px 0 14px',
     }}>{children}</h2>
@@ -208,10 +208,15 @@ export default function LeadTrapPrivacy() {
           address with the subject &ldquo;Google Ads data deletion request.&rdquo; We will delete the stored Google Ads
           data associated with the connection within 30 days and confirm by email.</P>
 
-        <H2>6. SMS / Text Messaging</H2>
+        <H2 id="sms">6. SMS / Text Messaging</H2>
         <P>Leads may receive SMS messages from a Partner via LeadTrap only after providing consent &mdash; for example, by
           submitting a form or chat conversation that discloses SMS follow-up, or by texting in first. Message frequency
           varies; message and data rates may apply. Reply <B>STOP</B> to opt out at any time and <B>HELP</B> for help.</P>
+        <P><B>Messages from LeadTrap itself.</B> If you submit a contact, demo, or intake request to LeadTrap on
+          leadtrap.com and check the SMS consent box on that form, LeadTrap may text you at the number you provided about
+          that request and our services. The box is unchecked by default, and consent is never a condition of purchase or
+          of any service. The same terms apply: message frequency varies, message and data rates may apply, reply
+          <B>STOP</B> to opt out and <B>HELP</B> for help.</P>
         <P><B>No mobile opt-in data is shared with third parties or affiliates for marketing or promotional purposes.</B>{' '}
           Text messaging originator opt-in data and consent are not shared with any third parties, except as necessary to
           deliver the messages (e.g., our SMS carrier partners) or as required by law.</P>

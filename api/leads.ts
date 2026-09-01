@@ -3,7 +3,8 @@ import { enrichLead, renderEnrichment, isFreeEmail } from './_enrich.js';
 
 /* ================================================================
    POST /api/leads  (public, no auth)
-   Body: { email, form?, name?, company?, size?, page?, website? }
+   Body: { email, form?, name?, company?, size?, phone?, smsConsent?,
+           page?, website? }
 
    Every visitor who hands over contact info on carelu.com lands
    here. Leads are appended to leads.json in the PRIVATE
@@ -43,7 +44,18 @@ const FORMS: Record<string, { label: string; team: 'sales' | 'marketing' }> = {
   demo: { label: 'Get a Demo', team: 'sales' },
   'referral-contacts': { label: 'Pediatrician referral-contacts list', team: 'marketing' },
   'payer-directory': { label: 'Payer directory', team: 'marketing' },
+  contact: { label: 'Contact form (leadtrap.com)', team: 'sales' },
 };
+
+/* The SMS disclosure printed next to the consent checkbox on leadtrap.com.
+   Stored verbatim with any lead that ticks the box: carriers and TCR ask for
+   proof of what the person actually agreed to, so the wording travels with
+   the record. Change the checkbox copy in Gateway.tsx and this together. */
+const SMS_CONSENT_TEXT =
+  'By checking this box you agree to receive text messages from LeadTrap, Inc. ' +
+  'at the number provided, about your inquiry and our services. Consent is not ' +
+  'a condition of purchase. Message frequency varies. Message and data rates ' +
+  'may apply. Reply STOP to opt out or HELP for help.';
 
 interface Lead {
   ts: string;
@@ -53,6 +65,11 @@ interface Lead {
   name?: string;
   company?: string;
   size?: string;
+  phone?: string;
+  /** Ticked the SMS consent box. Absent means no consent was given. */
+  smsConsent?: boolean;
+  /** The exact disclosure shown when they ticked it (consent evidence). */
+  smsConsentText?: string;
   page?: string;
 }
 
@@ -61,15 +78,33 @@ function str(v: unknown, max: number): string {
 }
 
 export async function POST(request: Request): Promise<Response> {
+  // The React forms post JSON. The prerendered leadtrap.com homepage ships a
+  // plain <form> so the contact form still works with JavaScript disabled —
+  // which is how the carrier/TCR reviewer sees the page — so accept an encoded
+  // form body too and answer it with a redirect instead of JSON.
+  const isFormPost = (request.headers.get('content-type') ?? '')
+    .includes('application/x-www-form-urlencoded');
+
   let body: Record<string, unknown>;
   try {
-    body = (await request.json()) as Record<string, unknown>;
+    if (isFormPost) {
+      body = Object.fromEntries(new URLSearchParams(await request.text()));
+      // Unchecked boxes are simply absent; a checked one arrives as "on".
+      body.smsConsent = body.smsConsent === 'on' || body.smsConsent === 'true';
+    } else {
+      body = (await request.json()) as Record<string, unknown>;
+    }
   } catch {
     return json({ error: 'bad request' }, 400);
   }
 
+  const done = (): Response =>
+    isFormPost
+      ? new Response(null, { status: 303, headers: { location: '/?sent=1#contact' } })
+      : json({ ok: true });
+
   // Honeypot: real users never see this field.
-  if (str(body.website, 200) !== '') return json({ ok: true });
+  if (str(body.website, 200) !== '') return done();
 
   const email = str(body.email, 254).toLowerCase();
   if (!EMAIL_RE.test(email)) return json({ error: 'invalid email' }, 400);
@@ -80,6 +115,9 @@ export async function POST(request: Request): Promise<Response> {
   const name = str(body.name, 120);
   const company = str(body.company, 120);
   const size = str(body.size, 40);
+  const phone = str(body.phone, 32);
+  // Consent only counts when a phone number came with it.
+  const smsConsent = body.smsConsent === true && phone !== '';
   const page = str(body.page, 200);
 
   const known = FORMS[form];
@@ -90,7 +128,7 @@ export async function POST(request: Request): Promise<Response> {
   if (isResponse(cfg)) {
     // Repo token not configured — still let the visitor through, but say so in logs.
     console.error('leads: sources config missing, lead dropped', email);
-    return json({ ok: true });
+    return done();
   }
 
   // A lost write is a lost lead. leads.json is a read-modify-write: two
@@ -131,6 +169,11 @@ export async function POST(request: Request): Promise<Response> {
     if (name) lead.name = name;
     if (company) lead.company = company;
     if (size) lead.size = size;
+    if (phone) lead.phone = phone;
+    if (smsConsent) {
+      lead.smsConsent = true;
+      lead.smsConsentText = SMS_CONSENT_TEXT;
+    }
     if (page) lead.page = page;
     leads.push(lead);
 
@@ -159,6 +202,7 @@ export async function POST(request: Request): Promise<Response> {
     const detail = [
       headline,
       size ? `self-reported size ${size}` : '',
+      phone ? `phone ${phone}${smsConsent ? ' (SMS consent given)' : ' (no SMS consent)'}` : '',
       enriched,
       isFreeEmail(email) ? 'personal email domain' : '',
       page ? `from ${page}` : '',
@@ -181,5 +225,5 @@ export async function POST(request: Request): Promise<Response> {
     }
   }
 
-  return json({ ok: true });
+  return done();
 }
