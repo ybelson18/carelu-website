@@ -2139,8 +2139,7 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
 
 // ── OUTCOMES — expandable improvement-metric rows ──────────
 
-// The outcomes content — shared by the live compact design and the kept
-// classic accordion below.
+// The outcomes content — metrics and their proof points.
 const OUTCOME_METRICS = [
     {
       v: 40, s: '%', label: 'Increase in lead volume',
@@ -2187,14 +2186,12 @@ const OUTCOME_METRICS = [
     },
 ];
 
-// The previous outcomes design — the full-width accordion rows. Kept intact
-// (unused) so it can be swapped back in by rendering <OutcomesClassic />.
-export function OutcomesClassic() {
+function Outcomes() {
   const [open, setOpen] = useState<number | null>(0);
   const metrics = OUTCOME_METRICS;
   const numCol = 'clamp(96px, 11vw, 150px)';
   return (
-    <section id="outcomes-classic" style={{
+    <section id="outcomes" style={{
       position: 'relative', paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)',
       background: 'var(--bone)',
     }}>
@@ -2276,145 +2273,6 @@ export function OutcomesClassic() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* OUTCOMES — an editorial stat spread: one enormous number at a time, its
-   proof points reading as a numbered ledger beside it, and the other metrics
-   waiting as small numerals underneath. It leafs through the metrics on its
-   own until the reader takes over. (The old accordion lives on above as
-   OutcomesClassic.) */
-function Outcomes() {
-  const isMobile = useIsMobile();
-  const [active, setActive] = useState(0);
-  const [kick, setKick] = useState(0);
-  const touched = useRef(false);
-  const bandRef = useRef<HTMLDivElement>(null);
-  const pick = (i: number) => { touched.current = true; setActive(i); setKick((k) => k + 1); };
-
-  // Quiet auto-rotation: only while in view, never after the reader clicks,
-  // and it holds still under the cursor.
-  useEffect(() => {
-    const el = bandRef.current; if (!el) return;
-    let timer: ReturnType<typeof setInterval> | null = null;
-    let hovered = false;
-    const advance = () => {
-      if (!touched.current && !hovered && !document.hidden) {
-        setActive((a) => (a + 1) % OUTCOME_METRICS.length);
-        setKick((k) => k + 1);
-      }
-    };
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !timer) timer = setInterval(advance, 5000);
-      else if (!e.isIntersecting && timer) { clearInterval(timer); timer = null; }
-    }, { threshold: 0.4 });
-    io.observe(el);
-    const over = () => { hovered = true; };
-    const out = () => { hovered = false; };
-    el.addEventListener('mouseenter', over);
-    el.addEventListener('mouseleave', out);
-    return () => {
-      io.disconnect(); if (timer) clearInterval(timer);
-      el.removeEventListener('mouseenter', over); el.removeEventListener('mouseleave', out);
-    };
-  }, []);
-
-  const m = OUTCOME_METRICS[active];
-  return (
-    <section id="outcomes" style={{
-      position: 'relative', paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)',
-      background: 'var(--bone)',
-    }}>
-      <div style={{ ...W, position: 'relative', zIndex: 1 }}>
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(24px, 3.5vw, 40px)' }}>
-          <div className="rv"><Pill>Outcomes</Pill></div>
-          <h2 className="rv-scale d1" style={{
-            fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 4.2vw, 52px)',
-            fontWeight: 400, color: 'var(--green-900)',
-            lineHeight: 1.12, letterSpacing: '-0.02em', margin: '12px 0 0',
-          }}>
-            Improve the metrics that matter.
-          </h2>
-        </div>
-
-        <style>{`@keyframes outLedger { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: none; } }`}</style>
-
-        <div ref={bandRef} className="rv" style={{
-          maxWidth: 1000, margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : '0.9fr 1.1fr',
-          columnGap: 'clamp(32px, 5vw, 64px)',
-          borderTop: '1px solid rgba(0,0,0,0.10)',
-          paddingTop: 'clamp(24px, 3.5vh, 40px)',
-          alignItems: 'start',
-        }}>
-          {/* The number of the moment */}
-          <div>
-            <div key={active} style={{ animation: 'outLedger 0.5s var(--ease-dramatic) both' }}>
-              <div style={{
-                fontFamily: 'var(--font-display)', fontWeight: 400,
-                fontSize: 'clamp(84px, 10vw, 148px)', lineHeight: 0.95,
-                color: 'var(--green-900)', letterSpacing: '-0.03em',
-                fontVariantNumeric: 'lining-nums tabular-nums', whiteSpace: 'nowrap',
-              }}>
-                <Counter target={m.v} suffix={m.s} dur={900} trigger={kick} />
-              </div>
-              <div style={{
-                fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400,
-                fontSize: 'clamp(17px, 1.9vw, 22px)', color: 'var(--green-900)',
-                opacity: 0.8, marginTop: 10,
-              }}>
-                {m.label}
-              </div>
-            </div>
-
-            {/* The waiting metrics — their numbers are the navigation */}
-            <div style={{ display: 'flex', gap: 'clamp(14px, 1.8vw, 24px)', marginTop: 'clamp(22px, 3.5vh, 40px)', flexWrap: 'wrap' }}>
-              {OUTCOME_METRICS.map((x, i) => (
-                <button
-                  key={x.label} type="button" onClick={() => pick(i)}
-                  aria-pressed={active === i} aria-label={`Show: ${x.label}`}
-                  style={{
-                    background: 'none', border: 'none', padding: '2px 0 6px', cursor: 'pointer',
-                    fontFamily: 'var(--font-display)', fontSize: 15.5, color: 'var(--green-900)',
-                    opacity: active === i ? 1 : 0.38,
-                    borderBottom: active === i ? '1px solid var(--green-900)' : '1px solid transparent',
-                    transition: 'opacity 0.3s, border-color 0.3s',
-                    fontVariantNumeric: 'lining-nums tabular-nums',
-                  }}
-                  onMouseEnter={(e) => { if (active !== i) e.currentTarget.style.opacity = '0.7'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.opacity = active === i ? '1' : '0.38'; }}
-                >
-                  {x.v.toLocaleString('en-US')}{x.s}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* The ledger of proof points */}
-          <div key={'ledger' + active} style={{
-            borderLeft: isMobile ? 'none' : '1px solid rgba(0,0,0,0.08)',
-            paddingLeft: isMobile ? 0 : 'clamp(28px, 4vw, 56px)',
-            marginTop: isMobile ? 26 : 0,
-          }}>
-            {m.bullets.map((b, j) => (
-              <div key={b} style={{
-                display: 'flex', gap: 14, alignItems: 'baseline',
-                padding: '13px 0',
-                borderTop: j === 0 ? 'none' : '1px solid rgba(0,0,0,0.07)',
-                animation: `outLedger 0.55s var(--ease-dramatic) ${(0.06 + j * 0.09).toFixed(2)}s both`,
-              }}>
-                <span style={{
-                  fontSize: 10, fontWeight: 600, letterSpacing: '0.12em',
-                  color: 'rgba(43,42,38,0.4)', fontVariantNumeric: 'tabular-nums', flexShrink: 0,
-                }}>0{j + 1}</span>
-                <span style={{ fontSize: 15, lineHeight: 1.6, color: 'var(--gray-500)' }}>{b}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
