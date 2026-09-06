@@ -1,14 +1,11 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useReveal } from '../hooks/useReveal';
+import { geoOrthographic, geoPath, geoGraticule10, geoDistance, geoContains } from 'd3-geo';
+import { feature as topoFeature } from 'topojson-client';
 import { useSeo } from '../hooks/useSeo';
 import DemoModalHost from '../components/DemoModal';
 import SiteFooter from '../components/SiteFooter';
-import STATS from '../data/intake_gap_stats.json';
-
-// Live state count from the same prod-harvested stats as the Intake Gap
-// report (refreshed monthly) — used in the results-section counter caption.
-const HERO_STATES = STATS.cohort.states;
 
 // Nav link that client-side-routes internal pages (no full reload → no font-swap
 // flash in the nav pill). Same-page hash anchors and /demo (modal-intercepted)
@@ -28,8 +25,8 @@ function NavA({ href, ...rest }: { href: string } & Omit<React.AnchorHTMLAttribu
    - Every element earns its place.
    ================================================================ */
 
-const BASELINE_DATE = new Date('2026-04-16T00:00:00Z').getTime();
-const BASELINE_COUNT = 35000;
+const BASELINE_DATE = new Date('2026-09-06T00:00:00Z').getTime();
+const BASELINE_COUNT = 105121; // sum of the real per-state family counts (STATE_FAMILIES)
 const GROWTH_PER_MS = 500 / (24 * 60 * 60 * 1000);
 function getLiveCount() {
   return Math.floor(BASELINE_COUNT + Math.max(0, Date.now() - BASELINE_DATE) * GROWTH_PER_MS);
@@ -56,27 +53,53 @@ function useIsMobile() {
 
 
 // ── ANIMATED COUNTER ──
-function Counter({ target, suffix = '', prefix = '' }: { target: number; suffix?: string; prefix?: string }) {
-  const [count, setCount] = useState(0);
+function Counter({ target, suffix = '', prefix = '', from = 0, dur = 2200, delay = 0, trigger = 0 }: {
+  target: number; suffix?: string; prefix?: string; from?: number; dur?: number; delay?: number; trigger?: number;
+}) {
+  const [count, setCount] = useState(from);
   const ref = useRef<HTMLSpanElement>(null);
-  const ran = useRef(false);
+  const raf = useRef(0);
+  const tmr = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   useEffect(() => {
     const el = ref.current; if (!el) return;
     const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !ran.current) {
-        ran.current = true;
-        const dur = 2200, t0 = performance.now();
-        (function tick(now: number) {
-          const p = Math.min((now - t0) / dur, 1);
-          setCount(Math.round((1 - Math.pow(1 - p, 4)) * target));
-          if (p < 1) requestAnimationFrame(tick);
-        })(t0);
-        obs.disconnect();
+      cancelAnimationFrame(raf.current);
+      clearTimeout(tmr.current);
+      if (e.isIntersecting) {
+        // (Re)play the count every time it comes into view
+        setCount(from);
+        tmr.current = setTimeout(() => {
+          const t0 = performance.now();
+          const tick = (now: number) => {
+            const p = Math.min((now - t0) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            setCount(Math.round(from + eased * (target - from)));
+            if (p < 1) raf.current = requestAnimationFrame(tick);
+          };
+          raf.current = requestAnimationFrame(tick);
+        }, delay);
+      } else {
+        setCount(from);
       }
     }, { threshold: 0.3 });
     obs.observe(el);
-    return () => obs.disconnect();
-  }, [target]);
+    return () => { obs.disconnect(); cancelAnimationFrame(raf.current); clearTimeout(tmr.current); };
+  }, [target, from, dur, delay]);
+  // Touching the number recounts it, instantly
+  useEffect(() => {
+    if (!trigger) return;
+    cancelAnimationFrame(raf.current);
+    clearTimeout(tmr.current);
+    setCount(from);
+    const t0 = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setCount(Math.round(from + eased * (target - from)));
+      if (p < 1) raf.current = requestAnimationFrame(tick);
+    };
+    raf.current = requestAnimationFrame(tick);
+  }, [trigger, target, from, dur]);
   return <span ref={ref}>{prefix}{count.toLocaleString('en-US')}{suffix}</span>;
 }
 
@@ -89,6 +112,14 @@ function Counter({ target, suffix = '', prefix = '' }: { target: number; suffix?
 export function Nav({ base = '' }: { base?: string }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  // See-through over the hero sky; the bone veil fades in once the page scrolls
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   // Lock page scroll while the mobile menu is open
   useEffect(() => {
@@ -102,118 +133,127 @@ export function Nav({ base = '' }: { base?: string }) {
     <>
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        display: 'flex', justifyContent: 'center',
-        padding: '16px 20px 0',
+        background: scrolled ? 'rgba(250,248,243,0.86)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(24px) saturate(1.2)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(24px) saturate(1.2)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(43,42,38,0.08)' : '1px solid transparent',
+        transition: 'background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease',
       }}>
-        <div className="nav-pill" style={{
-          display: 'flex', alignItems: 'center',
-          width: 'min(720px, calc(100vw - 40px))',
-          height: 56,
-          borderRadius: 18,
-          padding: '0 6px',
-          background: 'rgba(250,248,243,0.72)',
-          backdropFilter: 'blur(32px) saturate(1.3)',
-          WebkitBackdropFilter: 'blur(32px) saturate(1.3)',
-          border: '1px solid rgba(43,42,38,0.07)',
-        }}>
-          {/* Left links */}
-          <div className="nav-side nav-side-left">
-          <NavA href={`${base}#platform`} className="hide-mobile nav-link" style={{ fontSize: 14, fontWeight: 400, color: 'rgba(43,42,38,0.84)', textDecoration: 'none', transition: 'color 0.2s', padding: '0 18px 0 28px' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = '#1A1A1A'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(43,42,38,0.84)'; }}
-          >Product</NavA>
-          <div className="hide-mobile" style={{ position: 'relative', display: 'inline-flex', alignSelf: 'stretch', alignItems: 'center' }}
-            onMouseEnter={() => setSolutionsOpen(true)}
-            onMouseLeave={() => setSolutionsOpen(false)}
-          >
-            <button className="nav-link" aria-expanded={solutionsOpen} style={{
-              fontSize: 14, fontWeight: 400, color: solutionsOpen ? '#1A1A1A' : 'rgba(43,42,38,0.84)',
-              background: 'none', border: 'none', cursor: 'pointer',
-              padding: '0 18px', transition: 'color 0.2s',
-              display: 'inline-flex', alignItems: 'center', gap: 6, height: '100%',
-              fontFamily: 'inherit',
+        {(() => {
+          const ink = scrolled ? '#2B2A26' : '#fff';
+          const inkSoft = scrolled ? 'rgba(43,42,38,0.78)' : 'rgba(255,255,255,0.88)';
+          const glow = scrolled ? 'none' : '0 1px 14px rgba(0,0,0,0.28)';
+          const link = {
+            fontSize: 13, fontWeight: 500 as const, letterSpacing: '0.02em',
+            color: inkSoft, textDecoration: 'none', transition: 'opacity 0.2s, color 0.4s',
+            textShadow: glow, padding: '6px 16px',
+          };
+          return (
+            <div style={{
+              display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center',
+              maxWidth: 1280, margin: '0 auto', padding: '0 clamp(20px, 3.5vw, 44px)', height: 58,
             }}>
-              Solutions
-              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{
-                transform: solutionsOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s var(--ease-dramatic)',
-              }}><path d="M6 9l6 6 6-6" /></svg>
-            </button>
-            {solutionsOpen && (
-              <div style={{
-                position: 'absolute', top: '100%', left: 8, paddingTop: 8, zIndex: 101,
-              }}>
-                <div style={{
-                  background: 'rgba(250,248,243,0.96)',
-                  backdropFilter: 'blur(28px) saturate(1.3)', WebkitBackdropFilter: 'blur(28px) saturate(1.3)',
-                  border: '1px solid rgba(43,42,38,0.08)', borderRadius: 16,
-                  boxShadow: '0 12px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.04)',
-                  padding: 8, minWidth: 200,
-                }}>
-                  {[
-                    { t: 'Single-Site', d: 'One clinic, full front office', href: '/solutions/single-site' },
-                    { t: 'Multi-Site', d: 'Every location, one system', href: '/solutions/multi-site' },
-                    { t: 'Enterprise', d: 'Scale, integrations, security', href: '/solutions/enterprise' },
-                  ].map(l => (
-                    <NavA key={l.t} href={l.href} style={{
-                      display: 'block', padding: '10px 14px', borderRadius: 10,
-                      textDecoration: 'none', transition: 'background 0.15s',
-                    }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(43,42,38,0.05)'; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
-                    >
-                      <span style={{ display: 'block', fontSize: 14, fontWeight: 500, color: '#1A1A1A' }}>{l.t}</span>
-                      <span style={{ display: 'block', fontSize: 12, color: 'rgba(43,42,38,0.55)', marginTop: 1 }}>{l.d}</span>
-                    </NavA>
-                  ))}
+              {/* Left: product links */}
+              <div style={{ justifySelf: 'start', display: 'flex', alignItems: 'center' }}>
+                <NavA href={`${base}#platform`} className="hide-mobile nav-link" style={link}
+                  onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
+                >Product</NavA>
+                <div className="hide-mobile" style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}
+                  onMouseEnter={() => setSolutionsOpen(true)}
+                  onMouseLeave={() => setSolutionsOpen(false)}
+                >
+                  <button className="nav-link" aria-expanded={solutionsOpen} style={{
+                    ...link, background: 'none', border: 'none', cursor: 'pointer',
+                    display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'inherit', height: 58,
+                  }}>
+                    Solutions
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{
+                      transform: solutionsOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s var(--ease-dramatic)',
+                    }}><path d="M6 9l6 6 6-6" /></svg>
+                  </button>
+                  {solutionsOpen && (
+                    <div style={{ position: 'absolute', top: '100%', left: 8, paddingTop: 4, zIndex: 101 }}>
+                      <div style={{
+                        background: 'rgba(250,248,243,0.96)',
+                        backdropFilter: 'blur(28px) saturate(1.3)', WebkitBackdropFilter: 'blur(28px) saturate(1.3)',
+                        border: '1px solid rgba(43,42,38,0.08)', borderRadius: 16,
+                        boxShadow: '0 12px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.04)',
+                        padding: 8, minWidth: 200,
+                      }}>
+                        {[
+                          { t: 'Single-Site', d: 'One clinic, full front office', href: '/solutions/single-site' },
+                          { t: 'Multi-Site', d: 'Every location, one system', href: '/solutions/multi-site' },
+                          { t: 'Enterprise', d: 'Scale, integrations, security', href: '/solutions/enterprise' },
+                        ].map(l => (
+                          <NavA key={l.t} href={l.href} style={{
+                            display: 'block', padding: '10px 14px', borderRadius: 10,
+                            textDecoration: 'none', transition: 'background 0.15s',
+                          }}
+                            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(43,42,38,0.05)'; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                          >
+                            <span style={{ display: 'block', fontSize: 14, fontWeight: 500, color: '#1A1A1A' }}>{l.t}</span>
+                            <span style={{ display: 'block', fontSize: 12, color: 'rgba(43,42,38,0.55)', marginTop: 1 }}>{l.d}</span>
+                          </NavA>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
-            )}
-          </div>
-          </div>
 
-          {/* Center logo — the wordmark's ink sits ~5px left of its box center
-              (dense "Care" + light trailing signature), so a small optical nudge
-              lands it on true center. */}
-          <NavA href="/carelu" className="nav-logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
-            <img src="/carelu-logo.svg" alt="Carelu" className="nav-logo-img" style={{ height: 32, width: 'auto', display: 'block', transform: 'translateX(5px)' }} />
-          </NavA>
+              {/* Center: the wordmark, alone in open air */}
+              <NavA href="/carelu" className="nav-logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifySelf: 'center' }}>
+                <img src="/carelu-logo.svg" alt="Carelu" className="nav-logo-img" style={{
+                  height: 38, width: 'auto', display: 'block', transform: 'translateX(5px)',
+                  filter: scrolled ? 'none' : 'brightness(0) invert(1) drop-shadow(0 1px 10px rgba(0,0,0,0.3))',
+                  transition: 'filter 0.4s ease',
+                }} />
+              </NavA>
 
-          {/* Right: company + login + button. Company lives on this side so both
-              link groups have near-equal content width — that keeps the whitespace
-              on either side of the centered wordmark symmetric. */}
-          <div className="nav-side nav-side-right">
-          <NavA href="/carelu/company" className="hide-mobile nav-link" style={{ fontSize: 14, fontWeight: 400, color: 'rgba(43,42,38,0.84)', textDecoration: 'none', transition: 'color 0.2s', padding: '0 18px' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = '#1A1A1A'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(43,42,38,0.84)'; }}
-          >Company</NavA>
-          <NavA href="/login" className="hide-mobile nav-link" style={{ fontSize: 14, fontWeight: 400, color: 'rgba(43,42,38,0.84)', textDecoration: 'none', transition: 'color 0.2s', padding: '0 18px' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = '#1A1A1A'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(43,42,38,0.84)'; }}
-          >Log in</NavA>
-          <a href="/demo" className="nav-demo-btn" style={{
-            fontSize: 14, fontWeight: 600, color: '#1A1A1A',
-            padding: '12px 24px', borderRadius: 14, textDecoration: 'none',
-            display: 'inline-flex', alignItems: 'center',
-            border: '1px solid rgba(0,0,0,0.08)',
-            background: '#fff',
-            boxShadow: '0 4px 18px rgba(0,0,0,0.08)',
-            transition: 'background 0.2s, box-shadow 0.3s, transform 0.2s',
-          }}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.14)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 18px rgba(0,0,0,0.08)'; }}
-          >
-            Get a Demo
-          </a>
-          <button className="show-mobile-only" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu" aria-expanded={mobileOpen} style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: 11, marginLeft: 2 }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" strokeWidth="1.8" strokeLinecap="round" style={{ display: 'block' }}>
-              {mobileOpen
-                ? <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
-                : <><line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" /></>
-              }
-            </svg>
-          </button>
-          </div>
-        </div>
+              {/* Right: company, login, and a whisper-outline demo link */}
+              <div style={{ justifySelf: 'end', display: 'flex', alignItems: 'center' }}>
+                <NavA href="/carelu/company" className="hide-mobile nav-link" style={link}
+                  onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
+                >Company</NavA>
+                <NavA href="/login" className="hide-mobile nav-link" style={link}
+                  onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
+                >Log in</NavA>
+                <a href="/demo" className="nav-demo-btn hide-mobile" style={{
+                  fontSize: 13, fontWeight: 500, letterSpacing: '0.02em', color: ink,
+                  padding: '7px 18px', borderRadius: 100, textDecoration: 'none', marginLeft: 14,
+                  border: `1px solid ${scrolled ? 'rgba(43,42,38,0.30)' : 'rgba(255,255,255,0.65)'}`,
+                  background: 'transparent', textShadow: glow,
+                  transition: 'background 0.25s, color 0.25s, border-color 0.4s, text-shadow 0.4s',
+                }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = scrolled ? '#2B2A26' : '#fff';
+                    e.currentTarget.style.color = scrolled ? '#FAF8F3' : '#1A1A1A';
+                    e.currentTarget.style.textShadow = 'none';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.color = ink;
+                    e.currentTarget.style.textShadow = glow;
+                  }}
+                >
+                  Get a Demo
+                </a>
+                <button className="show-mobile-only" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu" aria-expanded={mobileOpen} style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: 11 }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={mobileOpen ? '#1A1A1A' : ink} strokeWidth="1.8" strokeLinecap="round" style={{ display: 'block' }}>
+                    {mobileOpen
+                      ? <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
+                      : <><line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" /></>
+                    }
+                  </svg>
+                </button>
+              </div>
+            </div>
+          );
+        })()}
       </nav>
 
       {mobileOpen && (
@@ -309,10 +349,13 @@ function Hero() {
       const cta = document.querySelector('.hero-cta-row') as HTMLElement | null;
       const logos = document.querySelector('.hero-logos') as HTMLElement | null;
       if (!section || !parent || !cta || !logos) return;
+      void logos;
       const ctaB = offTop(cta, section) + cta.offsetHeight;   // CTA bottom, rel section
-      const logosT = offTop(logos, section);                  // logo strip top, rel section
       const parentT = offTop(parent, section);                // laurels' offsetParent top
-      lau.style.top = `${Math.round((ctaB + logosT) / 2 - lau.offsetHeight / 2 - parentT)}px`;
+      // Fixed comfortable gap below the CTAs — no longer tied to the logo strip,
+      // which now lives in its own band below the hero.
+      const gap = Math.max(56, Math.min(96, window.innerHeight * 0.08));
+      lau.style.top = `${Math.round(ctaB + gap - parentT)}px`;
     };
     place();
     window.addEventListener('resize', place);
@@ -346,6 +389,51 @@ function Hero() {
       document.removeEventListener('visibilitychange', restart);
       window.removeEventListener('pageshow', restart);
     };
+  }, []);
+
+  // Center spotlight: as the marquee glides, the logo nearest the screen's
+  // center takes its turn in full color, then returns to greyscale as it moves on.
+  useEffect(() => {
+    const REST_FILTER = 'grayscale(100%) brightness(0.55) contrast(1.1)';
+    let raf = 0;
+    let current: HTMLImageElement | null = null;
+    const tick = () => {
+      const track = marqueeRef.current;
+      if (track && !document.hidden) {
+        const cx = window.innerWidth / 2;
+        let best: HTMLImageElement | null = null;
+        let bestDist = Infinity;
+        track.querySelectorAll('img').forEach((img) => {
+          const r = img.getBoundingClientRect();
+          const d = Math.abs(r.left + r.width / 2 - cx);
+          if (d < bestDist) { bestDist = d; best = img; }
+        });
+        const winner = bestDist < 130 ? best : null;
+        if (winner !== current) {
+          if (current) {
+            const gray = current.dataset.gray;
+            if (gray) current.src = gray;
+            current.style.opacity = '0.55';
+            current.style.filter = REST_FILTER;
+            current.style.mixBlendMode = 'multiply';
+            current.style.transform = 'scale(1)';
+          }
+          if (winner) {
+            const w = winner as HTMLImageElement;
+            const color = w.dataset.color;
+            if (color) w.src = color;
+            w.style.opacity = '1';
+            w.style.filter = 'grayscale(0%) brightness(1) contrast(1)';
+            w.style.mixBlendMode = 'normal';
+            w.style.transform = 'scale(1.05)';
+          }
+          current = winner;
+        }
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   // Scroll-driven video (only first VIDEO_CAP of duration plays) + staged content reveal
@@ -390,7 +478,7 @@ function Hero() {
   return (
     <section ref={sectionRef} className="hero-section" style={{
       position: 'relative', height: '100svh',
-      background: '#f0e6d2',
+      background: '#FAF8F3',
     }}>
       <div className="hero-sticky" style={{
         position: 'sticky', top: 0, height: '100svh',
@@ -432,34 +520,31 @@ function Hero() {
         }} />
         <div style={{
           position: 'absolute', left: 0, right: 0, bottom: 0, height: '55%', zIndex: 2,
-          background: 'linear-gradient(180deg, rgba(240,230,210,0) 0%, rgba(240,230,210,0.15) 30%, rgba(240,230,210,0.5) 55%, rgba(240,230,210,0.85) 78%, #f0e6d2 100%)',
+          background: 'linear-gradient(180deg, rgba(250,248,243,0) 0%, rgba(250,248,243,0.15) 30%, rgba(250,248,243,0.5) 55%, rgba(250,248,243,0.85) 78%, #FAF8F3 100%)',
           pointerEvents: 'none',
         }} />
 
         <div className="hero-center" style={{
           position: 'absolute', inset: 0, zIndex: 3,
           display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-          padding: '0 24px',
+          padding: '0 24px', paddingBottom: '13svh',
         }}>
           <div style={{ ...W, textAlign: 'center', maxWidth: 1100, margin: '0 auto' }}>
             <div style={{
-              marginBottom: 28,
+              marginBottom: 40,
               animation: 'heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both',
             }}>
               <span className="hero-badge" style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: '#fff',
-                background: 'rgba(255,255,255,0.10)',
-                border: '1px solid rgba(255,255,255,0.22)',
-                backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)',
-                padding: '8px 18px', borderRadius: 100,
+                display: 'inline-flex', alignItems: 'center',
+                fontSize: 11, fontWeight: 500, letterSpacing: '0.32em', textTransform: 'uppercase',
+                color: 'rgba(255,255,255,0.75)',
+                textShadow: '0 1px 12px rgba(0,0,0,0.25)',
                 textAlign: 'center',
               }}>The very first care enablement platform</span>
             </div>
 
             <h1 style={{
-              fontFamily: 'var(--font-display)', fontSize: 'clamp(40px, 7vw, 96px)',
+              fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 6.2vw, 84px)',
               fontWeight: 400, lineHeight: 1.02, letterSpacing: '-0.008em',
               color: '#fff', maxWidth: 1080, margin: '0 auto',
               textWrap: 'balance',
@@ -470,10 +555,10 @@ function Hero() {
             </h1>
 
             <p style={{
-              fontSize: 'clamp(15px, 1.4vw, 19px)',
-              color: '#fff',
-              lineHeight: 1.6, maxWidth: 600, margin: '24px auto 40px',
-              fontWeight: 500,
+              fontSize: 'clamp(15px, 1.35vw, 18px)',
+              color: 'rgba(255,255,255,0.92)',
+              lineHeight: 1.7, maxWidth: 560, margin: '32px auto 56px',
+              fontWeight: 400,
               textShadow: '0 1px 2px rgba(0,0,0,0.28), 0 2px 16px rgba(0,0,0,0.4)',
               animation: 'heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both',
             }}>
@@ -547,19 +632,17 @@ function Hero() {
           </div>
         </div>
 
-        {/* Trusted-by logo strip — anchored at the bottom of the hero
-            Dark-grayscale logos with mix-blend-mode so they stay legible on both
-            the misty video and the cream dissolve below — no scrim/band needed */}
+        {/* Trusted-by logo strip — anchored at the bottom of the hero */}
         <div className="hero-logos" style={{
           position: 'absolute', left: 0, right: 0, bottom: 0, zIndex: 3,
-          paddingBottom: 'clamp(10px, 1.6vh, 22px)',
+          paddingBottom: 2,
           animation: 'heroIn 1.1s cubic-bezier(0.16, 1, 0.3, 1) 1.1s both',
         }}>
           <p style={{
             fontSize: 11, fontWeight: 600, letterSpacing: '0.2em',
             textTransform: 'uppercase',
             color: 'rgba(60,50,40,0.7)',
-            textAlign: 'center', marginBottom: 20,
+            textAlign: 'center', marginBottom: 30,
             mixBlendMode: 'multiply',
           }}>
             Trusted by 100+ of the fastest growing ABA providers
@@ -567,16 +650,18 @@ function Hero() {
           <div className="hero-logos-mask" style={{ overflow: 'hidden', position: 'relative' }}>
             <div ref={marqueeRef} className="marquee-track" style={{ animation: 'marqueeScroll 60s linear infinite' }}>
               {[0, 1].map(set => (
-                <div key={set} style={{ display: 'flex', alignItems: 'center', gap: 80, paddingRight: 80 }}>
+                <div key={set} style={{ display: 'flex', alignItems: 'center', gap: 104, paddingRight: 104 }}>
                   {allLogos.map(logo => (
                     <img
                       key={`${set}-${logo.alt}`}
                       src={logo.src}
                       alt={logo.alt}
+                      data-gray={logo.src}
+                      data-color={(logo as { color?: string }).color || ''}
                       style={{
-                        height: (logo as { h?: number }).h ?? ((logo as { smaller?: boolean }).smaller ? 34 : 40),
+                        height: ((logo as { h?: number }).h ?? ((logo as { smaller?: boolean }).smaller ? 34 : 40)) * 0.78,
                         width: 'auto', objectFit: 'contain',
-                        opacity: 0.78, flexShrink: 0,
+                        opacity: 0.55, flexShrink: 0,
                         filter: 'grayscale(100%) brightness(0.55) contrast(1.1)',
                         mixBlendMode: 'multiply',
                         transition: 'opacity 0.3s ease, filter 0.4s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), mix-blend-mode 0.2s ease',
@@ -612,91 +697,89 @@ function Hero() {
   );
 }
 
-// ── DEMO VIDEO ── The older "watch demo" video in a white frame with play button.
-// Sits in its own section right under the hero.
+// ── DEMO VIDEO — full-bleed cinema. The film runs silently, edge to edge,
+// as the page reaches it; one frosted pill offers the sound.
 function DemoVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const handlePlay = () => {
+  const [withSound, setWithSound] = useState(false);
+
+  // Play silently while the strip is on screen; rest when it leaves
+  useEffect(() => {
     const v = videoRef.current; if (!v) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !v.ended) v.play().catch(() => {});
+      else v.pause();
+    }, { threshold: 0.35 });
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+
+  const handleSound = () => {
+    const v = videoRef.current; if (!v) return;
+    v.muted = false;
+    v.currentTime = 0;
     v.play().catch(() => {});
-    setIsPlaying(true);
+    setWithSound(true);
   };
 
   return (
     <section style={{
-      paddingTop: 'clamp(80px, 10vh, 140px)',
-      paddingBottom: 'clamp(80px, 10vh, 140px)',
-      background: 'linear-gradient(180deg, #f0e6d2 0%, #f5ecd9 25%, #faf3e5 55%, #FAF8F3 100%)',
+      paddingTop: 'clamp(90px, 12vh, 160px)',
+      paddingBottom: 'clamp(80px, 10vh, 130px)',
+      background: '#FAF8F3',
     }}>
-      <div style={{ ...W, maxWidth: 1040, textAlign: 'center' }}>
-        <div className="hero-visual" style={{
-          maxWidth: 880, margin: '0 auto',
-          borderRadius: 18, overflow: 'hidden',
-          border: '1px solid rgba(0,0,0,0.08)',
-          background: '#fff',
-          boxShadow: '0 18px 60px rgba(0,0,0,0.12), 0 2px 10px rgba(0,0,0,0.06)',
-          position: 'relative',
-        }}>
-          <video
-            ref={videoRef}
-            controls={isPlaying}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="/demo-poster.jpg"
-            style={{ width: '100%', height: 'auto', display: 'block', background: '#fff' }}
-          >
-            <source src="https://framerusercontent.com/assets/ZEFznJK3xO8gPZ8psOliFXvKwO0.mp4" type="video/mp4" />
-          </video>
+      <div className="rv" style={{ position: 'relative', maxWidth: 760, margin: '0 auto', padding: '0 24px' }}>
+        <video
+          ref={videoRef}
+          controls={withSound}
+          muted={!withSound}
+          playsInline
+          preload="metadata"
+          poster="/demo-poster.jpg"
+          style={{
+            width: '100%', aspectRatio: '16 / 9', height: 'auto',
+            objectFit: 'cover', display: 'block', background: '#0a0a0c',
+            boxShadow: '0 0 0 1px rgba(43,42,38,0.08), 0 26px 50px -24px rgba(30,30,25,0.18)',
+          }}
+        >
+          <source src="/carelu-film.mp4" type="video/mp4" />
+        </video>
 
-          {!isPlaying && (
-            <button
-              type="button"
-              onClick={handlePlay}
-              aria-label="Play video"
-              style={{
-                position: 'absolute', inset: 0,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                background: 'linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 40%, rgba(0,0,0,0.22) 100%)',
-                border: 'none', cursor: 'pointer',
-                transition: 'background 0.3s ease',
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.28) 100%)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 40%, rgba(0,0,0,0.22) 100%)'; }}
-            >
-              <span style={{
-                position: 'relative',
-                width: 72, height: 72, borderRadius: '50%',
-                background: '#1A1A1A',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 8px 22px rgba(26,46,31,0.28), 0 0 0 1px rgba(26,46,31,0.06)',
-              }}>
-                <span style={{
-                  position: 'absolute', inset: -10, borderRadius: '50%',
-                  border: '1px solid rgba(26,46,31,0.22)',
-                  animation: 'hubPulse 2.4s ease-out infinite',
-                  pointerEvents: 'none',
-                }} />
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" style={{ marginLeft: 3 }}>
-                  <path d="M7 5v14l12-7L7 5z" />
-                </svg>
-              </span>
-              <span style={{
-                position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(-50%)',
-                fontSize: 11, fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase',
-                color: '#fff', textShadow: '0 1px 8px rgba(0,0,0,0.45)',
-              }}>
-                Watch demo · 2 min
-              </span>
-            </button>
-          )}
-        </div>
+        {!withSound && (
+          <button
+            type="button"
+            onClick={handleSound}
+            aria-label="Play with sound"
+            style={{
+              position: 'absolute', left: '50%', bottom: 'clamp(24px, 5vh, 44px)', transform: 'translateX(-50%)',
+              display: 'inline-flex', alignItems: 'center', gap: 10,
+              fontSize: 12, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase',
+              color: '#fff', background: 'rgba(20,19,16,0.32)',
+              backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255,255,255,0.45)', borderRadius: 100,
+              padding: '11px 24px', cursor: 'pointer', fontFamily: 'inherit',
+              transition: 'background 0.25s, transform 0.25s',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(20,19,16,0.5)'; e.currentTarget.style.transform = 'translateX(-50%) translateY(-2px)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(20,19,16,0.32)'; e.currentTarget.style.transform = 'translateX(-50%)'; }}
+          >
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 5v14l12-7L7 5z" /></svg>
+            Watch with sound
+          </button>
+        )}
       </div>
+
+      {/* Museum label — one italic line beneath the film */}
+      <p className="rv" style={{
+        textAlign: 'center', fontFamily: 'var(--font-display)', fontStyle: 'italic',
+        fontSize: 16, color: 'var(--gray-500)', margin: '26px auto 0', maxWidth: 560,
+      }}>
+        Where every intake ends &mdash; with a family, met.
+      </p>
     </section>
   );
 }
+
 
 /* ================================================================
    LOGO BAR
@@ -735,380 +818,102 @@ const allLogos = [
 const VISUAL_IN_VIEW: IntersectionObserverInit = { threshold: 0.6, rootMargin: '0px -18% -24% -18%' };
 
 
-/* Every tool an ABA org already runs, laid out as a loose web around the headline —
-   all wired to a system of record, but the threads are frayed and half-broken.
-   Positions are normalized (0..1) fractions of the section, kept clear of the
-   centered text zone. "Connected, but not." */
-// The full sprawl of front-office tools — a busy, tangled web that makes the
-// "Nothing's broken. You're still losing families." point: it's ALL connected,
-// nothing's technically wrong, and families still slip.
-const WEB_ICONS: { n: string; bx: number; by: number; size: number }[] = [
-  { n: 'salesforce',          bx: 0.08, by: 0.30, size: 74 },
-  { n: 'hubspot',             bx: 0.21, by: 0.15, size: 58 },
-  { n: 'quo',                 bx: 0.40, by: 0.16, size: 60 },
-  { n: 'outlook',             bx: 0.60, by: 0.16, size: 64 },
-  { n: 'googlecalendar',      bx: 0.78, by: 0.14, size: 58 },
-  { n: 'calendly',            bx: 0.91, by: 0.20, size: 56 },
-  { n: 'docusign',            bx: 0.26, by: 0.31, size: 54 },
-  { n: 'gmail',               bx: 0.64, by: 0.26, size: 52 },
-  { n: 'googlesheets',        bx: 0.47, by: 0.42, size: 56 },
-  { n: 'twilio',              bx: 0.94, by: 0.40, size: 66 },
-  { n: 'ghl',                 bx: 0.06, by: 0.52, size: 62 },
-  { n: 'jotform',             bx: 0.19, by: 0.52, size: 56 },
-  { n: 'simplepractice',      bx: 0.79, by: 0.52, size: 72 },
-  { n: 'ringcentral',         bx: 0.93, by: 0.62, size: 60 },
-  { n: 'lobbie',              bx: 0.35, by: 0.64, size: 60 },
-  { n: 'bolt',                bx: 0.24, by: 0.57, size: 62 },
-  { n: 'rethink',             bx: 0.51, by: 0.71, size: 56 },
-  { n: 'intakeq',             bx: 0.66, by: 0.64, size: 56 },
-  { n: 'artemisaba',          bx: 0.84, by: 0.68, size: 64 },
-  { n: 'zoho',                bx: 0.13, by: 0.71, size: 66 },
-  { n: 'pandadoc',            bx: 0.08, by: 0.87, size: 58 },
-  { n: 'monday',              bx: 0.24, by: 0.85, size: 58 },
-  { n: 'clickup',             bx: 0.42, by: 0.91, size: 72 },
-  { n: 'callrail',            bx: 0.58, by: 0.87, size: 56 },
-  { n: 'calltrackingmetrics', bx: 0.72, by: 0.90, size: 64 },
-  { n: 'whatconverts',        bx: 0.88, by: 0.84, size: 54 },
-];
-
-type WebNode = {
-  n: string; size: number;
-  bx: number; by: number;   // base position (fraction of section W/H)
-  phx: number; phy: number; // drift phase
-  ax: number; ay: number;   // drift amplitude (px)
-  x: number; y: number;     // current center (px)
-  rev: number;              // reveal progress 0..1
-  hub?: boolean;            // the inert System-of-Record hub everything tethers to
-  dead?: boolean;           // a stuck/dead integration — rendered greyed out
-  el: HTMLDivElement | null;
-};
-type WebEdge = { a: number; b: number; broken: boolean; line: SVGLineElement | null };
-
-/* The tangled-web sandbox: logos wired together by frayed threads, gently drifting,
-   grab-and-pull to stretch the connections. */
-function SystemWeb({ textRef }: { textRef: React.RefObject<HTMLDivElement | null> }) {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const nodesRef = useRef<WebNode[]>([]);
-  const edgesRef = useRef<WebEdge[]>([]);
-  const dragRef = useRef<{ node: WebNode; offX: number; offY: number } | null>(null);
-  const rafRef = useRef(0);
-  const startedRef = useRef(false);
-  const tRef = useRef(0);
-  const maskRef = useRef<SVGRectElement | null>(null);
-
-  if (nodesRef.current.length === 0) {
-    // deterministic pseudo-random keyed off the index (stable across SSR/hydration)
-    const rnd = (i: number, s: number) => { const v = Math.sin((i + 1) * s) * 43758.5453; return v - Math.floor(v); };
-    const mobile = typeof window !== 'undefined' && window.innerWidth < 640;
-    const scale = mobile ? 0.64 : 1;
-
-    // Mobile shows a curated subset — the full 26 tiles is too dense on a narrow screen.
-    const MOBILE_KEEP = new Set([
-      'salesforce', 'hubspot', 'quo', 'outlook', 'googlecalendar', 'calendly',
-      'simplepractice', 'ringcentral', 'intakeq', 'monday', 'clickup', 'pandadoc', 'callrail',
-    ]);
-    const source = mobile ? WEB_ICONS.filter((ic) => MOBILE_KEEP.has(ic.n)) : WEB_ICONS;
-
-    // No center, no villain — just a sprawl of tools, all wired to each other and looking
-    // perfectly fine. That's the point of "Nothing's broken": it's all connected, nothing's
-    // technically wrong, and families still slip away.
-    const nodes: WebNode[] = source.map((ic, i) => {
-      let bx = ic.bx, by = ic.by;
-      if (mobile) {
-        // Narrow portrait: pull nodes off the edges (no clipping) and squeeze them into
-        // a top band + a bottom band, leaving the middle clear for the taller headline.
-        bx = 0.5 + (bx - 0.5) * 0.86;
-        by = by < 0.46
-          ? 0.20 + (by / 0.46) * 0.15          // top band  → [0.20, 0.35]
-          : 0.60 + ((by - 0.46) / 0.54) * 0.34; // bottom band → [0.60, 0.94]
-      }
-      return {
-        n: ic.n, size: Math.round(ic.size * scale), bx, by,
-        phx: rnd(i, 12.9898) * Math.PI * 2, phy: rnd(i, 78.233) * Math.PI * 2,
-        ax: 4 + rnd(i, 3.7) * 6, ay: 4 + rnd(i, 5.1) * 6,
-        x: 0, y: 0, rev: 0, el: null,
-      };
-    });
-    nodesRef.current = nodes;
-
-    // Decentralized mesh: wire each tool to its two nearest neighbours (deduped). All
-    // threads intact — it looks connected, because nothing's broken.
-    const seen = new Set<string>();
-    const edges: WebEdge[] = [];
-    for (let i = 0; i < nodes.length; i++) {
-      const near = nodes
-        .map((m, j) => ({ j, dd: (m.bx - nodes[i].bx) ** 2 + (m.by - nodes[i].by) ** 2 }))
-        .filter((o) => o.j !== i)
-        .sort((a, b) => a.dd - b.dd);
-      for (let k = 0; k < 2; k++) {
-        const j = near[k].j;
-        const a = Math.min(i, j), b = Math.max(i, j);
-        const key = `${a}-${b}`;
-        if (!seen.has(key)) { seen.add(key); edges.push({ a, b, broken: false, line: null }); }
-      }
-    }
-    edgesRef.current = edges;
-  }
-
-  useEffect(() => {
-    const wrap = wrapRef.current; if (!wrap) return;
-    let W = wrap.clientWidth, H = wrap.clientHeight;
-    const onResize = () => { W = wrap.clientWidth; H = wrap.clientHeight; };
-    window.addEventListener('resize', onResize);
-
-    // Hold the web hidden until the section scrolls into view, then reveal it.
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { startedRef.current = true; io.disconnect(); }
-    }, { threshold: 0.3 });
-    io.observe(wrap);
-
-    const step = () => {
-      const nodes = nodesRef.current, edges = edgesRef.current, drag = dragRef.current;
-      tRef.current += 0.016;
-      const T = tRef.current;
-      const started = startedRef.current;
-
-      // Live keep-out box around the headline + subhead so no tile drifts over the
-      // text and hurts readability. Union of the actual line boxes (tight, not the
-      // full-width block), in wrap-local coords, padded by GAP.
-      let keep: { l: number; t: number; r: number; b: number } | null = null;
-      const tc = textRef.current;
-      if (tc) {
-        const wr = wrap.getBoundingClientRect();
-        let l = Infinity, t = Infinity, r = -Infinity, bt = -Infinity;
-        tc.querySelectorAll('h2, p').forEach((el) => {
-          for (const rc of el.getClientRects()) {
-            l = Math.min(l, rc.left); t = Math.min(t, rc.top);
-            r = Math.max(r, rc.right); bt = Math.max(bt, rc.bottom);
-          }
-        });
-        if (l !== Infinity) {
-          const GAP = 16;
-          const bl = l - wr.left, bt2 = t - wr.top, br = r - wr.left, bb = bt - wr.top;
-          keep = { l: bl - GAP, t: bt2 - GAP, r: br + GAP, b: bb + GAP };
-          // Punch the same box (a touch larger) out of the thread layer so no spoke
-          // ever crosses the text — the blurred mask fades threads out as they approach.
-          if (maskRef.current) {
-            const M = 26;
-            maskRef.current.setAttribute('x', String(bl - M));
-            maskRef.current.setAttribute('y', String(bt2 - M));
-            maskRef.current.setAttribute('width', String((br - bl) + M * 2));
-            maskRef.current.setAttribute('height', String((bb - bt2) + M * 2));
-          }
-        }
-      }
-
-      for (let i = 0; i < nodes.length; i++) {
-        const nd = nodes[i];
-        if (started) nd.rev = Math.max(0, Math.min(1, (T - i * 0.045) / 0.6)); // staggered fade-in
-        if (!drag || drag.node !== nd) {
-          nd.x = nd.bx * W + Math.sin(T * 0.5 + nd.phx) * nd.ax;   // slow ambient drift
-          nd.y = nd.by * H + Math.cos(T * 0.42 + nd.phy) * nd.ay;
-          // push out of the text box along the axis of least penetration (drift resets
-          // each frame, so this is stable — the tile just hovers along the text edge)
-          if (keep) {
-            const h = nd.size / 2;
-            const nl = nd.x - h, nr = nd.x + h, nt = nd.y - h, nb = nd.y + h;
-            if (nr > keep.l && nl < keep.r && nb > keep.t && nt < keep.b) {
-              const penL = nr - keep.l, penR = keep.r - nl, penU = nb - keep.t, penD = keep.b - nt;
-              const min = Math.min(penL, penR, penU, penD);
-              if (min === penL) nd.x -= penL;
-              else if (min === penR) nd.x += penR;
-              else if (min === penU) nd.y -= penU;
-              else nd.y += penD;
-            }
-          }
-        }
-        if (nd.el) {
-          const s = 0.62 + 0.38 * nd.rev;
-          nd.el.style.transform = `translate(${nd.x - nd.size / 2}px, ${nd.y - nd.size / 2}px) scale(${s})`;
-          nd.el.style.opacity = String(nd.rev);
-        }
-      }
-
-      for (const e of edges) {
-        if (!e.line) continue;
-        const a = nodes[e.a], b = nodes[e.b];
-        const dx = b.x - a.x, dy = b.y - a.y;
-        const len = Math.hypot(dx, dy) || 1;
-        const ux = dx / len, uy = dy / len;
-        const gapA = a.size / 2 + (e.broken ? 15 : 4);   // broken threads stop well short of the tile
-        const gapB = b.size / 2 + (e.broken ? 15 : 4);
-        e.line.setAttribute('x1', String(a.x + ux * gapA));
-        e.line.setAttribute('y1', String(a.y + uy * gapA));
-        e.line.setAttribute('x2', String(b.x - ux * gapB));
-        e.line.setAttribute('y2', String(b.y - uy * gapB));
-        e.line.setAttribute('opacity', String(Math.min(a.rev, b.rev) * (e.broken ? 0.12 : 0.2)));
-      }
-      rafRef.current = requestAnimationFrame(step);
-    };
-    rafRef.current = requestAnimationFrame(step);
-    return () => { cancelAnimationFrame(rafRef.current); io.disconnect(); window.removeEventListener('resize', onResize); };
-  }, []);
-
-  const down = (nd: WebNode) => (e: React.PointerEvent<HTMLDivElement>) => {
-    const wrap = wrapRef.current; if (!wrap) return;
-    e.preventDefault();
-    e.currentTarget.setPointerCapture(e.pointerId);
-    e.currentTarget.style.cursor = 'grabbing';
-    const r = wrap.getBoundingClientRect();
-    dragRef.current = { node: nd, offX: (e.clientX - r.left) - nd.x, offY: (e.clientY - r.top) - nd.y };
-  };
-  const move = (nd: WebNode) => (e: React.PointerEvent<HTMLDivElement>) => {
-    const drag = dragRef.current; const wrap = wrapRef.current;
-    if (!drag || drag.node !== nd || !wrap) return;
-    const r = wrap.getBoundingClientRect();
-    nd.x = (e.clientX - r.left) - drag.offX;
-    nd.y = (e.clientY - r.top) - drag.offY;
-  };
-  const up = (nd: WebNode) => (e: React.PointerEvent<HTMLDivElement>) => {
-    e.currentTarget.style.cursor = 'grab';
-    if (dragRef.current && dragRef.current.node === nd) {
-      // rebase so the ambient drift resumes around where it was dropped (no snap-back)
-      const wrap = wrapRef.current; const T = tRef.current;
-      if (wrap && wrap.clientWidth && wrap.clientHeight) {
-        nd.bx = (nd.x - Math.sin(T * 0.5 + nd.phx) * nd.ax) / wrap.clientWidth;
-        nd.by = (nd.y - Math.cos(T * 0.42 + nd.phy) * nd.ay) / wrap.clientHeight;
-      }
-      dragRef.current = null;
-    }
-    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* noop */ }
-  };
-
-  return (
-    <div ref={wrapRef} style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 5, pointerEvents: 'none' }}>
-      <svg width="100%" height="100%" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }} aria-hidden="true">
-        <defs>
-          <filter id="webMaskBlur" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="12" />
-          </filter>
-          <mask id="webTextMask">
-            <rect x="0" y="0" width="100%" height="100%" fill="white" />
-            {/* black = hidden; blurred so threads feather out approaching the text */}
-            <rect ref={maskRef} x="0" y="0" width="0" height="0" rx="34" fill="black" filter="url(#webMaskBlur)" />
-          </mask>
-        </defs>
-        <g mask="url(#webTextMask)">
-          {edgesRef.current.map((e, i) => (
-            <line key={i} ref={(el) => { e.line = el; }}
-              stroke="#2A2A24"
-              strokeWidth={e.broken ? 1 : 1.3}
-              strokeDasharray={e.broken ? '1.5 11' : undefined}
-              strokeLinecap="round"
-              opacity={0} />
-          ))}
-        </g>
-      </svg>
-      {nodesRef.current.map((nd, i) => (
-        <div key={i} ref={(el) => { nd.el = el; }}
-          onPointerDown={down(nd)} onPointerMove={move(nd)} onPointerUp={up(nd)} onPointerCancel={up(nd)}
-          style={{
-            position: 'absolute', top: 0, left: 0, width: nd.size, height: nd.size,
-            borderRadius: nd.size * 0.26,
-            background: '#F4F2EC', border: '1px solid rgba(30,30,25,0.05)',
-            boxShadow: '0 8px 22px rgba(30,30,25,0.10)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: 'grab', touchAction: 'none', userSelect: 'none', willChange: 'transform', opacity: 0,
-            pointerEvents: 'auto',
-          }}>
-          <img src={`/logos/rain/${nd.n}.png`} alt="" draggable={false} style={{
-            width: '58%', height: '58%', objectFit: 'contain', pointerEvents: 'none',
-          }} />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-
 /* ================================================================
-   THE PROBLEM — Carelu-style browser chaos (dark mode)
-   Sticky scroll: text → browser windows slam in → cursor closes → solution
+   THE PROBLEM — classic editorial treatment.
+   Serif headline, calm bone ground, three quiet columns divided by
+   hairlines — consistent with the results / platform sections.
    ================================================================ */
 function Problem() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const [t, setT] = useState(0);
-
-  // Scroll-tied progress (so the animation rewinds when user scrolls back up).
-  // No sticky pinning — uses the section's natural position in the viewport to compute t,
-  // so there's no 100vh "exit transition" that reads as empty space.
-  useEffect(() => {
-    let raf = 0;
-    const update = () => {
-      const el = trackRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const vh = window.innerHeight;
-      // t = 0 when the section's top is at viewport bottom (just appearing);
-      // t = 1 when the section's bottom is at viewport top (fully scrolled past).
-      // Animation runs as the section traverses the viewport — t=0 when section's
-      // top hits the viewport bottom, t=1 when the section's top hits the viewport top.
-      const t = Math.max(0, Math.min(1, (vh - rect.top) / vh));
-      setT(t);
-    };
-    const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); };
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    };
-  }, []);
-
-  // The chaos animation was reduced to the tool web only — the old browser-tabs
-  // sequence (and its phase timing) moved to _archive/ChaosTabsAnimation.tsx.
-  const closed = false;  // section never "closes" — it just scrolls away naturally
+  const COLS = [
+    {
+      title: 'More tools than ever',
+      body: 'Calls, forms, EHRs, spreadsheets \u2014 a front-office stack that grows every quarter.',
+      icon: (
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#2B2A26" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="7" y="7" width="14" height="14" rx="3" />
+          <rect x="27" y="7" width="14" height="14" rx="3" />
+          <rect x="7" y="27" width="14" height="14" rx="3" />
+          <rect x="27" y="27" width="14" height="14" rx="3" strokeDasharray="2.5 3.5" fill="rgba(212,242,92,0.4)" />
+        </svg>
+      ),
+    },
+    {
+      title: 'None of it moves alone',
+      body: 'Every handoff waits for a human to push it. On nights and weekends, nobody does.',
+      icon: (
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#2B2A26" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M10 24a7 7 0 0 1 7-7h4" />
+          <path d="M38 24a7 7 0 0 1-7 7h-4" />
+          <path d="M21 31h-4a7 7 0 0 1-6.3-4" />
+          <path d="M27 17h4a7 7 0 0 1 6.3 4" />
+          <path d="M23 21.5l2 5" strokeDasharray="2 3" />
+        </svg>
+      ),
+    },
+    {
+      title: 'So families slip away',
+      body: 'The family who called you first signs with whoever completes intake first.',
+      icon: (
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#2B2A26" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M12 8h16v32H12z" />
+          <path d="M28 8l8 4v28l-8-4" />
+          <circle cx="24" cy="24" r="1.2" fill="#2B2A26" />
+          <path d="M33 20l6 4-6 4" strokeDasharray="2 3" />
+        </svg>
+      ),
+    },
+  ];
 
   return (
-    <div ref={trackRef} style={{
-      height: '100svh', position: 'relative',
-      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-      backgroundColor: closed ? '#FAF8F3' : '#fff',
-      transition: 'background-color 0.5s',
-      overflow: 'hidden',
-    }}>
-        {/* Ambient glow for solution phase -- no earth image, pure dark with subtle accent radial */}
-        {t > 0.5 && (
-          <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
-            <div style={{
-              position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)',
-              width: '120%', height: '80%',
-              background: `radial-gradient(ellipse 40% 40% at 50% 40%, rgba(74,124,63,${Math.min((t - 0.5) * 2, 0.08)}) 0%, transparent 70%)`,
-              transition: 'opacity 0.8s',
-            }} />
-          </div>
-        )}
+    <section style={{ background: '#FFFFFF', borderTop: '1px solid rgba(43,42,38,0.06)', borderBottom: '1px solid rgba(43,42,38,0.06)', padding: 'clamp(70px, 9vh, 120px) 24px clamp(110px, 15vh, 190px)' }}>
+      <div style={{ maxWidth: 1080, margin: '0 auto', textAlign: 'center' }}>
+        <div className="rv"><Pill>The problem</Pill></div>
+        <h2 className="rv-scale d1" style={{
+          fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 4.6vw, 62px)',
+          fontWeight: 400, lineHeight: 1.12, color: '#1c1b18',
+          letterSpacing: '-0.01em', margin: '26px auto 22px', maxWidth: 760, textWrap: 'balance',
+        }}>
+          Nothing&rsquo;s broken.<br />You&rsquo;re <em style={{ fontStyle: 'italic' }}>still</em> losing families.
+        </h2>
+        <p className="rv d2" style={{
+          fontSize: 17, color: '#6b675e', lineHeight: 1.75, maxWidth: 620, margin: '0 auto',
+        }}>
+          Your front office has more tools, more headcount, more handoffs than ever &mdash;
+          and still, none of it moves on its own.
+        </p>
 
-        {/* Loose, frayed web of every tool wired to the system of record */}
-        <SystemWeb textRef={textRef} />
-
-        {/* Text overlay — above the tile pile so it stays readable; pointer-through
-            so the tiles behind it are still draggable */}
-        <div style={{ textAlign: 'center', position: 'relative', zIndex: 6, pointerEvents: 'none', padding: '0 36px', marginBottom: 32, width: '100%' }}>
-          {/* Problem text */}
-          <div ref={textRef} style={{ opacity: 1, transition: 'opacity 0.3s', position: 'absolute', inset: 0 }}>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4.2vw, 52px)', fontWeight: 400, lineHeight: 1.12, letterSpacing: '-0.02em', color: '#000', maxWidth: 720, margin: '0 auto 16px' }}>
-              Nothing&rsquo;s broken.<br />You&rsquo;re still losing families.
-            </h2>
-            <p style={{ fontSize: 17, color: '#666', lineHeight: 1.7, maxWidth: 600, margin: '0 auto' }}>
-              Your front office has more tools, more headcount, more handoffs than ever &mdash; and still, none of it moves on its own. So intake stalls, and families slip to the competitor who completes intake first.
-            </p>
-          </div>
-          {/* Solution headline + cards are rendered in a separate zIndex 9 layer below */}
-          {/* Spacer */}
-          <div style={{ visibility: 'hidden' }}>
-            <span style={{ display: 'inline-block', fontSize: 11, marginBottom: 20 }}>&nbsp;</span>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4.2vw, 52px)', fontWeight: 400, lineHeight: 1.12, maxWidth: 720, margin: '0 auto 16px' }}>&nbsp;<br />&nbsp;</h2>
-            <p style={{ fontSize: 17, lineHeight: 1.7, maxWidth: 480, margin: '0 auto' }}>&nbsp;</p>
-          </div>
+        <div className="problem-cols" style={{
+          display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', alignItems: 'start',
+          maxWidth: 1020, margin: 'clamp(64px, 9vh, 110px) auto 0',
+        }}>
+          {COLS.map((c, i) => (
+            <div key={c.title} className={`rv d${i + 1}`} style={{
+              padding: '8px clamp(20px, 3.5vw, 48px)',
+              borderLeft: i === 0 ? 'none' : '1px solid rgba(43,42,38,0.12)',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 22, opacity: 0.85 }}>{c.icon}</div>
+              <div style={{
+                fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 400,
+                color: '#1c1b18', marginBottom: 12, letterSpacing: '-0.005em',
+              }}>{c.title}</div>
+              <p style={{ fontSize: 15, color: '#6b675e', lineHeight: 1.7, margin: 0 }}>{c.body}</p>
+            </div>
+          ))}
         </div>
 
-        {/* Solution-phase reveal was moved to the MuralReveal section below.
-            Keeping this conditional empty so the chaos-tabs animation still plays out. */}
-    </div>
+        {/* Editorial full stop — the dark circle mark, same language as the FAQ toggle */}
+        <div className="rv" style={{ display: 'flex', justifyContent: 'center', marginTop: 'clamp(52px, 7vh, 84px)' }}>
+          <div aria-hidden="true" style={{
+            width: 32, height: 32, borderRadius: '50%', background: '#2B2A26',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#FAF8F3" strokeWidth="1.4" strokeLinecap="round">
+              <path d="M6 1.5v9M1.5 6h9" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -1120,32 +925,44 @@ function Problem() {
 // ── LIVE COUNTER — animated count-up on enter, live ticks afterwards ──
 function LiveCounter() {
   const target = getLiveCount();
-  const [count, setCount] = useState(0);
+  const START = Math.max(0, target - 240);
+  const [count, setCount] = useState(START);
   const [bumped, setBumped] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const ran = useRef(false);
 
-  // Animate from 0 → target when the counter scrolls into view
+  // Race from 0 → target every time the counter scrolls into view — or is touched
+  const rafRef = useRef(0);
+  const raceRef = useRef<() => void>(() => {});
   useEffect(() => {
+    const race = () => {
+      cancelAnimationFrame(rafRef.current);
+      setCount(START);
+      const dur = 1100;
+      const t0 = performance.now();
+      const tick = (now: number) => {
+        const p = Math.min((now - t0) / dur, 1);
+        // ease-out: the last digits spin briefly, then settle
+        const eased = 1 - Math.pow(1 - p, 3);
+        setCount(Math.round(START + eased * (target - START)));
+        if (p < 1) rafRef.current = requestAnimationFrame(tick);
+      };
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    raceRef.current = race;
     const el = ref.current; if (!el) return;
     const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !ran.current) {
+      if (e.isIntersecting) {
         ran.current = true;
-        const dur = 2200;
-        const t0 = performance.now();
-        (function tick(now: number) {
-          const p = Math.min((now - t0) / dur, 1);
-          // ease-out quart for a "racing then settling" feel
-          const eased = 1 - Math.pow(1 - p, 4);
-          setCount(Math.round(eased * target));
-          if (p < 1) requestAnimationFrame(tick);
-        })(t0);
-        obs.disconnect();
+        race();
+      } else {
+        cancelAnimationFrame(rafRef.current);
+        setCount(START);
       }
     }, { threshold: 0.3 });
     obs.observe(el);
-    return () => obs.disconnect();
-  }, [target]);
+    return () => { obs.disconnect(); cancelAnimationFrame(rafRef.current); };
+  }, [target, START]);
 
   // After the initial count-up, keep ticking live every ~6s with a subtle "bump" cue
   useEffect(() => {
@@ -1160,10 +977,10 @@ function LiveCounter() {
   }, []);
 
   return (
-    <div ref={ref} className="rv-scale" style={{ textAlign: 'center' }}>
+    <div ref={ref} className="rv-scale" style={{ textAlign: 'center', cursor: 'default' }} onMouseEnter={() => { if (ran.current) raceRef.current(); }}>
       <div style={{
         fontFamily: 'var(--font-display)',
-        fontSize: 'clamp(44px, 5vw, 68px)',
+        fontSize: 'clamp(32px, 3.2vw, 44px)',
         fontWeight: 400,
         color: 'var(--green-900)',
         lineHeight: 1,
@@ -1177,14 +994,14 @@ function LiveCounter() {
         {count.toLocaleString()}+
       </div>
       <div style={{
-        marginTop: 12,
-        fontSize: 15, fontWeight: 500,
+        marginTop: 10,
+        fontSize: 13.5, fontWeight: 400, letterSpacing: '0.01em',
         color: 'var(--green-900)', opacity: 0.6,
       }}>
-        families connected to care across {HERO_STATES} states
+        families connected to care across {SERVED_STATES} states
       </div>
       <div style={{
-        marginTop: 14,
+        marginTop: 10,
         display: 'inline-flex', alignItems: 'center', gap: 7,
       }}>
         <span className="dot-pulse" style={{
@@ -1217,6 +1034,10 @@ function Pill({ children, dark }: { children: string; dark?: boolean }) {
       border: dark ? '1px solid rgba(255,255,255,0.18)' : '1px solid rgba(0,0,0,0.06)',
       boxShadow: dark ? 'none' : '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)',
     }}>
+      <span aria-hidden="true" style={{
+        width: 6, height: 6, borderRadius: '50%', background: 'var(--lime)',
+        border: '1px solid rgba(43,42,38,0.25)', marginRight: 9, flexShrink: 0,
+      }} />
       {children}
     </span>
   );
@@ -1286,9 +1107,9 @@ function CeoLetter() {
             </p>
           </div>
 
-          {/* Signature block */}
+          {/* Signature block — the name writes itself once the letter is read */}
           <div className="rv d3" style={{ marginTop: 'clamp(36px, 4.5vw, 52px)' }}>
-            <div style={{
+            <div className="sig-write" style={{
               fontFamily: "'Mrs Saint Delafield', 'EB Garamond', cursive",
               fontSize: 'clamp(44px, 5vw, 56px)',
               lineHeight: 1,
@@ -1299,7 +1120,7 @@ function CeoLetter() {
             }}>
               Yoni Belson
             </div>
-            <div style={{
+            <div className="sig-title" style={{
               marginTop: 14,
               fontSize: 11.5, fontWeight: 600, color: 'var(--gray-500)',
               letterSpacing: '0.14em', textTransform: 'uppercase',
@@ -1315,12 +1136,13 @@ function CeoLetter() {
 
 // ── CHANNEL ICONS — small stroke-based glyphs for each pill ──
 function ChannelIcon({ name }: { name: string }) {
+  // Thin-line editorial icons — same hand as the journey/problem drawings
   const common = {
-    width: 13, height: 13,
+    width: 14, height: 14,
     viewBox: '0 0 24 24',
     fill: 'none',
     stroke: 'currentColor',
-    strokeWidth: 1.7,
+    strokeWidth: 1.4,
     strokeLinecap: 'round' as const,
     strokeLinejoin: 'round' as const,
   };
@@ -1328,43 +1150,45 @@ function ChannelIcon({ name }: { name: string }) {
     case 'Phone':
       return (
         <svg {...common}>
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          <path d="M5.2 3.5h3l1.6 3.9-2 1.5a13.6 13.6 0 0 0 6.3 6.3l1.5-2 3.9 1.6v3a1.8 1.8 0 0 1-2 1.8C11 19 5 13 4 6.5a1.8 1.8 0 0 1 1.2-3z" />
         </svg>
       );
     case 'Text':
       return (
         <svg {...common}>
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          <rect x="3.5" y="4.5" width="17" height="12.5" rx="3" />
+          <path d="M8 17v4l4-4" />
         </svg>
       );
     case 'Chat':
       return (
         <svg {...common}>
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+          <path d="M12 3.8a8.2 8.2 0 1 1-4.2 15.3L3.6 20.4l1.3-4.2A8.2 8.2 0 0 1 12 3.8z" />
+          <path d="M8.5 12h7" strokeDasharray="0.1 3.4" />
         </svg>
       );
     case 'Forms':
       return (
         <svg {...common}>
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-          <polyline points="14 2 14 8 20 8" />
-          <line x1="9" y1="13" x2="15" y2="13" />
-          <line x1="9" y1="17" x2="13" y2="17" />
+          <path d="M6.5 3h7.5l4 4v14h-11.5z" />
+          <path d="M14 3v4h4" />
+          <path d="M10 12.5h5M10 16h3.5" />
         </svg>
       );
     case 'Fax':
       return (
         <svg {...common}>
-          <polyline points="6 9 6 2 18 2 18 9" />
-          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-          <rect x="6" y="14" width="12" height="8" rx="1" />
+          <path d="M7.5 8.5V3h9v5.5" />
+          <rect x="4" y="8.5" width="16" height="8" rx="2" />
+          <path d="M7.5 16.5V21h9v-4.5" />
+          <circle cx="17" cy="11.2" r="0.4" fill="currentColor" stroke="none" />
         </svg>
       );
     case 'Email':
       return (
         <svg {...common}>
-          <rect x="2" y="4" width="20" height="16" rx="2" />
-          <polyline points="2 7 12 13 22 7" />
+          <rect x="3.5" y="5" width="17" height="13.5" rx="2.5" />
+          <path d="M4.5 7.5l7.5 5.7 7.5-5.7" />
         </svg>
       );
     default:
@@ -1373,32 +1197,51 @@ function ChannelIcon({ name }: { name: string }) {
 }
 
 // ── HANDOFF VISUAL — patient card with animated 5-step progress ribbon + team handoff footer ──
+const HANDOFF_CASES = [
+  { name: 'Jake M., age 4', detail: 'Blue Cross PPO \u00b7 ABA Therapy', photo: '/kids/kid-1.jpg' },
+  { name: 'Mia R., age 6', detail: 'Aetna HMO \u00b7 Initial assessment', photo: '/kids/kid-2.jpg' },
+  { name: 'Noah K., age 3', detail: 'United \u00b7 ABA Therapy', photo: '/kids/kid-3.jpg' },
+  { name: 'Ava T., age 5', detail: 'Cigna PPO \u00b7 Re-evaluation', photo: '/kids/kid-4.jpg' },
+];
+
 function HandoffVisual() {
   const milestones = ['Intake', 'Insurance', 'Forms', 'Schedule', 'Ready'];
   const [filled, setFilled] = useState(0);
+  const [caseIdx, setCaseIdx] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
+  // A living intake desk: each case completes, hands off, and the next
+  // family arrives — looping for as long as the card is on screen.
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    let interval: ReturnType<typeof setInterval> | undefined;
-    let ran = false;
+    const el = ref.current; if (!el) return;
+    let running = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    let p = 0;
+    const step = () => {
+      if (!running) return;
+      if (p < milestones.length) {
+        p++;
+        setFilled(p);
+        timer = setTimeout(step, p === milestones.length ? 3000 : 430);
+      } else {
+        p = 0;
+        setFilled(0);
+        setCaseIdx((i) => (i + 1) % HANDOFF_CASES.length);
+        timer = setTimeout(step, 750);
+      }
+    };
     const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !ran) {
-        ran = true;
-        let p = 0;
-        interval = setInterval(() => {
-          p++;
-          setFilled(p);
-          if (p >= milestones.length) {
-            if (interval) clearInterval(interval);
-          }
-        }, 280);
-        obs.disconnect();
+      if (e.isIntersecting && !running) {
+        running = true;
+        timer = setTimeout(step, 400);
+      } else if (!e.isIntersecting && running) {
+        running = false;
+        if (timer) clearTimeout(timer);
       }
     }, VISUAL_IN_VIEW);
     obs.observe(el);
-    return () => { obs.disconnect(); if (interval) clearInterval(interval); };
+    return () => { obs.disconnect(); if (timer) clearTimeout(timer); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const teamAvatars: { initials: string; bg: string }[] = [
@@ -1491,22 +1334,21 @@ function HandoffVisual() {
         </div>
 
         {/* Patient identity — clean horizontal row */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 36 }}>
+        <div key={caseIdx} className="ho-case" style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 36 }}>
           <div style={{
-            width: 52, height: 52, borderRadius: '50%',
-            background: 'linear-gradient(135deg, #F4F1EA 0%, #E9E4D6 100%)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 500,
-            letterSpacing: '0.02em',
-            color: 'var(--green-900)', flexShrink: 0,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-          }}>JM</div>
+            width: 56, height: 56, borderRadius: 16,
+            border: '1px solid rgba(43,42,38,0.08)',
+            overflow: 'hidden', flexShrink: 0,
+            boxShadow: '0 2px 10px rgba(30,30,25,0.08)',
+          }}>
+            <img src={HANDOFF_CASES[caseIdx].photo} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </div>
           <div style={{ minWidth: 0 }}>
             <div style={{ fontSize: 16, fontWeight: 500, color: 'var(--green-900)', marginBottom: 3 }}>
-              Jake M., age 4
+              {HANDOFF_CASES[caseIdx].name}
             </div>
             <div style={{ fontSize: 13, color: 'var(--gray-500)' }}>
-              Blue Cross PPO · ABA Therapy
+              {HANDOFF_CASES[caseIdx].detail}
             </div>
           </div>
         </div>
@@ -1587,7 +1429,7 @@ function HandoffVisual() {
           </span>
           <span style={{
             fontSize: 13, fontWeight: 400, color: 'var(--green-900)',
-            whiteSpace: 'nowrap',
+            minWidth: 0,
           }}>
             Handed off to clinical team
           </span>
@@ -1906,6 +1748,7 @@ function ChannelsHub() {
 
 // ── HOW CARELU WORKS ── (video subsection removed)
 function HowCarelu() {
+  const isMobile = useIsMobile();
   const steps = [
     {
       step: '01',
@@ -1928,18 +1771,29 @@ function HowCarelu() {
       desc: 'Missing documents? Carelu nudges. Doctor hasn\'t responded? It follows up. And every document and detail syncs to the family record — intake\'s source of truth. Once it\'s complete and signed, Carelu schedules the assessment and hands off a ready case.',
       visual: <HandoffVisual />,
     },
+    {
+      step: '04',
+      tag: 'Your dashboard',
+      title: 'And you watch it all happen. Live.',
+      desc: 'Every family Carelu touches lands in your pipeline in real time. Ask AI any question about your intake, and reporting shows exactly what each channel delivers. Keep scrolling — the app walks you through itself.',
+      // Desktop: an empty anchor pane — the ONE real app frame (rendered by
+      // HowItWorksScroll) sits glued over it and later grows out of the card.
+      // Mobile keeps the self-contained mini frame.
+      visual: isMobile ? <ProductPeek /> : <div id="how-frame-anchor" style={{ width: '100%', aspectRatio: '760 / 477' }} />,
+      wide: true,
+    },
   ];
   return <HowItWorksScroll steps={steps} />;
 }
 
-type HowStep = { step: string; tag: string; title: string; desc: string; visual: React.ReactNode };
+type HowStep = { step: string; tag: string; title: string; desc: string; visual: React.ReactNode; wide?: boolean };
 
 // One step card — shared by the desktop horizontal track and the mobile vertical stack.
 function HowStepCard({ s, mobile }: { s: HowStep; mobile?: boolean }) {
   return (
     <div style={{
-      background: '#fff', borderRadius: 24,
-      boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.03)',
+      background: '#fff', borderRadius: 0,
+      boxShadow: '0 0 0 1px rgba(43,42,38,0.08), 0 22px 44px -20px rgba(30,30,25,0.16)',
       display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1.2fr',
       overflow: 'hidden',
       width: mobile ? '100%' : 'clamp(640px, 78vw, 900px)',
@@ -1950,7 +1804,9 @@ function HowStepCard({ s, mobile }: { s: HowStep; mobile?: boolean }) {
       <div style={{
         padding: mobile ? '28px 20px' : 36,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: 'rgba(0,0,0,0.015)',
+        background: 'rgba(43,42,38,0.02)',
+        borderRight: mobile ? 'none' : '1px solid rgba(43,42,38,0.07)',
+        borderBottom: mobile ? '1px solid rgba(43,42,38,0.07)' : 'none',
         minWidth: 0, overflow: 'hidden',
       }}>
         {s.visual}
@@ -1962,18 +1818,19 @@ function HowStepCard({ s, mobile }: { s: HowStep; mobile?: boolean }) {
       }}>
         <div>
           <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: 10,
+            display: 'inline-flex', alignItems: 'center', gap: 11,
             fontSize: 11, fontWeight: 600, color: 'var(--gray-500)',
-            letterSpacing: '0.12em', textTransform: 'uppercase',
+            letterSpacing: '0.14em', textTransform: 'uppercase',
             marginBottom: 14,
           }}>
             <span style={{
-              width: 22, height: 22, borderRadius: '50%',
-              background: 'var(--lime)', color: 'var(--green-900)',
+              width: 28, height: 28, borderRadius: '50%',
+              background: 'transparent', color: 'var(--green-900)',
+              border: '1px solid rgba(43,42,38,0.30)',
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: 11, fontWeight: 700, letterSpacing: 0,
-              fontFamily: 'var(--font-body)',
-            }}>{s.step}</span>
+              fontSize: 12, fontWeight: 400, letterSpacing: '0.04em',
+              fontFamily: 'var(--font-display)',
+            }}>{['I', 'II', 'III', 'IV'][parseInt(s.step, 10) - 1] || s.step}</span>
             Step
           </div>
           <h3 style={{
@@ -1995,18 +1852,20 @@ function HowStepCard({ s, mobile }: { s: HowStep; mobile?: boolean }) {
           marginTop: mobile ? 22 : 28, paddingTop: 20, borderTop: '1px solid rgba(0,0,0,0.06)',
         }}>
           <span style={{
-            display: 'inline-block', fontSize: 12, fontWeight: 500,
-            color: 'var(--gray-600)', background: 'rgba(0,0,0,0.04)',
+            display: 'inline-block', fontSize: 11.5, fontWeight: 500,
+            color: 'var(--gray-600)', background: 'transparent',
+            border: '1px solid rgba(43,42,38,0.22)',
+            letterSpacing: '0.04em',
             borderRadius: 999, padding: '6px 14px',
           }}>
             {s.tag}
           </span>
           <div style={{
-            width: 36, height: 36, borderRadius: '50%',
-            background: 'var(--green-900)',
+            width: 34, height: 34, borderRadius: '50%',
+            background: '#2B2A26',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#FAF8F3" strokeWidth="1.4" strokeLinecap="round"><path d="M6 1.5v9M1.5 6h9" /></svg>
           </div>
         </div>
       </div>
@@ -2014,14 +1873,34 @@ function HowStepCard({ s, mobile }: { s: HowStep; mobile?: boolean }) {
   );
 }
 
+// The pinned how-it-works scroll plays in two acts:
+//   Act one  — steps I–III slide across as cards.
+//   Act two  — the cards dissolve and the product opens up full-stage; the
+//              remaining scroll walks through its three screens.
+const HOW_SLIDE_START = 0.04, HOW_SLIDE_END = 0.44;  // card slide (all four steps)
+const HOW_OPEN_START = 0.47, HOW_OPEN_END = 0.60;    // step IV's card grows into the product
+const HOW_TABS_START = 0.62, HOW_TABS_END = 0.96;    // one dwell zone per screen
+
 function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
   const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
+  const act1Ref = useRef<HTMLDivElement>(null);
+  const act2Ref = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const spacerRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
+  const [stageTab, setStageTab] = useState(0);
+
+  // Step IV rides in the row like any other card; its `wide` flag only marks
+  // which step the full-stage act develops out of.
+  const cardSteps = steps;
+  const finale = steps.find((s) => s.wide);
 
   useEffect(() => {
     if (isMobile) return; // mobile renders a vertical stack — no scroll-jacking
+    const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
     const onScroll = () => {
       const section = sectionRef.current;
       const track = trackRef.current;
@@ -2030,42 +1909,79 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
       const trackH = rect.height - window.innerHeight;
       if (trackH <= 0) return;
 
-      const progress = Math.max(0, Math.min(1, -rect.top / trackH));
-      // Animation starts as soon as the section enters view (header + first card
-      // visible together) and finishes shortly before it scrolls off.
-      const START = 0.05;
-      const END = 0.85;
-      const animProgress = Math.max(0, Math.min(1, (progress - START) / (END - START)));
+      const progress = clamp01(-rect.top / trackH);
 
-      // Center the FIRST card at animProgress=0 and the LAST card at
-      // animProgress=1, so the row enters with step 1 centered, slides left as
-      // you scroll, and ends with the final step centered (not flush to an edge).
+      // ── Act one: slide the step cards ──
+      const animProgress = clamp01((progress - HOW_SLIDE_START) / (HOW_SLIDE_END - HOW_SLIDE_START));
       const viewportW = window.innerWidth;
       const cards = track.children;
       const cardW = (cards[0] as HTMLElement).offsetWidth;
       const gap = 32;                   // matches the track's `gap`
       const padLeft = viewportW * 0.08; // matches the track's `padding: 0 8vw`
-      // translateX that puts card i's center at the viewport center
       const centerShift = (i: number) =>
         viewportW / 2 - (padLeft + i * (cardW + gap) + cardW / 2);
       const startShift = centerShift(0);
       const endShift = centerShift(cards.length - 1);
       const shift = startShift + animProgress * (endShift - startShift);
       track.style.transform = `translate3d(${shift}px, 0, 0)`;
+      const total = cards.length;
+      setActiveIdx(Math.min(total - 1, Math.floor(animProgress * total)));
 
-      // Active card indicator
-      const total = steps.length;
-      const idx = Math.min(total - 1, Math.floor(animProgress * total));
-      setActiveIdx(idx);
+      // ── The opening: the card's chrome dissolves, the stage header fades
+      // in — while the ONE app frame (see the rAF loop below) grows from the
+      // card's pane to center stage.
+      const act1 = act1Ref.current, act2 = act2Ref.current;
+      if (act1 && act2 && finale) {
+        const t = clamp01((progress - HOW_OPEN_START) / (HOW_OPEN_END - HOW_OPEN_START));
+        const e = t * t * (3 - 2 * t); // smoothstep
+        act1.style.opacity = String(1 - e);
+        act1.style.pointerEvents = e > 0.5 ? 'none' : '';
+        act2.style.opacity = String(e);
+        act2.style.visibility = e === 0 ? 'hidden' : 'visible';
+        act2.style.pointerEvents = e > 0.5 ? '' : 'none';
+
+        // ── Act two: the scrollbar turns the product's pages ──
+        const tp = Math.min(0.999, clamp01((progress - HOW_TABS_START) / (HOW_TABS_END - HOW_TABS_START)));
+        setStageTab(Math.floor(tp * PR_TABS.length));
+      }
     };
+
+    // The morph itself runs on rAF: every frame the app frame is re-glued to
+    // wherever its anchor pane currently is (the pane rides the sliding,
+    // easing track), and interpolated toward the stage spacer as `e` rises.
+    // One element, continuously repositioned — never two copies.
+    let raf = 0;
+    const sync = () => {
+      raf = requestAnimationFrame(sync);
+      const section = sectionRef.current, pin = pinRef.current, frameEl = frameRef.current, spacer = spacerRef.current;
+      const anchor = document.getElementById('how-frame-anchor');
+      if (!section || !pin || !frameEl || !spacer || !anchor) return;
+      const rect = section.getBoundingClientRect();
+      const trackH = rect.height - window.innerHeight;
+      if (trackH <= 0) return;
+      const progress = clamp01(-rect.top / trackH);
+      const t = clamp01((progress - HOW_OPEN_START) / (HOW_OPEN_END - HOW_OPEN_START));
+      const e = t * t * (3 - 2 * t);
+      const pr = pin.getBoundingClientRect();
+      const a = anchor.getBoundingClientRect();
+      const b = spacer.getBoundingClientRect();
+      const sA = a.width / 760, sB = b.width / 760;
+      const x = (a.left - pr.left) * (1 - e) + (b.left - pr.left) * e;
+      const y = (a.top - pr.top) * (1 - e) + (b.top - pr.top) * e;
+      const s = sA * (1 - e) + sB * e;
+      frameEl.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
+    };
+    raf = requestAnimationFrame(sync);
+
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     onScroll();
     return () => {
+      cancelAnimationFrame(raf);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
-  }, [steps.length, isMobile]);
+  }, [steps.length, isMobile, finale]);
 
   // ── MOBILE: vertical stack — step 1 → 2 → 3 top to bottom, no pinning ──
   if (isMobile) {
@@ -2103,16 +2019,18 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
   // ── DESKTOP: pinned horizontal track, step 1 centered → step 3 centered ──
   return (
     <section id="how-it-works" ref={sectionRef} style={{
-      height: '320vh', position: 'relative', background: 'var(--bone)',
+      height: '650vh', position: 'relative', background: 'var(--bone)',
     }}>
-      <div style={{
-        position: 'sticky', top: 0, height: '100svh',
-        display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        overflow: 'hidden',
-      }}>
+      <div ref={pinRef} style={{ position: 'sticky', top: 0, height: '100svh', overflow: 'hidden' }}>
+        {/* Act one — the step cards */}
+        <div ref={act1Ref} style={{
+          position: 'absolute', inset: 0,
+          display: 'flex', flexDirection: 'column', justifyContent: 'center',
+          willChange: 'opacity, transform',
+        }}>
         {/* Header — INSIDE the sticky pin so it stays locked with the cards */}
         <div style={{
-          paddingTop: 'clamp(24px, 3vh, 40px)', paddingBottom: 'clamp(24px, 3.5vh, 44px)',
+          paddingTop: 'clamp(24px, 3vh, 40px)', paddingBottom: 'clamp(48px, 7vh, 84px)',
           textAlign: 'center', flex: '0 0 auto',
         }}>
           <div className="rv"><Pill>How it works</Pill></div>
@@ -2151,7 +2069,7 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
               transition: 'transform 0.05s linear',
             }}
           >
-            {steps.map((s) => (
+            {cardSteps.map((s) => (
               <HowStepCard key={s.step} s={s} />
             ))}
           </div>
@@ -2159,18 +2077,61 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
 
         {/* Progress dots — just below the card row */}
         <div style={{
-          marginTop: 'clamp(20px, 3vh, 32px)', paddingBottom: 0,
-          display: 'flex', justifyContent: 'center', gap: 8,
+          marginTop: 'clamp(44px, 6vh, 68px)', paddingBottom: 0,
+          display: 'flex', justifyContent: 'center', gap: 14,
         }}>
-          {steps.map((_, i) => (
+          {cardSteps.map((_, i) => (
             <div key={i} style={{
-              width: i === activeIdx ? 24 : 8, height: 8,
-              borderRadius: 4,
-              background: i === activeIdx ? 'var(--green-900)' : 'rgba(0,0,0,0.18)',
+              width: 34, height: 2,
+              borderRadius: 0,
+              background: i === activeIdx ? '#2B2A26' : 'rgba(43,42,38,0.15)',
               transition: 'width 0.3s var(--ease-dramatic), background 0.2s',
             }} />
           ))}
         </div>
+        </div>
+
+        {/* Act two — the stage the frame grows into: no repeated text, just an
+            empty spacer where the frame lands and the tab pill beneath it */}
+        {finale && (
+          <div ref={act2Ref} style={{
+            position: 'absolute', inset: 0,
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            opacity: 0, visibility: 'hidden', pointerEvents: 'none',
+            willChange: 'opacity',
+            padding: '0 clamp(20px, 4.5vw, 40px)', boxSizing: 'border-box',
+          }}>
+            {/* Where the frame lands — sized like the frame, kept empty */}
+            <div ref={spacerRef} style={{
+              width: '100%',
+              maxWidth: 'min(820px, calc((100svh - 160px) * 1.594))',
+              aspectRatio: '760 / 477',
+            }} />
+          </div>
+        )}
+
+        {/* THE app frame — the only copy on the page. It starts glued over
+            step IV's anchor pane and morphs to the spacer as you scroll. */}
+        {finale && (
+          <div ref={frameRef} style={{
+            position: 'absolute', left: 0, top: 0, width: 760,
+            transformOrigin: 'top left', willChange: 'transform',
+            pointerEvents: 'none', zIndex: 3,
+            background: '#FCFBF8', borderRadius: 16, overflow: 'hidden',
+            boxShadow: '0 0 0 1px rgba(43,42,38,0.09), 0 26px 54px -22px rgba(30,30,25,0.18)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '13px 18px', borderBottom: '1px solid rgba(43,42,38,0.06)', boxSizing: 'border-box', height: 43 }}>
+              <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+              <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+              <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+              <span style={{ margin: '0 auto', fontSize: 11.5, color: 'rgba(43,42,38,0.45)', fontWeight: 500 }}>app.carelu.com</span>
+              <span style={{ width: 45 }} />
+            </div>
+            <div key={stageTab} className="pr-panel" style={{ height: 434, overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              {stageTab === 0 ? <PrPipeline /> : stageTab === 1 ? <PrAsk /> : <PrReporting />}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -2178,9 +2139,8 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
 
 // ── OUTCOMES — expandable improvement-metric rows ──────────
 
-function Outcomes() {
-  const [open, setOpen] = useState<number | null>(0);
-  const metrics = [
+// The outcomes content — metrics and their proof points.
+const OUTCOME_METRICS = [
     {
       v: 40, s: '%', label: 'Increase in lead volume',
       bullets: [
@@ -2224,7 +2184,11 @@ function Outcomes() {
         'Thousands of clinicians brought to providers.',
       ],
     },
-  ];
+];
+
+function Outcomes() {
+  const [open, setOpen] = useState<number | null>(0);
+  const metrics = OUTCOME_METRICS;
   const numCol = 'clamp(96px, 11vw, 150px)';
   return (
     <section id="outcomes" style={{
@@ -2315,84 +2279,580 @@ function Outcomes() {
   );
 }
 
+// Real per-state family counts — the source of truth for this section.
+const STATE_FAMILIES: Record<string, number> = {
+  'North Carolina': 8570, 'Georgia': 6920, 'New Jersey': 6145, 'Maryland': 5540,
+  'Virginia': 5360, 'Colorado': 5205, 'Utah': 4950, 'Indiana': 4380,
+  'New York': 4150, 'Arizona': 4016, 'Missouri': 3505, 'Massachusetts': 3210,
+  'Tennessee': 3060, 'Ohio': 2980, 'New Mexico': 2940, 'Illinois': 2870,
+  'Florida': 2830, 'Texas': 2760, 'Kansas': 2745, 'Nebraska': 2620,
+  'Pennsylvania': 2405, 'Oklahoma': 2290, 'California': 2260, 'Iowa': 2180,
+  'Nevada': 2145, 'South Carolina': 2090, 'Connecticut': 1880, 'Wisconsin': 1755,
+  'New Hampshire': 1720, 'Alabama': 1640,
+};
+const SERVED_STATES = Object.keys(STATE_FAMILIES).length;
 
-// ── IMPACT — clean stat cards on cream ──────────
+// Cities the flashing "family connected" dots light up in — all inside served
+// states, weighted toward the biggest ones.
+const GLOBE_CITIES: [number, number][] = [
+  [-80.8, 35.2], [-78.6, 35.8], [-84.4, 33.7], [-74.2, 40.7], [-76.6, 39.3],
+  [-77.4, 37.5], [-104.9, 39.7], [-111.9, 40.8], [-86.2, 39.8], [-74.0, 40.7],
+  [-112.1, 33.5], [-90.2, 38.6], [-71.1, 42.4], [-86.8, 36.2], [-83.0, 40.0],
+  [-106.6, 35.1], [-87.6, 41.9], [-81.4, 28.5], [-96.8, 32.8], [-97.3, 37.7],
+  [-96.0, 41.3], [-75.2, 39.9], [-97.5, 35.5], [-121.5, 38.6], [-93.6, 41.6],
+  [-115.1, 36.2], [-80.0, 32.8], [-72.7, 41.8], [-88.0, 43.0], [-71.5, 43.0],
+];
+
+const stateFamilies = (name: string) => STATE_FAMILIES[name] ?? 0;
+
+/* The sky globe: an orthographic Earth textured with the hero sky. It spins
+   once around the world on arrival, settles facing the United States, sways
+   gently, holds still under the cursor, and names the state you touch. */
+function SkyGlobe() {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const tipRef = useRef<HTMLDivElement>(null);
+  const [geo, setGeo] = useState<{ world: object; states: { features: { properties: { name: string } }[] } } | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    Promise.all([
+      fetch('/data/world.json').then((r) => r.json()),
+      fetch('/data/us-states48.geo.json').then((r) => r.json()),
+    ]).then(([worldTopo, states]) => {
+      if (!alive) return;
+      const world = topoFeature(worldTopo, worldTopo.objects.countries);
+      setGeo({ world, states });
+    }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
+
+  useEffect(() => {
+    if (!geo) return;
+    const svg = svgRef.current; if (!svg) return;
+    const projection = geoOrthographic().translate([250, 251]).scale(450).clipAngle(90);
+    const path = geoPath(projection);
+    const graticule = geoGraticule10();
+    const pGrat = svg.querySelector('.gl-grat') as SVGPathElement;
+    const pWorld = svg.querySelector('.gl-world') as SVGPathElement;
+    const pStates = svg.querySelector('.gl-states') as SVGPathElement;
+    const pHi = svg.querySelector('.gl-hi') as SVGPathElement;
+    const cityEls = Array.from(svg.querySelectorAll<SVGCircleElement>('.gl-city'));
+
+    const INTRO = 3.6;
+    let raf = 0;
+    let animT = 0;
+    let last = performance.now();
+    let started = false;
+    let hovering = false;
+    let lam = 98 + 360, phi = -16;
+
+    const render = () => {
+      if (animT < INTRO) {
+        const e = 1 - Math.pow(1 - animT / INTRO, 3);
+        lam = 98 + (1 - e) * 360;
+        phi = -16 - 22 * e;
+      } else {
+        const t2 = animT - INTRO;
+        lam = 98 + Math.sin(t2 * 0.10) * 5;
+        phi = -38 + Math.cos(t2 * 0.07) * 2;
+      }
+      projection.rotate([lam, phi]);
+      pGrat.setAttribute('d', path(graticule) || '');
+      pWorld.setAttribute('d', path(geo.world as never) || '');
+      pStates.setAttribute('d', path(geo.states as never) || '');
+      const center: [number, number] = [-lam, -phi];
+      GLOBE_CITIES.forEach((c, i) => {
+        const el = cityEls[i]; if (!el) return;
+        const pt = projection(c);
+        if (pt && geoDistance(c, center) < 1.45) {
+          el.setAttribute('cx', String(pt[0]));
+          el.setAttribute('cy', String(pt[1]));
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    };
+
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) started = true; }, { threshold: 0.35 });
+    io.observe(svg);
+
+    const tick = (now: number) => {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      if (started && !hovering) animT += dt;
+      render();
+      raf = requestAnimationFrame(tick);
+    };
+    render();
+    raf = requestAnimationFrame(tick);
+
+    // Hover: name the state under the cursor; the globe holds still meanwhile
+    const onMove = (e: MouseEvent) => {
+      const tip = tipRef.current; if (!tip) return;
+      const rect = svg.getBoundingClientRect();
+      const vx = ((e.clientX - rect.left) / rect.width) * 500;
+      const vy = ((e.clientY - rect.top) / rect.height) * 500;
+      const ll = projection.invert ? projection.invert([vx, vy]) : null;
+      let found: { properties: { name: string } } | null = null;
+      if (ll && animT >= INTRO) {
+        const back = projection(ll);
+        if (back && Math.hypot(back[0] - vx, back[1] - vy) < 1) {
+          for (const f of geo.states.features) {
+            if (geoContains(f as never, ll as [number, number])) { found = f; break; }
+          }
+        }
+      }
+      // Only states Carelu actually serves respond to the cursor
+      if (found && stateFamilies(found.properties.name) === 0) found = null;
+      hovering = !!found;
+      if (found) {
+        pHi.setAttribute('d', path(found as never) || '');
+        // Pin the card to the state itself — its centroid on the globe
+        const c = path.centroid(found as never);
+        const wrap = svg.parentElement as HTMLElement;
+        const wr = wrap.getBoundingClientRect();
+        tip.style.left = `${(c[0] / 500) * wr.width}px`;
+        tip.style.top = `${(c[1] / 500) * wr.height - 14}px`;
+        tip.style.opacity = '1';
+        tip.style.transform = 'translate(-50%, -100%) scale(1)';
+        (tip.querySelector('.tip-state') as HTMLElement).textContent = found.properties.name;
+        (tip.querySelector('.tip-count') as HTMLElement).textContent =
+          `${stateFamilies(found.properties.name).toLocaleString()} FAMILIES CONNECTED`;
+      } else {
+        pHi.setAttribute('d', '');
+        tip.style.opacity = '0';
+        tip.style.transform = 'translate(-50%, -100%) scale(0.94)';
+      }
+    };
+    const onLeave = () => {
+      hovering = false;
+      pHi.setAttribute('d', '');
+      const tip = tipRef.current;
+      if (tip) { tip.style.opacity = '0'; tip.style.transform = 'translate(-50%, -100%) scale(0.94)'; }
+    };
+    svg.addEventListener('mousemove', onMove);
+    svg.addEventListener('mouseleave', onLeave);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      io.disconnect();
+      svg.removeEventListener('mousemove', onMove);
+      svg.removeEventListener('mouseleave', onLeave);
+    };
+  }, [geo]);
+
+  // Families flashing at real cities
+  useEffect(() => {
+    if (!geo) return;
+    const svg = svgRef.current; if (!svg) return;
+    let timer: ReturnType<typeof setTimeout>;
+    const flash = () => {
+      if (!document.hidden) {
+        const cities = svg.querySelectorAll('.gl-city');
+        const el = cities[Math.floor(Math.random() * cities.length)];
+        if (el && (el as SVGElement).style.display !== 'none') {
+          el.classList.add('on');
+          setTimeout(() => el.classList.remove('on'), 1900);
+        }
+      }
+      timer = setTimeout(flash, 700 + Math.random() * 1200);
+    };
+    timer = setTimeout(flash, 900);
+    return () => clearTimeout(timer);
+  }, [geo]);
+
+  return (
+    <div className="gl-wrap" style={{
+      position: 'relative', width: 'min(330px, 80%)', margin: '0 auto',
+      aspectRatio: '1 / 1',
+    }}>
+      <div className="gl-sky" aria-hidden="true" style={{
+        position: 'absolute', inset: 0, borderRadius: '50%', overflow: 'hidden',
+        boxShadow: 'inset -18px -24px 60px rgba(20,30,35,0.28), inset 10px 14px 44px rgba(255,255,255,0.35), 0 0 0 1px rgba(43,42,38,0.10)',
+      }}>
+        <div className="gl-sky-img" style={{
+          position: 'absolute', inset: '-12%',
+          backgroundImage: 'url(/hero-sky.jpg)', backgroundSize: 'cover', backgroundPosition: 'center 58%',
+        }} />
+      </div>
+      <svg ref={svgRef} viewBox="0 0 500 500" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'visible', cursor: 'crosshair' }} aria-hidden="true" fill="none">
+        <path className="gl-grat" stroke="rgba(255,255,255,0.28)" strokeWidth="0.5" />
+        <path className="gl-world" fill="rgba(250,248,243,0.14)" stroke="rgba(255,255,255,0.45)" strokeWidth="0.6" />
+        <path className="gl-states" fill="rgba(250,248,243,0.22)" stroke="#FFFFFF" strokeWidth="0.9" strokeLinejoin="round" />
+        <path className="gl-hi" fill="rgba(212,242,92,0.30)" stroke="#FFFFFF" strokeWidth="1.3" strokeLinejoin="round" style={{ pointerEvents: 'none' }} />
+        {GLOBE_CITIES.map((_, i) => (
+          <circle key={i} className="gl-city" r="3.6" />
+        ))}
+      </svg>
+      <div ref={tipRef} aria-hidden="true" style={{
+        position: 'absolute', left: 0, top: 0, opacity: 0, pointerEvents: 'none',
+        transform: 'translate(-50%, -100%) scale(0.94)',
+        transition: 'opacity 0.25s ease, transform 0.25s var(--ease-dramatic)',
+        background: '#FFFFFF', border: '1px solid rgba(43,42,38,0.10)',
+        borderRadius: 14, padding: '10px 18px 9px', textAlign: 'center',
+        boxShadow: '0 8px 28px rgba(30,30,25,0.12)', zIndex: 5, whiteSpace: 'nowrap',
+      }}>
+        <div className="tip-state" style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: '#1c1b18', lineHeight: 1.2 }} />
+        <div className="tip-count" style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: '0.12em', color: 'rgba(43,42,38,0.55)', marginTop: 3 }} />
+        <div aria-hidden="true" style={{
+          position: 'absolute', left: '50%', bottom: -5.5, width: 10, height: 10,
+          background: '#FFFFFF', transform: 'translateX(-50%) rotate(45deg)',
+          borderRight: '1px solid rgba(43,42,38,0.10)', borderBottom: '1px solid rgba(43,42,38,0.10)',
+        }} />
+      </div>
+    </div>
+  );
+}
+
+
+/* ================================================================
+   THE PRODUCT — real Carelu screens rebuilt in code (fictional data),
+   one app frame cycling: pipeline → ask-anything → reporting.
+   ================================================================ */
+const PR_TABS = ['Pipeline', 'Ask AI', 'Reporting'] as const;
+
+function PrPipeline() {
+  const [moved, setMoved] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setMoved(true), 2400);
+    return () => clearTimeout(t);
+  }, []);
+  const chip = (txt: string, lime?: boolean) => (
+    <span style={{
+      fontSize: 10, fontWeight: 500, color: lime ? '#3d4a12' : 'rgba(43,42,38,0.55)',
+      background: lime ? 'rgba(212,242,92,0.45)' : 'rgba(43,42,38,0.05)',
+      borderRadius: 6, padding: '3px 8px', whiteSpace: 'nowrap',
+    }}>{txt}</span>
+  );
+  const card = (name: string, child: string, tags: React.ReactNode, cls: string, hot?: boolean) => (
+    <div className={`pr-card ${cls}`} style={{
+      background: '#fff', borderRadius: 12, padding: '12px 14px',
+      border: hot ? '1px solid rgba(157,187,46,0.65)' : '1px solid rgba(43,42,38,0.08)',
+      boxShadow: hot ? '0 0 0 3px rgba(212,242,92,0.30), 0 4px 14px rgba(30,30,25,0.06)' : '0 2px 8px rgba(30,30,25,0.04)',
+    }}>
+      <div style={{ fontSize: 13, fontWeight: 600, color: '#1c1b18' }}>{name}</div>
+      <div style={{ fontSize: 11.5, color: 'rgba(43,42,38,0.5)', marginTop: 3 }}>{child}</div>
+      <div style={{ display: 'flex', gap: 6, marginTop: 9, flexWrap: 'wrap' }}>{tags}</div>
+    </div>
+  );
+  const col = (dot: string, title: string, count: number, children: React.ReactNode) => (
+    <div style={{ flex: '1 1 0', minWidth: 168, background: 'rgba(43,42,38,0.025)', borderRadius: 14, padding: 10 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '4px 6px 10px' }}>
+        <span style={{ width: 7, height: 7, borderRadius: '50%', background: dot }} />
+        <span style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(43,42,38,0.65)' }}>{title}</span>
+        <span style={{ marginLeft: 'auto', fontSize: 10.5, fontWeight: 600, color: 'rgba(43,42,38,0.55)', background: '#fff', borderRadius: 100, padding: '2px 9px', fontVariantNumeric: 'tabular-nums' }}>{count}</span>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>{children}</div>
+    </div>
+  );
+  return (
+    <div style={{ padding: 'clamp(14px, 2vw, 24px)', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14, flexWrap: 'wrap' }}>
+        <div style={{ display: 'inline-flex', background: 'rgba(43,42,38,0.05)', borderRadius: 100, padding: 3 }}>
+          <span style={{ fontSize: 11.5, fontWeight: 500, color: 'rgba(43,42,38,0.5)', padding: '6px 14px' }}>Table View</span>
+          <span style={{ fontSize: 11.5, fontWeight: 600, color: '#1c1b18', background: '#fff', borderRadius: 100, padding: '6px 14px', boxShadow: '0 1px 4px rgba(30,30,25,0.08)' }}>Pipeline View</span>
+        </div>
+        <span style={{ marginLeft: 'auto', fontSize: 12, fontWeight: 600, color: '#fff', background: '#1A1A1A', borderRadius: 100, padding: '8px 16px' }}>+ Add Lead</span>
+      </div>
+      <div className="pr-board" style={{ display: 'flex', gap: 10, flex: 1, minHeight: 0 }}>
+        {col('#7cc4e8', 'NEW', moved ? 26 : 27, (<>
+          <div className={moved ? 'pr-gone' : ''} style={{ overflow: 'hidden', transition: 'opacity 0.45s ease, max-height 0.5s ease 0.1s, margin 0.5s ease 0.1s', maxHeight: moved ? 0 : 120, opacity: moved ? 0 : 1, marginBottom: moved ? -8 : 0 }}>
+            {card('Rivera family', 'Child: Mateo · age 4', (<>{chip('Sep 3')}{chip('CareSource (Medicaid)')}</>), 'd1', !moved)}
+          </div>
+          {card('Nguyen family', 'Child: Lien · age 5', (<>{chip('Sep 2')}{chip('Aetna HMO')}</>), 'd2')}
+        </>))}
+        {col('#c9d94e', 'QUALIFIED', moved ? 10 : 9, (<>
+          {moved && (
+            <div className="pr-arrive">
+              {card('Rivera family', 'Child: Mateo · age 4', (<>{chip('Sep 3')}{chip('CareSource (Medicaid)')}{chip('Qualified', true)}</>), '', true)}
+            </div>
+          )}
+          {card('Cohen family', 'Child: Ari · age 3', (<>{chip('Sep 3')}{chip('Anthem BCBS')}</>), 'd2')}
+        </>))}
+        {col('#9dbb2e', 'INTAKE COMPLETE', 4, (<>
+          {card('Levi family', 'Child: Noa · age 4', (<>{chip('Aug 30')}{chip('Medicaid')}{chip('Docs ✓', true)}</>), 'd3')}
+          {card('Brooks family', 'Child: Ella · age 5', (<>{chip('Aug 28')}{chip('Cigna PPO')}{chip('Scheduled', true)}</>), 'd4')}
+        </>))}
+      </div>
+      <div className={`pr-note ${moved ? 'on' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 14, justifyContent: 'center' }}>
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--lime)', border: '1px solid rgba(43,42,38,0.3)' }} />
+        <span style={{ fontSize: 11.5, color: 'rgba(43,42,38,0.55)' }}>Carelu qualified the Rivera family — no one touched a thing</span>
+      </div>
+    </div>
+  );
+}
+
+function PrAsk() {
+  const QUESTION = 'Which source brings the most qualified leads?';
+  const [typed, setTyped] = useState('');
+  const [answered, setAnswered] = useState(false);
+  useEffect(() => {
+    let i = 0;
+    let t2: ReturnType<typeof setTimeout>;
+    const iv = setInterval(() => {
+      i++;
+      setTyped(QUESTION.slice(0, i));
+      if (i >= QUESTION.length) {
+        clearInterval(iv);
+        t2 = setTimeout(() => setAnswered(true), 500);
+      }
+    }, 26);
+    return () => { clearInterval(iv); clearTimeout(t2); };
+  }, []);
+  return (
+    <div style={{ padding: 'clamp(14px, 2vw, 24px)', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column' }}>
+      <div style={{
+        borderRadius: 16, overflow: 'hidden', position: 'relative', flex: 1,
+        backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.14), rgba(250,248,243,0.5)), url(/hero-sky.jpg)',
+        backgroundSize: 'cover', backgroundPosition: 'center 30%',
+        padding: 'clamp(20px, 3vw, 34px) clamp(20px, 3vw, 34px) clamp(30px, 4vw, 46px)',
+      }}>
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2.2vw, 27px)', color: '#1c1b18' }}>Ask anything about your data</div>
+        <div style={{ fontSize: 12, color: 'rgba(43,42,38,0.6)', marginTop: 5 }}>Leads, conversations, calls, campaigns — grounded in your real numbers</div>
+        <div style={{
+          background: '#fff', borderRadius: 14, marginTop: 13, padding: '13px 18px',
+          fontSize: 14, color: '#1c1b18', minHeight: 46, display: 'flex', alignItems: 'center',
+          boxShadow: '0 4px 18px rgba(30,30,25,0.08)',
+        }}>
+          <span>{typed}<span className="pr-caret" /></span>
+        </div>
+        <div className={`pr-answer ${answered ? 'on' : ''}`} style={{
+          background: '#fff', borderRadius: 14, marginTop: 10, padding: '14px 18px',
+          border: '1px solid rgba(157,187,46,0.4)',
+          boxShadow: '0 6px 22px rgba(30,30,25,0.08)',
+        }}>
+          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(43,42,38,0.45)', marginBottom: 6 }}>THIS PERIOD’S INSIGHT ✦</div>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 15.5, color: '#1c1b18', lineHeight: 1.45 }}>
+            Meta Ads is your top source — <strong style={{ fontWeight: 600 }}>45 leads</strong> this month at a <strong style={{ fontWeight: 600 }}>17% visitor-to-lead rate</strong>, twice any other channel.
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 10, rowGap: 12, marginTop: 14, flexWrap: 'wrap' }}>
+          {['Which source brings the most leads?', 'How do my campaigns compare?', 'What did families ask on recent calls?'].map((q, i) => (
+            <span key={q} className={`pr-chip d${i + 1}`} style={{
+              fontSize: 11, fontWeight: 600, color: 'rgba(43,42,38,0.7)', background: 'rgba(255,255,255,0.85)',
+              borderRadius: 100, padding: '7px 13px', display: 'inline-flex', alignItems: 'center', gap: 6,
+            }}>
+              <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--lime)', border: '1px solid rgba(43,42,38,0.25)' }} />
+              {q}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PrReporting() {
+  const BARS = [24, 12, 8, 18, 10, 30, 22, 14, 34, 20, 42, 30, 26, 52, 40, 64];
+  const TEAL = '#4FC722';
+  const TERRA = '#2FA8F5';
+  const AMBER = '#FFC531';
+  const dot = (c: string) => (
+    <span style={{ width: 7, height: 7, borderRadius: '50%', background: c, display: 'inline-block', marginRight: 7, verticalAlign: '1px' }} />
+  );
+  return (
+    <div style={{ padding: 'clamp(14px, 2vw, 24px)', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+        <div style={{ flex: '2 1 260px', background: '#fff', borderRadius: 14, border: '1px solid rgba(43,42,38,0.08)', padding: '16px 18px' }}>
+          <div style={{ fontSize: 11.5, fontWeight: 600, color: 'rgba(43,42,38,0.55)' }}>{dot(TEAL)}Leads captured</div>
+          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 14, marginTop: 8 }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 38, lineHeight: 1, color: '#1c1b18', fontVariantNumeric: 'tabular-nums' }}>
+              <Counter target={300} dur={1400} delay={200} />
+            </div>
+            <div style={{ display: 'flex', alignItems: 'flex-end', gap: 3, height: 44, flex: 1 }}>
+              {BARS.map((h, i) => (
+                <span key={i} className="pr-bar" style={{
+                  flex: 1, height: `${h}px`, borderRadius: 3,
+                  background: i >= BARS.length - 3 ? TEAL : 'rgba(79,199,34,0.35)',
+                  animationDelay: `${0.15 + i * 0.05}s`,
+                }} />
+              ))}
+            </div>
+            <span style={{ fontSize: 11, fontWeight: 700, color: '#2E7A0C', background: 'rgba(79,199,34,0.20)', borderRadius: 100, padding: '4px 10px', whiteSpace: 'nowrap' }}>↗ +102.7%</span>
+          </div>
+        </div>
+        <div style={{ flex: '1 1 140px', background: '#fff', borderRadius: 14, border: '1px solid rgba(43,42,38,0.08)', padding: '16px 18px' }}>
+          <div style={{ fontSize: 11.5, fontWeight: 600, color: 'rgba(43,42,38,0.55)' }}>{dot(TERRA)}Qualified leads</div>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 38, lineHeight: 1, color: '#1c1b18', marginTop: 8, fontVariantNumeric: 'tabular-nums' }}>
+            <Counter target={68} dur={1400} delay={450} />
+          </div>
+        </div>
+        <div style={{ flex: '1 1 140px', background: '#fff', borderRadius: 14, border: '1px solid rgba(43,42,38,0.08)', padding: '16px 18px' }}>
+          <div style={{ fontSize: 11.5, fontWeight: 600, color: 'rgba(43,42,38,0.55)' }}>{dot(AMBER)}Scheduled</div>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 38, lineHeight: 1, color: '#1c1b18', marginTop: 8, fontVariantNumeric: 'tabular-nums' }}>
+            <Counter target={12} dur={1400} delay={700} />
+          </div>
+        </div>
+      </div>
+      <div style={{ background: '#fff', borderRadius: 14, border: '1px solid rgba(43,42,38,0.08)', padding: '16px 18px', marginTop: 12, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <div style={{ fontSize: 11.5, fontWeight: 600, color: 'rgba(43,42,38,0.55)' }}>Pipeline · last 30 days</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 10, fontWeight: 600, color: 'rgba(43,42,38,0.5)' }}>
+            <span>{dot(TEAL)}Captured</span>
+            <span>{dot(TERRA)}Qualified</span>
+          </div>
+          <span style={{ marginLeft: 'auto', fontSize: 10.5, fontWeight: 700, color: '#8F6400', background: 'rgba(255,197,49,0.32)', borderRadius: 100, padding: '3px 10px' }}>Best day: 27 · 9/1</span>
+        </div>
+        <svg viewBox="0 0 600 110" style={{ width: '100%', height: 'auto', display: 'block', marginTop: 8 }} fill="none" aria-hidden="true">
+          <path className="pr-area" d="M0 92 C40 88 60 70 90 74 C120 78 140 52 170 56 C200 60 215 40 240 46 C270 54 285 30 310 36 C340 44 360 78 390 70 C420 62 440 26 470 22 C500 18 520 60 545 40 C565 24 580 14 600 10 L600 110 L0 110 Z" fill="rgba(79,199,34,0.15)" />
+          <path className="pr-spark" pathLength={1} d="M0 92 C40 88 60 70 90 74 C120 78 140 52 170 56 C200 60 215 40 240 46 C270 54 285 30 310 36 C340 44 360 78 390 70 C420 62 440 26 470 22 C500 18 520 60 545 40 C565 24 580 14 600 10" stroke="#4FC722" strokeWidth="2" strokeLinecap="round" />
+          <path className="pr-spark" pathLength={1} d="M0 101 C40 100 60 94 90 95 C120 96 140 88 170 89 C200 90 215 82 240 84 C270 87 285 74 310 77 C340 80 360 92 390 89 C420 86 440 72 470 70 C500 68 520 84 545 78 C565 72 580 66 600 63" stroke="#2FA8F5" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="5 5" style={{ animationDelay: '0.6s' }} />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+
+/* The product on mobile: a scaled-down live app frame inside step IV's
+   stacked card. The screens take turns on a gentle timer while in view
+   (desktop gets the full-stage ProductStage instead). */
+function ProductPeek() {
+  const [tab, setTab] = useState(0);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.45);
+  useEffect(() => {
+    const el = wrapRef.current; if (!el) return;
+    const ro = new ResizeObserver(([e]) => setScale(e.contentRect.width / 740));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  // The screens take turns on a gentle timer while the card is in view
+  useEffect(() => {
+    const el = wrapRef.current; if (!el) return;
+    let timer: ReturnType<typeof setInterval> | null = null;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !timer) {
+        timer = setInterval(() => setTab((t) => (t + 1) % PR_TABS.length), 4500);
+      } else if (!e.isIntersecting && timer) {
+        clearInterval(timer); timer = null;
+      }
+    }, { threshold: 0.5 });
+    io.observe(el);
+    return () => { io.disconnect(); if (timer) clearInterval(timer); };
+  }, []);
+
+  const goTab = (j: number) => setTab(j);
+
+  const ICONS = [
+    <svg key="0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><rect x="3" y="4" width="5" height="16" rx="1.5" /><rect x="10" y="4" width="5" height="11" rx="1.5" /><rect x="17" y="4" width="4" height="7" rx="1.5" /></svg>,
+    <svg key="1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" /><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" /></svg>,
+    <svg key="2" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M4 20V10M10 20V4M16 20v-8M21 20H3" /></svg>,
+  ];
+
+  return (
+    <div style={{ width: '100%', minWidth: 0, margin: '0 auto' }}>
+      <div ref={wrapRef} style={{
+        background: '#FCFBF8', borderRadius: 12, overflow: 'hidden',
+        boxShadow: '0 0 0 1px rgba(43,42,38,0.09), 0 18px 40px -18px rgba(30,30,25,0.18)',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '9px 13px', borderBottom: '1px solid rgba(43,42,38,0.06)' }}>
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+          <span style={{ margin: '0 auto', fontSize: 10.5, color: 'rgba(43,42,38,0.45)', fontWeight: 500 }}>app.carelu.com</span>
+          <span style={{ width: 33 }} />
+        </div>
+        <div style={{ height: 434 * scale, overflow: 'hidden' }}>
+          <div style={{ width: 740, transform: `scale(${scale})`, transformOrigin: 'top left' }}>
+            <div key={tab} className="pr-panel" style={{ height: 434, overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              {tab === 0 ? <PrPipeline /> : tab === 1 ? <PrAsk /> : <PrReporting />}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 14 }}>
+        <div style={{
+          display: 'inline-flex', gap: 4, background: '#fff', borderRadius: 100,
+          border: '1px solid rgba(43,42,38,0.08)', boxShadow: '0 8px 26px rgba(30,30,25,0.10)',
+          padding: 5,
+        }}>
+          {PR_TABS.map((tb, j) => (
+            <button key={tb} type="button" onClick={() => goTab(j)} style={{
+              display: 'inline-flex', alignItems: 'center', gap: 7,
+              fontSize: 11, fontWeight: 600, fontFamily: 'inherit',
+              color: tab === j ? '#1c1b18' : 'rgba(43,42,38,0.5)',
+              background: tab === j ? 'rgba(212,242,92,0.45)' : 'transparent',
+              border: 'none', borderRadius: 100, padding: '7px 13px', cursor: 'pointer',
+              transition: 'background 0.25s, color 0.25s',
+            }}>
+              {ICONS[j]}
+              {tb}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── IMPACT — the living map of families ──────────
 function Impact() {
+  // Hovering a stat replays its count
+  const [kick, setKick] = useState([0, 0, 0, 0]);
   return (
     <section id="results" style={{
-      position: 'relative', paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)',
+      position: 'relative', paddingTop: 'clamp(40px, 5vh, 60px)', paddingBottom: 'clamp(40px, 5vh, 60px)',
       background: 'var(--bone)',
     }}>
       <div style={{ ...W, position: 'relative', zIndex: 1 }}>
         {/* Header — tighter spacing so it doesn't float disconnected from the data */}
-        <div style={{ textAlign: 'center', marginBottom: 36 }}>
+        <div style={{ textAlign: 'center', marginBottom: 14 }}>
           <div className="rv"><Pill>Proven results</Pill></div>
           <div className="impact-head" style={{
             display: 'inline-flex', alignItems: 'center', gap: 0,
-            marginTop: 12,
+            marginTop: 8,
           }}>
             <h2 className="rv-scale d1" style={{
               fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 4.2vw, 52px)',
               fontWeight: 400, color: 'var(--green-900)',
               lineHeight: 1.12, letterSpacing: '-0.02em', margin: 0,
             }}>
-              The results speak louder than we can.
+              The results speak louder <span style={{ fontStyle: 'italic', fontWeight: 400, whiteSpace: 'nowrap' }}>than we can.</span>
             </h2>
-            <img
-              className="rv-scale h2-doodle"
-              src="/results-illustration.svg"
-              alt=""
-              aria-hidden="true"
-              style={{ width: 92, height: 'auto', display: 'block', flexShrink: 0, margin: '-16px 0 -16px 18px' }}
-            />
           </div>
         </div>
 
-        {/* Unified stats block — counter and cards live in one composition with consistent spacing */}
-        <div style={{ maxWidth: 1100, margin: '0 auto', color: 'var(--green-900)' }}>
-          <div style={{ textAlign: 'center', marginBottom: 32 }}>
+        {/* One certificate plaque: a hairline frame holds the living number,
+            a rule, and its four proofs — one engraved object, nothing floating */}
+        <div className="rv" style={{
+          maxWidth: 1000, margin: '0 auto', color: 'var(--green-900)',
+          position: 'relative',
+        }}>
+
+          <div style={{ textAlign: 'center' }}>
             <LiveCounter />
           </div>
 
-          <div className="impact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
-          {[
-            { v: 3, s: '\u00d7', t2: 'More families admitted', d: 'Same team. Same hours. Triple the output.' },
-            { v: 10, s: ' min', t2: 'First contact to intake-ready', p: '<', d: 'What used to take 3-5 days.' },
-            { v: 85, s: '%', t2: 'Increase in intake completion', d: 'Families finish what they start.' },
-            { v: 0, s: '', t2: 'Manual follow-ups', d: 'Your team focuses on care, not chasing.' },
-          ].map((s, i) => (
-            <div
-              key={s.t2}
-              className={`rv-scale d${i + 1}`}
-              style={{
-                background: '#fff', borderRadius: 20,
-                padding: '40px 28px',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)',
-                transition: 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
-                cursor: 'default',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-6px)';
-                e.currentTarget.style.boxShadow = '0 12px 40px rgba(20, 40, 30, 0.12), 0 2px 6px rgba(0,0,0,0.04)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)';
-              }}
-            >
-              <div style={{
-                fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 4vw, 52px)',
-                fontWeight: 400,
-                color: 'var(--green-900)', lineHeight: 1, marginBottom: 16,
-                letterSpacing: '-0.02em',
-                fontVariantNumeric: 'lining-nums tabular-nums',
-              }}>
-                <Counter target={s.v} suffix={s.s} prefix={s.p || ''} />
+          {/* The living map — the country drawn in dots; families keep lighting
+              up across it, live, while you watch */}
+          <div className="imp-chart" style={{ marginTop: 14 }}>
+            <SkyGlobe />
+          </div>
+
+          {/* The proofs — one quiet line beneath the country */}
+          <div className="imp-statrow" style={{
+            display: 'flex', justifyContent: 'center', alignItems: 'baseline',
+            flexWrap: 'wrap', columnGap: 'clamp(36px, 5vw, 72px)', rowGap: 28,
+            marginTop: 'clamp(40px, 5vh, 64px)', textAlign: 'center',
+          }}>
+            {[
+              { v: 3, sx: '\u00d7', t: 'More families admitted', f: 0, dl: 600, dr: 1600 },
+              { v: 10, px: '<', sx: ' min', t: 'First contact to intake-ready', f: 0, dl: 750, dr: 1700 },
+              { v: 85, sx: '%', t: 'Intake completion lift', f: 0, dl: 900, dr: 1900 },
+              { v: 0, sx: '', t: 'Manual follow-ups', f: 14, dl: 1050, dr: 2000 },
+            ].map((x, i) => (
+              <div key={x.t} className={`rv d${i + 1}`} style={{ cursor: 'default' }}
+                onMouseEnter={() => setKick((k) => k.map((v, j) => (j === i ? v + 1 : v)))}
+              >
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(23px, 2vw, 29px)', color: '#1c1b18', lineHeight: 1, fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                  <Counter target={x.v} suffix={x.sx} prefix={x.px || ''} from={x.f} delay={x.dl} dur={x.dr} trigger={kick[i]} />
+                </div>
+                <div style={{ fontSize: 10.5, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(43,42,38,0.6)', marginTop: 10 }}>{x.t}</div>
               </div>
-              <div style={{ fontWeight: 500, color: 'var(--green-900)', fontSize: 14, marginBottom: 6 }}>{s.t2}</div>
-              <div style={{ fontSize: 'var(--text-xs)', color: 'var(--gray-500)', lineHeight: 1.5 }}>{s.d}</div>
-            </div>
-          ))}
+            ))}
           </div>
         </div>
 
@@ -2402,291 +2862,188 @@ function Impact() {
 }
 
 
-// ── GETTING STARTED — 2×2 vignette cards + founder note on direct access ─────
-
-// Small animated vignettes for each onboarding step — same crafted-miniature
-// language as ChecklistVisual / HandoffVisual.
-function GsVignetteCall() {
-  return (
-    <div className="gs-pop" style={{
-      background: '#fff', borderRadius: 14, padding: '16px 18px',
-      boxShadow: '0 6px 24px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04)',
-      width: 250,
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=faces" alt="" style={{
-          width: 38, height: 38, borderRadius: '50%', flexShrink: 0,
-          objectFit: 'cover', border: '1px solid var(--sage-200)',
-        }} />
-        <div style={{ minWidth: 0 }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--green-900)' }}>Intro call</div>
-          <div style={{ fontSize: 11.5, color: 'var(--gray-500)' }}>Intake specialist &middot; 45 min</div>
-        </div>
-      </div>
-      <div style={{
-        marginTop: 12, paddingTop: 12, borderTop: '1px solid rgba(0,0,0,0.06)',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      }}>
-        <span style={{ fontSize: 11.5, color: 'var(--gray-500)' }}>Tue, 11:00 AM</span>
-        <span className="gs-check" style={{
-          display: 'inline-flex', alignItems: 'center', gap: 5,
-          background: 'var(--lime)', color: 'var(--green-900)',
-          fontSize: 10.5, fontWeight: 600, borderRadius: 999, padding: '4px 9px',
-        }}>
-          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12l5 5L20 6" /></svg>
-          Scheduled
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function GsVignetteSign() {
-  return (
-    <div className="gs-pop" style={{
-      background: '#fff', borderRadius: 14, padding: '18px 20px 14px',
-      boxShadow: '0 6px 24px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04)',
-      width: 250,
-    }}>
-      {[112, 168, 138].map((w) => (
-        <div key={w} style={{ height: 5, width: w, borderRadius: 3, background: 'rgba(0,0,0,0.07)', marginBottom: 8 }} />
-      ))}
-      <div style={{
-        marginTop: 14, paddingTop: 4, borderTop: '1px solid rgba(0,0,0,0.06)',
-        display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 12,
-      }}>
-        <svg width="128" height="42" viewBox="0 0 128 42" fill="none" style={{ display: 'block' }}>
-          <path
-            className="gs-sig"
-            pathLength={1}
-            d="M6 32 C 20 6, 30 4, 27 20 C 24 33, 12 37, 24 28 C 38 18, 44 14, 52 22 C 58 28, 64 20, 72 24 C 80 28, 88 18, 98 24 C 106 29, 114 24, 122 27"
-            stroke="var(--green-800, #2C3E2D)" strokeWidth="1.6" strokeLinecap="round"
-          />
-        </svg>
-        <span className="gs-check" style={{
-          width: 22, height: 22, borderRadius: '50%', flexShrink: 0,
-          background: 'var(--lime)', color: 'var(--green-900)',
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12l5 5L20 6" /></svg>
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function GsVignetteTrain() {
-  const team = [
-    { initials: 'DK', bg: '#7B8F7B' },
-    { initials: 'RA', bg: '#A08F76' },
-    { initials: 'MS', bg: '#6E7F8D' },
-    { initials: 'TB', bg: '#8D7B8F' },
-  ];
-  return (
-    <div style={{ textAlign: 'center' }}>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        {team.map((a, i) => (
-          <div key={a.initials} className="gs-av" style={{
-            width: 44, height: 44, borderRadius: '50%',
-            background: a.bg, border: '2.5px solid #fff',
-            marginLeft: i > 0 ? -10 : 0,
-            fontSize: 12, fontWeight: 600, color: '#fff',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 4px 14px rgba(0,0,0,0.10)',
-            position: 'relative', zIndex: team.length - i,
-          }}>
-            {a.initials}
-          </div>
-        ))}
-      </div>
-      <div className="gs-check" style={{
-        display: 'inline-flex', alignItems: 'center', gap: 6,
-        marginTop: 16,
-        background: '#fff', border: '1px solid rgba(0,0,0,0.07)',
-        borderRadius: 999, padding: '6px 13px',
-        fontSize: 11.5, fontWeight: 500, color: 'var(--green-900)',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-      }}>
-        <span style={{
-          width: 15, height: 15, borderRadius: '50%', background: 'var(--lime)',
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--green-900)',
-        }}>
-          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12l5 5L20 6" /></svg>
-        </span>
-        Team onboarded
-      </div>
-    </div>
-  );
-}
-
-function GsVignetteLive() {
-  return (
-    <div className="gs-pop" style={{
-      background: '#fff', borderRadius: 14, padding: '16px 18px 14px',
-      boxShadow: '0 6px 24px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04)',
-      width: 250,
-    }}>
-      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 4 }}>
-        <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--gray-500)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-          Intakes this week
-        </span>
-        <span className="gs-check" style={{
-          display: 'inline-flex', alignItems: 'center', gap: 4,
-          fontSize: 10.5, fontWeight: 600, color: 'var(--green-900)',
-          background: 'var(--lime)', borderRadius: 999, padding: '3px 8px',
-        }}>
-          Live
-        </span>
-      </div>
-      <div style={{
-        fontFamily: 'var(--font-display)', fontSize: 34, lineHeight: 1.1,
-        color: 'var(--green-900)', fontVariantNumeric: 'lining-nums tabular-nums',
-        marginBottom: 6,
-      }}>
-        <Counter target={12} />
-      </div>
-      <svg width="100%" height="38" viewBox="0 0 214 38" fill="none" preserveAspectRatio="none" style={{ display: 'block' }}>
-        <path
-          className="gs-spark"
-          pathLength={1}
-          d="M2 32 C 26 30, 38 24, 56 25 C 76 26, 88 18, 108 19 C 126 20, 138 12, 158 13 C 176 14, 194 8, 212 5"
-          stroke="var(--green-800, #2C3E2D)" strokeWidth="1.8" strokeLinecap="round"
-        />
-        <circle className="gs-check" cx="212" cy="5" r="3.5" fill="var(--lime)" stroke="var(--green-900)" strokeWidth="1.2" />
-      </svg>
-    </div>
-  );
-}
-
+// ── GETTING STARTED — a scroll-driven journey: the hairline travels with the
+// reader, and each numbered station lights up as the line reaches it ─────
 function GettingStarted() {
   const steps = [
     {
-      n: '01',
+      n: 'I',
       title: 'Meet your specialist',
-      desc: 'A short call to walk through how your practice works — panels, service areas, programs. You’ll meet the person who’ll be working alongside your team.',
-      visual: <GsVignetteCall />,
+      desc: 'A short call to walk through how your practice works \u2014 panels, service areas, programs. You\u2019ll meet the person who\u2019ll be working alongside your team.',
+      icon: (
+        <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#2B2A26" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect className="gs-draw a" pathLength={1} x="8" y="10" width="32" height="30" rx="4" />
+          <path className="gs-draw a" pathLength={1} d="M8 19h32" />
+          <path className="gs-draw b" pathLength={1} d="M16 6v7M32 6v7" />
+          <path className="gs-draw c" pathLength={1} d="M18 30l4.5 4.5L31 26" />
+        </svg>
+      ),
     },
     {
-      n: '02',
+      n: 'II',
       title: 'Sign and get set up',
-      desc: 'We configure Carelu around your practice and connect it across your front office. Integrations with leading CRMs and EMRs mean you launch fast — without changing your core systems.',
-      visual: <GsVignetteSign />,
+      desc: 'We configure Carelu around your practice and connect it across your front office. Integrations with leading CRMs and EMRs mean you launch fast \u2014 without changing your core systems.',
+      icon: (
+        <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#2B2A26" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path className="gs-draw a" pathLength={1} d="M30 8l6 6-17 17-8 2 2-8z" />
+          <path className="gs-draw b" pathLength={1} d="M26 12l6 6" />
+          <path className="gs-draw c" pathLength={1} d="M9 41c4-3 7 1.5 11-1.2 3-2 5.5-1 7.5.2 2.6 1.6 6.5 1 10-2" />
+        </svg>
+      ),
     },
     {
-      n: '03',
+      n: 'III',
       title: 'We train your team',
       desc: 'One session, and your team knows how Carelu works and where to find everything it collects. It should feel like a new teammate, not new software.',
-      visual: <GsVignetteTrain />,
+      icon: (
+        <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#2B2A26" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle className="gs-draw a" pathLength={1} cx="24" cy="15" r="5" />
+          <path className="gs-draw b" pathLength={1} d="M15 40c0-6 4-10 9-10s9 4 9 10" />
+          <circle className="gs-draw b" pathLength={1} cx="10.5" cy="19" r="3.6" />
+          <path className="gs-draw c" pathLength={1} d="M4 38c0-4.4 2.8-7.4 6.5-7.4 1.2 0 2.3.3 3.2.9" />
+          <circle className="gs-draw b" pathLength={1} cx="37.5" cy="19" r="3.6" />
+          <path className="gs-draw c" pathLength={1} d="M44 38c0-4.4-2.8-7.4-6.5-7.4-1.2 0-2.3.3-3.2.9" />
+        </svg>
+      ),
     },
     {
-      n: '04',
+      n: 'IV',
       title: 'Go live, with visibility',
       desc: 'Your dashboard shows every conversation and every intake as it happens. And a dedicated growth partner stays on your account, working it like one of your own.',
-      visual: <GsVignetteLive />,
+      icon: (
+        <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#2B2A26" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path className="gs-draw a" pathLength={1} d="M7 41V13" />
+          <path className="gs-draw a" pathLength={1} d="M7 41h34" />
+          <path className="gs-draw b" pathLength={1} d="M12 33c6 0 7-9 12-11 4.5-1.8 7-6 9.5-11" />
+          <circle className="gs-draw c" pathLength={1} cx="35" cy="9.5" r="2.6" />
+        </svg>
+      ),
     },
   ];
+
+  // Scroll progress through the tall track: 0 when the section pins, 1 at release
+  const trackRef = useRef<HTMLElement>(null);
+  const [t, setT] = useState(0);
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      const el = trackRef.current; if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      setT(total > 0 ? Math.max(0, Math.min(1, -rect.top / total)) : 1);
+    };
+    const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
+  // The line reaches each station's node just before that station lights up
+  const TH = [0.08, 0.36, 0.63, 0.90];
+  const lineScale = Math.max(0, Math.min(1, t / 0.93));
+
   return (
-    <section id="getting-started" style={{
-      position: 'relative', paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)',
-      background: 'var(--bone)',
+    <section id="getting-started" ref={trackRef} className="gs-outer" style={{
+      position: 'relative', background: '#FFFFFF',
+      borderTop: '1px solid rgba(43,42,38,0.06)', borderBottom: '1px solid rgba(43,42,38,0.06)',
     }}>
-      <div style={{ ...W, position: 'relative', zIndex: 1 }}>
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 5vw, 64px)' }}>
-          <div className="rv"><Pill>Getting started</Pill></div>
-          <h2 className="rv-scale d1" style={{
-            fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 4.2vw, 52px)',
-            fontWeight: 400, color: 'var(--green-900)',
-            lineHeight: 1.12, letterSpacing: '-0.02em', margin: '12px 0 0',
-          }}>
-            Getting started is simple.
-          </h2>
-        </div>
-
-        {/* 2×2 step cards — each with a small animated vignette */}
-        <div className="gs-grid" style={{
-          display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20,
-          maxWidth: 1000, margin: '0 auto',
-        }}>
-          {steps.map((s, i) => (
-            <div key={s.n} className={`rv gs-card d${i + 1}`} style={{
-              background: '#fff', borderRadius: 24,
-              boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.03)',
-              overflow: 'hidden',
-              display: 'flex', flexDirection: 'column',
+      <div className="gs-sticky">
+        <div style={{ ...W, position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', marginBottom: 'clamp(48px, 6vw, 80px)' }}>
+            <div className="rv"><Pill>Getting started</Pill></div>
+            <h2 className="rv-scale d1" style={{
+              fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 4.2vw, 52px)',
+              fontWeight: 400, color: 'var(--green-900)',
+              lineHeight: 1.12, letterSpacing: '-0.02em', margin: '12px 0 0',
             }}>
-              <div style={{
-                background: 'rgba(0,0,0,0.015)', borderBottom: '1px solid rgba(0,0,0,0.04)',
-                minHeight: 178, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                padding: '26px 24px',
-              }}>
-                {s.visual}
-              </div>
-              <div style={{ padding: '26px 30px 30px' }}>
-                <div style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 10,
-                  fontSize: 11, fontWeight: 600, color: 'var(--gray-500)',
-                  letterSpacing: '0.12em', textTransform: 'uppercase',
-                  marginBottom: 12,
-                }}>
-                  <span style={{
-                    width: 22, height: 22, borderRadius: '50%',
-                    background: 'var(--lime)', color: 'var(--green-900)',
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: 11, fontWeight: 700, letterSpacing: 0,
-                  }}>{s.n}</span>
-                  Step
-                </div>
-                <h3 style={{
-                  fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 2vw, 26px)',
-                  fontWeight: 400, color: 'var(--green-900)',
-                  lineHeight: 1.2, letterSpacing: '-0.5px', margin: '0 0 10px',
-                }}>
-                  {s.title}
-                </h3>
-                <p style={{ fontSize: 15, color: 'var(--gray-600)', lineHeight: 1.6, margin: 0 }}>
-                  {s.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+              Getting started is simple.
+            </h2>
+          </div>
 
-        {/* Quiet enterprise pointer */}
-        <p className="rv" style={{
-          textAlign: 'center', fontSize: 14, color: 'var(--gray-500)',
-          margin: '40px auto 0', maxWidth: 520, lineHeight: 1.6,
-        }}>
-          Larger organization? We&rsquo;ll shape onboarding around your locations, systems, and team.{' '}
-          <a href="/demo" style={{ color: 'var(--green-900)', fontWeight: 500, textDecoration: 'underline', textUnderlineOffset: 3 }}>
-            Talk to us
-          </a>
-        </p>
+          <div className="gs-track" style={{ position: 'relative', maxWidth: 1080, margin: '0 auto' }}>
+            <div className="gs-line" style={{
+              position: 'absolute', top: 17, left: '4%', right: '4%', height: 1,
+              background: 'rgba(43,42,38,0.18)',
+              transform: `scaleX(${lineScale})`, transformOrigin: 'left',
+            }} />
+            <div className="gs-line gs-tip" style={{
+              position: 'absolute', top: 17, left: `calc(4% + ${lineScale * 92}%)`,
+              width: 8, height: 8, borderRadius: '50%', background: 'var(--lime)',
+              border: '1px solid rgba(43,42,38,0.35)',
+              boxShadow: '0 0 0 3px rgba(212, 242, 92, 0.3)',
+              transform: 'translate(-50%, -50%)',
+              opacity: t > 0.01 && t < 0.97 ? 1 : 0, transition: 'opacity 0.3s ease',
+            }} />
+            <div className="gs-journey" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', columnGap: 'clamp(16px, 2.5vw, 40px)' }}>
+              {steps.map((s, i) => (
+                <div key={s.n} className={`gs-step${t >= TH[i] ? ' on' : ''}`} style={{ textAlign: 'center', position: 'relative' }}>
+                  <div className="gs-node" style={{
+                    width: 34, height: 34, borderRadius: '50%', margin: '0 auto',
+                    background: '#FFFFFF', border: '1px solid rgba(43,42,38,0.30)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontFamily: 'var(--font-display)', fontSize: 13.5, color: 'var(--green-900)',
+                    letterSpacing: '0.04em', position: 'relative', zIndex: 1,
+                    transition: 'background 0.5s ease, box-shadow 0.5s ease',
+                  }}>{s.n}</div>
+                  <div style={{ display: 'flex', justifyContent: 'center', margin: '34px 0 24px', opacity: 0.9 }}>
+                    {s.icon}
+                  </div>
+                  <h3 style={{
+                    fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 1.8vw, 24px)',
+                    fontWeight: 400, color: 'var(--green-900)',
+                    lineHeight: 1.25, letterSpacing: '-0.3px', margin: '0 0 12px',
+                  }}>
+                    {s.title}
+                  </h3>
+                  <p style={{ fontSize: 14.5, color: 'var(--gray-600)', lineHeight: 1.65, margin: '0 auto', maxWidth: 240 }}>
+                    {s.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="rv" style={{
+            textAlign: 'center', fontSize: 14, color: 'var(--gray-500)',
+            margin: 'clamp(48px, 6vw, 72px) auto 0', maxWidth: 520, lineHeight: 1.6,
+            textWrap: 'balance',
+          }}>
+            Larger organization? We&rsquo;ll shape onboarding around your locations, systems, and team.{' '}
+            <a href="/demo" style={{ color: 'var(--green-900)', fontWeight: 500, textDecoration: 'underline', textUnderlineOffset: 3 }}>
+              Talk to us
+            </a>
+          </p>
+        </div>
       </div>
 
-      {/* Scoped vignette choreography — cards rise via .rv; inner pieces follow */}
+      {/* Scroll choreography: the sticky stage holds while the reader's scroll
+          pushes the line forward; stations rise and sketch themselves in turn */}
       <style>{`
-        .gs-card .gs-pop { opacity: 0; transform: translateY(12px) scale(0.97); transition: opacity 0.6s ease 0.25s, transform 0.65s var(--ease-dramatic) 0.25s; }
-        .gs-card.visible .gs-pop { opacity: 1; transform: translateY(0) scale(1); }
-        .gs-card .gs-check { opacity: 0; transform: scale(0.4); transition: opacity 0.4s ease 1.05s, transform 0.5s var(--ease-dramatic) 1.05s; }
-        .gs-card.visible .gs-check { opacity: 1; transform: scale(1); }
-        .gs-card .gs-sig { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.3s ease-in-out 0.45s; }
-        .gs-card.visible .gs-sig { stroke-dashoffset: 0; }
-        .gs-card .gs-spark { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.3s ease-in-out 0.45s; }
-        .gs-card.visible .gs-spark { stroke-dashoffset: 0; }
-        .gs-card .gs-av { opacity: 0; transform: scale(0.3) translateY(6px); transition: opacity 0.45s ease, transform 0.55s var(--ease-dramatic); }
-        .gs-card.visible .gs-av { opacity: 1; transform: scale(1) translateY(0); }
-        .gs-card.visible .gs-av:nth-child(1) { transition-delay: 0.3s; }
-        .gs-card.visible .gs-av:nth-child(2) { transition-delay: 0.42s; }
-        .gs-card.visible .gs-av:nth-child(3) { transition-delay: 0.54s; }
-        .gs-card.visible .gs-av:nth-child(4) { transition-delay: 0.66s; }
+        .gs-outer { height: 280vh; }
+        .gs-sticky {
+          position: sticky; top: 0; min-height: 100svh;
+          display: flex; flex-direction: column; justify-content: center;
+          overflow: hidden; padding: 90px 0 40px;
+          box-sizing: border-box;
+        }
+        .gs-step { opacity: 0; transform: translateY(20px); transition: opacity 0.75s var(--ease-dramatic), transform 0.75s var(--ease-dramatic); }
+        .gs-step.on { opacity: 1; transform: translateY(0); }
         @media (max-width: 768px) {
-          .gs-grid { grid-template-columns: 1fr !important; }
+          .gs-outer { height: auto; }
+          .gs-sticky { position: static; min-height: 0; padding: 0; overflow: visible; }
+          .gs-journey { grid-template-columns: 1fr !important; row-gap: 52px; }
+          .gs-line { display: none; }
+          .gs-step { opacity: 1 !important; transform: none !important; }
         }
       `}</style>
     </section>
   );
 }
-
 
 // ── COMPLIANCE -- formal certificate style ─────
 function Compliance() {
