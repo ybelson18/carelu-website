@@ -1786,54 +1786,6 @@ type HowStep = { step: string; tag: string; title: string; desc: string; visual:
 
 // One step card — shared by the desktop horizontal track and the mobile vertical stack.
 function HowStepCard({ s, mobile }: { s: HowStep; mobile?: boolean }) {
-  // The finale card breaks the split layout: a compact text band on top and
-  // the live app frame given the full card width below it.
-  if (s.wide && !mobile) {
-    return (
-      <div style={{
-        background: '#fff', borderRadius: 0,
-        boxShadow: '0 0 0 1px rgba(43,42,38,0.08), 0 22px 44px -20px rgba(30,30,25,0.16)',
-        width: 'clamp(720px, 88vw, 1150px)',
-        minHeight: 380, minWidth: 0, flexShrink: 0,
-        padding: 'clamp(22px, 2.6vh, 32px) clamp(28px, 3vw, 44px)',
-        display: 'flex', flexDirection: 'column', gap: 'clamp(14px, 2vh, 22px)',
-        boxSizing: 'border-box',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 36, flexWrap: 'wrap' }}>
-          <div style={{ minWidth: 0 }}>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: 11,
-              fontSize: 11, fontWeight: 600, color: 'var(--gray-500)',
-              letterSpacing: '0.14em', textTransform: 'uppercase',
-              marginBottom: 10,
-            }}>
-              <span style={{
-                width: 28, height: 28, borderRadius: '50%',
-                color: 'var(--green-900)', border: '1px solid rgba(43,42,38,0.30)',
-                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 12, fontWeight: 400, letterSpacing: '0.04em',
-                fontFamily: 'var(--font-display)',
-              }}>IV</span>
-              Step
-            </div>
-            <h3 style={{
-              fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 2.4vw, 30px)',
-              fontWeight: 400, color: 'var(--green-900)',
-              lineHeight: 1.2, letterSpacing: '-0.5px', margin: 0,
-            }}>
-              {s.title}
-            </h3>
-          </div>
-          <p style={{ fontSize: 14, color: 'var(--gray-600)', lineHeight: 1.55, margin: 0, maxWidth: 440 }}>
-            {s.desc}
-          </p>
-        </div>
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 0 }}>
-          {s.visual}
-        </div>
-      </div>
-    );
-  }
   return (
     <div style={{
       background: '#fff', borderRadius: 0,
@@ -1917,14 +1869,29 @@ function HowStepCard({ s, mobile }: { s: HowStep; mobile?: boolean }) {
   );
 }
 
+// The pinned how-it-works scroll plays in two acts:
+//   Act one  — steps I–III slide across as cards.
+//   Act two  — the cards dissolve and the product opens up full-stage; the
+//              remaining scroll walks through its three screens.
+const HOW_SLIDE_START = 0.04, HOW_SLIDE_END = 0.38;  // card slide
+const HOW_OPEN_START = 0.42, HOW_OPEN_END = 0.56;    // crossfade to the product
+const HOW_TABS_START = 0.58, HOW_TABS_END = 0.96;    // one dwell zone per screen
+
 function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
   const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const act1Ref = useRef<HTMLDivElement>(null);
+  const act2Ref = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
+  const [stageTab, setStageTab] = useState(0);
+
+  const cardSteps = steps.filter((s) => !s.wide);
+  const finale = steps.find((s) => s.wide);
 
   useEffect(() => {
     if (isMobile) return; // mobile renders a vertical stack — no scroll-jacking
+    const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
     const onScroll = () => {
       const section = sectionRef.current;
       const track = trackRef.current;
@@ -1933,35 +1900,41 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
       const trackH = rect.height - window.innerHeight;
       if (trackH <= 0) return;
 
-      const progress = Math.max(0, Math.min(1, -rect.top / trackH));
-      // The card slide finishes just past halfway through the pin — the rest of
-      // the scroll is spent inside the finale card, where ProductPeek walks
-      // through its app tabs on the same scrollbar (see HOW_SLIDE_END).
-      const START = 0.04;
-      const END = HOW_SLIDE_END;
-      const animProgress = Math.max(0, Math.min(1, (progress - START) / (END - START)));
+      const progress = clamp01(-rect.top / trackH);
 
-      // Center the FIRST card at animProgress=0 and the LAST card at
-      // animProgress=1. Cards vary in width (the finale card is wider), so
-      // walk the row and accumulate each card's real center.
+      // ── Act one: slide the step cards ──
+      const animProgress = clamp01((progress - HOW_SLIDE_START) / (HOW_SLIDE_END - HOW_SLIDE_START));
       const viewportW = window.innerWidth;
-      const cards = Array.from(track.children) as HTMLElement[];
+      const cards = track.children;
+      const cardW = (cards[0] as HTMLElement).offsetWidth;
       const gap = 32;                   // matches the track's `gap`
       const padLeft = viewportW * 0.08; // matches the track's `padding: 0 8vw`
-      const centers: number[] = [];
-      let cx = padLeft;
-      for (const c of cards) { centers.push(cx + c.offsetWidth / 2); cx += c.offsetWidth + gap; }
-      // translateX that puts card i's center at the viewport center
-      const centerShift = (i: number) => viewportW / 2 - centers[i];
+      const centerShift = (i: number) =>
+        viewportW / 2 - (padLeft + i * (cardW + gap) + cardW / 2);
       const startShift = centerShift(0);
       const endShift = centerShift(cards.length - 1);
       const shift = startShift + animProgress * (endShift - startShift);
       track.style.transform = `translate3d(${shift}px, 0, 0)`;
+      const total = cards.length;
+      setActiveIdx(Math.min(total - 1, Math.floor(animProgress * total)));
 
-      // Active card indicator
-      const total = steps.length;
-      const idx = Math.min(total - 1, Math.floor(animProgress * total));
-      setActiveIdx(idx);
+      // ── The opening: cards drift up and dissolve, the product blooms in ──
+      const act1 = act1Ref.current, act2 = act2Ref.current;
+      if (act1 && act2 && finale) {
+        const t = clamp01((progress - HOW_OPEN_START) / (HOW_OPEN_END - HOW_OPEN_START));
+        const e = t * t * (3 - 2 * t); // smoothstep
+        act1.style.opacity = String(1 - e);
+        act1.style.transform = `translateY(${-30 * e}px) scale(${1 - 0.03 * e})`;
+        act1.style.pointerEvents = e > 0.5 ? 'none' : '';
+        act2.style.opacity = String(e);
+        act2.style.transform = `translateY(${36 * (1 - e)}px) scale(${0.955 + 0.045 * e})`;
+        act2.style.visibility = e === 0 ? 'hidden' : 'visible';
+        act2.style.pointerEvents = e > 0.5 ? '' : 'none';
+
+        // ── Act two: the scrollbar turns the product's pages ──
+        const tp = Math.min(0.999, clamp01((progress - HOW_TABS_START) / (HOW_TABS_END - HOW_TABS_START)));
+        setStageTab(Math.floor(tp * PR_TABS.length));
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
@@ -1970,7 +1943,16 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
-  }, [steps.length, isMobile]);
+  }, [steps.length, isMobile, finale]);
+
+  // Clicking a tab in act two rides the scrollbar to that screen's dwell zone
+  const goStageTab = (j: number) => {
+    const section = sectionRef.current; if (!section) return;
+    const top = section.getBoundingClientRect().top + window.scrollY;
+    const trackH = section.offsetHeight - window.innerHeight;
+    const stepW = (HOW_TABS_END - HOW_TABS_START) / PR_TABS.length;
+    window.scrollTo({ top: top + (HOW_TABS_START + (j + 0.5) * stepW) * trackH, behavior: 'smooth' });
+  };
 
   // ── MOBILE: vertical stack — step 1 → 2 → 3 top to bottom, no pinning ──
   if (isMobile) {
@@ -2008,13 +1990,15 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
   // ── DESKTOP: pinned horizontal track, step 1 centered → step 3 centered ──
   return (
     <section id="how-it-works" ref={sectionRef} style={{
-      height: '600vh', position: 'relative', background: 'var(--bone)',
+      height: '650vh', position: 'relative', background: 'var(--bone)',
     }}>
-      <div style={{
-        position: 'sticky', top: 0, height: '100svh',
-        display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        overflow: 'hidden',
-      }}>
+      <div style={{ position: 'sticky', top: 0, height: '100svh', overflow: 'hidden' }}>
+        {/* Act one — the three step cards */}
+        <div ref={act1Ref} style={{
+          position: 'absolute', inset: 0,
+          display: 'flex', flexDirection: 'column', justifyContent: 'center',
+          willChange: 'opacity, transform',
+        }}>
         {/* Header — INSIDE the sticky pin so it stays locked with the cards */}
         <div style={{
           paddingTop: 'clamp(24px, 3vh, 40px)', paddingBottom: 'clamp(48px, 7vh, 84px)',
@@ -2056,7 +2040,7 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
               transition: 'transform 0.05s linear',
             }}
           >
-            {steps.map((s) => (
+            {cardSteps.map((s) => (
               <HowStepCard key={s.step} s={s} />
             ))}
           </div>
@@ -2067,7 +2051,7 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
           marginTop: 'clamp(44px, 6vh, 68px)', paddingBottom: 0,
           display: 'flex', justifyContent: 'center', gap: 14,
         }}>
-          {steps.map((_, i) => (
+          {cardSteps.map((_, i) => (
             <div key={i} style={{
               width: 34, height: 2,
               borderRadius: 0,
@@ -2076,8 +2060,119 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
             }} />
           ))}
         </div>
+        </div>
+
+        {/* Act two — the product, full stage */}
+        {finale && (
+          <div ref={act2Ref} style={{
+            position: 'absolute', inset: 0,
+            display: 'flex', flexDirection: 'column', justifyContent: 'center',
+            opacity: 0, visibility: 'hidden', pointerEvents: 'none',
+            willChange: 'opacity, transform',
+          }}>
+            <ProductStage s={finale} tab={stageTab} onTab={goStageTab} />
+          </div>
+        )}
       </div>
     </section>
+  );
+}
+
+/* Act two of the how-it-works pin: the product at full, readable size.
+   Centered editorial header, then the app frame at its design width — no
+   miniature scaling. The scrollbar (via HowItWorksScroll) turns its pages. */
+function ProductStage({ s, tab, onTab }: { s: HowStep; tab: number; onTab: (j: number) => void }) {
+  // On short viewports the frame block alone scales down so header + frame
+  // always fit inside the pin; type stays full size.
+  const [vh, setVh] = useState(() => (typeof window === 'undefined' ? 900 : window.innerHeight));
+  useEffect(() => {
+    const f = () => setVh(window.innerHeight);
+    window.addEventListener('resize', f);
+    return () => window.removeEventListener('resize', f);
+  }, []);
+  const FRAME_BLOCK = 550; // chrome bar + 434 panel + gap + tab pill
+  const frameScale = Math.max(0.7, Math.min(1, (vh - 330) / FRAME_BLOCK));
+
+  const ICONS = [
+    <svg key="0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><rect x="3" y="4" width="5" height="16" rx="1.5" /><rect x="10" y="4" width="5" height="11" rx="1.5" /><rect x="17" y="4" width="4" height="7" rx="1.5" /></svg>,
+    <svg key="1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" /><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" /></svg>,
+    <svg key="2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M4 20V10M10 20V4M16 20v-8M21 20H3" /></svg>,
+  ];
+
+  return (
+    <div style={{ width: '100%', textAlign: 'center', padding: '0 clamp(20px, 4.5vw, 40px)', boxSizing: 'border-box' }}>
+      {/* Header — same voice as the step cards, centered */}
+      <div style={{
+        display: 'inline-flex', alignItems: 'center', gap: 11,
+        fontSize: 11, fontWeight: 600, color: 'var(--gray-500)',
+        letterSpacing: '0.14em', textTransform: 'uppercase',
+      }}>
+        <span style={{
+          width: 28, height: 28, borderRadius: '50%',
+          color: 'var(--green-900)', border: '1px solid rgba(43,42,38,0.30)',
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: 12, fontWeight: 400, letterSpacing: '0.04em',
+          fontFamily: 'var(--font-display)',
+        }}>IV</span>
+        Step
+      </div>
+      <h2 style={{
+        fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 3.2vw, 42px)',
+        fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.15,
+        letterSpacing: '-0.02em', margin: '12px 0 0',
+      }}>
+        {s.title}
+      </h2>
+      <p style={{
+        fontSize: 15, color: 'var(--gray-600)', lineHeight: 1.6,
+        maxWidth: 600, margin: '12px auto 0',
+      }}>
+        {s.desc}
+      </p>
+
+      {/* The app — design size, centered */}
+      <div style={{ height: FRAME_BLOCK * frameScale, marginTop: 'clamp(20px, 3vh, 34px)' }}>
+        <div style={{ transform: `scale(${frameScale})`, transformOrigin: 'top center' }}>
+          <div style={{
+            width: 'min(760px, 88vw)', margin: '0 auto',
+            background: '#FCFBF8', borderRadius: 20, overflow: 'hidden',
+            boxShadow: '0 0 0 1px rgba(43,42,38,0.09), 0 26px 54px -22px rgba(30,30,25,0.18)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '13px 18px', borderBottom: '1px solid rgba(43,42,38,0.06)' }}>
+              <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+              <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+              <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+              <span style={{ margin: '0 auto', fontSize: 11.5, color: 'rgba(43,42,38,0.45)', fontWeight: 500 }}>app.carelu.com</span>
+              <span style={{ width: 45 }} />
+            </div>
+            <div key={tab} className="pr-panel" style={{ height: 434, overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              {tab === 0 ? <PrPipeline /> : tab === 1 ? <PrAsk /> : <PrReporting />}
+            </div>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}>
+            <div style={{
+              display: 'inline-flex', gap: 4, background: '#fff', borderRadius: 100,
+              border: '1px solid rgba(43,42,38,0.08)', boxShadow: '0 8px 26px rgba(30,30,25,0.10)',
+              padding: 6,
+            }}>
+              {PR_TABS.map((tb, j) => (
+                <button key={tb} type="button" onClick={() => onTab(j)} style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  fontSize: 11.5, fontWeight: 600, fontFamily: 'inherit',
+                  color: tab === j ? '#1c1b18' : 'rgba(43,42,38,0.5)',
+                  background: tab === j ? 'rgba(212,242,92,0.45)' : 'transparent',
+                  border: 'none', borderRadius: 100, padding: '8px 16px', cursor: 'pointer',
+                  transition: 'background 0.25s, color 0.25s',
+                }}>
+                  {ICONS[j]}
+                  {tb}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -2663,17 +2758,10 @@ function PrReporting() {
 }
 
 
-/* The product, inside how-it-works: the live app frame filling step IV's
-   finale card. The real Pipeline / Ask AI / Reporting panels render at design
-   size and scale to the available width — up as well as down. On desktop the
-   scrollbar drives the tabs: the card slide ends at HOW_SLIDE_END, and the
-   remaining pinned scroll steps through the three app screens slowly enough
-   to read each one. On mobile the tabs cycle on a timer while in view. */
-const HOW_SLIDE_END = 0.55;   // card slide finishes here (fraction of pin scroll)
-const PEEK_TAB_START = 0.60;  // first tab dwells from here…
-const PEEK_TAB_END = 0.96;    // …last tab lands here; ~60vh of scroll per screen
+/* The product on mobile: a scaled-down live app frame inside step IV's
+   stacked card. The screens take turns on a gentle timer while in view
+   (desktop gets the full-stage ProductStage instead). */
 function ProductPeek() {
-  const isMobile = useIsMobile();
   const [tab, setTab] = useState(0);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.45);
@@ -2684,26 +2772,8 @@ function ProductPeek() {
     return () => ro.disconnect();
   }, []);
 
-  // Desktop: the section's scroll position picks the tab
+  // The screens take turns on a gentle timer while the card is in view
   useEffect(() => {
-    if (isMobile) return;
-    const onScroll = () => {
-      const section = document.getElementById('how-it-works');
-      if (!section) return;
-      const trackH = section.offsetHeight - window.innerHeight;
-      if (trackH <= 0) return;
-      const progress = Math.max(0, Math.min(1, -section.getBoundingClientRect().top / trackH));
-      const p = Math.max(0, Math.min(0.999, (progress - PEEK_TAB_START) / (PEEK_TAB_END - PEEK_TAB_START)));
-      setTab(Math.floor(p * PR_TABS.length));
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [isMobile]);
-
-  // Mobile: no pin to scrub, so the screens take turns on a gentle timer
-  useEffect(() => {
-    if (!isMobile) return;
     const el = wrapRef.current; if (!el) return;
     let timer: ReturnType<typeof setInterval> | null = null;
     const io = new IntersectionObserver(([e]) => {
@@ -2715,19 +2785,9 @@ function ProductPeek() {
     }, { threshold: 0.5 });
     io.observe(el);
     return () => { io.disconnect(); if (timer) clearInterval(timer); };
-  }, [isMobile]);
+  }, []);
 
-  // Clicking a tab on desktop rides the scrollbar to that screen's dwell zone,
-  // so the click and the scroll never fight over the state.
-  const goTab = (j: number) => {
-    const section = document.getElementById('how-it-works');
-    if (isMobile || !section) { setTab(j); return; }
-    const top = section.getBoundingClientRect().top + window.scrollY;
-    const trackH = section.offsetHeight - window.innerHeight;
-    const step = (PEEK_TAB_END - PEEK_TAB_START) / PR_TABS.length;
-    const progress = PEEK_TAB_START + (j + 0.5) * step;
-    window.scrollTo({ top: top + progress * trackH, behavior: 'smooth' });
-  };
+  const goTab = (j: number) => setTab(j);
 
   const ICONS = [
     <svg key="0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><rect x="3" y="4" width="5" height="16" rx="1.5" /><rect x="10" y="4" width="5" height="11" rx="1.5" /><rect x="17" y="4" width="4" height="7" rx="1.5" /></svg>,
@@ -2736,12 +2796,7 @@ function ProductPeek() {
   ];
 
   return (
-    <div style={{
-      width: '100%', minWidth: 0, margin: '0 auto',
-      // As wide as the viewport height allows: the frame plus the tab pill must
-      // fit inside the pinned card, so width is capped by 100svh.
-      maxWidth: isMobile ? undefined : 'clamp(420px, calc((100svh - 520px) * 1.7), 900px)',
-    }}>
+    <div style={{ width: '100%', minWidth: 0, margin: '0 auto' }}>
       <div ref={wrapRef} style={{
         background: '#FCFBF8', borderRadius: 12, overflow: 'hidden',
         boxShadow: '0 0 0 1px rgba(43,42,38,0.09), 0 18px 40px -18px rgba(30,30,25,0.18)',
