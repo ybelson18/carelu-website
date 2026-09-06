@@ -6,7 +6,8 @@ import { careluRevealed } from '../lib/careluReveal';
    PRIVACY POLICY — LeadTrap, Inc. (leadtrap.com)
    Product-level policy covering leadtrap.com, app.leadtrap.ai, and
    the chat/phone/SMS/email products. Carries the Twilio A2P SMS
-   consent clause (§4) and the Google API Limited Use block (§3)
+   consent clause (§6) and the Google API Limited Use block (§3, applying
+   to both mailbox and Google Ads data — see §5)
    required for carrier + OAuth verification. Served on the leadtrap.com
    host; carelu.com serves the marketing-scoped PrivacyPolicy.tsx.
    Branding mirrors the LeadTrap homepage (Gateway/Company): dark
@@ -19,11 +20,11 @@ const accent = '#3a8ab0';
 const MUTED = 'rgba(255,255,255,0.6)';
 const FAINT = 'rgba(255,255,255,0.4)';
 const BORDER = 'rgba(255,255,255,0.1)';
-const EFFECTIVE = 'August 17, 2026';
+const EFFECTIVE = 'August 31, 2026';
 
-function H2({ children }: { children: React.ReactNode }) {
+function H2({ children, id }: { children: React.ReactNode; id?: string }) {
   return (
-    <h2 style={{
+    <h2 id={id} style={{
       fontFamily: 'var(--font-body)', fontSize: 21, fontWeight: 600,
       color: '#fff', letterSpacing: '-0.02em', margin: '44px 0 14px',
     }}>{children}</h2>
@@ -39,12 +40,16 @@ function LI({ children }: { children: React.ReactNode }) {
   return <li style={{ fontSize: 15, color: MUTED, lineHeight: 1.72, marginBottom: 7 }}>{children}</li>;
 }
 const link = { color: accent, fontWeight: 600, textDecoration: 'none' };
+const code: React.CSSProperties = {
+  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontSize: 13.5,
+  color: 'rgba(255,255,255,0.8)', wordBreak: 'break-all',
+};
 
 export default function LeadTrapPrivacy() {
   const revealed = careluRevealed();
   useSeo({
     title: 'Privacy Policy — LeadTrap',
-    description: 'How LeadTrap, Inc. collects, uses, and shares information across leadtrap.com and its chat, phone, SMS, email, and advertising-reporting products, including Google/Microsoft email data, Meta advertising data, and SMS consent.',
+    description: 'How LeadTrap, Inc. collects, uses, and shares information across leadtrap.com and its chat, phone, SMS, email, and advertising-reporting products, including Google/Microsoft email data, Google Ads and Meta advertising data, and SMS consent.',
     canonical: 'https://leadtrap.com/privacy',
   });
   return (
@@ -84,8 +89,9 @@ export default function LeadTrapPrivacy() {
           content of your conversation &mdash; on behalf of that Partner and process it under their instructions.</P>
         <P><B>Email data (with your permission).</B> If a Partner connects a Google or Microsoft email account to the
           Services, we access mailbox data through Google and Microsoft APIs solely as described in Section 3.</P>
-        <P><B>Advertising data (with your permission).</B> If a Partner connects a Meta (Facebook) account to the
-          Services, we access advertising data through Meta&rsquo;s APIs solely as described in Section 4.</P>
+        <P><B>Advertising data (with your permission).</B> If a Partner connects an advertising account to the
+          Services &mdash; Meta (Facebook) or Google Ads &mdash; we access that account&rsquo;s advertising data through
+          the platform&rsquo;s official APIs solely as described in Section 4 (Meta) and Section 5 (Google Ads).</P>
         <P><B>Automatic information.</B> Log data, device and browser information, approximate location derived from IP
           address, and usage analytics.</P>
 
@@ -95,7 +101,11 @@ export default function LeadTrapPrivacy() {
           reporting and analytics to Partners; secure and improve the Services; and comply with law.</P>
         <P>We do <B>not</B> sell personal information. We do <B>not</B> use lead or intake information for advertising.</P>
 
-        <H2>3. Google and Microsoft Email Data</H2>
+        <H2>3. Google and Microsoft Account Data</H2>
+        <P>This section covers data we receive through Google and Microsoft APIs. A Partner may connect a <B>mailbox</B>
+          (described here) and, separately, a <B>Google Ads</B> account (described in Section 5). The Google API{' '}
+          <B>Limited Use</B> commitments set out below apply to all Google user data we receive, including Google Ads
+          data.</P>
         <P>If a Partner connects a Gmail or Microsoft Outlook account, LeadTrap accesses that mailbox only to provide
           user-facing features the Partner has enabled &mdash; such as sending intake follow-up emails from the
           Partner&rsquo;s address, reading replies from leads so they appear in the Partner&rsquo;s LeadTrap inbox, and
@@ -104,15 +114,19 @@ export default function LeadTrapPrivacy() {
           <a href="https://developers.google.com/terms/api-services-user-data-policy" style={link} target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>,
           including the <B>Limited Use</B> requirements. Specifically:</P>
         <ul style={{ margin: '0 0 14px', paddingLeft: 22 }}>
-          <LI>We only use Google user data to provide and improve the user-facing mailbox features described above.</LI>
+          <LI>We only use Google user data to provide and improve the user-facing features described in this policy
+            &mdash; the mailbox features described above and the advertising-reporting features described in Section
+            5.</LI>
           <LI>We do <B>not</B> transfer Google user data to third parties except as necessary to provide these features,
             to comply with applicable law, or as part of a merger or acquisition with notice.</LI>
-          <LI>We do <B>not</B> use Google user data for advertising.</LI>
+          <LI>We do <B>not</B> use Google user data for advertising, including our own advertising and any ad targeting
+            or retargeting. (Showing a Partner their own Google Ads performance inside their dashboard is a user-facing
+            reporting feature they asked for, not advertising use of their data.)</LI>
           <LI>We do <B>not</B> allow humans to read Google user data unless we have the account holder&rsquo;s affirmative
             agreement, it is necessary for security or compliance purposes, or the data has been aggregated and
             anonymized.</LI>
-          <LI>We do <B>not</B> use Google Workspace or Gmail data to develop, improve, or train generalized artificial
-            intelligence or machine-learning models.</LI>
+          <LI>We do <B>not</B> use Google user data &mdash; including Google Workspace, Gmail, and Google Ads data
+            &mdash; to develop, improve, or train generalized artificial intelligence or machine-learning models.</LI>
         </ul>
         <P>Microsoft account data accessed through Microsoft Graph is handled under the same restrictions. Partners can
           disconnect a mailbox at any time from their LeadTrap settings, which revokes our access; previously synced data
@@ -152,41 +166,88 @@ export default function LeadTrapPrivacy() {
           owner&rsquo;s address with the subject &ldquo;Meta data deletion request.&rdquo; We will delete the stored Meta
           data associated with the connection within 30 days and confirm by email.</P>
 
-        <H2>5. SMS / Text Messaging</H2>
+        <H2>5. Google Ads Advertising Data</H2>
+        <P>Partners may connect a <B>Google Ads</B> account to the Services so they can see how their Google advertising
+          performs alongside the leads and intakes those ads generate. Access is granted by the Partner through
+          Google&rsquo;s OAuth consent screen, and we access Google Ads data only through the official Google Ads API,
+          using the <span style={code}>https://www.googleapis.com/auth/adwords</span> scope.</P>
+        <P><B>What we receive.</B> Read-only, and limited to the Partner&rsquo;s own advertising data: the list of Google
+          Ads accounts the connecting user is able to access; basic details of the account the Partner selects (account
+          name, currency, and time zone); and campaign performance &mdash; campaign ID and name with daily spend, clicks,
+          and impressions. This data is refreshed on a nightly schedule that re-pulls roughly the last 35 days, so
+          late-reported figures and spend corrections are picked up. We do <B>not</B> request or receive the connecting
+          user&rsquo;s Gmail, contacts, calendar, Google profile, or any other Google data through this connection.</P>
+        <P><B>Read-only access.</B> We only read. We never create, edit, pause, or delete campaigns, ad groups, ads,
+          budgets, or bids, and we never spend money in a Partner&rsquo;s Google Ads account. The connection makes no
+          changes of any kind to the account.</P>
+        <P><B>How we use it.</B> We use Google Ads data only to provide the features the Partner has enabled: displaying
+          advertising performance in that Partner&rsquo;s LeadTrap dashboard, attributing leads and intakes to the
+          campaigns that generated them, and reporting on the results (for example, cost per lead by campaign).
+          Specifically:</P>
+        <ul style={{ margin: '0 0 14px', paddingLeft: 22 }}>
+          <LI>We do <B>not</B> sell Google Ads data or use it for our own advertising or marketing.</LI>
+          <LI>We do <B>not</B> share Google Ads data with third parties, except with service providers who host and
+            operate the Services for us under contract, or where required by law. Each Partner&rsquo;s Google Ads data is
+            visible only to that Partner&rsquo;s account.</LI>
+          <LI>We do <B>not</B> use Google Ads data to develop, improve, or train generalized artificial-intelligence or
+            machine-learning models.</LI>
+          <LI>We do <B>not</B> allow humans to read Google Ads data except with the account holder&rsquo;s affirmative
+            agreement, where necessary for security or compliance, or where the data has been aggregated and
+            anonymized.</LI>
+        </ul>
+        <P>Our use and transfer of information received from Google APIs, including the Google Ads API, adheres to the{' '}
+          <a href="https://developers.google.com/terms/api-services-user-data-policy" style={link} target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>,
+          including the <B>Limited Use</B> requirements set out in Section 3.</P>
+        <P><B>Disconnecting and stored data.</B> A Partner can disconnect their Google Ads account at any time from their
+          LeadTrap settings. Disconnecting stops the nightly sync, revokes our access, and clears the stored OAuth tokens
+          for that connection. You can also revoke LeadTrap&rsquo;s access yourself at any time at{' '}
+          <a href="https://myaccount.google.com/permissions" style={link} target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a>.
+          Advertising performance that has already been synced (daily spend, clicks, and impressions by campaign) is{' '}
+          <B>kept</B> after disconnection so the Partner&rsquo;s past reports remain intact. To have it deleted, email{' '}
+          <a href="mailto:privacy@leadtrap.com" style={link}>privacy@leadtrap.com</a> from the account owner&rsquo;s
+          address with the subject &ldquo;Google Ads data deletion request.&rdquo; We will delete the stored Google Ads
+          data associated with the connection within 30 days and confirm by email.</P>
+
+        <H2 id="sms">6. SMS / Text Messaging</H2>
         <P>Leads may receive SMS messages from a Partner via LeadTrap only after providing consent &mdash; for example, by
           submitting a form or chat conversation that discloses SMS follow-up, or by texting in first. Message frequency
           varies; message and data rates may apply. Reply <B>STOP</B> to opt out at any time and <B>HELP</B> for help.</P>
+        <P><B>Messages from LeadTrap itself.</B> If you submit a contact, demo, or intake request to LeadTrap on
+          leadtrap.com and check the SMS consent box on that form, LeadTrap may text you at the number you provided about
+          that request and our services. The box is unchecked by default, and consent is never a condition of purchase or
+          of any service. The same terms apply: message frequency varies, message and data rates may apply, reply
+          <B>STOP</B> to opt out and <B>HELP</B> for help.</P>
         <P><B>No mobile opt-in data is shared with third parties or affiliates for marketing or promotional purposes.</B>{' '}
           Text messaging originator opt-in data and consent are not shared with any third parties, except as necessary to
           deliver the messages (e.g., our SMS carrier partners) or as required by law.</P>
 
-        <H2>6. Sharing</H2>
+        <H2>7. Sharing</H2>
         <P>We share information with: the Partner on whose behalf a conversation occurs; service providers who process
           data for us under contract (hosting, telephony/SMS carriers, payment processing, analytics); and authorities
           when required by law. We may share aggregated, de-identified information that cannot reasonably identify you.</P>
 
-        <H2>7. Data Retention and Deletion</H2>
+        <H2>8. Data Retention and Deletion</H2>
         <P>We retain personal information for as long as needed to provide the Services to the relevant Partner, then
           delete or de-identify it. Partners may request deletion of lead data at any time; account holders may request
           deletion of their account data by contacting{' '}
           <a href="mailto:privacy@leadtrap.com" style={link}>privacy@leadtrap.com</a>.</P>
 
-        <H2>8. Security</H2>
+        <H2>9. Security</H2>
         <P>We use industry-standard safeguards, including encryption in transit (TLS) and at rest, access controls, and
           least-privilege internal access. OAuth tokens for connected email accounts are stored encrypted and are never
           shared.</P>
 
-        <H2>9. Your Rights</H2>
+        <H2>10. Your Rights</H2>
         <P>Depending on where you live, you may have rights to access, correct, delete, or port your personal
           information, and to opt out of certain processing. Contact{' '}
           <a href="mailto:privacy@leadtrap.com" style={link}>privacy@leadtrap.com</a> to exercise these rights. If we
           process your data on behalf of a Partner, we may direct your request to that Partner.</P>
 
-        <H2>10. Children</H2>
+        <H2>11. Children</H2>
         <P>The Services are not directed to children under 13, and we do not knowingly collect their information without
           appropriate consent obtained by the Partner (e.g., a parent completing intake for a child&rsquo;s care).</P>
 
-        <H2>11. Changes and Contact</H2>
+        <H2>12. Changes and Contact</H2>
         <P>We will post any changes to this policy on this page with an updated effective date. Questions:{' '}
           <a href="mailto:privacy@leadtrap.com" style={link}>privacy@leadtrap.com</a>, LeadTrap, Inc., 169 Madison Ave,
           STE 62431, New York, NY 10016.</P>

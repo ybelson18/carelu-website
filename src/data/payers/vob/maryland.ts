@@ -129,6 +129,12 @@ const MD_ABA_MANUAL = src(
   'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf',
   'MDH ABA Provider Manual, effective 2026-02-01, pp.15-16 (fee schedule) and pp.4/14 (billing/contact). Full-text search this pass confirmed: no "EDI," "companion guide," "270," "271," or "payer ID" appear anywhere in this 16-page manual — Carelon is the named EDI/billing contact (800-888-1965) but no clearinghouse payer ID is stated in it. Confirms CMS-1500 paper / CMS 837P electronic billing format.'
 );
+const MD_PT_60_26: SourceRef = {
+  url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT60-26_Updates_to_ABA_Telehealth.pdf',
+  accessDate: '2026-09-01',
+  note:
+    'MDH Provider Transmittal PT 60-26, "ABA Transmittal No. 9" (issued 2/27/2026, effective 4/1/2026) — read in full. For 97155 (RBT/BCaBA/BT supervision), 97156/97156-U2 (parent training), and 97157 (group parent training), services may no longer be delivered 100% via telehealth: at least 25% of the service must be rendered in person, with up to 75% allowed via telehealth. Supersedes the older PT 11-22 telehealth-continuation guidance for these three codes. Does not change 97153 (never telehealth-eligible) or the fee schedule.',
+};
 
 /* -------------------- Layer 7: contact & channel sources -------------------- */
 
@@ -203,11 +209,14 @@ function mdMedicaidEntry(code: string, unitCap: string, notes?: string): CodeGri
       'school (participants 6+ expected to be in school with an IEP; short-term/clinically-justified ABA only; an RBT/BT may not serve as a 1:1 school aide)',
     ],
     telehealth: telehealthEligible
-      ? 'Yes — GT modifier. Confirmed on Maryland\'s telehealth-eligible service list (direct BCaBA/RBT/BT supervision, parent training, group parent training).'
+      ? 'Yes, but capped — GT modifier, and (eff. 4/1/2026, PT 60-26) no longer 100% telehealth: at least 25% of the service must be rendered in person, with up to 75% allowed via telehealth. Confirmed on Maryland\'s telehealth-eligible service list (direct BCaBA/RBT/BT supervision, parent training, group parent training).'
       : "No — NOT on Maryland's telehealth-eligible service list. The ABA Provider Manual limits telehealth (GT modifier) to direct supervision, parent training, and group parent training only; direct 97153 treatment and the other codes are explicitly excluded.",
     modifiers: telehealthEligible ? ['GT (telehealth)', code === '97156' ? 'U2 (child present)' : ''].filter(Boolean) : ['None published for this code'],
     notes: [
       notes,
+      telehealthEligible
+        ? 'Effective 4/1/2026, PT 60-26 ("ABA Transmittal No. 9") ends 100%-telehealth delivery for this code — minimum 25% in person, up to 75% telehealth — superseding the older PT 11-22 telehealth-continuation guidance.'
+        : undefined,
       'Credential-tier billing (BCBA/BCaBA/RBT-BT) is paid via separate fee-schedule lines per the manual, not distinct modifier codes — no modifier letters for credential tiers are stated in the manual; verify current billing-modifier convention with Carelon if a claim denies on this basis.',
     ]
       .filter(Boolean)
@@ -220,7 +229,7 @@ function mdMedicaidEntry(code: string, unitCap: string, notes?: string): CodeGri
       telehealth: 'verified',
       modifiers: 'inferred',
     },
-    sources: [MD_ABA_MANUAL],
+    sources: telehealthEligible ? [MD_ABA_MANUAL, MD_PT_60_26] : [MD_ABA_MANUAL],
   };
 }
 

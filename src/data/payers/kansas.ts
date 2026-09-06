@@ -6,7 +6,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
     cardDesc: 'CCTS + IIS under EPSDT (not "ABA"); 3 MCOs, 6-month diagnosis rule, 50 h/yr + 25 h/wk limits.',
     assessmentPA: 'Required — physician/licensed-practitioner recommendation + PA per KMAP Bulletin 17129; each MCO runs its own intake',
     treatmentPA: 'Required — CCTS soft limit 50 hrs/year, IIS initially authorized up to 25 hrs/week; MCO reauthorization at minimum every 6 months',
-    dxRequired: 'Yes — ASD (F84.x); both major MCOs require MD/licensed-psychologist validation within the last 6 months; EPSDT age 20 and under',
+    dxRequired: 'Yes — ASD (F84.x); both major MCOs require MD/licensed-psychologist validation within the last 6 months; EPSDT age 20 and under. Per KMAP Bulletin 26140 (eff. 9/1/2026), for members 20 and under the diagnosis must additionally come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity with a validated tool (e.g., ADOS, CARS) — a 2-year grace period applies to members already diagnosed by a non-compliant provider.',
     payer: 'KanCare (Kansas Medicaid)',
     state: 'KS', kind: 'state-medicaid',
     pill: 'Payer Guide · KanCare',
@@ -22,6 +22,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { label: 'Prior auth', value: 'Required — physician/practitioner recommendation + PA, per MCO' },
       { label: 'Hour limits', value: 'CCTS soft limit 50 hrs/year; IIS initial auth up to 25 hrs/week (more on medical necessity)' },
       { label: 'Diagnosis recency', value: 'ASD validation within the last 6 months (Sunflower + Optum/UHC rule)' },
+      { label: 'Diagnosing credential (new 9/1/2026)', value: 'KMAP Bulletin 26140 — BSRB-licensed clinical psychologist or qualified physician, DSM criteria + validated tool (ADOS/CARS); 2-yr grace period for existing non-compliant diagnoses' },
       { label: 'Administered by', value: 'Sunflower, UHC Community Plan, Healthy Blue (all MCO, contracts 2025–2027)' },
       { label: 'Licensure', value: 'Kansas LBA/LaBA (BSRB) since 7/1/2016; every provider needs their own KMAP ID' },
       { label: 'Rates', value: 'Not reliably published — KMAP interactive lookup is the source of truth (last verified rate action 4/1/2019)' },
@@ -54,11 +55,13 @@ export const kansasPayers: Record<string, PayerConfig> = {
         h2: 'Authorization & the 6-month diagnosis rule',
         body: [
           'At the state-policy level, CCTS — which includes the assessment function, now billed 97151 — requires a recommendation by a physician or other licensed practitioner and is subject to prior authorization; each MCO operates its own PA intake. The tripwire to design intake around is diagnosis recency: both Sunflower (KS.CP.01) and Optum/UHC (BH 803ABA Kansas entry) require that an MD or licensed psychologist has validated the ASD diagnosis via comprehensive diagnostic evaluation within the last 6 months at initial authorization — an unusually aggressive rule that means a two-year-old diagnostic report doesn\'t clear the gate. Reauthorization runs at minimum every 6 months (Optum layers a monthly provider progress review on top), and Sunflower adds its own Kansas-specific gate: a current Kan Be Healthy (EPSDT) screen within the past year. Capture diagnosis date and screening status at first contact, not at submission.',
+          'KMAP Bulletin 26140, issued 8/12/2026 and effective 9/1/2026, layers a credential requirement on top of that 6-month currency rule rather than replacing it: for members age 20 and under, the ASD diagnosis itself must come from a Kansas BSRB-licensed clinical psychologist or a qualified physician (family/general practice, neurology, psychiatry, pediatrics, and similar specialties), documented against DSM criteria and severity level using a validated diagnostic tool such as ADOS or CARS. Members already diagnosed by a non-compliant provider get a 2-year grace period before the new rule bites — worth flagging to families with an older diagnostician on file so a re-evaluation isn\'t a surprise at the 2028 mark.',
         ],
         cites: [
           { title: 'KMAP Bulletin 17129 — CCTS PA and practitioner-recommendation requirement', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-17129.html' },
           { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
           { title: 'Optum — ABA State Mandates supplemental criteria (Kansas Medicaid section)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026, eff. 9/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
         ],
       },
       {
@@ -98,6 +101,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'KMAP Bulletin 17129 — Additional State Plan Services (CCTS/IIS, eff. 1/1/2017)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-17129.html' },
+      { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026, eff. 9/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
       { title: 'KMAP Bulletin 18259 — Mental Health/Autism CPT crosswalk (eff. 1/1/2019)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-18259.html' },
       { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (eff. 4/1/2019)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
       { title: 'KMAP Bulletin 22128 — BH Services Rate Increase 7/1/2022', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-221280.html' },
@@ -115,6 +119,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Does KanCare (Kansas Medicaid) cover ABA therapy?', a: 'Yes — but Kansas doesn\'t label it ABA. It\'s covered under EPSDT for members age 20 and under as two services: CCTS (the BCBA tier, soft limit 50 hours/year) and IIS (the technician 1:1 tier, initially authorized up to 25 hours/week, more on medical necessity), with prior authorization through the member\'s MCO.' },
       { q: 'Which MCOs run KanCare autism services?', a: 'Sunflower Health Plan, UnitedHealthcare Community Plan (Optum behavioral health), and Healthy Blue Kansas — the new plan effective 1/1/2025. Aetna Better Health of Kansas lost its contract; its members moved to Healthy Blue on 1/1/2025.' },
       { q: 'How recent does the autism diagnosis need to be?', a: 'Both Sunflower and Optum/UHC require the ASD diagnosis to have been validated by an MD or licensed psychologist within the last 6 months at initial authorization — plan for a diagnostic refresh if the report is older.' },
+      { q: 'Who is allowed to make the ASD diagnosis for KanCare members?', a: 'As of KMAP Bulletin 26140 (eff. 9/1/2026), for members age 20 and under the diagnosis must come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity using a validated tool such as ADOS or CARS. This layers on top of the existing 6-month diagnosis-currency rule rather than replacing it; existing members diagnosed by a non-compliant provider get a 2-year grace period.' },
       { q: 'What does Kansas Medicaid pay for ABA?', a: 'Current rates aren\'t reliably published. The last public anchor is $17.50/15-minute unit for 97151 effective 1/1/2019, raised 4/1/2019 without published amounts; the 2022 BH increase skipped the 9715x codes. Pull current figures from the KMAP interactive fee-schedule lookup — the only source of truth.' },
     ],
   },
@@ -125,7 +130,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
     cardDesc: 'Autism Auth Request Form, named assessment tools, 6-month dx rule, Kan Be Healthy screen gate.',
     assessmentPA: 'Required — completed Autism Authorization Request Form with physician recommendation, diagnosis validated within 6 months, plus a standardized assessment and a skills-based assessment',
     treatmentPA: 'Required — focused (10–25 h/wk) or comprehensive (25–40 h/wk) plans; 6-month continuation reviews and annual full reassessment; Kan Be Healthy screen within the past year',
-    dxRequired: 'Yes — ASD (F84.x per Sunflower\'s coding table), validated by an MD or licensed psychologist within the last 6 months',
+    dxRequired: 'Yes — ASD (F84.x per Sunflower\'s coding table), validated by an MD or licensed psychologist within the last 6 months; per KMAP Bulletin 26140 (eff. 9/1/2026), members 20 and under also need that diagnosis from a Kansas BSRB-licensed clinical psychologist or qualified physician using a validated tool (2-yr grace period for existing diagnoses)',
     payer: 'Sunflower Health Plan (KS)',
     state: 'KS', kind: 'medicaid-mco', parent: 'KanCare (Kansas Medicaid)',
     pill: 'Payer Guide · Sunflower Health Plan',
@@ -149,9 +154,11 @@ export const kansasPayers: Record<string, PayerConfig> = {
         h2: 'The authorization packet Sunflower actually wants',
         body: [
           'KS.CP.01 drives authorization off a fully completed Autism Authorization Request Form with a dated provider signature, and the packet is specific: a physician recommendation or prescription; the original autism diagnosis validated within the last 6 months by an MD or licensed psychologist; a criterion-referenced standardized assessment (Vineland-3, ADOS, CARS, ADI-R, GARS, or ASDS); and a skills-based assessment (VB-MAPP, ABLLS, AFLS, or ASRS). Treatment plans are classified focused (10–25 hours/week) or comprehensive (25–40 hours/week), against the state soft limits of 50 hours/year of CCTS and 25 hours/week of IIS — exceeding them takes additional documentation. Continuation reviews land every 6 months with an updated skills-based assessment; annual reviews require the full standardized-plus-skills battery. One caveat worth knowing: the posted policy version was last reviewed 06/2019, so confirm current requirements through the portal when stakes are high.',
+          'A new state-level layer applies on top of that packet: KMAP Bulletin 26140, effective 9/1/2026, requires that for members 20 and under the ASD diagnosis itself come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity using a validated diagnostic tool (e.g., ADOS, CARS). It doesn\'t replace the 6-month currency rule above — it adds a credential/tooling check on who made the diagnosis. Members already diagnosed by a non-compliant provider have a 2-year grace period.',
         ],
         cites: [
           { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
+          { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026, eff. 9/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
         ],
       },
       {
@@ -174,11 +181,12 @@ export const kansasPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
       { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (state CCTS/IIS limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
+      { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026, eff. 9/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
     ],
     faq: [
       { q: 'Does Sunflower Health Plan cover ABA therapy?', a: 'Yes — as KanCare\'s CCTS/IIS autism-services benefit under EPSDT, with prior authorization via the Autism Authorization Request Form, a physician recommendation, and named standardized plus skills-based assessments.' },
       { q: 'What is the Kan Be Healthy requirement?', a: 'Sunflower requires Medicaid members to have a current Kan Be Healthy (EPSDT) screen completed within the past year by a physician, APRN, PA, or credentialed RN — explicitly not the same as a well-child exam. Missing it silently stalls the authorization.' },
-      { q: 'How recent must the autism diagnosis be for Sunflower?', a: 'Validated within the last 6 months by an MD or licensed psychologist at initial authorization — build the diagnostic refresh into intake for families with older reports.' },
+      { q: 'How recent must the autism diagnosis be for Sunflower?', a: 'Validated within the last 6 months by an MD or licensed psychologist at initial authorization — build the diagnostic refresh into intake for families with older reports. As of KMAP Bulletin 26140 (eff. 9/1/2026), members 20 and under also need that diagnosis to come from a Kansas BSRB-licensed clinical psychologist or a qualified physician using a validated diagnostic tool; existing non-compliant diagnoses get a 2-year grace period.' },
       { q: 'How many ABA hours does Sunflower authorize?', a: 'Plans run focused (10–25 hours/week) or comprehensive (25–40 hours/week), on top of the state soft limits — 50 hours/year of CCTS and 25 hours/week of IIS — which can be exceeded with additional documentation.' },
     ],
   },
@@ -189,7 +197,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
     cardDesc: 'Optum-run; 6-month dx rule, 40 h/wk plan ceiling, monthly progress reviews, KMAP-first credentialing.',
     assessmentPA: 'Required — PA for CCTS and IIS reviewed after all requested documentation is submitted (Optum)',
     treatmentPA: 'Required — individualized plan capped at 40 hrs/week; monthly progress review; formal treatment-plan renewal at minimum every 6 months',
-    dxRequired: 'Yes — ASD validated within the last 6 months by a licensed psychologist or MD via comprehensive diagnostic evaluation; member age 20 and under',
+    dxRequired: 'Yes — ASD validated within the last 6 months by a licensed psychologist or MD via comprehensive diagnostic evaluation; member age 20 and under. Per KMAP Bulletin 26140 (eff. 9/1/2026), that diagnosis must additionally come from a Kansas BSRB-licensed clinical psychologist or a qualified physician using a validated diagnostic tool (2-yr grace period for existing diagnoses)',
     payer: 'UnitedHealthcare Community Plan of Kansas',
     state: 'KS', kind: 'medicaid-mco', parent: 'KanCare (Kansas Medicaid)',
     pill: 'Payer Guide · UHC Community Plan (KS)',
@@ -213,9 +221,11 @@ export const kansasPayers: Record<string, PayerConfig> = {
         h2: 'The Kansas-specific Optum criteria',
         body: [
           'Optum\'s Kansas Medicaid entry codifies the state EPSDT framework with its own supplement: the member must be age 20 and under with an ASD diagnosis validated within the last 6 months by a licensed psychologist or MD via comprehensive diagnostic evaluation; identified deficits form the basis of an individualized treatment plan of no more than 40 hours per week; the CCTS provider reviews progress monthly; and a formal treatment-plan review and renewal request goes in at minimum every six months. The document also carries an explicit non-authorization list — speech/OT, vocational rehab, respite, recreational therapy, orientation & mobility, services delivered in PRTF or hospital settings, and duplicated services — worth screening against before a request goes out the door.',
+          'Layered on top since KMAP Bulletin 26140 (eff. 9/1/2026): for members 20 and under, the ASD diagnosis itself must come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity using a validated diagnostic tool such as ADOS or CARS. This is a credential/tooling add-on to — not a replacement for — the 6-month diagnosis-currency rule above, and existing members diagnosed by a non-compliant provider get a 2-year grace period.',
         ],
         cites: [
           { title: 'Optum — ABA State Mandates supplemental criteria (Kansas Medicaid section, annual review 11/2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026, eff. 9/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
         ],
       },
       {
@@ -239,10 +249,12 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA State Mandates supplemental criteria (Kansas Medicaid section)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
       { title: 'KMAP fee schedules — interactive lookup (rate source)', url: 'https://portal.kmap-state-ks.us/PublicPage/ProviderPricing/FeeSchedules' },
+      { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026, eff. 9/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Kansas cover ABA?', a: 'Yes — the KanCare CCTS/IIS benefit under EPSDT for members age 20 and under, administered by Optum, with prior authorization on both service tiers and an individualized plan capped at 40 hours/week.' },
       { q: 'How is UHC different from the other KanCare MCOs?', a: 'It publishes explicit Kansas criteria: the 40 h/wk plan ceiling, monthly progress reviews (strictest cadence of the three), a written exclusion list, and a commitment to pay the Kansas Medicaid autism-services rates.' },
+      { q: 'Who can make the ASD diagnosis for a UHC Kansas Medicaid member?', a: 'Since KMAP Bulletin 26140 (eff. 9/1/2026), for members 20 and under, a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity using a validated diagnostic tool (e.g., ADOS, CARS) — on top of the existing 6-month diagnosis-currency rule. Existing non-compliant diagnoses get a 2-year grace period.' },
       { q: 'How do I join the UHC KanCare ABA network?', a: 'Enroll in KMAP first — Optum retrieves your application from KMAP to start credentialing (~60 days). CCTS credentialing requires BACB certification proof plus your Kansas BSRB license number; contracting line 1-877-614-0484.' },
     ],
   },
@@ -285,11 +297,12 @@ export const kansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'What isn\'t published — and the Aetna transition',
         body: [
-          'We found no published Kansas-specific ABA hour caps, review cadence, or diagnosis-recency rule for Healthy Blue — the biggest verification gap among the three MCOs. Until the plan publishes more, work from the KanCare baseline (CCTS 50 hours/year, IIS 25 hours/week initial, state PA requirement) and confirm specifics through Availity or the ABA line before promising families a timeline. On the transition: Aetna Better Health of Kansas served KanCare 2019–2024 and was not selected for the 2025–2027 contracts; its members auto-moved to Healthy Blue on 1/1/2025 (with an extended MCO-change deadline of 4/4/2025), and continuity-of-care authorization honoring applied at the switch. Any family or directory record still pointing at Aetna Better Health belongs here now — or at Sunflower or UHC if they actively switched.',
+          'We found no published Kansas-specific ABA hour caps, review cadence, or diagnosis-recency rule for Healthy Blue — the biggest verification gap among the three MCOs. Until the plan publishes more, work from the KanCare baseline (CCTS 50 hours/year, IIS 25 hours/week initial, state PA requirement) and confirm specifics through Availity or the ABA line before promising families a timeline. One state-level rule does bind here regardless of what Healthy Blue itself has published: KMAP Bulletin 26140 (eff. 9/1/2026) requires that for members 20 and under, the ASD diagnosis come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, using a validated diagnostic tool — a KMAP-wide EPSDT rule, not an MCO-specific one, so it applies to Healthy Blue members too even though the plan has no Healthy-Blue-branded page stating so. On the transition: Aetna Better Health of Kansas served KanCare 2019–2024 and was not selected for the 2025–2027 contracts; its members auto-moved to Healthy Blue on 1/1/2025 (with an extended MCO-change deadline of 4/4/2025), and continuity-of-care authorization honoring applied at the switch. Any family or directory record still pointing at Aetna Better Health belongs here now — or at Sunflower or UHC if they actively switched.',
         ],
         cites: [
           { title: 'Kansas Action for Children — State selects companies to manage KanCare (Aetna → Healthy Blue)', url: 'https://www.kac.org/state_selects_companies_to_manage_kancare' },
           { title: 'KDHE — KanCare MCO contract awards 2025–2027', url: 'https://www.kdhe.ks.gov/CivicAlerts.aspx?AID=1104' },
+          { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026, eff. 9/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
         ],
       },
     ],
@@ -304,6 +317,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Healthy Blue KS — ASD Testing request form (KSHB-CD-066296-24)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/behavioral-health/KSHB-CD-066296-24-SRS66052%20BH%20Autism%20Testing%20Request%20Form_FINAL_v2%20FILLABLE.pdf' },
       { title: 'BCBSKS — Healthy Blue collaboration announcement (JV structure)', url: 'https://www.bcbsks.com/news-release/new-healthy-blue-collaboration-aims-offer-kansans-trusted-local-medicaid-solution-2024' },
       { title: 'Kansas Action for Children — KanCare 3.0 selection and Aetna transition', url: 'https://www.kac.org/state_selects_companies_to_manage_kancare' },
+      { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026, eff. 9/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
     ],
     faq: [
       { q: 'Does Healthy Blue Kansas cover ABA therapy?', a: 'Yes — it administers the KanCare CCTS/IIS autism-services benefit under EPSDT, with prior authorization via Availity, phone, or fax. Plan-specific hour rules aren\'t published, so the state baseline plus portal verification governs.' },

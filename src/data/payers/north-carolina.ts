@@ -15,7 +15,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How NC Medicaid covers ABA as Research-Based Behavioral Health Treatment (RB-BHT) under Clinical Coverage Policy 8F — prior authorization, 180-day auth cycles, published fee-schedule rates, the HB 696 overhaul, and the Standard/Tailored plan landscape.',
     intro: [
-      'North Carolina is one of the highest-demand ABA states in the country, and NC Medicaid covers ABA as "Research-Based Behavioral Health Treatment" (RB-BHT) under Clinical Coverage Policy 8F. The benefit is available in every delivery channel — NC Medicaid Direct, all five Standard Plans, all four Tailored Plans, and the new Children & Families Specialty Plan — and the plans must pay at least the state fee schedule. But 2025–2026 brought a rate cut and reversal, a major legislative overhaul (HB 696), and a policy rewrite in public comment, so this is a market where staying current is part of the job.',
+      'North Carolina is one of the highest-demand ABA states in the country, and NC Medicaid covers ABA as "Research-Based Behavioral Health Treatment" (RB-BHT) under Clinical Coverage Policy 8F. The benefit is available in every delivery channel — NC Medicaid Direct, all five Standard Plans, all four Tailored Plans, and the new Children & Families Specialty Plan — and the plans must pay at least the state fee schedule. But 2025–2026 brought a rate cut and reversal, a major legislative overhaul (HB 696), and a rewritten Clinical Coverage Policy 8F that took effect August 1, 2026, so this is a market where staying current is part of the job.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — RB-BHT under CCP 8F; under 21 via EPSDT, adults 21+ via a 2021 SPA' },
@@ -23,9 +23,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { label: 'Auth periods', value: 'Initial and reauth each up to 180 days' },
       { label: 'Plan review', value: 'LQASP treatment plan reviewed ≥ every 6 months, rewritten annually' },
       { label: 'Rates (per 15 min)', value: '97151 $30.56 · 97153 $20.81 · 97155 $32.22 · 97156 $23.70' },
-      { label: 'Watch', value: 'HB 696 ABA provisions law as of 4/30/2026; final CCP 8F rewrite pending — verify before relying on timing' },
+      { label: 'Watch', value: 'CCP 8F rewrite finalized & published, effective 8/1/2026 — telehealth removed for 97152/97153/97154, 97155 capped at 50% per 180 days' },
       { label: 'Diagnosis recency', value: 'Under-3 provisional dx must be confirmed within 6 months' },
-      { label: 'Staff screening', value: 'BACB checks + G.S. 122C-80 criminal check + pre-hire HCPR registry check; RBT/ABAT within 120 days of hire' },
+      { label: 'Staff screening', value: 'BACB checks + G.S. 122C-80 criminal check + pre-hire HCPR registry check; RBT/ABAT within 120 days of hire — grace period also started 8/1/2026 for existing uncertified staff' },
     ],
     sections: [
       {
@@ -35,7 +35,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           'The benefit exists in every delivery channel: NC Medicaid Direct, the five Standard Plans (Healthy Blue, AmeriHealth Caritas, Carolina Complete Health, UnitedHealthcare Community Plan, WellCare), the four Tailored Plans (Alliance, Trillium, Vaya, Partners — launched July 1, 2024), and the Children & Families Specialty Plan for child-welfare-involved members (launched December 1, 2025). The clinical rules are 8F everywhere; each plan\'s guide below covers its submission mechanics and quirks.',
         ],
         cites: [
-          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT)', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT)', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Disability Rights NC — autism-related services in NC (incl. 2021 SPA)', url: 'https://disabilityrightsnc.org/resources/autism-related-services-in-nc/' },
           { title: 'NC Medicaid — Tailored Plans', url: 'https://medicaid.ncdhhs.gov/tailored-plans' },
         ],
@@ -46,7 +46,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           'Prior authorization is required for all RB-BHT services — including the assessment. Initial authorizations run up to 180 days, reauthorizations up to another 180, and the reauth must be submitted before the current authorization expires. The treatment plan must be written and reviewed at least every six months by a Licensed Qualified Autism Service Provider (LQASP), rewritten annually, and at least 10% of approved services should be directly observed by the LQASP. As with any long review cadence, the baseline data collected at intake is what every future review is measured against.',
         ],
         cites: [
-          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT)', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT)', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
       {
@@ -63,25 +63,26 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'HB 696: the 2026 overhaul',
         body: [
-          'HB 696 (Session Law 2026-1, signed April 30, 2026) rewires NC Medicaid ABA — and its provisions are law as of April 30, 2026, with implementation running through a rewrite of CCP 8F that, as of this review (8/1/2026), STILL has not been posted: we fetched the live CCP 8F PDF directly from medicaid.ncdhhs.gov and it remains the pre-HB-696 version (header still reads "Amended Date: December 1, 2020," no mention of RBT/ABAT or the 2026 session law), even though NC Medicaid\'s own 7/21/2026 blog post says a revision "has been revised... and will be posted in the coming days." Verify the final 8F before relying on timing. The substance, per the bill text: no new out-of-state BCBA/QASP-supervisor enrollments; assessments must be in-person (telehealth assessments aren\'t reimbursed absent a documented exception); paraprofessionals can\'t deliver services by telehealth except documented necessity; the 10% LQASP observation floor is codified; and paraprofessionals must hold RBT or ABAT certification, with a 120-day grace period for new hires. Plans above 16 hours/week originally required monthly reapproval — softened to every 3 months in the budget signed July 7, 2026. NC Health News reporting (7/15/2026, quoting DHHS) describes the telehealth LQASP supervision cap as firmer than earlier drafts suggested — 20%, not 50% — and the out-of-state supervisor restriction as bounded by roughly a 40-mile radius of the patient; neither figure appears in bill text or a posted CCP 8F yet, so treat both as reported-not-yet-codified pending the final policy.',
+          'HB 696 (Session Law 2026-1, signed April 30, 2026) rewired NC Medicaid ABA, and the Clinical Coverage Policy 8F rewrite it directed has now been finalized and published, effective August 1, 2026 (Amended Date: August 1, 2026) — confirmed directly from NC Medicaid\'s live 8F policy page, corroborated by NC Medicaid\'s August 31, 2026 bulletin restating the new requirements for providers. The codified rules: assessments must be in-person (telehealth assessments aren\'t reimbursed absent a documented exception); telehealth is removed entirely — no documented-necessity exception remains — for the three paraprofessional-delivered codes 97152, 97153, and 97154; 97151 keeps telehealth eligibility with clinical justification; 97155 keeps telehealth but capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period; 97156/97157 keep their own separate telephonic/KX caregiver-access-barrier exception, unchanged; the 10% LQASP observation floor is codified; paraprofessionals must hold RBT or ABAT certification within 120 calendar days, and that grace-period clock started on August 1, 2026 for staff already employed but not yet certified, not just new hires — after the window, claims for non-certified paraprofessionals aren\'t reimbursed; no new out-of-state BCBA/QASP-supervisor enrollments, and effective August 2, 2026 all LQASPs/C-QPs must enroll as in-state providers; and plans above 16 hours/week move to a 90-day initial-and-reauthorization cadence (plans at or under 16 hours/week keep the existing 180-day cadence) — a step down from the monthly-reapproval-softened-to-quarterly compromise in the budget signed July 7, 2026. NC Medicaid\'s transition guidance is explicit that existing prior authorizations aren\'t affected: providers don\'t need to take any action on existing authorizations, and no action will be taken to reduce an existing PA\'s duration — the new 90-day cadence binds only future reauthorizations. One correction to flag: NC Health News reporting (7/15/2026, quoting DHHS) had described the telehealth LQASP supervision cap as 20%; the finalized policy sets it at 50%, not 20% — treat the 20% figure as superseded. That same reporting\'s ~40-mile-radius detail on the out-of-state supervisor restriction still isn\'t confirmed in the finalized policy text available to us, so continue to treat it as reported, not codified.',
         ],
         cites: [
           { title: 'Governor\'s office — HB 696 signing (4/30/2026)', url: 'https://governor.nc.gov/news/press-releases/2026/04/30/governor-stein-takes-action-one-bill' },
-          { title: 'NC Health News — new ABA Medicaid rules (7/2026)', url: 'https://www.northcarolinahealthnews.org/2026/07/15/autism-aba-therapy-medicaid-new-rules/' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'NC Health News — new ABA Medicaid rules (7/2026; 20% telehealth-cap figure superseded by the finalized 50%)', url: 'https://www.northcarolinahealthnews.org/2026/07/15/autism-aba-therapy-medicaid-new-rules/' },
           { title: 'NCTracks — CCP 8F public-comment notice (5/2026)', url: 'https://www.nctracks.nc.gov/content/public/providers/provider-communications/2026----Announcements/Public-Comment-Notice--Policy-8F---Research-Based-Behavioral-Health-Treatment-for-Autism-Spectrum-Disorder.html' },
-          { title: 'NC Medicaid — Reminder: RB-BHT Service Delivery Requirements (7/21/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/07/21/reminder-requirements-research-based-behavioral-health-treatment-service-delivery' },
-          { title: 'NC Medicaid — CCP 8F (live document, still pre-HB-696 as of 8/1/2026)', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
         ],
       },
       {
         h2: 'Staffing & credentialing: who you can hire, and what they must clear',
         body: [
-          'Start with the technician layer, because S.L. 2026-1 changed it: behavior technicians must be certified — RBT (BACB) or ABAT (QABA) — within 120 calendar days of their date of hire (or the agency\'s first Medicaid enrollment, whichever is later). New hires may render services during the window under all required supervision, but the draft CCP 8F is blunt about the consequence: a technician who misses the deadline "must cease rendering services" until certified. The BACB\'s own 2026 requirements have to fit inside that clock: a 40-hour training that must span at least 5 days, an initial competency assessment, an employer-run criminal background check plus a separate abuse-registry check completed within 180 days before the application (both reviewed by a BCBA-level Attesting Certificant who signs the attestation form), and the Pearson VUE exam — so start the packet on day one of employment, not day sixty.',
+          'Start with the technician layer, because S.L. 2026-1 changed it: behavior technicians must be certified — RBT (BACB) or ABAT (QABA) — within 120 calendar days of their date of hire (or the agency\'s first Medicaid enrollment, whichever is later). The finalized CCP 8F, effective August 1, 2026, adds a specific wrinkle for the existing workforce: that same 120-day grace-period clock started running on August 1, 2026 for paraprofessional staff already on payroll but not yet certified, not only for new hires. New hires and existing staff alike may render services during the window under all required supervision, but the finalized policy is blunt about the consequence once the window closes: claims for non-certified paraprofessionals are not reimbursed. The BACB\'s own 2026 requirements have to fit inside that clock: a 40-hour training that must span at least 5 days, an initial competency assessment, an employer-run criminal background check plus a separate abuse-registry check completed within 180 days before the application (both reviewed by a BCBA-level Attesting Certificant who signs the attestation form), and the Pearson VUE exam — so start the packet on day one of employment, not day sixty.',
           'NC then stacks two state statutes on the BACB layer. G.S. 122C-80 requires a criminal history check for unlicensed hires at MH/DD/SA providers: a state check for applicants who\'ve lived in NC five-plus years, state plus national fingerprint-based check for more recent arrivals, with the check request submitted within five business days of the conditional offer (conditional employment pending results is allowed, and a relevant conviction is weighed for seriousness, recency, and nexus to the job — not automatically disqualifying). Separately, G.S. 131E-256 requires checking the Health Care Personnel Registry BEFORE hiring any unlicensed staff with direct access — community-based DD service providers are covered even without a 122C license — and each registry access must be noted in your business files. The fourth layer is agency-level: NCTracks screens the enrolling organization and its 5%+ owners under the federal risk-based rules (42 CFR Part 455), with fingerprint-based checks for high-risk categories — confirm your agency\'s current risk category with NCTracks provider enrollment, and note that managed-care contracting never substitutes for NCTracks enrollment.',
-          'Supervisors need an NC license, not just a certification: behavior analysts license through the NC Behavior Analyst Licensure Board (G.S. Chapter 90, Article 43) — LBA (current BCBA or QBA) at a $250 application fee, LaBA (BCaBA or QASP-S) at $200, each plus a $14 criminal-background-check fee run through Castle Branch (package VN90) and a completed fingerprint record card, submitted via the board\'s Licensure Gateway portal. Direct Medicaid enrollment as a BCBA requires both the certification and the license (taxonomy 103K00000X). The S.L. 2026-1 supervision floors then bind the staffing model (figures per the pending CCP 8F draft — verify the final policy): at least 10% of all paraprofessional-delivered services must involve LQASP observation and direction; for beneficiaries above 200 paraprofessional hours per six-month period, LQASP hours must land between 10% and 20% of paraprofessional hours, documented in the treatment plan with deviations clinically justified; telehealth 97155 is capped at 50% of total 97155 per beneficiary; and out-of-state BCBAs can no longer newly enroll. Plan-level certification adds essentially nothing on top — Alliance\'s RB-BHT guidance and WellCare\'s WNC.CP.109 both defer to the state baseline — the plans\' real staffing exposure is agency certification reviews against DMH/DD/SAS standards and 10A NCAC 27G personnel files (job descriptions, supervision plans), not extra background checks.',
+          'Supervisors need an NC license, not just a certification: behavior analysts license through the NC Behavior Analyst Licensure Board (G.S. Chapter 90, Article 43) — LBA (current BCBA or QBA) at a $250 application fee, LaBA (BCaBA or QASP-S) at $200, each plus a $14 criminal-background-check fee run through Castle Branch (package VN90) and a completed fingerprint record card, submitted via the board\'s Licensure Gateway portal. Direct Medicaid enrollment as a BCBA requires both the certification and the license (taxonomy 103K00000X). The S.L. 2026-1 supervision floors are now codified in the finalized CCP 8F (effective 8/1/2026): at least 10% of all paraprofessional-delivered services must involve LQASP observation and direction; for beneficiaries above 200 paraprofessional hours per 180-day period, LQASP hours must land between 10% and 20% of paraprofessional hours, documented in the treatment plan with deviations clinically justified; telehealth on 97155 is capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period; telehealth is removed entirely (no exception) for 97152, 97153, and 97154; and out-of-state BCBAs can no longer newly enroll — effective August 2, 2026, all LQASPs/C-QPs must enroll as in-state providers. Plan-level certification adds essentially nothing on top — Alliance\'s RB-BHT guidance and WellCare\'s WNC.CP.109 both defer to the state baseline — the plans\' real staffing exposure is agency certification reviews against DMH/DD/SAS standards and 10A NCAC 27G personnel files (job descriptions, supervision plans), not extra background checks.',
         ],
         cites: [
-          { title: 'NC Medicaid — draft amended CCP 8F (7/2026 comment version)', url: 'https://medicaid.ncdhhs.gov/media/16091/download?attachment' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
           { title: 'BACB — RBT Handbook (updated 6/2026)', url: 'https://www.bacb.com/wp-content/uploads/2025/08/RBTHandbook_260116-a.pdf' },
           { title: 'G.S. 122C-80 — criminal history record checks (MH/DD/SA providers)', url: 'https://codes.findlaw.com/nc/chapter-122c-mental-health-developmental-disabilities-and-substance-abuse-act-of-1985/nc-gen-st-sect-122c-80/' },
           { title: 'G.S. 131E-256 — Health Care Personnel Registry', url: 'https://codes.findlaw.com/nc/chapter-131e-health-care-facilities-and-services/nc-gen-st-sect-131e-256/' },
@@ -95,17 +96,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Medicaid ID & health plan', desc: 'Standard Plan, Tailored Plan, CFSP, or NC Medicaid Direct — it decides the portal, forms, and UM contacts.' },
       { title: 'ASD diagnosis + validated tool', desc: 'Diagnosis, instrument, and date; for under-3, provisional-diagnosis status and the 6-month confirmation clock.' },
       { title: 'Service order', desc: 'Signed by an MD/DO/LP, based on an assessment, dated on/before service start, valid one year.' },
-      { title: 'Assessment (in-person under HB 696)', desc: 'HB 696\'s in-person assessment requirement is law as of April 30, 2026, operationalized through the pending CCP 8F rewrite — verify the final 8F before relying on timing, and plan scheduling accordingly.' },
-      { title: 'Supervisor credentials & location', desc: 'Out-of-state supervisor enrollment is closing; RBT/ABAT certification is now mandatory for paraprofessionals.' },
+      { title: 'Assessment (in-person under HB 696)', desc: 'HB 696\'s in-person assessment requirement is law as of April 30, 2026 and is now codified in the finalized CCP 8F, effective August 1, 2026 — telehealth assessments aren\'t reimbursed absent a documented exception. Plan scheduling accordingly.' },
+      { title: 'Supervisor credentials & location', desc: 'Out-of-state LQASP/C-QP enrollment closes August 2, 2026 — all must enroll as in-state providers. RBT/ABAT certification is mandatory for paraprofessionals; the 120-day grace period also started August 1, 2026 for existing uncertified staff, not just new hires.' },
     ],
     sources: [
       { title: 'NC Medicaid — 8F RB-BHT for ASD (policy page)', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd' },
-      { title: 'NC Medicaid — Clinical Coverage Policy 8F (PDF)', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
       { title: 'NCDHHS — BH rate floor bulletin', url: 'https://medicaid.ncdhhs.gov/blog/2023/11/15/nc-medicaid-behavioral-health-services-rate-increases' },
       { title: 'Alliance Health — Standard Rate Schedule (RB-BHT)', url: 'https://www.alliancehealthplan.org/document-library/97251' },
       { title: 'Governor\'s office — HB 696 signing', url: 'https://governor.nc.gov/news/press-releases/2026/04/30/governor-stein-takes-action-one-bill' },
-      { title: 'NC Health News — new ABA rules coverage', url: 'https://www.northcarolinahealthnews.org/2026/07/15/autism-aba-therapy-medicaid-new-rules/' },
-      { title: 'NC Medicaid — draft amended CCP 8F (7/2026 comment version)', url: 'https://medicaid.ncdhhs.gov/media/16091/download?attachment' },
+      { title: 'NC Health News — new ABA rules coverage (7/2026; 20% telehealth-cap figure superseded by the finalized 50%)', url: 'https://www.northcarolinahealthnews.org/2026/07/15/autism-aba-therapy-medicaid-new-rules/' },
+      { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'BACB — RBT Handbook (updated 6/2026)', url: 'https://www.bacb.com/wp-content/uploads/2025/08/RBTHandbook_260116-a.pdf' },
       { title: 'G.S. 122C-80 — criminal history record checks', url: 'https://codes.findlaw.com/nc/chapter-122c-mental-health-developmental-disabilities-and-substance-abuse-act-of-1985/nc-gen-st-sect-122c-80/' },
       { title: 'G.S. 131E-256 — Health Care Personnel Registry', url: 'https://codes.findlaw.com/nc/chapter-131e-health-care-facilities-and-services/nc-gen-st-sect-131e-256/' },
@@ -116,7 +117,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does North Carolina Medicaid cover ABA therapy?', a: 'Yes — as Research-Based Behavioral Health Treatment (RB-BHT) under Clinical Coverage Policy 8F, in every delivery channel (Medicaid Direct, Standard Plans, Tailored Plans, and the Children & Families Specialty Plan). All RB-BHT services require prior authorization, including the assessment.' },
       { q: 'What does NC Medicaid pay for ABA?', a: 'Published per-15-minute rates, effective 10/1/2025: 97151 $30.56, 97153 $20.81, 97155 $32.22, 97156 $23.70 — and every managed-care plan must pay at least 100% of the state fee schedule unless the provider agrees otherwise.' },
-      { q: 'What does HB 696 change for ABA providers?', a: 'In-person assessments, no new out-of-state supervisor enrollments (reportedly bounded by a ~40-mile radius of the patient), RBT/ABAT certification for paraprofessionals, a telehealth supervision cap reported at 20%, a codified 10% observation floor, and 3-month reapprovals for plans above 16 hours/week. The provisions are law as of April 30, 2026; implementation runs through a CCP 8F rewrite that, as of 8/1/2026, still has not been posted despite NC Medicaid saying in July it was imminent — verify the final 8F before relying on timing.' },
+      { q: 'What does HB 696 change for ABA providers?', a: 'In-person assessments (telehealth assessments aren\'t reimbursed absent a documented exception); no new out-of-state BCBA/LQASP/C-QP supervisor enrollments, with all LQASPs/C-QPs required to enroll as in-state providers by August 2, 2026; RBT/ABAT certification for paraprofessionals, with a 120-day grace period that started August 1, 2026 for existing uncertified staff as well as new hires (claims for non-certified paraprofessionals aren\'t reimbursed after the window); telehealth removed entirely for 97152, 97153, and 97154; a 50% cap on telehealth for 97155 (per beneficiary, per 180-calendar-day period — not the 20% some earlier reporting described); a codified 10% LQASP observation floor; and a move to 90-day initial-and-reauthorization periods for plans above 16 hours/week. These provisions are codified in the rewritten Clinical Coverage Policy 8F, effective August 1, 2026. Existing prior authorizations aren\'t affected — no action is needed and no existing PA\'s duration will be reduced.' },
       { q: 'Can a young child start before a confirmed diagnosis?', a: 'For children under three, NC Medicaid accepts a provisional ASD diagnosis when services begin, with a definitive diagnosis expected within six months.' },
     ],
   },
@@ -155,7 +156,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
-          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
       {
@@ -173,7 +174,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
       { title: 'Healthy Blue NC — prior authorization page', url: 'https://provider.healthybluenc.com/north-carolina-provider/prior-authorization' },
-      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
     faq: [
       { q: 'Does Healthy Blue NC cover ABA therapy?', a: 'Yes — Healthy Blue administers NC Medicaid\'s RB-BHT benefit by adopting Clinical Coverage Policy 8F: PA on all services including assessment, 180-day authorization cycles, LQASP treatment-plan reviews.' },
@@ -215,7 +216,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           'Because the plan\'s site blocks automated access, have your team download the current BH UM Guide and the PA Lookup results from the portal directly, and keep dated copies with your payer files.',
         ],
         cites: [
-          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (pull manually; bot-blocked)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
         ],
       },
@@ -227,7 +228,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'AmeriHealth Caritas NC — prior authorization resources (bot-blocked; access via portal)', url: 'https://www.amerihealthcaritasnc.com/provider/resources/physical-prior-auth' },
-      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
     faq: [
       { q: 'Does AmeriHealth Caritas NC cover ABA therapy?', a: 'Yes — as a Standard Plan it administers NC Medicaid\'s RB-BHT benefit under Clinical Coverage Policy 8F, with prior authorization per the state baseline. Confirm code-level rules in the plan\'s PA Lookup Tool.' },
@@ -268,7 +269,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Carolina Complete Health — behavioral health provider page', url: 'https://network.carolinacompletehealth.com/resources/behavioral-health.html' },
-          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
         ],
       },
@@ -280,7 +281,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'Carolina Complete Health — behavioral health page (8F deference, checklist)', url: 'https://network.carolinacompletehealth.com/resources/behavioral-health.html' },
-      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
     ],
     faq: [
@@ -323,7 +324,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Optum Provider Express — NC Medicaid ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaCAMediCal12.html' },
-          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
     ],
@@ -336,7 +337,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Optum Provider Express — NC Medicaid ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaCAMediCal12.html' },
       { title: 'UHC Community Plan NC — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/north-carolina-health-plans/nc-comm-plan-home/nc-cp-prior-auth.html' },
-      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of NC cover ABA?', a: 'Yes — RB-BHT under the CCP 8F baseline, administered through Optum, which has managed the plan\'s ABA network since July 2021, with UHC\'s own supplemental clinical criteria on top.' },
@@ -374,11 +375,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How WellCare administers RB-BHT',
         body: [
-          'WNC.CP.109 mirrors 8F\'s criteria — under-21 coverage via EPSDT, a validated diagnostic tool, provisional diagnosis under age three with definitive diagnosis within six months, LQASP treatment plans reviewed at least every six months — and defers wholesale to CCP 8F Section 6.0 on provider qualifications. Rather than listing PA\'d codes in the policy, WellCare delegates code-level requirements to its Authorization Lookup Tool and Medicaid Behavioral Health Authorization List, so check your specific codes there before each submission cycle. Telehealth for RB-BHT is governed by a separate policy (WNC.CP.193), with telephonic parent training allowed only for documented caregiver health or access barriers — and NC\'s HB 696 telehealth restrictions tighten this further from August 2026.',
+          'WNC.CP.109 mirrors 8F\'s criteria — under-21 coverage via EPSDT, a validated diagnostic tool, provisional diagnosis under age three with definitive diagnosis within six months, LQASP treatment plans reviewed at least every six months — and defers wholesale to CCP 8F Section 6.0 on provider qualifications. Rather than listing PA\'d codes in the policy, WellCare delegates code-level requirements to its Authorization Lookup Tool and Medicaid Behavioral Health Authorization List, so check your specific codes there before each submission cycle. Telehealth for RB-BHT is governed by a separate policy (WNC.CP.193), with telephonic parent training allowed only for documented caregiver health or access barriers — and the state\'s finalized CCP 8F, effective August 1, 2026, now tightens ABA telehealth further statewide: telehealth is removed entirely for 97152, 97153, and 97154, while 97155 is capped at 50% of billing per beneficiary per 180 days (historical note: WellCare of NC merged into Carolina Complete Health effective April 1, 2026, so this policy is kept for reference only).',
         ],
         cites: [
           { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
-          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
         ],
       },
@@ -391,7 +392,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
       { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy (historical)', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
-      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
     faq: [
       { q: 'Does WellCare of North Carolina still exist?', a: 'No — WellCare of North Carolina merged into Carolina Complete Health effective April 1, 2026, and is no longer a standalone NC Medicaid Standard Plan. Members and providers should use the Carolina Complete Health guide going forward.' },
@@ -452,7 +453,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
       { title: 'Alliance Health — Standard Rate Schedule', url: 'https://www.alliancehealthplan.org/document-library/97251' },
-      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
     faq: [
       { q: 'Does Alliance Health cover ABA therapy?', a: 'Yes — as a Tailored Plan, Alliance administers RB-BHT under CCP 8F, paying the state fee-schedule rates (97153 at $20.81/15-min, 97155 at $32.22/15-min, effective 10/1/2025).' },
@@ -490,28 +491,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Trillium runs RB-BHT authorization',
         body: [
-          'Every RB-BHT code (97151–97157) requires a TAR — prior authorization — including telephonic and telehealth delivery. The initial request needs the written assessment, diagnosis documentation from a validated tool, and the MD/DO/LP service order; treatment requests add a complete treatment plan signed by the LQASP and the legally responsible person, plus a discharge plan. Authorizations run up to 180 days for both initial and reauthorization periods, with reauth due before the current one expires, and all services are subject to post-payment review. Units run in 15-minute increments with no published unit caps.',
-          'Telehealth mechanics worth knowing (pre-HB-696 language, so expect tightening from August 2026): the GT modifier is usable on all RB-BHT codes for telehealth, and 97156/97157 are telephonic-billable with the KX modifier under caregiver-barrier criteria. LOCUS/CALOCUS is no longer required, but a standardized assessment tool is still expected.',
+          'Every RB-BHT code (97151–97157) requires a TAR — prior authorization — including telephonic and telehealth delivery. The initial request needs the written assessment, diagnosis documentation from a validated tool, and the MD/DO/LP service order; treatment requests add a complete treatment plan signed by the LQASP and the legally responsible person, plus a discharge plan. Under the finalized CCP 8F (effective 8/1/2026), plans at or under 16 hours/week keep 180-day initial and reauthorization periods, while plans above 16 hours/week move to 90-day initial and reauthorization periods; reauth is due before the current one expires either way, and all services are subject to post-payment review. Existing prior authorizations aren\'t affected by the change — no action is needed, and no existing PA\'s duration will be reduced; the new 90-day cadence binds only future reauthorizations. Units run in 15-minute increments with no published unit caps.',
+          'Telehealth mechanics, now finalized under CCP 8F effective August 1, 2026: telehealth is removed entirely — no documented-necessity exception — for the paraprofessional-delivered codes 97152, 97153, and 97154. 97151 retains telehealth eligibility with clinical justification, and 97155 retains it but capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period. 97156/97157 keep their own separate telephonic/KX caregiver-access-barrier exception, unchanged. LOCUS/CALOCUS is no longer required, but a standardized assessment tool is still expected.',
         ],
         cites: [
           { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
         ],
       },
     ],
     collect: [
       { title: 'Assessment + service order', desc: 'Written assessment, validated-tool diagnosis documentation, and the MD/DO/LP order — all required at the initial TAR.' },
       { title: 'Signatures', desc: 'Treatment plans need the LQASP and the legally responsible person\'s signatures.' },
-      { title: 'Reauth calendar', desc: '180-day cycles with renewal due before expiry — put it on the calendar at intake.' },
+      { title: 'Reauth calendar', desc: '180-day cycles for plans ≤16 hrs/week, 90-day cycles for plans >16 hrs/week (per the finalized CCP 8F, eff. 8/1/2026), with renewal due before expiry — put it on the calendar at intake.' },
       { title: 'Age', desc: 'Trillium\'s benefit plan covers adults too — don\'t screen out 21+ inquiries reflexively.' },
     ],
     sources: [
       { title: 'Trillium — Medicaid Child BH Services Benefit Plan', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
-      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
     ],
     faq: [
-      { q: 'Does Trillium cover ABA therapy?', a: 'Yes — RB-BHT under CCP 8F, with a TAR (prior authorization) required for every code including telehealth delivery, in 180-day authorization cycles.' },
+      { q: 'Does Trillium cover ABA therapy?', a: 'Yes — RB-BHT under CCP 8F, with a TAR (prior authorization) required for every code including telehealth delivery, in 180-day cycles (90-day for plans above 16 hours/week under the finalized 8F, effective 8/1/2026).' },
       { q: 'Does Trillium cover ABA for adults?', a: 'Its benefit plan lists RB-BHT for "Children, Adolescents and Adults," reflecting the 2021 State Plan Amendment that extended NC RB-BHT coverage past age 21.' },
-      { q: 'Can Trillium ABA services be delivered by telehealth?', a: 'Historically yes with the GT modifier (and 97156/97157 telephonically with KX under caregiver-barrier criteria) — but HB 696\'s August 2026 rules restrict ABA telehealth significantly; verify current rules first.' },
+      { q: 'Can Trillium ABA services be delivered by telehealth?', a: 'Only in part, under the finalized CCP 8F (effective 8/1/2026): telehealth is removed entirely for 97152, 97153, and 97154; 97151 keeps it with clinical justification; 97155 keeps it capped at 50% of billing per beneficiary per 180 days; 97156/97157 keep their separate telephonic/KX caregiver-barrier exception.' },
     ],
   },
 
@@ -548,7 +552,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           'Vaya\'s "Authorization Guidelines: Medicaid RB-BHT Services for ASD" (v2.0, rev. 9/5/2025 — still current, no v2.1/2026 update found) sets specific passthrough thresholds worth building into intake: 97151 assessment requests up to 32 units per six months go through as notification-only, without a full SAR, while requests above 32 units need a complete SAR (service order, treatment plan, MD/DO/psychologist-validated ASD diagnosis). 97155 (protocol modification by a BCBA-LP) similarly passes through on notification alone up to a 1-hour-per-10-hours ratio against direct intervention (97153/97154); above that ratio it needs a full SAR for medical-necessity review. All other codes (97152, 97153, 97154, 97156, 97157) require a SAR plus FBA, treatment plan, and service order on both initial and concurrent requests. A companion document, "RB-BHT Guidance" (v1.0, rev. 5/1/2025), restates the CCP 8F service definitions and clarifies "Program Modification vs. Supervision" for 97155.',
         ],
         cites: [
-          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
           { title: 'Vaya Health — RB-BHT Guidance (v1.0, rev. 5/1/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/05/RB_BHT_Guidance_20250522.pdf' },
         ],
@@ -563,7 +567,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
       { title: 'Vaya Health — RB-BHT Guidance (v1.0, rev. 5/1/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/05/RB_BHT_Guidance_20250522.pdf' },
       { title: 'Vaya Health — prior authorization page', url: 'https://providers.vayahealth.com/authorization-information/prior-authorization/' },
-      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
     faq: [
       { q: 'Does Vaya Health cover ABA therapy?', a: 'Yes — as a Tailored Plan, Vaya administers RB-BHT under CCP 8F, with service authorization requests reviewed by its UM team ((800) 893-6246 ext. 1513, UM@vayahealth.com).' },
@@ -617,7 +621,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Partners — Tailored Plan clinical coverage policies', url: 'https://www.partnersbhm.org/tailoredplan/providers/manuals-forms-and-policies/clinical-coverage-policies/' },
       { title: 'Partners — ALL-codes authorization provider alert', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
-      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/documents/files/8f-1/open' },
+      { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
     faq: [
       { q: 'Does Partners Health Management cover ABA therapy?', a: 'Yes — as a Tailored Plan it adopts CCP 8F for RB-BHT medical-necessity decisions, with prior authorization required per the state baseline.' },

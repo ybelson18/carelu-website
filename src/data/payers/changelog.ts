@@ -17,6 +17,104 @@ export interface PayerChangeEntry {
 
 export const PAYER_CHANGELOG: PayerChangeEntry[] = [
   {
+    date: '2026-09-01',
+    type: 'policy-update',
+    summary:
+      'September 2026 monthly refresh: no inbox uploads this cycle (2 document requests remain open — REQ-001 GAMMIS companion guide, REQ-014 narrowed to Anthem GA payer ID). Watchlist + spot-checks against primary sources across all 19 states + national turned up the biggest single change since the directory launched: North Carolina\'s long-awaited CCP 8F (RB-BHT) rewrite is now published and effective 8/1/2026 — correcting a previously-unconfirmed 20% telehealth-supervision figure to the actual 50% cap, removing telehealth entirely for 97152/97153/97154, and setting hard dates for the RBT/ABAT certification grace period (starts 8/1/2026) and out-of-state LQASP/C-QP enrollment closure (8/2/2026). Ohio\'s broken OAC 5160-34 citation now has a sourced explanation (rule paused for reevaluation amid multi-state OIG ABA-overpayment findings; draft-only, not adopted) and CareSource Ohio\'s core policy (MM-0028) was replaced by a same-day successor plus a new companion reimbursement policy (PY-1638), narrowing its H0036 billing allowance. Kansas added a new ASD-diagnosis credential requirement (KMAP Bulletin 26140, eff. 9/1/2026, today). Virginia\'s FFS service-authorization login mechanism moved to DMAS\'s MES portal SSO, and a new CMS-mandated PA turnaround SLA (72hr expedited / 7-day standard) now applies to all Virginia FFS and Cardinal Care MCO behavioral-health requests. Maryland corrected a telehealth gap: 97155/97156/97157 now require at least 25% in-person delivery (PT 60-26, eff. 4/1/2026), a rule that predated but was missed in an earlier pass. Florida\'s Sunshine Health added a second new rule (PCP Acknowledgement and Care Coordination Form, eff. 8/1/2026) alongside its existing authorization-transfer rule. New York\'s per-plan enrollment figures were refreshed to the July 2026 DOH report (all five NY plans\' figures moved down slightly from June), and its forward-looking "ABA Centers of Excellence" caveat was softened — secondary budget-summary sources suggest it did not survive into the enacted FY26-27 budget, but this is unconfirmed against primary bill text (new document request opened, REQ-015). Indiana added a caregiver-coaching-floor flexibility citation (BT2026136); Nebraska\'s 20-hour weekly cap and DD-waiver carve-out facts were upgraded from inferred/secondary sourcing to a directly-cited primary bulletin (DHHS Provider Bulletin 26-06). Arizona, Colorado, and Utah watchlist items (AMPM 320-S, HB26-1425/PBT rate exemption, MIB 26-61/26-62) were all reconfirmed unchanged with stronger primary-source citations. Georgia\'s re-procurement remains frozen in the protest phase with no Notice of Award (confirmed unchanged); its GA-Medicaid Change-Healthcare payer-ID conflict is now considered resolved via existing sourcing, narrowing REQ-014 to the still-unresolved Anthem GA ID ambiguity (00101 vs. 00601), for which new corroborating-but-not-authoritative evidence points toward 00601. A cross-cutting national item was surfaced for next cycle\'s watchlist: CMS published a non-binding ABA benefit-management toolkit (8/4/2026) urging states to restrict telehealth-primary ABA delivery and tighten utilization review, citing a 421% rise in Medicaid/CHIP ABA spending 2021-2025; North Carolina has already issued a responsive bulletin (8/31/2026). New/unsourced Kansas rate figures reported only by a non-primary tracker were NOT published pending REQ-016 (KMAP portal access). NJ, MO, TX, NM, TN, and national commercial policy citations were light-pass spot-checked with no drift found (one known bot-block persists: hhs.texas.gov\'s MCO service-area map).',
+    guides: [
+      'north-carolina-medicaid', 'wellcare-north-carolina', 'trillium-health-resources',
+      'ohio-medicaid', 'caresource-ohio',
+      'kansas-medicaid', 'sunflower-health-plan-kansas', 'unitedhealthcare-community-plan-kansas', 'healthy-blue-kansas',
+      'virginia-medicaid',
+      'maryland-medicaid',
+      'sunshine-health-florida',
+      'new-york-medicaid', 'excellus-bcbs-new-york', 'mvp-health-plan-new-york', 'cdphp-new-york', 'independent-health-new-york', 'highmark-western-new-york',
+      'indiana-medicaid',
+      'nebraska-medicaid',
+      'georgia-medicaid',
+    ],
+    details: [
+      {
+        slug: 'north-carolina-medicaid, wellcare-north-carolina, trillium-health-resources',
+        field: 'sections (CCP 8F / HB 696 status), atGlance, faq',
+        change:
+          'CCP 8F finalized and published, eff. 8/1/2026 (supersedes stale Dec-2020 mirror still served at the old /8f-1/open and /8f/open URLs): telehealth removed entirely for 97152/97153/97154; 97151 keeps a clinical-justification exception; 97155 capped at 50% of billing per 180 days (corrects a previously-flagged, unconfirmed "20%" figure from NC Health News reporting); RBT/ABAT 120-day certification grace period starts 8/1/2026 for existing staff too, non-reimbursable after; out-of-state LQASP/C-QP enrollment closes 8/2/2026; reauthorization cadence (180-day for ≤16 hrs/wk, 90-day for >16 hrs/wk) confirmed; existing PAs unaffected by the new cadence.',
+        sourceUrl: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open',
+      },
+      {
+        slug: 'ohio-medicaid',
+        field: 'sections (OAC 5160-34 rule-pause explanation, draft content)',
+        change:
+          'Broken codes.ohio.gov 5160-34-02 citation now explained: rule package paused in 2025 for reevaluation amid national ABA-spend scrutiny and state OIG improper-payment findings ($56.5M IN / $17.3M MA / $18.5M WI / $42.6M CO cited for context); provider comments on a draft closed 8/5/2026; no JCARR filing yet, not adopted. Draft-only content added as a clearly-marked forward-looking note: proposed full-RBT-certification requirement, CARF/Joint Commission org accreditation, and a two-tier Comprehensive (10-25 hrs/wk) vs. Focused (1-20 hrs/wk) intensity structure.',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/BH/provider/Presentations/7.30_ABA_Presentation.pdf',
+      },
+      {
+        slug: 'caresource-ohio',
+        field: 'sections (MM-0028 replacement, new PY-1638), faq',
+        change:
+          'MM-0028 (eff. 7/1/2025) archived 8/31/2026; same-day successor MM-0028 (eff. 9/1/2026) plus new companion reimbursement policy PY-1638 (eff. 9/1/2026) now govern. MUE table and docs-before-claims rule moved to PY-1638 (figures unchanged). New: H0036 no longer reimbursed for ABA when a designated ABA CPT code is usable (narrows prior blanket CBHC allowance); continuation-after-a-break requests must be filed as continuations, not new initials; anti-boilerplate progress-note language added.',
+        sourceUrl: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901',
+      },
+      {
+        slug: 'kansas-medicaid, sunflower-health-plan-kansas, unitedhealthcare-community-plan-kansas, healthy-blue-kansas',
+        field: 'dxRequired, sections (diagnosis credential requirement), faq',
+        change:
+          'New: for members age 20 and under, ASD diagnosis must come from a Kansas BSRB-licensed clinical psychologist or a qualified physician (family/general, neurology, psychiatry, pediatrics, etc.), documented against DSM criteria with a validated tool — layered alongside (not replacing) the existing 6-month diagnosis-currency rule. 2-year grace period for members already diagnosed by a non-compliant provider.',
+        sourceUrl: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html',
+      },
+      {
+        slug: 'virginia-medicaid',
+        field: 'atGlance, sections (FFS auth access, new PA turnaround SLA), faq',
+        change:
+          'FFS service-authorization access moved from direct Acentra/Atrezzo login to DMAS MES portal SSO ("FFS Service Authorization" tile), required since 6/1/2026. New: CMS Interoperability & Prior Authorization Final Rule (eff. 1/1/2026) imposes a 72-hour expedited / 7-day standard PA decision deadline (extendable to 14 days only if requested or evidence-driven) across FFS and all Cardinal Care MCOs, ABA included.',
+        sourceUrl: 'https://vamedicaid.dmas.virginia.gov/bulletin/new-single-sign-requirement-ffs-service-authorization-requests-acentra-ang-platform',
+      },
+      {
+        slug: 'maryland-medicaid',
+        field: 'atGlance, sections (telehealth in-person floor)',
+        change:
+          'Correction: 97155, 97156/97156-U2, and 97157 may no longer be delivered 100% via telehealth — at least 25% must be in-person (up to 75% telehealth), eff. 4/1/2026 per ABA Transmittal No. 9 (PT 60-26), superseding older PT 11-22 guidance. Predates but was missed in an earlier pass.',
+        sourceUrl: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT60-26_Updates_to_ABA_Telehealth.pdf',
+      },
+      {
+        slug: 'sunshine-health-florida',
+        field: 'sections (new PCP Acknowledgement Form rule), faq, collect',
+        change:
+          'New: effective 8/1/2026, Sunshine requires a "PCP Acknowledgement and Care Coordination Form" with every new BA authorization request (original signed doc resubmitted with every PA, updated annually); the PCP confirms awareness only, does not set hours or approve the plan. Layers on top of, does not replace, the existing 7/15/2026 authorization-transfer rule or CDE/Vineland-3/BASC-3 documentation.',
+        sourceUrl: 'https://www.sunshinehealth.com/newsroom/pcp-acknowledgement.html',
+      },
+      {
+        slug: 'new-york-medicaid, excellus-bcbs-new-york, mvp-health-plan-new-york, cdphp-new-york, independent-health-new-york, highmark-western-new-york',
+        field: 'intro (enrollment figures), sections (Centers of Excellence caveat softened)',
+        change:
+          'Enrollment refreshed to the July 2026 DOH report (all five plans moved down slightly from June): Excellus 182,403→179,533; MVP 167,506→165,151; CDPHP 82,141→80,854; Independent Health 61,649→60,812 (Erie County only); Highmark WNY 46,298→45,881. Separately, the forward-looking "ABA Centers of Excellence" front-end-gate caveat was softened: secondary budget-summary sources (not primary bill text) suggest it did not survive into the enacted 5/28/2026 FY26-27 budget — flagged unconfirmed, REQ-015 opened for the primary bill text.',
+        sourceUrl: 'https://www.health.ny.gov/health_care/managed_care/reports/enrollment/monthly/2026/docs/en07_26.pdf',
+      },
+      {
+        slug: 'indiana-medicaid',
+        field: 'sections (caregiver-coaching floor flexibility)',
+        change:
+          'BT2026136 (8/18/2026) clarifies the existing 12-hr/6-month caregiver-coaching floor (BT202662) can be reduced for documented barriers (custody/foster care, medical crisis, homelessness, legal restrictions), with an "improvement plan" required at reauthorization if unmet. Refines, does not contradict, existing figures.',
+        sourceUrl: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf',
+      },
+      {
+        slug: 'nebraska-medicaid',
+        field: 'sections (sourcing upgrade only, no factual change)',
+        change:
+          'DHHS Provider Bulletin 26-06 (6/1/2026, eff. 7/1/2026) located and cited directly, upgrading the 20-hour/week cap, the DD-waiver ABA-assessment carve-out, and the school-based-billing rule from inferred/local-reporting sourcing to a direct primary citation. No substance changed — all three facts reconfirmed exactly as previously written.',
+        sourceUrl: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2026-06.pdf',
+      },
+      {
+        slug: 'georgia-medicaid',
+        field: 'vob (Layer 1 payer-ID note)',
+        change:
+          'Re-procurement status reconfirmed unchanged (still protest-phase, no Notice of Award). GA-Medicaid Change Healthcare payer-ID conflict (SKGA0 vs. 12K05) considered resolved via existing sourcing; REQ-014 narrowed to the still-open Anthem GA ambiguity (00101 vs. 00601), with new corroborating-but-not-authoritative evidence (a live third-party clearinghouse list) pointing toward 00601.',
+        sourceUrl: 'https://medicaid.georgia.gov/programs/all-programs/georgia-families/georgia-families-latest-news',
+      },
+    ],
+    totals: { guides: 179, states: 19 },
+  },
+  {
     date: '2026-08-01',
     type: 'policy-update',
     summary:

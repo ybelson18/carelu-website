@@ -31,11 +31,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
         h2: 'Coverage & the state rule',
         body: [
           'OAC rule 5160-34-02 covers adaptive behavior services for the assessment and treatment of ASD, with prior authorization required for all covered ABA codes at both initial and ongoing stages and medical-necessity review at baseline and at least every six months. The ASD diagnosis must come from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria. Independent practitioners are Certified Ohio Behavior Analysts (COBA, under ORC Chapter 4783) or BACB BCBAs/BCBA-Ds, enrolled with ODM as Provider Type 19, Specialty 190; BCaBAs and RBTs work under supervision.',
-          'Watch the pending rewrite: ODM has drafted new rules 5160-34-01 through -03 that would, among other changes, require assessment PA only beyond 10 hours per 180 days and remove specific diagnostic-condition requirements. As of mid-2026 the rewrite had not been adopted — the all-PA framework still governs — but any guide or SOP built on Ohio rules should be re-checked when the chapter files. One access note from this review: codes.ohio.gov\'s live page for rule 5160-34-02 currently returns "Number Not Found," and the entire 5160-34 chapter is missing from the Title 5160 master chapter index — a gap between 5160-33 and 5160-35 — while neighboring rules resolve normally. We could not determine from primary sources whether this reflects the rewrite actually filing (which would explain a renumbering) or a site indexing gap; confirm current rule status with Rules@Medicaid.Ohio.gov or JCARR before relying on the codes.ohio.gov citation below.',
+          'Watch the pending rewrite: ODM has drafted new rules 5160-34-01 through -03 that would, among other changes, require assessment PA only beyond 10 hours per 180 days and remove specific diagnostic-condition requirements. The broken codes.ohio.gov citation flagged in earlier reviews now has a documented cause: per ODM\'s own 7/30/2026 provider stakeholder presentation, the ABA rule package was paused in 2025 for reevaluation — a mix of state budget pressure, national scrutiny of ABA spending, and state OIG audit findings elsewhere citing improper-payment takebacks ($56.5M in Indiana, $17.3M in Massachusetts, $18.5M in Wisconsin, $42.6M in Colorado, cited by ODM for context on why ABA rules are under review nationally). The chapter is under active revision again, with provider comments on the current draft due 8/5/2026, but no JCARR (Joint Committee on Agency Rule Review) filing exists yet — it remains pre-filing, not adopted law, so nothing below has changed. codes.ohio.gov\'s live page for rule 5160-34-02 still returns "no rule number corresponds" as of this review, and the entire 5160-34 chapter is still missing from the Title 5160 master chapter index; confirm current rule status with Rules@Medicaid.Ohio.gov or JCARR before relying on the codes.ohio.gov citation below.',
+          'Forward-looking only — DRAFT, NOT YET ADOPTED, do not treat as current policy: draft rule 5160-34-01 would require full RBT certification (dropping today\'s exam-eligible pathway), CARF or Joint Commission organizational accreditation, and a dedicated ABA provider type. Draft rule 5160-34-03 would introduce a two-tier intensity structure — Comprehensive (10–25 hrs/week) vs. Focused (1–20 hrs/week) — restrict eligibility to ASD only, require a diagnosing/referring practitioner who is independent of (not employed by) the ABA provider, require 4 hours/month of parent participation, and explicitly ban billing ABA under non-ABA/behavioral-health codes. None of this governs coverage today; re-check when (and if) the chapter files with JCARR.',
         ],
         cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02 (URL currently returns "Number Not Found" — verify before relying on it)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
+          { title: 'Ohio Administrative Code — rule 5160-34-02 (URL currently returns "no rule number corresponds" — verify before relying on it)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
           { title: 'ODM — draft ABA rule package (5160-34-01/-02/-03 + fee appendix)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
+          { title: 'ODM — Provider Stakeholder Office Hours: ABA Proposed Rule Review (7/30/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/BH/provider/Presentations/7.30_ABA_Presentation.pdf' },
         ],
       },
       {
@@ -71,7 +73,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Ohio Administrative Code — rule 5123-2-02 (DODD background investigations)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-5123-2-02' },
           { title: 'Ohio Administrative Code — rule 4783-6-02 (COBA supervision responsibilities)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-6-02' },
           { title: 'Optum/UHC Community Plan — Ohio Medicaid supplemental clinical criteria (eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
-          { title: 'CareSource — Ohio Medicaid ABA policy (MM-0028)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20250701.pdf' },
+          { title: 'CareSource — Ohio Medicaid ABA policy (MM-0028, eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
         ],
       },
     ],
@@ -85,9 +87,11 @@ export const ohioPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
       { title: 'ODM — ABA rule package + Appendix A fee schedule (draft filing)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf' },
+      { title: 'ODM — Provider Stakeholder Office Hours: ABA Proposed Rule Review (7/30/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/BH/provider/Presentations/7.30_ABA_Presentation.pdf' },
       { title: 'ODM — OhioRISE Mixed Services Protocol', url: 'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf' },
       { title: 'Ohio Medicaid Managed Care Health Plan Comparison (2026) — confirms current 7-plan roster', url: 'https://ohfiles.blob.core.windows.net/public/OhioMHWebsite/Documents/Ohio%20Medicaid%20Managed%20Care%20Health%20Plan%20Comparison%202026.pdf' },
-      { title: 'CareSource — Ohio Medicaid ABA policy (MM-0028)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20250701.pdf' },
+      { title: 'CareSource — Ohio Medicaid ABA policy (MM-0028, eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
+      { title: 'CareSource — Ohio Medicaid ABA reimbursement policy (PY-1638, eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
       { title: 'BACB — RBT Handbook (background-check and supervision requirements)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'Ohio Administrative Code — rule 4783-4-03 (COBA criminal records check)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-4-03' },
       { title: 'Ohio Administrative Code — rule 5160-1-17.8 (provider screening)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-5160-1-17-8' },
@@ -118,11 +122,11 @@ export const ohioPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How CareSource administers Ohio Medicaid ABA under policy MM-0028 — restricted diagnostician specialties, required diagnostic instruments, MUE daily-unit limits, the documentation-before-claims rule, and 6-month reviews.',
     intro: [
-      'CareSource is the dominant Ohio Medicaid plan in our data, and its ABA policy (MM-0028, current version effective July 2025) is materially stricter than the state rule: it names which specialties may diagnose, which instruments count, how many assessment hours are reasonable, and — most operationally unusual — requires treatment documentation to be submitted before claims will be accepted. If a family carries CareSource, this policy is the gate.',
+      'CareSource is the dominant Ohio Medicaid plan in our data, and its ABA policy (MM-0028, current version effective 9/1/2026 — the prior 7/1/2025 version was archived 8/31/2026) is materially stricter than the state rule: it names which specialties may diagnose, which instruments count, and how many assessment hours are reasonable. As of the 9/1/2026 update, the MUE daily-unit table and the "no documentation, no payment" claims rule now live in a companion reimbursement policy, PY-1638 (same effective date) — the figures are unchanged, they just moved documents. If a family carries CareSource, these two policies are the gate.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'Ohio Next Generation MCO' },
-      { label: 'Policy', value: 'OH MCD-MM-0028 (eff. 7/1/2025), citing MCG B-806-T' },
+      { label: 'Policy', value: 'OH MCD-MM-0028 (eff. 9/1/2026), citing MCG B-806-T; + companion reimbursement policy PY-1638 (eff. 9/1/2026)' },
       { label: 'Diagnostician', value: 'Child/adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician' },
       { label: 'Instruments', value: 'ADOS, ADI-R, or CARS-2; evals >24 months old need a symptom letter' },
       { label: 'Claims rule', value: 'Treatment records BEFORE claims — no docs, no payment' },
@@ -136,17 +140,19 @@ export const ohioPayers: Record<string, PayerConfig> = {
           'Where the state rule accepts any licensed clinician qualified to diagnose autism, MM-0028 restricts the diagnosis to a child/adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician, using a standardized instrument — ADOS, ADI-R, or CARS-2. If the evaluation is more than 24 months old, a provider letter documenting DSM symptoms within the past year is required. Screening referral packets against these names and instruments at intake prevents the most common CareSource denial.',
         ],
         cites: [
-          { title: 'CareSource — OH MCD-MM-0028 (eff. 7/1/2025)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20250701.pdf' },
+          { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
         ],
       },
       {
         h2: 'Authorization, units, and the docs-before-claims rule',
         body: [
-          'All ABA services get medical-necessity review at baseline and every 6 months, with continuation requests documenting progress against baseline using the same measurement tools. Behavioral assessments should generally not exceed 6–10 hours per 6-month period without justification. Daily units follow the CMS MUE maxima, enumerated in the policy: 97151 at 32, 97153 at 32, 97155 at 24, 97156 at 16 daily units, among others. The operational standout: treatment records must be submitted to CareSource prior to claim submission — "claims will not be accepted without accompanying treatment documentation" — which makes clinical-documentation turnaround a cash-flow variable. UM runs at (800) 488-0134 via the CareSource Provider Portal.',
-          'Other texture worth knowing: telehealth covers parent training and supervision, with 1:1 ABA via telehealth only when medically necessary under a documented service-delivery plan; H0036 (CPST) billing is accepted from community behavioral health centers in lieu of ABA CPT codes; and the discontinuation trigger is no meaningful progress across two successive 6-month authorization periods.',
+          'All ABA services get medical-necessity review at baseline and every 6 months, with continuation requests documenting progress against baseline using the same measurement tools. Behavioral assessments should generally not exceed 6–10 hours per 6-month period without justification. The 9/1/2026 MM-0028 update adds two operational details: a continuation request filed after a temporary break in services (e.g., summer, vacation) must be filed as a continuation, not a new initial request; and progress notes now face more explicit anti-boilerplate requirements — generic, copy-pasted symptom language is no longer sufficient documentation.',
+          'CareSource split its daily-unit and claims-documentation rules out of MM-0028 into a new companion reimbursement policy, PY-1638, effective the same day (9/1/2026) — the prior MM-0028 (eff. 7/1/2025) that carried these rules was archived 8/31/2026. The substance is unchanged, just relocated: daily units still follow the CMS MUE maxima — 97151 at 32, 97153 at 32, 97155 at 24, 97156 at 16 daily units, among others — and the operational standout survives verbatim: treatment records must be submitted to CareSource prior to claim submission — "claims will not be accepted without accompanying treatment documentation." UM runs at (800) 488-0134 via the CareSource Provider Portal.',
+          'Other texture worth knowing: telehealth covers parent training and supervision, with 1:1 ABA via telehealth only when medically necessary under a documented service-delivery plan; and the discontinuation trigger is no meaningful progress across two successive 6-month authorization periods. One rule narrowed in PY-1638: CareSource will no longer reimburse H0036 for ABA whenever a designated ABA CPT code is usable — the older blanket acceptance of H0036 (CPST) billing from certified CBHCs in lieu of ABA CPT codes no longer holds.',
         ],
         cites: [
-          { title: 'CareSource — OH MCD-MM-0028 (eff. 7/1/2025)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20250701.pdf' },
+          { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
+          { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
           { title: 'CareSource — Ohio Medicaid prior authorization list', url: 'https://www.caresource.com/documents/ohio-medicaid-prior-authorization-list/' },
         ],
       },
@@ -158,14 +164,16 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Progress measurement plan', desc: 'Continuations must reuse baseline measurement tools — lock them in at the start.' },
     ],
     sources: [
-      { title: 'CareSource — OH MCD-MM-0028 (eff. 7/1/2025)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20250701.pdf' },
+      { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
+      { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
       { title: 'CareSource — Ohio Medicaid prior authorization list', url: 'https://www.caresource.com/documents/ohio-medicaid-prior-authorization-list/' },
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
     ],
     faq: [
-      { q: 'Does CareSource Ohio cover ABA therapy?', a: 'Yes — under policy MM-0028, with medical-necessity review on all ABA at baseline and every 6 months. Its requirements are stricter than the state rule on diagnostician specialty, instruments, and documentation.' },
+      { q: 'Does CareSource Ohio cover ABA therapy?', a: 'Yes — under policy MM-0028 (eff. 9/1/2026) plus its companion reimbursement policy PY-1638, with medical-necessity review on all ABA at baseline and every 6 months. Its requirements are stricter than the state rule on diagnostician specialty, instruments, and documentation.' },
       { q: 'Who can diagnose autism for CareSource Ohio ABA?', a: 'A child/adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician, using ADOS, ADI-R, or CARS-2 — narrower than the state baseline.' },
-      { q: 'Why did CareSource reject our claim?', a: 'A distinctive MM-0028 rule: treatment documentation must be submitted before claims. Claims without accompanying treatment records are not accepted — check the documentation pipeline first.' },
+      { q: 'Why did CareSource reject our claim?', a: 'A distinctive rule, now sited in reimbursement policy PY-1638: treatment documentation must be submitted before claims. Claims without accompanying treatment records are not accepted — check the documentation pipeline first.' },
+      { q: 'Does CareSource Ohio still accept H0036 in lieu of ABA CPT codes?', a: 'Not as a blanket rule anymore. As of PY-1638 (eff. 9/1/2026), CareSource will not reimburse H0036 for ABA when a designated ABA CPT code is usable — confirm which code applies before billing.' },
     ],
   },
 

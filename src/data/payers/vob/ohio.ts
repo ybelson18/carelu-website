@@ -44,11 +44,22 @@
    - PER-CODE DAILY CAPS: the in-force/draft state rule sets no per-code
      daily unit cap (only an assessment PA threshold of 10 hrs/180 days
      and a 1:8 group ratio). The per-code CMS NCCI MUE ceilings are
-     enumerated verbatim in CareSource's MM-0028 (97151=32, 97152=16,
+     enumerated verbatim in CareSource's PY-1638 (eff. 9/1/2026 — as of
+     this pass, split out of MM-0028 into this new companion
+     reimbursement policy, figures unchanged: 97151=32, 97152=16,
      97153=32, 97154=18, 97155=24, 97156=16, 97157=16, 97158=16,
      0362T=16, 0373T=32) and are the operative federal daily ceiling —
      applied as 'verified' on the CareSource guide and 'inferred'
      elsewhere, with the state's own silence noted on ohio-medicaid.
+   - THIS PASS (2026-09-01, targeted CareSource + OAC 5160-34 update
+     only — not a full state re-verify): CareSource's MM-0028 (eff.
+     7/1/2025) is now archived (stamped "Date Archived 08/31/2026");
+     the successor MM-0028 (eff. 9/1/2026) plus new companion PY-1638
+     (eff. 9/1/2026) were fetched and read in full — see
+     CARESOURCE_MM0028 / CARESOURCE_PY1638. Separately, the
+     codes.ohio.gov 5160-34 outage (flagged "cause undetermined" in
+     prior passes) now has a documented, non-final cause — see
+     ODM_ABA_OFFICE_HOURS.
    - BOT-BLOCK RETRIES: AmeriHealth Caritas Ohio's and Molina Ohio's
      provider pages, reported blocked in the original compile, are NOT
      currently blocked — both loaded this pass (AmeriHealth Caritas
@@ -85,17 +96,32 @@ const ODM_RULE_PACKAGE = src(
 );
 const OAC_5160_34_02 = src(
   'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02',
-  'OAC 5160-34-02 (in-force ABA rule: all-PA framework, DSM-5-TR ASD, 6-month reviews) — cited throughout ohio.ts prose. codes.ohio.gov is JS/bot-gated to automated fetch (returned "no rule number corresponds" this pass); in-force text not independently re-read here, so the current effective date is taken from ohio.ts prose, not reconfirmed against the live code page this pass.'
+  'OAC 5160-34-02 (in-force ABA rule: all-PA framework, DSM-5-TR ASD, 6-month reviews) — cited throughout ohio.ts prose. codes.ohio.gov is JS/bot-gated to automated fetch (returned "no rule number corresponds" this pass, unchanged from prior passes); in-force text not independently re-read here, so the current effective date is taken from ohio.ts prose, not reconfirmed against the live code page this pass. The cause of the missing/broken chapter is now explained, not just flagged — see ODM_ABA_OFFICE_HOURS below.'
 );
+const ODM_ABA_OFFICE_HOURS: SourceRef = {
+  url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/BH/provider/Presentations/7.30_ABA_Presentation.pdf',
+  accessDate: '2026-09-01',
+  note:
+    'ODM "Provider Stakeholder Office Hours: ABA proposed Rule Review" presentation (7/30/2026) — fetched and read in full this cycle. Explains (not just flags) the codes.ohio.gov 5160-34 outage: the draft rule package (5160-34-01/-03, replacing the ERF188422B.pdf draft) was paused in 2025 for reevaluation amid state budget pressure, national scrutiny of ABA spending, and state OIG audit findings elsewhere citing improper-payment takebacks ($56.5M Indiana / $17.3M Massachusetts / $18.5M Wisconsin / $42.6M Colorado — cited by ODM for context, not Ohio-specific findings). The package is under active revision again; provider comments on the draft were due 8/5/2026. No JCARR filing exists yet — pre-filing, NOT adopted; codes.ohio.gov chapter 5160-34 still returns "no rule number corresponds" as of this review. Draft detail (forward-looking, not in force): 5160-34-01 would require full RBT certification (dropping the exam-eligible pathway), CARF/Joint Commission organizational accreditation, and a dedicated ABA provider type; 5160-34-03 would introduce a two-tier Comprehensive (10-25 hrs/wk) vs. Focused (1-20 hrs/wk) intensity structure, restrict eligibility to ASD-only, require an independent (non-employed-by-the-ABA-provider) diagnosing/referring practitioner, require 4 hrs/month parent participation, and ban billing ABA under non-ABA/behavioral-health codes.',
+};
 const OHIORISE_MSP = src(
   'https://dam.assets.ohio.gov/image/upload/v1743449666/managedcare.medicaid.ohio.gov/OhioRISE/OhioRISE_Mixed_Services_Protocol_20250401.pdf',
   'ODM OhioRISE Mixed Services Protocol (4/1/2025) — assigns ABA claims (97151-97158, 0362T, 0373T) to the member\'s Medicaid MCO (or FFS) even for OhioRISE-enrolled youth; OhioRISE (Aetna) never pays ABA. Already cited in ohio.ts prose.'
 );
-const CARESOURCE_MM0028 = src(
-  'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20250701.pdf',
-  'CareSource OH MCD-MM-0028 (eff. 7/1/2025) — enumerates the CMS MUE daily-unit maxima verbatim for all 10 codes (97151=32, 97152=16, 97153=32, 97154=18, 97155=24, 97156=16, 97157=16, 97158=16, 0362T=16, 0373T=32); the docs-before-claims rule ("claims will not be accepted without accompanying treatment documentation"); telehealth for parent training/supervision and 1:1 ABA when medically necessary; H0036 (CPST) acceptance from certified CBHCs; 6-month reviews; assessments 6-10 hrs/6 months; RBT supervision >=5% of monthly ABA hours.',
-  true
-);
+const CARESOURCE_MM0028: SourceRef = {
+  url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901',
+  accessDate: '2026-09-01',
+  staleRisk: false,
+  note:
+    'CareSource OH MCD-MM-0028, eff. 9/1/2026 (fetched and read in full this cycle) — the prior version (eff. 7/1/2025, same policy number) is now stamped "Date Archived 08/31/2026." The 9/1/2026 version keeps diagnostician-specialty/instrument requirements, 6-month reviews, assessments 6-10 hrs/6 months, RBT supervision >=5% of monthly ABA hours, the discontinuation trigger, and telehealth for parent training/supervision plus 1:1 ABA when medically necessary. It SPLIT the CMS MUE daily-unit table and the docs-before-claims rule out into a new companion reimbursement policy, PY-1638 (see CARESOURCE_PY1638) — those facts now cite PY-1638, not MM-0028. New in this version: continuation requests filed after a temporary break in services (e.g., summer, vacation) must be filed as continuations, not new initial requests; more explicit anti-boilerplate-language requirements for symptom documentation in progress notes.',
+};
+const CARESOURCE_PY1638: SourceRef = {
+  url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901',
+  accessDate: '2026-09-01',
+  staleRisk: false,
+  note:
+    'CareSource OH MCD reimbursement policy PY-1638, eff. 9/1/2026 — NEW companion policy to MM-0028, same effective date (fetched and read in full this cycle). Carries the CMS MUE daily-unit maxima verbatim for all 10 codes, unchanged from the prior MM-0028 (97151=32, 97152=16, 97153=32, 97154=18, 97155=24, 97156=16, 97157=16, 97158=16, 0362T=16, 0373T=32) and the docs-before-claims rule ("claims will not be accepted without accompanying treatment documentation"), both split out of MM-0028 into this policy. NEW narrower rule (not previously published anywhere in this corpus): CareSource will no longer reimburse H0036 for ABA when a designated ABA CPT code is usable — this narrows the old blanket "H0036 accepted from certified CBHCs in lieu of ABA CPT codes" language.',
+};
 const CARESOURCE_PA_LIST = src(
   'https://www.caresource.com/documents/ohio-medicaid-prior-authorization-list/',
   'CareSource — Ohio Medicaid prior authorization list.'
@@ -222,8 +248,9 @@ const AMERIHEALTH_NAVINET = src(
 );
 
 /* CMS NCCI MUE daily-unit ceilings, enumerated verbatim in CareSource
-   MM-0028 (the operative federal per-code daily cap; the ODM state rule
-   sets none of its own). */
+   PY-1638 (eff. 9/1/2026; formerly published in MM-0028, split out
+   effective 9/1/2026 — figures unchanged). This is the operative federal
+   per-code daily cap; the ODM state rule sets none of its own. */
 const MUE: Record<string, number> = {
   '97151': 32, '97152': 16, '97153': 32, '97154': 18, '97155': 24,
   '97156': 16, '97157': 16, '97158': 16, '0362T': 16, '0373T': 32,
@@ -280,12 +307,12 @@ function ohioMedicaidEntry(code: string): CodeGridEntry {
     paRequired: isAssessment
       ? 'Required — current OAC 5160-34-02 all-PA rule. The pending (not-yet-filed) 5160-34-03 rewrite would exempt assessment/reassessment up to 10 hrs per 180 days.'
       : 'Required — at treatment initiation and again for continuation beyond the initial 180-day authorization (current rule; draft 5160-34-03 retains treatment PA).',
-    unitCap: `${MUE[code]} units/day (CMS NCCI MUE ceiling, enumerated in CareSource MM-0028)`,
+    unitCap: `${MUE[code]} units/day (CMS NCCI MUE ceiling, enumerated in CareSource PY-1638, eff. 9/1/2026 — formerly in MM-0028, split out effective 9/1/2026 with figures unchanged)`,
     capPeriod: 'day',
     posAllowed: ['unverified'],
     telehealth: 'unverified',
     modifiers: ['Priced by practitioner tier (Independent COBA/BCBA/BCBA-D · BCaBA · RBT), not by a billing modifier in the ODM fee appendix — confirm any claim-level tier modifier with ODM/the MCO'],
-    notes: `The in-force/draft ODM ABA rule sets NO per-code daily unit cap of its own — only an assessment PA threshold (10 hrs/180 days) and a 1:8 group-session ratio (97154/97158). The daily cap shown is the CMS NCCI MUE ceiling. POS settings and telehealth mechanics are not enumerated in the draft rule package and could not be read from the JS-gated in-force OAC text this pass — shipped unverified. Verify via: ODM telehealth rule (OAC 5160-1-18) and the member's MCO policy.`,
+    notes: `The in-force/draft ODM ABA rule sets NO per-code daily unit cap of its own — only an assessment PA threshold (10 hrs/180 days) and a 1:8 group-session ratio (97154/97158). The daily cap shown is the CMS NCCI MUE ceiling. POS settings and telehealth mechanics are not enumerated in the draft rule package and could not be read from the JS-gated in-force OAC text this pass — shipped unverified. A rewrite of OAC 5160-34 is under active revision (ODM office-hours presentation, 7/30/2026) but not yet filed with JCARR — treat draft 5160-34-01/-03 detail as pending, not current. Verify via: ODM telehealth rule (OAC 5160-1-18) and the member's MCO policy.`,
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
@@ -294,25 +321,26 @@ function ohioMedicaidEntry(code: string): CodeGridEntry {
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [OAC_5160_34_02, ODM_RULE_PACKAGE, OHIORISE_MSP, CARESOURCE_MM0028],
+    sources: [OAC_5160_34_02, ODM_RULE_PACKAGE, ODM_ABA_OFFICE_HOURS, OHIORISE_MSP, CARESOURCE_PY1638],
   };
 }
 
 /* CareSource — the one OH MCO with a full published MUE table + telehealth rules. */
 function careSourceEntry(code: string): CodeGridEntry {
   return {
-    covered: 'Yes — under MM-0028 (citing MCG B-806-T); diagnosis restricted to child/adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician (ADOS/ADI-R/CARS-2)',
-    paRequired: 'Required — medical-necessity review at baseline and every 6 months. Distinctive rule: treatment documentation must reach CareSource BEFORE claims — "claims will not be accepted without accompanying treatment documentation." UM (800) 488-0134.',
-    unitCap: `${MUE[code]} units/day (CMS MUE maximum, enumerated in MM-0028)`,
+    covered: 'Yes — under MM-0028 eff. 9/1/2026 (citing MCG B-806-T); diagnosis restricted to child/adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician (ADOS/ADI-R/CARS-2)',
+    paRequired:
+      'Required — medical-necessity review at baseline and every 6 months (MM-0028). Distinctive rule, now sited in the companion reimbursement policy PY-1638 (eff. 9/1/2026, same day the prior MM-0028 was archived): treatment documentation must reach CareSource BEFORE claims — "claims will not be accepted without accompanying treatment documentation." UM (800) 488-0134.',
+    unitCap: `${MUE[code]} units/day (CMS MUE maximum, enumerated in PY-1638, eff. 9/1/2026 — formerly published in MM-0028, figures unchanged)`,
     capPeriod: 'day',
-    posAllowed: ['unverified — MM-0028 does not enumerate POS numbers'],
+    posAllowed: ['unverified — neither MM-0028 nor PY-1638 enumerates POS numbers'],
     telehealth:
       code === '97156' || code === '97157'
         ? 'Yes — parent/caregiver training and supervision may be delivered via telehealth per MM-0028 (no specific GT/95 modifier or POS number stated).'
         : 'Conditional — 1:1 ABA via telehealth only when medically necessary under a documented service-delivery plan (MM-0028); no telehealth modifier/POS number stated.',
-    modifiers: ['unverified — MM-0028 does not publish a licensure-tier/telehealth modifier table'],
+    modifiers: ['unverified — neither MM-0028 nor PY-1638 publishes a licensure-tier/telehealth modifier table'],
     notes:
-      'Assessments generally 6-10 hrs per 6 months without justification; discontinuation trigger is no meaningful progress across two successive 6-month periods; H0036 (CPST) accepted from certified CBHCs in lieu of ABA CPT codes; RBT supervision >=5% of monthly ABA hours. Verify POS/telehealth modifier mechanics via the CareSource provider portal.',
+      'Assessments generally 6-10 hrs per 6 months without justification (MM-0028); discontinuation trigger is no meaningful progress across two successive 6-month periods (MM-0028); RBT supervision >=5% of monthly ABA hours (MM-0028). PY-1638 (eff. 9/1/2026) narrows the old H0036 rule: CareSource will no longer reimburse H0036 for ABA when a designated ABA CPT code is usable — the prior blanket acceptance of H0036 (CPST) billing from certified CBHCs in lieu of ABA CPT codes no longer holds. The 9/1/2026 MM-0028 also requires continuation requests filed after a temporary break in services (e.g., summer, vacation) to be submitted as continuations, not new initial requests, and adds explicit anti-boilerplate requirements for symptom documentation in progress notes. Verify POS/telehealth modifier mechanics via the CareSource provider portal.',
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
@@ -321,7 +349,7 @@ function careSourceEntry(code: string): CodeGridEntry {
       telehealth: 'verified',
       modifiers: 'unverified',
     },
-    sources: [CARESOURCE_MM0028, CARESOURCE_PA_LIST],
+    sources: [CARESOURCE_MM0028, CARESOURCE_PY1638, CARESOURCE_PA_LIST],
   };
 }
 

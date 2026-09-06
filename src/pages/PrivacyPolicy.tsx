@@ -12,7 +12,7 @@ import { useSeo } from '../hooks/useSeo';
 const INK = '#1A1A1A';
 const BONE = '#FAF8F3';
 const MUTED = 'rgba(43,42,38,0.72)';
-const UPDATED = 'August 17, 2026';
+const UPDATED = 'August 31, 2026';
 
 function H2({ id, children }: { id?: string; children: React.ReactNode }) {
   return (
@@ -35,7 +35,7 @@ function LI({ children }: { children: React.ReactNode }) {
 export default function PrivacyPolicy() {
   useSeo({
     title: 'Privacy Policy — Carelu',
-    description: 'How Carelu (LeadTrap, Inc.) collects, uses, and shares information on carelu.com, including cookies, analytics, and B2B visitor identification.',
+    description: 'How Carelu (LeadTrap, Inc.) collects, uses, and shares information on carelu.com, including cookies, analytics, connected email accounts, connected Google Ads and Meta advertising accounts, and B2B visitor identification.',
     canonical: '/privacy',
   });
   return (
@@ -62,11 +62,13 @@ export default function PrivacyPolicy() {
           provider &mdash; including any Protected Health Information (PHI) &mdash; is governed by our{' '}
           <a href="/terms" style={{ color: '#2e5a26', fontWeight: 600 }}>Terms of Service</a> and, where applicable, a
           signed Business Associate Agreement (BAA), not by this Site policy. We do not collect PHI through this Site.
-          Two exceptions: our handling of data from email accounts a provider connects to the Carelu product (Google or
-          Microsoft) is described in <a href="#connected-email" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected
-          email accounts</a> below, and our handling of data from Meta (Facebook) accounts a provider connects is
-          described in <a href="#connected-meta" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected advertising
-          accounts</a> below.
+          Three exceptions: our handling of data from email accounts a provider connects to the Carelu product (Google
+          or Microsoft) is described in <a href="#connected-email" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected
+          Google and Microsoft accounts</a> below; our handling of data from Meta (Facebook) accounts a provider
+          connects is described in <a href="#connected-meta" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected
+          advertising accounts (Meta)</a>; and our handling of data from Google Ads accounts a provider connects is
+          described in <a href="#connected-google-ads" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected
+          advertising accounts (Google Ads)</a>.
         </P>
 
         <H2>Information we collect</H2>
@@ -107,7 +109,14 @@ export default function PrivacyPolicy() {
           <B> Cookie preferences</B> link in the footer.
         </P>
 
-        <H2 id="connected-email">Connected email accounts (Google and Microsoft)</H2>
+        <H2 id="connected-email">Connected Google and Microsoft accounts</H2>
+        <P>
+          This section covers data we receive through Google and Microsoft APIs. A provider may connect a <B>mailbox</B>{' '}
+          (described here) and, separately, a <B>Google Ads</B> account (described under{' '}
+          <a href="#connected-google-ads" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected advertising accounts
+          (Google Ads)</a>). The Google API <B>Limited Use</B> commitments below apply to all Google user data we
+          receive, including Google Ads data.
+        </P>
         <P>
           Providers using the Carelu product may connect a Google (Gmail) or Microsoft (Outlook) email account. With the
           account holder&rsquo;s permission, Carelu accesses that mailbox only to provide user-facing features the
@@ -123,14 +132,19 @@ export default function PrivacyPolicy() {
           <B>Limited Use</B> requirements. Specifically:
         </P>
         <ul style={{ margin: '0 0 14px', paddingLeft: 22 }}>
-          <LI>we only use Google user data to provide and improve the user-facing mailbox features described above;</LI>
+          <LI>we only use Google user data to provide and improve the user-facing features described in this policy
+            &mdash; the mailbox features described above and the advertising-reporting features described under
+            Connected advertising accounts (Google Ads);</LI>
           <LI>we do not transfer Google user data to third parties except as necessary to provide these features, to
             comply with applicable law, or as part of a merger or acquisition with notice;</LI>
-          <LI>we do not use Google user data for advertising;</LI>
+          <LI>we do not use Google user data for advertising, including our own advertising and any ad targeting or
+            retargeting (showing a provider their own Google Ads performance inside their dashboard is a user-facing
+            reporting feature they asked for, not advertising use of their data);</LI>
           <LI>we do not allow humans to read Google user data unless we have the account holder&rsquo;s affirmative
             agreement, it is necessary for security or compliance purposes, or the data has been aggregated and
             anonymized; and</LI>
-          <LI>we do not use Google Workspace or Gmail data to develop, improve, or train generalized artificial
+          <LI>we do not use Google user data &mdash; including Google Workspace, Gmail, and Google Ads data &mdash;
+            to develop, improve, or train generalized artificial
             intelligence or machine-learning models.</LI>
         </ul>
         <P>
@@ -174,6 +188,56 @@ export default function PrivacyPolicy() {
           and email <a href="mailto:privacy@carelu.com" style={{ color: '#2e5a26', fontWeight: 600 }}>privacy@carelu.com</a>{' '}
           from the account owner&rsquo;s address with the subject &ldquo;Meta data deletion request.&rdquo; We will
           delete the stored Meta data associated with the connection within 30 days and confirm by email.
+        </P>
+
+        <H2 id="connected-google-ads">Connected advertising accounts (Google Ads)</H2>
+        <P>
+          Providers using the Carelu product may connect a <B>Google Ads</B> account so they can see how their Google
+          advertising performs alongside the leads and intakes those ads generate. Access is granted by the provider
+          through Google&rsquo;s OAuth consent screen, and Carelu accesses Google Ads data only through the official
+          Google Ads API, using the{' '}
+          <span style={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontSize: 13.5, color: INK, wordBreak: 'break-all' }}>
+            https://www.googleapis.com/auth/adwords
+          </span>{' '}scope.
+        </P>
+        <P>
+          <B>What we receive.</B> Read-only, and limited to the provider&rsquo;s own advertising data: the list of
+          Google Ads accounts the connecting user is able to access; basic details of the account the provider selects
+          (account name, currency, and time zone); and campaign performance &mdash; campaign ID and name with daily
+          spend, clicks, and impressions, refreshed nightly over roughly the last 35 days so late-reported figures and
+          spend corrections are picked up. We do <B>not</B> request or receive the connecting user&rsquo;s Gmail,
+          contacts, calendar, Google profile, or any other Google data through this connection.
+        </P>
+        <P>
+          <B>Read-only access.</B> We only read. We never create, edit, pause, or delete campaigns, ad groups, ads,
+          budgets, or bids, and we never spend money in a provider&rsquo;s Google Ads account.
+        </P>
+        <P>
+          <B>How we use it.</B> We use Google Ads data only to provide the features the provider has enabled:
+          displaying advertising performance in that provider&rsquo;s dashboard, attributing leads and intakes to the
+          campaigns that generated them, and reporting on the results (for example, cost per lead by campaign). We do
+          not sell Google Ads data or use it for our own advertising; we do not share it with third parties except
+          service providers who host and operate the product for us under contract, or where required by law, and each
+          provider&rsquo;s Google Ads data is visible only to that provider&rsquo;s account; we do not use it to build
+          or train generalized artificial-intelligence or machine-learning models; and we do not allow humans to read it
+          except with the account holder&rsquo;s affirmative agreement, where necessary for security or compliance, or
+          where the data has been aggregated and anonymized. Our use and transfer of information received from Google
+          APIs, including the Google Ads API, adheres to the{' '}
+          <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noreferrer"
+            style={{ color: '#2e5a26', fontWeight: 600 }}>Google API Services User Data Policy</a>, including the{' '}
+          <B>Limited Use</B> requirements listed above.
+        </P>
+        <P>
+          <B>Disconnecting and stored data.</B> Providers can disconnect a Google Ads account at any time from their
+          settings, which stops the nightly sync, revokes our access, and clears the stored OAuth tokens for that
+          connection. You can also revoke Carelu&rsquo;s access yourself at any time at{' '}
+          <a href="https://myaccount.google.com/permissions" target="_blank" rel="noreferrer"
+            style={{ color: '#2e5a26', fontWeight: 600 }}>myaccount.google.com/permissions</a>. Advertising performance
+          already synced (daily spend, clicks, and impressions by campaign) is <B>kept</B> after disconnection so past
+          reports remain intact; to have it deleted, email{' '}
+          <a href="mailto:privacy@carelu.com" style={{ color: '#2e5a26', fontWeight: 600 }}>privacy@carelu.com</a> from
+          the account owner&rsquo;s address with the subject &ldquo;Google Ads data deletion request.&rdquo; We will
+          delete the stored Google Ads data associated with the connection within 30 days and confirm by email.
         </P>
 
         <H2>SMS / text messaging</H2>

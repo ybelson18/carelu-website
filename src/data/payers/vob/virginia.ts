@@ -88,8 +88,14 @@ const DMAS_BRAVO_FAQ = src(
 );
 const DMAS_SA_ACENTRA = src(
   'https://www.dmas.virginia.gov/for-providers/service-authorization/',
-  'DMAS — service authorization page: FFS ABA authorizations run through Acentra Health\'s Atrezzo portal; MCO members follow their plan\'s UM process.'
+  'DMAS — service authorization page: FFS ABA authorizations run through Acentra Health\'s Atrezzo (ANG) system; MCO members follow their plan\'s UM process. NOTE: the direct-login access path this page describes was superseded effective 6/1/2026 — see DMAS_SSO_BULLETIN below.'
 );
+const DMAS_SSO_BULLETIN: SourceRef = {
+  url: 'https://vamedicaid.dmas.virginia.gov/bulletin/new-single-sign-requirement-ffs-service-authorization-requests-acentra-ang-platform',
+  accessDate: '2026-09-01',
+  note:
+    'DMAS bulletin — new single sign-on requirement for FFS service-authorization requests on the Acentra ANG platform: effective 4/27/2026 DMAS added an "FFS Service Authorization" tile inside the DMAS Medicaid Enterprise System (MES) provider portal; direct login to Acentra\'s Atrezzo Next Generation (ANG) system at portal.kepro.com/Login/Login continued only through 5/31/2026; effective 6/1/2026 ALL providers must reach FFS service authorizations through MES single sign-on and that tile instead of a direct Atrezzo/Kepro login. The bulletin describes the portal/access mechanism generally — it does not call out behavioral health/ABA by name — so this is applied as "the access mechanism changed for all FFS service types, ABA included," not an ABA-specific confirmation beyond the general portal change.',
+};
 const VA_MES_270271_CG = src(
   'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-07/MES%20EDI%20270-271%20Companion%20Guide_R100_20220509-PK%202.pdf',
   'Commonwealth of Virginia MES MMIS Companion Guide — 270/271 (ASC X12N 005010X279A1), Document Version 2.2, dated 2026-07-01, published by DMAS. Read in full. Notes: (1) the guide does NOT document a segment carrying the member\'s Cardinal Care MCO — Loop 2120C NM1 (NM108=PI, NM109 = TPL Carrier Code, NM103 = carrier name) is explicitly Third-Party Liability (other/commercial insurance), and MSG/2110C carries a 3-digit Aid Category / benefit-plan code (when EB01=1), not an MCO name; (2) no carrier-code → MCO-name table is published; (3) eligibility is queried by date (270 DTP01=291 plan date; 271 echoes DTP01=472), real-time (~60s) and batch (up to 100,000/day) both supported, with v2.2 adding DTP01=458 renewal/case-review date; (4) the guide — even the 7/1/2026 v2.2 — still names Conduent as the EDI fiscal agent (Virginia.EDISupport@Conduent.com, 1-866-352-0766), NOT Acentra; Acentra Health operates the FFS service-authorization Atrezzo portal, a separate function.'
@@ -162,7 +168,7 @@ const AVAILITY_PAYER_LIST = src(
    portal/hours facts — the codeGrid/edi sources above didn't quote these. */
 const DMAS_PROVIDER_CONTACT = src(
   'https://www.dmas.virginia.gov/for-providers/service-authorization/',
-  'DMAS service-authorization page, provider-contact section: general DMAS Provider Services 1-800-552-8627 (in-state long distance) or (804) 786-6273 (local/out-of-state); Acentra Health service-authorization line 1-888-827-2884 (1-888-VAPAUTH), fax 1-877-OKBYFAX (652-9329); Acentra\'s Atrezzo portal is at https://portal.kepro.com/Login/Login and is available 24/7 for SA submission (phone-support hours for the general DMAS line are not published on this page).'
+  'DMAS service-authorization page, provider-contact section: general DMAS Provider Services 1-800-552-8627 (in-state long distance) or (804) 786-6273 (local/out-of-state); Acentra Health service-authorization line 1-888-827-2884 (1-888-VAPAUTH), fax 1-877-OKBYFAX (652-9329); this page still names https://portal.kepro.com/Login/Login as the Atrezzo portal, but per DMAS_SSO_BULLETIN that direct-login path was retired for FFS service authorizations effective 6/1/2026 — providers now reach Atrezzo via DMAS MES portal single sign-on and its "FFS Service Authorization" tile (phone-support hours for the general DMAS line are not published on this page).'
 );
 const AETNA_BH_VA_CONTACT = src(
   'https://www.aetnabetterhealth.com/virginia/providers/index.html',
@@ -345,7 +351,7 @@ const virginiaMedicaidEdi: EdiRouting = {
       'DMAS MES EDI support (MESEDISupport@dmas.virginia.gov, or Conduent EDI 1-866-352-0766 / Virginia.EDISupport@Conduent.com): request a production 271 sample and ask specifically where the member\'s Cardinal Care MCO is reported (MSG aid-category vs. a benefit-related-entity loop vs. not returned via the FFS 271).',
     'medicaid271Notes.mcoCarrierCodes': 'Same DMAS MES EDI support — the carrier/MCO code crosswalk is not in the 270/271 guide (likely in the 834 enrollment materials).',
   },
-  sources: [VA_MES_270271_CG, DMAS_SA_ACENTRA, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [VA_MES_270271_CG, DMAS_SA_ACENTRA, DMAS_SSO_BULLETIN, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
 
 /* ==================== aetna-better-health-virginia ==================== */
@@ -878,17 +884,18 @@ const uhcCpVaStc = vaMedicaidUnverifiedStc(
 const virginiaMedicaidContact: VobContact = {
   providerServicesPhone: '1-800-552-8627 (in-state) or (804) 786-6273 (local/out-of-state)',
   ivrPath:
-    'General DMAS provider line above is for eligibility/enrollment questions. ABA service-authorization requests and status route through Acentra Health\'s Atrezzo line, 1-888-827-2884 (1-888-VAPAUTH) — not the general DMAS number.',
-  hours: 'Acentra\'s Atrezzo portal accepts SA submissions 24/7; phone-support hours for the general DMAS Provider Services line are not published in the cited source.',
-  portal: { name: 'Acentra Health Atrezzo (DMAS service-authorization portal)', url: 'https://portal.kepro.com/Login/Login' },
+    'General DMAS provider line above is for eligibility/enrollment questions. ABA service-authorization requests and status route through Acentra Health\'s Atrezzo (ANG) line, 1-888-827-2884 (1-888-VAPAUTH) — not the general DMAS number. As of 6/1/2026, portal access itself goes through DMAS MES single sign-on and the "FFS Service Authorization" tile, not a direct Atrezzo/Kepro login (portal.kepro.com/Login/Login was retired for this purpose after 5/31/2026).',
+  hours: 'Atrezzo accepts SA submissions 24/7; phone-support hours for the general DMAS Provider Services line are not published in the cited source.',
+  portal: { name: 'DMAS MES provider portal — "FFS Service Authorization" tile (SSO to Acentra Atrezzo ANG)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/new-single-sign-requirement-ffs-service-authorization-requests-acentra-ang-platform' },
   fax: '1-877-OKBYFAX (652-9329) — Acentra Health service-authorization fax',
   scriptedQuestions: [
     'Which Cardinal Care MCO is this member enrolled in right now? Our eligibility read can\'t reliably map that off the FFS 271.',
     'Is this member\'s ABA benefit currently running through FFS Medicaid, or have they transitioned to one of the five Cardinal Care MCOs?',
     'What places of service are approved under the current authorization — home, school, community?',
     'Can you read me the aid-category / benefit-plan code shown for this member so we can confirm plan assignment?',
+    'Since the MES SSO requirement took effect 6/1/2026, has our office\'s Atrezzo access been migrated to the new "FFS Service Authorization" tile, or do we still need to complete that transition?',
   ],
-  sources: [DMAS_PROVIDER_CONTACT, DMAS_SA_ACENTRA],
+  sources: [DMAS_PROVIDER_CONTACT, DMAS_SA_ACENTRA, DMAS_SSO_BULLETIN],
 };
 
 const aetnaBetterHealthVaContact: VobContact = {
