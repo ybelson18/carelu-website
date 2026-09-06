@@ -2100,49 +2100,21 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
         </div>
         </div>
 
-        {/* Act two — the stage the frame grows into: header above, an empty
-            spacer where the frame lands, the tab pill below */}
+        {/* Act two — the stage the frame grows into: no repeated text, just an
+            empty spacer where the frame lands and the tab pill beneath it */}
         {finale && (
           <div ref={act2Ref} style={{
             position: 'absolute', inset: 0,
             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
             opacity: 0, visibility: 'hidden', pointerEvents: 'none',
-            willChange: 'opacity', textAlign: 'center',
+            willChange: 'opacity',
             padding: '0 clamp(20px, 4.5vw, 40px)', boxSizing: 'border-box',
           }}>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: 11,
-              fontSize: 11, fontWeight: 600, color: 'var(--gray-500)',
-              letterSpacing: '0.14em', textTransform: 'uppercase',
-            }}>
-              <span style={{
-                width: 28, height: 28, borderRadius: '50%',
-                color: 'var(--green-900)', border: '1px solid rgba(43,42,38,0.30)',
-                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 12, fontWeight: 400, letterSpacing: '0.04em',
-                fontFamily: 'var(--font-display)',
-              }}>IV</span>
-              Step
-            </div>
-            <h2 style={{
-              fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 2.9vw, 38px)',
-              fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.15,
-              letterSpacing: '-0.02em', margin: '12px 0 0',
-            }}>
-              {finale.title}
-            </h2>
-            <p style={{
-              fontSize: 15, color: 'var(--gray-600)', lineHeight: 1.6,
-              maxWidth: 620, margin: '10px auto 0',
-            }}>
-              {finale.desc}
-            </p>
             {/* Where the frame lands — sized like the frame, kept empty */}
             <div ref={spacerRef} style={{
               width: '100%',
-              maxWidth: 'min(760px, calc((100svh - 400px) * 1.594))',
+              maxWidth: 'min(820px, calc((100svh - 200px) * 1.594))',
               aspectRatio: '760 / 477',
-              marginTop: 'clamp(18px, 2.6vh, 30px)',
             }} />
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}>
               <div style={{
