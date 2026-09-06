@@ -1774,17 +1774,66 @@ function HowCarelu() {
       step: '04',
       tag: 'Your dashboard',
       title: 'And you watch it all happen. Live.',
-      desc: 'Every family Carelu touches lands in your pipeline in real time. Ask AI any question about your intake, and reporting shows exactly what each channel delivers. Click through the tabs — this is the real product.',
+      desc: 'Every family Carelu touches lands in your pipeline in real time. Ask AI any question about your intake, and reporting shows exactly what each channel delivers. Keep scrolling — the app walks you through itself.',
       visual: <ProductPeek />,
+      wide: true,
     },
   ];
   return <HowItWorksScroll steps={steps} />;
 }
 
-type HowStep = { step: string; tag: string; title: string; desc: string; visual: React.ReactNode };
+type HowStep = { step: string; tag: string; title: string; desc: string; visual: React.ReactNode; wide?: boolean };
 
 // One step card — shared by the desktop horizontal track and the mobile vertical stack.
 function HowStepCard({ s, mobile }: { s: HowStep; mobile?: boolean }) {
+  // The finale card breaks the split layout: a compact text band on top and
+  // the live app frame given the full card width below it.
+  if (s.wide && !mobile) {
+    return (
+      <div style={{
+        background: '#fff', borderRadius: 0,
+        boxShadow: '0 0 0 1px rgba(43,42,38,0.08), 0 22px 44px -20px rgba(30,30,25,0.16)',
+        width: 'clamp(720px, 88vw, 1150px)',
+        minHeight: 380, minWidth: 0, flexShrink: 0,
+        padding: 'clamp(22px, 2.6vh, 32px) clamp(28px, 3vw, 44px)',
+        display: 'flex', flexDirection: 'column', gap: 'clamp(14px, 2vh, 22px)',
+        boxSizing: 'border-box',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 36, flexWrap: 'wrap' }}>
+          <div style={{ minWidth: 0 }}>
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: 11,
+              fontSize: 11, fontWeight: 600, color: 'var(--gray-500)',
+              letterSpacing: '0.14em', textTransform: 'uppercase',
+              marginBottom: 10,
+            }}>
+              <span style={{
+                width: 28, height: 28, borderRadius: '50%',
+                color: 'var(--green-900)', border: '1px solid rgba(43,42,38,0.30)',
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 12, fontWeight: 400, letterSpacing: '0.04em',
+                fontFamily: 'var(--font-display)',
+              }}>IV</span>
+              Step
+            </div>
+            <h3 style={{
+              fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 2.4vw, 30px)',
+              fontWeight: 400, color: 'var(--green-900)',
+              lineHeight: 1.2, letterSpacing: '-0.5px', margin: 0,
+            }}>
+              {s.title}
+            </h3>
+          </div>
+          <p style={{ fontSize: 14, color: 'var(--gray-600)', lineHeight: 1.55, margin: 0, maxWidth: 440 }}>
+            {s.desc}
+          </p>
+        </div>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 0 }}>
+          {s.visual}
+        </div>
+      </div>
+    );
+  }
   return (
     <div style={{
       background: '#fff', borderRadius: 0,
@@ -1885,23 +1934,25 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
       if (trackH <= 0) return;
 
       const progress = Math.max(0, Math.min(1, -rect.top / trackH));
-      // Animation starts as soon as the section enters view (header + first card
-      // visible together) and finishes shortly before it scrolls off.
-      const START = 0.05;
-      const END = 0.85;
+      // The card slide finishes just past halfway through the pin — the rest of
+      // the scroll is spent inside the finale card, where ProductPeek walks
+      // through its app tabs on the same scrollbar (see HOW_SLIDE_END).
+      const START = 0.04;
+      const END = HOW_SLIDE_END;
       const animProgress = Math.max(0, Math.min(1, (progress - START) / (END - START)));
 
       // Center the FIRST card at animProgress=0 and the LAST card at
-      // animProgress=1, so the row enters with step 1 centered, slides left as
-      // you scroll, and ends with the final step centered (not flush to an edge).
+      // animProgress=1. Cards vary in width (the finale card is wider), so
+      // walk the row and accumulate each card's real center.
       const viewportW = window.innerWidth;
-      const cards = track.children;
-      const cardW = (cards[0] as HTMLElement).offsetWidth;
+      const cards = Array.from(track.children) as HTMLElement[];
       const gap = 32;                   // matches the track's `gap`
       const padLeft = viewportW * 0.08; // matches the track's `padding: 0 8vw`
+      const centers: number[] = [];
+      let cx = padLeft;
+      for (const c of cards) { centers.push(cx + c.offsetWidth / 2); cx += c.offsetWidth + gap; }
       // translateX that puts card i's center at the viewport center
-      const centerShift = (i: number) =>
-        viewportW / 2 - (padLeft + i * (cardW + gap) + cardW / 2);
+      const centerShift = (i: number) => viewportW / 2 - centers[i];
       const startShift = centerShift(0);
       const endShift = centerShift(cards.length - 1);
       const shift = startShift + animProgress * (endShift - startShift);
@@ -1957,7 +2008,7 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
   // ── DESKTOP: pinned horizontal track, step 1 centered → step 3 centered ──
   return (
     <section id="how-it-works" ref={sectionRef} style={{
-      height: '400vh', position: 'relative', background: 'var(--bone)',
+      height: '600vh', position: 'relative', background: 'var(--bone)',
     }}>
       <div style={{
         position: 'sticky', top: 0, height: '100svh',
@@ -2612,10 +2663,17 @@ function PrReporting() {
 }
 
 
-/* The product, inside how-it-works: a miniature live app frame that sits in
-   step IV's visual pane. The real Pipeline / Ask AI / Reporting panels render
-   at full size and scale down to fit the card; the tabs actually switch. */
+/* The product, inside how-it-works: the live app frame filling step IV's
+   finale card. The real Pipeline / Ask AI / Reporting panels render at design
+   size and scale to the available width — up as well as down. On desktop the
+   scrollbar drives the tabs: the card slide ends at HOW_SLIDE_END, and the
+   remaining pinned scroll steps through the three app screens slowly enough
+   to read each one. On mobile the tabs cycle on a timer while in view. */
+const HOW_SLIDE_END = 0.55;   // card slide finishes here (fraction of pin scroll)
+const PEEK_TAB_START = 0.60;  // first tab dwells from here…
+const PEEK_TAB_END = 0.96;    // …last tab lands here; ~60vh of scroll per screen
 function ProductPeek() {
+  const isMobile = useIsMobile();
   const [tab, setTab] = useState(0);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.45);
@@ -2626,6 +2684,51 @@ function ProductPeek() {
     return () => ro.disconnect();
   }, []);
 
+  // Desktop: the section's scroll position picks the tab
+  useEffect(() => {
+    if (isMobile) return;
+    const onScroll = () => {
+      const section = document.getElementById('how-it-works');
+      if (!section) return;
+      const trackH = section.offsetHeight - window.innerHeight;
+      if (trackH <= 0) return;
+      const progress = Math.max(0, Math.min(1, -section.getBoundingClientRect().top / trackH));
+      const p = Math.max(0, Math.min(0.999, (progress - PEEK_TAB_START) / (PEEK_TAB_END - PEEK_TAB_START)));
+      setTab(Math.floor(p * PR_TABS.length));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [isMobile]);
+
+  // Mobile: no pin to scrub, so the screens take turns on a gentle timer
+  useEffect(() => {
+    if (!isMobile) return;
+    const el = wrapRef.current; if (!el) return;
+    let timer: ReturnType<typeof setInterval> | null = null;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !timer) {
+        timer = setInterval(() => setTab((t) => (t + 1) % PR_TABS.length), 4500);
+      } else if (!e.isIntersecting && timer) {
+        clearInterval(timer); timer = null;
+      }
+    }, { threshold: 0.5 });
+    io.observe(el);
+    return () => { io.disconnect(); if (timer) clearInterval(timer); };
+  }, [isMobile]);
+
+  // Clicking a tab on desktop rides the scrollbar to that screen's dwell zone,
+  // so the click and the scroll never fight over the state.
+  const goTab = (j: number) => {
+    const section = document.getElementById('how-it-works');
+    if (isMobile || !section) { setTab(j); return; }
+    const top = section.getBoundingClientRect().top + window.scrollY;
+    const trackH = section.offsetHeight - window.innerHeight;
+    const step = (PEEK_TAB_END - PEEK_TAB_START) / PR_TABS.length;
+    const progress = PEEK_TAB_START + (j + 0.5) * step;
+    window.scrollTo({ top: top + progress * trackH, behavior: 'smooth' });
+  };
+
   const ICONS = [
     <svg key="0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><rect x="3" y="4" width="5" height="16" rx="1.5" /><rect x="10" y="4" width="5" height="11" rx="1.5" /><rect x="17" y="4" width="4" height="7" rx="1.5" /></svg>,
     <svg key="1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" /><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" /></svg>,
@@ -2633,7 +2736,12 @@ function ProductPeek() {
   ];
 
   return (
-    <div style={{ width: '100%', minWidth: 0 }}>
+    <div style={{
+      width: '100%', minWidth: 0, margin: '0 auto',
+      // As wide as the viewport height allows: the frame plus the tab pill must
+      // fit inside the pinned card, so width is capped by 100svh.
+      maxWidth: isMobile ? undefined : 'clamp(420px, calc((100svh - 520px) * 1.7), 900px)',
+    }}>
       <div ref={wrapRef} style={{
         background: '#FCFBF8', borderRadius: 12, overflow: 'hidden',
         boxShadow: '0 0 0 1px rgba(43,42,38,0.09), 0 18px 40px -18px rgba(30,30,25,0.18)',
@@ -2660,7 +2768,7 @@ function ProductPeek() {
           padding: 5,
         }}>
           {PR_TABS.map((tb, j) => (
-            <button key={tb} type="button" onClick={() => setTab(j)} style={{
+            <button key={tb} type="button" onClick={() => goTab(j)} style={{
               display: 'inline-flex', alignItems: 'center', gap: 7,
               fontSize: 11, fontWeight: 600, fontFamily: 'inherit',
               color: tab === j ? '#1c1b18' : 'rgba(43,42,38,0.5)',
