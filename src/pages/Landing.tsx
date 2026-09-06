@@ -2289,8 +2289,6 @@ const STATE_FAMILIES: Record<string, number> = {
   'Nevada': 2145, 'South Carolina': 2090, 'Connecticut': 1880, 'Wisconsin': 1755,
   'New Hampshire': 1720, 'Alabama': 1640,
 };
-const STATE_MAX = Math.max(...Object.values(STATE_FAMILIES));
-const STATE_TOTAL = Object.values(STATE_FAMILIES).reduce((a, b) => a + b, 0);
 const SERVED_STATES = Object.keys(STATE_FAMILIES).length;
 
 // Cities the flashing "family connected" dots light up in — all inside served
@@ -2335,7 +2333,7 @@ function SkyGlobe() {
     const graticule = geoGraticule10();
     const pGrat = svg.querySelector('.gl-grat') as SVGPathElement;
     const pWorld = svg.querySelector('.gl-world') as SVGPathElement;
-    const stateEls = Array.from(svg.querySelectorAll<SVGPathElement>('.gl-state'));
+    const pStates = svg.querySelector('.gl-states') as SVGPathElement;
     const pHi = svg.querySelector('.gl-hi') as SVGPathElement;
     const cityEls = Array.from(svg.querySelectorAll<SVGCircleElement>('.gl-city'));
 
@@ -2360,9 +2358,7 @@ function SkyGlobe() {
       projection.rotate([lam, phi]);
       pGrat.setAttribute('d', path(graticule) || '');
       pWorld.setAttribute('d', path(geo.world as never) || '');
-      geo.states.features.forEach((f, i) => {
-        stateEls[i]?.setAttribute('d', path(f as never) || '');
-      });
+      pStates.setAttribute('d', path(geo.states as never) || '');
       const center: [number, number] = [-lam, -phi];
       GLOBE_CITIES.forEach((c, i) => {
         const el = cityEls[i]; if (!el) return;
@@ -2420,9 +2416,8 @@ function SkyGlobe() {
         tip.style.opacity = '1';
         tip.style.transform = 'translate(-50%, -100%) scale(1)';
         (tip.querySelector('.tip-state') as HTMLElement).textContent = found.properties.name;
-        const fam = stateFamilies(found.properties.name);
         (tip.querySelector('.tip-count') as HTMLElement).textContent =
-          `${fam.toLocaleString()} FAMILIES · ${((fam / STATE_TOTAL) * 100).toFixed(1)}% OF ALL`;
+          `${stateFamilies(found.properties.name).toLocaleString()} FAMILIES CONNECTED`;
       } else {
         pHi.setAttribute('d', '');
         tip.style.opacity = '0';
@@ -2483,17 +2478,7 @@ function SkyGlobe() {
       <svg ref={svgRef} viewBox="0 0 500 500" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'visible', cursor: 'crosshair' }} aria-hidden="true" fill="none">
         <path className="gl-grat" stroke="rgba(255,255,255,0.28)" strokeWidth="0.5" />
         <path className="gl-world" fill="rgba(250,248,243,0.14)" stroke="rgba(255,255,255,0.45)" strokeWidth="0.6" />
-        {geo && geo.states.features.map((f, i) => {
-          const fam = stateFamilies(f.properties.name);
-          // Served states carry a wash of white that deepens with family volume;
-          // unserved states stay nearly transparent sky.
-          const opacity = fam > 0 ? 0.16 + 0.5 * Math.pow(fam / STATE_MAX, 0.7) : 0.05;
-          return (
-            <path key={f.properties.name + i} className="gl-state"
-              fill={`rgba(250,248,243,${opacity.toFixed(3)})`}
-              stroke="#FFFFFF" strokeWidth="0.9" strokeLinejoin="round" />
-          );
-        })}
+        <path className="gl-states" fill="rgba(250,248,243,0.22)" stroke="#FFFFFF" strokeWidth="0.9" strokeLinejoin="round" />
         <path className="gl-hi" fill="rgba(212,242,92,0.30)" stroke="#FFFFFF" strokeWidth="1.3" strokeLinejoin="round" style={{ pointerEvents: 'none' }} />
         {GLOBE_CITIES.map((_, i) => (
           <circle key={i} className="gl-city" r="3.6" />
@@ -2844,20 +2829,6 @@ function Impact() {
               up across it, live, while you watch */}
           <div className="imp-chart" style={{ marginTop: 14 }}>
             <SkyGlobe />
-          </div>
-
-          {/* Where the families are — the five largest states, one quiet line */}
-          <div className="rv" style={{
-            display: 'flex', justifyContent: 'center', alignItems: 'baseline',
-            flexWrap: 'wrap', columnGap: 'clamp(18px, 2.6vw, 34px)', rowGap: 10,
-            marginTop: 'clamp(22px, 3vh, 34px)', textAlign: 'center',
-          }}>
-            {Object.entries(STATE_FAMILIES).slice(0, 5).map(([name, fam]) => (
-              <div key={name} style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-                <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(43,42,38,0.5)' }}>{name}</span>
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: 17, color: '#1c1b18', fontVariantNumeric: 'lining-nums tabular-nums' }}>{fam.toLocaleString()}</span>
-              </div>
-            ))}
           </div>
 
           {/* The proofs — one quiet line beneath the country */}
