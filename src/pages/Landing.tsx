@@ -2282,14 +2282,46 @@ export function OutcomesClassic() {
   );
 }
 
-/* OUTCOMES — the live compact design: five stats on one hairline shelf, the
-   selected stat's proof points in a shared panel beneath. A fraction of the
-   accordion's height, same content, and every tile is clickable. */
+/* OUTCOMES — an editorial stat spread: one enormous number at a time, its
+   proof points reading as a numbered ledger beside it, and the other metrics
+   waiting as small numerals underneath. It leafs through the metrics on its
+   own until the reader takes over. (The old accordion lives on above as
+   OutcomesClassic.) */
 function Outcomes() {
   const isMobile = useIsMobile();
   const [active, setActive] = useState(0);
   const [kick, setKick] = useState(0);
-  const pick = (i: number) => { setActive(i); setKick((k) => k + 1); };
+  const touched = useRef(false);
+  const bandRef = useRef<HTMLDivElement>(null);
+  const pick = (i: number) => { touched.current = true; setActive(i); setKick((k) => k + 1); };
+
+  // Quiet auto-rotation: only while in view, never after the reader clicks,
+  // and it holds still under the cursor.
+  useEffect(() => {
+    const el = bandRef.current; if (!el) return;
+    let timer: ReturnType<typeof setInterval> | null = null;
+    let hovered = false;
+    const advance = () => {
+      if (!touched.current && !hovered && !document.hidden) {
+        setActive((a) => (a + 1) % OUTCOME_METRICS.length);
+        setKick((k) => k + 1);
+      }
+    };
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !timer) timer = setInterval(advance, 5000);
+      else if (!e.isIntersecting && timer) { clearInterval(timer); timer = null; }
+    }, { threshold: 0.4 });
+    io.observe(el);
+    const over = () => { hovered = true; };
+    const out = () => { hovered = false; };
+    el.addEventListener('mouseenter', over);
+    el.addEventListener('mouseleave', out);
+    return () => {
+      io.disconnect(); if (timer) clearInterval(timer);
+      el.removeEventListener('mouseenter', over); el.removeEventListener('mouseleave', out);
+    };
+  }, []);
+
   const m = OUTCOME_METRICS[active];
   return (
     <section id="outcomes" style={{
@@ -2308,77 +2340,80 @@ function Outcomes() {
           </h2>
         </div>
 
-        <div className="rv" style={{ maxWidth: 1000, margin: '0 auto' }}>
-          {/* The shelf: every metric on one line, hairlines above and below */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : `repeat(${OUTCOME_METRICS.length}, 1fr)`,
-            borderTop: '1px solid rgba(0,0,0,0.10)',
-            borderBottom: '1px solid rgba(0,0,0,0.10)',
-          }}>
-            {OUTCOME_METRICS.map((x, i) => (
-              <button
-                key={x.label}
-                type="button"
-                onClick={() => pick(i)}
-                aria-pressed={active === i}
-                aria-label={`Show details: ${x.label}`}
-                style={{
-                  background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit',
-                  padding: '20px 12px 18px', textAlign: 'center', position: 'relative',
-                  borderLeft: (isMobile ? i % 2 === 1 : i > 0) ? '1px solid rgba(0,0,0,0.08)' : 'none',
-                  opacity: active === i ? 1 : 0.42,
-                  transition: 'opacity 0.3s ease',
-                }}
-                onMouseEnter={(e) => { if (active !== i) e.currentTarget.style.opacity = '0.7'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.opacity = active === i ? '1' : '0.42'; }}
-              >
-                <span style={{
-                  display: 'block',
-                  fontFamily: 'var(--font-display)', fontWeight: 400,
-                  fontSize: 'clamp(26px, 2.7vw, 40px)', lineHeight: 1,
-                  color: 'var(--green-900)', letterSpacing: '-0.02em',
-                  fontVariantNumeric: 'lining-nums tabular-nums', whiteSpace: 'nowrap',
-                }}>
-                  {active === i
-                    ? <Counter target={x.v} suffix={x.s} dur={900} trigger={kick} />
-                    : `${x.v.toLocaleString('en-US')}${x.s}`}
-                </span>
-                <span style={{
-                  display: 'block', marginTop: 9,
-                  fontSize: 10.5, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase',
-                  color: 'var(--green-900)', lineHeight: 1.45,
-                }}>
-                  {x.label}
-                </span>
-                {/* The active metric underlines itself on the bottom hairline */}
-                <span aria-hidden="true" style={{
-                  position: 'absolute', left: '14%', right: '14%', bottom: -1, height: 2,
-                  background: active === i ? 'var(--green-900)' : 'transparent',
-                  transition: 'background 0.3s ease',
-                }} />
-              </button>
-            ))}
-          </div>
+        <style>{`@keyframes outLedger { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: none; } }`}</style>
 
-          {/* One shared panel: the chosen metric's proof points */}
-          <div key={active} className="pr-panel" style={{ padding: 'clamp(18px, 2.6vh, 28px) 0 0' }}>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
-              columnGap: 'clamp(28px, 4vw, 56px)', rowGap: 12,
-              maxWidth: 860, margin: '0 auto', padding: '0 8px',
-            }}>
-              {m.bullets.map((b) => (
-                <div key={b} style={{ display: 'flex', gap: 11, alignItems: 'flex-start' }}>
-                  <span aria-hidden="true" style={{
-                    width: 5, height: 5, borderRadius: '50%', background: 'var(--lime)',
-                    boxShadow: '0 0 0 1px rgba(43,42,38,0.25)', marginTop: 8, flexShrink: 0,
-                  }} />
-                  <span style={{ fontSize: 14.5, lineHeight: 1.6, color: 'var(--gray-500)', textAlign: 'left' }}>{b}</span>
-                </div>
+        <div ref={bandRef} className="rv" style={{
+          maxWidth: 1000, margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '0.9fr 1.1fr',
+          columnGap: 'clamp(32px, 5vw, 64px)',
+          borderTop: '1px solid rgba(0,0,0,0.10)',
+          paddingTop: 'clamp(24px, 3.5vh, 40px)',
+          alignItems: 'start',
+        }}>
+          {/* The number of the moment */}
+          <div>
+            <div key={active} style={{ animation: 'outLedger 0.5s var(--ease-dramatic) both' }}>
+              <div style={{
+                fontFamily: 'var(--font-display)', fontWeight: 400,
+                fontSize: 'clamp(84px, 10vw, 148px)', lineHeight: 0.95,
+                color: 'var(--green-900)', letterSpacing: '-0.03em',
+                fontVariantNumeric: 'lining-nums tabular-nums', whiteSpace: 'nowrap',
+              }}>
+                <Counter target={m.v} suffix={m.s} dur={900} trigger={kick} />
+              </div>
+              <div style={{
+                fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400,
+                fontSize: 'clamp(17px, 1.9vw, 22px)', color: 'var(--green-900)',
+                opacity: 0.8, marginTop: 10,
+              }}>
+                {m.label}
+              </div>
+            </div>
+
+            {/* The waiting metrics — their numbers are the navigation */}
+            <div style={{ display: 'flex', gap: 'clamp(14px, 1.8vw, 24px)', marginTop: 'clamp(22px, 3.5vh, 40px)', flexWrap: 'wrap' }}>
+              {OUTCOME_METRICS.map((x, i) => (
+                <button
+                  key={x.label} type="button" onClick={() => pick(i)}
+                  aria-pressed={active === i} aria-label={`Show: ${x.label}`}
+                  style={{
+                    background: 'none', border: 'none', padding: '2px 0 6px', cursor: 'pointer',
+                    fontFamily: 'var(--font-display)', fontSize: 15.5, color: 'var(--green-900)',
+                    opacity: active === i ? 1 : 0.38,
+                    borderBottom: active === i ? '1px solid var(--green-900)' : '1px solid transparent',
+                    transition: 'opacity 0.3s, border-color 0.3s',
+                    fontVariantNumeric: 'lining-nums tabular-nums',
+                  }}
+                  onMouseEnter={(e) => { if (active !== i) e.currentTarget.style.opacity = '0.7'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = active === i ? '1' : '0.38'; }}
+                >
+                  {x.v.toLocaleString('en-US')}{x.s}
+                </button>
               ))}
             </div>
+          </div>
+
+          {/* The ledger of proof points */}
+          <div key={'ledger' + active} style={{
+            borderLeft: isMobile ? 'none' : '1px solid rgba(0,0,0,0.08)',
+            paddingLeft: isMobile ? 0 : 'clamp(28px, 4vw, 56px)',
+            marginTop: isMobile ? 26 : 0,
+          }}>
+            {m.bullets.map((b, j) => (
+              <div key={b} style={{
+                display: 'flex', gap: 14, alignItems: 'baseline',
+                padding: '13px 0',
+                borderTop: j === 0 ? 'none' : '1px solid rgba(0,0,0,0.07)',
+                animation: `outLedger 0.55s var(--ease-dramatic) ${(0.06 + j * 0.09).toFixed(2)}s both`,
+              }}>
+                <span style={{
+                  fontSize: 10, fontWeight: 600, letterSpacing: '0.12em',
+                  color: 'rgba(43,42,38,0.4)', fontVariantNumeric: 'tabular-nums', flexShrink: 0,
+                }}>0{j + 1}</span>
+                <span style={{ fontSize: 15, lineHeight: 1.6, color: 'var(--gray-500)' }}>{b}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
