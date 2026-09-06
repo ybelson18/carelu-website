@@ -1770,6 +1770,13 @@ function HowCarelu() {
       desc: 'Missing documents? Carelu nudges. Doctor hasn\'t responded? It follows up. And every document and detail syncs to the family record — intake\'s source of truth. Once it\'s complete and signed, Carelu schedules the assessment and hands off a ready case.',
       visual: <HandoffVisual />,
     },
+    {
+      step: '04',
+      tag: 'Your dashboard',
+      title: 'And you watch it all happen. Live.',
+      desc: 'Every family Carelu touches lands in your pipeline in real time. Ask AI any question about your intake, and reporting shows exactly what each channel delivers. Click through the tabs — this is the real product.',
+      visual: <ProductPeek />,
+    },
   ];
   return <HowItWorksScroll steps={steps} />;
 }
@@ -1950,7 +1957,7 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
   // ── DESKTOP: pinned horizontal track, step 1 centered → step 3 centered ──
   return (
     <section id="how-it-works" ref={sectionRef} style={{
-      height: '320vh', position: 'relative', background: 'var(--bone)',
+      height: '400vh', position: 'relative', background: 'var(--bone)',
     }}>
       <div style={{
         position: 'sticky', top: 0, height: '100svh',
@@ -2604,101 +2611,61 @@ function PrReporting() {
   );
 }
 
-function RealProduct() {
-  const isMobile = useIsMobile();
-  const sectionRef = useRef<HTMLElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [activeIdx, setActiveIdx] = useState(0);
+
+/* The product, inside how-it-works: a miniature live app frame that sits in
+   step IV's visual pane. The real Pipeline / Ask AI / Reporting panels render
+   at full size and scale down to fit the card; the tabs actually switch. */
+function ProductPeek() {
   const [tab, setTab] = useState(0);
-
-  // Same movement as the how-it-works carousel: the section pins and the three
-  // app frames glide horizontally with the scroll, each centering in turn.
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.45);
   useEffect(() => {
-    if (isMobile) return;
-    const onScroll = () => {
-      const section = sectionRef.current;
-      const track = trackRef.current;
-      if (!section || !track) return;
-      const rect = section.getBoundingClientRect();
-      const trackH = rect.height - window.innerHeight;
-      if (trackH <= 0) return;
-      const progress = Math.max(0, Math.min(1, -rect.top / trackH));
-      const START = 0.05;
-      const END = 0.85;
-      const animProgress = Math.max(0, Math.min(1, (progress - START) / (END - START)));
-      const viewportW = window.innerWidth;
-      const cards = track.children;
-      const cardW = (cards[0] as HTMLElement).offsetWidth;
-      const gap = 32;
-      const padLeft = viewportW * 0.08;
-      const centerShift = (i: number) =>
-        viewportW / 2 - (padLeft + i * (cardW + gap) + cardW / 2);
-      const startShift = centerShift(0);
-      const endShift = centerShift(cards.length - 1);
-      const shift = startShift + animProgress * (endShift - startShift);
-      track.style.transform = `translate3d(${shift}px, 0, 0)`;
-      setActiveIdx(Math.min(PR_TABS.length - 1, Math.floor(animProgress * PR_TABS.length)));
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    onScroll();
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    };
-  }, [isMobile]);
-
-  const goTab = (i: number) => {
-    const section = sectionRef.current;
-    if (section && !isMobile) {
-      const top = section.getBoundingClientRect().top + window.scrollY;
-      const trackH = section.offsetHeight - window.innerHeight;
-      const progress = 0.05 + (i / (PR_TABS.length - 1)) * 0.8;
-      window.scrollTo({ top: top + progress * trackH, behavior: 'smooth' });
-    } else {
-      setTab(i);
-    }
-  };
+    const el = wrapRef.current; if (!el) return;
+    const ro = new ResizeObserver(([e]) => setScale(e.contentRect.width / 740));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const ICONS = [
-    <svg key="0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><rect x="3" y="4" width="5" height="16" rx="1.5" /><rect x="10" y="4" width="5" height="11" rx="1.5" /><rect x="17" y="4" width="4" height="7" rx="1.5" /></svg>,
-    <svg key="1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" /><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" /></svg>,
-    <svg key="2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M4 20V10M10 20V4M16 20v-8M21 20H3" /></svg>,
+    <svg key="0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><rect x="3" y="4" width="5" height="16" rx="1.5" /><rect x="10" y="4" width="5" height="11" rx="1.5" /><rect x="17" y="4" width="4" height="7" rx="1.5" /></svg>,
+    <svg key="1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" /><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" /></svg>,
+    <svg key="2" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M4 20V10M10 20V4M16 20v-8M21 20H3" /></svg>,
   ];
 
-  const frame = (i: number, active: boolean) => (
-    <div key={i} style={{
-      width: isMobile ? '100%' : 'min(740px, 76vw)', flexShrink: 0,
-      background: '#FCFBF8', borderRadius: 20,
-      boxShadow: '0 0 0 1px rgba(43,42,38,0.09), 0 26px 54px -22px rgba(30,30,25,0.18)',
-      overflow: 'hidden',
-      opacity: isMobile || active ? 1 : 0.55,
-      transform: isMobile || active ? 'scale(1)' : 'scale(0.965)',
-      transition: 'opacity 0.45s ease, transform 0.45s var(--ease-dramatic)',
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '13px 18px', borderBottom: '1px solid rgba(43,42,38,0.06)' }}>
-        <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
-        <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
-        <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
-        <span style={{ margin: '0 auto', fontSize: 11.5, color: 'rgba(43,42,38,0.45)', fontWeight: 500 }}>app.carelu.com</span>
-        <span style={{ width: 45 }} />
+  return (
+    <div style={{ width: '100%', minWidth: 0 }}>
+      <div ref={wrapRef} style={{
+        background: '#FCFBF8', borderRadius: 12, overflow: 'hidden',
+        boxShadow: '0 0 0 1px rgba(43,42,38,0.09), 0 18px 40px -18px rgba(30,30,25,0.18)',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '9px 13px', borderBottom: '1px solid rgba(43,42,38,0.06)' }}>
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
+          <span style={{ margin: '0 auto', fontSize: 10.5, color: 'rgba(43,42,38,0.45)', fontWeight: 500 }}>app.carelu.com</span>
+          <span style={{ width: 33 }} />
+        </div>
+        <div style={{ height: 434 * scale, overflow: 'hidden' }}>
+          <div style={{ width: 740, transform: `scale(${scale})`, transformOrigin: 'top left' }}>
+            <div key={tab} className="pr-panel" style={{ height: 434, overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              {tab === 0 ? <PrPipeline /> : tab === 1 ? <PrAsk /> : <PrReporting />}
+            </div>
+          </div>
+        </div>
       </div>
-      <div key={active ? 'on' : 'off'} className="pr-panel" style={{ height: isMobile ? undefined : 434, minHeight: isMobile ? 330 : undefined, overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        {i === 0 ? <PrPipeline /> : i === 1 ? <PrAsk /> : <PrReporting />}
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'center', padding: '6px 0 16px' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 14 }}>
         <div style={{
           display: 'inline-flex', gap: 4, background: '#fff', borderRadius: 100,
           border: '1px solid rgba(43,42,38,0.08)', boxShadow: '0 8px 26px rgba(30,30,25,0.10)',
-          padding: 6,
+          padding: 5,
         }}>
           {PR_TABS.map((tb, j) => (
-            <button key={tb} type="button" onClick={() => goTab(j)} style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              fontSize: 11.5, fontWeight: 600, fontFamily: 'inherit',
-              color: (isMobile ? tab : i) === j ? '#1c1b18' : 'rgba(43,42,38,0.5)',
-              background: (isMobile ? tab : i) === j ? 'rgba(212,242,92,0.45)' : 'transparent',
-              border: 'none', borderRadius: 100, padding: '8px 16px', cursor: 'pointer',
+            <button key={tb} type="button" onClick={() => setTab(j)} style={{
+              display: 'inline-flex', alignItems: 'center', gap: 7,
+              fontSize: 11, fontWeight: 600, fontFamily: 'inherit',
+              color: tab === j ? '#1c1b18' : 'rgba(43,42,38,0.5)',
+              background: tab === j ? 'rgba(212,242,92,0.45)' : 'transparent',
+              border: 'none', borderRadius: 100, padding: '7px 13px', cursor: 'pointer',
               transition: 'background 0.25s, color 0.25s',
             }}>
               {ICONS[j]}
@@ -2708,57 +2675,6 @@ function RealProduct() {
         </div>
       </div>
     </div>
-  );
-
-  const header = (
-    <div style={{ textAlign: 'center', marginBottom: 'clamp(28px, 4vw, 44px)' }}>
-      <div className="rv"><Pill>The product</Pill></div>
-    </div>
-  );
-
-  if (isMobile) {
-    return (
-      <section id="product-live" style={{
-        position: 'relative', paddingTop: 'clamp(48px, 6vh, 80px)', paddingBottom: 'clamp(56px, 7vh, 96px)',
-        background: 'var(--bone)',
-      }}>
-        <div style={{ ...W, position: 'relative', zIndex: 1 }}>
-          {header}
-          {frame(tab, true)}
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section id="product-live" ref={sectionRef} style={{ position: 'relative', height: '260vh', background: 'var(--bone)' }}>
-      <div style={{
-        position: 'sticky', top: 0, height: '100svh', overflow: 'hidden',
-        display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        paddingTop: 66, boxSizing: 'border-box',
-      }}>
-        {header}
-        <div ref={trackRef} style={{
-          display: 'flex', gap: 32, padding: '0 8vw',
-          willChange: 'transform',
-        }}>
-          {[0, 1, 2].map((i) => frame(i, activeIdx === i))}
-        </div>
-        {/* Progress dashes — same language as the how-it-works carousel */}
-        <div style={{
-          marginTop: 'clamp(28px, 4vh, 44px)',
-          display: 'flex', justifyContent: 'center', gap: 14,
-        }}>
-          {[0, 1, 2].map((i) => (
-            <div key={i} style={{
-              width: 34, height: 2,
-              background: i === activeIdx ? '#2B2A26' : 'rgba(43,42,38,0.15)',
-              transition: 'background 0.3s ease',
-            }} />
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -3601,7 +3517,6 @@ export default function Landing() {
           the cream/dark-green palette that these components expect. */}
       <div className="session-light">
         <MuralReveal />
-        <RealProduct />
         <Impact />
         <HowCarelu />
         <Outcomes />
