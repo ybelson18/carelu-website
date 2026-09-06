@@ -1774,7 +1774,7 @@ function HowCarelu() {
     {
       step: '04',
       tag: 'Your dashboard',
-      title: 'And you watch it all happen. Live.',
+      title: 'Watch it do the work for you.',
       desc: 'Every family Carelu touches lands in your pipeline in real time. Ask AI any question about your intake, and reporting shows exactly what each channel delivers. Keep scrolling — the app walks you through itself.',
       // Desktop: an empty anchor pane — the ONE real app frame (rendered by
       // HowItWorksScroll) sits glued over it and later grows out of the card.
