@@ -1748,6 +1748,7 @@ function ChannelsHub() {
 
 // ── HOW CARELU WORKS ── (video subsection removed)
 function HowCarelu() {
+  const isMobile = useIsMobile();
   const steps = [
     {
       step: '01',
@@ -1775,7 +1776,10 @@ function HowCarelu() {
       tag: 'Your dashboard',
       title: 'And you watch it all happen. Live.',
       desc: 'Every family Carelu touches lands in your pipeline in real time. Ask AI any question about your intake, and reporting shows exactly what each channel delivers. Keep scrolling — the app walks you through itself.',
-      visual: <ProductPeek />,
+      // Desktop: an empty anchor pane — the ONE real app frame (rendered by
+      // HowItWorksScroll) sits glued over it and later grows out of the card.
+      // Mobile keeps the self-contained mini frame.
+      visual: isMobile ? <ProductPeek /> : <div id="how-frame-anchor" style={{ width: '100%', aspectRatio: '760 / 477' }} />,
       wide: true,
     },
   ];
@@ -1881,8 +1885,11 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
   const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
   const act1Ref = useRef<HTMLDivElement>(null);
   const act2Ref = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const spacerRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const [stageTab, setStageTab] = useState(0);
 
@@ -1920,18 +1927,16 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
       const total = cards.length;
       setActiveIdx(Math.min(total - 1, Math.floor(animProgress * total)));
 
-      // ── The opening: cards drift up and dissolve, the product blooms in ──
+      // ── The opening: the card's chrome dissolves, the stage header fades
+      // in — while the ONE app frame (see the rAF loop below) grows from the
+      // card's pane to center stage.
       const act1 = act1Ref.current, act2 = act2Ref.current;
       if (act1 && act2 && finale) {
         const t = clamp01((progress - HOW_OPEN_START) / (HOW_OPEN_END - HOW_OPEN_START));
         const e = t * t * (3 - 2 * t); // smoothstep
-        // The camera pushes IN on the centered step IV card — it grows and
-        // dissolves while the full-stage product develops out of it.
         act1.style.opacity = String(1 - e);
-        act1.style.transform = `scale(${1 + 0.16 * e})`;
         act1.style.pointerEvents = e > 0.5 ? 'none' : '';
         act2.style.opacity = String(e);
-        act2.style.transform = `scale(${0.9 + 0.1 * e})`;
         act2.style.visibility = e === 0 ? 'hidden' : 'visible';
         act2.style.pointerEvents = e > 0.5 ? '' : 'none';
 
@@ -1940,10 +1945,39 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
         setStageTab(Math.floor(tp * PR_TABS.length));
       }
     };
+
+    // The morph itself runs on rAF: every frame the app frame is re-glued to
+    // wherever its anchor pane currently is (the pane rides the sliding,
+    // easing track), and interpolated toward the stage spacer as `e` rises.
+    // One element, continuously repositioned — never two copies.
+    let raf = 0;
+    const sync = () => {
+      raf = requestAnimationFrame(sync);
+      const section = sectionRef.current, pin = pinRef.current, frameEl = frameRef.current, spacer = spacerRef.current;
+      const anchor = document.getElementById('how-frame-anchor');
+      if (!section || !pin || !frameEl || !spacer || !anchor) return;
+      const rect = section.getBoundingClientRect();
+      const trackH = rect.height - window.innerHeight;
+      if (trackH <= 0) return;
+      const progress = clamp01(-rect.top / trackH);
+      const t = clamp01((progress - HOW_OPEN_START) / (HOW_OPEN_END - HOW_OPEN_START));
+      const e = t * t * (3 - 2 * t);
+      const pr = pin.getBoundingClientRect();
+      const a = anchor.getBoundingClientRect();
+      const b = spacer.getBoundingClientRect();
+      const sA = a.width / 760, sB = b.width / 760;
+      const x = (a.left - pr.left) * (1 - e) + (b.left - pr.left) * e;
+      const y = (a.top - pr.top) * (1 - e) + (b.top - pr.top) * e;
+      const s = sA * (1 - e) + sB * e;
+      frameEl.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
+    };
+    raf = requestAnimationFrame(sync);
+
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     onScroll();
     return () => {
+      cancelAnimationFrame(raf);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
@@ -1996,8 +2030,8 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
     <section id="how-it-works" ref={sectionRef} style={{
       height: '650vh', position: 'relative', background: 'var(--bone)',
     }}>
-      <div style={{ position: 'sticky', top: 0, height: '100svh', overflow: 'hidden' }}>
-        {/* Act one — the three step cards */}
+      <div ref={pinRef} style={{ position: 'sticky', top: 0, height: '100svh', overflow: 'hidden' }}>
+        {/* Act one — the step cards */}
         <div ref={act1Ref} style={{
           position: 'absolute', inset: 0,
           display: 'flex', flexDirection: 'column', justifyContent: 'center',
@@ -2066,117 +2100,98 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
         </div>
         </div>
 
-        {/* Act two — the product, full stage */}
+        {/* Act two — the stage the frame grows into: header above, an empty
+            spacer where the frame lands, the tab pill below */}
         {finale && (
           <div ref={act2Ref} style={{
             position: 'absolute', inset: 0,
-            display: 'flex', flexDirection: 'column', justifyContent: 'center',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
             opacity: 0, visibility: 'hidden', pointerEvents: 'none',
-            willChange: 'opacity, transform',
+            willChange: 'opacity', textAlign: 'center',
+            padding: '0 clamp(20px, 4.5vw, 40px)', boxSizing: 'border-box',
           }}>
-            <ProductStage s={finale} tab={stageTab} onTab={goStageTab} />
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: 11,
+              fontSize: 11, fontWeight: 600, color: 'var(--gray-500)',
+              letterSpacing: '0.14em', textTransform: 'uppercase',
+            }}>
+              <span style={{
+                width: 28, height: 28, borderRadius: '50%',
+                color: 'var(--green-900)', border: '1px solid rgba(43,42,38,0.30)',
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 12, fontWeight: 400, letterSpacing: '0.04em',
+                fontFamily: 'var(--font-display)',
+              }}>IV</span>
+              Step
+            </div>
+            <h2 style={{
+              fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 2.9vw, 38px)',
+              fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.15,
+              letterSpacing: '-0.02em', margin: '12px 0 0',
+            }}>
+              {finale.title}
+            </h2>
+            <p style={{
+              fontSize: 15, color: 'var(--gray-600)', lineHeight: 1.6,
+              maxWidth: 620, margin: '10px auto 0',
+            }}>
+              {finale.desc}
+            </p>
+            {/* Where the frame lands — sized like the frame, kept empty */}
+            <div ref={spacerRef} style={{
+              width: '100%',
+              maxWidth: 'min(760px, calc((100svh - 400px) * 1.594))',
+              aspectRatio: '760 / 477',
+              marginTop: 'clamp(18px, 2.6vh, 30px)',
+            }} />
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}>
+              <div style={{
+                display: 'inline-flex', gap: 4, background: '#fff', borderRadius: 100,
+                border: '1px solid rgba(43,42,38,0.08)', boxShadow: '0 8px 26px rgba(30,30,25,0.10)',
+                padding: 6,
+              }}>
+                {PR_TABS.map((tb, j) => (
+                  <button key={tb} type="button" onClick={() => goStageTab(j)} style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 8,
+                    fontSize: 11.5, fontWeight: 600, fontFamily: 'inherit',
+                    color: stageTab === j ? '#1c1b18' : 'rgba(43,42,38,0.5)',
+                    background: stageTab === j ? 'rgba(212,242,92,0.45)' : 'transparent',
+                    border: 'none', borderRadius: 100, padding: '8px 16px', cursor: 'pointer',
+                    transition: 'background 0.25s, color 0.25s',
+                  }}>
+                    {PR_TAB_ICONS[j]}
+                    {tb}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         )}
-      </div>
-    </section>
-  );
-}
 
-/* Act two of the how-it-works pin: the product at full, readable size.
-   Centered editorial header, then the app frame at its design width — no
-   miniature scaling. The scrollbar (via HowItWorksScroll) turns its pages. */
-function ProductStage({ s, tab, onTab }: { s: HowStep; tab: number; onTab: (j: number) => void }) {
-  // On short viewports the frame block alone scales down so header + frame
-  // always fit inside the pin; type stays full size.
-  const [vh, setVh] = useState(() => (typeof window === 'undefined' ? 900 : window.innerHeight));
-  useEffect(() => {
-    const f = () => setVh(window.innerHeight);
-    window.addEventListener('resize', f);
-    return () => window.removeEventListener('resize', f);
-  }, []);
-  const FRAME_BLOCK = 550; // chrome bar + 434 panel + gap + tab pill
-  const frameScale = Math.max(0.7, Math.min(1, (vh - 330) / FRAME_BLOCK));
-
-  const ICONS = [
-    <svg key="0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><rect x="3" y="4" width="5" height="16" rx="1.5" /><rect x="10" y="4" width="5" height="11" rx="1.5" /><rect x="17" y="4" width="4" height="7" rx="1.5" /></svg>,
-    <svg key="1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" /><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" /></svg>,
-    <svg key="2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M4 20V10M10 20V4M16 20v-8M21 20H3" /></svg>,
-  ];
-
-  return (
-    <div style={{ width: '100%', textAlign: 'center', padding: '0 clamp(20px, 4.5vw, 40px)', boxSizing: 'border-box' }}>
-      {/* Header — same voice as the step cards, centered */}
-      <div style={{
-        display: 'inline-flex', alignItems: 'center', gap: 11,
-        fontSize: 11, fontWeight: 600, color: 'var(--gray-500)',
-        letterSpacing: '0.14em', textTransform: 'uppercase',
-      }}>
-        <span style={{
-          width: 28, height: 28, borderRadius: '50%',
-          color: 'var(--green-900)', border: '1px solid rgba(43,42,38,0.30)',
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 12, fontWeight: 400, letterSpacing: '0.04em',
-          fontFamily: 'var(--font-display)',
-        }}>IV</span>
-        Step
-      </div>
-      <h2 style={{
-        fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 3.2vw, 42px)',
-        fontWeight: 400, color: 'var(--green-900)', lineHeight: 1.15,
-        letterSpacing: '-0.02em', margin: '12px 0 0',
-      }}>
-        {s.title}
-      </h2>
-      <p style={{
-        fontSize: 15, color: 'var(--gray-600)', lineHeight: 1.6,
-        maxWidth: 600, margin: '12px auto 0',
-      }}>
-        {s.desc}
-      </p>
-
-      {/* The app — design size, centered */}
-      <div style={{ height: FRAME_BLOCK * frameScale, marginTop: 'clamp(20px, 3vh, 34px)' }}>
-        <div style={{ transform: `scale(${frameScale})`, transformOrigin: 'top center' }}>
-          <div style={{
-            width: 'min(760px, 88vw)', margin: '0 auto',
-            background: '#FCFBF8', borderRadius: 20, overflow: 'hidden',
+        {/* THE app frame — the only copy on the page. It starts glued over
+            step IV's anchor pane and morphs to the spacer as you scroll. */}
+        {finale && (
+          <div ref={frameRef} style={{
+            position: 'absolute', left: 0, top: 0, width: 760,
+            transformOrigin: 'top left', willChange: 'transform',
+            pointerEvents: 'none', zIndex: 3,
+            background: '#FCFBF8', borderRadius: 16, overflow: 'hidden',
             boxShadow: '0 0 0 1px rgba(43,42,38,0.09), 0 26px 54px -22px rgba(30,30,25,0.18)',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '13px 18px', borderBottom: '1px solid rgba(43,42,38,0.06)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '13px 18px', borderBottom: '1px solid rgba(43,42,38,0.06)', boxSizing: 'border-box', height: 43 }}>
               <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
               <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
               <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'rgba(43,42,38,0.12)' }} />
               <span style={{ margin: '0 auto', fontSize: 11.5, color: 'rgba(43,42,38,0.45)', fontWeight: 500 }}>app.carelu.com</span>
               <span style={{ width: 45 }} />
             </div>
-            <div key={tab} className="pr-panel" style={{ height: 434, overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              {tab === 0 ? <PrPipeline /> : tab === 1 ? <PrAsk /> : <PrReporting />}
+            <div key={stageTab} className="pr-panel" style={{ height: 434, overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              {stageTab === 0 ? <PrPipeline /> : stageTab === 1 ? <PrAsk /> : <PrReporting />}
             </div>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}>
-            <div style={{
-              display: 'inline-flex', gap: 4, background: '#fff', borderRadius: 100,
-              border: '1px solid rgba(43,42,38,0.08)', boxShadow: '0 8px 26px rgba(30,30,25,0.10)',
-              padding: 6,
-            }}>
-              {PR_TABS.map((tb, j) => (
-                <button key={tb} type="button" onClick={() => onTab(j)} style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 8,
-                  fontSize: 11.5, fontWeight: 600, fontFamily: 'inherit',
-                  color: tab === j ? '#1c1b18' : 'rgba(43,42,38,0.5)',
-                  background: tab === j ? 'rgba(212,242,92,0.45)' : 'transparent',
-                  border: 'none', borderRadius: 100, padding: '8px 16px', cursor: 'pointer',
-                  transition: 'background 0.25s, color 0.25s',
-                }}>
-                  {ICONS[j]}
-                  {tb}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+        )}
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -2568,6 +2583,11 @@ function SkyGlobe() {
    one app frame cycling: pipeline → ask-anything → reporting.
    ================================================================ */
 const PR_TABS = ['Pipeline', 'Ask AI', 'Reporting'] as const;
+const PR_TAB_ICONS = [
+  <svg key="0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><rect x="3" y="4" width="5" height="16" rx="1.5" /><rect x="10" y="4" width="5" height="11" rx="1.5" /><rect x="17" y="4" width="4" height="7" rx="1.5" /></svg>,
+  <svg key="1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" /><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" /></svg>,
+  <svg key="2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M4 20V10M10 20V4M16 20v-8M21 20H3" /></svg>,
+];
 
 function PrPipeline() {
   const [moved, setMoved] = useState(false);
