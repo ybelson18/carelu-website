@@ -1873,9 +1873,9 @@ function HowStepCard({ s, mobile }: { s: HowStep; mobile?: boolean }) {
 //   Act one  — steps I–III slide across as cards.
 //   Act two  — the cards dissolve and the product opens up full-stage; the
 //              remaining scroll walks through its three screens.
-const HOW_SLIDE_START = 0.04, HOW_SLIDE_END = 0.38;  // card slide
-const HOW_OPEN_START = 0.42, HOW_OPEN_END = 0.56;    // crossfade to the product
-const HOW_TABS_START = 0.58, HOW_TABS_END = 0.96;    // one dwell zone per screen
+const HOW_SLIDE_START = 0.04, HOW_SLIDE_END = 0.44;  // card slide (all four steps)
+const HOW_OPEN_START = 0.47, HOW_OPEN_END = 0.60;    // step IV's card grows into the product
+const HOW_TABS_START = 0.62, HOW_TABS_END = 0.96;    // one dwell zone per screen
 
 function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
   const isMobile = useIsMobile();
@@ -1886,7 +1886,9 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [stageTab, setStageTab] = useState(0);
 
-  const cardSteps = steps.filter((s) => !s.wide);
+  // Step IV rides in the row like any other card; its `wide` flag only marks
+  // which step the full-stage act develops out of.
+  const cardSteps = steps;
   const finale = steps.find((s) => s.wide);
 
   useEffect(() => {
@@ -1923,11 +1925,13 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
       if (act1 && act2 && finale) {
         const t = clamp01((progress - HOW_OPEN_START) / (HOW_OPEN_END - HOW_OPEN_START));
         const e = t * t * (3 - 2 * t); // smoothstep
+        // The camera pushes IN on the centered step IV card — it grows and
+        // dissolves while the full-stage product develops out of it.
         act1.style.opacity = String(1 - e);
-        act1.style.transform = `translateY(${-30 * e}px) scale(${1 - 0.03 * e})`;
+        act1.style.transform = `scale(${1 + 0.16 * e})`;
         act1.style.pointerEvents = e > 0.5 ? 'none' : '';
         act2.style.opacity = String(e);
-        act2.style.transform = `translateY(${36 * (1 - e)}px) scale(${0.955 + 0.045 * e})`;
+        act2.style.transform = `scale(${0.9 + 0.1 * e})`;
         act2.style.visibility = e === 0 ? 'hidden' : 'visible';
         act2.style.pointerEvents = e > 0.5 ? '' : 'none';
 
