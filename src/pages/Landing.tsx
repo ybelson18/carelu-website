@@ -2139,9 +2139,9 @@ function HowItWorksScroll({ steps }: { steps: HowStep[] }) {
 
 // ── OUTCOMES — expandable improvement-metric rows ──────────
 
-function Outcomes() {
-  const [open, setOpen] = useState<number | null>(0);
-  const metrics = [
+// The outcomes content — shared by the live compact design and the kept
+// classic accordion below.
+const OUTCOME_METRICS = [
     {
       v: 40, s: '%', label: 'Increase in lead volume',
       bullets: [
@@ -2185,10 +2185,16 @@ function Outcomes() {
         'Thousands of clinicians brought to providers.',
       ],
     },
-  ];
+];
+
+// The previous outcomes design — the full-width accordion rows. Kept intact
+// (unused) so it can be swapped back in by rendering <OutcomesClassic />.
+export function OutcomesClassic() {
+  const [open, setOpen] = useState<number | null>(0);
+  const metrics = OUTCOME_METRICS;
   const numCol = 'clamp(96px, 11vw, 150px)';
   return (
-    <section id="outcomes" style={{
+    <section id="outcomes-classic" style={{
       position: 'relative', paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)',
       background: 'var(--bone)',
     }}>
@@ -2276,8 +2282,110 @@ function Outcomes() {
   );
 }
 
+/* OUTCOMES — the live compact design: five stats on one hairline shelf, the
+   selected stat's proof points in a shared panel beneath. A fraction of the
+   accordion's height, same content, and every tile is clickable. */
+function Outcomes() {
+  const isMobile = useIsMobile();
+  const [active, setActive] = useState(0);
+  const [kick, setKick] = useState(0);
+  const pick = (i: number) => { setActive(i); setKick((k) => k + 1); };
+  const m = OUTCOME_METRICS[active];
+  return (
+    <section id="outcomes" style={{
+      position: 'relative', paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)',
+      background: 'var(--bone)',
+    }}>
+      <div style={{ ...W, position: 'relative', zIndex: 1 }}>
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(24px, 3.5vw, 40px)' }}>
+          <div className="rv"><Pill>Outcomes</Pill></div>
+          <h2 className="rv-scale d1" style={{
+            fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 4.2vw, 52px)',
+            fontWeight: 400, color: 'var(--green-900)',
+            lineHeight: 1.12, letterSpacing: '-0.02em', margin: '12px 0 0',
+          }}>
+            Improve the metrics that matter.
+          </h2>
+        </div>
 
-// A handful of real cities where families keep lighting up on the globe
+        <div className="rv" style={{ maxWidth: 1000, margin: '0 auto' }}>
+          {/* The shelf: every metric on one line, hairlines above and below */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : `repeat(${OUTCOME_METRICS.length}, 1fr)`,
+            borderTop: '1px solid rgba(0,0,0,0.10)',
+            borderBottom: '1px solid rgba(0,0,0,0.10)',
+          }}>
+            {OUTCOME_METRICS.map((x, i) => (
+              <button
+                key={x.label}
+                type="button"
+                onClick={() => pick(i)}
+                aria-pressed={active === i}
+                aria-label={`Show details: ${x.label}`}
+                style={{
+                  background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit',
+                  padding: '20px 12px 18px', textAlign: 'center', position: 'relative',
+                  borderLeft: (isMobile ? i % 2 === 1 : i > 0) ? '1px solid rgba(0,0,0,0.08)' : 'none',
+                  opacity: active === i ? 1 : 0.42,
+                  transition: 'opacity 0.3s ease',
+                }}
+                onMouseEnter={(e) => { if (active !== i) e.currentTarget.style.opacity = '0.7'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = active === i ? '1' : '0.42'; }}
+              >
+                <span style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-display)', fontWeight: 400,
+                  fontSize: 'clamp(26px, 2.7vw, 40px)', lineHeight: 1,
+                  color: 'var(--green-900)', letterSpacing: '-0.02em',
+                  fontVariantNumeric: 'lining-nums tabular-nums', whiteSpace: 'nowrap',
+                }}>
+                  {active === i
+                    ? <Counter target={x.v} suffix={x.s} dur={900} trigger={kick} />
+                    : `${x.v.toLocaleString('en-US')}${x.s}`}
+                </span>
+                <span style={{
+                  display: 'block', marginTop: 9,
+                  fontSize: 10.5, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase',
+                  color: 'var(--green-900)', lineHeight: 1.45,
+                }}>
+                  {x.label}
+                </span>
+                {/* The active metric underlines itself on the bottom hairline */}
+                <span aria-hidden="true" style={{
+                  position: 'absolute', left: '14%', right: '14%', bottom: -1, height: 2,
+                  background: active === i ? 'var(--green-900)' : 'transparent',
+                  transition: 'background 0.3s ease',
+                }} />
+              </button>
+            ))}
+          </div>
+
+          {/* One shared panel: the chosen metric's proof points */}
+          <div key={active} className="pr-panel" style={{ padding: 'clamp(18px, 2.6vh, 28px) 0 0' }}>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+              columnGap: 'clamp(28px, 4vw, 56px)', rowGap: 12,
+              maxWidth: 860, margin: '0 auto', padding: '0 8px',
+            }}>
+              {m.bullets.map((b) => (
+                <div key={b} style={{ display: 'flex', gap: 11, alignItems: 'flex-start' }}>
+                  <span aria-hidden="true" style={{
+                    width: 5, height: 5, borderRadius: '50%', background: 'var(--lime)',
+                    boxShadow: '0 0 0 1px rgba(43,42,38,0.25)', marginTop: 8, flexShrink: 0,
+                  }} />
+                  <span style={{ fontSize: 14.5, lineHeight: 1.6, color: 'var(--gray-500)', textAlign: 'left' }}>{b}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Real per-state family counts — the source of truth for this section.
 const STATE_FAMILIES: Record<string, number> = {
   'North Carolina': 8570, 'Georgia': 6920, 'New Jersey': 6145, 'Maryland': 5540,
