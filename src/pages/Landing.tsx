@@ -3562,8 +3562,8 @@ export default function Landing() {
       {/* Session-work sections below — wrapped in .session-light to restore
           the cream/dark-green palette that these components expect. */}
       <div className="session-light">
-        <RealProduct />
         <MuralReveal />
+        <RealProduct />
         <Impact />
         <HowCarelu />
         <Outcomes />
