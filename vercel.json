@@ -2,22 +2,42 @@
   "rewrites": [
     {
       "source": "/privacy",
-      "has": [{ "type": "host", "value": "(www\\.)?leadtrap\\.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?leadtrap\\.com"
+        }
+      ],
       "destination": "/static/leadtrap-privacy.html"
     },
     {
       "source": "/terms",
-      "has": [{ "type": "host", "value": "(www\\.)?leadtrap\\.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?leadtrap\\.com"
+        }
+      ],
       "destination": "/static/leadtrap-terms.html"
     },
     {
       "source": "/privacy",
-      "has": [{ "type": "host", "value": "(www\\.)?carelu\\.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?carelu\\.com"
+        }
+      ],
       "destination": "/static/carelu-privacy.html"
     },
     {
       "source": "/terms",
-      "has": [{ "type": "host", "value": "(www\\.)?carelu\\.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?carelu\\.com"
+        }
+      ],
       "destination": "/static/carelu-terms.html"
     },
     {
@@ -28,6 +48,20 @@
       "source": "/terms/:company",
       "destination": "/api/policy?kind=terms&company=:company"
     },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(jpg|jpeg|png|webp|avif|gif|svg|ico|mp4|woff2)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    }
   ]
 }

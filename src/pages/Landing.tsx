@@ -496,9 +496,13 @@ function Hero() {
           }}
         >
           <div
+            className="hero-sky"
             style={{
               position: 'absolute', inset: 0,
-              backgroundImage: 'url(/hero-sky.jpg)',
+              // Painted before the photo arrives: the sky's own colours, so a slow
+              // connection sees blue behind white text instead of cream. The
+              // photo itself (1920/960 variants) comes from .hero-sky in index.css.
+              backgroundColor: '#8FB2BF',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
@@ -2476,7 +2480,7 @@ function SkyGlobe() {
       }}>
         <div className="gl-sky-img" style={{
           position: 'absolute', inset: '-12%',
-          backgroundImage: 'url(/hero-sky.jpg)', backgroundSize: 'cover', backgroundPosition: 'center 58%',
+          backgroundImage: 'url(/hero-sky-1920.jpg)', backgroundSize: 'cover', backgroundPosition: 'center 58%',
         }} />
       </div>
       <svg ref={svgRef} viewBox="0 0 500 500" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'visible', cursor: 'crosshair' }} aria-hidden="true" fill="none">
@@ -2607,7 +2611,7 @@ function PrAsk() {
     <div style={{ padding: 'clamp(14px, 2vw, 24px)', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column' }}>
       <div style={{
         borderRadius: 16, overflow: 'hidden', position: 'relative', flex: 1,
-        backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.14), rgba(250,248,243,0.5)), url(/hero-sky.jpg)',
+        backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.14), rgba(250,248,243,0.5)), url(/hero-sky-1920.jpg)',
         backgroundSize: 'cover', backgroundPosition: 'center 30%',
         padding: 'clamp(20px, 3vw, 34px) clamp(20px, 3vw, 34px) clamp(30px, 4vw, 46px)',
       }}>

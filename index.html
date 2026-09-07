@@ -20,6 +20,15 @@
             if (/carelu/i.test(m.getAttribute('content') || '')) m.remove();
           });
         });
+      } else {
+        // Carelu landing: start the hero sky download now, in parallel with the
+        // JS bundle, instead of after React renders the CSS background.
+        // URLs must match .hero-sky in src/index.css.
+        [['/hero-sky-1920.jpg', '(min-width: 769px)'], ['/hero-sky-960.jpg', '(max-width: 768px)']].forEach(function (p) {
+          var l = document.createElement('link');
+          l.rel = 'preload'; l.as = 'image'; l.href = p[0]; l.media = p[1]; l.setAttribute('fetchpriority', 'high');
+          document.head.appendChild(l);
+        });
       }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

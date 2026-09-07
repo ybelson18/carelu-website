@@ -1220,3 +1220,15 @@ nav .nav-link:first-child { margin-left: 12px; }
   .prod-outer { height: auto; }
   .prod-sticky { position: static; min-height: 0; padding: 56px 0 64px; overflow: visible; }
 }
+
+/* Hero sky photo — small, resolution-matched JPEGs (30 KB / 10 KB) layered over a
+   gradient in the sky's colours, so slow connections get blue immediately.
+   Keep these two URLs in sync with the <link rel="preload"> in index.html. */
+.hero-sky {
+  background-image:
+    url(/hero-sky-1920.jpg),
+    linear-gradient(160deg, #5F8593 0%, #8FB2BF 42%, #C9D3CC 72%, #E8E2D3 100%);
+}
+@media (max-width: 768px) {
+  .hero-sky { background-image: url(/hero-sky-960.jpg), linear-gradient(160deg, #5F8593 0%, #8FB2BF 42%, #C9D3CC 72%, #E8E2D3 100%); }
+}
