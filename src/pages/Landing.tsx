@@ -2654,7 +2654,7 @@ function PrReporting() {
   const BARS = [24, 12, 8, 18, 10, 30, 22, 14, 34, 20, 42, 30, 26, 52, 40, 64];
   const TEAL = '#4FC722';
   const TERRA = '#2FA8F5';
-  const AMBER = '#FFC531';
+  const VIOLET = '#7C5CE0';
   const dot = (c: string) => (
     <span style={{ width: 7, height: 7, borderRadius: '50%', background: c, display: 'inline-block', marginRight: 7, verticalAlign: '1px' }} />
   );
@@ -2686,7 +2686,7 @@ function PrReporting() {
           </div>
         </div>
         <div style={{ flex: '1 1 140px', background: '#fff', borderRadius: 14, border: '1px solid rgba(43,42,38,0.08)', padding: '16px 18px' }}>
-          <div style={{ fontSize: 11.5, fontWeight: 600, color: 'rgba(43,42,38,0.55)' }}>{dot(AMBER)}Intake complete</div>
+          <div style={{ fontSize: 11.5, fontWeight: 600, color: 'rgba(43,42,38,0.55)' }}>{dot(VIOLET)}Intake complete</div>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: 38, lineHeight: 1, color: '#1c1b18', marginTop: 8, fontVariantNumeric: 'tabular-nums' }}>
             <Counter target={180} dur={1400} delay={700} />
           </div>
@@ -2699,7 +2699,7 @@ function PrReporting() {
             <span>{dot(TEAL)}Captured</span>
             <span>{dot(TERRA)}Qualified</span>
           </div>
-          <span style={{ marginLeft: 'auto', fontSize: 10.5, fontWeight: 700, color: '#8F6400', background: 'rgba(255,197,49,0.32)', borderRadius: 100, padding: '3px 10px' }}>Best day: 27 · 9/1</span>
+          <span style={{ marginLeft: 'auto', fontSize: 10.5, fontWeight: 700, color: '#4A35B8', background: 'rgba(124,92,224,0.14)', borderRadius: 100, padding: '3px 10px' }}>Best day: 27 · 9/1</span>
         </div>
         <svg viewBox="0 0 600 110" style={{ width: '100%', height: 'auto', display: 'block', marginTop: 8 }} fill="none" aria-hidden="true">
           <path className="pr-area" d="M0 92 C40 88 60 70 90 74 C120 78 140 52 170 56 C200 60 215 40 240 46 C270 54 285 30 310 36 C340 44 360 78 390 70 C420 62 440 26 470 22 C500 18 520 60 545 40 C565 24 580 14 600 10 L600 110 L0 110 Z" fill="rgba(79,199,34,0.15)" />
