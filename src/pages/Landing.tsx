@@ -109,7 +109,7 @@ function Counter({ target, suffix = '', prefix = '', from = 0, dur = 2200, delay
    ================================================================ */
 // `base` prefixes the section-anchor links so the same nav works from other
 // routes (e.g. /solutions/*) — pass base="/carelu" there.
-export function Nav({ base = '' }: { base?: string }) {
+export function Nav({ base = '', onDark = false }: { base?: string; onDark?: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   // See-through over the hero sky; the bone veil fades in once the page scrolls
@@ -120,6 +120,9 @@ export function Nav({ base = '' }: { base?: string }) {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+  // White ink only while sitting over the Landing hero sky; every other page
+  // has a bone hero, so it reads in dark ink from the first pixel.
+  const light = onDark && !scrolled;
 
   // Lock page scroll while the mobile menu is open
   useEffect(() => {
@@ -140,9 +143,9 @@ export function Nav({ base = '' }: { base?: string }) {
         transition: 'background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease',
       }}>
         {(() => {
-          const ink = scrolled ? '#2B2A26' : '#fff';
-          const inkSoft = scrolled ? 'rgba(43,42,38,0.78)' : 'rgba(255,255,255,0.88)';
-          const glow = scrolled ? 'none' : '0 1px 14px rgba(0,0,0,0.28)';
+          const ink = light ? '#fff' : '#2B2A26';
+          const inkSoft = light ? 'rgba(255,255,255,0.88)' : 'rgba(43,42,38,0.78)';
+          const glow = light ? '0 1px 14px rgba(0,0,0,0.28)' : 'none';
           const link = {
             fontSize: 13, fontWeight: 500 as const, letterSpacing: '0.02em',
             color: inkSoft, textDecoration: 'none', transition: 'opacity 0.2s, color 0.4s',
@@ -207,7 +210,7 @@ export function Nav({ base = '' }: { base?: string }) {
               <NavA href="/carelu" className="nav-logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifySelf: 'center' }}>
                 <img src="/carelu-logo.svg" alt="Carelu" className="nav-logo-img" style={{
                   height: 38, width: 'auto', display: 'block', transform: 'translateX(5px)',
-                  filter: scrolled ? 'none' : 'brightness(0) invert(1) drop-shadow(0 1px 10px rgba(0,0,0,0.3))',
+                  filter: light ? 'brightness(0) invert(1) drop-shadow(0 1px 10px rgba(0,0,0,0.3))' : 'none',
                   transition: 'filter 0.4s ease',
                 }} />
               </NavA>
@@ -225,13 +228,13 @@ export function Nav({ base = '' }: { base?: string }) {
                 <a href="/demo" className="nav-demo-btn hide-mobile" style={{
                   fontSize: 13, fontWeight: 500, letterSpacing: '0.02em', color: ink,
                   padding: '7px 18px', borderRadius: 100, textDecoration: 'none', marginLeft: 14,
-                  border: `1px solid ${scrolled ? 'rgba(43,42,38,0.30)' : 'rgba(255,255,255,0.65)'}`,
+                  border: `1px solid ${light ? 'rgba(255,255,255,0.65)' : 'rgba(43,42,38,0.30)'}`,
                   background: 'transparent', textShadow: glow,
                   transition: 'background 0.25s, color 0.25s, border-color 0.4s, text-shadow 0.4s',
                 }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = scrolled ? '#2B2A26' : '#fff';
-                    e.currentTarget.style.color = scrolled ? '#FAF8F3' : '#1A1A1A';
+                    e.currentTarget.style.background = light ? '#fff' : '#2B2A26';
+                    e.currentTarget.style.color = light ? '#1A1A1A' : '#FAF8F3';
                     e.currentTarget.style.textShadow = 'none';
                   }}
                   onMouseLeave={(e) => {
@@ -3604,7 +3607,7 @@ export default function Landing() {
     <div style={{ background: '#FAF8F3', color: '#2B2A26', minHeight: '100vh' }}>
       {/* Top sections kept from main */}
       <DemoModalHost />
-      <Nav />
+      <Nav onDark />
       <Hero />
       <DemoVideo />
       <Problem />
