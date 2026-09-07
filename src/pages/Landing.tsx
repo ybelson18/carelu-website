@@ -2652,12 +2652,14 @@ function PrAsk() {
 
 function PrReporting() {
   const BARS = [24, 12, 8, 18, 10, 30, 22, 14, 34, 20, 42, 30, 26, 52, 40, 64];
-  // Stage colours mirror the platform's StatusPill (LeadTrap AdminPanelV2):
-  // New · Qualified · Behavioral complete. Growth chip stays semantic green.
-  const NEW = '#1D4ED8';
-  const QUAL = '#7E22CE';
-  const DONE = '#4338CA';
-  const DONE_BG = '#E0E7FF';
+  // Stage colours mirror the platform's pipeline board (LeadTrap
+  // Pipeline/stageStyles.ts): New sky dot, Qualified pale-lime dot, and the
+  // Converted column's green + header wash for the completed tile and Best day.
+  const NEW = '#7DD3FC';
+  const QUAL = '#DCE9A8';
+  const DONE = '#7A9B23';
+  const DONE_BG = '#E3EDC6';
+  const DONE_FG = '#5C7A14';
   const dot = (c: string) => (
     <span style={{ width: 7, height: 7, borderRadius: '50%', background: c, display: 'inline-block', marginRight: 7, verticalAlign: '1px' }} />
   );
@@ -2674,7 +2676,7 @@ function PrReporting() {
               {BARS.map((h, i) => (
                 <span key={i} className="pr-bar" style={{
                   flex: 1, height: `${h}px`, borderRadius: 3,
-                  background: i >= BARS.length - 3 ? NEW : 'rgba(29,78,216,0.28)',
+                  background: i >= BARS.length - 3 ? NEW : 'rgba(125,211,252,0.40)',
                   animationDelay: `${0.15 + i * 0.05}s`,
                 }} />
               ))}
@@ -2702,10 +2704,10 @@ function PrReporting() {
             <span>{dot(NEW)}Captured</span>
             <span>{dot(QUAL)}Qualified</span>
           </div>
-          <span style={{ marginLeft: 'auto', fontSize: 10.5, fontWeight: 700, color: DONE, background: DONE_BG, borderRadius: 100, padding: '3px 10px' }}>Best day: 27 · 9/1</span>
+          <span style={{ marginLeft: 'auto', fontSize: 10.5, fontWeight: 700, color: DONE_FG, background: DONE_BG, borderRadius: 100, padding: '3px 10px' }}>Best day: 27 · 9/1</span>
         </div>
         <svg viewBox="0 0 600 110" style={{ width: '100%', height: 'auto', display: 'block', marginTop: 8 }} fill="none" aria-hidden="true">
-          <path className="pr-area" d="M0 92 C40 88 60 70 90 74 C120 78 140 52 170 56 C200 60 215 40 240 46 C270 54 285 30 310 36 C340 44 360 78 390 70 C420 62 440 26 470 22 C500 18 520 60 545 40 C565 24 580 14 600 10 L600 110 L0 110 Z" fill="rgba(29,78,216,0.10)" />
+          <path className="pr-area" d="M0 92 C40 88 60 70 90 74 C120 78 140 52 170 56 C200 60 215 40 240 46 C270 54 285 30 310 36 C340 44 360 78 390 70 C420 62 440 26 470 22 C500 18 520 60 545 40 C565 24 580 14 600 10 L600 110 L0 110 Z" fill="rgba(125,211,252,0.18)" />
           <path className="pr-spark" pathLength={1} d="M0 92 C40 88 60 70 90 74 C120 78 140 52 170 56 C200 60 215 40 240 46 C270 54 285 30 310 36 C340 44 360 78 390 70 C420 62 440 26 470 22 C500 18 520 60 545 40 C565 24 580 14 600 10" stroke={NEW} strokeWidth="2" strokeLinecap="round" />
           <path className="pr-spark" pathLength={1} d="M0 101 C40 100 60 94 90 95 C120 96 140 88 170 89 C200 90 215 82 240 84 C270 87 285 74 310 77 C340 80 360 92 390 89 C420 86 440 72 470 70 C500 68 520 84 545 78 C565 72 580 66 600 63" stroke={QUAL} strokeWidth="1.6" strokeLinecap="round" strokeDasharray="5 5" style={{ animationDelay: '0.6s' }} />
         </svg>
