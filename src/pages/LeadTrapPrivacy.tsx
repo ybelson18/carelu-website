@@ -20,7 +20,7 @@ const accent = '#3a8ab0';
 const MUTED = 'rgba(255,255,255,0.6)';
 const FAINT = 'rgba(255,255,255,0.4)';
 const BORDER = 'rgba(255,255,255,0.1)';
-const EFFECTIVE = 'August 31, 2026';
+const EFFECTIVE = 'September 7, 2026';
 
 function H2({ children, id }: { children: React.ReactNode; id?: string }) {
   return (
@@ -153,7 +153,7 @@ export default function LeadTrapPrivacy() {
             that Partner&rsquo;s account.</LI>
           <LI>We do <B>not</B> use Meta data to build or train generalized artificial-intelligence or machine-learning
             models.</LI>
-          <LI>Access tokens for connected Meta accounts are stored encrypted and are never shared.</LI>
+          <LI>Access tokens for connected Meta accounts are never shared, and are accessible only to the systems that use them.</LI>
         </ul>
         <P>Our collection, use, and deletion of Meta data (&ldquo;Platform Data&rdquo;) complies with the{' '}
           <a href="https://developers.facebook.com/terms/" style={link} target="_blank" rel="noopener noreferrer">Meta Platform Terms</a> and{' '}

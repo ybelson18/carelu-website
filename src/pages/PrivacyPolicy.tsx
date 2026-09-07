@@ -12,7 +12,7 @@ import { useSeo } from '../hooks/useSeo';
 const INK = '#1A1A1A';
 const BONE = '#FAF8F3';
 const MUTED = 'rgba(43,42,38,0.72)';
-const UPDATED = 'August 31, 2026';
+const UPDATED = 'September 7, 2026';
 
 function H2({ id, children }: { id?: string; children: React.ReactNode }) {
   return (
@@ -62,7 +62,7 @@ export default function PrivacyPolicy() {
           provider &mdash; including any Protected Health Information (PHI) &mdash; is governed by our{' '}
           <a href="/terms" style={{ color: '#2e5a26', fontWeight: 600 }}>Terms of Service</a> and, where applicable, a
           signed Business Associate Agreement (BAA), not by this Site policy. We do not collect PHI through this Site.
-          Three exceptions: our handling of data from email accounts a provider connects to the Carelu product (Google
+          Three exceptions, which cover the Carelu application at app.leadtrap.ai as well as the Site: our handling of data from email accounts a provider connects to the Carelu product (Google
           or Microsoft) is described in <a href="#connected-email" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected
           Google and Microsoft accounts</a> below; our handling of data from Meta (Facebook) accounts a provider
           connects is described in <a href="#connected-meta" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected
@@ -149,7 +149,7 @@ export default function PrivacyPolicy() {
         </ul>
         <P>
           Microsoft account data accessed through Microsoft Graph is handled under the same restrictions. OAuth tokens
-          for connected accounts are stored encrypted and are never shared.
+          for connected email accounts are stored encrypted and are never shared.
         </P>
 
         <H2 id="connected-meta">Connected advertising accounts (Meta)</H2>
@@ -173,8 +173,8 @@ export default function PrivacyPolicy() {
           that generated them, and reporting on the results. We do not sell Meta data or use it for our own advertising;
           we do not share it with third parties except service providers who host and operate the product for us under
           contract, or where required by law; we do not use it to build or train generalized artificial-intelligence or
-          machine-learning models; and access tokens for connected Meta accounts are stored encrypted and are never
-          shared. Our collection, use, and deletion of Meta data (&ldquo;Platform Data&rdquo;) complies with the{' '}
+          machine-learning models; and access tokens for connected Meta accounts are never shared, and are accessible
+          only to the systems that use them. Our collection, use, and deletion of Meta data (&ldquo;Platform Data&rdquo;) complies with the{' '}
           <a href="https://developers.facebook.com/terms/" target="_blank" rel="noreferrer"
             style={{ color: '#2e5a26', fontWeight: 600 }}>Meta Platform Terms</a> and{' '}
           <a href="https://developers.facebook.com/devpolicy/" target="_blank" rel="noreferrer"
