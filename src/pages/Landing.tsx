@@ -2675,13 +2675,13 @@ function PrReporting() {
         <div style={{ flex: '1 1 140px', background: '#fff', borderRadius: 14, border: '1px solid rgba(43,42,38,0.08)', padding: '16px 18px' }}>
           <div style={{ fontSize: 11.5, fontWeight: 600, color: 'rgba(43,42,38,0.55)' }}>{dot(TERRA)}Qualified leads</div>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: 38, lineHeight: 1, color: '#1c1b18', marginTop: 8, fontVariantNumeric: 'tabular-nums' }}>
-            <Counter target={68} dur={1400} delay={450} />
+            <Counter target={234} dur={1400} delay={450} />
           </div>
         </div>
         <div style={{ flex: '1 1 140px', background: '#fff', borderRadius: 14, border: '1px solid rgba(43,42,38,0.08)', padding: '16px 18px' }}>
-          <div style={{ fontSize: 11.5, fontWeight: 600, color: 'rgba(43,42,38,0.55)' }}>{dot(AMBER)}Scheduled</div>
+          <div style={{ fontSize: 11.5, fontWeight: 600, color: 'rgba(43,42,38,0.55)' }}>{dot(AMBER)}Intake complete</div>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: 38, lineHeight: 1, color: '#1c1b18', marginTop: 8, fontVariantNumeric: 'tabular-nums' }}>
-            <Counter target={12} dur={1400} delay={700} />
+            <Counter target={180} dur={1400} delay={700} />
           </div>
         </div>
       </div>
