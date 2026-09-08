@@ -74,8 +74,21 @@ ABA and behavioral-health providers lose a large share of new families to slow o
 
 ## Platform integrations
 
-- [Integrations directory](https://carelu.com/integrations): The platforms Carelu connects to — practice management, EHRs, CRMs, and webhooks.
+- [Integrations directory](https://carelu.com/integrations): Every system Carelu connects to, by category — CRMs (Salesforce, HubSpot, Zoho, monday.com, ClickUp, GoHighLevel), practice management and EHR (CentralReach, Rethink, Aloha ABA, Chorus), call tracking (CallRail), Google Calendar, Gmail, Meta Ads, Google Ads, webhooks, email delivery, and CSV export.
 
+- [Carelu + Salesforce integration](https://carelu.com/integrations/salesforce): Carelu completes intake and delivers each admitted family into Salesforce as a complete, field-mapped record — contact, child, insurance, documents, consents, source, and stage.
+
+- [Carelu + HubSpot integration](https://carelu.com/integrations/hubspot): Two-way contact and deal sync with property mapping; HubSpot Original Traffic Source filled from the campaign Carelu captured.
+- [Carelu + Zoho CRM integration](https://carelu.com/integrations/zoho-crm): Leads and contacts created and updated in Zoho with the full intake record attached.
+- [Carelu + monday.com integration](https://carelu.com/integrations/monday): Each family becomes an item on the board and group you choose, columns filled from the intake.
+- [Carelu + ClickUp integration](https://carelu.com/integrations/clickup): Intakes arrive as tasks in the list you pick with custom fields populated.
+- [Carelu + GoHighLevel integration](https://carelu.com/integrations/gohighlevel): Contacts and opportunities pushed into your sub-account with tags and pipeline stage.
+- [Carelu + CallRail integration](https://carelu.com/integrations/callrail): Every tracked call recorded and transcribed, matched to the family or created as a new lead automatically, logged on the profile timeline — review calls at scale.
+- [Carelu + Google Calendar integration](https://carelu.com/integrations/google-calendar): Assessments booked onto your calendar in the same conversation that qualified the family.
+- [Carelu + Gmail integration](https://carelu.com/integrations/gmail): Follow-ups and intake links sent from a coordinator's own address; send-only scope.
+- [Carelu + Meta Ads integration](https://carelu.com/integrations/meta-ads): Facebook and Instagram spend attributed to sessions, leads, and admitted families.
+- [Carelu + Google Ads integration](https://carelu.com/integrations/google-ads): Campaign spend attributed to the families it generated, down to cost per admitted family.
+- [Carelu webhooks](https://carelu.com/integrations/webhooks): Every lead, stage change, or completed intake sent as mapped JSON to any endpoint with delivery history; PHI never routed through consumer automation tools.
 - [Carelu + Aloha ABA integration](https://carelu.com/integrations/aloha-aba): Carelu answers and admits families 24/7, then delivers complete records into your practice-management system.
 - [Carelu + CentralReach integration](https://carelu.com/integrations/centralreach): Carelu connects with CentralReach — intake completed conversationally, records delivered into the EHR with no re-keying.
 - [Carelu + Rethink integration](https://carelu.com/integrations/rethink-behavioral-health): Carelu fills the Rethink platform: instant response, verification, documents, and complete records delivered in.

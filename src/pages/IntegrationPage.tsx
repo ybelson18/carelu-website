@@ -205,7 +205,7 @@ function IntegrationGuide({ config }: { config: IntegrationConfig }) {
             fontSize: 'clamp(15px, 1.5vw, 17px)', color: 'rgba(43,42,38,0.65)',
             lineHeight: 1.65, maxWidth: 540, margin: '0 auto 30px',
           }}>
-            See Carelu answer, qualify, and admit a family end to end — and deliver the finished record into {config.name}.
+            {config.ctaSub ?? `See Carelu answer, qualify, and admit a family end to end — and deliver the finished record into ${config.name}.`}
           </p>
           <a href="/demo" className="rv d2" style={{
             display: 'inline-flex', alignItems: 'center', gap: 10,

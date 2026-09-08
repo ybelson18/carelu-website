@@ -1,3 +1,4 @@
+import { integrationCatalog } from '../data/integrationCatalog';
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useReveal } from '../hooks/useReveal';
@@ -3596,6 +3597,78 @@ function MuralReveal() {
 
 
 // ── PAGE ─────────────────────────────────────────
+/* ── Integrations: logo wall ──────────────────────────────────── */
+function StackIntegrations() {
+  const items = integrationCatalog.flatMap((g) => g.items).filter((it) => it.logo && !it.hideFromWall);
+  return (
+    <section id="integrations" style={{
+      position: 'relative', paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)',
+      background: 'var(--bone)',
+    }}>
+      <div style={{ ...W, position: 'relative', zIndex: 1 }}>
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(32px, 4.5vw, 52px)' }}>
+          <div className="rv"><Pill>Integrations</Pill></div>
+          <h2 className="rv-scale d1" style={{
+            fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 4.2vw, 52px)',
+            fontWeight: 400, color: 'var(--green-900)',
+            lineHeight: 1.12, letterSpacing: '-0.02em', margin: '12px 0 0',
+          }}>
+            Keep your stack. Or move over.
+          </h2>
+          <p className="rv d2" style={{
+            fontSize: 'clamp(15px, 1.5vw, 18px)', color: 'rgba(43,42,38,0.68)',
+            lineHeight: 1.65, maxWidth: 600, margin: '18px auto 0',
+          }}>
+            Whatever your practice runs on, Carelu connects with it and runs on top of it.
+            The only thing that changes is who does the intake work.
+          </p>
+        </div>
+
+        <div className="int-wall" style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: 14, maxWidth: 1120, margin: '0 auto' }}>
+          {items.map((it, i) => {
+            const Tag = it.href ? 'a' : 'div';
+            return (
+              <Tag
+                key={it.name}
+                href={it.href}
+                aria-label={it.href ? `${it.name} integration` : it.name}
+                title={it.name}
+                className={`rv d${(i % 4) + 1}`}
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  aspectRatio: '1 / 1', background: '#fff', borderRadius: 22, textDecoration: 'none',
+                  border: '1px solid rgba(43,42,38,0.07)',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.02), 0 4px 14px rgba(0,0,0,0.03)',
+                  transition: 'transform 0.3s var(--ease-dramatic), box-shadow 0.3s, border-color 0.3s',
+                  cursor: it.href ? 'pointer' : 'default',
+                }}
+                onMouseEnter={(e) => { if (!it.href) return; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 16px 32px rgba(0,0,0,0.08)'; e.currentTarget.style.borderColor = 'rgba(63,122,52,0.4)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 1px 2px rgba(0,0,0,0.02), 0 4px 14px rgba(0,0,0,0.03)'; e.currentTarget.style.borderColor = 'rgba(43,42,38,0.07)'; }}
+              >
+                <img
+                  src={it.logo}
+                  alt={it.name}
+                  loading="lazy"
+                  style={{ width: `min(${it.logoWidth ?? 60}px, 84%)`, maxHeight: '52%', height: 'auto', objectFit: 'contain', display: 'block' }}
+                />
+              </Tag>
+            );
+          })}
+        </div>
+
+        <p className="rv" style={{ fontSize: 14, color: 'rgba(43,42,38,0.6)', margin: 'clamp(26px, 3.5vw, 40px) auto 0', lineHeight: 1.6, textAlign: 'center', maxWidth: 640 }}>
+          Plus anything with a webhook. If your system isn't here, it almost certainly still works.{' '}
+          <a href="/integrations" style={{ color: '#2e5a26', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>See every integration →</a>
+        </p>
+      </div>
+      <style>{`
+        @media (max-width: 980px) { .int-wall { grid-template-columns: repeat(4, 1fr) !important; } }
+        @media (max-width: 520px) { .int-wall { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; } }
+      `}</style>
+    </section>
+  );
+}
+
 export default function Landing() {
   useReveal();
   useSeo({
@@ -3626,6 +3699,7 @@ export default function Landing() {
         <Impact />
         <HowCarelu />
         <Outcomes />
+        <StackIntegrations />
         <CeoLetter />
         <GettingStarted />
         <Compliance />
