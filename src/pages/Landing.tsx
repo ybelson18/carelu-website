@@ -6,6 +6,7 @@ import { feature as topoFeature } from 'topojson-client';
 import { useSeo } from '../hooks/useSeo';
 import DemoModalHost from '../components/DemoModal';
 import SiteFooter from '../components/SiteFooter';
+import { LOGIN_URL } from '../lib/loginUrl';
 
 // Nav link that client-side-routes internal pages (no full reload → no font-swap
 // flash in the nav pill). Same-page hash anchors and /demo (modal-intercepted)
@@ -221,7 +222,7 @@ export function Nav({ base = '', onDark = false }: { base?: string; onDark?: boo
                   onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
                 >Company</NavA>
-                <NavA href="/login" className="hide-mobile nav-link" style={link}
+                <NavA href={LOGIN_URL} className="hide-mobile nav-link" style={link}
                   onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
                 >Log in</NavA>
@@ -271,7 +272,7 @@ export function Nav({ base = '', onDark = false }: { base?: string; onDark?: boo
             { t: 'Enterprise',   href: '/solutions/enterprise' },
             { t: 'FAQ',          href: `${base}#faq` },
             { t: 'Company',      href: '/carelu/company' },
-            { t: 'Log in',       href: '/login' },
+            { t: 'Log in',       href: LOGIN_URL },
           ].map(l => (
             <NavA key={l.t} href={l.href} style={{ fontSize: 22, fontWeight: 400, fontFamily: 'var(--font-display)', color: '#2B2A26', textDecoration: 'none', padding: '20px 0', borderBottom: '1px solid rgba(43,42,38,0.06)' }}>{l.t}</NavA>
           ))}

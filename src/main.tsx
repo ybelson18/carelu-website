@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import './index.css'
 import Landing from './pages/Landing'
-import Login from './pages/Login'
+import { LOGIN_URL } from './lib/loginUrl'
 import SignUp from './pages/SignUp'
 import Verify from './pages/Verify'
 import Demo from './pages/Demo'
@@ -59,6 +59,12 @@ function ScrollReset() {
   return null;
 }
 
+/* The marketing site has no login of its own: /login hands off to the app. */
+function LoginRedirect() {
+  useEffect(() => { window.location.replace(LOGIN_URL) }, []);
+  return null;
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
@@ -68,7 +74,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/carelu" element={<Landing />} />
         <Route path="/carelu/company" element={<CareluCompany />} />
         <Route path="/company" element={<Company />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<LoginRedirect />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/verify" element={<Verify />} />
         <Route path="/demo" element={<Demo />} />
