@@ -1,7 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useReveal } from '../hooks/useReveal';
-import { geoOrthographic, geoPath, geoGraticule10, geoDistance, geoContains } from 'd3-geo';
+import { geoOrthographic, geoPath, geoGraticule10, geoContains } from 'd3-geo';
 import { feature as topoFeature } from 'topojson-client';
 import { useSeo } from '../hooks/useSeo';
 import DemoModalHost from '../components/DemoModal';
@@ -2362,11 +2362,14 @@ function SkyGlobe() {
       pGrat.setAttribute('d', path(graticule) || '');
       pWorld.setAttribute('d', path(geo.world as never) || '');
       pStates.setAttribute('d', path(geo.states as never) || '');
-      const center: [number, number] = [-lam, -phi];
+      // The projection is scaled past the visible disk (radius 250 around the
+      // center), so a city can face the viewer yet still land outside the
+      // circular window. Show a dot only while it sits fully inside the disk.
+      const DISK_R = 250 - 4;
       GLOBE_CITIES.forEach((c, i) => {
         const el = cityEls[i]; if (!el) return;
         const pt = projection(c);
-        if (pt && geoDistance(c, center) < 1.45) {
+        if (pt && Math.hypot(pt[0] - 250, pt[1] - 251) < DISK_R) {
           el.setAttribute('cx', String(pt[0]));
           el.setAttribute('cy', String(pt[1]));
           el.style.display = '';
