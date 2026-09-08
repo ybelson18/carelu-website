@@ -7,6 +7,7 @@ const bySpecialty = [
   { slug: 'home-care', label: 'Home Care' },
   { slug: 'addiction-treatment', label: 'Addiction Treatment' },
   { slug: 'hospice', label: 'Hospice' },
+  { slug: 'idd', label: 'IDD Services' },
 ];
 
 const bySize = [

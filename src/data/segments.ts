@@ -220,6 +220,44 @@ export const segments: Record<string, SegmentConfig> = {
     ctaSub: 'See how Carelu ensures every hospice referral gets an immediate, compassionate response.',
   },
 
+  'idd': {
+    slug: 'idd',
+    label: 'IDD Services',
+    pill: 'IDD Service Providers',
+    headline: 'Every family who calls deserves a clear path to',
+    headlineAccent: 'the right support.',
+    sub: 'Families of people with intellectual and developmental disabilities are navigating waivers, waitlists, and a dozen agencies at once. Carelu answers every inquiry and referral instantly — from families, support coordinators, and schools — and walks each one through intake. 24/7.',
+    painLabel: 'The challenge',
+    painHeadline: 'IDD intake is slow, and families feel every day of it.',
+    pains: [
+      { title: 'Waivers and eligibility are a maze', desc: 'HCBS waivers, Medicaid, state DD eligibility, and private pay all follow different rules. Families don\'t know which they qualify for, and your team spends hours finding out.' },
+      { title: 'Referrals arrive from everywhere', desc: 'Support coordinators, case managers, schools, hospitals, and parents — by phone, fax, email, and web form. Each one waits on a person to notice it.' },
+      { title: 'Paperwork stalls the start of services', desc: 'Guardianship documents, ISPs, level-of-care assessments, consents, and authorizations trickle in over weeks. Every missing page delays care.' },
+      { title: 'Families reach out after hours', desc: 'A parent searches for day programs or residential support at 9pm after the kids are asleep. The office is closed. That inquiry goes to whoever answers first.' },
+    ],
+    solutionLabel: 'How Carelu helps',
+    solutionHeadline: 'Intake built for the way IDD services actually work.',
+    solutions: [
+      { title: 'Answers every family and coordinator instantly', desc: 'Carelu responds to families, support coordinators, and referral sources the moment they reach out — by chat, phone, or text — and gathers the individual\'s needs, supports, and funding source.' },
+      { title: 'Eligibility and funding sorted up front', desc: 'Waiver enrollment, Medicaid, and private coverage checked during the conversation, so your team knows which program and funding path fits before the first call back.' },
+      { title: 'Documents collected conversationally', desc: 'Guardianship papers, ISPs, assessments, consents, and authorizations collected via text and email from families and coordinators. No portals, no chasing.' },
+    ],
+    stats: [
+      { value: '< 3 sec', label: 'Inquiry response time' },
+      { value: '24/7', label: 'Family and coordinator support' },
+      { value: '2×', label: 'Faster referral-to-start of services' },
+    ],
+    testimonial: {
+      quote: 'Our coordinators used to spend half their week chasing paperwork. Now families and case managers finish intake in days, and our team starts with a complete file.',
+      name: 'Dana R.',
+      role: 'Director of Admissions',
+      company: 'Pathways Community Supports',
+      initials: 'DR',
+    },
+    ctaHeadline: 'A family is looking for support right now.',
+    ctaSub: 'See how Carelu turns every IDD inquiry and referral into a person receiving services — without adding headcount.',
+  },
+
   'single-site': {
     slug: 'single-site',
     label: 'Single-Site Providers',

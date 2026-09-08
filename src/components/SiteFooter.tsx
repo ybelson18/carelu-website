@@ -15,7 +15,7 @@ const DEFAULT_SUBHEAD = "Let's make sure they find you — and that when they do
 
 const columns: { title: string; links: string[] }[] = [
   { title: 'Product',    links: ['Intake AI', 'Insurance Verification', 'Document Collection', 'Follow-ups', 'Scheduling'] },
-  { title: 'Industries', links: ['ABA Therapy', 'Mental Health', 'Home Care', 'Addiction Treatment', 'Hospice'] },
+  { title: 'Industries', links: ['ABA Therapy', 'Mental Health', 'Home Care', 'Addiction Treatment', 'Hospice', 'IDD Services'] },
   { title: 'Customers',  links: ['Single-Site', 'Multi-Site', 'Enterprise'] },
   { title: 'Company',    links: ['About', 'Careers', 'News', 'Contact'] },
   { title: 'Resources',  links: ['The Intake Gap (Research)', 'ROI Calculator', 'Intake Guides', 'Payer Guides', 'Referral Contacts', 'Front-Office Risks', 'Integrations', 'Carelu vs a CRM', 'Trust'] },
@@ -37,6 +37,7 @@ const HREFS: Record<string, string> = {
   'Home Care': '/for/home-care',
   'Addiction Treatment': '/for/addiction-treatment',
   'Hospice': '/for/hospice',
+  'IDD Services': '/for/idd',
   'Single-Site': '/solutions/single-site',
   'Multi-Site': '/solutions/multi-site',
   'Enterprise': '/solutions/enterprise',
