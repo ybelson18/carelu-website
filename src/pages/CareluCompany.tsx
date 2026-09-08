@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import DemoModalHost from '../components/DemoModal';
 import { Nav } from './Landing';
 import { useSeo } from '../hooks/useSeo';
+import { getLiveCount } from '../lib/liveCount';
 
 /* ================================================================
    CARELU — COMPANY / ABOUT
@@ -24,12 +25,6 @@ const W: React.CSSProperties = { maxWidth: 1140, margin: '0 auto', padding: '0 c
 const SECTION_PY = 'clamp(64px, 9vw, 120px)';
 
 /* live "families admitted" counter — mirrors the homepage */
-const BASELINE_DATE = new Date('2026-04-16T00:00:00Z').getTime();
-const BASELINE_COUNT = 35000;
-const GROWTH_PER_MS = 500 / (24 * 60 * 60 * 1000);
-function getLiveCount() {
-  return Math.floor(BASELINE_COUNT + Math.max(0, Date.now() - BASELINE_DATE) * GROWTH_PER_MS);
-}
 
 function Pill({ children, onSky }: { children: string; onSky?: boolean }) {
   return (

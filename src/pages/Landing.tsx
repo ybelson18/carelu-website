@@ -7,6 +7,7 @@ import { useSeo } from '../hooks/useSeo';
 import DemoModalHost from '../components/DemoModal';
 import SiteFooter from '../components/SiteFooter';
 import { LOGIN_URL } from '../lib/loginUrl';
+import { getLiveCount } from '../lib/liveCount';
 
 // Nav link that client-side-routes internal pages (no full reload → no font-swap
 // flash in the nav pill). Same-page hash anchors and /demo (modal-intercepted)
@@ -26,12 +27,6 @@ function NavA({ href, ...rest }: { href: string } & Omit<React.AnchorHTMLAttribu
    - Every element earns its place.
    ================================================================ */
 
-const BASELINE_DATE = new Date('2026-09-06T00:00:00Z').getTime();
-const BASELINE_COUNT = 105121; // sum of the real per-state family counts (STATE_FAMILIES)
-const GROWTH_PER_MS = 500 / (24 * 60 * 60 * 1000);
-function getLiveCount() {
-  return Math.floor(BASELINE_COUNT + Math.max(0, Date.now() - BASELINE_DATE) * GROWTH_PER_MS);
-}
 
 const W: React.CSSProperties = { maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px, 4.5vw, 40px)' };
 
