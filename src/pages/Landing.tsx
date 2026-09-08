@@ -802,7 +802,6 @@ const allLogos = [
   { src: '/logos/dark/kidsclub.png', alt: 'Kids Club ABA', color: '/logos/kidsclub.png' },
   { src: '/logos/dark/cross-river.png', alt: 'Cross River', color: '/logos/cross-river.png' },
   { src: '/logos/advanced-autism.svg', alt: 'Advanced Autism Services', h: 40 },
-  { src: '/logos/dark/supportive-care.png', alt: 'Supportive Care', color: '/logos/supportive-care.png' },
   { src: '/logos/dark/stepahead.png', alt: 'Step Ahead ABA', h: 46, color: '/logos/stepahead.png' },
   { src: '/logos/dark/above-beyond.png', alt: 'Above & Beyond', h: 52, color: '/logos/above-beyond.webp' },
   { src: '/logos/dark/behaviorcare.png', alt: 'BehaviorCare Therapy', color: '/logos/behaviorcare.png' },

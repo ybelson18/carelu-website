@@ -94,7 +94,6 @@ function LogoBand({ aba }: { aba: boolean }) {
     { src: '/logos/strive-aba.png', alt: 'Strive ABA' },
     { src: '/logos/golden-care-full.png', alt: 'Golden Care' },
     { src: '/logos/grateful-care.avif', alt: 'Grateful Care' },
-    { src: '/logos/supportive-care.png', alt: 'Supportive Care' },
     { src: '/logos/cross-river.png', alt: 'Cross River' },
     { src: '/logos/totalcare.webp', alt: 'Total Care' },
     { src: '/logos/blossom-aba.webp', alt: 'Blossom ABA' },
