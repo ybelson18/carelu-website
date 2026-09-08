@@ -8,6 +8,7 @@ const bySpecialty = [
   { slug: 'addiction-treatment', label: 'Addiction Treatment' },
   { slug: 'hospice', label: 'Hospice' },
   { slug: 'idd', label: 'IDD Services' },
+  { slug: 'adult-day-programs', label: 'Adult Day Programs' },
 ];
 
 const bySize = [

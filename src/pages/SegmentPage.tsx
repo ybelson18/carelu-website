@@ -34,6 +34,7 @@ const FOOTER_HEADLINES: Record<string, string | undefined> = {
   'addiction-treatment': 'Somewhere right now, someone has decided today is the day.',
   'hospice': 'Somewhere right now, a family is trying to make someone comfortable.',
   'idd': 'Somewhere right now, a family is trying to find the right support for someone they love.',
+  'adult-day-programs': 'Somewhere right now, a caregiver is looking for a place their parent can spend the day.',
 };
 
 const CARD: React.CSSProperties = {

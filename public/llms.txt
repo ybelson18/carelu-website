@@ -16,7 +16,7 @@ Carelu is built specifically for Applied Behavior Analysis (ABA) and behavioral-
 
 - ABA therapy providers (single-site, multi-site, and enterprise)
 - Behavioral-health and autism-services organizations
-- Home care, mental health, addiction treatment, hospice, and IDD (intellectual and developmental disability) services intake teams
+- Home care, mental health, addiction treatment, hospice, IDD (intellectual and developmental disability) services, and adult day program intake teams
 
 ## The problem Carelu solves
 
@@ -31,6 +31,7 @@ ABA and behavioral-health providers lose a large share of new families to slow o
 - [For addiction treatment](https://carelu.com/for/addiction-treatment): Fast, compassionate intake for treatment centers.
 - [For hospice](https://carelu.com/for/hospice): Compassionate, rapid intake for hospice providers.
 - [For IDD services](https://carelu.com/for/idd): Intake for intellectual and developmental disability service providers — families, support coordinators, waivers, and documents.
+- [For adult day programs](https://carelu.com/for/adult-day-programs): Enrollment intake for adult day programs — caregivers, case managers, funding, tours, and paperwork.
 - [Single-site clinics](https://carelu.com/solutions/single-site): Carelu for a single location.
 - [Multi-site groups](https://carelu.com/solutions/multi-site): Carelu across multiple locations.
 - [Enterprise](https://carelu.com/solutions/enterprise): Carelu for enterprise provider networks.

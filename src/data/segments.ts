@@ -258,6 +258,44 @@ export const segments: Record<string, SegmentConfig> = {
     ctaSub: 'See how Carelu turns every IDD inquiry and referral into a person receiving services — without adding headcount.',
   },
 
+  'adult-day-programs': {
+    slug: 'adult-day-programs',
+    label: 'Adult Day Programs',
+    pill: 'Adult Day Programs',
+    headline: 'Fill every open spot with the people',
+    headlineAccent: 'who need it most.',
+    sub: 'Adult children, spouses, and case managers are looking for a day program that has room, takes their funding, and can start soon. Carelu answers every inquiry instantly, checks fit and funding, and walks each family from first call to first day. 24/7.',
+    painLabel: 'The challenge',
+    painHeadline: 'Enrollment is where day programs lose people.',
+    pains: [
+      { title: 'Funding is different for everyone', desc: 'Medicaid waivers, VA benefits, long-term care insurance, county aging programs, private pay — each family arrives with a different source and no idea whether you accept it.' },
+      { title: 'Caregivers call when they can', desc: 'The adult child of a parent with dementia calls during a lunch break or after bedtime. If nobody picks up, they call the next program on the list.' },
+      { title: 'Tours and assessments take weeks to schedule', desc: 'Every enrollment needs a visit, an assessment, a physician form, and an emergency contact sheet. Chasing them by phone stretches a two-day process into a month.' },
+      { title: 'Open spots stay open', desc: 'Attendance changes weekly, but the inquiries that could fill a seat sit in voicemail and a shared inbox. Capacity goes unused while families wait.' },
+    ],
+    solutionLabel: 'How Carelu helps',
+    solutionHeadline: 'From first inquiry to first day, without the phone tag.',
+    solutions: [
+      { title: 'Answers every caregiver instantly', desc: 'Carelu responds by chat, phone, or text the moment a family or case manager reaches out — gathering the participant\'s needs, schedule, transportation, and the caregiver\'s situation.' },
+      { title: 'Fit and funding confirmed up front', desc: 'Waiver enrollment, insurance, and program eligibility checked during the conversation, so your team only spends time on families who can start.' },
+      { title: 'Tours booked, paperwork collected', desc: 'Tour and assessment scheduling, physician forms, emergency contacts, and consents handled conversationally by text and email. Families arrive on day one with a complete file.' },
+    ],
+    stats: [
+      { value: '< 3 sec', label: 'Inquiry response time' },
+      { value: '24/7', label: 'Caregiver and case manager support' },
+      { value: '2×', label: 'Faster inquiry-to-enrollment' },
+    ],
+    testimonial: {
+      quote: 'Families used to wait days for a callback about a tour. Now they get an answer in seconds and show up with their paperwork done.',
+      name: 'Karen M.',
+      role: 'Program Director',
+      company: 'Riverside Adult Day Center',
+      initials: 'KM',
+    },
+    ctaHeadline: 'A caregiver is looking for a program right now.',
+    ctaSub: 'See how Carelu turns every inquiry into an enrolled participant — without adding front-desk headcount.',
+  },
+
   'single-site': {
     slug: 'single-site',
     label: 'Single-Site Providers',
