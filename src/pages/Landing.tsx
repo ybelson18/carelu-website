@@ -3269,7 +3269,7 @@ function Faq() {
               Let&apos;s clear things up.
             </h2>
             <p style={{ fontSize: 15, color: 'var(--gray-500)', lineHeight: 1.6 }}>
-              Still have questions? <a href="mailto:hello@carelu.ai" style={{ color: 'var(--green-900)', fontWeight: 500, textDecoration: 'underline', textUnderlineOffset: 3 }}>We&apos;re real humans — just ask.</a>
+              Still have questions? <a href="mailto:hello@carelu.com" style={{ color: 'var(--green-900)', fontWeight: 500, textDecoration: 'underline', textUnderlineOffset: 3 }}>We&apos;re real humans — just ask.</a>
             </p>
 
             {/* Hand-drawn doodle: new eye illustration */}
