@@ -5,7 +5,7 @@ import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
 import { Nav } from './Landing';
 import { resources } from '../data/resources';
-import type { ResourceConfig } from '../data/resources';
+import type { ResourceConfig, ResourceRule, ResourceTable } from '../data/resources';
 import SiteFooter from '../components/SiteFooter';
 
 /* ================================================================
@@ -53,6 +53,111 @@ function useArticleJsonLd(config: ResourceConfig) {
     document.head.appendChild(script);
     return () => { document.getElementById('resource-jsonld')?.remove(); };
   }, [config]);
+}
+
+/* Status pills used in data tables — an intensity ladder, not a
+   good/bad scale: hard requirement → sometimes → conditional → rarely. */
+const CHIP: Record<string, React.CSSProperties> = {
+  Always: { background: 'rgba(26,26,26,0.88)', color: '#FAF8F3' },
+  Required: { background: 'rgba(26,26,26,0.88)', color: '#FAF8F3' },
+  Usually: { background: 'rgba(63,122,52,0.13)', color: '#2e5a26' },
+  Conditional: { background: 'rgba(168,120,24,0.14)', color: '#7d5c11' },
+  Varies: { background: 'rgba(168,120,24,0.14)', color: '#7d5c11' },
+};
+const CHIP_DEFAULT: React.CSSProperties = { background: 'rgba(43,42,38,0.06)', color: 'rgba(43,42,38,0.55)' };
+
+function Chip({ label }: { label: string }) {
+  return (
+    <span style={{
+      display: 'inline-block', whiteSpace: 'nowrap',
+      fontSize: 11, fontWeight: 700, letterSpacing: '0.03em',
+      padding: '5px 10px', borderRadius: 100,
+      ...(CHIP[label] || CHIP_DEFAULT),
+    }}>{label}</span>
+  );
+}
+
+function DataTable({ table }: { table: ResourceTable }) {
+  return (
+    <>
+      <div className="rv" style={{
+        background: '#fff', borderRadius: 18,
+        boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)',
+        overflow: 'hidden',
+      }}>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: table.minWidth ?? 720 }}>
+            <thead>
+              <tr style={{ borderBottom: `1px solid ${HAIR}` }}>
+                {table.cols.map((c) => (
+                  <th key={c} style={{
+                    textAlign: 'left', padding: '15px 20px', fontSize: 11.5, fontWeight: 700,
+                    letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(43,42,38,0.5)',
+                    whiteSpace: 'nowrap',
+                  }}>{c}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {table.rows.map((row, ri) => (
+                <tr key={row.cells[0]} style={{ borderBottom: ri < table.rows.length - 1 ? `1px solid ${HAIR}` : 'none' }}>
+                  {row.cells.map((cell, ci) => (
+                    <td key={ci} style={{
+                      padding: '14px 20px', verticalAlign: 'top', lineHeight: 1.5,
+                      fontSize: ci === 0 ? 14 : 13.5,
+                      fontWeight: ci === 0 ? 600 : 400,
+                      color: ci === 0 ? INK : 'rgba(43,42,38,0.66)',
+                    }}>
+                      {ci === table.chipCol
+                        ? <Chip label={cell} />
+                        : ci === 0 && row.href
+                          ? <a href={row.href} style={{ color: INK, textDecoration: 'none', borderBottom: `1px solid rgba(63,122,52,0.4)` }}>{cell}</a>
+                          : cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {table.note && (
+        <p className="rv" style={{ fontSize: 13, color: 'rgba(43,42,38,0.5)', lineHeight: 1.6, margin: '12px 0 0' }}>{table.note}</p>
+      )}
+    </>
+  );
+}
+
+function RuleList({ rules }: { rules: ResourceRule[] }) {
+  return (
+    <div className="rv" style={{
+      background: '#fff', borderRadius: 18, overflow: 'hidden',
+      boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)',
+    }}>
+      {rules.map((r, i) => (
+        <div key={r.when} style={{
+          padding: 'clamp(16px, 2.2vw, 20px) clamp(18px, 2.4vw, 24px)',
+          borderTop: i > 0 ? `1px solid ${HAIR}` : 'none',
+          borderLeft: `3px solid rgba(63,122,52,0.35)`,
+        }}>
+          <div style={{ display: 'flex', gap: 12, marginBottom: 7 }}>
+            <span style={{
+              flexShrink: 0, width: 40, fontSize: 10, fontWeight: 700, letterSpacing: '0.1em',
+              color: 'rgba(43,42,38,0.4)', paddingTop: 3,
+            }}>WHEN</span>
+            <span style={{ fontSize: 14.5, fontWeight: 600, color: INK, lineHeight: 1.55 }}>{r.when}</span>
+          </div>
+          <div style={{ display: 'flex', gap: 12 }}>
+            <span style={{
+              flexShrink: 0, width: 40, fontSize: 10, fontWeight: 700, letterSpacing: '0.1em',
+              color: GREEN, opacity: 0.7, paddingTop: 3,
+            }}>THEN</span>
+            <span style={{ fontSize: 14.5, color: 'rgba(43,42,38,0.68)', lineHeight: 1.6 }}>{r.then}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function ResourceArticle({ config }: { config: ResourceConfig }) {
@@ -118,6 +223,7 @@ function ResourceArticle({ config }: { config: ResourceConfig }) {
                 fontSize: 16, color: 'rgba(43,42,38,0.72)', lineHeight: 1.75, margin: '0 0 16px',
               }}>{p}</p>
             ))}
+            {s.rules && <RuleList rules={s.rules} />}
             {s.list && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 6 }}>
                 {s.list.map((item) => (
@@ -136,6 +242,11 @@ function ResourceArticle({ config }: { config: ResourceConfig }) {
               </div>
             )}
           </div>
+          {s.table && (
+            <div style={{ ...W, marginTop: 10 }}>
+              <DataTable table={s.table} />
+            </div>
+          )}
         </section>
       ))}
 
