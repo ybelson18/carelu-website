@@ -5,7 +5,7 @@ import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
 import { Nav } from './Landing';
 import { resources } from '../data/resources';
-import type { ResourceConfig, ResourceRule, ResourceTable } from '../data/resources';
+import type { ResourceConfig, ResourceDownload, ResourceRule, ResourceTable } from '../data/resources';
 import SiteFooter from '../components/SiteFooter';
 
 /* ================================================================
@@ -74,6 +74,42 @@ function Chip({ label }: { label: string }) {
       padding: '5px 10px', borderRadius: 100,
       ...(CHIP[label] || CHIP_DEFAULT),
     }}>{label}</span>
+  );
+}
+
+/* Compact template-pack card, rendered under a section's table. The
+   page-level `download` keeps its larger card near the end. */
+function DownloadRow({ items }: { items: ResourceDownload[] }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
+      {items.map((d) => (
+        <a key={d.file} href={d.file} download className="rv" style={{
+          display: 'flex', alignItems: 'flex-start', gap: 14, textDecoration: 'none',
+          background: '#fff', borderRadius: 16,
+          border: '1px solid rgba(63,122,52,0.20)',
+          padding: 'clamp(16px, 2.2vw, 20px)',
+          boxShadow: '0 4px 18px rgba(46,90,38,0.06)',
+          transition: 'transform 0.2s, box-shadow 0.2s',
+        }}
+          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(46,90,38,0.10)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 18px rgba(46,90,38,0.06)'; }}
+        >
+          <span aria-hidden style={{
+            flexShrink: 0, width: 34, height: 34, borderRadius: 10,
+            background: 'rgba(63,122,52,0.10)',
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="M7 10l5 5 5-5" /><path d="M12 15V3" />
+            </svg>
+          </span>
+          <span style={{ flex: 1 }}>
+            <span style={{ display: 'block', fontSize: 14.5, fontWeight: 700, color: INK, marginBottom: 4 }}>{d.label}</span>
+            <span style={{ display: 'block', fontSize: 13.5, color: 'rgba(43,42,38,0.62)', lineHeight: 1.6 }}>{d.blurb}</span>
+          </span>
+        </a>
+      ))}
+    </div>
   );
 }
 
@@ -245,6 +281,11 @@ function ResourceArticle({ config }: { config: ResourceConfig }) {
           {s.table && (
             <div style={{ ...W, marginTop: 10 }}>
               <DataTable table={s.table} />
+            </div>
+          )}
+          {s.downloads && (
+            <div style={MEASURE}>
+              <DownloadRow items={s.downloads} />
             </div>
           )}
         </section>

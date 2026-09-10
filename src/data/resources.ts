@@ -13,8 +13,12 @@ export interface ResourceSection {
   list?: ResourceListItem[]; // optional card list under the paragraphs
   table?: ResourceTable;    // optional wide data table under the paragraphs
   rules?: ResourceRule[];   // optional when/then rule list
+  downloads?: ResourceDownload[]; // optional template packs for this section
 }
 export interface ResourceFaq { q: string; a: string }
+/* A downloadable file: the page-level `download` card, or per-section
+   template packs rendered under that section's table. */
+export interface ResourceDownload { label: string; file: string; blurb: string }
 /* Generic data table for a section. `chipCol` renders that column as a
    status pill (Always / Usually / Conditional / Rare, Required / Not
    required / Varies); a row's `href` links its first cell. */
@@ -37,7 +41,7 @@ export interface ResourceConfig {
   metaDescription: string;
   intro: string[];
   sections: ResourceSection[];
-  download?: { label: string; file: string; blurb: string };
+  download?: ResourceDownload;
   faq: ResourceFaq[];
   // Optional "manual benchmark vs Carelu" comparison, rendered near the end.
   compareTitle?: string;
@@ -190,6 +194,13 @@ export const resources: Record<string, ResourceConfig> = {
             { cells: ['Photo ID of the responsible party', 'Confirms who is signing and who the plan lists as the subscriber.', 'Conditional', 'When the subscriber is not the child’s parent, or the names on the card and the intake do not match.'] },
           ],
         },
+        downloads: [
+          {
+            label: 'Consent & authorization templates (PDF)',
+            file: '/downloads/aba-consent-packet-templates.pdf',
+            blurb: 'Five one-page templates: consent to treat and service agreement, privacy acknowledgement, communication consent for email and text, financial responsibility, and a release of information. Bracketed placeholders throughout — swap in your practice and use them.',
+          },
+        ],
       },
       {
         h2: 'Clinical documents',
@@ -212,6 +223,13 @@ export const resources: Record<string, ResourceConfig> = {
             { cells: ['Prior ABA records: discharge summary, last treatment plan, prior authorization', 'Shows hours already used against annual or lifetime caps and can save a duplicate assessment.', 'Conditional', 'When the family says the child has had ABA before, including a program they left.'] },
           ],
         },
+        downloads: [
+          {
+            label: 'Records request templates (PDF)',
+            file: '/downloads/aba-records-request-templates.pdf',
+            blurb: 'Four templates for the documents you do not have yet: a records request to the diagnosing clinician, a fax cover sheet, a referral and order request for the physician to sign and return, and a short diagnosis confirmation form.',
+          },
+        ],
       },
       {
         h2: 'Coverage documents',
@@ -249,6 +267,13 @@ export const resources: Record<string, ResourceConfig> = {
             { cells: ['Power of attorney or authorized representative form', 'Lets someone other than a parent sign paperwork and speak to the plan.', 'Rare', 'When the person completing intake is neither parent nor guardian.'] },
           ],
         },
+        downloads: [
+          {
+            label: 'Consent authority templates (PDF)',
+            file: '/downloads/aba-consent-authority-templates.pdf',
+            blurb: 'Three templates for the households where the person calling may not be the person who can sign: a consent authority attestation, an authorized representative designation, and a foster care and agency consent record.',
+          },
+        ],
       },
       {
         h2: 'Setting documents: home, center, school, telehealth',
@@ -270,6 +295,13 @@ export const resources: Record<string, ResourceConfig> = {
             { cells: ['Transportation or community outing permission', 'Consent for community-based programming away from the home or center.', 'Rare', 'Community settings only.'] },
           ],
         },
+        downloads: [
+          {
+            label: 'Setting consent templates (PDF)',
+            file: '/downloads/aba-setting-consent-templates.pdf',
+            blurb: 'Four templates that should only ever reach some families: telehealth consent, photo and recording release with separate opt-ins per use, an in-home safety and access agreement, and community outing permission.',
+          },
+        ],
       },
       {
         h2: 'Templated conditions: when to show a document, and when to hide it',
@@ -385,6 +417,13 @@ export const resources: Record<string, ResourceConfig> = {
           { title: 'Give every gate a fallback', desc: 'For each required document, offer the "I do not have it" path that collects what your team needs to go get it: the clinician, the practice, the phone, the fax.' },
           { title: 'Accept documents from any channel', desc: 'Families send the card by text, the evaluation by email, and the referral by whatever their doctor’s office uses. File by what the document is, and stop asking once it arrives.' },
           { title: 'Let families continue without it', desc: 'Keep the requirement visible, keep chasing it after the fact, but never let a missing PDF end the intake. The family who abandons the form at the document page does not come back.' },
+        ],
+        downloads: [
+          {
+            label: 'Document requirements worksheet (PDF)',
+            file: '/downloads/aba-document-requirements-worksheet.pdf',
+            blurb: 'Two working pages: one to record what a state and payer actually require, and one to turn that into the when/then rules your intake form runs on.',
+          },
         ],
       },
     ],
