@@ -89,9 +89,11 @@ export default function LeadTrapPrivacy() {
           content of your conversation &mdash; on behalf of that Partner and process it under their instructions.</P>
         <P><B>Email data (with your permission).</B> If a Partner connects a Google or Microsoft email account to the
           Services, we access mailbox data through Google and Microsoft APIs solely as described in Section 3.</P>
-        <P><B>Advertising data (with your permission).</B> If a Partner connects an advertising account to the
-          Services &mdash; Meta (Facebook) or Google Ads &mdash; we access that account&rsquo;s advertising data through
-          the platform&rsquo;s official APIs solely as described in Section 4 (Meta) and Section 5 (Google Ads).</P>
+        <P><B>Advertising and lead ads data (with your permission).</B> If a Partner connects an advertising account to
+          the Services &mdash; Meta (Facebook) or Google Ads &mdash; we access that account&rsquo;s advertising data
+          through the platform&rsquo;s official APIs solely as described in Section 4 (Meta) and Section 5 (Google Ads).
+          If a Partner connects a Facebook Page, we also receive the responses people submit to that Partner&rsquo;s own
+          Meta lead forms, as described in Section 4.</P>
         <P><B>Automatic information.</B> Log data, device and browser information, approximate location derived from IP
           address, and usage analytics.</P>
 
@@ -132,7 +134,7 @@ export default function LeadTrapPrivacy() {
           disconnect a mailbox at any time from their LeadTrap settings, which revokes our access; previously synced data
           can be deleted on request.</P>
 
-        <H2>4. Meta (Facebook and Instagram) Advertising Data</H2>
+        <H2>4. Meta (Facebook and Instagram) Advertising and Lead Data</H2>
         <P>Partners may connect a Meta (Facebook) account to the Services &mdash; through our Meta app,{' '}
           <B>Carelu Connector</B> &mdash; so they can see how their Facebook and Instagram advertising performs alongside
           the leads and intakes those ads generate. Access is granted by the Partner through Facebook Login and
@@ -143,9 +145,24 @@ export default function LeadTrapPrivacy() {
           chooses to share; and advertising data from those assets &mdash; such as campaign, ad set, and ad names and
           settings, and aggregate performance metrics (for example spend, impressions, reach, clicks, and conversion
           counts).</P>
+        <P><B>Lead ads.</B> A Partner may also connect a Facebook Page so that people who complete one of that
+          Partner&rsquo;s Meta lead forms (&ldquo;Instant Forms&rdquo;) on Facebook or Instagram reach the Partner in
+          LeadTrap. Where a Partner has connected a Page and granted us leads access to it, we receive the responses
+          people submit to that Partner&rsquo;s own lead forms: the contact details the form requests &mdash; typically
+          name, email address, and phone number &mdash; any additional questions the Partner added to their form (for
+          example a state of residence, a child&rsquo;s age, or an insurance provider), and the responses given to any
+          consent disclaimers shown on the form. We receive these only for Pages the Partner has explicitly connected
+          and granted leads access to, and only for that Partner&rsquo;s own forms.</P>
+        <P>We use lead ads data for one purpose: delivering that inquiry to the Partner whose advertising produced it,
+          so that they can respond to it. It is stored in the United States, encrypted in transit and at rest, and is
+          visible only to authorized users of that Partner&rsquo;s own LeadTrap account and to LeadTrap personnel who
+          require access to operate the Services. We do not aggregate lead ads data across Partners, and we do not use
+          it for advertising. Where a person has given consent on the form to be contacted by text message, we record
+          that consent and honor it; where they have not, we do not send text messages.</P>
         <P><B>How we use it.</B> We use Meta data only to provide the features the Partner has enabled: displaying
           advertising performance in that Partner&rsquo;s LeadTrap dashboard, attributing leads and intakes to the
-          campaigns that generated them, and reporting on the results. Specifically:</P>
+          campaigns that generated them, delivering lead ads submissions to the Partner, and reporting on the results.
+          Specifically:</P>
         <ul style={{ margin: '0 0 14px', paddingLeft: 22 }}>
           <LI>We do <B>not</B> sell Meta data or use it for our own advertising or marketing.</LI>
           <LI>We do <B>not</B> share Meta data with third parties, except with service providers who host and operate the
