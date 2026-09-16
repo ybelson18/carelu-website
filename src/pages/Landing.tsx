@@ -793,7 +793,6 @@ function DemoVideo() {
 // through the greyscale filter. Originals stay for the full-color testimonial nav.
 const allLogos = [
   { src: '/logos/dark/strive-aba.png', alt: 'Strive ABA', color: '/logos/strive-aba.png' },
-  { src: '/logos/treetop.png', alt: 'The Treetop', h: 44 },
   { src: '/logos/dark/golden-care-full.png', alt: 'Golden Care', color: '/logos/golden-care-full.png' },
   { src: '/logos/dark/grateful-care.png', alt: 'Grateful Care', color: '/logos/grateful-care.avif' },
   { src: '/logos/advanceable-aba.svg', alt: 'Advanceable ABA', smaller: true },
