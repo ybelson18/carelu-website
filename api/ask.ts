@@ -32,9 +32,11 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
       title: 'At a glance',
       text:
         p.atGlance.map((f) => `${f.label}: ${f.value}`).join('. ') +
-        (p.assessmentPA ? ` Assessment prior auth: ${p.assessmentPA}.` : '') +
-        (p.treatmentPA ? ` Treatment prior auth: ${p.treatmentPA}.` : '') +
-        (p.dxRequired ? ` Autism diagnosis required: ${p.dxRequired}.` : ''),
+        // Carry the status through: the assistant must not state an unverified
+        // field as settled fact. `fact()` appends the caveat the data records.
+        (p.assessmentPA ? ` Assessment prior auth: ${fact(p.assessmentPA)}.` : '') +
+        (p.treatmentPA ? ` Treatment prior auth: ${fact(p.treatmentPA)}.` : '') +
+        (p.dxRequired ? ` Autism diagnosis required: ${fact(p.dxRequired)}.` : ''),
       sources: guideSources.slice(0, 2),
     },
     ...p.sections.map((s) => ({
@@ -174,3 +176,12 @@ export async function POST(request: Request): Promise<Response> {
     },
   });
 }
+/** Render a PayerRuleFact for the retrieval context, preserving its status so the
+ *  assistant never presents an unverified field as a settled answer. */
+function fact(f?: { value: string; status: string; verifyVia?: string }): string {
+  if (!f) return '';
+  if (f.status === 'verified') return f.value;
+  const tag = f.status === 'plan-dependent' ? 'PLAN-DEPENDENT' : 'UNVERIFIED';
+  return `${f.value} [${tag}${f.verifyVia ? ` — confirm via: ${f.verifyVia}` : ''}]`;
+}
+

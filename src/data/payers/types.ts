@@ -32,6 +32,22 @@ export interface PayerRuleFact {
   status: RuleStatus;
   cites?: PayerSource[];      // primary sources for THIS rule
   verifyVia?: string;         // where to confirm when status isn't 'verified'
+  /* Why this isn't verified — the two cases are genuinely different work:
+     'document'  the answer IS written down, we just could not open the file
+                 (portal-gated, bot-walled, 403). Closeable: a human fetches it
+                 via carelu.com/sources and the next refresh reads it. This is
+                 real debt and the queue should shrink.
+     'per-case'  no document states it, because it varies by plan, contract or
+                 member. "Ask the plan" is the FINISHED answer, not a placeholder
+                 — the field's job is to be the script for that call. Never closes,
+                 and should not be counted as debt.
+     'licensed'  the answer sits in proprietary licensed criteria (MCG, InterQual,
+                 a payer's internal UM guideline) that we can neither fetch nor
+                 lawfully republish. Also never closes — but for a different reason
+                 than 'per-case', and it is worth saying so plainly on the page
+                 rather than implying the payer is being evasive. Do NOT file these
+                 as document requests; no human retrieval will ever satisfy them. */
+  blocker?: 'document' | 'per-case' | 'licensed';
 }
 export interface PayerDeliveryRules {
   supervision?: PayerRuleFact;       // supervision ratios/floors the payer imposes on techs
@@ -79,10 +95,15 @@ export interface PayerConfig {
   parent?: string;         // for MCOs: the state Medicaid program they administer
   family?: string;         // carrier family ('aetna', 'anthem', 'unitedhealthcare', …) to cross-link commercial ↔ Medicaid plans
   cardDesc?: string;       // one-line description for directory cards
-  // Funnel-critical facts surfaced prominently (assessment PA is asked constantly).
-  assessmentPA?: string;   // does the ASSESSMENT (not just treatment) need prior auth?
-  treatmentPA?: string;    // does treatment need prior auth?
-  dxRequired?: string;     // is an autism diagnosis required (and how strict)?
+  /* Funnel-critical facts surfaced prominently (assessment PA is asked constantly).
+     These were bare strings until 2026-09-17, which is exactly how a wrong claim
+     survived on six Virginia guides for two months: there was no slot to record
+     what a value was sourced from, so "source-verified" lived in a commit message
+     instead of in the data, and nobody could audit it afterwards. They are
+     PayerRuleFact now — a value cannot exist without a status. */
+  assessmentPA?: PayerRuleFact;   // does the ASSESSMENT (not just treatment) need prior auth?
+  treatmentPA?: PayerRuleFact;    // does treatment need prior auth?
+  dxRequired?: PayerRuleFact;     // is an autism diagnosis required (and how strict)?
   // Operational layer: how the service must be staffed, documented and billed.
   deliveryRules?: PayerDeliveryRules;
   // Front-door layer: what decides whether a family can start, and what they must bring.

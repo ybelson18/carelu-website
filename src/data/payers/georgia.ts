@@ -4,9 +4,21 @@ export const georgiaPayers: Record<string, PayerConfig> = {
   'georgia-medicaid': {
     slug: 'georgia-medicaid',
     cardDesc: 'EPSDT under 21, Katie Beckett path, CMO landscape, PA packages.',
-    assessmentPA: 'Required — a separate prior authorization for the behavioral assessment',
-    treatmentPA: 'Required — separate PA, issued in 6-month increments',
-    dxRequired: 'Yes \u2014 documented DSM-5 ASD diagnosis (EPSDT ABS benefit)',
+    assessmentPA: {
+      value: 'Required — a separate prior authorization for the behavioral assessment',
+      status: 'verified',
+      cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+    },
+    treatmentPA: {
+      value: 'Required — separate PA, issued in 6-month increments',
+      status: 'verified',
+      cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 documented DSM-5 ASD diagnosis (EPSDT ABS benefit)',
+      status: 'verified',
+      cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+    },
     payer: 'Georgia Medicaid',
     state: 'GA', kind: 'state-medicaid',
     intakeGates: {
@@ -64,6 +76,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not answered by the publicly posted manual. The January 2018 Part II ASD manual on medicaid.georgia.gov predates the Category I adaptive-behavior code set \u2014 its Appendix A still prices 0359T\u20130374T \u2014 and it contains no concurrent-services or same-clock-time provision for 97153 with 97155. Current quarterly manuals and the live fee schedule sit inside GAMMIS, which blocks automated retrieval.',
         status: 'unverified',
+        blocker: 'document',
         verifyVia:
           'GAMMIS (mmis.georgia.gov) provider manual + fee schedule for the current ASD policy, or the member\u2019s CMO policy \u2014 CareSource MCD-MM-0212 and Peach State GA.CP.BH.504 are the ones published openly.',
       },
@@ -71,6 +84,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'No per-day unit ceiling is published in the posted manual. DCH sets utilization by prior approval and the Chapter 903 service limitations rather than a per-code MUE table, and the manual\u2019s only quantitative guidance is that therapy \u201ccan range from 10-30 hours per week, or more if medically necessary.\u201d Whether Georgia applies the Medicaid NCCI MUE table, the Practitioner MUE table, or its own fee-schedule limits is not stated in the posted document.',
         status: 'unverified',
+        blocker: 'document',
         cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
         verifyVia:
           'GAMMIS fee schedule and current ASD manual; for a managed-care member, the CMO\u2019s claim-edit policy (Peach State publishes 6 hrs/day \u00b7 30 hrs/week; Amerigroup publishes weekly ceilings).',
@@ -198,9 +212,27 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     slug: 'anthem-bcbs-georgia',
     cardDesc: 'CG-BEH-02 criteria + Ava\u2019s Law mandate; caps, parity, billing rules.',
     family: 'anthem',
-    assessmentPA: 'Required; initial behavior-identification assessment capped at 20 combined hours',
-    treatmentPA: 'Required — updated plan every 6 months',
-    dxRequired: 'Yes \u2014 ASD diagnosis from a licensed, qualified professional (CG-BEH-02)',
+    assessmentPA: {
+      value: 'Required; initial behavior-identification assessment capped at 20 combined hours',
+      status: 'unverified',
+      verifyVia:
+        'Anthem clinical guideline CG-BEH-02 \u2014 or its successor, since Anthem moved commercial ABA reviews to MCG B-806-T for dates of service on or after 6/1/2024 \u2014 in the Anthem provider portal. The cited ABA Provider Resource Guide was downloaded and read in full and contains no occurrence of \u201cprior authorization\u201d or \u201cprecertification,\u201d and no 20-combined-hour assessment cap.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — updated plan every 6 months',
+      status: 'unverified',
+      verifyVia:
+        'Anthem clinical guideline CG-BEH-02, or its successor MCG B-806-T, in the Anthem provider portal. The cited ABA Provider Resource Guide carries only the plan-review clock \u2014 \u201cdocumentation must show that the treatment plan was reviewed and/or updated at a minimum of every six months\u201d \u2014 and states no prior-authorization requirement.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD diagnosis from a licensed, qualified professional (CG-BEH-02)',
+      status: 'unverified',
+      verifyVia:
+        'Anthem clinical guideline CG-BEH-02, or its successor MCG B-806-T, in the Anthem provider portal. The cited ABA Provider Resource Guide states no ASD-diagnosis medical-necessity criterion; its only diagnosis reference is the record-documentation line \u201cworking diagnoses consistent with findings and test results.\u201d',
+      blocker: 'document',
+    },
     payer: 'Anthem BCBS Georgia',
     state: 'GA', kind: 'commercial',
     intakeGates: {
@@ -208,6 +240,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Anthem’s commercial ABA provider resource guide publishes no age criterion — it covers credentialing, coding, place of service, documentation and telehealth, not eligibility age. The age term that bites in Georgia comes from Ava’s Law, which requires state-regulated individual and group plans to cover ASD treatment for individuals 20 years of age or under. Two carve-outs and one federal override matter: employers with 10 or fewer employees are exempt, self-funded ERISA plans are preempted, and federal mental-health parity generally makes the mandate’s age and dollar caps hard to enforce against covered large-group plans — so an age-based decline on a large-group member is an escalation, not an answer.',
         status: 'plan-dependent',
+        blocker: 'per-case',
         cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }, { title: 'Ava\'s Law \u2014 O.C.G.A. \u00a7 33-24-59.10', url: 'https://law.justia.com/codes/georgia/title-33/chapter-24/article-1/section-33-24-59-10/' }],
         verifyVia:
           'Plan funding type and employer size first, then a live benefits verification; clinical guideline CG-BEH-02 in the Anthem provider portal for any age criterion the guideline itself carries.',
@@ -216,6 +249,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Anthem’s ABA provider resource guide sets a treatment-plan clock rather than a diagnosis clock: “documentation must show that the treatment plan was reviewed and/or updated at a minimum of every six months. Providers should review their guidelines if treatment plans are required more frequently.” It publishes no recency window on the ASD diagnostic evaluation itself, and no re-diagnosis interval.',
         status: 'unverified',
+        blocker: 'document',
         cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
         verifyVia:
           'Anthem clinical guideline CG-BEH-02 in the Anthem provider portal, and Anthem provider services — the public resource guide does not carry the medical-necessity criteria text.',
@@ -224,6 +258,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'The ABA provider resource guide lists who may RENDER ABA, not who may diagnose: “approved service providers include psychiatrists (MDs), psychologists (PhDs), licensed clinical social workers (LPCs), licensed marriage and family therapists (LMFTs) with special training and/or experience in applied behavior analysis, Board Certified Behavior Analysts (BCBA/BCBA-D), providers practicing under the direction and supervision of the BCBA, and other mental health service providers licensed or authorized by the state in which they practice and recognized by the Anthem affiliated health plan to be eligible for reimbursement.” The diagnosing-provider requirement lives in clinical guideline CG-BEH-02 rather than in this document. Georgia adds a licensure layer either way: HB 412 (2022) created O.C.G.A. Title 43, Chapter 7A, so the supervising analyst must hold a Georgia Behavior Analyst Licensing Board licence.',
         status: 'unverified',
+        blocker: 'document',
         cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
         verifyVia:
           'Anthem clinical guideline CG-BEH-02 in the Anthem provider portal for the credentials Anthem requires of the diagnosing professional.',
@@ -232,6 +267,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Anthem names no required instrument. Its resource guide defines applied behavior analysis as including “a detailed behavioral history, patient observation, administration of standardized and nonstandardized tests and structured guardian/caregiver interview to identify and describe deficient adaptive or maladaptive behaviors,” and behavioral follow-up assessments as using “structured observation and/or standardized and nonstandardized tests to determine levels of adaptive behavior” across cooperation, motivation, visual understanding, receptive and expressive language, imitation, requests, labeling, play and leisure, and social interactions. Which instruments satisfy that is not published.',
         status: 'unverified',
+        blocker: 'document',
         cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
         verifyVia:
           'Anthem clinical guideline CG-BEH-02 for any required or preferred instrument list, and Anthem provider services.',
@@ -240,6 +276,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'No referral precondition is published for ABA. The resource guide treats “physician orders” and “referrals” as elements that must be present in the medical record when they exist, not as an entry gate, and Anthem gates ABA through prior authorization instead — assessment and treatment reviewed against CG-BEH-02, with the initial behavior-identification assessment capped at 20 combined hours. Whether the member’s specific plan requires a PCP referral is a benefit-design question.',
         status: 'plan-dependent',
+        blocker: 'per-case',
         cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }, { title: 'Ava\'s Law \u2014 O.C.G.A. \u00a7 33-24-59.10', url: 'https://law.justia.com/codes/georgia/title-33/chapter-24/article-1/section-33-24-59-10/' }],
         verifyVia:
           'The member’s benefit document and Anthem provider services — ask whether a PCP referral is required in addition to the prior authorization.',
@@ -248,6 +285,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Anthem publishes the place-of-service half outright but makes the code list plan- and state-specific. Telehealth POS codes for ABA are “10 = Telehealth (member located in home while receiving services)” and “02 = Telehealth (member located outside of home while receiving services),” all “subject to member’s coverage and reviews by the plan.” For which codes actually pay, the guide redirects: “please visit our Virtual Visits reimbursement policy that outlines our standard rules. Allowed codes may vary. Refer to the Allowed virtual services in addition to CPT Appendix P to obtain codes that are eligible for reimbursement in your state.” So the POS mechanics are settled and the payable code set is not.',
         status: 'plan-dependent',
+        blocker: 'document',
         cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
         verifyVia:
           'Anthem’s Virtual Visits reimbursement policy and the Georgia “Allowed virtual services” list, plus the member’s benefit document, before scheduling remote ABA.',
@@ -367,9 +405,21 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     slug: 'caresource-georgia',
     cardDesc: 'MCD-MM-0212 aligned to the DCH manual; in-house PA; 2026 rate change.',
     family: 'caresource',
-    assessmentPA: 'Required — in-house PA/medical review, aligned to the DCH ASD manual',
-    treatmentPA: 'Required — signed treatment documentation before claims',
-    dxRequired: 'Yes \u2014 DSM-5 ASD per the DCH ASD manual',
+    assessmentPA: {
+      value: 'Required — in-house PA/medical review, aligned to the DCH ASD manual',
+      status: 'verified',
+      cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }],
+    },
+    treatmentPA: {
+      value: 'Required — signed treatment documentation before claims',
+      status: 'verified',
+      cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5 ASD per the DCH ASD manual',
+      status: 'verified',
+      cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+    },
     payer: 'CareSource (Georgia Medicaid CMO)',
     pill: 'Payer Guide · CareSource Georgia',
     h1: 'CareSource Georgia ABA coverage (GA Medicaid CMO).',
@@ -436,6 +486,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'No per-day unit ceiling is published. MM-0212 leaves intensity to medical necessity, noting only that \u201cmedical[ly] necessary will determine approved hours per week (eg, typically 10-30 hours)\u201d commensurate with the deficits identified in the behavior assessment.',
         status: 'unverified',
+        blocker: 'document',
         cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }],
         verifyVia:
           'CareSource GA provider services / the Georgia fee schedule inside GAMMIS.',
@@ -515,9 +566,21 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     slug: 'peach-state-georgia',
     cardDesc: 'GA.CP.BH.504; hour parameters + 80%-attendance rule; 0373T rules.',
     family: 'centene',
-    assessmentPA: 'Required — criteria based on the DCH ASD manual',
-    treatmentPA: 'Required — criteria based on the DCH ASD manual',
-    dxRequired: 'Yes \u2014 DSM-5 ASD per the DCH ASD manual',
+    assessmentPA: {
+      value: 'Required — criteria based on the DCH ASD manual',
+      status: 'verified',
+      cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — criteria based on the DCH ASD manual',
+      status: 'verified',
+      cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5 ASD per the DCH ASD manual',
+      status: 'verified',
+      cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+    },
     payer: 'Peach State Health Plan (GA Medicaid CMO)',
     pill: 'Payer Guide · Peach State (GA)',
     h1: 'Peach State Health Plan ABA coverage (GA Medicaid CMO).',
@@ -576,6 +639,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not stated. GA.CP.BH.504 reproduces the AMA descriptor for 97155 \u2014 \u201cwhich may include simultaneous direction of technician, face-to-face with one patient\u201d \u2014 but sets no same-clock-time billing rule of its own for 97153 alongside 97155.',
         status: 'unverified',
+        blocker: 'per-case',
         cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
         verifyVia:
           'Peach State / Centene provider services, and the Georgia fee schedule inside GAMMIS.',
@@ -590,6 +654,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not addressed for session notes. The policy does require the diagnostic evaluation to carry the \u201cevaluator\u2019s name, legible signature, and credentials,\u201d but says nothing about who signs each treatment session note or when.',
         status: 'unverified',
+        blocker: 'document',
         cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
         verifyVia:
           'Peach State provider manual / provider services; Georgia DCH\u2019s documentation standard (writer signs and dates, real time, no back-dating) is the applicable floor.',
@@ -655,9 +720,21 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     slug: 'amerigroup-georgia',
     cardDesc: 'CG-BEH-02 adaptive behavioral treatment; verify current version.',
     family: 'anthem',
-    assessmentPA: 'Required — CG-BEH-02 medical-necessity review',
-    treatmentPA: 'Required — CG-BEH-02 medical-necessity review',
-    dxRequired: 'Yes \u2014 DSM-5 ASD per the DCH ASD manual',
+    assessmentPA: {
+      value: 'Required — CG-BEH-02 medical-necessity review',
+      status: 'verified',
+      cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+    },
+    treatmentPA: {
+      value: 'Required — CG-BEH-02 medical-necessity review',
+      status: 'verified',
+      cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5 ASD per the DCH ASD manual',
+      status: 'verified',
+      cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+    },
     payer: 'Amerigroup (GA Medicaid CMO)',
     pill: 'Payer Guide · Amerigroup (GA)',
     h1: 'Amerigroup Georgia ABA coverage (GA Medicaid CMO).',
@@ -678,6 +755,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not published. CG-BEH-02 requires a diagnosis of ASD and measurable goals “based on standardized assessments,” with “baseline measurements, progress to date and anticipated timeline for achievement based on both the initial assessment and subsequent interim assessments over the duration of the intervention” — but it names no recency window on the diagnostic evaluation and no re-diagnosis trigger. The Georgia floor is the DCH rule that an outside assessment is accepted for a treatment PA only if “conducted/dated no more than six (6) months prior to the treatment PA request submission.”',
         status: 'unverified',
+        blocker: 'document',
         cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
         verifyVia:
           'Amerigroup/Wellpoint Georgia provider services for the current guideline; the CMOs that do publish a window (CareSource MCD-MM-0212 and Peach State GA.CP.BH.504) both use five years from the initial diagnosis as the re-evaluation trigger.',
@@ -692,6 +770,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'CG-BEH-02 names no instrument. It requires that “assessments of motor, language, social, and adaptive functions have been completed” and that treatment-plan goals be “in objective and measurable terms based on standardized assessments,” and defines assessment instruments generically as “specialized and standardized diagnostic test used to evaluate an individual’s performance.” Which instruments qualify is left open.',
         status: 'unverified',
+        blocker: 'document',
         cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
         verifyVia:
           'Amerigroup/Wellpoint Georgia provider services and the current GA DCH ASD manual inside GAMMIS; Peach State GA.CP.BH.504 publishes the operative Georgia two-tool list (one primary clinician tool plus one caregiver tool) openly.',
@@ -724,6 +803,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not addressed. CG-BEH-02 is a medical-necessity guideline, not a reimbursement policy, and contains no same-clock-time rule for 97153 with 97155.',
         status: 'unverified',
+        blocker: 'per-case',
         cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
         verifyVia:
           'Amerigroup/Wellpoint Georgia provider services, and the Georgia fee schedule inside GAMMIS.',
@@ -738,6 +818,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not addressed. The guideline sets documentation expectations for authorization (clinical summaries justifying hours per behavioral target, progress measured against baseline) but no session-note signature rule.',
         status: 'unverified',
+        blocker: 'document',
         cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
         verifyVia:
           'Amerigroup GA provider manual; Georgia DCH\u2019s standard \u2014 the writer signs and dates, real time, no back-dating \u2014 is the applicable floor.',
@@ -785,9 +866,21 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     slug: 'aetna-georgia',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the O.C.G.A. § 33-24-59.10 (Ava’s Law) mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [{ title: 'Aetna \u2014 Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [{ title: 'Aetna \u2014 Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+      status: 'verified',
+      cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+    },
     payer: 'Aetna in Georgia',
     state: 'GA', kind: 'commercial',
     intakeGates: {
@@ -795,6 +888,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Aetna publishes none. The ABA Medical Necessity Guide gives a “typical age range” of 0–7 years for comprehensive ABA and “all ages” for focused ABA — planning guidance, not a benefit boundary — and CPB 0554/0648 set no age criterion. The age term in Georgia comes from Ava’s Law, which reaches individuals 20 years of age or under on state-regulated plans, with employers of 10 or fewer employees exempt and self-funded ERISA plans preempted. Federal parity generally makes that age cap hard to enforce against covered large-group plans, so treat an age-based decline on a large-group member as an escalation rather than an answer.',
         status: 'plan-dependent',
+        blocker: 'per-case',
         cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Georgia Code \u00a7 33-24-59.10 (Ava\'s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' }],
         verifyVia:
           'Plan funding type and employer size, then a live benefits verification — the mandate, not the carrier policy, is what carries the age term.',
@@ -821,6 +915,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Aetna gates ABA with precertification rather than a referral: form GR-69017-4, via Availity or phone, for both the assessment and treatment. Neither CPB 0554, CPB 0648 nor the ABA Medical Necessity Guide publishes a referral or physician-order requirement — the Guide mentions “involvement of, or referrals to, appropriate health care, community or supplemental resources” as a quality element, not an entry condition. Whether the member’s plan requires a PCP referral is a benefit-design question.',
         status: 'plan-dependent',
+        blocker: 'per-case',
         cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
         verifyVia:
           'The member’s benefit document and Aetna precertification at the number on the ID card — ask whether a PCP referral is required in addition to precertification.',
@@ -829,6 +924,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not published. Aetna’s ABA materials — CPB 0554, CPB 0648 and the ABA Medical Necessity Guide — say nothing about telehealth delivery of ABA: no code list, no place-of-service codes, no modifiers and no limits.',
         status: 'unverified',
+        blocker: 'per-case',
         verifyVia:
           'Aetna’s telemedicine policy and provider services at the number on the member’s ID card — confirm which ABA codes pay by telehealth on that specific Georgia plan before scheduling remote sessions.',
       },
@@ -844,6 +940,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not published. Neither the ABA Medical Necessity Guide nor Aetna\u2019s clinical policy bulletin on ABA addresses whether 97153 and 97155 may be billed for the same clock time; Aetna carries the concurrency question in its claim editing rather than in a public policy.',
         status: 'unverified',
+        blocker: 'per-case',
         verifyVia:
           'Aetna precertification/provider services at the number on the member\u2019s ID card, and the plan\u2019s own reimbursement schedule \u2014 ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
       },
@@ -851,6 +948,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not published. Aetna\u2019s ABA documents set medical-necessity criteria and precertification requirements for 97151\u201397158, 0362T and 0373T, but no per-day unit ceiling and no statement of which MUE table applies.',
         status: 'unverified',
+        blocker: 'per-case',
         verifyVia:
           'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
       },
@@ -858,6 +956,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not published in Aetna\u2019s ABA materials \u2014 no rule on who signs a session note or within what window.',
         status: 'unverified',
+        blocker: 'document',
         verifyVia:
           'The Aetna provider manual and your participation agreement\u2019s documentation clause.',
       },
@@ -865,6 +964,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Aetna does not publish a POS code list for ABA. The one place-of-service boundary it does state is the schools carve-out: pursuant to applicable law Aetna \u201cis not required [to] provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act.\u201d That is a limit on paying for what the IEP owes, not a blanket ban on the school setting \u2014 and it yields to a stronger state mandate. Where ABA is payable in a school, in the community or in a group home is a benefit-document question on Aetna plans.',
         status: 'plan-dependent',
+        blocker: 'per-case',
         cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'The member\u2019s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
@@ -945,6 +1045,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — Georgia state-regulated coverage', url: 'https://www.autismspeaks.org/georgia-state-regulated-insurance-coverage' },
       { title: 'Georgia Association for Behavior Analysis — licensure (HB 412)', url: 'https://www.georgia-aba.org/licensure' },
       { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna \u2014 Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Georgia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Georgia\'s mandate (O.C.G.A. § 33-24-59.10 (Ava’s Law)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -957,9 +1058,21 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     slug: 'cigna-georgia',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the O.C.G.A. § 33-24-59.10 (Ava’s Law) mandate layer.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
     payer: 'Cigna / Evernorth in Georgia',
     state: 'GA', kind: 'commercial',
     intakeGates: {
@@ -967,6 +1080,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'EN0499 publishes no age limit — coverage turns on a confirmed DSM-5-TR ASD diagnosis and medical necessity, not on age. The age term in Georgia comes from Ava’s Law, which reaches individuals 20 years of age or under on state-regulated plans, with employers of 10 or fewer employees exempt and self-funded ERISA plans preempted; federal parity generally makes that cap hard to enforce against covered large-group plans.',
         status: 'plan-dependent',
+        blocker: 'per-case',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Georgia Code \u00a7 33-24-59.10 (Ava\'s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' }],
         verifyVia:
           'Plan funding type and employer size, then a live benefits verification — EN0499 itself will not answer an age question.',
@@ -993,6 +1107,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'No referral requirement is published, and Cigna’s front door is unusually open: assessment codes 97151, 97152 and 0362T need no prior authorization under EN0499, so the assessment can start on the diagnosis alone. The rigour arrives at the treatment step, which requires the completed assessment plus a treatment plan submitted with Cigna’s ABA prior-authorization form. Whether a specific plan layers a PCP referral on top is a benefit-design question.',
         status: 'plan-dependent',
+        blocker: 'per-case',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'A live benefits verification and Evernorth Provider Services at 800.926.2273 — confirm whether the plan requires a referral in addition to the treatment PA.',
@@ -1007,10 +1122,9 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'Not published as a ratio. The Evernorth autism resource guide governs credentialing and billing rather than supervision intensity, and Evernorth publishes no percentage floor or caseload cap for technician supervision.',
-        status: 'unverified',
-        verifyVia:
-          'Evernorth Provider Services at 800.926.2273, and the Intensive Behavioral Interventions coverage policy (EN0499).',
+          'Evernorth DOES publish a supervision standard, in EN0499 — direct case supervision (the BCBA face-to-face with the individual alongside the RBT or BCaBA) plus indirect case supervision “is consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment”, and “when direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided.” It is stated as a standard of care rather than a hard caseload cap, and supervisory services must match the CPT code descriptions.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions (Supervision / Direction of Treatment, p.5)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
       concurrentBilling: {
         value:
@@ -1022,6 +1136,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not published. The resource guide sets the code set (97151\u201397158, 0362T, 0373T only, all in 15-minute increments) but no per-day unit ceiling and no statement of which MUE table Evernorth applies.',
         status: 'unverified',
+        blocker: 'per-case',
         cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273.',
@@ -1030,6 +1145,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not published in the autism resource guide \u2014 no rule on who signs a session note or when.',
         status: 'unverified',
+        blocker: 'document',
         verifyVia:
           'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
       },
@@ -1037,6 +1153,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Only the telehealth half is published: \u201call ABA CPT codes are covered telehealth services,\u201d subject to the Intensive Behavioral Interventions coverage policy (EN0499). The guide states no school, community or group-home rule.',
         status: 'unverified',
+        blocker: 'per-case',
         cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\u2019s benefit document.',
@@ -1128,9 +1245,21 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-georgia',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the O.C.G.A. § 33-24-59.10 (Ava’s Law) mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
     payer: 'UnitedHealthcare / Optum in Georgia',
     state: 'GA', kind: 'commercial',
     intakeGates: {
@@ -1138,6 +1267,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Optum’s ABA Supplemental Clinical Criteria publish no age limit — coverage turns on a valid ASD diagnosis and medical necessity. The age term in Georgia comes from Ava’s Law (individuals 20 years of age or under on state-regulated plans, with ≤10-employee groups exempt and self-funded ERISA plans preempted), and there is no Georgia entry in Optum’s ABA State Mandates criteria to add anything on top. Federal parity generally makes the mandate’s age cap hard to enforce against covered large-group plans.',
         status: 'plan-dependent',
+        blocker: 'per-case',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum \u2014 ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Georgia Code \u00a7 33-24-59.10 (Ava\'s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' }],
         verifyVia:
           'Plan funding type and employer size, then a live benefits verification — the mandate, not the carrier criteria, is what carries the age term.',
@@ -1146,6 +1276,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not published. The Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis confirmed with at least one clinically validated tool, but set no maximum age on that diagnosis and no re-diagnosis interval. What Optum does clock is the review cycle — continued-service reviews every 4–6 months, with an operational flag when utilization falls below 80% of authorized hours — and the documentation standard that assessment instruments be norm-referenced against age-matched peers and used to “assess developmental gains as a result of interventions,” which implies current rather than historical scores without naming a window.',
         status: 'unverified',
+        blocker: 'per-case',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum Behavioral Health provider services and Provider Express — ask whether an evaluation older than a given date triggers re-evaluation before an ABA authorization.',
@@ -1166,6 +1297,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'No referral requirement is published; the gate is authorization. “Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law),” run as Optum’s two-step structure on Provider Express — assessment authorized first, then treatment — with continued-service reviews every 4–6 months. Whether a specific plan also requires a PCP referral is a benefit-design question.',
         status: 'plan-dependent',
+        blocker: 'per-case',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'A live benefits verification plus Provider Express — confirm whether the plan layers a referral requirement on top of the two-step authorization.',
@@ -1174,6 +1306,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not published as a coded benefit. The Supplemental Clinical Criteria treat telehealth as a best-practice reference rather than a rule — pointing providers to the “Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition” for “designing, implementing, and operating ABA services delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)” and noting that “the telehealth options presented are not intended to supplant in-person service; rather, they are intended to supplement the traditional in-person service delivery model.” No code list, place-of-service code or unit limit for telehealth appears in the criteria, and Optum’s commercial ABA reimbursement policy is silent on telehealth entirely. Optum publishes no Georgia entry in its ABA State Mandates document, so nothing state-specific applies on top.',
         status: 'unverified',
+        blocker: 'per-case',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum \u2014 ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Optum Behavioral Health provider services and the member’s benefit document — confirm which ABA codes pay by telehealth, and under which place-of-service code, before scheduling remote sessions.',
@@ -1202,6 +1335,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'No signature rule is published, but the documentation burden is explicit where money turns on it: services billed on the same date must be \u201cseparate, distinct, and clearly documented in the progress notes,\u201d and if documentation does not clearly separate them the claim may be denied. Who signs, and within what window, is not stated.',
         status: 'unverified',
+        blocker: 'document',
         cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
         verifyVia:
           'The UnitedHealthcare/Optum provider manual and your participation agreement\u2019s documentation clause.',
@@ -1210,6 +1344,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         value:
           'Not addressed in the commercial ABA reimbursement policy \u2014 it sets codes, modifiers, units and concurrency but no place-of-service rule.',
         status: 'unverified',
+        blocker: 'per-case',
         verifyVia:
           'UnitedHealthcare/Optum provider services and the member\u2019s benefit document; Optum\u2019s published ABA State Mandates document carries no Georgia entry, so nothing state-specific applies on top.',
       },

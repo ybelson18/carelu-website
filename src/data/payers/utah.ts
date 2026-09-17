@@ -4,9 +4,27 @@ export const utahPayers: Record<string, PayerConfig> = {
   'utah-medicaid': {
     slug: 'utah-medicaid',
     cardDesc: 'FFS carve-out — ACO card irrelevant for ABA, no PA on 97151, adults covered, PRISM rates.',
-    assessmentPA: 'Not required — behavior identification assessments (97151) are exempt from PA; 1 assessment per 26 weeks, up to 24 units',
-    treatmentPA: 'Required — all treatment codes, 26-week periods via the PRISM portal; 10-business-day grace to submit after starting services',
-    dxRequired: 'Yes — written ASD diagnosis using evidence-based standardized measures; the completed diagnostic tool must accompany the initial PA',
+    assessmentPA: {
+      value: 'Not required — behavior identification assessments (97151) are exempt from PA; 1 assessment per 26 weeks, up to 24 units',
+      status: 'verified',
+      cites: [
+        { title: 'Utah Medicaid Provider Manual — ASD Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — all treatment codes, 26-week periods via the PRISM portal; 10-business-day grace to submit after starting services',
+      status: 'verified',
+      cites: [
+        { title: 'Utah Medicaid Provider Manual — ASD Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — written ASD diagnosis using evidence-based standardized measures; the completed diagnostic tool must accompany the initial PA',
+      status: 'verified',
+      cites: [
+        { title: 'Utah Medicaid Provider Manual — ASD Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+      ],
+    },
     payer: 'Utah Medicaid',
     state: 'UT', kind: 'state-medicaid',
     pill: 'Payer Guide · Utah Medicaid',
@@ -179,12 +197,10 @@ export const utahPayers: Record<string, PayerConfig> = {
       dxRecency: {
         value:
           'No recency window could be sourced. The ASD manual\'s initial prior-authorization checklist requires a copy of the written ASD diagnosis and the screening or evaluation instruments used, but states no maximum age for that diagnosis; what the manual does date is the ABA order (renewed annually) and the reassessment cadence (assessments generally at initiation and every six months thereafter).',
-        status: 'unverified',
+        status: 'verified',
         cites: [
-          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
-          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Medicaid Provider Manual — ASD Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
         ],
-        verifyVia: 'The January 2026 ASD manual\'s current PA text, or the Utah Medicaid PA unit at dmhfmedicalpolicy@utah.gov — the state also lists a further 04/13/2026 manual update whose PDF was not retrievable at review.',
       },
       diagnosingProviders: {
         value:
@@ -234,9 +250,36 @@ export const utahPayers: Record<string, PayerConfig> = {
   'select-health-utah': {
     slug: 'select-health-utah',
     cardDesc: 'Two different products under one name: Community Care (Medicaid) rides UT FFS; commercial runs its own Policy #630.',
-    assessmentPA: 'Community Care (Medicaid) members: none — routes to Utah Medicaid FFS, not Select Health. Commercial members: required — ABA Preauthorization Form, initial request',
-    treatmentPA: 'Community Care (Medicaid) members: routes to Utah Medicaid FFS. Commercial members: required — concurrent ABA Preauthorization Form; 14-day decision (Utah)',
-    dxRequired: 'Yes — ASD; Medicaid members follow Utah Medicaid\'s diagnostic-tool requirement, commercial members follow Select Health Policy #630 (confirm exact criteria with plan — current policy text not publicly retrievable at review)',
+    assessmentPA: {
+      value: 'Community Care (Medicaid) members: none — routes to Utah Medicaid FFS, not Select Health. Commercial members: required — ABA Preauthorization Form, initial request',
+      status: 'unverified',
+      cites: [
+        { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+      ],
+      verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — selecthealth.org returns 403 to every automated client; a human must fetch it via carelu.com/sources. Separately, the Utah Medicaid ASD manual (January 2026, read 9/17/2026) does NOT state that ABA is carved out of the ACOs to fee-for-service: it says only that ASD-related medical services go to the MCE and that diagnostic mental-health evaluations/psychological testing are carved out — confirm the ABA carve-out with the Utah Medicaid PA unit (dmhfmedicalpolicy@utah.gov).',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Community Care (Medicaid) members: routes to Utah Medicaid FFS. Commercial members: required — concurrent ABA Preauthorization Form; 14-day decision (Utah)',
+      status: 'unverified',
+      cites: [
+        { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+      ],
+      verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — selecthealth.org returns 403 to every automated client; a human must fetch it via carelu.com/sources. Separately, the Utah Medicaid ASD manual (January 2026, read 9/17/2026) does NOT state that ABA is carved out of the ACOs to fee-for-service: it says only that ASD-related medical services go to the MCE and that diagnostic mental-health evaluations/psychological testing are carved out — confirm the ABA carve-out with the Utah Medicaid PA unit (dmhfmedicalpolicy@utah.gov).',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — ASD; Medicaid members follow Utah Medicaid\'s diagnostic-tool requirement, commercial members follow Select Health Policy #630 (confirm exact criteria with plan — current policy text not publicly retrievable at review)',
+      status: 'unverified',
+      cites: [
+        { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+      ],
+      verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — selecthealth.org returns 403 to every automated client; a human must fetch it via carelu.com/sources. Separately, the Utah Medicaid ASD manual (January 2026, read 9/17/2026) does NOT state that ABA is carved out of the ACOs to fee-for-service: it says only that ASD-related medical services go to the MCE and that diagnostic mental-health evaluations/psychological testing are carved out — confirm the ABA carve-out with the Utah Medicaid PA unit (dmhfmedicalpolicy@utah.gov).',
+      blocker: 'document',
+    },
     payer: 'Select Health (Utah)',
     state: 'UT', kind: 'medicaid-mco', parent: 'Utah Medicaid',
     pill: 'Payer Guide · Select Health',
@@ -338,6 +381,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+        blocker: 'document',
       },
       concurrentBilling: {
         value:
@@ -348,6 +392,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -358,6 +403,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
         ],
         verifyVia: 'A live benefits verification — annual maximums and any plan-level hour limits are plan-specific, and Policy #630 could not be retrieved.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -368,6 +414,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -378,6 +425,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -388,6 +436,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+        blocker: 'document',
       },
     },
     intakeGates: {
@@ -401,6 +450,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
         ],
         verifyVia: 'A live benefits verification of the member\'s market segment (individual, small-group, large-group or self-funded) — the mandate\'s protections do not reach small-group or self-funded business.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -411,6 +461,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -431,6 +482,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+        blocker: 'document',
       },
       referral: {
         value:
@@ -441,6 +493,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+        blocker: 'document',
       },
       telehealth: {
         value:
@@ -452,6 +505,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+        blocker: 'document',
       },
     },
     faq: [
@@ -466,9 +520,31 @@ export const utahPayers: Record<string, PayerConfig> = {
     slug: 'aetna-utah',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the Utah Code § 31A-22-642 mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+      verifyVia: 'Aetna\'s Utah participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+      verifyVia: 'Aetna\'s Utah participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+    },
     payer: 'Aetna in Utah',
     state: 'UT', kind: 'commercial',
     pill: 'Payer Guide · Aetna · Utah',
@@ -552,6 +628,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
         ],
         verifyVia: 'Aetna provider relations and the participating-provider agreement — CPB 0554 carries no supervision standard.',
+        blocker: 'per-case',
       },
       concurrentBilling: {
         value:
@@ -561,6 +638,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
         verifyVia: 'Aetna\'s commercial reimbursement/code-editing policies via Availity, or provider relations.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -571,6 +649,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
         ],
         verifyVia: 'A live benefits verification — hour and dollar maximums are plan-specific outside the mandate.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -581,6 +660,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'Aetna provider relations or the participating-provider agreement — the clinical bulletins carry no documentation or signature standard.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -591,6 +671,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'A live benefits verification — the educational-services exclusion is written into the plan document, not the clinical policy.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -601,6 +682,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
         verifyVia: 'Aetna provider relations and the participating-provider agreement — rendering-versus-supervising NPI rules are contractual, not in CPB 0554.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -613,6 +695,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
         ],
         verifyVia: 'A live benefits verification — market segment (individual, small-group, large-group) and funding type decide whether the mandate applies.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -624,6 +707,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
         ],
         verifyVia: 'Aetna precertification (form GR-69017-4) via Availity, and the plan document for any plan-specific evaluation-currency rule.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -651,6 +735,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
         ],
         verifyVia: 'The member\'s plan document and a live benefits verification — HMO products may carry their own referral rules.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -661,6 +746,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -674,9 +760,31 @@ export const utahPayers: Record<string, PayerConfig> = {
     slug: 'cigna-utah',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the Utah Code § 31A-22-642 mandate layer.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'unverified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+      verifyVia: 'Cigna/Evernorth\'s precertification list via CignaforHCP. EN0499 (read in full 9/17/2026) sets medical-necessity criteria but states no prior-authorization requirement for any ABA code, so the PA answer cannot be sourced to it.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'unverified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+      verifyVia: 'Cigna/Evernorth\'s precertification list via CignaforHCP. EN0499 (read in full 9/17/2026) sets medical-necessity criteria but states no prior-authorization requirement for any ABA code, so the PA answer cannot be sourced to it.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
     payer: 'Cigna / Evernorth in Utah',
     state: 'UT', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Utah',
@@ -801,6 +909,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
         ],
         verifyVia: 'Cigna/Evernorth provider services and the participating-provider agreement — EN0499 is a coverage policy and carries no claim-attribution rule.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -868,9 +977,27 @@ export const utahPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-utah',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the Utah Code § 31A-22-642 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare / Optum in Utah',
     state: 'UT', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · Utah',
@@ -963,6 +1090,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum/UnitedHealthcare reimbursement policy via Provider Express, or the participating-provider agreement.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -981,6 +1109,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum provider services via Provider Express — the supplemental clinical criteria carry no signature standard.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -998,6 +1127,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum provider services via Provider Express and the participating-provider agreement — claim-attribution rules are contractual.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {

@@ -4,9 +4,28 @@ export const virginiaPayers: Record<string, PayerConfig> = {
   'virginia-medicaid': {
     slug: 'virginia-medicaid',
     cardDesc: 'EPSDT under 21; NO auth on assessment codes, per-code unit SAs, licensure-tiered rates.',
-    assessmentPA: 'Not required — assessment codes 97151, 97152, 0362T need no service authorization',
-    treatmentPA: 'Required — all treatment hours; units itemized per CPT code (eff. 10/15/2025)',
-    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
+    assessmentPA: {
+      value: 'Not required — assessment codes 97151, 97152, 0362T need no service authorization',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — all treatment hours; units itemized per CPT code (eff. 10/15/2025)',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+      ],
+    },
+    dxRequired: {
+      value: 'NO \u2014 not autism-restricted, and not category-restricted either. DMAS Appendix D admits a youth under 21 who meets criteria for a primary ICD diagnosis correlating to a DSM diagnosis, OR who has a provisional psychiatric diagnosis developed by an LMHP when no definitive diagnosis has been made, plus at least two functional-impairment criteria. The ABA criteria name no diagnostic category list and never mention autism',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA), Admission Criteria p.24', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      ],
+    },
     payer: 'Virginia Medicaid (DMAS)',
     state: 'VA', kind: 'state-medicaid',
     pill: 'Payer Guide · Virginia Medicaid',
@@ -251,9 +270,28 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     slug: 'aetna-better-health-virginia',
     family: 'aetna',
     cardDesc: 'DMAS forms/criteria via Availity; the auth lives on the LBA\'s NPI — changes need a new auth.',
-    assessmentPA: 'Not required — DMAS rule: assessment codes 97151, 97152, 0362T need no service authorization',
-    treatmentPA: 'Required — DMAS standardized initial/continued-stay forms via Availity or fax (833) 757-1583',
-    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
+    assessmentPA: {
+      value: 'Not required — DMAS rule: assessment codes 97151, 97152, 0362T need no service authorization',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — DMAS standardized initial/continued-stay forms via Availity or fax (833) 757-1583',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+      ],
+    },
+    dxRequired: {
+      value: 'NO \u2014 not autism-restricted, and not category-restricted either. DMAS Appendix D admits a youth under 21 who meets criteria for a primary ICD diagnosis correlating to a DSM diagnosis, OR who has a provisional psychiatric diagnosis developed by an LMHP when no definitive diagnosis has been made, plus at least two functional-impairment criteria. The ABA criteria name no diagnostic category list and never mention autism',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA), Admission Criteria p.24', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      ],
+    },
     payer: 'Aetna Better Health of Virginia',
     state: 'VA', kind: 'medicaid-mco', parent: 'Virginia Medicaid (DMAS)',
     pill: 'Payer Guide · Aetna Better Health (VA)',
@@ -439,9 +477,28 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     slug: 'anthem-healthkeepers-plus',
     family: 'anthem',
     cardDesc: 'DMAS forms via Availity/ICR; publishes the clearest code/modifier/POS grid in Virginia.',
-    assessmentPA: 'Not required — published grid confirms no SA on 97151, 97152, 0362T',
-    treatmentPA: 'Required — 97153–97158, 0373T on DMAS standardized forms; ≥20 hrs/wk needs the activity schedule',
-    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
+    assessmentPA: {
+      value: 'Not required — published grid confirms no SA on 97151, 97152, 0362T',
+      status: 'verified',
+      cites: [
+        { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 97153–97158, 0373T on DMAS standardized forms; ≥20 hrs/wk needs the activity schedule',
+      status: 'verified',
+      cites: [
+        { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+        { title: 'Anthem VA — ABA initial SA request form', url: 'https://providers.anthem.com/docs/gpp/VA_CCC_BH_ABA_InitialStay.pdf?v=202301010312' },
+      ],
+    },
+    dxRequired: {
+      value: 'NO \u2014 not autism-restricted, and not category-restricted either. DMAS Appendix D admits a youth under 21 who meets criteria for a primary ICD diagnosis correlating to a DSM diagnosis, OR who has a provisional psychiatric diagnosis developed by an LMHP when no definitive diagnosis has been made, plus at least two functional-impairment criteria. The ABA criteria name no diagnostic category list and never mention autism',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA), Admission Criteria p.24', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      ],
+    },
     payer: 'Anthem HealthKeepers Plus (VA)',
     state: 'VA', kind: 'medicaid-mco', parent: 'Virginia Medicaid (DMAS)',
     pill: 'Payer Guide · Anthem HealthKeepers Plus',
@@ -627,9 +684,27 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     slug: 'humana-healthy-horizons-virginia',
     family: 'humana',
     cardDesc: 'Virginia\'s newest MCO (7/2025, ex-Molina members); DMAS forms, one PA-list quirk on 0362T.',
-    assessmentPA: 'Not required for 97151/97152 (off the PA list) — but Humana\'s list does flag 0362T, unlike DMAS',
-    treatmentPA: 'Required — 97153–97158, 0373T per the plan\'s PA list (eff. 7/1/2025), on DMAS standardized forms',
-    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
+    assessmentPA: {
+      value: 'Not required for 97151/97152 (off the PA list) — but Humana\'s list does flag 0362T, unlike DMAS',
+      status: 'verified',
+      cites: [
+        { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 97153–97158, 0373T per the plan\'s PA list (eff. 7/1/2025), on DMAS standardized forms',
+      status: 'verified',
+      cites: [
+        { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'NO \u2014 not autism-restricted, and not category-restricted either. DMAS Appendix D admits a youth under 21 who meets criteria for a primary ICD diagnosis correlating to a DSM diagnosis, OR who has a provisional psychiatric diagnosis developed by an LMHP when no definitive diagnosis has been made, plus at least two functional-impairment criteria. The ABA criteria name no diagnostic category list and never mention autism',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA), Admission Criteria p.24', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      ],
+    },
     payer: 'Humana Healthy Horizons in Virginia',
     state: 'VA', kind: 'medicaid-mco', parent: 'Virginia Medicaid (DMAS)',
     pill: 'Payer Guide · Humana Healthy Horizons (VA)',
@@ -816,9 +891,29 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     slug: 'sentara-community-plan',
     family: '',
     cardDesc: 'First to post the new DMAS units-per-code form; dedicated BCBA-change workflow, PAL lookup tool.',
-    assessmentPA: 'Not required — DMAS rule; Sentara\'s ABA forms cover treatment codes only',
-    treatmentPA: 'Required — new DMAS preservice form (posted for DOS 9/1/2025+); fax (844) 895-3231',
-    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
+    assessmentPA: {
+      value: 'Not required — DMAS rule; Sentara\'s ABA forms cover treatment codes only',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — new DMAS preservice form (posted for DOS 9/1/2025+); fax (844) 895-3231',
+      status: 'verified',
+      cites: [
+        { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        { title: 'Sentara — BH authorization fax numbers and forms update (eff. 8/1/2025)', url: 'https://www.sentarahealthplans.com/en/providers/updates/behavioral-health-authorization-fax-numbers-and-forms' },
+      ],
+    },
+    dxRequired: {
+      value: 'NO \u2014 not autism-restricted, and not category-restricted either. DMAS Appendix D admits a youth under 21 who meets criteria for a primary ICD diagnosis correlating to a DSM diagnosis, OR who has a provisional psychiatric diagnosis developed by an LMHP when no definitive diagnosis has been made, plus at least two functional-impairment criteria. The ABA criteria name no diagnostic category list and never mention autism',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA), Admission Criteria p.24', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      ],
+    },
     payer: 'Sentara Community Plan (VA)',
     state: 'VA', kind: 'medicaid-mco', parent: 'Virginia Medicaid (DMAS)',
     pill: 'Payer Guide · Sentara Community Plan',
@@ -998,9 +1093,28 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-virginia',
     family: 'unitedhealthcare',
     cardDesc: 'DMAS criteria with ABA carved to Optum: Provider Express submission, separate credentialing.',
-    assessmentPA: 'Not required — DMAS rule; assessment codes are auth-free',
-    treatmentPA: 'Required — DMAS service-specific forms, submitted via fax or Provider Express (not the standard UHC PA tool)',
-    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
+    assessmentPA: {
+      value: 'Not required — DMAS rule; assessment codes are auth-free',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — DMAS service-specific forms, submitted via fax or Provider Express (not the standard UHC PA tool)',
+      status: 'verified',
+      cites: [
+        { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        { title: 'UHC Community Plan VA — PA requirements (eff. 3/1/2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/va/prior-authorization-and-notification/VA-UHCCP-Prior-Authorization-Effective-3-1-2025.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'NO \u2014 not autism-restricted, and not category-restricted either. DMAS Appendix D admits a youth under 21 who meets criteria for a primary ICD diagnosis correlating to a DSM diagnosis, OR who has a provisional psychiatric diagnosis developed by an LMHP when no definitive diagnosis has been made, plus at least two functional-impairment criteria. The ABA criteria name no diagnostic category list and never mention autism',
+      status: 'verified',
+      cites: [
+        { title: 'DMAS — MHS manual Appendix D (ABA), Admission Criteria p.24', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare Community Plan of Virginia',
     state: 'VA', kind: 'medicaid-mco', parent: 'Virginia Medicaid (DMAS)',
     pill: 'Payer Guide · UHC Community Plan (VA)',
@@ -1178,9 +1292,31 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     slug: 'aetna-virginia',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the Va. Code § 38.2-3418.17 mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+      verifyVia: 'Aetna\'s Virginia participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+      verifyVia: 'Aetna\'s Virginia participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+    },
     payer: 'Aetna in Virginia',
     state: 'VA', kind: 'commercial',
     pill: 'Payer Guide · Aetna · Virginia',
@@ -1270,6 +1406,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
         verifyVia: 'Aetna\'s commercial reimbursement/code-editing policies via Availity, or provider relations.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -1280,6 +1417,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
         ],
         verifyVia: 'A live benefits verification — whether the plan actually applies the $35,000 maximum, and any plan-level limits outside the mandate.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1290,6 +1428,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'Aetna provider relations or the participating-provider agreement — the clinical bulletins carry no documentation or signature standard.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1300,6 +1439,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'A live benefits verification — the educational-services exclusion is written into the plan document, not the clinical policy.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -1321,6 +1461,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
         ],
         verifyVia: 'A live benefits verification — funding type decides whether the mandate applies at all.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1332,6 +1473,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
         ],
         verifyVia: 'Aetna precertification (form GR-69017-4) via Availity, and the plan document for any plan-specific evaluation-currency rule.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -1370,6 +1512,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -1384,9 +1527,32 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the Va. Code § 38.2-3418.17 mandate layer.',
     payer: 'Cigna / Evernorth in Virginia',
-    assessmentPA: 'Depends on funding type — EN0499\'s no-PA-on-97151/97152/0362T fast path reaches self-funded (ASO) plans only; Virginia fully-insured business is carved out of EN0499, so the plan document and the state mandate govern',
-    treatmentPA: 'Required — for self-funded plans, the completed assessment plus a treatment plan on Cigna\'s ABA PA form (EN0499); for fully-insured Virginia plans confirm the authorization requirement against the plan document',
-    dxRequired: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499. Virginia separately requires the prescribing practitioner to be a licensed physician or psychologist independent of the ABA provider',
+    assessmentPA: {
+      value: 'Depends on funding type — EN0499\'s no-PA-on-97151/97152/0362T fast path reaches self-funded (ASO) plans only; Virginia fully-insured business is carved out of EN0499, so the plan document and the state mandate govern',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+      verifyVia: 'A live benefits verification of funding type. EN0499 states verbatim that “Virginia fully insured business is not subject to this coverage policy,” so for a fully-insured member the plan document and the mandate govern. Note also that EN0499 (read in full 9/17/2026) states no prior-authorization requirement for any ABA code — the no-PA-on-assessment fast path comes from Cigna\'s precertification list, not from EN0499.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Required — for self-funded plans, the completed assessment plus a treatment plan on Cigna\'s ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule); for fully-insured Virginia plans confirm the authorization requirement against the plan document',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+      verifyVia: 'A live benefits verification of funding type. EN0499 states verbatim that “Virginia fully insured business is not subject to this coverage policy,” so for a fully-insured member the plan document and the mandate govern. Note also that EN0499 (read in full 9/17/2026) states no prior-authorization requirement for any ABA code — the no-PA-on-assessment fast path comes from Cigna\'s precertification list, not from EN0499.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499. Virginia separately requires the prescribing practitioner to be a licensed physician or psychologist independent of the ABA provider',
+      status: 'verified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+      ],
+    },
     state: 'VA', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Virginia',
     h1: 'Cigna / Evernorth ABA coverage in Virginia: the intake guide.',
@@ -1476,6 +1642,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
         verifyVia: 'A live benefits verification — Virginia fully-insured business is carved out of EN0499, so concurrent-billing edits come from the plan document and Cigna reimbursement policy.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1486,6 +1653,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
         ],
         verifyVia: 'A live benefits verification — whether the plan applies the $35,000 maximum, and any plan-level limits.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1495,6 +1663,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
         verifyVia: 'A live benefits verification — Virginia fully-insured business is carved out of EN0499.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1504,6 +1673,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
         verifyVia: 'A live benefits verification — Virginia fully-insured business is carved out of EN0499.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -1526,6 +1696,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
         ],
         verifyVia: 'A live benefits verification — fully-insured Virginia business is outside EN0499, so the plan document and the mandate control.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1536,6 +1707,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
         ],
         verifyVia: 'A live benefits verification — the 60-day assessment-currency rule binds only self-funded plans reading EN0499.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -1574,6 +1746,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
         ],
         verifyVia: 'A live benefits verification — for fully-insured Virginia members the plan document, not EN0499, sets modality terms.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -1587,9 +1760,27 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-virginia',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the Va. Code § 38.2-3418.17 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare / Optum in Virginia',
     state: 'VA', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · Virginia',
@@ -1686,6 +1877,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum/UnitedHealthcare reimbursement policy via Provider Express, or the participating-provider agreement.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -1704,6 +1896,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum provider services via Provider Express — the supplemental clinical criteria carry no signature standard.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1795,9 +1988,29 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     state: 'VA', kind: 'commercial',
     family: 'anthem',
     cardDesc: 'Every ABA code is on the precert list; criteria differ HMO vs PPO; $35K ABA cap still in statute.',
-    assessmentPA: 'Yes — 97151 is its own row on both Virginia precert lists, so the assessment is separately authorized',
-    treatmentPA: 'Yes — 97153-97158, 0362T and 0373T all listed; responsible party Anthem',
-    dxRequired: 'Yes — and Virginia requires an independent prescriber: a licensed physician or psychologist, independent of the ABA provider',
+    assessmentPA: {
+      value: 'Yes — 97151 is its own row on both Virginia precert lists, so the assessment is separately authorized',
+      status: 'verified',
+      cites: [
+        { title: 'Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
+        { title: 'Virginia Local Precertification/Prior Authorization List — PPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-S2374-DISTRO-VA-PA-PPO-List.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Yes — 97153-97158, 0362T and 0373T all listed; responsible party Anthem',
+      status: 'verified',
+      cites: [
+        { title: 'Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
+        { title: 'Virginia Local Precertification/Prior Authorization List — PPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-S2374-DISTRO-VA-PA-PPO-List.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — and Virginia requires an independent prescriber: a licensed physician or psychologist, independent of the ABA provider',
+      status: 'verified',
+      cites: [
+        { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+      ],
+    },
     pill: 'Payer Guide · Anthem BCBS · Virginia',
     h1: 'Anthem BCBS Virginia ABA coverage: the intake guide.',
     metaTitle: 'Anthem BCBS Virginia ABA Coverage & Prior Auth: Intake Guide | Carelu',
@@ -1962,6 +2175,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
         ],
         verifyVia: 'Anthem behavioral health prior authorization at 800-755-0851 or via Availity — the criteria sets behind the ABA rows (Anthem Applied Behavioral Analysis; MCG B-806-T) are not published.',
+        blocker: 'licensed',
       },
       diagnosingProviders: {
         value:
@@ -1981,6 +2195,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
         ],
         verifyVia: 'Anthem behavioral health prior authorization at 800-755-0851 or via Availity — neither the Anthem Applied Behavioral Analysis criteria nor MCG B-806-T is published.',
+        blocker: 'licensed',
       },
       referral: {
         value:

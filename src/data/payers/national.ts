@@ -5,9 +5,32 @@ export const nationalPayers: Record<string, PayerConfig> = {
     slug: 'aetna',
     cardDesc: 'CPB 0554 \u2014 ASD-only coverage, precert form GR-69017-4, telehealth codes.',
     family: 'aetna',
-    assessmentPA: 'Required — precertification (form GR-69017-4, eff. 1/1/2026)',
-    treatmentPA: 'Required — precertification',
-    dxRequired: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4, eff. 1/1/2026)',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — precertification',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      ],
+      verifyVia: 'Two Aetna documents disagree on the code range and a human must settle which governs an ABA review: CPB 0554 and CPB 0648 both list "ICD-10 codes covered if selection criteria are met: F84.0 - F84.9", while the Applied behavior analysis medical necessity guide — the guideline Aetna’s behavioral-health reviewers apply — states "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)" in both its quality-of-care elements and its medical-necessity criteria, which leaves out F84.2 (Rett syndrome). The ASD-only half of the claim is not in doubt; the range is.',
+      blocker: 'document',
+    },
     payer: 'Aetna',
     state: 'US', kind: 'commercial',
     pill: 'Payer Guide · Aetna',
@@ -73,6 +96,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -86,40 +112,40 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Not published. Neither CPB 0554 nor CPB 0648 states whether 97155 and 97153 may be billed for the same clock time; Aetna handles code-pair questions through reimbursement and claim-editing policy rather than through the clinical policy bulletin. The precertification form does require requested hours to be listed code by code, so the authorization will at least be explicit about which codes are in play.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Availity Essentials for the plan\'s reimbursement and claim-editing policies, or the provider-services number on the member\'s card. Ask specifically about 97153 billed alongside 97155.',
+        verifyVia: 'Availity Essentials for the plan\'s reimbursement and claim-editing policies, or the provider-services number on the member\'s card. Ask specifically about 97153 billed alongside 97155.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
           'Not published for ABA. CPB 0554 sets who may deliver the service \u2014 BACB-certified or state-licensed behavior analysts, with unlicensed staff supervised \u2014 but does not state whose NPI carries a technician-delivered 97153 claim, or which degree-level modifiers apply.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required modifiers before the first claim.',
+        verifyVia: 'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required modifiers before the first claim.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
           'Not published. CPB 0554 lists the covered ABA codes but sets no per-day unit ceiling, and Aetna publishes no ABA-specific MUE table. The operative ceiling is the precertification itself, which requires requested hours to be listed code by code \u2014 so the authorization, not a policy, is what bounds the day. CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year as clinical context rather than as a limit.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'The authorization letter itself, plus Availity Essentials for the plan\'s claim-editing and reimbursement policies. Ask whether CMS MUE limits are applied to ABA codes on this plan.',
+        verifyVia: 'The authorization letter itself, plus Availity Essentials for the plan\'s claim-editing and reimbursement policies. Ask whether CMS MUE limits are applied to ABA codes on this plan.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
           'Not published. CPB 0554 and CPB 0648 set coverage criteria and precertification content; neither states what a session note must contain, who signs it, or by when.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Aetna provider services or Availity \u2014 ask for the documentation standard applied at audit, and keep to the precertification form\'s own data elements in the meantime.',
+        verifyVia: 'Aetna provider services or Availity \u2014 ask for the documentation standard applied at audit, and keep to the precertification form\'s own data elements in the meantime.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
           'Not published as a payable-settings list. What CPB 0554 does make a submission requirement is adjacent and useful: the precertification form asks for concurrent services \u2014 PT, OT, speech and school services \u2014 plus how care is coordinated across them, so the school picture is data Aetna collects even though it publishes no school-versus-home rule.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA and whether school-based delivery is excluded.',
+        verifyVia: 'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA and whether school-based delivery is excluded.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -128,16 +154,16 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'CPB 0554 states no age limit for ABA. What decides the age question on an Aetna card is therefore the plan and the state: self-funded employer plans can carve benefits differently, and state autism mandates layer their own age bands on fully-insured business. Two families with Aetna cards can have materially different ABA benefits, so age is a benefits-verification answer, not a policy lookup.',
         status: 'plan-dependent',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'A live benefits verification on every family \u2014 ABA coverage confirmation, any age or visit limits, deductible status, and the precert path for that specific plan.',
+        verifyVia: 'A live benefits verification on every family \u2014 ABA coverage confirmation, any age or visit limits, deductible status, and the precert path for that specific plan.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
           'No recency rule is published. CPB 0554 does not state how recent the ASD diagnostic evaluation must be, and the precertification form (GR-69017-4, eff. 1/1/2026) asks for the evaluation\'s diagnosis code, the diagnosing provider and their credentials without a date test. Capture the evaluation date at intake regardless \u2014 it is on the form, and any plan-level rule will be applied against it.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'The precertification submission itself \u2014 Availity\'s two-step precert add plus clinical questionnaire, or the precert phone line. Ask whether an evaluation of this age is acceptable before booking the assessment.',
+        verifyVia: 'The precertification submission itself \u2014 Availity\'s two-step precert add plus clinical questionnaire, or the precert phone line. Ask whether an evaluation of this age is acceptable before booking the assessment.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -150,8 +176,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'No instrument is named. CPB 0554 does not require or reference a specific diagnostic tool, and the precertification form asks for the diagnosis code, the diagnosing provider and their credentials rather than for an instrument, date and score \u2014 a notably lighter bar than Optum\'s validated-tool requirement or MHS\'s named-instrument form. Collect the instrument anyway: a state mandate or a downstream reviewer may want it even when the policy does not.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Aetna precertification (Availity or the number on the card) \u2014 ask whether a specific instrument is expected for this plan before scheduling testing.',
+        verifyVia: 'Aetna precertification (Availity or the number on the card) \u2014 ask whether a specific instrument is expected for this plan before scheduling testing.',
+        blocker: 'per-case',
       },
       referral: {
         value:
@@ -177,9 +203,27 @@ export const nationalPayers: Record<string, PayerConfig> = {
     slug: 'cigna',
     cardDesc: 'No PA on assessment codes; EN0499 treatment authorization; full telehealth.',
     family: 'cigna',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (with ASD dx + licensed/BCBA provider)',
-    treatmentPA: 'Required — assessment + plan with the ABA PA form',
-    dxRequired: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (with ASD dx + licensed/BCBA provider)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + plan with the ABA PA form',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
     payer: 'Cigna / Evernorth',
     state: 'US', kind: 'commercial',
     pill: 'Payer Guide · Cigna / Evernorth',
@@ -275,16 +319,16 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Not published as a per-day unit ceiling. EN0499 bounds the day from a different direction: ABA is not covered when delivered at the same time as another therapy to the same child, and only one provider can bill a unit of time, with the standard supervision exceptions. Requested intensity is set in the treatment plan and authorized on the ABA PA form rather than against a published cap.',
         status: 'unverified',
         cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'The treatment authorization itself, and Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask whether any per-day MUE is applied to ABA codes on this plan.',
+        verifyVia: 'The treatment authorization itself, and Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask whether any per-day MUE is applied to ABA codes on this plan.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
           'Not published as a payable-settings list. Two sourced facts bear on setting nonetheless: the treatment plan must carry dated baseline data per setting, so settings are declared and measured rather than assumed; and every session note must record the location. Whether a given setting is payable is a plan-benefit question.',
         status: 'unverified',
         cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA, and whether school-based delivery is excluded before you write school goals.',
+        verifyVia: 'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA, and whether school-based delivery is excluded before you write school goals.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -293,8 +337,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'EN0499 publishes no age limit for ABA. The bound on a Cigna card therefore comes from the plan document and, on fully-insured business, from the state autism mandate \u2014 Maryland\'s habilitative mandate runs through the month the enrollee turns 19, Missouri\'s ABA dollar cap runs through age 18, Indiana\'s mandate has no age term at all. Establish plan funding type before quoting any bound.',
         status: 'plan-dependent',
         cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'Benefits verification on the specific plan \u2014 confirm the ABA benefit exists, the funding type, and any age or visit limit.',
+        verifyVia: 'Benefits verification on the specific plan \u2014 confirm the ABA benefit exists, the funding type, and any age or visit limit.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -307,8 +351,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'EN0499 as quoted in this guide sets the credential bar for who performs the ABA assessment and supervises the case \u2014 an independently licensed provider or a BCBA \u2014 rather than naming who may make the ASD diagnosis. What the policy does fix about the diagnosis is its content: a DSM-5-TR autism spectrum diagnosis, with Rett syndrome (F84.2) expressly excluded.',
         status: 'unverified',
         cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
-        verifyVia:
-          'Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask which diagnosing credentials EN0499 accepts before relying on a diagnosis from a non-doctoral clinician.',
+        verifyVia: 'Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask which diagnosing credentials EN0499 accepts before relying on a diagnosis from a non-doctoral clinician.',
+        blocker: 'per-case',
       },
       diagnosticTools: {
         value:
@@ -340,9 +384,30 @@ export const nationalPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-optum',
     cardDesc: 'Two-step auth via Provider Express, 4\u20136 month reviews, code clusters.',
     family: 'unitedhealthcare',
-    assessmentPA: 'Required — step 1 of the two-step authorization (assessment auth)',
-    treatmentPA: 'Required — step 2 (treatment auth)',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of the two-step authorization (assessment auth)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare / Optum',
     state: 'US', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare / Optum',
@@ -421,8 +486,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Optum authorizes in four code clusters rather than against a per-day unit ceiling \u2014 assessment (97151, 97152), direct care (97153, 97154), multi-staff (0362T, 0373T) and QHP services (97155\u201397158) \u2014 and units flex within a cluster without a new authorization, a genuinely useful operational buffer. The threshold that actually bites runs the other way: utilization below 80 percent of authorized hours over a two-week window draws scrutiny at review, so a family whose real availability cannot support the authorized intensity is a reauthorization risk from day one.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'The authorization letter itself on Provider Express, and Optum provider services \u2014 ask whether any per-day MUE applies on top of the cluster structure.',
+        verifyVia: 'The authorization letter itself on Provider Express, and Optum provider services \u2014 ask whether any per-day MUE applies on top of the cluster structure.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -435,16 +500,16 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Not published in the Supplemental Clinical Criteria. What Optum specifies is the review packet rather than the session note: continued-service reviews every 4\u20136 months want progress documented per targeted behavior using the same measurement methods as baseline, mastered-program rates, change scores and updated standardized adaptive measures. Who signs an individual session note, and by when, is not stated.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum provider services, or your Provider Express network manager \u2014 ask for the documentation standard applied at audit.',
+        verifyVia: 'Optum provider services, or your Provider Express network manager \u2014 ask for the documentation standard applied at audit.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
           'Not published in the Supplemental Clinical Criteria. Optum authorizes by code cluster and names a QHP services cluster (97155\u201397158) distinct from the direct-care cluster (97153, 97154), which implies a credential split on the rendering line but does not state whose NPI carries a technician-delivered 97153 claim or which degree-level modifiers apply.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum provider services or the authorization letter on Provider Express \u2014 confirm the rendering-versus-billing NPI convention and any required modifiers before the first claim.',
+        verifyVia: 'Optum provider services or the authorization letter on Provider Express \u2014 confirm the rendering-versus-billing NPI convention and any required modifiers before the first claim.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -453,16 +518,16 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'The Supplemental Clinical Criteria publish no age limit for ABA. Where a state has its own entry in Optum\'s ABA State Mandates supplement, that entry can import a mandate\'s age terms for fully-insured business \u2014 Maryland\'s entry adopts the COMAR hour floors that run by age band \u2014 but on the national criteria age is a benefits question, decided by the plan and the state of issue.',
         status: 'plan-dependent',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Benefits verification on the specific plan, and Optum\'s ABA State Mandates supplemental criteria for the state of issue.',
+        verifyVia: 'Benefits verification on the specific plan, and Optum\'s ABA State Mandates supplemental criteria for the state of issue.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
           'No recency rule for the ASD diagnosis is published in the Supplemental Clinical Criteria cited here. The cadence Optum does set is downstream: continued-service reviews land every 4\u20136 months (per account and state law) and require progress documented per targeted behavior using the same measurement methods as baseline, plus updated standardized adaptive measures. Inadequate progress within six months requires documented reasons and a treatment modification.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum provider services, or the step-one assessment-authorization request on Provider Express \u2014 ask whether an evaluation of this age will be accepted before scheduling.',
+        verifyVia: 'Optum provider services, or the step-one assessment-authorization request on Provider Express \u2014 ask whether an evaluation of this age will be accepted before scheduling.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:

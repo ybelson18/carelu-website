@@ -4,9 +4,28 @@ export const texasPayers: Record<string, PayerConfig> = {
   'texas-medicaid': {
     slug: 'texas-medicaid',
     cardDesc: 'THSteps-CCP EPSDT ages 0–20; PA on everything, 90/90/180 cadence, 3-yr dx recency.',
-    assessmentPA: 'Required — CCP PA form with signed prescriber referral + ASD dx (made/reconfirmed within 3 years); 97151 capped at 24 units',
-    treatmentPA: 'Required — two 90-day initial periods, then 180-day recerts; since 4/1/2025 no prescriber signature on the 90-day extension',
-    dxRequired: 'Yes — ASD (F84.0); diagnosis alone doesn\'t establish medical necessity',
+    assessmentPA: {
+      value: 'Required — CCP PA form with signed prescriber referral + ASD dx (made/reconfirmed within 3 years); 97151 capped at 24 units',
+      status: 'verified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — two 90-day initial periods, then 180-day recerts; since 4/1/2025 no prescriber signature on the 90-day extension',
+      status: 'verified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (F84.0); diagnosis alone doesn\'t establish medical necessity',
+      status: 'verified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'Texas Medicaid (THSteps-CCP)',
     state: 'TX', kind: 'state-medicaid',
     pill: 'Payer Guide · Texas Medicaid',
@@ -226,9 +245,29 @@ export const texasPayers: Record<string, PayerConfig> = {
     slug: 'superior-healthplan-texas',
     family: 'centene',
     cardDesc: 'TMPPM criteria; PA on every ABA code; the only STAR Health (foster care) plan statewide.',
-    assessmentPA: 'Required — PA on all ABA services before delivery, including the 97151 evaluation',
-    treatmentPA: 'Required — 97153, 97154, 97155, 97156, 97158, 99366 all on Superior\'s PA list; TMPPM 90/90/180 cadence',
-    dxRequired: 'Yes — ASD per TMPPM criteria (Superior defers to the state manual)',
+    assessmentPA: {
+      value: 'Required — PA on all ABA services before delivery, including the 97151 evaluation',
+      status: 'verified',
+      cites: [
+        { title: 'Superior — New Medicaid Benefit for ABA Services, PA Required (eff. 2/1/2022)', url: 'https://www.superiorhealthplan.com/newsroom/effective-0201222-new-medicaid-benefit-for-aba-services-prior-auth-required.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 97153, 97154, 97155, 97156, 97158, 99366 all on Superior\'s PA list; TMPPM 90/90/180 cadence',
+      status: 'verified',
+      cites: [
+        { title: 'Superior — New Medicaid Benefit for ABA Services, PA Required (eff. 2/1/2022)', url: 'https://www.superiorhealthplan.com/newsroom/effective-0201222-new-medicaid-benefit-for-aba-services-prior-auth-required.html' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD per TMPPM criteria (Superior defers to the state manual)',
+      status: 'verified',
+      cites: [
+        { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'Superior HealthPlan (TX)',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Superior HealthPlan',
@@ -407,9 +446,29 @@ export const texasPayers: Record<string, PayerConfig> = {
   'texas-childrens-health-plan': {
     slug: 'texas-childrens-health-plan',
     cardDesc: 'Own 30-page guideline (#11281 v3) that restates TMPPM; PA via portal, fax, phone, or mail.',
-    assessmentPA: 'Required — referral must document age, year of initial ASD dx, comorbidities, DSM severity; dx within 3 years',
-    treatmentPA: 'Required — 90-day initial → 90-day extension → 180-day recerts (guideline §§ 7.8.1–7.8.3); e-signature accepted',
-    dxRequired: 'Yes — ASD per TMPPM criteria (restated in TCHP\'s guideline)',
+    assessmentPA: {
+      value: 'Required — referral must document age, year of initial ASD dx, comorbidities, DSM severity; dx within 3 years',
+      status: 'verified',
+      cites: [
+        { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 90-day initial → 90-day extension → 180-day recerts (guideline §§ 7.8.1–7.8.3); e-signature accepted',
+      status: 'verified',
+      cites: [
+        { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD per TMPPM criteria (restated in TCHP\'s guideline)',
+      status: 'verified',
+      cites: [
+        { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'Texas Children\'s Health Plan',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Texas Children\'s Health Plan',
@@ -585,9 +644,29 @@ export const texasPayers: Record<string, PayerConfig> = {
     slug: 'wellpoint-texas',
     family: 'anthem',
     cardDesc: 'TMPPM restated; accepts its own ASD form OR the state CCP PA form; Availity submission.',
-    assessmentPA: 'Required — its ASD Treatment Plan Request Form OR the state CCP PA form, plus a current signed physician ABA referral',
-    treatmentPA: 'Required — TMPPM cadence; submit via Availity Essentials, phone, or fax; appeals via Availity or 833-731-2162',
-    dxRequired: 'Yes — ASD, ages 0–20, per TMPPM (restated in Wellpoint\'s provider doc)',
+    assessmentPA: {
+      value: 'Required — its ASD Treatment Plan Request Form OR the state CCP PA form, plus a current signed physician ABA referral',
+      status: 'verified',
+      cites: [
+        { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — TMPPM cadence; submit via Availity Essentials, phone, or fax; appeals via Availity or 833-731-2162',
+      status: 'verified',
+      cites: [
+        { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD, ages 0–20, per TMPPM (restated in Wellpoint\'s provider doc)',
+      status: 'verified',
+      cites: [
+        { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'Wellpoint (formerly Amerigroup Texas)',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Wellpoint (TX)',
@@ -764,9 +843,29 @@ export const texasPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-texas',
     family: 'unitedhealthcare',
     cardDesc: 'TMPPM criteria with ABA carved out to Optum\'s BH network — not the medical PA pipeline.',
-    assessmentPA: 'Required (state benefit) — but routed through the designated behavioral health network (Optum), NOT UHC\'s medical PA list',
-    treatmentPA: 'Required — through Optum Behavioral Health; BH line 888-887-9003',
-    dxRequired: 'Yes — ASD per TMPPM criteria (no distinct TX criteria published)',
+    assessmentPA: {
+      value: 'Required (state benefit) — but routed through the designated behavioral health network (Optum), NOT UHC\'s medical PA list',
+      status: 'verified',
+      cites: [
+        { title: 'UHC Community Plan of TX — STAR Kids PA list (eff. 11/1/2025, PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tx/prior-auth/star-kids/TX-UHCCP-STAR-KIDS-Prior-Auth-Eff-11-1-2025.pdf' },
+        { title: 'UHC Community Plan of Texas — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-prior-auth.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — through Optum Behavioral Health; BH line 888-887-9003',
+      status: 'verified',
+      cites: [
+        { title: 'UHC Community Plan of Texas — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-prior-auth.html' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD per TMPPM criteria (no distinct TX criteria published)',
+      status: 'verified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'UnitedHealthcare Community Plan of Texas',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · UHC Community Plan (TX)',
@@ -945,9 +1044,33 @@ export const texasPayers: Record<string, PayerConfig> = {
     slug: 'aetna-better-health-texas',
     family: 'aetna',
     cardDesc: 'TMPPM state baseline in Bexar & Tarrant; plan-specific PA mechanics not publicly verifiable.',
-    assessmentPA: 'Required — per the statewide TMPPM benefit (PA on all ABA services); Aetna\'s plan-specific process is not publicly verifiable',
-    treatmentPA: 'Required — state 90/90/180 cadence applies; confirm forms and submission channel with the plan directly',
-    dxRequired: 'Yes — ASD per the statewide TMPPM criteria',
+    assessmentPA: {
+      value: 'Required — per the statewide TMPPM benefit (PA on all ABA services); Aetna\'s plan-specific process is not publicly verifiable',
+      status: 'unverified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+      verifyVia: 'Aetna Better Health of Texas provider manual and Medicaid PA pages — aetnabetterhealth.com is behind an Akamai bot wall (r.jina.ai returns only the challenge page), so we could not check whether the plan deviates from the TMPPM. The TMPPM rule this value restates is itself verified; what is unverified is that Aetna Better Health applies it unchanged. Human retrieval via carelu.com/sources.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — state 90/90/180 cadence applies; confirm forms and submission channel with the plan directly',
+      status: 'unverified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+      verifyVia: 'Aetna Better Health of Texas provider manual and Medicaid PA pages — aetnabetterhealth.com is behind an Akamai bot wall (r.jina.ai returns only the challenge page), so we could not check whether the plan deviates from the TMPPM. The TMPPM rule this value restates is itself verified; what is unverified is that Aetna Better Health applies it unchanged. Human retrieval via carelu.com/sources.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — ASD per the statewide TMPPM criteria',
+      status: 'unverified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+      verifyVia: 'Aetna Better Health of Texas provider manual and Medicaid PA pages — aetnabetterhealth.com is behind an Akamai bot wall (r.jina.ai returns only the challenge page), so we could not check whether the plan deviates from the TMPPM. The TMPPM rule this value restates is itself verified; what is unverified is that Aetna Better Health applies it unchanged. Human retrieval via carelu.com/sources.',
+      blocker: 'document',
+    },
     payer: 'Aetna Better Health of Texas',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Aetna Better Health (TX)',
@@ -1011,6 +1134,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
       concurrentBilling: {
         value:
@@ -1021,6 +1145,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -1031,6 +1156,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -1041,6 +1167,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1051,6 +1178,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -1061,6 +1189,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
     },
     intakeGates: {
@@ -1073,6 +1202,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
       dxRecency: {
         value:
@@ -1083,6 +1213,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -1093,6 +1224,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
       diagnosticTools: {
         value:
@@ -1103,6 +1235,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
       referral: {
         value:
@@ -1113,6 +1246,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
       telehealth: {
         value:
@@ -1123,6 +1257,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
         ],
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -1136,9 +1271,33 @@ export const texasPayers: Record<string, PayerConfig> = {
     slug: 'molina-healthcare-texas',
     family: 'molina',
     cardDesc: 'TMPPM baseline; verify codes in Molina\'s PA Code Matrix — its PA guide PDFs sit behind bot walls.',
-    assessmentPA: 'Required — per the statewide TMPPM benefit; verify code-level handling in Molina\'s BH/Medical PA Code Matrix',
-    treatmentPA: 'Required — state cadence applies; out-of-network requests need authorization regardless of service',
-    dxRequired: 'Yes — ASD per the statewide TMPPM criteria',
+    assessmentPA: {
+      value: 'Required — per the statewide TMPPM benefit; verify code-level handling in Molina\'s BH/Medical PA Code Matrix',
+      status: 'unverified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+      verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide — both bot-protected on molinahealthcare.com. The TMPPM rule this value restates is itself verified; what is unverified is that Molina applies it unchanged. Human retrieval via carelu.com/sources.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — state cadence applies; out-of-network requests need authorization regardless of service',
+      status: 'unverified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+      verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide — both bot-protected on molinahealthcare.com. The TMPPM rule this value restates is itself verified; what is unverified is that Molina applies it unchanged. Human retrieval via carelu.com/sources.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — ASD per the statewide TMPPM criteria',
+      status: 'unverified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+      verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide — both bot-protected on molinahealthcare.com. The TMPPM rule this value restates is itself verified; what is unverified is that Molina applies it unchanged. Human retrieval via carelu.com/sources.',
+      blocker: 'document',
+    },
     payer: 'Molina Healthcare of Texas',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Molina Healthcare (TX)',
@@ -1201,6 +1360,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
       concurrentBilling: {
         value:
@@ -1211,6 +1371,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -1221,6 +1382,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -1231,6 +1393,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1241,6 +1404,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -1251,6 +1415,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
     },
     intakeGates: {
@@ -1263,6 +1428,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
       dxRecency: {
         value:
@@ -1273,6 +1439,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -1283,6 +1450,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
       diagnosticTools: {
         value:
@@ -1293,6 +1461,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
       referral: {
         value:
@@ -1303,6 +1472,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
       telehealth: {
         value:
@@ -1313,6 +1483,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -1325,9 +1496,27 @@ export const texasPayers: Record<string, PayerConfig> = {
   'community-first-health-plans': {
     slug: 'community-first-health-plans',
     cardDesc: 'Bexar-area plan with the clearest published TX ABA billing crosswalk — a TMPPM digest.',
-    assessmentPA: 'Required — 97151 not reimbursable unless the evaluation was submitted for authorization; up to 24 units per period',
-    treatmentPA: 'Required — 97153, 97154, 97155, 97156, 97158 + 99366 all PA-gated',
-    dxRequired: 'Yes — F84.0 diagnosis mandatory, per the plan\'s billing guidelines',
+    assessmentPA: {
+      value: 'Required — 97151 not reimbursable unless the evaluation was submitted for authorization; up to 24 units per period',
+      status: 'verified',
+      cites: [
+        { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 97153, 97154, 97155, 97156, 97158 + 99366 all PA-gated',
+      status: 'verified',
+      cites: [
+        { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — F84.0 diagnosis mandatory, per the plan\'s billing guidelines',
+      status: 'verified',
+      cites: [
+        { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+      ],
+    },
     payer: 'Community First Health Plans',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Community First (TX)',
@@ -1503,9 +1692,27 @@ export const texasPayers: Record<string, PayerConfig> = {
   'driscoll-health-plan': {
     slug: 'driscoll-health-plan',
     cardDesc: 'South Texas plan using the statewide TARF form; per-code PA checks via its lookup portal.',
-    assessmentPA: 'Required — verify per-code on the DHP Prior Authorization Portal (driscollhealthplan.com/priorauthcheck)',
-    treatmentPA: 'Required — submit via the DHP portal or fax 1-866-741-5650 using the Texas Authorization Referral Form (TARF)',
-    dxRequired: 'Yes — ASD per the statewide TMPPM criteria',
+    assessmentPA: {
+      value: 'Required — verify per-code on the DHP Prior Authorization Portal (driscollhealthplan.com/priorauthcheck)',
+      status: 'verified',
+      cites: [
+        { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — submit via the DHP portal or fax 1-866-741-5650 using the Texas Authorization Referral Form (TARF)',
+      status: 'verified',
+      cites: [
+        { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD per the statewide TMPPM criteria',
+      status: 'verified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'Driscoll Health Plan',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Driscoll Health Plan',
@@ -1682,9 +1889,29 @@ export const texasPayers: Record<string, PayerConfig> = {
   'community-health-choice-texas': {
     slug: 'community-health-choice-texas',
     cardDesc: 'Own ABA Medical Review Guideline (adopted 6/2026); TSPA+CCP form; 85% attendance rule on extensions.',
-    assessmentPA: 'Required — Texas Standard PA form (TSPA) + CCP PA form, signed prescriber referral, ASD dx within 3 years; 97151 capped 6 hrs/24 units',
-    treatmentPA: 'Required — 90-day initial + 90-day extension (needs an 85%-attendance log + BCBA-signed progress note) then 180-day recerts',
-    dxRequired: 'Yes — ASD per TMPPM criteria, restated in Community Health Choice\'s own ABA Medical Review Guideline',
+    assessmentPA: {
+      value: 'Required — Texas Standard PA form (TSPA) + CCP PA form, signed prescriber referral, ASD dx within 3 years; 97151 capped 6 hrs/24 units',
+      status: 'verified',
+      cites: [
+        { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 90-day initial + 90-day extension (needs an 85%-attendance log + BCBA-signed progress note) then 180-day recerts',
+      status: 'verified',
+      cites: [
+        { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD per TMPPM criteria, restated in Community Health Choice\'s own ABA Medical Review Guideline',
+      status: 'verified',
+      cites: [
+        { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'Community Health Choice',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Community Health Choice',
@@ -1876,9 +2103,29 @@ export const texasPayers: Record<string, PayerConfig> = {
     slug: 'bcbs-texas-medicaid',
     family: 'bcbs',
     cardDesc: 'STAR/STAR Kids in Travis; insourced BH from Magellan in 2024; PA code grid confirms 97151-97158.',
-    assessmentPA: 'Required — per the statewide TMPPM benefit; submit via fax 1-888-530-9809 or the Availity provider portal',
-    treatmentPA: 'Required — same fax/portal; BCBSTX brought behavioral health/ABA administration in-house in 2024, ending its Magellan carve-out',
-    dxRequired: 'Yes — ASD per the statewide TMPPM criteria (no distinct BCBSTX Medicaid ABA policy found)',
+    assessmentPA: {
+      value: 'Required — per the statewide TMPPM benefit; submit via fax 1-888-530-9809 or the Availity provider portal',
+      status: 'verified',
+      cites: [
+        { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        { title: 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — same fax/portal; BCBSTX brought behavioral health/ABA administration in-house in 2024, ending its Magellan carve-out',
+      status: 'verified',
+      cites: [
+        { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        { title: 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD per the statewide TMPPM criteria (no distinct BCBSTX Medicaid ABA policy found)',
+      status: 'verified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'Blue Cross Blue Shield of Texas (Medicaid)',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · BCBSTX Medicaid',
@@ -2058,9 +2305,30 @@ export const texasPayers: Record<string, PayerConfig> = {
   'cook-childrens-health-plan': {
     slug: 'cook-childrens-health-plan',
     cardDesc: 'Dedicated 123-page ABA training deck; 6-county Fort Worth-area STAR + STAR Kids; EpicCare Link portal.',
-    assessmentPA: 'Required — 97151 capped 6 hrs/24 units, HO modifier only, 30-day authorization window; signed referral + 3-yr dx recency',
-    treatmentPA: 'Required — TMPPM 90/90/180 cadence via the CCP PA form; 97155/97156/97158 need HO or HN modifier',
-    dxRequired: 'Yes — ASD per TMPPM criteria, restated in Cook Children\'s own ABA provider training materials',
+    assessmentPA: {
+      value: 'Required — 97151 capped 6 hrs/24 units, HO modifier only, 30-day authorization window; signed referral + 3-yr dx recency',
+      status: 'verified',
+      cites: [
+        { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        { title: 'Cook Children\'s Health Plan — Acute Prior Authorization (Including PDN & ABA) provider training (rev. 6/24/2026, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/electronic-visit/acute-prior-authorization-including-pdn--aba-062426.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — TMPPM 90/90/180 cadence via the CCP PA form; 97155/97156/97158 need HO or HN modifier',
+      status: 'verified',
+      cites: [
+        { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD per TMPPM criteria, restated in Cook Children\'s own ABA provider training materials',
+      status: 'verified',
+      cites: [
+        { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'Cook Children\'s Health Plan',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Cook Children\'s Health Plan',
@@ -2240,9 +2508,27 @@ export const texasPayers: Record<string, PayerConfig> = {
   'parkland-community-health-plan': {
     slug: 'parkland-community-health-plan',
     cardDesc: 'Dallas County safety-net STAR plan; BH insourced from Carelon 9/1/2025; PA covers 97151-99366, not 0362T.',
-    assessmentPA: 'Required — per the statewide TMPPM benefit; PCHP\'s own PA list confirms 97151 and every treatment code',
-    treatmentPA: 'Required — Texas Standard PA form; behavioral health moved from Carelon to direct PCHP administration 9/1/2025',
-    dxRequired: 'Yes — ASD per the statewide TMPPM criteria (ages 0-20, diagnosed or reconfirmed within 3 years)',
+    assessmentPA: {
+      value: 'Required — per the statewide TMPPM benefit; PCHP\'s own PA list confirms 97151 and every treatment code',
+      status: 'verified',
+      cites: [
+        { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — Texas Standard PA form; behavioral health moved from Carelon to direct PCHP administration 9/1/2025',
+      status: 'verified',
+      cites: [
+        { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD per the statewide TMPPM criteria (ages 0-20, diagnosed or reconfirmed within 3 years)',
+      status: 'verified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'Parkland Community Health Plan',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Parkland Community Health Plan',
@@ -2422,9 +2708,28 @@ export const texasPayers: Record<string, PayerConfig> = {
   'el-paso-health': {
     slug: 'el-paso-health',
     cardDesc: 'El Paso\'s founding Medicaid MCO (ex-El Paso First); 85% attendance rule; not the SDA\'s only plan.',
-    assessmentPA: 'Required — 97151 capped 6 hrs/24 units, HO modifier only; initial evaluation authorization valid 60 days from the requested date',
-    treatmentPA: 'Required — 90-day initial + 90-day extension (attendance logs + LBA progress summary) then up-to-180-day recerts',
-    dxRequired: 'Yes — ASD per TMPPM criteria; El Paso Health requires a validated diagnostic tool (ADOS, ADI-R, CARS) — screening tools alone don\'t qualify',
+    assessmentPA: {
+      value: 'Required — 97151 capped 6 hrs/24 units, HO modifier only; initial evaluation authorization valid 60 days from the requested date',
+      status: 'verified',
+      cites: [
+        { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 90-day initial + 90-day extension (attendance logs + LBA progress summary) then up-to-180-day recerts',
+      status: 'verified',
+      cites: [
+        { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD per TMPPM criteria; El Paso Health requires a validated diagnostic tool (ADOS, ADI-R, CARS) — screening tools alone don\'t qualify',
+      status: 'verified',
+      cites: [
+        { title: 'El Paso Health — Comprehensive Diagnostic Evaluation for Autism Services (memo, 5/15/2026, PDF)', url: 'https://www.elpasohealth.com/pdf/EPH-PR-Comprehensive%20Diagnostic%20Evaluation%20for%20Autism%20Services.pdf' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'El Paso Health',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · El Paso Health',
@@ -2608,9 +2913,27 @@ export const texasPayers: Record<string, PayerConfig> = {
   'firstcare-health-plans': {
     slug: 'firstcare-health-plans',
     cardDesc: 'Lubbock + MRSA West STAR/CHIP; PA confirmed on 97151-99366; plans wind down 8/31/2026 (pending approval).',
-    assessmentPA: 'Required — per FirstCare\'s own PA code list; submit via the Texas Standard PA form, myFirstCare portal, or fax',
-    treatmentPA: 'Required — 97151, 97153, 97154, 97155, 97156, 97158, 99366 all confirmed on FirstCare\'s Medicaid PA list',
-    dxRequired: 'Yes — ASD per the statewide TMPPM criteria; FirstCare\'s Medicaid PA defers to the TMPPM, not its commercial autism policy',
+    assessmentPA: {
+      value: 'Required — per FirstCare\'s own PA code list; submit via the Texas Standard PA form, myFirstCare portal, or fax',
+      status: 'verified',
+      cites: [
+        { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 97151, 97153, 97154, 97155, 97156, 97158, 99366 all confirmed on FirstCare\'s Medicaid PA list',
+      status: 'verified',
+      cites: [
+        { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD per the statewide TMPPM criteria; FirstCare\'s Medicaid PA defers to the TMPPM, not its commercial autism policy',
+      status: 'verified',
+      cites: [
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'FirstCare Health Plans',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · FirstCare Health Plans',
@@ -2802,9 +3125,29 @@ export const texasPayers: Record<string, PayerConfig> = {
   'baylor-scott-white-texas': {
     slug: 'baylor-scott-white-texas',
     cardDesc: 'RightCare/MRSA Central — plan is WINDING DOWN, exits Texas Medicaid 8/31/2026 (regulatory approval pending).',
-    assessmentPA: 'Required — 97151 on RightCare\'s own Medicaid PA code list (PA required since 1/3/2020); PA process unaffected during the wind-down',
-    treatmentPA: 'Required — 97153, 97154, 97155, 97156, 97158, 99366 all PA-required; defers to TMPPM criteria per Medical Coverage Policy 206',
-    dxRequired: 'Yes — ASD, per TMPPM (Medical Coverage Policy 206 defers to TMPPM for Medicaid; own criteria apply only where TMPPM is silent)',
+    assessmentPA: {
+      value: 'Required — 97151 on RightCare\'s own Medicaid PA code list (PA required since 1/3/2020); PA process unaffected during the wind-down',
+      status: 'verified',
+      cites: [
+        { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 97153, 97154, 97155, 97156, 97158, 99366 all PA-required; defers to TMPPM criteria per Medical Coverage Policy 206',
+      status: 'verified',
+      cites: [
+        { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+        { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD, per TMPPM (Medical Coverage Policy 206 defers to TMPPM for Medicaid; own criteria apply only where TMPPM is silent)',
+      status: 'verified',
+      cites: [
+        { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      ],
+    },
     payer: 'RightCare from Scott and White Health Plan (dba Baylor Scott & White Health Plan)',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · RightCare (Baylor Scott & White)',
@@ -3018,9 +3361,27 @@ export const texasPayers: Record<string, PayerConfig> = {
   'dell-childrens-health-plan': {
     slug: 'dell-childrens-health-plan',
     cardDesc: 'Established pediatric plan (STAR since 2012), Travis SDA (8 counties); ABA delegated to Magellan BH.',
-    assessmentPA: 'Required — 97151 on the plan\'s Medicaid/CHIP PA list (Yes); route through Magellan Healthcare for BH prior auth',
-    treatmentPA: 'Required — 97153, 97154, 97155, 97156, 97158, 99366 all PA=Yes on the 6/1/2026 PA list; 97157 also listed PA=Yes (see note below)',
-    dxRequired: 'Yes — ASD diagnostic testing by a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or autism diagnosis team',
+    assessmentPA: {
+      value: 'Required — 97151 on the plan\'s Medicaid/CHIP PA list (Yes); route through Magellan Healthcare for BH prior auth',
+      status: 'verified',
+      cites: [
+        { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 97153, 97154, 97155, 97156, 97158, 99366 all PA=Yes on the 6/1/2026 PA list; 97157 also listed PA=Yes (see note below)',
+      status: 'verified',
+      cites: [
+        { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD diagnostic testing by a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or autism diagnosis team',
+      status: 'verified',
+      cites: [
+        { title: 'Dell Children\'s Health Plan — Behavioral Health (member page)', url: 'https://dellchildrenshealthplan.com/manage-your-health/behavioral-health/' },
+      ],
+    },
     payer: 'Dell Children\'s Health Plan',
     state: 'TX', kind: 'medicaid-mco', parent: 'Texas Medicaid (THSteps-CCP)',
     pill: 'Payer Guide · Dell Children\'s Health Plan',
@@ -3226,9 +3587,31 @@ export const texasPayers: Record<string, PayerConfig> = {
     slug: 'aetna-texas',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the Tex. Ins. Code § 1355.015 mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+      verifyVia: 'Aetna\'s Texas participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+      verifyVia: 'Aetna\'s Texas participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+    },
     payer: 'Aetna in Texas',
     state: 'TX', kind: 'commercial',
     pill: 'Payer Guide · Aetna · Texas',
@@ -3311,6 +3694,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
         ],
         verifyVia: 'Aetna provider relations and the participating-provider agreement — CPB 0554 carries no supervision standard.',
+        blocker: 'per-case',
       },
       concurrentBilling: {
         value:
@@ -3320,6 +3704,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
         verifyVia: 'Aetna\'s commercial reimbursement/code-editing policies via Availity, or provider relations.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -3330,6 +3715,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
         ],
         verifyVia: 'A live benefits verification — annual maximums and any plan-level visit or hour limits are plan-specific.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -3340,6 +3726,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'Aetna provider relations or the participating-provider agreement — the clinical bulletins carry no documentation or signature standard.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -3350,6 +3737,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'A live benefits verification — the educational-services exclusion is written into the plan document, not the clinical policy.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -3360,6 +3748,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
         verifyVia: 'Aetna provider relations and the participating-provider agreement — rendering-versus-supervising NPI rules are contractual, not in CPB 0554.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -3372,6 +3761,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
         verifyVia: 'A live benefits verification — market segment and plan funding type decide whether the mandate applies at all.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -3383,6 +3773,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
         ],
         verifyVia: 'Aetna precertification (form GR-69017-4) via Availity, and the plan document for any plan-specific evaluation-currency rule.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -3409,6 +3800,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
         ],
         verifyVia: 'The member\'s plan document and a live benefits verification — HMO products may carry their own referral rules.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -3419,6 +3811,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
         ],
         verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -3433,9 +3826,31 @@ export const texasPayers: Record<string, PayerConfig> = {
     slug: 'cigna-texas',
     family: 'cigna',
     cardDesc: 'EN0499 (no TX carve-out) + the Tex. Ins. Code § 1355.015 mandate layer; no TX Medicaid plan.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'unverified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+      verifyVia: 'Cigna/Evernorth\'s precertification list via CignaforHCP. EN0499 (read in full 9/17/2026) sets medical-necessity criteria but states no prior-authorization requirement for any ABA code, so the PA answer cannot be sourced to it.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'unverified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+      verifyVia: 'Cigna/Evernorth\'s precertification list via CignaforHCP. EN0499 (read in full 9/17/2026) sets medical-necessity criteria but states no prior-authorization requirement for any ABA code, so the PA answer cannot be sourced to it.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
     payer: 'Cigna / Evernorth in Texas',
     state: 'TX', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Texas',
@@ -3561,6 +3976,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
         verifyVia: 'Cigna/Evernorth provider services and the participating-provider agreement — EN0499 is a coverage policy and carries no claim-attribution rule.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -3626,9 +4042,27 @@ export const texasPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-texas',
     family: 'unitedhealthcare',
     cardDesc: 'Optum criteria (no TX mandate entry) + the Tex. Ins. Code § 1355.015 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare / Optum in Texas',
     state: 'TX', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · Texas',
@@ -3718,6 +4152,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum/UnitedHealthcare reimbursement policy via Provider Express, or the participating-provider agreement.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -3736,6 +4171,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum provider services via Provider Express — the supplemental clinical criteria carry no signature standard.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -3753,6 +4189,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum provider services via Provider Express and the participating-provider agreement — claim-attribution rules are contractual.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {

@@ -4,9 +4,31 @@ export const indianaPayers: Record<string, PayerConfig> = {
   'indiana-medicaid': {
     slug: 'indiana-medicaid',
     cardDesc: 'All-PA ABA, 2026 EPSDT-only shift, 4,000-hr lifetime cap, published rate phasedown.',
-    assessmentPA: 'Required — all ABA services require prior authorization (FFS vendor: Acentra Health)',
-    treatmentPA: 'Required — each PA capped at 6 months; caregiver coaching required in every ABA PA',
-    dxRequired: 'Yes \u2014 ASD with a comprehensive diagnostic evaluation (CDE) + physician referral',
+    assessmentPA: {
+      value: 'Required — all ABA services require prior authorization (FFS vendor: Acentra Health)',
+      status: 'verified',
+      cites: [
+        { title: 'IHCP — Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+        { title: 'IHCP — ABA prior authorization checklist', url: 'https://www.in.gov/medicaid/providers/files/ihcp-aba-prior-auth-checklist.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — each PA capped at 6 months; caregiver coaching required in every ABA PA',
+      status: 'verified',
+      cites: [
+        { title: 'IHCP — Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+        { title: 'IHCP Bulletin BT202562 — ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
+        { title: 'IHCP Bulletin BT2026136 — Minimum caregiver coaching/training requirements for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD with a comprehensive diagnostic evaluation (CDE) + physician referral',
+      status: 'verified',
+      cites: [
+        { title: 'IHCP — Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+        { title: 'IHCP Bulletin BT202562 — ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
+      ],
+    },
     payer: 'Indiana Medicaid (IHCP)',
     state: 'IN', kind: 'state-medicaid',
     pill: 'Payer Guide · Indiana Medicaid',
@@ -118,8 +140,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Not published in the ABA sections of the provider reference module or in the 2026 policy bulletins. Indiana does regulate code-pair economics from a different direction \u2014 the rendering NPI on the claim must align with the credential-level modifier (U1 RBT / U2 BCaBA / U3 BCBA-HSPP), and 97155 and 97156 are excluded from the 4,000-hour lifetime allocation while 97153 counts against it \u2014 but neither states whether 97155 and 97153 may be billed for the same clock time.',
         status: 'unverified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
-        verifyVia:
-          'For fee-for-service, Acentra Health at 866-725-9991 (PA) or Gainwell Customer Assistance at 800-457-4584 (billing), plus the Procedure Codes and Modifiers for Applied Behavior Analysis Therapy table in Behavioral Health Services Codes on the IHCP Code Sets page. For a managed-care member, the MCE \u2014 IHCP states that MCEs establish and publish their own billing and reimbursement requirements.',
+        verifyVia: 'For fee-for-service, Acentra Health at 866-725-9991 (PA) or Gainwell Customer Assistance at 800-457-4584 (billing), plus the Procedure Codes and Modifiers for Applied Behavior Analysis Therapy table in Behavioral Health Services Codes on the IHCP Code Sets page. For a managed-care member, the MCE \u2014 IHCP states that MCEs establish and publish their own billing and reimbursement requirements.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -132,8 +154,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Indiana publishes signature rules for the plan documents but not for the session note. The behavior assessment \u201cmust be signed by the lead analyst and parent or guardian,\u201d and so must the treatment plan; the complete scoring report including outcome measure scores and graphs must be submitted with the PA request. Neither the provider reference module nor BT202562, the bulletin titled for ABA documentation requirements, states who signs an individual session note or by when.',
         status: 'unverified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'Acentra Health at 866-725-9991 for fee-for-service, or the member\'s MCE, which publishes its own documentation and billing requirements. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment \u2014 check for it before relying on this.',
+        verifyVia: 'Acentra Health at 866-725-9991 for fee-for-service, or the member\'s MCE, which publishes its own documentation and billing requirements. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment \u2014 check for it before relying on this.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -198,9 +220,29 @@ export const indianaPayers: Record<string, PayerConfig> = {
     slug: 'anthem-indiana-medicaid',
     family: 'anthem',
     cardDesc: 'IHCP criteria restated in Anthem\'s UM guideline; Availity/ICR submission, F84.0 + daily schedule.',
-    assessmentPA: 'Required — PA with autism dx (F84.0), testing results, intake assessment, treatment plan, and daily schedule',
-    treatmentPA: 'Required — max 6 months; continuation needs updated plan, testing within 2 months of treatment start, progress per goal',
-    dxRequired: 'Yes \u2014 ASD coded F84.0, with testing results (Anthem package)',
+    assessmentPA: {
+      value: 'Required — PA with autism dx (F84.0), testing results, intake assessment, treatment plan, and daily schedule',
+      status: 'verified',
+      cites: [
+        { title: 'Anthem — Indiana Medicaid ABA UM Guideline', url: 'https://providers.anthem.com/docs/gpp/IN_CAID_ABAGuidelines.pdf' },
+        { title: 'Anthem — Prior Authorization 201 (IHCP Works)', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2022-Anthem-Prior-Authorization-201.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — max 6 months; continuation needs updated plan, testing within 2 months of treatment start, progress per goal',
+      status: 'verified',
+      cites: [
+        { title: 'Anthem — Indiana Medicaid ABA UM Guideline', url: 'https://providers.anthem.com/docs/gpp/IN_CAID_ABAGuidelines.pdf' },
+        { title: 'Anthem — Prior Authorization 201 (IHCP Works)', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2022-Anthem-Prior-Authorization-201.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD coded F84.0, with testing results (Anthem package)',
+      status: 'verified',
+      cites: [
+        { title: 'Anthem — Indiana Medicaid ABA UM Guideline', url: 'https://providers.anthem.com/docs/gpp/IN_CAID_ABAGuidelines.pdf' },
+      ],
+    },
     payer: 'Anthem BCBS Indiana (Medicaid)',
     state: 'IN', kind: 'medicaid-mco', parent: 'Indiana Medicaid (IHCP)',
     pill: 'Payer Guide · Anthem (IN Medicaid)',
@@ -269,8 +311,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default.',
         status: 'unverified',
         cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
+        verifyVia: 'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -295,8 +337,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Neither Indiana Medicaid nor this plan publishes a session-note signature rule. The state\'s published signature requirements attach to the plan documents \u2014 the behavior assessment and the treatment plan must each be signed by the lead analyst and the parent or guardian \u2014 and BT202562, the bulletin titled for ABA documentation requirements, does not reach the individual session note. IHCP states its documentation requirements apply to managed care as well as fee-for-service, but also that MCEs establish and publish their own billing and reimbursement requirements, so the gap is not automatically filled at the state level.',
         status: 'unverified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
+        verifyVia: 'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -348,9 +390,29 @@ export const indianaPayers: Record<string, PayerConfig> = {
     slug: 'mhs-indiana',
     family: 'centene',
     cardDesc: 'IHCP criteria + MHS\'s own OTR form: named diagnostic instrument, outcome measure, utilization reporting.',
-    assessmentPA: 'Required — MHS ABA Outpatient Treatment Request form with a named standardized diagnostic tool, date, and score',
-    treatmentPA: 'Required — Focused vs. Comprehensive, Initial vs. Concurrent; concurrent requests report actual vs. authorized utilization',
-    dxRequired: 'Yes \u2014 ASD with a named standardized instrument, date, and score on the OTR',
+    assessmentPA: {
+      value: 'Required — MHS ABA Outpatient Treatment Request form with a named standardized diagnostic tool, date, and score',
+      status: 'verified',
+      cites: [
+        { title: 'MHS — ABA Outpatient Treatment Request form', url: 'https://www.mhsindiana.com/content/dam/centene/mhsindiana/medicaid/pdfs/508-BH-IN-Medicaid-ABA-OTR.pdf' },
+        { title: 'MHS — Behavioral health provider forms', url: 'https://www.mhsindiana.com/providers/behavioral-health/bh-provider-forms.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — Focused vs. Comprehensive, Initial vs. Concurrent; concurrent requests report actual vs. authorized utilization',
+      status: 'verified',
+      cites: [
+        { title: 'MHS — ABA Outpatient Treatment Request form', url: 'https://www.mhsindiana.com/content/dam/centene/mhsindiana/medicaid/pdfs/508-BH-IN-Medicaid-ABA-OTR.pdf' },
+        { title: 'MHS — Behavioral health provider forms', url: 'https://www.mhsindiana.com/providers/behavioral-health/bh-provider-forms.html' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD with a named standardized instrument, date, and score on the OTR',
+      status: 'verified',
+      cites: [
+        { title: 'MHS — ABA Outpatient Treatment Request form', url: 'https://www.mhsindiana.com/content/dam/centene/mhsindiana/medicaid/pdfs/508-BH-IN-Medicaid-ABA-OTR.pdf' },
+      ],
+    },
     payer: 'MHS — Managed Health Services (Indiana)',
     state: 'IN', kind: 'medicaid-mco', parent: 'Indiana Medicaid (IHCP)',
     pill: 'Payer Guide · MHS (Indiana)',
@@ -411,8 +473,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default.',
         status: 'unverified',
         cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
+        verifyVia: 'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -437,8 +499,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Neither Indiana Medicaid nor this plan publishes a session-note signature rule. The state\'s published signature requirements attach to the plan documents \u2014 the behavior assessment and the treatment plan must each be signed by the lead analyst and the parent or guardian \u2014 and BT202562, the bulletin titled for ABA documentation requirements, does not reach the individual session note. IHCP states its documentation requirements apply to managed care as well as fee-for-service, but also that MCEs establish and publish their own billing and reimbursement requirements, so the gap is not automatically filled at the state level.',
         status: 'unverified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
+        verifyVia: 'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -490,9 +552,30 @@ export const indianaPayers: Record<string, PayerConfig> = {
     slug: 'caresource-indiana',
     family: 'caresource',
     cardDesc: 'Defers to IHCP criteria (own policy archived); portal-first PA, one-agency rule, ABA audit posture.',
-    assessmentPA: 'Required — all ABA prior-authorized per IHCP criteria; portal submission preferred',
-    treatmentPA: 'Required — 6-month max per IHCP; continuation needs updated progress/assessment scores',
-    dxRequired: 'Yes \u2014 ASD with a comprehensive diagnostic evaluation (CDE) + physician referral',
+    assessmentPA: {
+      value: 'Required — all ABA prior-authorized per IHCP criteria; portal submission preferred',
+      status: 'verified',
+      cites: [
+        { title: 'CareSource — IN Medicaid prior authorization page', url: 'https://www.caresource.com/in/providers/provider-portal/prior-authorization/medicaid/' },
+        { title: 'CareSource — archived IN ABA policy MM-0900 (historical reference)', url: 'https://www.caresource.com/documents/medicaid-in-policy-medical-mm-0900-20220601' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 6-month max per IHCP; continuation needs updated progress/assessment scores',
+      status: 'verified',
+      cites: [
+        { title: 'CareSource — IN Medicaid prior authorization page', url: 'https://www.caresource.com/in/providers/provider-portal/prior-authorization/medicaid/' },
+        { title: 'CareSource — archived IN ABA policy MM-0900 (historical reference)', url: 'https://www.caresource.com/documents/medicaid-in-policy-medical-mm-0900-20220601' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD with a comprehensive diagnostic evaluation (CDE) + physician referral',
+      status: 'verified',
+      cites: [
+        { title: 'CareSource — IN Medicaid prior authorization page', url: 'https://www.caresource.com/in/providers/provider-portal/prior-authorization/medicaid/' },
+        { title: 'IHCP — Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+      ],
+    },
     payer: 'CareSource Indiana',
     state: 'IN', kind: 'medicaid-mco', parent: 'Indiana Medicaid (IHCP)',
     pill: 'Payer Guide · CareSource (IN)',
@@ -561,8 +644,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default.',
         status: 'unverified',
         cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
+        verifyVia: 'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -587,8 +670,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Neither Indiana Medicaid nor this plan publishes a session-note signature rule. The state\'s published signature requirements attach to the plan documents \u2014 the behavior assessment and the treatment plan must each be signed by the lead analyst and the parent or guardian \u2014 and BT202562, the bulletin titled for ABA documentation requirements, does not reach the individual session note. IHCP states its documentation requirements apply to managed care as well as fee-for-service, but also that MCEs establish and publish their own billing and reimbursement requirements, so the gap is not automatically filled at the state level.',
         status: 'unverified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
+        verifyVia: 'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -640,9 +723,29 @@ export const indianaPayers: Record<string, PayerConfig> = {
     slug: 'mdwise-indiana',
     family: 'mdwise',
     cardDesc: 'ENDED as an HIP/Hoosier Healthwise MCE effective 1/1/2026 — members reassigned to Anthem, CareSource, or MHS.',
-    assessmentPA: 'Required — all ABA codes PA-required (97151–97158, 0362T, 0373T) per the BH Reference Guide',
-    treatmentPA: 'Required — IHCP 6-month max applies; OTR to medical management via the member\'s delivery system',
-    dxRequired: 'Yes \u2014 ASD with a comprehensive diagnostic evaluation (CDE) + physician referral',
+    assessmentPA: {
+      value: 'Required — all ABA codes PA-required (97151–97158, 0362T, 0373T) per the BH Reference Guide',
+      status: 'verified',
+      cites: [
+        { title: 'MDwise — Behavioral Health Reference Guide (historical)', url: 'https://www.mdwise.org/Uploads/Public/Documents/MDwise/BH-Reference-Guide.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — IHCP 6-month max applies; OTR to medical management via the member\'s delivery system',
+      status: 'verified',
+      cites: [
+        { title: 'MDwise — Behavioral Health Reference Guide (historical)', url: 'https://www.mdwise.org/Uploads/Public/Documents/MDwise/BH-Reference-Guide.pdf' },
+        { title: 'IHCP — Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD with a comprehensive diagnostic evaluation (CDE) + physician referral',
+      status: 'verified',
+      cites: [
+        { title: 'IHCP — Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+        { title: 'IHCP Bulletin BT202562 — ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
+      ],
+    },
     payer: 'MDwise (Indiana)',
     state: 'IN', kind: 'medicaid-mco', parent: 'Indiana Medicaid (IHCP)',
     pill: 'Payer Guide · MDwise (IN)',
@@ -699,8 +802,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default.',
         status: 'unverified',
         cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
+        verifyVia: 'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -725,8 +828,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Neither Indiana Medicaid nor this plan publishes a session-note signature rule. The state\'s published signature requirements attach to the plan documents \u2014 the behavior assessment and the treatment plan must each be signed by the lead analyst and the parent or guardian \u2014 and BT202562, the bulletin titled for ABA documentation requirements, does not reach the individual session note. IHCP states its documentation requirements apply to managed care as well as fee-for-service, but also that MCEs establish and publish their own billing and reimbursement requirements, so the gap is not automatically filled at the state level.',
         status: 'unverified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
+        verifyVia: 'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -778,9 +881,29 @@ export const indianaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-indiana',
     family: 'unitedhealthcare',
     cardDesc: 'Hoosier Care Connect + PathWays for Aging ABA via the Optum carve-out — not HIP/Hoosier Healthwise.',
-    assessmentPA: 'Required — via Optum: ABA Treatment Request Form through Provider Express, phone (877) 610-9785, or fax (844) 897-6514',
-    treatmentPA: 'Required — non-urgent decisions within 7 calendar days (max 14); urgent 48 hrs; concurrent 1 business day',
-    dxRequired: 'Yes \u2014 ASD with a comprehensive diagnostic evaluation (CDE) + physician referral',
+    assessmentPA: {
+      value: 'Required — via Optum: ABA Treatment Request Form through Provider Express, phone (877) 610-9785, or fax (844) 897-6514',
+      status: 'verified',
+      cites: [
+        { title: 'UHC Community Plan — IHCP Works 2024 Prior Authorization seminar deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2024-UHC-Prior-Authorization.pdf' },
+        { title: 'UHC Community Plan of Indiana — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/indiana-health-plans/in-comm-plan-home/in-cp-prior-auth.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — non-urgent decisions within 7 calendar days (max 14); urgent 48 hrs; concurrent 1 business day',
+      status: 'verified',
+      cites: [
+        { title: 'UHC Community Plan — IHCP Works 2024 Prior Authorization seminar deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2024-UHC-Prior-Authorization.pdf' },
+        { title: 'UHC Community Plan of Indiana — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/indiana-health-plans/in-comm-plan-home/in-cp-prior-auth.html' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD with a comprehensive diagnostic evaluation (CDE) + physician referral',
+      status: 'verified',
+      cites: [
+        { title: 'IHCP — Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare Community Plan of Indiana',
     state: 'IN', kind: 'medicaid-mco', parent: 'Indiana Medicaid (IHCP)',
     pill: 'Payer Guide · UHC Community Plan (IN)',
@@ -842,8 +965,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default.',
         status: 'unverified',
         cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
+        verifyVia: 'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -868,8 +991,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Neither Indiana Medicaid nor this plan publishes a session-note signature rule. The state\'s published signature requirements attach to the plan documents \u2014 the behavior assessment and the treatment plan must each be signed by the lead analyst and the parent or guardian \u2014 and BT202562, the bulletin titled for ABA documentation requirements, does not reach the individual session note. IHCP states its documentation requirements apply to managed care as well as fee-for-service, but also that MCEs establish and publish their own billing and reimbursement requirements, so the gap is not automatically filled at the state level.',
         status: 'unverified',
         cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia:
-          'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
+        verifyVia: 'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -921,9 +1044,32 @@ export const indianaPayers: Record<string, PayerConfig> = {
     slug: 'aetna-indiana',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the Ind. Code 27-8-14.2 mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      ],
+      verifyVia: 'Two Aetna documents disagree on the code range and a human must settle which governs an ABA review: CPB 0554 and CPB 0648 both list "ICD-10 codes covered if selection criteria are met: F84.0 - F84.9", while the Applied behavior analysis medical necessity guide — the guideline Aetna’s behavioral-health reviewers apply — states "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)" in both its quality-of-care elements and its medical-necessity criteria, which leaves out F84.2 (Rett syndrome). The ASD-only half of the claim is not in doubt; the range is.',
+      blocker: 'document',
+    },
     payer: 'Aetna in Indiana',
     state: 'IN', kind: 'commercial',
     pill: 'Payer Guide · Aetna · Indiana',
@@ -995,6 +1141,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Ind. Code § 27-8-14.2-5 (individual offer)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
       { title: 'Indiana PLA — Behavior Analyst licensure', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
       { title: 'Ind. Code \u00a7 25-8.5-3-6 \u2014 practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+      { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1008,40 +1157,40 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Not published. Neither CPB 0554 nor CPB 0648 states whether 97155 and 97153 may be billed for the same clock time, and Aetna publishes no Indiana-specific ABA policy, form or supplement.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Availity Essentials for the plan\'s reimbursement and claim-editing policies, or the provider-services number on the member\'s card.',
+        verifyVia: 'Availity Essentials for the plan\'s reimbursement and claim-editing policies, or the provider-services number on the member\'s card.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
           'Not published. CPB 0554 lists the covered ABA codes but sets no per-day unit ceiling, and Aetna publishes no ABA-specific MUE table. The operative ceiling is the precertification itself, which requires requested hours to be listed code by code \u2014 so the authorization, not a policy, is what bounds the day. CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year as clinical context rather than as a limit.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'The authorization letter itself, plus Availity Essentials for the plan\'s claim-editing and reimbursement policies. Ask whether CMS MUE limits are applied to ABA codes on this plan.',
+        verifyVia: 'The authorization letter itself, plus Availity Essentials for the plan\'s claim-editing and reimbursement policies. Ask whether CMS MUE limits are applied to ABA codes on this plan.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
           'Not published. CPB 0554 and CPB 0648 set coverage criteria and precertification content; neither states what a session note must contain, who signs it, or by when.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Aetna provider services or Availity \u2014 ask for the documentation standard applied at audit, and keep to the precertification form\'s own data elements in the meantime.',
+        verifyVia: 'Aetna provider services or Availity \u2014 ask for the documentation standard applied at audit, and keep to the precertification form\'s own data elements in the meantime.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
           'Not published as a payable-settings list. What CPB 0554 does make a submission requirement is adjacent and useful: the precertification form asks for concurrent services \u2014 PT, OT, speech and school services \u2014 plus how care is coordinated across them, so the school picture is data Aetna collects even though it publishes no school-versus-home rule.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA and whether school-based delivery is excluded.',
+        verifyVia: 'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA and whether school-based delivery is excluded.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
           'Not published for ABA. CPB 0554 sets who may deliver the service \u2014 BACB-certified or state-licensed behavior analysts, with unlicensed staff supervised \u2014 but does not state whose NPI carries a technician-delivered 97153 claim, or which degree-level modifiers apply, and Aetna publishes no Indiana-specific ABA supplement. Indiana supplies the licensure half: the supervising analyst must hold the state LBA (or LABA) licence, and direct-contact technicians are exempt from licensure only while acting under the extended authority and direction of a licensed behavior analyst.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Ind. Code \u00a7 25-8.5-3-6 \u2014 practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' }],
-        verifyVia:
-          'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required degree-level modifiers before the first claim.',
+        verifyVia: 'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required degree-level modifiers before the first claim.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -1050,14 +1199,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'None from either direction, which is unusual. The carrier\'s national ABA policy states no age limit, and Indiana\'s mandate \u2014 the first autism insurance mandate in the country \u2014 imposes none either: group accident and sickness policies must cover treatment of an autism spectrum disorder prescribed by the insured\'s treating physician under a treatment plan, with no age limit and no dollar, visit or hour cap anywhere in IC 27-8-14.2. Individual-policy insurers must only offer the coverage, and self-funded ERISA plans are outside the chapter entirely \u2014 so an individual or self-funded plan may lawfully lack the benefit.',
         status: 'plan-dependent',
         cites: [{ title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — ask three things: is this a fully-insured Indiana group policy (the mandate reaches it), an individual policy (IC 27-8-14.2-5 requires only that the coverage be offered, so ask whether this policy took it up), or a self-funded ERISA plan (outside the chapter entirely); and if the plan is outside the mandate, what age or hour limit the plan document itself imposes on ABA.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
           'Aetna publishes no recency rule for the ASD diagnostic evaluation, and Indiana\'s mandate sets none for commercial plans \u2014 the one-year CDE rule in this state belongs to Indiana Medicaid, not to IC 27-8-14.2. Capture the evaluation date anyway: the precertification package asks for it.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
-        verifyVia:
-          'The precertification call or Availity, when submitting form GR-69017-4 \u2014 ask whether an evaluation of this age will be accepted for this plan.',
+        verifyVia: 'The precertification call or Availity, when submitting form GR-69017-4 \u2014 ask whether an evaluation of this age will be accepted for this plan.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -1070,14 +1221,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'No instrument is named. CPB 0554 does not require or reference a specific diagnostic tool, and the precertification form asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials rather than for an instrument and score. Indiana\'s mandate names none either, and defines autism spectrum disorder only by reference to the DSM.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
-        verifyVia:
-          'Aetna precertification (Availity or the number on the card) \u2014 ask whether a specific instrument is expected for this plan before scheduling testing.',
+        verifyVia: 'Aetna precertification (Availity or the number on the card) \u2014 ask whether a specific instrument is expected for this plan before scheduling testing.',
+        blocker: 'per-case',
       },
       referral: {
         value:
           'Yes on a fully-insured Indiana group plan, and it is the statute that requires it: coverage is \u201climited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan.\u201d The mandate names no credential for the person delivering the service \u2014 that comes from the carrier and from Indiana\'s separate licensure chapter \u2014 but the treating physician\'s prescription is a coverage condition. Capture the prescribing physician and the plan they signed off on. Individual policies (offer-only) and self-funded ERISA plans are outside the chapter.',
         status: 'plan-dependent',
         cites: [{ title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm the funding type first, because the statutory prescription requirement only reaches fully-insured Indiana group policies. On an individual or self-funded ERISA plan, ask the carrier directly whether it requires a treating-physician prescription and a treatment plan, and get the answer with the authorization.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -1097,9 +1250,27 @@ export const indianaPayers: Record<string, PayerConfig> = {
     slug: 'cigna-indiana',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the Ind. Code 27-8-14.2 mandate layer.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
     payer: 'Cigna / Evernorth in Indiana',
     state: 'IN', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Indiana',
@@ -1202,16 +1373,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Not published as a per-day unit ceiling. EN0499 bounds the day from a different direction: ABA is not covered when delivered at the same time as another therapy to the same child, and only one provider can bill a unit of time, with the standard supervision exceptions. Requested intensity is set in the treatment plan and authorized on the ABA PA form rather than against a published cap.',
         status: 'unverified',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'The treatment authorization itself, and Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask whether any per-day MUE is applied to ABA codes on this plan.',
+        verifyVia: 'The treatment authorization itself, and Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask whether any per-day MUE is applied to ABA codes on this plan.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
           'Not published as a payable-settings list. Two sourced facts bear on setting nonetheless: the treatment plan must carry dated baseline data per setting, so settings are declared and measured rather than assumed; and every session note must record the location. Whether a given setting is payable is a plan-benefit question.',
         status: 'unverified',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA, and whether school-based delivery is excluded before you write school goals.',
+        verifyVia: 'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA, and whether school-based delivery is excluded before you write school goals.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -1220,6 +1391,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'None from either direction, which is unusual. The carrier\'s national ABA policy states no age limit, and Indiana\'s mandate \u2014 the first autism insurance mandate in the country \u2014 imposes none either: group accident and sickness policies must cover treatment of an autism spectrum disorder prescribed by the insured\'s treating physician under a treatment plan, with no age limit and no dollar, visit or hour cap anywhere in IC 27-8-14.2. Individual-policy insurers must only offer the coverage, and self-funded ERISA plans are outside the chapter entirely \u2014 so an individual or self-funded plan may lawfully lack the benefit.',
         status: 'plan-dependent',
         cites: [{ title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — ask three things: is this a fully-insured Indiana group policy (the mandate reaches it), an individual policy (IC 27-8-14.2-5 requires only that the coverage be offered, so ask whether this policy took it up), or a self-funded ERISA plan (outside the chapter entirely); and if the plan is outside the mandate, what age or hour limit the plan document itself imposes on ABA.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1232,8 +1405,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'EN0499 as quoted in this guide sets the credential bar for who performs the ABA assessment and supervises the case \u2014 an independently licensed provider or a BCBA \u2014 rather than naming who may make the ASD diagnosis. The diagnosis must be a DSM-5-TR autism spectrum diagnosis, with Rett syndrome (F84.2) excluded. Indiana\'s mandate requires only that the treatment be prescribed by the insured\'s treating physician.',
         status: 'unverified',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
-        verifyVia:
-          'Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask which diagnosing credentials EN0499 accepts.',
+        verifyVia: 'Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask which diagnosing credentials EN0499 accepts.',
+        blocker: 'per-case',
       },
       diagnosticTools: {
         value:
@@ -1246,6 +1419,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Yes on a fully-insured Indiana group plan, and it is the statute that requires it: coverage is \u201climited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan.\u201d The mandate names no credential for the person delivering the service \u2014 that comes from the carrier and from Indiana\'s separate licensure chapter \u2014 but the treating physician\'s prescription is a coverage condition. Capture the prescribing physician and the plan they signed off on. Individual policies (offer-only) and self-funded ERISA plans are outside the chapter.',
         status: 'plan-dependent',
         cites: [{ title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm the funding type first, because the statutory prescription requirement only reaches fully-insured Indiana group policies. On an individual or self-funded ERISA plan, ask the carrier directly whether it requires a treating-physician prescription and a treatment plan, and get the answer with the authorization.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -1265,9 +1440,30 @@ export const indianaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-indiana',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the Ind. Code 27-8-14.2 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare / Optum in Indiana',
     state: 'IN', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · Indiana',
@@ -1365,8 +1561,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Optum authorizes in four code clusters rather than against a per-day ceiling \u2014 assessment (97151, 97152), direct care (97153, 97154), multi-staff (0362T, 0373T) and QHP services (97155\u201397158) \u2014 with units flexing within a cluster without a new authorization. Optum\'s Indiana State Mandates entry pushes the same way: services are recognized as intensive and may be provided daily, and the document disclaims any quantitative benefit limits implied by its guidelines. The number that bites runs the other way: utilization below 80 percent of authorized hours over a two-week window draws scrutiny at review.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum \u2014 ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
-        verifyVia:
-          'The authorization letter on Provider Express, and Optum provider services \u2014 ask whether any per-day MUE applies on top of the cluster structure.',
+        verifyVia: 'The authorization letter on Provider Express, and Optum provider services \u2014 ask whether any per-day MUE applies on top of the cluster structure.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1379,16 +1575,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Not published in the Supplemental Clinical Criteria. What Optum specifies is the review packet rather than the session note: continued-service reviews every 4\u20136 months want progress documented per targeted behavior using the same measurement methods as baseline, mastered-program rates, change scores and updated standardized adaptive measures. Who signs an individual session note, and by when, is not stated.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum provider services, or your Provider Express network manager \u2014 ask for the documentation standard applied at audit.',
+        verifyVia: 'Optum provider services, or your Provider Express network manager \u2014 ask for the documentation standard applied at audit.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
           'Not published in the Supplemental Clinical Criteria. Optum authorizes by code cluster and names a QHP services cluster (97155\u201397158) distinct from the direct-care cluster (97153, 97154), which implies a credential split on the rendering line but does not state whose NPI carries a technician-delivered 97153 claim or which degree-level modifiers apply.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum provider services or the authorization letter on Provider Express \u2014 confirm the rendering-versus-billing NPI convention and any required modifiers before the first claim.',
+        verifyVia: 'Optum provider services or the authorization letter on Provider Express \u2014 confirm the rendering-versus-billing NPI convention and any required modifiers before the first claim.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -1397,14 +1593,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'None from either direction, which is unusual. The carrier\'s national ABA policy states no age limit, and Indiana\'s mandate \u2014 the first autism insurance mandate in the country \u2014 imposes none either: group accident and sickness policies must cover treatment of an autism spectrum disorder prescribed by the insured\'s treating physician under a treatment plan, with no age limit and no dollar, visit or hour cap anywhere in IC 27-8-14.2. Individual-policy insurers must only offer the coverage, and self-funded ERISA plans are outside the chapter entirely \u2014 so an individual or self-funded plan may lawfully lack the benefit.',
         status: 'plan-dependent',
         cites: [{ title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — ask three things: is this a fully-insured Indiana group policy (the mandate reaches it), an individual policy (IC 27-8-14.2-5 requires only that the coverage be offered, so ask whether this policy took it up), or a self-funded ERISA plan (outside the chapter entirely); and if the plan is outside the mandate, what age or hour limit the plan document itself imposes on ABA.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
           'Optum publishes no recency rule for the ASD diagnosis in the Supplemental Clinical Criteria cited here; the cadence it does set is downstream \u2014 continued-service reviews every 4\u20136 months requiring updated standardized adaptive measures and progress measured the same way as baseline. Indiana\'s mandate sets no recency rule for commercial plans.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
-        verifyVia:
-          'Optum provider services or the assessment-authorization request on Provider Express \u2014 ask whether an evaluation of this age will be accepted before scheduling.',
+        verifyVia: 'Optum provider services or the assessment-authorization request on Provider Express \u2014 ask whether an evaluation of this age will be accepted before scheduling.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -1423,6 +1621,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Yes on a fully-insured Indiana group plan, and it is the statute that requires it: coverage is \u201climited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan.\u201d The mandate names no credential for the person delivering the service \u2014 that comes from the carrier and from Indiana\'s separate licensure chapter \u2014 but the treating physician\'s prescription is a coverage condition. Capture the prescribing physician and the plan they signed off on. Individual policies (offer-only) and self-funded ERISA plans are outside the chapter.',
         status: 'plan-dependent',
         cites: [{ title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm the funding type first, because the statutory prescription requirement only reaches fully-insured Indiana group policies. On an individual or self-funded ERISA plan, ask the carrier directly whether it requires a treating-physician prescription and a treatment plan, and get the answer with the authorization.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -1444,9 +1644,34 @@ export const indianaPayers: Record<string, PayerConfig> = {
     state: 'IN', kind: 'commercial',
     family: 'anthem',
     cardDesc: 'No dollar, age, visit or hour cap in the mandate; Indiana now licenses LBAs; Anthem reviews in-house.',
-    assessmentPA: 'Yes — ABA is precertified as a category; Anthem\'s Indiana list names no individual CPT codes, so request assessment and treatment together',
-    treatmentPA: 'Yes — responsible party Anthem; the authorization now carries weekly approved units',
-    dxRequired: 'Yes — and the treatment must be prescribed by the insured\'s treating physician under a treatment plan',
+    assessmentPA: {
+      value: 'Yes — ABA is precertified as a category; Anthem\'s Indiana list names no individual CPT codes, so request assessment and treatment together',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+      ],
+      verifyVia: 'Anthem publishes the requirement but also publishes its limits, so check the group before you rely on it: the Central Blues precertification list applies to local fully-insured members and to self-insured (ASO) members only where the group purchased the medical-management program — where it did not, preapproval is not required and no clinical review is performed — and on National Accounts business precertification for ABA “applies unless the group specifically opts out of clinical review for this benefit.” Confirm funding type and medical-management purchase on the benefits call, via Availity Essentials or the number on the member’s card.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Yes — responsible party Anthem; the authorization now carries weekly approved units',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+      ],
+      verifyVia: 'Anthem publishes the requirement but also publishes its limits, so check the group before you rely on it: the Central Blues precertification list applies to local fully-insured members and to self-insured (ASO) members only where the group purchased the medical-management program — where it did not, preapproval is not required and no clinical review is performed — and on National Accounts business precertification for ABA “applies unless the group specifically opts out of clinical review for this benefit.” Confirm funding type and medical-management purchase on the benefits call, via Availity Essentials or the number on the member’s card.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes — and the treatment must be prescribed by the insured\'s treating physician under a treatment plan',
+      status: 'verified',
+      cites: [
+        { title: 'Ind. Code § 27-8-14.2-3 — definition of autism spectrum disorder', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-3/' },
+        { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-4/' },
+      ],
+    },
     pill: 'Payer Guide · Anthem BCBS · Indiana',
     h1: 'Anthem BCBS Indiana ABA coverage: the intake guide.',
     metaTitle: 'Anthem BCBS Indiana ABA Coverage & Prior Auth: Intake Guide | Carelu',
@@ -1601,8 +1826,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Neither Indiana\'s mandate nor any published Anthem Indiana document states how recent the ASD diagnostic evaluation must be. Anthem reviews ABA under MCG B-806-T, which is licensed and proprietary and is not published, so the recency rule \u2014 if there is one \u2014 lives in a document you cannot read. What is published is the treatment-plan side: documentation must show the plan reviewed or updated at least every 6 months.',
         status: 'unverified',
         cites: [{ title: 'Anthem ABA Provider Resource Guide \u2014 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
-        verifyVia:
-          'Availity Essentials \u2192 Authorizations and Referrals, or Anthem provider services \u2014 ask what evaluation age B-806-T accepts. If a denial turns on recency, ask for the criteria in writing; a denial citing the retired CG-BEH-02 is itself an appeal point.',
+        verifyVia: 'Availity Essentials \u2192 Authorizations and Referrals, or Anthem provider services \u2014 ask what evaluation age B-806-T accepts. If a denial turns on recency, ask for the criteria in writing; a denial citing the retired CG-BEH-02 is itself an appeal point. MCG B-806-T is licensed proprietary criteria \u2014 it is never published and no document request will produce it, so the plan\u2019s own UM reviewer is the only route to the answer.',
+        blocker: 'licensed',
       },
       diagnosingProviders: {
         value:
@@ -1627,8 +1852,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Anthem names two telehealth place-of-service codes for ABA \u2014 10 (member at home) and 02 (member elsewhere) \u2014 but does not publish a national list of telehealth-eligible ABA codes. Its ABA provider resource guide routes the question to the Virtual Visits reimbursement policy, notes that \u201callowed codes may vary,\u201d and tells providers to consult the allowed virtual services list in addition to CPT Appendix P \u201cto obtain codes that are eligible for reimbursement in your state.\u201d Treat the answer as per-state and per-plan and confirm before scheduling remote hours.',
         status: 'plan-dependent',
         cites: [{ title: 'Anthem ABA Provider Resource Guide \u2014 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
-        verifyVia:
-          'Anthem\'s Virtual Visits reimbursement policy and the Indiana allowed-virtual-services list, or Anthem provider services via Availity Essentials.',
+        verifyVia: 'Anthem\'s Virtual Visits reimbursement policy and the Indiana allowed-virtual-services list, or Anthem provider services via Availity Essentials.',
+        blocker: 'document',
       },
     },
     faq: [

@@ -4,9 +4,21 @@ export const tennesseePayers: Record<string, PayerConfig> = {
   'tenncare-tennessee-medicaid': {
     slug: 'tenncare-tennessee-medicaid',
     cardDesc: 'Through age 21 via EPSDT, no annual limit, LBA licensure, one tri-MCO program.',
-    assessmentPA: 'Required — Universal ABA Request Form ("Assessment Request") with diagnostic report + doctor\'s order, to the member\'s MCO',
-    treatmentPA: 'Required — 6-month (26-week) authorization periods; continuation must report % of units used',
-    dxRequired: 'ASD or another qualifying DSM-5-TR diagnosis \u2014 not strictly autism-only',
+    assessmentPA: {
+      value: 'Required — Universal ABA Request Form ("Assessment Request") with diagnostic report + doctor\'s order, to the member\'s MCO',
+      status: 'verified',
+      cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — 6-month (26-week) authorization periods; continuation must report % of units used',
+      status: 'verified',
+      cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+    },
+    dxRequired: {
+      value: 'ASD or another qualifying DSM-5-TR diagnosis \u2014 not strictly autism-only',
+      status: 'verified',
+      cites: [{ title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+    },
     payer: 'TennCare (Tennessee Medicaid)',
     state: 'TN', kind: 'state-medicaid',
     pill: 'Payer Guide · TennCare',
@@ -150,6 +162,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
         verifyVia:
           'The member\u2019s MCO and its claim-edit policy \u2014 BlueCare behavioral (BHABA@bcbst.com, (423) 535-5717 option 2), Wellpoint provider services (833) 731-2154, or UnitedHealthcare\u2019s TN ABA line (800) 690-1606. TennCare publishes no ABA fee schedule or edit table, so the answer lives in each MCO contract.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -164,6 +177,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
         verifyVia:
           'The member\u2019s MCO provider manual (BlueCare\u2019s Provider Administration Manual, Wellpoint\u2019s TN provider manual, UHC\u2019s TN Community Plan manual) and the record-documentation terms of your MCO participation agreement.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -190,9 +204,21 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     slug: 'bluecare-tennessee',
     family: 'bcbst',
     cardDesc: 'Shared TennCare program via Availity/BCBST; 26-week auths, 14-day UM decisions.',
-    assessmentPA: 'Required — Universal ABA Request Form (diagnostic report + doctor\'s order) via Availity or fax (800) 292-5311',
-    treatmentPA: 'Required — 26-week periods; continuation shows progress, severity levels, and hours approved vs. used',
-    dxRequired: 'ASD or another qualifying DSM-5-TR diagnosis \u2014 not strictly autism-only',
+    assessmentPA: {
+      value: 'Required — Universal ABA Request Form (diagnostic report + doctor\'s order) via Availity or fax (800) 292-5311',
+      status: 'verified',
+      cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'BCBST — ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — 26-week periods; continuation shows progress, severity levels, and hours approved vs. used',
+      status: 'verified',
+      cites: [{ title: 'BlueCare — Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+    },
+    dxRequired: {
+      value: 'ASD or another qualifying DSM-5-TR diagnosis \u2014 not strictly autism-only',
+      status: 'verified',
+      cites: [{ title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST — ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+    },
     payer: 'BlueCare Tennessee (BCBST)',
     state: 'TN', kind: 'medicaid-mco', parent: 'TennCare',
     pill: 'Payer Guide · BlueCare Tennessee',
@@ -299,6 +325,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
         verifyVia:
           'BlueCare behavioral health \u2014 BHABA@bcbst.com or (423) 535-5717, option 2 \u2014 and the BlueCare Tennessee Provider Administration Manual\u2019s ABA and claim-editing sections.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -313,6 +340,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
         verifyVia:
           'The BlueCare Tennessee Provider Administration Manual\u2019s record-documentation section, or BlueCare provider relations at (800) 468-9736.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -338,9 +366,21 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-tennessee',
     family: 'unitedhealthcare',
     cardDesc: 'Shared TennCare baseline + UHC\'s own Level of Care rules: physician order, 20-hr gate.',
-    assessmentPA: 'Required — universal form + comprehensive clinical evaluation AND a physician order recommending ABA',
-    treatmentPA: 'Required — initial + concurrent review; no measurable progress over 3 months can end medical necessity',
-    dxRequired: 'ASD or another qualifying DSM-5-TR diagnosis \u2014 not strictly autism-only',
+    assessmentPA: {
+      value: 'Required — universal form + comprehensive clinical evaluation AND a physician order recommending ABA',
+      status: 'verified',
+      cites: [{ title: 'UHC — Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — initial + concurrent review; no measurable progress over 3 months can end medical necessity',
+      status: 'verified',
+      cites: [{ title: 'UHC — Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }],
+    },
+    dxRequired: {
+      value: 'ASD or another qualifying DSM-5-TR diagnosis \u2014 not strictly autism-only',
+      status: 'verified',
+      cites: [{ title: 'UHC — Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }],
+    },
     payer: 'UnitedHealthcare Community Plan of Tennessee',
     state: 'TN', kind: 'medicaid-mco', parent: 'TennCare',
     pill: 'Payer Guide · UHC Community Plan (TN)',
@@ -447,6 +487,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }],
         verifyVia:
           'UnitedHealthcare\u2019s TN ABA line (800) 690-1606 or tn_medicaid_aba@uhc.com, and the UHC Community Plan of Tennessee reimbursement policies on uhcprovider.com.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -461,6 +502,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
         verifyVia:
           'The UnitedHealthcare Community Plan of Tennessee Care Provider Manual\u2019s medical-records standards, or the TN ABA line (800) 690-1606.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -486,9 +528,21 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     slug: 'wellpoint-tennessee',
     family: 'anthem',
     cardDesc: 'Shared TennCare program via Availity ICR; MD-order emphasis, <90% utilization rule.',
-    assessmentPA: 'Required — universal form with MD order / treating-provider recommendation, via Availity or fax (866) 920-6006',
-    treatmentPA: 'Required — 26-week periods; continuation reports unit utilization (<90% on 97153 needs explanation)',
-    dxRequired: 'ASD or another qualifying DSM-5-TR diagnosis \u2014 not strictly autism-only',
+    assessmentPA: {
+      value: 'Required — universal form with MD order / treating-provider recommendation, via Availity or fax (866) 920-6006',
+      status: 'verified',
+      cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — 26-week periods; continuation reports unit utilization (<90% on 97153 needs explanation)',
+      status: 'verified',
+      cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+    },
+    dxRequired: {
+      value: 'ASD or another qualifying DSM-5-TR diagnosis \u2014 not strictly autism-only',
+      status: 'verified',
+      cites: [{ title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+    },
     payer: 'Wellpoint Tennessee (formerly Amerigroup)',
     state: 'TN', kind: 'medicaid-mco', parent: 'TennCare',
     pill: 'Payer Guide · Wellpoint (TN)',
@@ -593,6 +647,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
         verifyVia:
           'Wellpoint TN provider services (833) 731-2154 or the named regional ABA contacts published in the tri-MCO update materials; Wellpoint\u2019s own reimbursement policies on provider.wellpoint.com.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -607,6 +662,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
         verifyVia:
           'Wellpoint TN provider services (833) 731-2154 and the Wellpoint Tennessee provider manual\u2019s medical-record documentation standards.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -632,9 +688,21 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     slug: 'tenncare-select',
     family: 'bcbst',
     cardDesc: 'Statewide PIHP (VSHP) — separate contract from BlueCare; SSI kids, foster youth, IDD/CHOICES. 37,095 members.',
-    assessmentPA: 'Required — shared tri-MCO universal ABA request form; submit via Availity (in-state) or Cohere (out-of-state)',
-    treatmentPA: 'Required — 26-week (6-month) authorization periods; continuation reports severity level and hours used',
-    dxRequired: 'ASD or another qualifying DSM-5-TR diagnosis — not strictly autism-only (shared TennCare baseline)',
+    assessmentPA: {
+      value: 'Required — shared tri-MCO universal ABA request form; submit via Availity (in-state) or Cohere (out-of-state)',
+      status: 'verified',
+      cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'BCBST — ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — 26-week (6-month) authorization periods; continuation reports severity level and hours used',
+      status: 'verified',
+      cites: [{ title: 'BlueCare — Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+    },
+    dxRequired: {
+      value: 'ASD or another qualifying DSM-5-TR diagnosis — not strictly autism-only (shared TennCare baseline)',
+      status: 'verified',
+      cites: [{ title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST — ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+    },
     payer: 'TennCare Select',
     state: 'TN', kind: 'medicaid-mco', parent: 'TennCare',
     pill: 'Payer Guide · TennCare Select',
@@ -778,6 +846,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
         verifyVia:
           'TennCare Select prior auth 1-800-711-4104 or (423) 535-5717 option 2, and the BlueCare Tennessee Provider Administration Manual\u2019s ABA and claim-editing sections.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -792,6 +861,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
         verifyVia:
           'The BlueCare Tennessee Provider Administration Manual\u2019s record-documentation section, or TennCare Select provider services 1-800-276-1978.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -818,9 +888,21 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     slug: 'aetna-tennessee',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the Tenn. Code Ann. § 56-7-2367 mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+      status: 'verified',
+      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+    },
     payer: 'Aetna in Tennessee',
     state: 'TN', kind: 'commercial',
     pill: 'Payer Guide · Aetna · Tennessee',
@@ -898,6 +980,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
         verifyVia:
           'Live benefits verification on the specific plan, and the summary plan description for a self-funded employer group.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -906,6 +989,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Precertification intake at Aetna (form GR-69017-4 via Availity or phone) \u2014 ask what evaluation age the reviewer will accept, and get the answer in writing per case.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -920,6 +1004,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Aetna precertification (form GR-69017-4) \u2014 confirm which instrument results the reviewer requires for the specific plan.',
+        blocker: 'per-case',
       },
       referral: {
         value:
@@ -928,6 +1013,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
         verifyVia:
           'Live benefits verification and the plan document; Aetna precertification intake for the specific member.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -936,6 +1022,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Aetna\u2019s telemedicine policy and the member\u2019s benefit document, confirmed at precertification before scheduling remote sessions.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -946,6 +1033,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
         verifyVia:
           'Aetna provider services and your participating-provider agreement; the TN Applied Behavior Analyst Licensing Committee for the licensure floor.',
+        blocker: 'per-case',
       },
       concurrentBilling: {
         value:
@@ -954,6 +1042,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Aetna\u2019s clinical payment, coding and policy changes pages and your participating-provider agreement; confirm with provider services per case before billing the overlap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -962,6 +1051,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
         verifyVia:
           'Live benefits verification for the specific plan \u2014 ask for visit, hour and dollar limits in writing, and flag any ABA-only limit for a parity review.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -970,6 +1060,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
         verifyVia:
           'Aetna\u2019s provider manual medical-records standards and your participating-provider agreement.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -978,6 +1069,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Live benefits verification and Aetna\u2019s place-of-service reimbursement guidance for the specific plan.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -986,6 +1078,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
         verifyVia:
           'Your Aetna participating-provider agreement and Aetna\u2019s professional claim submission guidance.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -999,9 +1092,21 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     slug: 'cigna-tennessee',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the Tenn. Code Ann. § 56-7-2367 mandate layer.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
     payer: 'Cigna / Evernorth in Tennessee',
     state: 'TN', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Tennessee',
@@ -1079,6 +1184,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
         verifyVia:
           'Live benefits verification on the specific plan; the summary plan description for a self-funded employer group.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1125,6 +1231,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         verifyVia:
           'Cigna/Evernorth provider services and the applicable reimbursement (not coverage) policy; confirm in writing before billing the overlap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1151,6 +1258,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
         verifyVia:
           'Cigna/Evernorth provider services and your participating-provider agreement for claim-submission conventions.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -1164,9 +1272,21 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-tennessee',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the Tenn. Code Ann. § 56-7-2367 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
     payer: 'UnitedHealthcare / Optum in Tennessee',
     state: 'TN', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · Tennessee',
@@ -1241,6 +1361,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
         verifyVia:
           'Live benefits verification on the specific plan; the summary plan description for a self-funded employer group.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1273,6 +1394,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/Provider Express virtual-visits requirements and the member\u2019s benefit plan \u2014 confirm code eligibility and POS before scheduling remote sessions.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1289,6 +1411,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/Provider Express provider services and UnitedHealthcare\u2019s reimbursement policies; confirm in writing before billing the overlap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1303,6 +1426,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/Provider Express documentation standards and the UnitedHealthcare provider administrative guide\u2019s medical-records section.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1317,6 +1441,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
         verifyVia:
           'Provider Express claim-submission guidance and your UnitedHealthcare participating-provider agreement.',
+        blocker: 'per-case',
       },
     },
     faq: [

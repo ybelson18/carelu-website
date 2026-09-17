@@ -4,9 +4,32 @@ export const kansasPayers: Record<string, PayerConfig> = {
   'kansas-medicaid': {
     slug: 'kansas-medicaid',
     cardDesc: 'CCTS + IIS under EPSDT (not "ABA"); 3 MCOs, 6-month diagnosis rule, 50 h/yr + 25 h/wk limits.',
-    assessmentPA: 'Required — physician/licensed-practitioner recommendation + PA per KMAP Bulletin 17129; each MCO runs its own intake',
-    treatmentPA: 'Required — CCTS soft limit 50 hrs/year, IIS initially authorized up to 25 hrs/week; MCO reauthorization at minimum every 6 months',
-    dxRequired: 'Yes — ASD (F84.x); both major MCOs require MD/licensed-psychologist validation within the last 6 months; EPSDT age 20 and under. Per KMAP Bulletin 26140 (eff. 11/1/2026), for members 20 and under the diagnosis must additionally come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity with a validated tool (e.g., ADOS, CARS) — a 2-year grace period applies to members already diagnosed by a non-compliant provider.',
+    assessmentPA: {
+      value: 'Required — physician/licensed-practitioner recommendation + PA per KMAP Bulletin 17129; each MCO runs its own intake',
+      status: 'verified',
+      cites: [{ title: 'KMAP Bulletin 17129 — Additional State Plan Services (CCTS/IIS under EPSDT, eff. 1/1/2017)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-17129.html' }],
+    },
+    treatmentPA: {
+      value: 'Required — CCTS soft limit 50 hrs/year, IIS initially authorized up to 25 hrs/week; MCO reauthorization at minimum every 6 months',
+      status: 'verified',
+      cites: [
+        { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (CCTS 50 h/yr, IIS 25 h/wk limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
+        { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
+        { title: 'KMAP Bulletin 17129 — Additional State Plan Services (CCTS/IIS under EPSDT, eff. 1/1/2017)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-17129.html' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (F84.x); both major MCOs require MD/licensed-psychologist validation within the last 6 months; EPSDT age 20 and under. Per KMAP Bulletin 26140 (eff. 11/1/2026), for members 20 and under the diagnosis must additionally come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity with a validated tool (e.g., ADOS, CARS) — a 2-year grace period applies to members already diagnosed by a non-compliant provider.',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (UPDATED 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
+        { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
+        { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+      ],
+      verifyVia:
+        'Unresolved conflict, not a missing document: KMAP Bulletin 26140 (reissued 8/31/2026, eff. 11/1/2026) says a member diagnosed by a qualified diagnostician is eligible for ABA "without the need for a re-evaluation" and with "no time limit," while Sunflower KS.CP.01 (last reviewed 06/2019) still requires an MD or licensed psychologist to have validated the diagnosis within the last 6 months. Ask the member\'s MCO (Sunflower, UnitedHealthcare/Optum or Healthy Blue) which rule its UM team applies at initial authorization.',
+      blocker: 'per-case',
+    },
     payer: 'KanCare (Kansas Medicaid)',
     state: 'KS', kind: 'state-medicaid',
     pill: 'Payer Guide · KanCare',
@@ -173,6 +196,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (UPDATED 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' }],
         verifyVia:
           'The KMAP Mental Health and Professional Fee-for-Service Provider Manuals named in Bulletin 26140 (portal.kmap-state-ks.us was unreachable at this review), or the member\'s MCO — Sunflower, UnitedHealthcare/Optum or Healthy Blue.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -195,6 +219,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The KMAP Mental Health Fee-for-Service Provider Manual (portal.kmap-state-ks.us was unreachable at this review), and each MCO — Sunflower, Optum and Healthy Blue run their own claim editing.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -212,6 +237,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
         verifyVia:
           'The KMAP Mental Health Fee-for-Service Provider Manual and the KMAP HCBS Autism manual (portal.kmap-state-ks.us unreachable at this review), plus each MCO\'s provider manual.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -223,6 +249,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The KMAP Mental Health Fee-for-Service Provider Manual (portal unreachable at this review) and the member\'s MCO.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -247,9 +274,30 @@ export const kansasPayers: Record<string, PayerConfig> = {
     slug: 'sunflower-health-plan-kansas',
     family: 'centene',
     cardDesc: 'Autism Auth Request Form, named assessment tools, 6-month dx rule, Kan Be Healthy screen gate.',
-    assessmentPA: 'Required — completed Autism Authorization Request Form with physician recommendation, diagnosis validated within 6 months, plus a standardized assessment and a skills-based assessment',
-    treatmentPA: 'Required — focused (10–25 h/wk) or comprehensive (25–40 h/wk) plans; 6-month continuation reviews and annual full reassessment; Kan Be Healthy screen within the past year',
-    dxRequired: 'Yes — ASD (F84.x per Sunflower\'s coding table), validated by an MD or licensed psychologist within the last 6 months; per KMAP Bulletin 26140 (eff. 11/1/2026), members 20 and under also need that diagnosis from a Kansas BSRB-licensed clinical psychologist or qualified physician using a validated tool (2-yr grace period for existing diagnoses)',
+    assessmentPA: {
+      value: 'Required — completed Autism Authorization Request Form with physician recommendation, diagnosis validated within 6 months, plus a standardized assessment and a skills-based assessment',
+      status: 'verified',
+      cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — focused (10–25 h/wk) or comprehensive (25–40 h/wk) plans; 6-month continuation reviews and annual full reassessment; Kan Be Healthy screen within the past year',
+      status: 'verified',
+      cites: [
+        { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
+        { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (CCTS 50 h/yr, IIS 25 h/wk limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (F84.x per Sunflower\'s coding table), validated by an MD or licensed psychologist within the last 6 months; per KMAP Bulletin 26140 (eff. 11/1/2026), members 20 and under also need that diagnosis from a Kansas BSRB-licensed clinical psychologist or qualified physician using a validated tool (2-yr grace period for existing diagnoses)',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
+        { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (UPDATED 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
+      ],
+      verifyVia:
+        'Unresolved conflict, not a missing document: KMAP Bulletin 26140 (reissued 8/31/2026, eff. 11/1/2026) says a member diagnosed by a qualified diagnostician is eligible for ABA "without the need for a re-evaluation" and with "no time limit," while Sunflower KS.CP.01 (last reviewed 06/2019) still requires an MD or licensed psychologist to have validated the diagnosis within the last 6 months. Ask the member\'s MCO (Sunflower, UnitedHealthcare/Optum or Healthy Blue) which rule its UM team applies at initial authorization.',
+      blocker: 'per-case',
+    },
     payer: 'Sunflower Health Plan (KS)',
     state: 'KS', kind: 'medicaid-mco', parent: 'KanCare (Kansas Medicaid)',
     pill: 'Payer Guide · Sunflower Health Plan',
@@ -356,6 +404,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
         verifyVia:
           'Sunflower provider services and the Sunflower/Centene payment policies; the KMAP Mental Health Fee-for-Service Provider Manual was unreachable at this review.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -375,6 +424,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
         verifyVia:
           'Sunflower provider services and Centene\'s payment policies on sunflowerhealthplan.com; submissions run through the standard secure portal / Availity PA channels.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -392,6 +442,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
         verifyVia:
           'The Sunflower provider manual and your participation agreement\'s documentation clause.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -400,6 +451,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
         verifyVia:
           'Sunflower provider services; the KMAP Mental Health Fee-for-Service Provider Manual was unreachable at this review.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -411,6 +463,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Sunflower provider services for the plan\'s rendering/billing convention; KMAP enrollment governs who may appear on the claim.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -425,9 +478,30 @@ export const kansasPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-kansas',
     family: 'unitedhealthcare',
     cardDesc: 'Optum-run; 6-month dx rule, 40 h/wk plan ceiling, monthly progress reviews, KMAP-first credentialing.',
-    assessmentPA: 'Required — PA for CCTS and IIS reviewed after all requested documentation is submitted (Optum)',
-    treatmentPA: 'Required — individualized plan capped at 40 hrs/week; monthly progress review; formal treatment-plan renewal at minimum every 6 months',
-    dxRequired: 'Yes — ASD validated within the last 6 months by a licensed psychologist or MD via comprehensive diagnostic evaluation; member age 20 and under. Per KMAP Bulletin 26140 (eff. 11/1/2026), that diagnosis must additionally come from a Kansas BSRB-licensed clinical psychologist or a qualified physician using a validated diagnostic tool (2-yr grace period for existing diagnoses)',
+    assessmentPA: {
+      value: 'Required — PA for CCTS and IIS reviewed after all requested documentation is submitted (Optum)',
+      status: 'verified',
+      cites: [{ title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — individualized plan capped at 40 hrs/week; monthly progress review; formal treatment-plan renewal at minimum every 6 months',
+      status: 'verified',
+      cites: [
+        { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (CCTS 50 h/yr, IIS 25 h/wk limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD validated within the last 6 months by a licensed psychologist or MD via comprehensive diagnostic evaluation; member age 20 and under. Per KMAP Bulletin 26140 (eff. 11/1/2026), that diagnosis must additionally come from a Kansas BSRB-licensed clinical psychologist or a qualified physician using a validated diagnostic tool (2-yr grace period for existing diagnoses)',
+      status: 'unverified',
+      cites: [
+        { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (UPDATED 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
+      ],
+      verifyVia:
+        'Unresolved conflict, not a missing document: KMAP Bulletin 26140 (reissued 8/31/2026, eff. 11/1/2026) says a member diagnosed by a qualified diagnostician is eligible for ABA "without the need for a re-evaluation" and with "no time limit," while Sunflower KS.CP.01 (last reviewed 06/2019) still requires an MD or licensed psychologist to have validated the diagnosis within the last 6 months. Ask the member\'s MCO (Sunflower, UnitedHealthcare/Optum or Healthy Blue) which rule its UM team applies at initial authorization.',
+      blocker: 'per-case',
+    },
     payer: 'UnitedHealthcare Community Plan of Kansas',
     state: 'KS', kind: 'medicaid-mco', parent: 'KanCare (Kansas Medicaid)',
     pill: 'Payer Guide · UHC Community Plan (KS)',
@@ -537,6 +611,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Optum\'s Kansas ABA network team (contracting line 1-877-614-0484) and the Optum KanCare Provider Manual on Provider Express.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -556,6 +631,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Optum\'s Kansas ABA network team (1-877-614-0484) and the Optum KanCare Provider Manual; the KMAP Mental Health Fee-for-Service Provider Manual was unreachable at this review.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -573,6 +649,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' }],
         verifyVia:
           'The Optum KanCare Provider Manual on Provider Express, and your participation agreement\'s documentation clause.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -599,9 +676,28 @@ export const kansasPayers: Record<string, PayerConfig> = {
     slug: 'healthy-blue-kansas',
     family: 'anthem',
     cardDesc: 'Newest MCO (1/1/2025, absorbed Aetna members); Availity intake, own autism-testing form, thin public policy.',
-    assessmentPA: 'Required — dedicated Autism Spectrum Disorder Testing request form (KSHB-CD-066296-24), which flags whether the request is to access ABA services',
-    treatmentPA: 'Required — via Availity (preferred), phone, or BH outpatient fax 1-866-852-8978; hour rules and review cadence not published — verify in the portal',
-    dxRequired: 'Yes — ASD, under the KanCare CCTS/IIS benefit. Healthy Blue publishes no diagnosis rule of its own, so the KMAP-wide rule binds: per Bulletin 26140 (reissued 8/31/2026, effective 11/1/2026), members 20 and under must be diagnosed by a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria and severity level using a validated tool such as ADOS or CARS, with a 2-year grace period for members already diagnosed by a non-qualifying provider',
+    assessmentPA: {
+      value: 'Required — dedicated Autism Spectrum Disorder Testing request form (KSHB-CD-066296-24), which flags whether the request is to access ABA services',
+      status: 'verified',
+      cites: [
+        { title: 'Healthy Blue Kansas — Prior Authorization Requirements', url: 'https://www.healthybluekansas.com/provider/state-federal/resources/prior-authorization-requirements' },
+        { title: 'Healthy Blue KS — ASD Testing request form (KSHB-CD-066296-24)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/behavioral-health/KSHB-CD-066296-24-SRS66052%20BH%20Autism%20Testing%20Request%20Form_FINAL_v2%20FILLABLE.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — via Availity (preferred), phone, or BH outpatient fax 1-866-852-8978; hour rules and review cadence not published — verify in the portal',
+      status: 'verified',
+      cites: [{ title: 'Healthy Blue Kansas — Prior Authorization Requirements', url: 'https://www.healthybluekansas.com/provider/state-federal/resources/prior-authorization-requirements' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD, under the KanCare CCTS/IIS benefit. Healthy Blue publishes no diagnosis rule of its own, so the KMAP-wide rule binds: per Bulletin 26140 (reissued 8/31/2026, effective 11/1/2026), members 20 and under must be diagnosed by a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria and severity level using a validated tool such as ADOS or CARS, with a 2-year grace period for members already diagnosed by a non-qualifying provider',
+      status: 'verified',
+      cites: [
+        { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (UPDATED 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
+        { title: 'KMAP Bulletin 17129 — Additional State Plan Services (CCTS/IIS under EPSDT, eff. 1/1/2017)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-17129.html' },
+        { title: 'Healthy Blue Kansas — Prior Authorization Requirements', url: 'https://www.healthybluekansas.com/provider/state-federal/resources/prior-authorization-requirements' },
+      ],
+    },
     payer: 'Healthy Blue Kansas',
     state: 'KS', kind: 'medicaid-mco', parent: 'KanCare (Kansas Medicaid)',
     pill: 'Payer Guide · Healthy Blue Kansas',
@@ -716,6 +812,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Healthy Blue KS — ASD Testing request form (KSHB-CD-066296-24)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/behavioral-health/KSHB-CD-066296-24-SRS66052%20BH%20Autism%20Testing%20Request%20Form_FINAL_v2%20FILLABLE.pdf' }],
         verifyVia:
           'Healthy Blue\'s ABA line at 877-563-9347, or Availity Essentials; the KMAP Mental Health Fee-for-Service Provider Manual was unreachable at this review.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -736,6 +833,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Healthy Blue Kansas — Prior Authorization Requirements', url: 'https://www.healthybluekansas.com/provider/state-federal/resources/prior-authorization-requirements' }],
         verifyVia:
           'Healthy Blue\'s Prior Authorization Lookup Tool and ABA line 877-563-9347, or Availity; the KMAP manuals were unreachable at this review.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -753,6 +851,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Healthy Blue KS — ASD Testing request form (KSHB-CD-066296-24)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/behavioral-health/KSHB-CD-066296-24-SRS66052%20BH%20Autism%20Testing%20Request%20Form_FINAL_v2%20FILLABLE.pdf' }],
         verifyVia:
           'The Healthy Blue Kansas provider manual and the Anthem/Elevance UM guideline library on healthybluekansas.com.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -761,6 +860,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Healthy Blue Kansas — Prior Authorization Requirements', url: 'https://www.healthybluekansas.com/provider/state-federal/resources/prior-authorization-requirements' }],
         verifyVia:
           'Healthy Blue\'s ABA line 877-563-9347 and the Prior Authorization Lookup Tool.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -784,9 +884,33 @@ export const kansasPayers: Record<string, PayerConfig> = {
     slug: 'aetna-kansas',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the K.S.A. 40-2,194 mandate layer; no KanCare plan anymore.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+      verifyVia:
+        'Aetna CPB 0554 / CPB 0648 and the ABA Medical Necessity Guide. The substantive rule — ASD only, ABA for other diagnoses considered experimental — is sourced, but the code range printed here is NOT: the Medical Necessity Guide states "(ICD-10/ F84.0; F84.3 - F84.9)", which omits F84.1 and F84.2. Confirm the governing code set with Aetna before relying on "F84.0-F84.9".',
+      blocker: 'document',
+    },
     payer: 'Aetna in Kansas',
     state: 'KS', kind: 'commercial',
     pill: 'Payer Guide · Aetna · Kansas',
@@ -874,6 +998,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -909,6 +1034,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Aetna provider services at the number on the member\'s ID card, and the plan\'s telehealth/virtual-care policy — confirm before scheduling remote 97155 or 97156.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -924,6 +1050,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Aetna precertification/provider services at the number on the member\'s ID card, and the plan\'s own reimbursement schedule — ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -932,6 +1059,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -939,6 +1067,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'The Aetna provider manual and your participation agreement\'s documentation clause.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -947,6 +1076,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'The member\'s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -967,9 +1097,27 @@ export const kansasPayers: Record<string, PayerConfig> = {
     slug: 'cigna-kansas',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the K.S.A. 40-2,194 mandate layer; no Kansas carve-out.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
     payer: 'Cigna / Evernorth in Kansas',
     state: 'KS', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Kansas',
@@ -1054,6 +1202,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1112,6 +1261,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1120,6 +1270,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         verifyVia:
           'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1131,6 +1282,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\'s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -1150,9 +1302,21 @@ export const kansasPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-kansas',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the K.S.A. 40-2,194 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
     payer: 'UnitedHealthcare / Optum in Kansas',
     state: 'KS', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · Kansas',
@@ -1245,6 +1409,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1277,6 +1442,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1308,6 +1474,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
         verifyVia:
           'The UnitedHealthcare/Optum provider manual and your participation agreement\'s documentation clause.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1316,6 +1483,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'UnitedHealthcare/Optum provider services and the member\'s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:

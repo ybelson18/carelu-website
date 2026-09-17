@@ -1254,7 +1254,8 @@
       "slug": "anthem-bcbs-georgia",
       "claim": "'Standardized developmental assessments at minimum every 2 years' and 'protocol modification up to 2 hours per 10 direct hours, max 8/week', both cited to the Anthem ABA Provider Resource Guide (Oct 2024).",
       "challenge": "That PDF was read in full and contains NEITHER statement. It says only that documentation must show the treatment plan was reviewed and/or updated at least every six months, and defers unit limits to CMS MUEs. Both facts likely come from CG-BEH-02, which is not public at the cited URL.",
-      "resolve": "Re-source both or remove them. Pairs with VC-001 (the CG-BEH-02 retirement question)."
+      "resolve": "Re-source both or remove them. Pairs with VC-001 (the CG-BEH-02 retirement question).",
+      "evidence_2026_09_17": "CONFIRMED and widened. The cited PDF was downloaded (HTTP 200, 388KB, real PDF) and pdftotext'd in full: ZERO occurrences of 'prior authorization', 'precertification' or 'preauthoriz'; ZERO of '20 hours'; ZERO of 'CG-BEH', 'MCG' or any ASD-diagnosis criterion. So anthem-bcbs-georgia's assessmentPA, treatmentPA and dxRequired are ALSO unsourced by it, not just the two facts originally flagged. All three are now status 'unverified' with blocker 'document'. SEPARATE LEAD: the PDF's cover lists 11 states (CT GA IN KY ME MO NV NH NY OH VA), which is the June 2025 edition's state list per VC-002 \u2014 the old doc-code URL may already be serving the newer edition."
     },
     {
       "id": "VC-006",
@@ -1291,7 +1292,8 @@
       "claim": "RESOLVED 2026-09-17 \u2014 recorded for audit trail.",
       "challenge": "dxRequired read 'Yes \u2014 ASD diagnosis by a qualified professional (DMAS)' on six guides. DMAS Appendix D (rev. 7/17/2025) contains ZERO occurrences of 'autism'; admission turns on a youth under 21 with a primary ICD/DSM diagnosis in the disruptive-behaviour, mood, substance-use or trauma-and-stressor categories, or a provisional psychiatric diagnosis from an LMHP when none is definitive, plus two functional-impairment criteria. Also corrected: prose claiming DMAS sets no supervision frequency \u2014 Appendix D requires monthly observation of the youth and twice-monthly supervision of unlicensed staff.",
       "resolve": "DONE. Verified against the primary document and applied.",
-      "status_note": "resolved"
+      "status_note": "resolved",
+      "correction_of_the_correction": "2026-09-17, same day. The fix I applied was itself partly wrong, by the exact mechanism it was fixing. My extraction regex matched the FIRST occurrence of 'primary ICD diagnosis' in Appendix D \u2014 which belongs to FFT (p.14), not ABA (p.24) \u2014 so I imported FFT's diagnostic-category list ('disruptive behavior, mood, substance use or trauma and stressor-related') into the ABA criterion, which has no category list at all. The ABA criterion is BROADER than my corrected value claimed. Caught by a later agent, re-verified by counting occurrences and locating each one's parent section, and corrected on all six guides. LESSON: when extracting from a multi-service document, never take the first regex hit \u2014 count the occurrences and identify which section each belongs to. The supervision correction from the same pass was re-checked the same way and is sound (both quotes are unique and sit in the ABA section)."
     },
     {
       "id": "VC-010",
@@ -1336,7 +1338,8 @@
       "slug": "cigna-* and aetna-* (multiple states)",
       "claim": "Cigna guides credit 'no PA on 97151/97152/0362T' to EN0499; Aetna guides credit precertification to CPB 0554.",
       "challenge": "Both documents were read in full and neither addresses prior authorization at all. The facts are right, the attributions are wrong \u2014 they come from the Evernorth autism resource guide and the Aetna BH precertification list (eff. 8/1/2024) respectively.",
-      "resolve": "Re-point the citations. Correct URLs are already in cites/sources on the NM/NC/OH guides."
+      "resolve": "Re-point the citations. Correct URLs are already in cites/sources on the NM/NC/OH guides.",
+      "evidence_2026_09_17": "CONFIRMED by direct read. Aetna CPB 0554 was fetched in full: no occurrence of 'precertification' or 'authorization' anywhere, and it is the EXCLUSION bulletin \u2014 its code table reads 'CPT codes NOT covered for indications listed in the CPB: 97151 - 97158' and it points to CPB 0648 for ABA-for-autism. The correct source is Aetna's Participating provider behavioral health precertification list (eff. 8/1/2024), which lists ABA 97151-97158, 0362T, 0373T. That citation is now attached to all Aetna guides. REMAINING WORK: the value TEXT still reads \"per Aetna's national CPB 0554 policy\" in 19 places (one per state file) and now contradicts its own citation. Fix the wording, not the fact."
     },
     {
       "id": "VC-015",
@@ -1354,7 +1357,9 @@
       "slug": "aetna-* (all states)",
       "claim": "dxRequired reads 'ASD only (F84.0-F84.9)'.",
       "challenge": "Aetna's own ABA Medical Necessity Guide prints 'ICD-10/ F84.0; F84.3 - F84.9' \u2014 F84.1 and F84.2 are not in its list.",
-      "resolve": "Decide whether to narrow the range to Aetna's printed set across the Aetna guides."
+      "resolve": "Decide whether to narrow the range to Aetna's printed set across the Aetna guides.",
+      "evidence_2026_09_17": "NOT a simple error \u2014 two Aetna documents disagree. CPB 0554's covered-code table reads 'F84.0 - F84.9 Pervasive developmental disorders', which SUPPORTS the current value. The ABA Medical Necessity Guide ((c)2026) prints 'ICD-10/ F84.0; F84.3 - F84.9', excluding F84.1 and F84.2. Decide which governs, then make dxRequired and diagnosingProviders agree \u2014 right now they contradict each other inside the same guides.",
+      "refined_2026_09_17": "Scope clarified by a second independent read. F84.1 and F84.4 are not valid ICD-10-CM codes at all, so the practical delta between Aetna's two documents is ONLY F84.2, Rett syndrome. Note Cigna EN0499 makes the same carve-out explicitly: 'F84.0 - F84.9, with the exception of F84.2, Rett syndrome'. The question to settle is therefore narrow and concrete: does Aetna cover ABA for Rett syndrome? CPB 0554's code table says yes; the ABA Medical Necessity Guide that BH reviewers actually apply says no. Four Aetna guides hold unverified pending a ruling."
     },
     {
       "id": "VC-017",
@@ -1382,6 +1387,116 @@
       "claim": "Prose says the standard PA form is 'completed by the LABA rendering or supervising services.'",
       "challenge": "The form says 'The Board-Certified Behavioral Analyst (BCBA) rendering and/or supervising the services SHOULD complete this form' \u2014 'should', not 'must', and BCBA, not LABA. The LABA requirement comes from the Carelon/MBHP performance spec (262 CMR 10.00), not the form.",
       "resolve": "Attribute each half to the right document."
+    },
+    {
+      "id": "VC-020",
+      "priority": 1,
+      "status": "open",
+      "slug": "unitedhealthcare-community-plan-kansas (+ kansas-medicaid FAQ, atGlance, collect)",
+      "claim": "dxRequired asserts 'ASD validated within the last 6 months by a licensed psychologist or MD'.",
+      "challenge": "The SAME guide's dxRecency field, already status 'verified', records that Optum's current State Mandates supplement (BH803ABASTM72026, July 2026) reproduces KMAP Bulletin 26140 verbatim and no longer contains any 6-month validation language. This is not the Sunflower-vs-state conflict \u2014 it is a live funnel value contradicted by the carrier's own current document, inside one guide. Also present in that guide's atGlance row and collect item, and in the kansas-medicaid FAQ answer 'Both Sunflower and Optum/UHC require...'.",
+      "resolve": "Highest-priority Kansas fix. Re-read BH803ABASTM72026 and correct the value, atGlance, collect and the FAQ together."
+    },
+    {
+      "id": "VC-021",
+      "priority": 2,
+      "status": "open",
+      "slug": "highmark-western-new-york",
+      "claim": "A $45,000 per calendar year ABA benefit maximum, status 'verified', cited to the plan's Medicaid/CHPlus provider manual.",
+      "challenge": "That is a hard dollar cap on an EPSDT benefit for under-21 Medicaid members, which is unusual on its face \u2014 and $45,000 is exactly the figure New York's COMMERCIAL mandate carried in 2011 before the (since-repealed) 680-hour cap replaced it. Possible contamination from the commercial mandate history. The manual was not re-fetched.",
+      "resolve": "Fetch the Highmark manual and confirm the cap is real, current and applies to the Medicaid line."
+    },
+    {
+      "id": "VC-022",
+      "priority": 3,
+      "status": "open",
+      "slug": "unitedhealthcare-community-plan-tennessee",
+      "claim": "Not a contradiction \u2014 a gap.",
+      "challenge": "The UHC TN Level of Care Guidelines carry an in-state service-location rule, 'ABA services must be located in TN', which no structured field captures.",
+      "resolve": "Add it to placeOfService next cycle."
+    },
+    {
+      "id": "VC-023",
+      "priority": 1,
+      "status": "resolved",
+      "slug": "cigna-massachusetts, cigna-nebraska, cigna-new-jersey",
+      "claim": "deliveryRules.supervision says 'Evernorth publishes no percentage floor or caseload cap for technician supervision.'",
+      "challenge": "EN0499 \u2014 the document that value's own verifyVia names \u2014 does publish one, at 'Supervision / Direction of Treatment' (p.5): direct and indirect case supervision 'is consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment', and 'When direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided.'",
+      "resolve": "Closeable today \u2014 the document is readable. Rewrite the value from EN0499 p.5.",
+      "resolvedAt": "2026-09-17",
+      "resolution": "DONE. EN0499 fetched and pdftotext'd; the ratio appears exactly once (no first-match ambiguity) at 'Supervision / Direction of Treatment': direct plus indirect case supervision 'is consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment', and 'when direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided.' Corrected on all 5 guides that carried the denial (FL, GA, MA, NE, NJ) and set to verified with the EN0499 citation."
+    },
+    {
+      "id": "VC-024",
+      "priority": 1,
+      "status": "open",
+      "slug": "tufts-health-together",
+      "claim": "Submit authorizations by fax 888-977-0776 (in treatmentPA, atGlance, prose and an FAQ).",
+      "challenge": "The guide's own cited Point32Health source lists 888-977-0776 under Tufts Health DIRECT, and publishes no fax number for Tufts Health Together. A Together packet sent there plausibly bounces.",
+      "resolve": "Find Together's actual submission route and correct all four places."
+    },
+    {
+      "id": "VC-025",
+      "priority": 2,
+      "status": "open",
+      "slug": "aetna-massachusetts",
+      "claim": "Not an error in our data \u2014 a live conflict worth surfacing to partners.",
+      "challenge": "Aetna CPB 0554 states ABA is 'experimental, investigational, or unproven for Down Syndrome in the absence of an autism spectrum disorder co-morbidity' and lists Q90.0-Q90.9 as not covered \u2014 against Massachusetts Ch. 388's Down-syndrome mandate effective 1/1/2026. Aetna has published no MA deviation, unlike Optum. A fully-insured MA family could be denied on a policy Aetna has not updated.",
+      "resolve": "Keep dxRequired plan-dependent; consider saying this explicitly in the guide prose so intake can escalate on parity/mandate grounds."
+    },
+    {
+      "id": "VC-026",
+      "priority": 2,
+      "status": "open",
+      "slug": "select-health-utah",
+      "claim": "Eleven fields open with 'ABA is carved out of every Utah Medicaid ACO to state fee-for-service.'",
+      "challenge": "The January 2026 Utah ASD manual carves out ASD-related MEDICAL services (PT/OT/ST) and the diagnostic evaluation to FFS \u2014 not ABA therapy itself. Not a refutation, but the manual does not carry the claim.",
+      "resolve": "Source the ABA carve-out specifically or soften the eleven values."
+    },
+    {
+      "id": "VC-027",
+      "priority": 2,
+      "status": "open",
+      "slug": "unitedhealthcare-* commercial (NC, NM, OH, and others)",
+      "claim": "'Reviews every 4-6 months' reauthorization cadence, and a 'two-step assessment-then-treatment' structure.",
+      "challenge": "Optum ABA Supplemental Clinical Criteria (BH803ABASCC) was read in full by two independent agents. It states 'Prior authorization is required for ABA' and mentions 'within a 6-month period' only for inadequate progress. Neither the 4-6 month cadence nor the two-step structure appears anywhere in it.",
+      "resolve": "Re-source or drop both claims wherever they appear."
+    },
+    {
+      "id": "VC-028",
+      "priority": 3,
+      "status": "open",
+      "slug": "nebraska-medicaid",
+      "claim": "FAQ cites PB 25-02 as a live source describing 'up to 30 hours/week'.",
+      "challenge": "PB 25-02 does say 30 hours \u2014 but it was SUPERSEDED by PB 26-06 (eff. 7/1/2026), which sets 20 hrs/week cleanly. The guide body and the verified dailyLimits field are right; the FAQ quotes a superseded bulletin as if current.",
+      "resolve": "Update the FAQ to name only the DHHS 'ABA Facts' page as the stale source. Supersedes VC-018."
+    },
+    {
+      "id": "VC-029",
+      "priority": 3,
+      "status": "open",
+      "slug": "utah-medicaid",
+      "claim": "dxRecency value opens 'No recency window could be sourced'.",
+      "challenge": "It is now sourced \u2014 the January 2026 manual (reached via r.jina.ai) confirms no recency window exists, and the field is status 'verified'. The wording is a leftover from when it was unreachable.",
+      "resolve": "Wording pass: say the manual sets no recency window, not that we could not find one."
+    },
+    {
+      "id": "VC-030",
+      "priority": 2,
+      "status": "open",
+      "slug": "all commercial guides with a flat 'Yes' on PA (consistency review)",
+      "claim": "assessmentPA/treatmentPA read 'Yes \u2014 required' flatly on commercial carriers.",
+      "challenge": "Anthem's Central Blues precertification list says it applies to fully-insured members and to self-insured (ASO) members ONLY where the group purchased the medical-management program \u2014 otherwise 'preapproval is not required and clinical review will not be performed'. The National Accounts list says ABA precert 'applies unless the group specifically opts out'. Anthem BCBS Indiana and Missouri were set to plan-dependent on that basis; Aetna, Cigna and Optum were left verified because their documents state the requirement without a published opt-out.",
+      "resolve": "Decide whether the self-funded opt-out caveat should be applied consistently across all commercial PA fields, or whether the Anthem-specific published opt-out genuinely distinguishes it. A judgement call, not a fetch."
+    },
+    {
+      "id": "VC-031",
+      "priority": 3,
+      "status": "open",
+      "slug": "aetna (national) + per-state Aetna guides",
+      "claim": "assessmentPA says 'form GR-69017-4, eff. 1/1/2026'.",
+      "challenge": "The form Aetna currently publishes is stamped GR-69017-4 (7-26) \u2014 a July 2026 revision. The form number matches; the date label looks stale.",
+      "resolve": "Confirm the current revision date and update the label."
     }
   ],
   "documentRequests": [
@@ -1426,6 +1541,14 @@
       "issue": "72 section-level cite URLs across the directory do not appear in their guide's top-level `sources` array (audit run 2026-09-17, 193 guides).",
       "impact": "Cosmetic only \u2014 PayerPage appends orphan cites to the numbered source list at render time, so readers still see every source. The `sources` array is simply not a complete bibliography.",
       "resolve": "Append each missing URL to its guide's `sources`. Mechanical; do it a few states per refresh. Heaviest: AZ, KS, NE, NC, VA."
+    },
+    {
+      "id": "HY-002",
+      "priority": 2,
+      "status": "open",
+      "issue": "Blocker classification for licensed proprietary criteria (MCG B-806-T, InterQual, internal UM guidelines).",
+      "impact": "Filing them as blocker 'document' creates permanent debt that no human retrieval can ever close, and implies the payer is withholding something it could publish. A new blocker value 'licensed' was added 2026-09-17 for exactly this case; the page renders it as 'Licensed criteria' / 'In licensed criteria:'.",
+      "resolve": "Reclassify existing MCG/InterQual-blocked facts from 'document' to 'licensed', and never open document requests for them."
     }
   ],
   "coverageBaseline": {
@@ -1459,30 +1582,26 @@
   "coverageAfter": {
     "date": "2026-09-17",
     "guides": 193,
-    "note": "After the field backfill. Compare against coverageBaseline.",
-    "topLevel": {
-      "cardDesc": 193,
-      "assessmentPA": 193,
-      "treatmentPA": 193,
-      "dxRequired": 193,
-      "family": 146
+    "totalFacts": 2872,
+    "fieldPresence": "all 12 structured fields at 100%; assessmentPA/treatmentPA/dxRequired at 100%",
+    "factQuality": {
+      "verified": 2082,
+      "planDependent": 162,
+      "unverified": 628
     },
-    "deliveryRules": {
-      "supervision": 189,
-      "concurrentBilling": 190,
-      "dailyLimits": 192,
-      "noteSignature": 189,
-      "placeOfService": 192,
-      "billAsProvider": 183
+    "whyNotVerified": {
+      "document": 292,
+      "perCase": 489,
+      "licensed": 9
     },
-    "intakeGates": {
-      "ageLimit": 193,
-      "dxRecency": 193,
-      "diagnosingProviders": 193,
-      "diagnosticTools": 193,
-      "referral": 193,
-      "telehealth": 193
-    },
-    "caveat": "Coverage counts fields PRESENT, not fields verified. A large minority are status 'unverified' with a verifyVia naming who to call \u2014 that is the honest state, not a gap to paper over. The next measure worth adding is percent-verified per field."
-  }
+    "note": "'document' is the only real debt \u2014 292 facts whose answer is written down in a file we could not open, closeable through carelu.com/sources. 'per-case' (489) and 'licensed' (9) never close and must not be chased: the first is 'ask the plan', which is the finished answer, and the second sits in proprietary MCG/InterQual criteria that are never published. Enforced by `npm run payers:check`.",
+    "caveat": "Coverage counts fields PRESENT. Watch the verified ratio, not the presence ratio \u2014 presence can hit 100% while quality falls."
+  },
+  "opportunities": [
+    {
+      "id": "OP-001",
+      "priority": 2,
+      "note": "The Aetna ABA Medical Necessity Guide ((c)2026) \u2014 now in sources on the Aetna guides \u2014 publishes material that would fill several intakeGates/deliveryRules fields currently unverified: a supervision/billing rule ('Services must be provided directly or billed by licensed behavior analysts, board-certified behavior analysts, or licensed psychologists'), a 12-month standardized-functioning requirement naming VABS-3 / ABAS / VB-MAPP / ABLLS, and a treatment-intensity table. Out of scope for the funnel-field pass; harvest it next cycle."
+    }
+  ]
 }

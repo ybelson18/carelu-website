@@ -17,9 +17,33 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
     family: 'carelon',
     payer: 'Carelon Behavioral Health',
     state: 'US', kind: 'commercial',
-    assessmentPA: 'Required — the national ABA Authorization Request form (eff. 1/1/2026) has an “Initial Assessment” box; 97151 is capped at 32 units (8 hours) for the initial and 32 more for reassessment with clinical justification',
-    treatmentPA: 'Required — “Initial Treatment” and every “Concurrent Request” go on the same form, with a full treatment report attached',
-    dxRequired: 'Yes — Carelon’s national ABA treatment-report guidelines are written for members with an autism spectrum diagnosis, and the report must carry the diagnosis date plus the name and title of the diagnosing professional. The clinical criteria themselves are set per client and per state, not by one national ABA policy (Massachusetts, for example, also admits a genetically confirmed Down syndrome diagnosis).',
+    assessmentPA: {
+      value: 'Required — the national ABA Authorization Request form (eff. 1/1/2026) has an “Initial Assessment” box; 97151 is capped at 32 units (8 hours) for the initial and 32 more for reassessment with clinical justification',
+      status: 'verified',
+      cites: [
+        { title: 'Carelon ABA Authorization Request form (eff. 1/1/2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-authorization-request-form.pdf' },
+        { title: 'Carelon ABA Provider Treatment Report Guidelines (v1.5)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-treatment-report-guidelines.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — “Initial Treatment” and every “Concurrent Request” go on the same form, with a full treatment report attached',
+      status: 'verified',
+      cites: [
+        { title: 'Carelon ABA Authorization Request form (eff. 1/1/2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-authorization-request-form.pdf' },
+        { title: 'Carelon ABA Provider Treatment Report Guidelines (v1.5)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-treatment-report-guidelines.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — Carelon’s national ABA treatment-report guidelines are written for members with an autism spectrum diagnosis, and the report must carry the diagnosis date plus the name and title of the diagnosing professional. The clinical criteria themselves are set per client and per state, not by one national ABA policy (Massachusetts, for example, also admits a genetically confirmed Down syndrome diagnosis).',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Carelon ABA Provider Treatment Report Guidelines (v1.5)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-treatment-report-guidelines.pdf' },
+        { title: 'Carelon Behavioral Health — Medical Necessity Criteria', url: 'https://www.carelonbehavioralhealth.com/providers/resources/medical-necessity-criteria' },
+        { title: 'Carelon Massachusetts Medical Necessity Criteria (upd. 4/29/2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' },
+      ],
+      verifyVia: 'Ask which criteria set governs this client plan and where it is published — Carelon National Provider Service Line 800-397-1630. The national ABA Provider Treatment Report Guidelines establish that the report must carry the diagnosis, its date and the name and title of the diagnosing professional; the diagnostic criteria themselves are set per client and per state, and a client standard can be wider (Massachusetts also admits a genetically confirmed Down syndrome diagnosis) or tighter than the default.',
+      blocker: 'per-case',
+    },
     pill: 'Payer Guide · Carelon Behavioral Health',
     h1: 'Carelon Behavioral Health: the ABA carve-out guide.',
     metaTitle: 'Carelon Behavioral Health ABA Prior Auth & Intake Guide | Carelu',
@@ -150,8 +174,8 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'One national cap, and the rest is the client plan. The ABA Authorization Request form itself caps 97151 at up to 32 units (8 hours) for the initial assessment, with up to 32 more for a reassessment supported by clinical justification, and flags 97152 and 0362T as requiring clinical justification. Everything is requested in 15-minute units \u2014 97153 as hours per week plus units, 97155 and 0373T as hours per day and days per week \u2014 so the form itself imposes a shape on the request even where it imposes no ceiling. Carelon publishes no national per-day MUE table; per-day and per-week ceilings beyond 97151 are set in the client plan\u2019s benefit and criteria.',
         status: 'plan-dependent',
         cites: [{ title: 'Carelon ABA Authorization Request form (eff. 1/1/2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-authorization-request-form.pdf' }, { title: 'Carelon Behavioral Health \u2014 Medical Necessity Criteria', url: 'https://www.carelonbehavioralhealth.com/providers/resources/medical-necessity-criteria' }],
-        verifyVia:
-          'The client plan\u2019s supplement in Carelon\u2019s forms-and-guides library, or the National Provider Service Line at 800-397-1630 \u2014 ask which criteria set governs this client and whether it carries per-day unit ceilings.',
+        verifyVia: 'The client plan\u2019s supplement in Carelon\u2019s forms-and-guides library, or the National Provider Service Line at 800-397-1630 \u2014 ask which criteria set governs this client and whether it carries per-day unit ceilings.',
+        blocker: 'per-case',
       },
       supervision: {
         value: '97153 is delivered by a technician under the direction of the physician/QHP “receiving 1 hour of supervision for every 5 to 10 hours of direct treatment.” 97155 may be used for direction of technician (supervision) face-to-face with one patient; 0362T and 0373T require the physician/QHP on-site with two or more technicians.',
@@ -174,12 +198,14 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           { title: 'Carelon ABA Provider Treatment Report Guidelines (v1.5)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-treatment-report-guidelines.pdf' },
         ],
         verifyVia: 'Confirm payable settings against the client plan’s benefit document and the applicable state/client criteria before scheduling school-based hours.',
+        blocker: 'per-case',
       },
       concurrentBilling: {
         value: 'Same-day pairing is governed by the client plan, not by one national rule. Carelon’s San Francisco Health Plan autism manual states the standard rule that only one service code is paid per day, with named exceptions for a patient seen by two different providers on the same day (e.g., BCBA and ABA tutor) and for ABA therapy plus BCBA supervision on the same day.',
         status: 'plan-dependent',
         cites: [{ title: 'Carelon (Beacon) Autism Services Provider Manual — San Francisco Health Plan (rev. June 2021)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ca/san-francisco-health-plan/autism-aba-provider-manual-sfhp.pdf' }],
         verifyVia: 'Ask the Carelon National Provider Service Line (800-397-1630) for the same-day billing rule under the specific client plan, and check that client’s supplement in the forms-and-guides library.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value: 'Carelon’s national ABA form is built around a named supervising BCBA/LBA/LABA with certification number, NPI and Carelon provider ID, plus the group TIN, and Carelon rosters ABA paraprofessionals separately through a dedicated “Roster for ABA Paraprofessional Provider” form. The handbook’s general claims rule is that participating providers should not submit claims in their own name for services provided by another clinician; how that applies to technician-delivered 97153 is set in the client contract.',
@@ -189,6 +215,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           { title: 'Carelon Behavioral Health Provider Handbook', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' },
         ],
         verifyVia: 'Confirm the rendering-vs-billing NPI convention with your Carelon network manager or the National Provider Service Line (800-397-1630) for the specific client plan.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -197,32 +224,32 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'No national age limit exists, because there is no national ABA medical-necessity policy to carry one. Carelon\u2019s Corporate Quality Medical Management Committee \u201cadopts, reviews, revises, and approves Medical Necessity Criteria per client and regulatory requirements,\u201d and criteria vary by state, contract and member benefit. Where a client set does exist it can be specific: Carelon\u2019s Massachusetts criteria admit ABA for members under 21. Do not carry a client\u2019s age band to another Carelon plan.',
         status: 'plan-dependent',
         cites: [{ title: 'Carelon Behavioral Health \u2014 Medical Necessity Criteria', url: 'https://www.carelonbehavioralhealth.com/providers/resources/medical-necessity-criteria' }, { title: 'Carelon Massachusetts Medical Necessity Criteria (upd. 4/29/2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' }, { title: 'Carelon Behavioral Health Provider Handbook', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' }],
-        verifyVia:
-          'Ask which criteria set applies to this client plan and where it is published \u2014 National Provider Service Line 800-397-1630, or the client-specific guidelines in Carelon\u2019s forms-and-guides library. \u201cWhat are Carelon\u2019s ABA criteria\u201d is the wrong question; \u201cwhich criteria set governs this client\u201d is the right one.',
+        verifyVia: 'Ask which criteria set applies to this client plan and where it is published \u2014 National Provider Service Line 800-397-1630, or the client-specific guidelines in Carelon\u2019s forms-and-guides library. \u201cWhat are Carelon\u2019s ABA criteria\u201d is the wrong question; \u201cwhich criteria set governs this client\u201d is the right one.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
           'No national recency rule. What the ABA Provider Treatment Report Guidelines require instead is provenance: the report must carry the diagnosis with its date and the name and title of the professional who made it, plus the date(s) of the original assessment and the name, title and credential of the assessor. So the diagnosis date is mandatory reporting data even though no expiry attaches to it nationally. Concurrent reports have their own window \u2014 due at minimum two weeks before, and no more than 30 days before, the authorization end date.',
         status: 'plan-dependent',
         cites: [{ title: 'Carelon ABA Provider Treatment Report Guidelines (v1.5)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-treatment-report-guidelines.pdf' }, { title: 'Carelon Behavioral Health \u2014 Medical Necessity Criteria', url: 'https://www.carelonbehavioralhealth.com/providers/resources/medical-necessity-criteria' }],
-        verifyVia:
-          'The governing client criteria set \u2014 National Provider Service Line 800-397-1630. A client standard can be much tighter than the national default.',
+        verifyVia: 'The governing client criteria set \u2014 National Provider Service Line 800-397-1630. A client standard can be much tighter than the national default.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
           'Set per client, not nationally. Carelon\u2019s national ABA treatment-report guidelines are written for members with an autism spectrum diagnosis and require the report to name the professional who made it and their title, but they do not define which credentials qualify. A client set can: Carelon\u2019s Massachusetts criteria admit ABA for members under 21 with a confirmed ASD diagnosis \u201cmade by a licensed physician, APRN, PA or psychologist experienced in autism,\u201d or with a Down syndrome diagnosis confirmed by genetic testing. That is a Massachusetts client standard and must not be carried to another Carelon plan.',
         status: 'plan-dependent',
         cites: [{ title: 'Carelon ABA Provider Treatment Report Guidelines (v1.5)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-treatment-report-guidelines.pdf' }, { title: 'Carelon Massachusetts Medical Necessity Criteria (upd. 4/29/2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' }, { title: 'Carelon Behavioral Health \u2014 Medical Necessity Criteria', url: 'https://www.carelonbehavioralhealth.com/providers/resources/medical-necessity-criteria' }],
-        verifyVia:
-          'Ask which criteria set governs this client plan and where it is published \u2014 National Provider Service Line 800-397-1630.',
+        verifyVia: 'Ask which criteria set governs this client plan and where it is published \u2014 National Provider Service Line 800-397-1630.',
+        blocker: 'per-case',
       },
       diagnosticTools: {
         value:
           'No instrument is required nationally. The treatment report requires a minimum of two direct observations of the member alongside named indirect sources \u2014 caregiver interview, and records reviewed such as the IEP and prior ABA reports \u2014 and requires graphed per-goal data over the authorization period, which may not be aggregated or averaged by month or quarter unless the goal was written that way. A client set can demand far more: Carelon\u2019s Massachusetts criteria require at least two direct observations with one in the home or a naturally occurring community setting, plus formal assessment data from three categories \u2014 a validated skill-based or curriculum tool, a standardized treatment-impact measure, and a family/caregiver impact measure.',
         status: 'plan-dependent',
         cites: [{ title: 'Carelon ABA Provider Treatment Report Guidelines (v1.5)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-treatment-report-guidelines.pdf' }, { title: 'Carelon Massachusetts Medical Necessity Criteria (upd. 4/29/2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' }],
-        verifyVia:
-          'The governing client criteria set \u2014 National Provider Service Line 800-397-1630, or the client supplement in the forms-and-guides library.',
+        verifyVia: 'The governing client criteria set \u2014 National Provider Service Line 800-397-1630, or the client supplement in the forms-and-guides library.',
+        blocker: 'per-case',
       },
       referral: {
         value:
@@ -235,8 +262,8 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'Carelon publishes no national ABA telehealth code list. The treatment record does have to declare it: every entry must record the modality \u2014 office-based or telehealth, and which telehealth modality \u2014 alongside the responsible clinician\u2019s name, professional degree and identification number and the session start and stop times. Whether a given ABA code is payable remotely is a client-benefit and client-criteria question.',
         status: 'plan-dependent',
         cites: [{ title: 'Carelon Behavioral Health Provider Handbook', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' }, { title: 'Carelon Behavioral Health \u2014 Medical Necessity Criteria', url: 'https://www.carelonbehavioralhealth.com/providers/resources/medical-necessity-criteria' }],
-        verifyVia:
-          'National Provider Service Line 800-397-1630 with the employer/benefit plan name in hand \u2014 ask which ABA codes this client pays by telehealth and whether the authorization must say so.',
+        verifyVia: 'National Provider Service Line 800-397-1630 with the employer/benefit plan name in hand \u2014 ask which ABA codes this client pays by telehealth and whether the authorization must say so.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -255,9 +282,27 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
     family: 'magellan',
     payer: 'Magellan Health / Magellan Healthcare',
     state: 'US', kind: 'commercial',
-    assessmentPA: 'Required — the provider faxes an ABA Request for Initial Authorization with the diagnostic report; Magellan typically authorizes 8–12 hours of 97151 to complete the functional behavior assessment',
-    treatmentPA: 'Required — pre-authorization for direct treatment on the ABA Treatment Plan / Concurrent Review Template, in 15-minute increments',
-    dxRequired: 'Yes — an established DSM-5-TR autism spectrum diagnosis current within 24 months, made with a validated tool (ADOS, ADI-R, PEDS, Brigance and others) and confirmed by a doctoral-level clinician: an MD (family practice, pediatrics, developmental pediatrics, neurodevelopmental pediatrics, pediatric neurology or psychiatry) or a PhD/PsyD psychologist',
+    assessmentPA: {
+      value: 'Required — the provider faxes an ABA Request for Initial Authorization with the diagnostic report; Magellan typically authorizes 8–12 hours of 97151 to complete the functional behavior assessment',
+      status: 'verified',
+      cites: [
+        { title: 'Magellan Provider Orientation — Autism Spectrum Disorders, commercial and employer plans (Jan. 2026)', url: 'https://www.magellanprovider.com/media/128995/aba_provider_orientation.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — pre-authorization for direct treatment on the ABA Treatment Plan / Concurrent Review Template, in 15-minute increments',
+      status: 'verified',
+      cites: [
+        { title: 'Magellan Provider Orientation — Autism Spectrum Disorders, commercial and employer plans (Jan. 2026)', url: 'https://www.magellanprovider.com/media/128995/aba_provider_orientation.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — an established DSM-5-TR autism spectrum diagnosis current within 24 months, made with a validated tool (ADOS, ADI-R, PEDS, Brigance and others) and confirmed by a doctoral-level clinician: an MD (family practice, pediatrics, developmental pediatrics, neurodevelopmental pediatrics, pediatric neurology or psychiatry) or a PhD/PsyD psychologist',
+      status: 'verified',
+      cites: [
+        { title: '2025–2026 Magellan Care Guidelines — Outpatient Applied Behavior Analysis (eff. 11/8/2025)', url: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf' },
+      ],
+    },
     pill: 'Payer Guide · Magellan Healthcare',
     h1: 'Magellan Healthcare ABA: the carve-out administrator guide.',
     metaTitle: 'Magellan Healthcare ABA Criteria & Prior Auth Guide | Carelu',
@@ -382,24 +427,24 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'Magellan publishes weekly bands rather than per-day unit ceilings. Focused interventions are generally authorized at 10\u201325 hours per week of direct treatment, with more than 25 approved where medically necessary; comprehensive ABA runs up to 40 hours per week, with more approved where medically necessary, and the guidelines note the literature generally supports 1\u20132 years of comprehensive intervention. Supervision is authorized on top at 1\u20132 hours per 10 hours of direct care, plus caregiver training. Two published caps are narrower: 90889 (reassessment/report writing, indirect) is limited to up to three hours per six months and is \u201cnot available in all markets,\u201d as are 0362T and 0373T. Everything authorizes in 15-minute increments. No per-day MUE table is published.',
         status: 'unverified',
         cites: [{ title: '2025\u20132026 Magellan Care Guidelines \u2014 Outpatient Applied Behavior Analysis (eff. 11/8/2025)', url: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf' }, { title: 'Magellan Provider Orientation \u2014 Autism Spectrum Disorders, commercial and employer plans (Jan. 2026)', url: 'https://www.magellanprovider.com/media/128995/aba_provider_orientation.pdf' }],
-        verifyVia:
-          'The plan- or employer-specific ABA team \u2014 Magellan organizes its autism contacts as State & Plan Information \u2192 Autism-Specific Information behind a provider login, so you need the plan/program number from the card. Ask whether any per-day unit ceiling applies on top of the weekly band.',
+        verifyVia: 'The plan- or employer-specific ABA team \u2014 Magellan organizes its autism contacts as State & Plan Information \u2192 Autism-Specific Information behind a provider login, so you need the plan/program number from the card. Ask whether any per-day unit ceiling applies on top of the weekly band. Magellan applies the proprietary MCG half of its Care Guidelines here; that half is licensed and is only supplied on request during a clinical review, so the plan\u2019s UM line \u2014 not a document request \u2014 is the route to the answer.',
+        blocker: 'licensed',
       },
       noteSignature: {
         value:
           'Magellan does not publish a session-note signature standard in the public half of its Care Guidelines or in the January 2026 commercial and employer orientation. The closest published signal is its list of top claim rejection reasons, which includes \u201cmissing provider name and/or degree level where required\u201d \u2014 a claims rule rather than a documentation one.',
         status: 'unverified',
         cites: [{ title: 'Magellan Provider Orientation \u2014 Autism Spectrum Disorders, commercial and employer plans (Jan. 2026)', url: 'https://www.magellanprovider.com/media/128995/aba_provider_orientation.pdf' }, { title: '2025\u20132026 Magellan Care Guidelines \u2014 Outpatient Applied Behavior Analysis (eff. 11/8/2025)', url: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf' }],
-        verifyVia:
-          'The plan-specific Magellan ABA team via MagellanProvider.com (State & Plan Information \u2192 Autism-Specific Information), or the toll-free number on the member\u2019s card. The proprietary MCG half of the Care Guidelines is supplied on request during a clinical review.',
+        verifyVia: 'The plan-specific Magellan ABA team via MagellanProvider.com (State & Plan Information \u2192 Autism-Specific Information), or the toll-free number on the member\u2019s card. The proprietary MCG half of the Care Guidelines is supplied on request during a clinical review. Magellan applies the proprietary MCG half of its Care Guidelines here; that half is licensed and is only supplied on request during a clinical review, so the plan\u2019s UM line \u2014 not a document request \u2014 is the route to the answer.',
+        blocker: 'licensed',
       },
       placeOfService: {
         value:
           'No place-of-service policy is published. Magellan\u2019s criteria bear on setting only indirectly \u2014 the validated developmental assessment must show the member cannot participate at an age-appropriate level in home, school or community activities, and the treatment plan must document that adjunctive treatments including educational services were considered for inclusion. On the claim side, \u201cmissing or inaccurate place-of-service code\u201d is one of Magellan\u2019s named top rejection reasons, so the POS code matters operationally even though the payable-settings list is not published.',
         status: 'unverified',
         cites: [{ title: '2025\u20132026 Magellan Care Guidelines \u2014 Outpatient Applied Behavior Analysis (eff. 11/8/2025)', url: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf' }, { title: 'Magellan Provider Orientation \u2014 Autism Spectrum Disorders, commercial and employer plans (Jan. 2026)', url: 'https://www.magellanprovider.com/media/128995/aba_provider_orientation.pdf' }],
-        verifyVia:
-          'The plan-specific ABA team via MagellanProvider.com or the number on the card \u2014 ask which settings this client pays for before scheduling school, daycare or community hours.',
+        verifyVia: 'The plan-specific ABA team via MagellanProvider.com or the number on the card \u2014 ask which settings this client pays for before scheduling school, daycare or community hours. Magellan applies the proprietary MCG half of its Care Guidelines here; that half is licensed and is only supplied on request during a clinical review, so the plan\u2019s UM line \u2014 not a document request \u2014 is the route to the answer.',
+        blocker: 'licensed',
       },
       supervision: {
         value: 'Magellan authorizes direct and indirect supervision at 1 to 2 hours per 10 hours of direct care, on top of the authorized direct-treatment band, plus caregiver training. Bachelor’s-level analysts must work under a master’s/doctoral-level behavior analyst, and support staff/technicians under a master’s/doctoral- or bachelor’s-level analyst — in both cases the supervisory relationship must be documented in writing.',
@@ -426,8 +471,8 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'Magellan\u2019s public ABA guideline sets no age limit. It frames intensity by developmental stage instead \u2014 comprehensive ABA of up to 40 hours a week is reserved for multiple targets across most or all developmental domains, \u201ctypically younger children with substantial impairment across most areas of functioning.\u201d Because Magellan administers other sponsors\u2019 benefits, any age bound comes from the employer plan or from a deviating state/client criteria set (California, Hawai\u02bbi, Idaho, Louisiana, Nevada, New Mexico, North Carolina, Pennsylvania, Texas and Virginia are on Magellan\u2019s published deviation list).',
         status: 'plan-dependent',
         cites: [{ title: '2025\u20132026 Magellan Care Guidelines \u2014 Outpatient Applied Behavior Analysis (eff. 11/8/2025)', url: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf' }, { title: 'Magellan Healthcare \u2014 Medical Necessity Criteria', url: 'https://www.magellanprovider.com/providing-care/clinical-guidelines/medical-necessity-criteria.aspx' }],
-        verifyVia:
-          'Eligibility on Availity Essentials or the appropriate toll-free number on the member\u2019s card, plus Magellan\u2019s Medical Necessity Criteria page to check whether this plan\u2019s state/client criteria deviate.',
+        verifyVia: 'Eligibility on Availity Essentials or the appropriate toll-free number on the member\u2019s card, plus Magellan\u2019s Medical Necessity Criteria page to check whether this plan\u2019s state/client criteria deviate. Magellan applies the proprietary MCG half of its Care Guidelines here; that half is licensed and is only supplied on request during a clinical review, so the plan\u2019s UM line \u2014 not a document request \u2014 is the route to the answer.',
+        blocker: 'licensed',
       },
       dxRecency: {
         value:
@@ -458,8 +503,8 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'Not published for ABA. Magellan\u2019s public ABA guideline and its January 2026 commercial and employer orientation set hour bands, supervision ratios and a national code table without stating which ABA codes may be delivered remotely or under which modifiers. Because Magellan administers many sponsors\u2019 benefits and publishes a list of books whose criteria deviate \u2014 California, Hawai\u02bbi, Idaho, Louisiana, Nevada, New Mexico, North Carolina, Pennsylvania, Texas and Virginia \u2014 treat telehealth as a per-plan answer rather than a Magellan answer.',
         status: 'unverified',
         cites: [{ title: '2025\u20132026 Magellan Care Guidelines \u2014 Outpatient Applied Behavior Analysis (eff. 11/8/2025)', url: 'https://www.magellanprovider.com/media/553052/mcg_2025-2026.pdf' }, { title: 'Magellan Provider Orientation \u2014 Autism Spectrum Disorders, commercial and employer plans (Jan. 2026)', url: 'https://www.magellanprovider.com/media/128995/aba_provider_orientation.pdf' }, { title: 'Magellan Healthcare \u2014 Medical Necessity Criteria', url: 'https://www.magellanprovider.com/providing-care/clinical-guidelines/medical-necessity-criteria.aspx' }],
-        verifyVia:
-          'The plan-specific ABA team via MagellanProvider.com (State & Plan Information \u2192 Autism-Specific Information) or the toll-free number on the card. For a deviating book such as Louisiana Healthcare Connections, read the state manual Magellan defers to \u2014 there, the Louisiana Department of Health ABA Provider Manual.',
+        verifyVia: 'The plan-specific ABA team via MagellanProvider.com (State & Plan Information \u2192 Autism-Specific Information) or the toll-free number on the card. For a deviating book such as Louisiana Healthcare Connections, read the state manual Magellan defers to \u2014 there, the Louisiana Department of Health ABA Provider Manual. Magellan applies the proprietary MCG half of its Care Guidelines here; that half is licensed and is only supplied on request during a clinical review, so the plan\u2019s UM line \u2014 not a document request \u2014 is the route to the answer.',
+        blocker: 'licensed',
       },
     },
     faq: [
@@ -477,9 +522,24 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
     cardDesc: 'Usually EAP, sometimes the whole BH network — establish which before you promise a start date.',
     payer: 'ComPsych',
     state: 'US', kind: 'commercial',
-    assessmentPA: 'Plan-by-plan — ComPsych publishes no ABA authorization policy. Confirm in writing with the ComPsych number on the card before the assessment, and get the authorization number.',
-    treatmentPA: 'Plan-by-plan — the employer plan document, not ComPsych, defines the ABA benefit. Assume authorization is required and obtain it in writing.',
-    dxRequired: 'Plan-by-plan — ComPsych publishes no ABA medical-necessity criteria. The employer plan document and whatever criteria set ComPsych applies for that client govern; ask which one, and ask for it in writing.',
+    assessmentPA: {
+      value: 'Plan-by-plan — ComPsych publishes no ABA authorization policy. Confirm in writing with the ComPsych number on the card before the assessment, and get the authorization number.',
+      status: 'plan-dependent',
+      verifyVia: 'The ComPsych behavioral health number on the back of the member\'s card, with the employer/plan sponsor name in hand — ask who authorizes applied behavior analysis, which criteria set is applied for that client, and request the answer in writing with an authorization number. ComPsych administers somebody else\'s plan and publishes no ABA policy of its own, so the employer plan document is the governing text.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Plan-by-plan — the employer plan document, not ComPsych, defines the ABA benefit. Assume authorization is required and obtain it in writing.',
+      status: 'plan-dependent',
+      verifyVia: 'The ComPsych behavioral health number on the back of the member\'s card, with the employer/plan sponsor name in hand — ask who authorizes applied behavior analysis, which criteria set is applied for that client, and request the answer in writing with an authorization number. ComPsych administers somebody else\'s plan and publishes no ABA policy of its own, so the employer plan document is the governing text.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Plan-by-plan — ComPsych publishes no ABA medical-necessity criteria. The employer plan document and whatever criteria set ComPsych applies for that client govern; ask which one, and ask for it in writing.',
+      status: 'plan-dependent',
+      verifyVia: 'The ComPsych behavioral health number on the back of the member\'s card, with the employer/plan sponsor name in hand — ask who authorizes applied behavior analysis, which criteria set is applied for that client, and request the answer in writing with an authorization number. ComPsych administers somebody else\'s plan and publishes no ABA policy of its own, so the employer plan document is the governing text.',
+      blocker: 'per-case',
+    },
     pill: 'Payer Guide · ComPsych',
     h1: 'ComPsych and ABA: what it actually administers.',
     metaTitle: 'ComPsych ABA Coverage: What It Administers | Carelu',
@@ -571,6 +631,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'ComPsych Provider ResourceCenter \u2014 Credentialing', url: 'https://providers.compsych.com/providers/content/credentialing.xhtml' }, { title: 'ComPsych \u2014 Behavioral Health Programs', url: 'https://www.compsych.com/services/behavioral-health-programs.html' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
       concurrentBilling: {
         value:
@@ -578,6 +639,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'ComPsych Provider ResourceCenter', url: 'https://providers.compsych.com/providers' }, { title: 'ComPsych \u2014 Behavioral Health Programs', url: 'https://www.compsych.com/services/behavioral-health-programs.html' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -585,12 +647,14 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'ComPsych \u2014 Behavioral Health Programs', url: 'https://www.compsych.com/services/behavioral-health-programs.html' }, { title: 'Sample employer SBC \u2014 Anthem BCBS EPO with ComPsych behavioral health network (2024 plan year)', url: 'https://cache.hacontent.com/ybr/R516/09429_ybr_ybrfndt/downloads/2024AnthemBCBSEPOPlan.pdf' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value: 'ComPsych’s published network participation requirements set a floor of a master’s-level degree in a behavioral health related field, three years post-graduate experience and a current state license at the highest level in that state — which a behavior technician does not meet. ComPsych does not publish whether technicians may be rostered under a credentialed analyst, or whose NPI an ABA claim must carry.',
         status: 'unverified',
         cites: [{ title: 'ComPsych Provider ResourceCenter — Credentialing', url: 'https://providers.compsych.com/providers/content/credentialing.xhtml' }],
         verifyVia: 'ComPsych provider recruitment (providerrecruitment@compsych.com) or the ComPsych behavioral health number printed on the member’s card — ask specifically whether technician-delivered 97153 is payable and under whose NPI.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -598,6 +662,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'ComPsych Employee Assistance Program \u2014 Summary of Benefits and Coverage', url: 'https://www.guidanceresources.com/groWeb/resources/documents/SummaryOfBenefits.pdf' }, { title: 'ComPsych \u2014 Behavioral Health Programs', url: 'https://www.compsych.com/services/behavioral-health-programs.html' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -605,6 +670,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'ComPsych Provider ResourceCenter', url: 'https://providers.compsych.com/providers' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -614,6 +680,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'ComPsych Employee Assistance Program \u2014 Summary of Benefits and Coverage', url: 'https://www.guidanceresources.com/groWeb/resources/documents/SummaryOfBenefits.pdf' }, { title: 'ComPsych \u2014 Behavioral Health Programs', url: 'https://www.compsych.com/services/behavioral-health-programs.html' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -621,6 +688,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'ComPsych Provider ResourceCenter', url: 'https://providers.compsych.com/providers' }, { title: 'ComPsych \u2014 Behavioral Health Programs', url: 'https://www.compsych.com/services/behavioral-health-programs.html' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -628,6 +696,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'ComPsych Provider ResourceCenter \u2014 Credentialing', url: 'https://providers.compsych.com/providers/content/credentialing.xhtml' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
       diagnosticTools: {
         value:
@@ -635,6 +704,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'ComPsych Provider ResourceCenter', url: 'https://providers.compsych.com/providers' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
       referral: {
         value:
@@ -642,6 +712,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'Sample employer SBC \u2014 Anthem BCBS EPO with ComPsych behavioral health network (2024 plan year)', url: 'https://cache.hacontent.com/ybr/R516/09429_ybr_ybrfndt/downloads/2024AnthemBCBSEPOPlan.pdf' }, { title: 'ComPsych Employee Assistance Program \u2014 Summary of Benefits and Coverage', url: 'https://www.guidanceresources.com/groWeb/resources/documents/SummaryOfBenefits.pdf' }, { title: 'ComPsych \u2014 Behavioral Health Programs', url: 'https://www.compsych.com/services/behavioral-health-programs.html' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -649,6 +720,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'ComPsych \u2014 Behavioral Health Programs', url: 'https://www.compsych.com/services/behavioral-health-programs.html' }],
         verifyVia: 'The ComPsych behavioral health number on the back of the member\u2019s card \u2014 ask who authorizes applied behavior analysis, which criteria set applies, and request it in writing; network questions to providerrecruitment@compsych.com. Record the call reference and the representative\u2019s name, because with nothing published that call is the only record you will have at appeal.',
+        blocker: 'per-case',
       },
     },
     faq: [

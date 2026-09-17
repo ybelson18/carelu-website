@@ -4,9 +4,29 @@ export const missouriPayers: Record<string, PayerConfig> = {
   'missouri-medicaid': {
     slug: 'missouri-medicaid',
     cardDesc: 'Full FFS carve-out: one payer, one fax precert (form 2575-045), no MCO contracting.',
-    assessmentPA: 'Required — all ABA needs precertification (sole exception: school-based ABA in an IEP); form 2575-045 faxed to (573) 635-6516 with the diagnostic evaluation',
-    treatmentPA: 'Required — precertified up to 6 months; continuation needs the current plan, progress graphs, and barriers if progress isn\'t evident',
-    dxRequired: 'ASD (F84.0, F84.3, F84.5, F84.8) by a licensed physician or psychologist for the standard benefit — but under EPSDT/HCY, ABA is also covered for other diagnoses when medically necessary',
+    assessmentPA: {
+      value: 'Required — all ABA needs precertification (sole exception: school-based ABA in an IEP); form 2575-045 faxed to (573) 635-6516 with the diagnostic evaluation',
+      status: 'verified',
+      cites: [
+        { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
+        { title: 'MO HealthNet Behavioral Health Services page (form 2575-045 + bulletins)', url: 'https://mydss.mo.gov/mhd/behavioral-health-services' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — precertified up to 6 months; continuation needs the current plan, progress graphs, and barriers if progress isn\'t evident',
+      status: 'verified',
+      cites: [
+        { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
+        { title: 'MO HealthNet Behavioral Health Services page (form 2575-045 + bulletins)', url: 'https://mydss.mo.gov/mhd/behavioral-health-services' },
+      ],
+    },
+    dxRequired: {
+      value: 'ASD (F84.0, F84.3, F84.5, F84.8) by a licensed physician or psychologist for the standard benefit — but under EPSDT/HCY, ABA is also covered for other diagnoses when medically necessary',
+      status: 'verified',
+      cites: [
+        { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
+      ],
+    },
     payer: 'MO HealthNet (Missouri Medicaid)',
     state: 'MO', kind: 'state-medicaid',
     pill: 'Payer Guide · MO HealthNet',
@@ -131,8 +151,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'Not addressed. Neither \u00a71.16 of the Behavioral Health Services Manual nor 13 CSR 70-98.030 states whether 97155 and 97153 may be billed for the same clock time. The manual does carry a general non-covered line \u2014 \u201ctravel time is not reimbursed and must not be included as part of the scheduled appointment time\u201d \u2014 and the daily unit maximums on the fee schedule bound the day, but neither settles same-time code pairs. A 2022 hot tip confirming a system fix after 97153/97155 claims wrongly denied on limit restrictions suggests the pair does pay in practice, which is a claims-history observation rather than a published rule.',
         status: 'unverified',
         cites: [{ title: 'MO HealthNet Behavioral Health Services Manual, \u00a71.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' }, { title: 'MHD Applied Behavioral Analysis fee schedule (official download portal)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/DLFiles.aspx' }],
-        verifyVia:
-          'MHD Behavioral Health Services help desk \u2014 the same line that takes the precertification fax, (573) 635-6516 \u2014 or Provider Communications. Ask whether 97155 pays alongside 97153 for the same clock time and request the answer in writing.',
+        verifyVia: 'MHD Behavioral Health Services help desk \u2014 the same line that takes the precertification fax, (573) 635-6516 \u2014 or Provider Communications. Ask whether 97155 pays alongside 97153 for the same clock time and request the answer in writing.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -171,8 +191,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'No recency rule is published. \u00a71.16 requires a diagnostic evaluation by a licensed physician or licensed psychologist but does not state how recent it must be, and the precertification table asks for the diagnostic evaluation on the initial assessment request without a date test. The only currency requirement sits on the assessment rather than the diagnosis: a periodic re-assessment precertification must carry a clinical rationale \u2014 re-administration of tools, a new behavior observed, a new environment where the participant is responding differently, or a lack of adequate progress.',
         status: 'unverified',
         cites: [{ title: 'MO HealthNet Behavioral Health Services Manual, \u00a71.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' }],
-        verifyVia:
-          'MHD Behavioral Health Services help desk at (573) 635-6516 when faxing form 2575-045 \u2014 ask whether an evaluation of this age will be accepted before you book the assessment.',
+        verifyVia: 'MHD Behavioral Health Services help desk at (573) 635-6516 when faxing form 2575-045 \u2014 ask whether an evaluation of this age will be accepted before you book the assessment.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -212,9 +232,32 @@ export const missouriPayers: Record<string, PayerConfig> = {
     slug: 'aetna-missouri',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the RSMo § 376.1224 mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      ],
+      verifyVia: 'Two Aetna documents disagree on the code range and a human must settle which governs an ABA review: CPB 0554 and CPB 0648 both list "ICD-10 codes covered if selection criteria are met: F84.0 - F84.9", while the Applied behavior analysis medical necessity guide — the guideline Aetna’s behavioral-health reviewers apply — states "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)" in both its quality-of-care elements and its medical-necessity criteria, which leaves out F84.2 (Rett syndrome). The ASD-only half of the claim is not in doubt; the range is.',
+      blocker: 'document',
+    },
     payer: 'Aetna in Missouri',
     state: 'MO', kind: 'commercial',
     pill: 'Payer Guide · Aetna · Missouri',
@@ -274,6 +317,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
       { title: 'RSMo § 337.315 — behavior analyst licensure', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.315' },
+      { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -287,40 +333,40 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'Not published. Neither CPB 0554 nor CPB 0648 states whether 97155 and 97153 may be billed for the same clock time, and Aetna publishes no Missouri-specific ABA policy, form or supplement.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Availity Essentials for the plan\'s reimbursement and claim-editing policies, or the provider-services number on the member\'s card.',
+        verifyVia: 'Availity Essentials for the plan\'s reimbursement and claim-editing policies, or the provider-services number on the member\'s card.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
           'Aetna does not publish the rendering-versus-billing NPI convention for ABA. Missouri\'s mandate does supply one half of the answer for plans it reaches: reimbursement is directed to the autism service provider, or to the entity or group the supervising board-certified behavior analyst works for, and it expressly includes line-therapist services delivered under that supervision when they are in the treatment plan and medically necessary.',
         status: 'plan-dependent',
         cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required degree-level modifiers before the first claim.',
+        verifyVia: 'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required degree-level modifiers before the first claim.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
           'Not published. CPB 0554 lists the covered ABA codes but sets no per-day unit ceiling, and Aetna publishes no ABA-specific MUE table. The operative ceiling is the precertification itself, which requires requested hours to be listed code by code \u2014 so the authorization, not a policy, is what bounds the day. CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year as clinical context rather than as a limit.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'The authorization letter itself, plus Availity Essentials for the plan\'s claim-editing and reimbursement policies. Ask whether CMS MUE limits are applied to ABA codes on this plan.',
+        verifyVia: 'The authorization letter itself, plus Availity Essentials for the plan\'s claim-editing and reimbursement policies. Ask whether CMS MUE limits are applied to ABA codes on this plan.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
           'Not published. CPB 0554 and CPB 0648 set coverage criteria and precertification content; neither states what a session note must contain, who signs it, or by when.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Aetna provider services or Availity \u2014 ask for the documentation standard applied at audit, and keep to the precertification form\'s own data elements in the meantime.',
+        verifyVia: 'Aetna provider services or Availity \u2014 ask for the documentation standard applied at audit, and keep to the precertification form\'s own data elements in the meantime.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
           'Not published as a payable-settings list. What CPB 0554 does make a submission requirement is adjacent and useful: the precertification form asks for concurrent services \u2014 PT, OT, speech and school services \u2014 plus how care is coordinated across them, so the school picture is data Aetna collects even though it publishes no school-versus-home rule.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA and whether school-based delivery is excluded.',
+        verifyVia: 'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA and whether school-based delivery is excluded.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -329,14 +375,16 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'The mandate sets no overall age limit on autism coverage \u2014 what it ages out is the dollar cap. RSMo \u00a7 376.1224 subjects ABA to \u201ca maximum benefit of forty thousand dollars per calendar year for individuals through eighteen years of age,\u201d a statutory base that is CPI-indexed (the Department of Commerce and Insurance publishes the adjusted figure annually). Coverage required under the section other than ABA \u201cshall not be subject to the age and dollar limitations described in this subsection,\u201d so OT, PT, speech, psychiatric and pharmacy care for autism carry no age cut-off and no dollar cap. Self-funded private ERISA plans are preempted from all of it; note Missouri\'s unusual reach into the state consolidated health care plan, self-insured governmental plans, MEWAs and self-insured school-district plans established on or after 1/1/2020.',
         status: 'plan-dependent',
         cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — ask whether RSMo § 376.1224 reaches this plan (it reaches fully-insured plans, the state consolidated health care plan, self-insured governmental plans, MEWAs and self-insured school-district plans established on or after 1/1/2020, but not private self-funded ERISA plans), and what the plan applies as this year’s dollar cap. The Missouri Department of Commerce and Insurance publishes the CPI-adjusted figure annually — quote that year’s number, never the $40,000 statutory base.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
           'Aetna publishes no recency rule for the ASD diagnostic evaluation, and \u00a7 376.1224 sets none either \u2014 its six-month clock runs on plan review of the treatment plan, not on the age of the diagnosis. Capture the evaluation date anyway: the precertification package asks for it.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia:
-          'The precertification call or Availity, when submitting form GR-69017-4 \u2014 ask whether an evaluation of this age will be accepted for this plan.',
+        verifyVia: 'The precertification call or Availity, when submitting form GR-69017-4 \u2014 ask whether an evaluation of this age will be accepted for this plan.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -349,14 +397,16 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'No instrument is named at either level. CPB 0554 does not require or reference a specific diagnostic tool, and the precertification form asks for the diagnosis code, the diagnosing provider and their credentials rather than for an instrument and score; \u00a7 376.1224 names none either.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia:
-          'Aetna precertification (Availity or the number on the card) \u2014 ask whether a specific instrument is expected for this plan before scheduling testing.',
+        verifyVia: 'Aetna precertification (Availity or the number on the card) \u2014 ask whether a specific instrument is expected for this plan before scheduling testing.',
+        blocker: 'per-case',
       },
       referral: {
         value:
           'Yes on a plan the mandate reaches, and the statute is specific about who writes it: ABA \u201cmust be ordered by the treating licensed physician or psychologist\u201d in a treatment plan, and must be supervised by a board-certified behavior analyst licensed under chapter 337. Capture the ordering physician or psychologist and the treatment plan they signed. Two Missouri rules work in the provider\'s favour once the order exists: the carrier may review the treatment plan no more than once every six months unless the provider agrees otherwise, and the cost of obtaining any review or treatment plan is borne by the plan. Self-funded private ERISA plans are outside the statute.',
         status: 'plan-dependent',
         cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm first whether RSMo § 376.1224 reaches this plan. Where it does, capture the ordering licensed physician or psychologist and the treatment plan they signed, and the supervising chapter 337 licensed behavior analyst. Where it does not (a private self-funded ERISA plan), ask the carrier whether it requires a physician or psychologist order and in what form.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -376,9 +426,27 @@ export const missouriPayers: Record<string, PayerConfig> = {
     slug: 'cigna-missouri',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the RSMo § 376.1224 mandate layer.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
     payer: 'Cigna / Evernorth in Missouri',
     state: 'MO', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Missouri',
@@ -469,16 +537,16 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'Not published as a per-day unit ceiling. EN0499 bounds the day from a different direction: ABA is not covered when delivered at the same time as another therapy to the same child, and only one provider can bill a unit of time, with the standard supervision exceptions. Requested intensity is set in the treatment plan and authorized on the ABA PA form rather than against a published cap.',
         status: 'unverified',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'The treatment authorization itself, and Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask whether any per-day MUE is applied to ABA codes on this plan.',
+        verifyVia: 'The treatment authorization itself, and Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask whether any per-day MUE is applied to ABA codes on this plan.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
           'Not published as a payable-settings list. Two sourced facts bear on setting nonetheless: the treatment plan must carry dated baseline data per setting, so settings are declared and measured rather than assumed; and every session note must record the location. Whether a given setting is payable is a plan-benefit question.',
         status: 'unverified',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA, and whether school-based delivery is excluded before you write school goals.',
+        verifyVia: 'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA, and whether school-based delivery is excluded before you write school goals.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -487,6 +555,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'The mandate sets no overall age limit on autism coverage \u2014 what it ages out is the dollar cap. RSMo \u00a7 376.1224 subjects ABA to \u201ca maximum benefit of forty thousand dollars per calendar year for individuals through eighteen years of age,\u201d a statutory base that is CPI-indexed (the Department of Commerce and Insurance publishes the adjusted figure annually). Coverage required under the section other than ABA \u201cshall not be subject to the age and dollar limitations described in this subsection,\u201d so OT, PT, speech, psychiatric and pharmacy care for autism carry no age cut-off and no dollar cap. Self-funded private ERISA plans are preempted from all of it; note Missouri\'s unusual reach into the state consolidated health care plan, self-insured governmental plans, MEWAs and self-insured school-district plans established on or after 1/1/2020.',
         status: 'plan-dependent',
         cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — ask whether RSMo § 376.1224 reaches this plan (it reaches fully-insured plans, the state consolidated health care plan, self-insured governmental plans, MEWAs and self-insured school-district plans established on or after 1/1/2020, but not private self-funded ERISA plans), and what the plan applies as this year’s dollar cap. The Missouri Department of Commerce and Insurance publishes the CPI-adjusted figure annually — quote that year’s number, never the $40,000 statutory base.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -499,8 +569,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'EN0499 as quoted in this guide sets the credential bar for who performs the ABA assessment and supervises the case \u2014 an independently licensed provider or a BCBA \u2014 rather than naming who may make the ASD diagnosis; the diagnosis must be DSM-5-TR autism spectrum, with Rett syndrome (F84.2) excluded. On a plan the Missouri mandate reaches, the ABA must additionally be ordered by the treating licensed physician or psychologist, which is the narrower and more operationally important list.',
         status: 'plan-dependent',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia:
-          'Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask which diagnosing credentials EN0499 accepts before relying on a diagnosis from a non-doctoral clinician.',
+        verifyVia: 'Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask which diagnosing credentials EN0499 accepts before relying on a diagnosis from a non-doctoral clinician.',
+        blocker: 'per-case',
       },
       diagnosticTools: {
         value:
@@ -513,6 +583,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'Yes on a plan the mandate reaches, and the statute is specific about who writes it: ABA \u201cmust be ordered by the treating licensed physician or psychologist\u201d in a treatment plan, and must be supervised by a board-certified behavior analyst licensed under chapter 337. Capture the ordering physician or psychologist and the treatment plan they signed. Two Missouri rules work in the provider\'s favour once the order exists: the carrier may review the treatment plan no more than once every six months unless the provider agrees otherwise, and the cost of obtaining any review or treatment plan is borne by the plan. Self-funded private ERISA plans are outside the statute.',
         status: 'plan-dependent',
         cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm first whether RSMo § 376.1224 reaches this plan. Where it does, capture the ordering licensed physician or psychologist and the treatment plan they signed, and the supervising chapter 337 licensed behavior analyst. Where it does not (a private self-funded ERISA plan), ask the carrier whether it requires a physician or psychologist order and in what form.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -532,9 +604,30 @@ export const missouriPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-missouri',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the RSMo § 376.1224 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare / Optum in Missouri',
     state: 'MO', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · Missouri',
@@ -627,8 +720,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'Optum authorizes in four code clusters rather than against a per-day ceiling \u2014 assessment (97151, 97152), direct care (97153, 97154), multi-staff (0362T, 0373T) and QHP services (97155\u201397158) \u2014 with units flexing within a cluster without a new authorization. The number that bites runs the other way: utilization below 80 percent of authorized hours over a two-week window draws scrutiny at review. Missouri\'s own cap is a dollar cap on the benefit rather than a unit ceiling on the day.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia:
-          'The authorization letter on Provider Express, and Optum provider services \u2014 ask whether any per-day MUE applies on top of the cluster structure.',
+        verifyVia: 'The authorization letter on Provider Express, and Optum provider services \u2014 ask whether any per-day MUE applies on top of the cluster structure.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -641,16 +734,16 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'Optum does not publish the rendering-versus-billing NPI convention for ABA in the criteria cited here. Missouri\'s mandate supplies the statutory half for plans it reaches: reimbursement runs to the autism service provider or to the entity or group the supervising board-certified behavior analyst works for, and expressly covers line-therapist services delivered under that supervision.',
         status: 'plan-dependent',
         cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum provider services or the authorization letter on Provider Express \u2014 confirm the rendering-versus-billing NPI convention before the first claim.',
+        verifyVia: 'Optum provider services or the authorization letter on Provider Express \u2014 confirm the rendering-versus-billing NPI convention before the first claim.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
           'Not published in the Supplemental Clinical Criteria. What Optum specifies is the review packet rather than the session note: continued-service reviews every 4\u20136 months want progress documented per targeted behavior using the same measurement methods as baseline, plus updated standardized adaptive measures. Note the Missouri overlay \u2014 on a fully-insured plan the carrier may not compel treatment-plan review more than once every six months.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum provider services, or your Provider Express network manager \u2014 ask for the documentation standard applied at audit.',
+        verifyVia: 'Optum provider services, or your Provider Express network manager \u2014 ask for the documentation standard applied at audit.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -659,14 +752,16 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'The mandate sets no overall age limit on autism coverage \u2014 what it ages out is the dollar cap. RSMo \u00a7 376.1224 subjects ABA to \u201ca maximum benefit of forty thousand dollars per calendar year for individuals through eighteen years of age,\u201d a statutory base that is CPI-indexed (the Department of Commerce and Insurance publishes the adjusted figure annually). Coverage required under the section other than ABA \u201cshall not be subject to the age and dollar limitations described in this subsection,\u201d so OT, PT, speech, psychiatric and pharmacy care for autism carry no age cut-off and no dollar cap. Self-funded private ERISA plans are preempted from all of it; note Missouri\'s unusual reach into the state consolidated health care plan, self-insured governmental plans, MEWAs and self-insured school-district plans established on or after 1/1/2020.',
         status: 'plan-dependent',
         cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — ask whether RSMo § 376.1224 reaches this plan (it reaches fully-insured plans, the state consolidated health care plan, self-insured governmental plans, MEWAs and self-insured school-district plans established on or after 1/1/2020, but not private self-funded ERISA plans), and what the plan applies as this year’s dollar cap. The Missouri Department of Commerce and Insurance publishes the CPI-adjusted figure annually — quote that year’s number, never the $40,000 statutory base.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
           'Optum publishes no recency rule for the ASD diagnosis in the Supplemental Clinical Criteria cited here, and Missouri has no entry in Optum\'s State Mandates supplement to add one. What Optum does set is downstream: continued-service reviews every 4\u20136 months requiring updated standardized adaptive measures and progress measured the same way as baseline. Note the tension with \u00a7 376.1224 on a fully-insured Missouri plan \u2014 the statute limits plan review of the treatment plan to once every six months unless the provider agrees otherwise.',
         status: 'unverified',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum \u2014 ABA State Mandates supplemental criteria (BH 803ABA STM1 2026 \u2014 no Missouri entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia:
-          'Optum provider services or the assessment-authorization request on Provider Express \u2014 ask whether an evaluation of this age will be accepted before scheduling.',
+        verifyVia: 'Optum provider services or the assessment-authorization request on Provider Express \u2014 ask whether an evaluation of this age will be accepted before scheduling.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -685,6 +780,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'Yes on a plan the mandate reaches, and the statute is specific about who writes it: ABA \u201cmust be ordered by the treating licensed physician or psychologist\u201d in a treatment plan, and must be supervised by a board-certified behavior analyst licensed under chapter 337. Capture the ordering physician or psychologist and the treatment plan they signed. Two Missouri rules work in the provider\'s favour once the order exists: the carrier may review the treatment plan no more than once every six months unless the provider agrees otherwise, and the cost of obtaining any review or treatment plan is borne by the plan. Self-funded private ERISA plans are outside the statute.',
         status: 'plan-dependent',
         cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm first whether RSMo § 376.1224 reaches this plan. Where it does, capture the ordering licensed physician or psychologist and the treatment plan they signed, and the supervising chapter 337 licensed behavior analyst. Where it does not (a private self-funded ERISA plan), ask the carrier whether it requires a physician or psychologist order and in what form.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -707,9 +804,37 @@ export const missouriPayers: Record<string, PayerConfig> = {
     state: 'MO', kind: 'commercial',
     family: 'anthem',
     cardDesc: 'Inflation-indexed ABA cap ($57,311 for 2025); Anthem reviews in-house; 6-month statutory review ceiling.',
-    assessmentPA: 'Yes — and Anthem\'s ASD form has an assessment-only pathway for 97151/97152/0362T, authorized per authorization period',
-    treatmentPA: 'Yes — responsible party Anthem; since March 1, 2026 the authorization carries weekly approved units',
-    dxRequired: 'Yes — and the ABA must sit in a treatment plan tied to a chapter 337 licensed behavior analyst',
+    assessmentPA: {
+      value: 'Yes — and Anthem\'s ASD form has an assessment-only pathway for 97151/97152/0362T, authorized per authorization period',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+        { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+      ],
+      verifyVia: 'Anthem publishes the requirement but also publishes its limits, so check the group before you rely on it: the Central Blues precertification list applies to local fully-insured members and to self-insured (ASO) members only where the group purchased the medical-management program — where it did not, preapproval is not required and no clinical review is performed — and on National Accounts business precertification for ABA “applies unless the group specifically opts out of clinical review for this benefit.” Confirm funding type and medical-management purchase on the benefits call, via Availity Essentials or the number on the member’s card.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Yes — responsible party Anthem; since March 1, 2026 the authorization carries weekly approved units',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+        { title: 'Anthem Missouri — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/missouri/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
+      ],
+      verifyVia: 'Anthem publishes the requirement but also publishes its limits, so check the group before you rely on it: the Central Blues precertification list applies to local fully-insured members and to self-insured (ASO) members only where the group purchased the medical-management program — where it did not, preapproval is not required and no clinical review is performed — and on National Accounts business precertification for ABA “applies unless the group specifically opts out of clinical review for this benefit.” Confirm funding type and medical-management purchase on the benefits call, via Availity Essentials or the number on the member’s card.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes — and the ABA must sit in a treatment plan tied to a chapter 337 licensed behavior analyst',
+      status: 'verified',
+      cites: [
+        { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+        { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        { title: 'RSMo § 337.300 — behavior analyst definitions', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.300' },
+      ],
+    },
     pill: 'Payer Guide · Anthem BCBS · Missouri',
     h1: 'Anthem BCBS Missouri ABA coverage: the intake guide.',
     metaTitle: 'Anthem BCBS Missouri ABA Coverage & Prior Auth: Intake Guide | Carelu',
@@ -871,14 +996,16 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'The mandate sets no overall age limit on autism coverage \u2014 what it ages out is the dollar cap. RSMo \u00a7 376.1224 subjects ABA to \u201ca maximum benefit of forty thousand dollars per calendar year for individuals through eighteen years of age,\u201d a statutory base that is CPI-indexed (the Department of Commerce and Insurance publishes the adjusted figure annually). Coverage required under the section other than ABA \u201cshall not be subject to the age and dollar limitations described in this subsection,\u201d so OT, PT, speech, psychiatric and pharmacy care for autism carry no age cut-off and no dollar cap. Self-funded private ERISA plans are preempted from all of it; note Missouri\'s unusual reach into the state consolidated health care plan, self-insured governmental plans, MEWAs and self-insured school-district plans established on or after 1/1/2020.',
         status: 'plan-dependent',
         cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — ask whether RSMo § 376.1224 reaches this plan (it reaches fully-insured plans, the state consolidated health care plan, self-insured governmental plans, MEWAs and self-insured school-district plans established on or after 1/1/2020, but not private self-funded ERISA plans), and what the plan applies as this year’s dollar cap. The Missouri Department of Commerce and Insurance publishes the CPI-adjusted figure annually — quote that year’s number, never the $40,000 statutory base.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
           'The rule Anthem does publish attaches to the treatment plan, not the diagnosis: the ASD Treatment Plan Request Form requires the treatment plan to be dated within 30 days of the start date. On the diagnosis itself Anthem reviews under MCG B-806-T, which is licensed, proprietary and unpublished, so any recency criterion is in a document you cannot read. What triggers a fresh diagnostic evaluation is a request type rather than a date: an initial assessment-only request covering 97151, 97152 and 0362T, or a member with new insurance coverage, must include a diagnostic evaluation. On a fully-insured Missouri plan the statute caps re-review of the treatment plan at once every six months.',
         status: 'unverified',
         cites: [{ title: 'Anthem \u2014 Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia:
-          'Availity Essentials \u2192 Authorizations and Referrals, or fax 866-582-2287 with the ASD Treatment Plan Request Form \u2014 ask what evaluation age B-806-T accepts. A denial citing the retired CG-BEH-02 is itself an appeal point.',
+        verifyVia: 'Availity Essentials \u2192 Authorizations and Referrals, or fax 866-582-2287 with the ASD Treatment Plan Request Form \u2014 ask what evaluation age B-806-T accepts. A denial citing the retired CG-BEH-02 is itself an appeal point. MCG B-806-T is licensed proprietary criteria \u2014 it is never published and no document request will produce it, so the plan\u2019s own UM reviewer is the only route to the answer.',
+        blocker: 'licensed',
       },
       diagnosingProviders: {
         value:
@@ -897,14 +1024,16 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'Yes on a plan the mandate reaches, and the statute is specific about who writes it: ABA \u201cmust be ordered by the treating licensed physician or psychologist\u201d in a treatment plan, and must be supervised by a board-certified behavior analyst licensed under chapter 337. Capture the ordering physician or psychologist and the treatment plan they signed. Two Missouri rules work in the provider\'s favour once the order exists: the carrier may review the treatment plan no more than once every six months unless the provider agrees otherwise, and the cost of obtaining any review or treatment plan is borne by the plan. Self-funded private ERISA plans are outside the statute.',
         status: 'plan-dependent',
         cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
+        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm first whether RSMo § 376.1224 reaches this plan. Where it does, capture the ordering licensed physician or psychologist and the treatment plan they signed, and the supervising chapter 337 licensed behavior analyst. Where it does not (a private self-funded ERISA plan), ask the carrier whether it requires a physician or psychologist order and in what form.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
           'Anthem names two telehealth place-of-service codes for ABA \u2014 10 (member at home) and 02 (member elsewhere) \u2014 but publishes no national list of telehealth-eligible ABA codes. Its ABA provider resource guide routes the question to the Virtual Visits reimbursement policy, notes that \u201callowed codes may vary,\u201d and directs providers to the allowed virtual services list in addition to CPT Appendix P \u201cto obtain codes that are eligible for reimbursement in your state.\u201d Confirm per state and per plan before scheduling remote hours \u2014 and remember that weekly approved units since March 1, 2026 bound the week regardless of how the hours are delivered.',
         status: 'plan-dependent',
         cites: [{ title: 'Anthem ABA Provider Resource Guide \u2014 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
-        verifyVia:
-          'Anthem\'s Virtual Visits reimbursement policy and the Missouri allowed-virtual-services list, or Anthem provider services via Availity Essentials.',
+        verifyVia: 'Anthem\'s Virtual Visits reimbursement policy and the Missouri allowed-virtual-services list, or Anthem provider services via Availity Essentials.',
+        blocker: 'document',
       },
     },
     faq: [

@@ -97,15 +97,16 @@ const CATEGORIES = Array.from(new Set(POLICY_DB.map((p) => p.category))).sort();
 
 // Compact assessment-PA verdict for directory cards. Only rendered when the
 // guide carries a verified assessmentPA fact — unknowns show nothing.
-function assessmentPaShort(assessmentPA?: string): { label: string; kind: 'yes' | 'no' } | null {
-  if (!assessmentPA) return null;
-  const v = assessmentPA.toLowerCase();
+function assessmentPaShort(assessmentPA?: { value: string; status: string }): { label: string; kind: 'yes' | 'no' } | null {
+  // Only a VERIFIED fact earns a card chip — an unverified guess must not look like an answer.
+  if (!assessmentPA || assessmentPA.status !== 'verified') return null;
+  const v = assessmentPA.value.toLowerCase();
   if (v.startsWith('not required') || v.startsWith('none')) return { label: 'No PA on assessment', kind: 'no' };
   if (v.startsWith('required') || v.startsWith('service authorization required')) return { label: 'Assessment PA required', kind: 'yes' };
   return null;
 }
 
-function GuideCard({ href, name, desc, assessmentPA }: { href: string; name: string; desc: string; assessmentPA?: string }) {
+function GuideCard({ href, name, desc, assessmentPA }: { href: string; name: string; desc: string; assessmentPA?: { value: string; status: string } }) {
   const pa = assessmentPaShort(assessmentPA);
   return (
     <a href={href} style={{

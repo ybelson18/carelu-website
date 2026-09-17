@@ -4,9 +4,24 @@ export const ohioPayers: Record<string, PayerConfig> = {
   'ohio-medicaid': {
     slug: 'ohio-medicaid',
     cardDesc: 'OAC 5160-34: all-PA ABA, 6-month reviews, published rates, and the OhioRISE carve-out myth.',
-    assessmentPA: 'Required — PA on all covered ABA codes under the current rule (a pending rewrite would exempt the first 10 assessment hours per 180 days)',
-    treatmentPA: 'Required — with medical-necessity review at baseline and every 6 months',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
+    assessmentPA: {
+      value: 'Required — PA on all covered ABA codes under the current rule (a pending rewrite would exempt the first 10 assessment hours per 180 days)',
+      status: 'unverified',
+      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — with medical-necessity review at baseline and every 6 months',
+      status: 'unverified',
+      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
+      status: 'unverified',
+      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      blocker: 'document',
+    },
     payer: 'Ohio Medicaid',
     state: 'OH', kind: 'state-medicaid',
     pill: 'Payer Guide · Ohio Medicaid',
@@ -111,6 +126,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
         ],
         verifyVia: 'Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02; the member’s MCO for how it applies EPSDT to ABA.',
+        blocker: 'document',
       },
       dxRecency: {
         value: 'Ohio’s state rule requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no recency window we could verify. In practice the recency rules in Ohio are plan-level and they differ sharply: CareSource requires a provider letter documenting DSM symptoms within the past year where the evaluation is more than 24 months old, while Buckeye accepts a comprehensive diagnostic evaluation conducted within the past five years. Screen against the member’s MCO, not the state rule. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -121,6 +137,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Buckeye — CP.BH.104 Applied Behavior Analysis (rev. 2/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
         ],
         verifyVia: 'Rules@Medicaid.Ohio.gov for the state rule; the member’s MCO policy for the operative window (MM-0028 for CareSource, CP.BH.104 for Buckeye).',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value: 'The ASD diagnosis must come from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria. Optum’s Ohio Medicaid supplemental criteria, which defer to the Ohio Administrative Code on practitioner requirements, restate the same bar: a valid ASD diagnosis issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such a diagnosis under DSM-5-TR. Several MCOs narrow it further — CareSource restricts the diagnosis to a child or adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician.',
@@ -140,6 +157,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
         ],
         verifyVia: 'Rules@Medicaid.Ohio.gov for whether the in-force rule names instruments; otherwise the member’s MCO ABA policy.',
+        blocker: 'document',
       },
       referral: {
         value: 'No Medicaid-side referral or service-order requirement could be verified. Ohio’s ordering requirement — services prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or a pediatric clinical nurse specialist or certified nurse practitioner — sits in the commercial insurance mandate at R.C. 3923.84, which governs insured plans, not Medicaid. Forward-looking and NOT law: ODM’s paused draft 5160-34-03 would require a diagnosing or referring practitioner independent of (not employed by) the ABA provider; that package is pre-filing with no JCARR filing, so it governs nothing today. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -149,6 +167,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'ODM — Provider Stakeholder Office Hours: ABA Proposed Rule Review (7/30/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/BH/provider/Presentations/7.30_ABA_Presentation.pdf' },
         ],
         verifyVia: 'Rules@Medicaid.Ohio.gov or JCARR for the in-force rule; the member’s MCO PA packet for what it actually requires with the request.',
+        blocker: 'document',
       },
       telehealth: {
         value: 'No per-code state telehealth rule for ABA could be verified. What is published at the plan level: Optum’s Ohio Medicaid criteria state that ABA is available through telehealth under guidelines effective June 2018, conditioned on the member having the basic and advanced prerequisite skills to benefit, a caregiver willing and able to support telehealth, and a thorough provider assessment of the environment and safety concerns — with the session note required to indicate when a service was delivered by telehealth. CareSource covers parent training and supervision by telehealth, and 1:1 ABA by telehealth only when medically necessary under a documented service-delivery plan. ODM’s own Telehealth Services guidance for managed care entities and the Telehealth Billing Guidelines set the underlying rules.',
@@ -158,6 +177,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
         ],
         verifyVia: 'ODM Telehealth Services: Guidelines for Managed Care Entities and the ODM Telehealth Billing Guidelines, plus the member’s MCO — confirm which ABA codes are payable by telehealth and with which modifier.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -178,6 +198,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
         ],
         verifyVia: 'Rules@Medicaid.Ohio.gov for the in-force rule; otherwise a written coding determination from the member’s MCO (CareSource UM (800) 488-0134, Buckeye UM (800) 224-1991).',
+        blocker: 'document',
       },
       dailyLimits: {
         value: 'No state-level per-day unit ceiling could be verified; Ohio’s daily limits are plan-level and worth knowing individually. CareSource’s reimbursement policy PY-1638 applies the CMS MUE maxima — 97151 at 32, 97153 at 32, 97155 at 24 and 97156 at 16 daily units, among others — and caps behavioral assessments at roughly 6–10 hours per 6-month period without justification. Buckeye’s CP.BH.104 sets 6 hours a day and 30 hours a week as the ceiling absent detailed clinical justification, with under 20 hours a week expected for children attending school full-time. Anthem applies the CG-BEH-02 family parameters of up to 40 hours a week. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -188,6 +209,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem OH Medicaid — Clinical UM Guidelines list (CG-BEH-02)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_FEB23CUMG.pdf' },
         ],
         verifyVia: 'Rules@Medicaid.Ohio.gov for the in-force state rule; the member’s MCO reimbursement policy for the operative daily maxima.',
+        blocker: 'document',
       },
       noteSignature: {
         value: 'No state-level session-note signature rule could be verified. The plan-level standards are concrete: Optum’s Ohio Medicaid criteria require the clinician’s signature, date of signature and credentials on the service note, with the clinician credentialed to provide everything documented, evidence of clinical supervision where required, and an explicit indication when a service was delivered by telehealth; the initial individualized treatment plan must be signed and dated by the responsible staff member and the supervising clinician (or carry documentation of clinical supervision), and every review must be signed and dated by the staff member completing it and the supervising clinician. CareSource adds an anti-boilerplate rule — generic copy-pasted symptom language is not sufficient documentation — and, distinctively, requires treatment records to reach the plan before claims: claims are not accepted without accompanying treatment documentation. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -198,6 +220,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
         ],
         verifyVia: 'Rules@Medicaid.Ohio.gov for the in-force state rule; otherwise the member’s MCO documentation policy.',
+        blocker: 'document',
       },
       placeOfService: {
         value: 'No state-level place-of-service rule for ABA could be verified. The boundary that is confirmed is the school one, from the managed-care side: the MCO is not responsible for payment of services provided through the Medicaid School Program under OAC Chapter 5160-35, 5160-35-04 and 5160-26-03, and Optum separately excludes ABA that is really a 1:1 aide delivered simultaneously during classroom instruction or a service covered under IDEA — while allowing school-based coordination, teacher training, meetings with school personnel and observation in the school setting. Buckeye adds an expectation of under 20 hours a week for children attending school full time. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -207,6 +230,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Buckeye — CP.BH.104 Applied Behavior Analysis (rev. 2/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
         ],
         verifyVia: 'Rules@Medicaid.Ohio.gov for the in-force state rule; the member’s MCO for POS codes it will accept on ABA claims.',
+        blocker: 'document',
       },
       billAsProvider: {
         value: 'Independent practitioners are Certified Ohio Behavior Analysts (COBA, under ORC Chapter 4783) or BACB BCBAs and BCBA-Ds, enrolled with ODM as Provider Type 19, Specialty 190; BCaBAs and RBTs work under supervision. Optum’s Ohio Medicaid criteria add the claim-level detail: COBA providers must be enrolled with Ohio Medicaid as Provider Type 19, Specialty Type 190 and hold a National Provider Identifier for both the rendering provider and the group provider, and a provider not enrolled with Medicaid needs a single case agreement. The routing rule that trips Ohio intake teams is separate and firm: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns claims for 97151–97158, 0362T and 0373T to the member’s Medicaid MCO or fee-for-service even when the youth is enrolled in OhioRISE.',
@@ -230,9 +254,28 @@ export const ohioPayers: Record<string, PayerConfig> = {
     slug: 'caresource-ohio',
     family: 'caresource',
     cardDesc: 'The strictest OH policy: named diagnostician specialties, ADOS/ADI-R/CARS-2, docs-before-claims.',
-    assessmentPA: 'Required — medical-necessity review on all ABA at baseline; assessments capped ~6–10 hrs per 6 months without justification',
-    treatmentPA: 'Required — 6-month cycles; treatment records must reach CareSource BEFORE claims are accepted',
-    dxRequired: 'Yes \u2014 ASD from a child/adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician (ADOS/ADI-R/CARS-2)',
+    assessmentPA: {
+      value: 'Required — medical-necessity review on all ABA at baseline; assessments capped ~6–10 hrs per 6 months without justification',
+      status: 'verified',
+      cites: [
+        { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 6-month cycles; treatment records must reach CareSource BEFORE claims are accepted',
+      status: 'verified',
+      cites: [
+        { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
+        { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD from a child/adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician (ADOS/ADI-R/CARS-2)',
+      status: 'verified',
+      cites: [
+        { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
+      ],
+    },
     payer: 'CareSource Ohio',
     state: 'OH', kind: 'medicaid-mco', parent: 'Ohio Medicaid',
     pill: 'Payer Guide · CareSource (OH)',
@@ -300,6 +343,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dxRecency: {
         value: 'CareSource sets the clearest recency rule in Ohio: where the diagnostic evaluation is more than 24 months old, a provider letter documenting DSM symptoms within the past year is required. Continuation requests must document progress against baseline using the same measurement tools, and a request filed after a temporary break in services (summer, vacation) must be filed as a continuation, not a new initial request.',
@@ -340,6 +384,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
       telehealth: {
         value: 'Telehealth covers parent training and supervision. One-to-one ABA by telehealth is allowed only when medically necessary under a documented service-delivery plan.',
@@ -373,6 +418,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dailyLimits: {
         value: 'CareSource publishes real per-day maxima, moved from MM-0028 into companion reimbursement policy PY-1638 effective 9/1/2026 with the figures unchanged: daily units follow the CMS MUE maxima — 97151 at 32, 97153 at 32, 97155 at 24 and 97156 at 16 daily units, among others. Behavioral assessments should generally not exceed 6–10 hours per 6-month period without justification, and all ABA carries medical-necessity review at baseline and every 6 months, with discontinuation triggered by no meaningful progress across two successive 6-month authorization periods.',
@@ -404,6 +450,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value: 'Follows the Ohio Medicaid framework (COBA or BACB BCBA/BCBA-D as the independent practitioner, ODM Provider Type 19 Specialty 190, BCaBAs and RBTs under supervision; OhioRISE never pays ABA). One rule narrowed in PY-1638: CareSource will no longer reimburse H0036 for ABA whenever a designated ABA CPT code is usable, so the older blanket acceptance of H0036 (CPST) billing from certified CBHCs in lieu of ABA CPT codes no longer holds.',
@@ -429,9 +476,27 @@ export const ohioPayers: Record<string, PayerConfig> = {
     slug: 'buckeye-health-plan',
     family: 'centene',
     cardDesc: 'In-network assessments PA-free; CP.BH.104 hour parameters (6/day, 30/wk) and school rules.',
-    assessmentPA: 'Not required in-network — 97151/97152 need PA for out-of-network only (plan form)',
-    treatmentPA: 'Required — 97153–97158 via the Autism Services PA form with IDI/FBA, schedule, parent-training plan, IEP',
-    dxRequired: 'Yes \u2014 autism diagnosis; CDE accepted within the past 5 years',
+    assessmentPA: {
+      value: 'Not required in-network — 97151/97152 need PA for out-of-network only (plan form)',
+      status: 'verified',
+      cites: [
+        { title: 'Buckeye — Autism Services PA Request Form', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/BehavioralHealthEducation/Medicaid-ABA-OTR-P-Form-508-6-28-23.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — 97153–97158 via the Autism Services PA form with IDI/FBA, schedule, parent-training plan, IEP',
+      status: 'verified',
+      cites: [
+        { title: 'Buckeye — Autism Services PA Request Form', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/BehavioralHealthEducation/Medicaid-ABA-OTR-P-Form-508-6-28-23.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 autism diagnosis; CDE accepted within the past 5 years',
+      status: 'verified',
+      cites: [
+        { title: 'Buckeye — CP.BH.104 Applied Behavior Analysis', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
+      ],
+    },
     payer: 'Buckeye Health Plan (OH)',
     state: 'OH', kind: 'medicaid-mco', parent: 'Ohio Medicaid',
     pill: 'Payer Guide · Buckeye Health Plan',
@@ -494,6 +559,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Buckeye — Autism Services Prior Authorization Request Form', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/BehavioralHealthEducation/Medicaid-ABA-OTR-P-Form-508-6-28-23.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dxRecency: {
         value: 'Buckeye accepts the comprehensive diagnostic evaluation if it was conducted within the past five years — the most generous window of the Ohio plans, and worth knowing against CareSource’s 24-month letter trigger.',
@@ -523,6 +589,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Buckeye — Autism Services Prior Authorization Request Form', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/BehavioralHealthEducation/Medicaid-ABA-OTR-P-Form-508-6-28-23.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       referral: {
         value: 'No referral or service order is required, but the treatment package is prescriptive: treatment PA (97153–97158) runs through Buckeye’s Autism Services Prior Authorization Request Form, which wants the individual diagnostic interview or FBA, objective testing results, a description of coordination with other services, the proposed schedule with the rendering provider type per session, a parent-training plan, and a copy of the IEP or IFSP — plus an HSPP-or-physician attestation of active participation in the treatment plan. In-network assessment codes 97151 and 97152 need no prior authorization at all; PA applies out-of-network only.',
@@ -544,6 +611,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Buckeye — Autism Services Prior Authorization Request Form', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/BehavioralHealthEducation/Medicaid-ABA-OTR-P-Form-508-6-28-23.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -567,6 +635,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Buckeye — Autism Services Prior Authorization Request Form', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/BehavioralHealthEducation/Medicaid-ABA-OTR-P-Form-508-6-28-23.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dailyLimits: {
         value: 'CP.BH.104 sets the numbers: treatment should not exceed 6 hours a day and 30 hours a week without detailed clinical justification — severity or escalation criteria, with BCBA and guardian signatures — and the policy expects under 20 hours a week for children attending school full time, with comprehensive ABA framed as 30–40 hours a week for the cases that warrant it.',
@@ -587,6 +656,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Buckeye — Autism Services Prior Authorization Request Form', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/BehavioralHealthEducation/Medicaid-ABA-OTR-P-Form-508-6-28-23.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       placeOfService: {
         value: 'CP.BH.104 ties intensity to school attendance rather than naming payable settings: under 20 hours a week is expected for children attending school full time, and the treatment package requires a copy of the IEP or IFSP. The Ohio Medicaid School Program boundary still applies — the MCO is not responsible for services provided through MSP.',
@@ -618,11 +688,26 @@ export const ohioPayers: Record<string, PayerConfig> = {
 
   'molina-healthcare-ohio': {
     slug: 'molina-healthcare-ohio',
-    assessmentPA: 'Required per the plan’s PA list under the OAC 5160-34 framework; the code-level list is not publicly retrievable — confirm in Availity Essentials, the sole PA channel since 1/1/2026',
-    treatmentPA: 'Required — submitted through Availity Essentials only; Molina discontinued fax PA submissions in Ohio effective 1/1/2026',
+    assessmentPA: {
+      value: 'Required per the plan’s PA list under the OAC 5160-34 framework; the code-level list is not publicly retrievable — confirm in Availity Essentials, the sole PA channel since 1/1/2026',
+      status: 'unverified',
+      verifyVia: 'Molina Healthcare of Ohio\'s Medicaid prior-authorization code list — portal-gated, and molinahealthcare.com 403s to automated retrieval. Pull it from Availity Essentials (Molina\'s sole PA channel in Ohio since 1/1/2026) or via carelu.com/sources; the state floor behind it is OAC 5160-34-02, itself unreachable.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — submitted through Availity Essentials only; Molina discontinued fax PA submissions in Ohio effective 1/1/2026',
+      status: 'unverified',
+      verifyVia: 'Molina Healthcare of Ohio\'s Medicaid prior-authorization code list and behavioral-health PA guidance, via Availity Essentials or carelu.com/sources — the plan\'s public site blocks automated retrieval.',
+      blocker: 'document',
+    },
     family: 'molina',
     cardDesc: 'Tracks state ABA policy; Availity-only PA since 1/2026 — key documents best pulled via portal.',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
+      status: 'unverified',
+      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      blocker: 'document',
+    },
     payer: 'Molina Healthcare of Ohio',
     state: 'OH', kind: 'medicaid-mco', parent: 'Ohio Medicaid',
     pill: 'Payer Guide · Molina (OH)',
@@ -671,6 +756,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dxRecency: {
         value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -680,6 +766,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value: 'Follows the Ohio Medicaid framework: the ASD diagnosis comes from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria.',
@@ -697,6 +784,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       referral: {
         value: 'No referral or service order requirement is published, and Molina has no distinct Ohio ABA clinical policy — expect the OAC 5160-34 baseline. The plan-specific fact that matters is the channel: effective January 1, 2026 Molina discontinued fax prior-authorization submissions in Ohio, making Availity Essentials the sole authorization channel. Because Molina’s public site blocks automated access, confirm the current PA code list inside Availity rather than relying on cached summaries.',
@@ -715,6 +803,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -726,6 +815,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
       concurrentBilling: {
         value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -735,6 +825,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dailyLimits: {
         value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -744,6 +835,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       noteSignature: {
         value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -753,6 +845,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       placeOfService: {
         value: 'No plan-specific place-of-service rule found. The confirmed Ohio boundary is the school one: the MCO is not responsible for payment of services provided through the Medicaid School Program under OAC Chapter 5160-35, 5160-35-04 and 5160-26-03.',
@@ -762,6 +855,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value: 'Follows the Ohio Medicaid framework: independent practitioners are Certified Ohio Behavior Analysts (ORC Chapter 4783) or BACB BCBAs and BCBA-Ds enrolled with ODM as Provider Type 19, Specialty 190, with BCaBAs and RBTs delivering under supervision. The routing rule holds everywhere in Ohio: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
@@ -780,11 +874,26 @@ export const ohioPayers: Record<string, PayerConfig> = {
 
   'anthem-ohio-medicaid': {
     slug: 'anthem-ohio-medicaid',
-    assessmentPA: 'Not published — the assessment-versus-treatment PA split is not stated for Ohio Medicaid; run the codes through the PA lookup tool at providers.anthem.com/oh per case and submit via Availity Essentials / Interactive Care Reviewer',
+    assessmentPA: {
+      value: 'Not published — the assessment-versus-treatment PA split is not stated for Ohio Medicaid; run the codes through the PA lookup tool at providers.anthem.com/oh per case and submit via Availity Essentials / Interactive Care Reviewer',
+      status: 'unverified',
+      verifyVia: 'Anthem\'s Ohio Medicaid PA lookup tool at providers.anthem.com/oh, per code and per member, with the answer taken in writing before submitting through Availity Essentials / Interactive Care Reviewer. Anthem publishes no assessment-versus-treatment PA split for Ohio Medicaid, so this is settled case by case, not by a document.',
+      blocker: 'per-case',
+    },
     family: 'anthem',
     cardDesc: 'CG-BEH-02 adopted on top of the state rule; Availity/ICR, EPSDT framing in the provider manual.',
-    treatmentPA: 'Required — UM requests via Availity Essentials / Interactive Care Reviewer',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
+    treatmentPA: {
+      value: 'Required — UM requests via Availity Essentials / Interactive Care Reviewer',
+      status: 'unverified',
+      verifyVia: 'Anthem OH Medicaid provider manual + the plan\'s Clinical UM Guidelines list — neither states the ABA authorization span or code set; request the current behavioral-health UM guidance from Anthem provider services or via carelu.com/sources.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
+      status: 'unverified',
+      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      blocker: 'document',
+    },
     payer: 'Anthem BCBS Ohio (Medicaid)',
     state: 'OH', kind: 'medicaid-mco', parent: 'Ohio Medicaid',
     pill: 'Payer Guide · Anthem (OH Medicaid)',
@@ -847,6 +956,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value: 'Follows the Ohio Medicaid framework: the ASD diagnosis comes from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria.',
@@ -866,6 +976,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       referral: {
         value: 'No referral or service order requirement is published on the Medicaid side. Anthem adopts Clinical UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment), with CG-BEH-15 for activity therapy, on top of the OAC 5160-34 baseline, and utilization-management requests run through Availity Essentials’ Interactive Care Reviewer. The assessment-versus-treatment PA split is not published — run the codes through the PA lookup tool at providers.anthem.com/oh per case.',
@@ -887,6 +998,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -910,6 +1022,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dailyLimits: {
         value: 'Anthem applies the CG-BEH-02 family parameters on top of the state framework: total requested treatment at or under 40 hours a week, with protocol modification around 2 hours per 10 direct hours. The Ohio-specific published delta is thinner than at CareSource or Buckeye, so verify the current hour rules in the guideline text or the PA lookup tool at providers.anthem.com/oh before finalising a request.',
@@ -930,6 +1043,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       placeOfService: {
         value: 'No plan-specific place-of-service rule found. The confirmed Ohio boundary is the school one: the MCO is not responsible for payment of services provided through the Medicaid School Program under OAC Chapter 5160-35, 5160-35-04 and 5160-26-03.',
@@ -940,6 +1054,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value: 'Follows the Ohio Medicaid framework: independent practitioners are Certified Ohio Behavior Analysts (ORC Chapter 4783) or BACB BCBAs and BCBA-Ds enrolled with ODM as Provider Type 19, Specialty 190, with BCaBAs and RBTs delivering under supervision. The routing rule holds everywhere in Ohio: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
@@ -961,9 +1076,29 @@ export const ohioPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-ohio',
     family: 'unitedhealthcare',
     cardDesc: 'Optum\'s OH supplemental criteria: 80% utilization trigger, tool lists, Provider Type 19 detail.',
-    assessmentPA: 'Per the state rule — Optum\'s OH criteria defer to OAC for practitioner and PA requirements',
-    treatmentPA: 'Required — reviews per auth period; utilization below 80% over 2 weeks triggers barrier documentation',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD with a validated screener AND a formal tool (ADOS/ADI-R/DISCO)',
+    assessmentPA: {
+      value: 'Per the state rule — Optum\'s OH criteria defer to OAC for practitioner and PA requirements',
+      status: 'unverified',
+      cites: [
+        { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
+      ],
+      verifyVia: 'OAC 5160-34-02 — Optum\'s Ohio Medicaid criteria defer to the state rule for practitioner and PA requirements, and that rule is unreachable: codes.ohio.gov refuses connection, Wayback holds no capture, and the chapter is missing from the Title 5160 index. Request the rule text from Rules@Medicaid.Ohio.gov or via carelu.com/sources.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — reviews per auth period; utilization below 80% over 2 weeks triggers barrier documentation',
+      status: 'verified',
+      cites: [
+        { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD with a validated screener AND a formal tool (ADOS/ADI-R/DISCO)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare Community Plan of Ohio',
     state: 'OH', kind: 'medicaid-mco', parent: 'Ohio Medicaid',
     pill: 'Payer Guide · UHC Community Plan (OH)',
@@ -1015,6 +1150,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dxRecency: {
         value: 'No recency requirement on the ASD diagnosis itself. The clocks run on review: inadequate or no demonstrable progress within a 6-month period, or goals unmet within the estimated timeframes, triggers assessment of the reasons and modification of interventions — and continued-service review specifically addresses utilization of prior-authorization-period hours below 80% over a 2-week period, which requires documented barriers and a plan to address them.',
@@ -1081,6 +1217,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dailyLimits: {
         value: 'No numeric hour cap — the number of service hours requested must be justified by the member’s documented clinical need against level of impairment, symptom severity, treatment history and response. The operative review trigger runs the other way: utilization below 80% of authorized hours over any two-week period is scrutinised at continued-service review and requires documented barriers, which makes honest scheduling a review-survival issue.',
@@ -1129,11 +1266,26 @@ export const ohioPayers: Record<string, PayerConfig> = {
 
   'amerihealth-caritas-ohio': {
     slug: 'amerihealth-caritas-ohio',
-    assessmentPA: 'Required before ABA begins, per the state framework; code-level detail is not publicly retrievable — pull the current behavioral-health PA guidance from NaviNet',
-    treatmentPA: 'Required — 6-month authorization periods, requested through the Jiva UM system via NaviNet; UM at (833) 735-7700, with initial decisions commonly reported at 10–14 business days',
+    assessmentPA: {
+      value: 'Required before ABA begins, per the state framework; code-level detail is not publicly retrievable — pull the current behavioral-health PA guidance from NaviNet',
+      status: 'unverified',
+      verifyVia: 'AmeriHealth Caritas Ohio\'s behavioral-health prior-authorization guidance, downloaded from NaviNet — the plan\'s public site blocks automated retrieval, and the state rule behind it (OAC 5160-34-02) is itself unreachable.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — 6-month authorization periods, requested through the Jiva UM system via NaviNet; UM at (833) 735-7700, with initial decisions commonly reported at 10–14 business days',
+      status: 'unverified',
+      verifyVia: 'AmeriHealth Caritas Ohio\'s behavioral-health prior-authorization guidance and Jiva UM criteria, via NaviNet or carelu.com/sources — the public site blocks automated retrieval.',
+      blocker: 'document',
+    },
     family: 'amerihealth',
     cardDesc: 'State-rule-driven UM; NaviNet/Jiva workflow — thinnest public ABA paper trail of the OH plans.',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
+      status: 'unverified',
+      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      blocker: 'document',
+    },
     payer: 'AmeriHealth Caritas Ohio',
     state: 'OH', kind: 'medicaid-mco', parent: 'Ohio Medicaid',
     pill: 'Payer Guide · AmeriHealth Caritas (OH)',
@@ -1182,6 +1334,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dxRecency: {
         value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -1191,6 +1344,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value: 'Follows the Ohio Medicaid framework: the ASD diagnosis comes from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria.',
@@ -1208,6 +1362,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       referral: {
         value: 'No referral or service order requirement is published, and AmeriHealth Caritas Ohio publishes no distinct ABA clinical policy — expect utilization management driven by the OAC 5160-34 framework. Authorization requests flow through the Jiva UM system via NaviNet, with UM at (833) 735-7700; initial authorization decisions are commonly reported at 10–14 business days and authorization periods run 6 months. Because the plan’s public documents cannot be pulled programmatically, download the current behavioral-health PA guidance from the portal and re-check it quarterly.',
@@ -1226,6 +1381,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1237,6 +1393,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
       concurrentBilling: {
         value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -1246,6 +1403,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dailyLimits: {
         value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -1255,6 +1413,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       noteSignature: {
         value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -1264,6 +1423,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       placeOfService: {
         value: 'No plan-specific place-of-service rule found. The confirmed Ohio boundary is the school one: the MCO is not responsible for payment of services provided through the Medicaid School Program under OAC Chapter 5160-35, 5160-35-04 and 5160-26-03.',
@@ -1273,6 +1433,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value: 'Follows the Ohio Medicaid framework: independent practitioners are Certified Ohio Behavior Analysts (ORC Chapter 4783) or BACB BCBAs and BCBA-Ds enrolled with ODM as Provider Type 19, Specialty 190, with BCaBAs and RBTs delivering under supervision. The routing rule holds everywhere in Ohio: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
@@ -1293,9 +1454,26 @@ export const ohioPayers: Record<string, PayerConfig> = {
     slug: 'humana-healthy-horizons-ohio',
     family: 'humana',
     cardDesc: 'Cleanest all-codes PA statement in Ohio; state-policy criteria plus Availity logistics.',
-    assessmentPA: 'Required — the PA list covers every ABA code (97151–97158, 0362T, 0373T), assessments included',
-    treatmentPA: 'Required — same list; unauthorized services face retrospective review and financial penalties',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
+    assessmentPA: {
+      value: 'Required — the PA list covers every ABA code (97151–97158, 0362T, 0373T), assessments included',
+      status: 'verified',
+      cites: [
+        { title: 'Humana Healthy Horizons OH — PA and notification list', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — same list; unauthorized services face retrospective review and financial penalties',
+      status: 'verified',
+      cites: [
+        { title: 'Humana Healthy Horizons OH — PA and notification list', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
+      status: 'unverified',
+      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      blocker: 'document',
+    },
     payer: 'Humana Healthy Horizons in Ohio',
     state: 'OH', kind: 'medicaid-mco', parent: 'Ohio Medicaid',
     pill: 'Payer Guide · Humana Healthy Horizons (OH)',
@@ -1343,6 +1521,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dxRecency: {
         value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -1352,6 +1531,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value: 'Follows the Ohio Medicaid framework: the ASD diagnosis comes from a documented comprehensive diagnostic evaluation by a licensed physician, psychologist, or other clinician qualified to diagnose autism, demonstrating DSM-5-TR criteria.',
@@ -1369,6 +1549,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       referral: {
         value: 'No referral or service order requirement is published, and Humana layers no distinct ABA clinical policy on the state framework. What it does publish is the cleanest all-codes prior-authorization statement in Ohio: the PA and notification list effective January 1, 2026 puts "Applied behavioral analysis (ABA) therapy" against 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T, with no assessment exemption — so the assessment itself needs authorization before the first appointment. Services rendered without PA are subject to retrospective medical-necessity review and financial penalties. Submissions run through Availity Essentials; the Ohio provider line is (877) 856-5707.',
@@ -1387,6 +1568,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1398,6 +1580,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
       concurrentBilling: {
         value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -1407,6 +1590,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       dailyLimits: {
         value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -1416,6 +1600,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       noteSignature: {
         value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
@@ -1425,6 +1610,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'document',
       },
       placeOfService: {
         value: 'No plan-specific place-of-service rule found. The confirmed Ohio boundary is the school one: the MCO is not responsible for payment of services provided through the Medicaid School Program under OAC Chapter 5160-35, 5160-35-04 and 5160-26-03.',
@@ -1434,6 +1620,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value: 'Follows the Ohio Medicaid framework: independent practitioners are Certified Ohio Behavior Analysts (ORC Chapter 4783) or BACB BCBAs and BCBA-Ds enrolled with ODM as Provider Type 19, Specialty 190, with BCaBAs and RBTs delivering under supervision. The routing rule holds everywhere in Ohio: OhioRISE does not pay for ABA — ODM’s Mixed Services Protocol assigns ABA claims to the member’s MCO or fee-for-service even for OhioRISE-enrolled youth.',
@@ -1454,9 +1641,30 @@ export const ohioPayers: Record<string, PayerConfig> = {
     slug: 'aetna-ohio',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the Ohio R.C. § 3923.84 mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      ],
+      verifyVia: 'The member\'s Aetna plan (benefits line on the card) — ask whether the group carries ABA precertification and what reauthorization interval it uses. The national behavioral-health precertification list carries ABA but the interval and any self-funded carve-out are set at group level.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+    },
     payer: 'Aetna in Ohio',
     state: 'OH', kind: 'commercial',
     pill: 'Payer Guide · Aetna · Ohio',
@@ -1538,6 +1746,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Ohio Rev. Code § 3923.84 (autism coverage mandate)', url: 'https://codes.findlaw.com/oh/title-xxxix-insurance/oh-rev-code-sect-3923-84/' },
         ],
         verifyVia: 'Live benefits verification on the member ID — establish fully insured vs. self-funded ERISA, then the plan’s own age and benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value: 'Aetna puts no expiry on the ASD diagnosis itself, but it does run a 12-month clock on the functional evidence: medical necessity requires demonstration of functional impairment on a standardized scale of functioning in the past 12 months, at least one standard deviation below the population mean, or a significant risk of harm to self or others. Progress is then re-evaluated every six months.',
@@ -1581,6 +1790,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
         ],
         verifyVia: 'Availity, or the precertification line on the member ID card — ask which ABA codes Aetna will pay via telehealth on this specific plan, and with which POS code and modifier.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1599,6 +1809,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
         verifyVia: 'Aetna provider services / the participating-provider agreement, or a written coding determination from Aetna Behavioral Health (BACABACases@Aetna.com).',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'Aetna publishes no per-day or per-week unit ceiling for ABA. Authorized hours are set from documented symptom severity using the medical necessity guide’s severity assessment, against typical intensities of 10–25 hours a week for comprehensive and 1–20 hours a week for focused programmes — typical, not cap. Progress is evaluated every six months and coverage ends on the guide’s improvement thresholds. Ohio sets a floor rather than a cap: R.C. 3923.84 requires at least 20 hours a week of clinical therapeutic intervention for an insured under age fourteen and says the section "shall not be construed as limiting benefits that are otherwise available." Non-grandfathered individual and small-group plans and limited-benefit policies are carved out by name, and self-funded ERISA plans are exempt by preemption.',
@@ -1616,6 +1827,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
         ],
         verifyVia: 'The participating-provider agreement and the Aetna Behavioral Health Provider Manual section on documentation and record retention.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value: 'Outpatient ABA is setting-agnostic in Aetna’s guide, which notes only that where ABA is delivered in an inpatient, residential or partial hospitalization setting the medical necessity criteria for that level of care apply and no separate ABA authorization is needed. The guide expects collaboration and coordination with existing providers and the school district as applicable, and a treatment plan that tapers higher intensities toward supports from other sources such as school. Aetna’s statement that it will not deny coverage solely because services are in a child’s educational setting is a Maryland provision, not national, and Aetna is not required to provide services under an IEP or an IDEA obligation of a public school.',
@@ -1643,9 +1855,29 @@ export const ohioPayers: Record<string, PayerConfig> = {
     slug: 'cigna-ohio',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the Ohio R.C. § 3923.84 mandate layer.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
     payer: 'Cigna / Evernorth in Ohio',
     state: 'OH', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Ohio',
@@ -1724,6 +1956,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Ohio Rev. Code § 3923.84 (autism coverage mandate)', url: 'https://codes.findlaw.com/oh/title-xxxix-insurance/oh-rev-code-sect-3923-84/' },
         ],
         verifyVia: 'Live benefits verification, or the Evernorth Autism Care Coordinator team on 877.279.7603 — establish fully insured vs. self-funded ERISA first.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value: 'EN0499 puts no expiry on the ASD diagnosis, but it requires the name, credentials and licensure type of the diagnosing clinician and the date on which the diagnosis was most recently made — and a diagnosis termed provisional, proposed, potential, at risk of or rule out is not a confirmed diagnosis, nor is IDEA educational identification. The recency clocks sit on the data instead: the standardized assessment instrument must have been administered within 60 days prior to the start of treatment, quantitative baseline data collected within 60 days prior to start, current data within 60 days of the authorization request, a standardized instrument completed no more than one year prior for continued treatment, and a fresh standardized assessment after any break in treatment greater than 60 calendar days.',
@@ -1821,9 +2054,29 @@ export const ohioPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-ohio',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the Ohio R.C. § 3923.84 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'unverified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+      verifyVia: 'Optum/Provider Express portal support at (866) 209-9320 — ask what review interval will be set on this member\'s ABA treatment authorization. The ABA Supplemental Clinical Criteria require prior authorization for ABA but publish no 4–6 month reauthorization cycle; the span is assigned per authorization.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare / Optum in Ohio',
     state: 'OH', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · Ohio',
@@ -1908,6 +2161,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Ohio Rev. Code § 3923.84 (autism coverage mandate)', url: 'https://codes.findlaw.com/oh/title-xxxix-insurance/oh-rev-code-sect-3923-84/' },
         ],
         verifyVia: 'Provider Express benefits check under a One Healthcare ID, or the behavioral health number on the member ID card — establish fully insured vs. self-funded ERISA first.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value: 'The SCC set no expiry on the ASD diagnosis itself; what they require is that the DSM-5-TR diagnosis and severity level be confirmed and documented by the diagnosing clinician using validated tools. The clocks run on review instead: where there has been inadequate or no demonstrable progress with targeted symptoms or behaviors within a 6-month period, or goals have not been achieved within the estimated timeframes, the reasons must be assessed and interventions modified; and continued-service review specifically addresses utilization of prior-authorization-period hours below 80% over a 2-week period, which requires documented barriers.',
@@ -1945,6 +2199,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Provider Express (Clinical Resources → ABA Information) or the behavioral health number on the member ID card — ask which ABA codes are payable by telehealth on this plan and with which POS code.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1962,6 +2217,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum Provider Express National Network Manual and the participating-provider agreement, or a written coding determination from Optum.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'The SCC set no numeric hour cap — the number of service hours requested must be justified by the member’s documented clinical need according to level of impairment, symptom severity, treatment history and response, at the least restrictive and most clinically appropriate level. The operative review trigger runs the other way: utilization below 80% of prior-authorization-period hours over a two-week period is specifically addressed at continued-service review and requires documentation of barriers and how they will be addressed.',
@@ -1977,6 +2233,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum Provider Express National Network Manual (documentation standards) and the participating-provider agreement.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value: 'ABA must be provided at the least restrictive and most clinically appropriate level, with generalization and maintenance of skills outside the treatment environment into natural settings such as home and community forming part of the continued-service test. Not covered: services that are not ABA therapy, such as a 1:1 aide delivered simultaneously during classroom instruction, or services covered under IDEA. School-based ABA does allow coordination of services and covers teacher training, meetings with school personnel, and observations in the school setting, and the treatment plan is expected to coordinate with the school and any IFSP or IEP.',
@@ -2006,9 +2263,28 @@ export const ohioPayers: Record<string, PayerConfig> = {
     state: 'OH', kind: 'commercial',
     family: 'anthem',
     cardDesc: '20 hrs/week is a floor, not a cap; individual and small-group plans are carved out; COBA required.',
-    assessmentPA: 'Yes — ABA is precertified as a category; Anthem\'s Ohio list names no individual CPT codes, so request assessment and treatment together',
-    treatmentPA: 'Yes — responsible party Anthem; weekly approved units since January 1, 2026',
-    dxRequired: 'Yes — and the statute requires the services to be prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or a pediatric CNS/CNP',
+    assessmentPA: {
+      value: 'Yes — ABA is precertified as a category; Anthem\'s Ohio list names no individual CPT codes, so request assessment and treatment together',
+      status: 'verified',
+      cites: [
+        { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Yes — responsible party Anthem; weekly approved units since January 1, 2026',
+      status: 'verified',
+      cites: [
+        { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        { title: 'Anthem Ohio — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/ohio/articles/streamlined-aba-claim-process-starts-january-1-2026-27879' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — and the statute requires the services to be prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or a pediatric CNS/CNP',
+      status: 'verified',
+      cites: [
+        { title: 'Ohio Rev. Code § 3923.84 — coverage for autism spectrum disorder', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.84' },
+      ],
+    },
     pill: 'Payer Guide · Anthem BCBS · Ohio',
     h1: 'Anthem BCBS Ohio ABA coverage: the intake guide.',
     metaTitle: 'Anthem BCBS Ohio ABA Coverage & Prior Auth: Intake Guide | Carelu',
@@ -2165,6 +2441,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Ohio Rev. Code § 3923.84 — coverage for autism spectrum disorder', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.84' },
         ],
         verifyVia: 'Benefits verification on the member ID — settle the market segment first (large-group fully insured, individual or small group, or self-funded ERISA), then the plan’s own age and benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value: 'Not published. Anthem moved Ohio commercial ABA reviews from CG-BEH-02 and MCG W0153 to MCG B-806-T effective June 1, 2024, and MCG guidelines are proprietary and unpublished, so any diagnosis-recency expectation lives inside criteria the clinic cannot read. The one statutory cadence that is public runs the other way: outside inpatient services the insurer may review the treatment plan annually, and no more often without the treating clinician’s agreement.',
@@ -2174,6 +2451,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Ohio Rev. Code § 3923.84 — coverage for autism spectrum disorder', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.84' },
         ],
         verifyVia: 'A pre-service call to Anthem behavioral health (or a peer-to-peer) asking what MCG B-806-T expects on the age of the diagnostic evaluation — a denial letter still citing CG-BEH-02 is working from a retired document.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value: 'Ohio writes this into the mandate rather than leaving it to the carrier. R.C. 3923.84(C)(2)(b) makes coverage contingent on the services being "prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or a clinical nurse specialist or certified nurse practitioner specializing in pediatric health." The nurse pathway is recent — Senate Bill 196 added it effective March 20, 2025 — and it widens the pool of clinicians who can legitimately order ABA in Ohio. Capture who wrote the order and their credential at intake.',
@@ -2191,6 +2469,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem — MCG care guidelines 27th edition update (Ohio, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/ohio/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
         ],
         verifyVia: 'A pre-service call or peer-to-peer with Anthem behavioral health asking which instruments MCG B-806-T expects behind the ASD diagnosis.',
+        blocker: 'document',
       },
       referral: {
         value: 'Yes — and unusually it is statutory rather than contractual. R.C. 3923.84(C)(2) makes coverage contingent on both prior authorization and the services being prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or a pediatric clinical nurse specialist or certified nurse practitioner. On the carrier side, Anthem’s precertification list for Ohio (shared with Indiana, Kentucky, Missouri and Wisconsin, updated January 1, 2026) lists applied behavioral analysis under behavioral health services with Anthem as the responsible party, and a separate row for treatment of autism spectrum disorder; since September 1, 2025 the preferred channel is Availity Essentials. One National Accounts nuance can change the whole workup: precertification for ABA "is recommended and applies unless the group specifically opts out of clinical review for this benefit," and retrospective review is allowed — if the card says National Accounts, call before building the file.',

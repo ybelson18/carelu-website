@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "payers:check": "node scripts/payer-coverage.mjs --check",
+    "payers:coverage": "node scripts/payer-coverage.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.112.3",

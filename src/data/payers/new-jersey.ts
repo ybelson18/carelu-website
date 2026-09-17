@@ -4,9 +4,21 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
   'new-jersey-medicaid': {
     slug: 'new-jersey-medicaid',
     cardDesc: 'EPSDT via 5 MCOs since 4/2020; no-PA FFS window pending enrollment, published rates.',
-    assessmentPA: 'Required via the MCO — the MCO authorizes a QHP assessment; NO PA while a member is FFS pending MCO enrollment',
-    treatmentPA: 'Required — MCO approval of the treatment plan is a precondition for ABA services',
-    dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional; a comprehensive diagnostic evaluation is not required',
+    assessmentPA: {
+      value: 'Required via the MCO — the MCO authorizes a QHP assessment; NO PA while a member is FFS pending MCO enrollment',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — MCO approval of the treatment plan is a precondition for ABA services',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional; a comprehensive diagnostic evaluation is not required',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+    },
     payer: 'NJ FamilyCare (New Jersey Medicaid)',
     state: 'NJ', kind: 'state-medicaid',
     intakeGates: {
@@ -23,6 +35,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' }],
         verifyVia:
           'The member\'s MCO, or DMAHS\'s dedicated Autism Line for ABA and DIR services (609-588-8522 / MAHS.ASDinquiries@dhs.nj.gov).',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -49,6 +62,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
         verifyVia:
           'The member\'s MCO — the state sets no ABA telehealth rule, so each plan answers for itself; DMAHS\'s Autism Line (609-588-8522) is the state-side route.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -78,6 +92,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'The member\u2019s MCO provider manual; DMAHS\u2019s dedicated Autism Line for ABA and DIR services (609-588-8522 / MAHS.ASDinquiries@dhs.nj.gov) is the state-side route.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -86,6 +101,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Confirm school-setting delivery with the specific MCO before building a school-based program \u2014 the 2020 state prohibition and the 2026 Optum entry cannot both be operative.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -218,9 +234,21 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     slug: 'horizon-nj-health',
     family: 'bcbs',
     cardDesc: 'Largest NJ MCO; NaviNet requests, 32-unit assessment fast-track, MCG review, 6-month auths.',
-    assessmentPA: 'Required — ABA Authorization Request Form via NaviNet with an ASD script from a QHP; Horizon issues 32 units of 97151 for 30 days',
-    treatmentPA: 'Required — post-assessment ABA Request Form via NaviNet; MCG-based review within 14 days; 6-month authorizations',
-    dxRequired: 'Yes — ASD (F84.0–F84.9) with a diagnosis script from a qualified healthcare professional',
+    assessmentPA: {
+      value: 'Required — ABA Authorization Request Form via NaviNet with an ASD script from a QHP; Horizon issues 32 units of 97151 for 30 days',
+      status: 'verified',
+      cites: [{ title: 'Horizon Behavioral Health — ABA Government Programs overview (Nov 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — post-assessment ABA Request Form via NaviNet; MCG-based review within 14 days; 6-month authorizations',
+      status: 'verified',
+      cites: [{ title: 'Horizon Behavioral Health — ABA Government Programs overview (Nov 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (F84.0–F84.9) with a diagnosis script from a qualified healthcare professional',
+      status: 'verified',
+      cites: [{ title: 'Horizon Behavioral Health — ABA Government Programs overview (Nov 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' }],
+    },
     payer: 'Horizon NJ Health',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
     intakeGates: {
@@ -237,6 +265,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
         verifyVia:
           'Horizon NJ Health provider services, or the ABA UM escalation contact on the DMAHS BH integration contact sheet.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -263,6 +292,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
         verifyVia:
           'Horizon NJ Health provider services, or the ABA UM escalation contact on the DMAHS BH integration contact sheet.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -288,6 +318,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Horizon NJ Health\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -296,6 +327,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Horizon NJ Health provider services.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · Horizon NJ Health',
@@ -372,9 +404,21 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     slug: 'aetna-better-health-new-jersey',
     family: 'aetna',
     cardDesc: 'Closest to the state baseline: published rate sheet mirrors the FFS schedule, MUE limits verbatim.',
-    assessmentPA: 'Required — ABA is on the PA list; urgent requests decided in 24 hours, routine in 7 days',
-    treatmentPA: 'Required — via Availity or the BH prior authorization form; progress reports via Availity or fax (844) 404-3972',
-    dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
+    assessmentPA: {
+      value: 'Required — ABA is on the PA list; urgent requests decided in 24 hours, routine in 7 days',
+      status: 'verified',
+      cites: [{ title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' }, { title: 'DMAHS BH Integration Points of Contact V3.1 (per-MCO ABA contacts)', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — via Availity or the BH prior authorization form; progress reports via Availity or fax (844) 404-3972',
+      status: 'verified',
+      cites: [{ title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' }, { title: 'DMAHS BH Integration Points of Contact V3.1 (per-MCO ABA contacts)', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+    },
     payer: 'Aetna Better Health of New Jersey',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
     intakeGates: {
@@ -391,6 +435,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Aetna Better Health of New Jersey provider services (1-855-232-3596) or the plan\'s named ABA clinical contacts on the DMAHS BH integration contact sheet.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -417,6 +462,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
         verifyVia:
           'Aetna Better Health of New Jersey provider services (1-855-232-3596) or the plan\'s named ABA clinical contacts on the DMAHS BH integration contact sheet.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -442,6 +488,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Aetna Better Health of New Jersey\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -450,6 +497,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Aetna Better Health of New Jersey provider services.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · Aetna Better Health (NJ)',
@@ -516,9 +564,21 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     slug: 'fidelis-care-new-jersey',
     family: 'centene',
     cardDesc: 'Ex-WellCare Centene plan; state-baseline ABA with no published plan policy — verify specifics.',
-    assessmentPA: 'Required — NJ FamilyCare baseline (the MCO authorizes a QHP assessment); Fidelis-specific ABA form detail is unpublished',
-    treatmentPA: 'Required — state baseline; outpatient auth requests via provider.fideliscarenj.com or fax (888) 339-2677',
-    dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
+    assessmentPA: {
+      value: 'Required — NJ FamilyCare baseline (the MCO authorizes a QHP assessment); Fidelis-specific ABA form detail is unpublished',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Fidelis Care NJ — Authorizations', url: 'https://www.fideliscarenj.com/providers/medicaid/authorizations.html' }],
+    },
+    treatmentPA: {
+      value: 'Required — state baseline; outpatient auth requests via provider.fideliscarenj.com or fax (888) 339-2677',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Fidelis Care NJ — Authorizations', url: 'https://www.fideliscarenj.com/providers/medicaid/authorizations.html' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+    },
     payer: 'Fidelis Care New Jersey (formerly WellCare)',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
     intakeGates: {
@@ -535,6 +595,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Fidelis Care New Jersey\'s ABA UM contact (per the DMAHS BH integration contact sheet) before the first submission — nothing ABA-specific is published by the plan.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -561,6 +622,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
         verifyVia:
           'Fidelis Care New Jersey\'s ABA UM contact (per the DMAHS BH integration contact sheet) before the first submission — nothing ABA-specific is published by the plan.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -586,6 +648,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Fidelis Care New Jersey\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -594,6 +657,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Fidelis Care New Jersey provider services.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · Fidelis Care (NJ)',
@@ -657,9 +721,21 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-new-jersey',
     family: 'unitedhealthcare',
     cardDesc: 'Optum-run; no comprehensive eval needed, school setting OK outside school hours, Provider Express intake.',
-    assessmentPA: 'Required — NJ FamilyCare baseline; ABA/DIR requests via Optum\'s dedicated NJ ABA path on Provider Express (BH intake 1-888-362-3368, option 3)',
-    treatmentPA: 'Required — via the Provider Express NJ ABA request path; authorization inquiry at providerexpress.com',
-    dxRequired: 'Yes — ASD (F84.0–F84.9) by a physician or psychologist; a comprehensive diagnostic evaluation is NOT required (BH803ABASTM12026)',
+    assessmentPA: {
+      value: 'Required — NJ FamilyCare baseline; ABA/DIR requests via Optum\'s dedicated NJ ABA path on Provider Express (BH intake 1-888-362-3368, option 3)',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'DMAHS BH Integration Points of Contact V3.1 (per-MCO ABA contacts)', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — via the Provider Express NJ ABA request path; authorization inquiry at providerexpress.com',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'DMAHS BH Integration Points of Contact V3.1 (per-MCO ABA contacts)', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (F84.0–F84.9) by a physician or psychologist; a comprehensive diagnostic evaluation is NOT required (BH803ABASTM12026)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+    },
     payer: 'UnitedHealthcare Community Plan (NJ FamilyCare)',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
     intakeGates: {
@@ -676,6 +752,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
         verifyVia:
           'The Optum Care Advocate, or BH intake at 1-888-362-3368 (option 3); the dedicated NJ ABA path lives on Provider Express.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -731,6 +808,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'UnitedHealthcare Community Plan\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -739,6 +817,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Optum/UHC Community Plan \u2014 NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
         verifyVia:
           'Optum Care Advocate, for whether school-setting delivery is authorized on a given member.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -747,6 +826,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum/UHC Community Plan \u2014 NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }, { title: 'NJMMIS \u2014 ABA Treatment Provider FFS enrollment packet (Gainwell)', url: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf' }],
         verifyVia:
           'Optum/UnitedHealthcare Community Plan provider services for the rendering-provider field on NJ FamilyCare ABA claims.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · UHC Community Plan (NJ)',
@@ -810,9 +890,21 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     slug: 'wellpoint-new-jersey',
     family: 'anthem',
     cardDesc: 'Ex-Amerigroup Elevance plan; state-baseline ABA via Availity, with Carelon running the BH network.',
-    assessmentPA: 'Required — NJ FamilyCare baseline; ABA authorization via Availity or (800) 454-3730',
-    treatmentPA: 'Required — same channel; outpatient Medicaid fax (844) 442-8007',
-    dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
+    assessmentPA: {
+      value: 'Required — NJ FamilyCare baseline; ABA authorization via Availity or (800) 454-3730',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'DMAHS BH Integration Points of Contact V3.1 (per-MCO ABA contacts)', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — same channel; outpatient Medicaid fax (844) 442-8007',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'DMAHS BH Integration Points of Contact V3.1 (per-MCO ABA contacts)', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
+      status: 'verified',
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+    },
     payer: 'Wellpoint New Jersey (formerly Amerigroup)',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
     intakeGates: {
@@ -829,6 +921,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Wellpoint New Jersey provider services ((833) 731-2149 / (800) 454-3730), and Carelon Behavioral Health (provider.relations.NJ@carelon.com), which runs the ABA network.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -855,6 +948,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
         verifyVia:
           'Wellpoint New Jersey provider services ((833) 731-2149 / (800) 454-3730), and Carelon Behavioral Health (provider.relations.NJ@carelon.com), which runs the ABA network.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -880,6 +974,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Wellpoint New Jersey\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -888,6 +983,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Wellpoint New Jersey provider services.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · Wellpoint (NJ)',
@@ -950,9 +1046,21 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     slug: 'aetna-new-jersey',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the P.L. 2009, c.115 mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+      status: 'verified',
+      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+    },
     payer: 'Aetna in New Jersey',
     state: 'NJ', kind: 'commercial',
     intakeGates: {
@@ -963,6 +1071,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' }],
         verifyVia:
           'The member\'s benefit document and Aetna precertification — funding type decides whether the state mandate or the plan document sets the age boundary.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -989,6 +1098,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'Aetna precertification/provider services at the number on the member\'s ID card, and the member\'s benefit document — ask whether the plan layers a referral requirement on behavioral health.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -997,6 +1107,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'Aetna provider services and the member\'s benefit document — confirm which ABA codes pay by telehealth and with which POS code before scheduling remote supervision or caregiver training.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1012,6 +1123,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Aetna precertification/provider services at the number on the member\u2019s ID card, and the plan\u2019s own reimbursement schedule \u2014 ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1019,6 +1131,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1026,6 +1139,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'The Aetna provider manual and your participation agreement\u2019s documentation clause.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1034,6 +1148,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'The member\u2019s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -1103,6 +1218,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Age', desc: 'Under 21 for the statutory ABA prong — but IHC/SEH-market plans extend ABA to adults, so flag 21+ cases for market analysis rather than turning them away.' },
     ],
     sources: [
+      { title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
@@ -1121,9 +1237,21 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     slug: 'cigna-new-jersey',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the P.L. 2009, c.115 mandate layer.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
     payer: 'Cigna / Evernorth in New Jersey',
     state: 'NJ', kind: 'commercial',
     intakeGates: {
@@ -1134,6 +1262,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' }],
         verifyVia:
           'The member\'s benefit document and Evernorth Provider Services at 800.926.2273 — funding type decides whether the state mandate or the plan document sets the age boundary.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1160,6 +1289,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 and the member\'s benefit document — referral rules, where they exist, are a plan-design feature rather than a policy feature.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -1171,10 +1301,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'Not published as a ratio. The Evernorth autism resource guide governs credentialing and billing rather than supervision intensity, and Evernorth publishes no percentage floor or caseload cap for technician supervision.',
-        status: 'unverified',
-        verifyVia:
-          'Evernorth Provider Services at 800.926.2273, and the Intensive Behavioral Interventions coverage policy (EN0499).',
+          'Evernorth DOES publish a supervision standard, in EN0499 — direct case supervision (the BCBA face-to-face with the individual alongside the RBT or BCaBA) plus indirect case supervision “is consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment”, and “when direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided.” It is stated as a standard of care rather than a hard caseload cap, and supervisory services must match the CPT code descriptions.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions (Supervision / Direction of Treatment, p.5)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
       concurrentBilling: {
         value:
@@ -1189,6 +1318,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1196,6 +1326,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1204,6 +1335,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\u2019s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -1293,9 +1425,21 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-new-jersey',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the P.L. 2009, c.115 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
     payer: 'UnitedHealthcare / Optum in New Jersey',
     state: 'NJ', kind: 'commercial',
     intakeGates: {
@@ -1306,6 +1450,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' }],
         verifyVia:
           'The member\'s benefit document and Optum via Provider Express — funding type decides whether the state mandate or the plan document sets the age boundary.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1314,6 +1459,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Optum via Provider Express, or the Care Advocate handling the authorization — ask whether the plan applies a diagnostic-evaluation recency window at intake.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -1334,6 +1480,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum via Provider Express and the member\'s benefit document — referral requirements, where they exist, are a plan-design feature.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -1342,6 +1489,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'The Optum Care Advocate at authorization and Provider Express — Optum runs a virtual-visits attestation on some lines of business, so confirm approval status and the billing POS before scheduling remote 97155 or 97156.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1370,6 +1518,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
         verifyVia:
           'The UnitedHealthcare/Optum provider manual and your participation agreement\u2019s documentation clause.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1378,6 +1527,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'UnitedHealthcare provider services and the member\u2019s benefit document; ask explicitly whether the NJ Medicaid school-hours rule is mirrored on the commercial product.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:

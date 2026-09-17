@@ -4,9 +4,21 @@ export const newYorkPayers: Record<string, PayerConfig> = {
   'new-york-medicaid': {
     slug: 'new-york-medicaid',
     cardDesc: 'Under 21, ASD/Rett; FFS has NO prior auth (referral only) — but most kids sit in MCOs that do.',
-    assessmentPA: 'FFS: NO prior authorization — the gate is a practitioner referral (valid ≤2 years). MMC plans set their own PA, and every major plan requires it',
-    treatmentPA: 'FFS: none stated — referral-gated, with treatment-plan updates every 6 months. MMC: each plan runs its own assessment + treatment PA',
-    dxRequired: 'Yes — under 21 with ASD (DSM-5) and/or Rett syndrome (F84.0, F84.2); not available for adults 21+ or other diagnoses',
+    assessmentPA: {
+      value: 'FFS: NO prior authorization — the gate is a practitioner referral (valid ≤2 years). MMC plans set their own PA, and every major plan requires it',
+      status: 'verified',
+      cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+    },
+    treatmentPA: {
+      value: 'FFS: none stated — referral-gated, with treatment-plan updates every 6 months. MMC: each plan runs its own assessment + treatment PA',
+      status: 'verified',
+      cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — under 21 with ASD (DSM-5) and/or Rett syndrome (F84.0, F84.2); not available for adults 21+ or other diagnoses',
+      status: 'verified',
+      cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+    },
     payer: 'New York Medicaid (NYS DOH / eMedNY)',
     state: 'NY', kind: 'state-medicaid',
     pill: 'Payer Guide · New York Medicaid',
@@ -158,6 +170,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'NYS Medicaid Update, August 2025 (Vol 41 No 8)', url: 'https://health.ny.gov/health_care/medicaid/program/update/2025/no08_2025-08.htm' }],
         verifyVia:
           'NYS Medicaid\u2019s general telehealth policy and the Medicaid Update archive for an ABA-specific telehealth notice; for a managed-care member, the plan\u2019s own telehealth policy.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -174,6 +187,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'eMedNY provider services (800) 343-9000 and the Medicaid NCCI edit files applied to the ABA fee schedule; for a managed-care member, the plan\u2019s claim-edit policy.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -182,6 +196,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'NYS Medicaid ABA Fee Schedule (effective April 1, 2026)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls' }],
         verifyVia:
           'The eMedNY ABA Procedure Codes & Fee Schedule and the Medicaid NCCI MUE files; for a managed-care member, the plan\u2019s authorized units are the operative ceiling.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -214,9 +229,21 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     slug: 'fidelis-care-new-york',
     family: 'centene',
     cardDesc: 'Largest NY plan; full Centene-style policy: named instruments, graphs, 6-month reauth cycle.',
-    assessmentPA: 'Authorization-based — a behavioral assessment must be completed before requesting treatment; the diagnostic evaluation must be within 2 years of the auth request',
-    treatmentPA: 'Required — FBA and/or named skill assessment with graphs; 6-month treatment-plan updates; monthly session notes per authorized code at concurrent review',
-    dxRequired: 'Yes — under 21, ASD/Rett per the state baseline (Fidelis also lists F84.3); initial requests need a validated diagnostic tool within 60 months',
+    assessmentPA: {
+      value: 'Authorization-based — a behavioral assessment must be completed before requesting treatment; the diagnostic evaluation must be within 2 years of the auth request',
+      status: 'verified',
+      cites: [{ title: 'Fidelis ABA Clinical Policy FC.CP.BH.301.04', url: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — FBA and/or named skill assessment with graphs; 6-month treatment-plan updates; monthly session notes per authorized code at concurrent review',
+      status: 'verified',
+      cites: [{ title: 'Fidelis ABA Clinical Policy FC.CP.BH.301.04', url: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — under 21, ASD/Rett per the state baseline (Fidelis also lists F84.3); initial requests need a validated diagnostic tool within 60 months',
+      status: 'verified',
+      cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Fidelis ABA Clinical Policy FC.CP.BH.301.04', url: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf' }],
+    },
     payer: 'Fidelis Care New York (Centene)',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · Fidelis Care (NY)',
@@ -315,6 +342,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Fidelis ABA Clinical Policy FC.CP.BH.301.04', url: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf' }, { title: 'Fidelis ABA Provider Tip Sheet (01/01/2026)', url: 'https://www.fideliscare.org/Portals/0/Providers/TipSheets/ABA-Provider-Tip-Sheet.pdf' }],
         verifyVia:
           'Fidelis provider services and the ABA form on the fideliscare.org Provider Policies page \u2014 confirm telehealth code eligibility and POS in writing before scheduling remote sessions.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -331,6 +359,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Fidelis ABA Clinical Policy FC.CP.BH.301.04', url: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Fidelis provider services and the plan\u2019s claim-editing/reimbursement policies on fideliscare.org.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -370,9 +399,21 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-new-york',
     family: 'unitedhealthcare',
     cardDesc: 'State-baseline clinical criteria, but ALL ABA services are PA-gated through Optum\'s Provider Express.',
-    assessmentPA: 'Required — "all ABA services require prior authorization"; assessment auth via the online ABA request on providerexpress.com',
-    treatmentPA: 'Required — via Provider Express or the Autism Care Advocate; claims deny without an auth on file, and additional units need a new PA',
-    dxRequired: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the 2-year practitioner referral incl. the DSM-5 checklist',
+    assessmentPA: {
+      value: 'Required — "all ABA services require prior authorization"; assessment auth via the online ABA request on providerexpress.com',
+      status: 'verified',
+      cites: [{ title: 'Optum NY Medicaid ABA Provider Orientation (BH00869, 01/30/2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/nyaba/NYabaPres.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — via Provider Express or the Autism Care Advocate; claims deny without an auth on file, and additional units need a new PA',
+      status: 'verified',
+      cites: [{ title: 'Optum NY Medicaid ABA Provider Orientation (BH00869, 01/30/2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/nyaba/NYabaPres.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the 2-year practitioner referral incl. the DSM-5 checklist',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+    },
     payer: 'UnitedHealthcare Community Plan of New York',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · UHC Community Plan (NY)',
@@ -477,6 +518,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'The Autism Care Advocate line or Provider Express provider services, plus UnitedHealthcare Community Plan of New York\u2019s reimbursement policies.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -516,9 +558,24 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     slug: 'anthem-healthplus-new-york',
     family: 'anthem',
     cardDesc: 'Treatment Plan Request Form via Availity; Comprehensive-vs-Focused framing; incomplete forms returned.',
-    treatmentPA: 'Required — Treatment Plan Request Form for ASD (NY Medicaid) via Availity.com, with BCBA/QHCP information; incomplete forms are returned',
-    assessmentPA: 'Not published for the Medicaid line \u2014 Anthem\u2019s documented process is a treatment-plan-request workflow, and no policy answers whether 97151 itself needs PA; run assessments on the assumption a request may be needed and get the answer in writing per case',
-    dxRequired: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the state practitioner referral',
+    treatmentPA: {
+      value: 'Required — Treatment Plan Request Form for ASD (NY Medicaid) via Availity.com, with BCBA/QHCP information; incomplete forms are returned',
+      status: 'verified',
+      cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }],
+    },
+    assessmentPA: {
+      value: 'Not published for the Medicaid line \u2014 Anthem\u2019s documented process is a treatment-plan-request workflow, and no policy answers whether 97151 itself needs PA; run assessments on the assumption a request may be needed and get the answer in writing per case',
+      status: 'unverified',
+      cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }, { title: 'Anthem NY provider news — ABA Services FAQ (article 13424)', url: 'https://providernews.anthem.com/new-york/articles/applied-behavior-analysis-services-faq-for-providers-13424' }],
+      verifyVia:
+        'Anthem’s ABA Services FAQ for New York providers (provider news article 13424) — the document that would settle whether 97151 itself needs a request. It was unretrievable at review time: the article page returns an empty JS shell and the Wayback Machine holds no capture. Until it can be read, Availity or Anthem NY Medicaid provider services, in writing per case.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the state practitioner referral',
+      status: 'verified',
+      cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }],
+    },
     payer: 'Anthem Blue Cross and Blue Shield HP (NY Medicaid)',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · Anthem HealthPlus (NY)',
@@ -606,6 +663,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Availity or Anthem NY provider services \u2014 and the plan\u2019s ABA Services FAQ for New York providers; get the telehealth answer in writing per case.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -622,6 +680,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Availity or Anthem NY Medicaid provider services, and Anthem\u2019s reimbursement policies for the New York Medicaid line.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -630,6 +689,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }],
         verifyVia:
           'Availity or Anthem NY Medicaid provider services \u2014 confirm authorization period, unit limits and any hour-cap logic per case in writing.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -654,6 +714,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Availity or Anthem NY Medicaid provider services \u2014 confirm the rendering/supervising NPI convention and any modifier requirement in writing.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -666,9 +727,27 @@ export const newYorkPayers: Record<string, PayerConfig> = {
   'healthfirst-new-york': {
     slug: 'healthfirst-new-york',
     cardDesc: 'Own ABA authorization policy; PA routed through Availity Essentials — policy text unpublished, verify.',
-    assessmentPA: 'Not published for the Medicaid line \u2014 on Healthfirst\u2019s commercial small/large group plans all of 97151\u201397158 require PA; confirm the Medicaid ABA workflow in Availity Essentials before booking',
-    treatmentPA: 'Required under Healthfirst\u2019s own ABA authorization policy (updated version announced, reported October 2026 effective date), submitted through the Availity Essentials Online Authorization Tool with \u201cHealthfirst (New York)\u201d as the payer \u2014 the policy text itself was unavailable at review time',
-    dxRequired: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the state practitioner referral',
+    assessmentPA: {
+      value: 'Not published for the Medicaid line \u2014 on Healthfirst\u2019s commercial small/large group plans all of 97151\u201397158 require PA; confirm the Medicaid ABA workflow in Availity Essentials before booking',
+      status: 'unverified',
+      cites: [{ title: 'Healthfirst — prior authorization through Availity', url: 'https://hfproviders.org/resource-posts/prior-auth-through-availity' }, { title: 'Healthfirst — ABA supervision requirements (eff. 10/1/2025)', url: 'https://hfproviders.org/resource-posts/applied-behavior-analysis-supervision-requirements' }],
+      verifyVia:
+        'The current Healthfirst ABA authorization policy — the prior version circulated as doc 0374-22, and an updated version is announced with a reported October 2026 effective date. The PDF 404s on hfproviders.org, so request the current text from provider services (1-888-801-1660) and confirm the Medicaid ABA workflow in Availity Essentials.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required under Healthfirst\u2019s own ABA authorization policy (updated version announced, reported October 2026 effective date), submitted through the Availity Essentials Online Authorization Tool with \u201cHealthfirst (New York)\u201d as the payer \u2014 the policy text itself was unavailable at review time',
+      status: 'unverified',
+      cites: [{ title: 'Healthfirst — prior authorization through Availity', url: 'https://hfproviders.org/resource-posts/prior-auth-through-availity' }, { title: 'Healthfirst — ABA supervision requirements (eff. 10/1/2025)', url: 'https://hfproviders.org/resource-posts/applied-behavior-analysis-supervision-requirements' }],
+      verifyVia:
+        'The current Healthfirst ABA authorization policy — the prior version circulated as doc 0374-22, and an updated version is announced with a reported October 2026 effective date. The PDF 404s on hfproviders.org, so request the current text from provider services (1-888-801-1660) and confirm the Medicaid ABA workflow in Availity Essentials.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the state practitioner referral',
+      status: 'verified',
+      cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Healthfirst — ABA supervision requirements (eff. 10/1/2025)', url: 'https://hfproviders.org/resource-posts/applied-behavior-analysis-supervision-requirements' }],
+    },
     payer: 'Healthfirst (New York)',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · Healthfirst (NY)',
@@ -764,6 +843,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Healthfirst \u2014 ABA supervision requirements (eff. 10/1/2025)', url: 'https://hfproviders.org/resource-posts/applied-behavior-analysis-supervision-requirements' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Healthfirst provider services (1-888-801-1660) or the current ABA authorization policy on hfproviders.org \u2014 confirm code eligibility and POS before scheduling remote sessions.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -780,6 +860,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Healthfirst \u2014 ABA supervision requirements (eff. 10/1/2025)', url: 'https://hfproviders.org/resource-posts/applied-behavior-analysis-supervision-requirements' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Healthfirst provider services (1-888-801-1660) and the current ABA authorization policy on hfproviders.org.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -788,6 +869,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Healthfirst \u2014 prior authorization through Availity', url: 'https://hfproviders.org/resource-posts/prior-auth-through-availity' }, { title: 'Healthfirst \u2014 ABA supervision requirements (eff. 10/1/2025)', url: 'https://hfproviders.org/resource-posts/applied-behavior-analysis-supervision-requirements' }],
         verifyVia:
           'The current Healthfirst ABA authorization policy via hfproviders.org, or provider services (1-888-801-1660).',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -810,6 +892,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Healthfirst \u2014 ABA supervision requirements (eff. 10/1/2025)', url: 'https://hfproviders.org/resource-posts/applied-behavior-analysis-supervision-requirements' }],
         verifyVia:
           'Healthfirst provider services (1-888-801-1660) and the current ABA authorization policy on hfproviders.org.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -822,9 +905,24 @@ export const newYorkPayers: Record<string, PayerConfig> = {
   'metroplus-health-new-york': {
     slug: 'metroplus-health-new-york',
     cardDesc: 'NYC H+H plan; auth via email/fax to CSS; unique quirk: diagnosis must be re-validated annually.',
-    treatmentPA: 'Required — authorization requests and clinical information go to MetroPlus CSS by email or fax (per the 2023 benefit notice)',
-    assessmentPA: 'Not published \u2014 assessment-PA specifics, authorization periods and hour caps aren\u2019t in the materials we could verify; confirm with MetroPlus CSS per case',
-    dxRequired: 'Yes — state baseline plus a MetroPlus quirk: a comprehensive autism evaluation by a NYS-licensed clinician, authenticated and re-validated annually (LBAs don\'t qualify to validate it)',
+    treatmentPA: {
+      value: 'Required — authorization requests and clinical information go to MetroPlus CSS by email or fax (per the 2023 benefit notice)',
+      status: 'verified',
+      cites: [{ title: 'MetroPlusHealth notice — 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' }],
+    },
+    assessmentPA: {
+      value: 'Not published \u2014 assessment-PA specifics, authorization periods and hour caps aren\u2019t in the materials we could verify; confirm with MetroPlus CSS per case',
+      status: 'unverified',
+      cites: [{ title: 'MetroPlusHealth notice — 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' }, { title: 'MetroPlus provider authorization page', url: 'https://metroplus.org/providers/provider-resources/provider-authorization/' }],
+      verifyVia:
+        'MetroPlus CSS — the email/fax authorization intake named in the 2023 ABA benefit notice — or the metroplus.org provider authorization page. Ask specifically whether 97151 needs its own authorization, and get the answer in writing per case.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes — state baseline plus a MetroPlus quirk: a comprehensive autism evaluation by a NYS-licensed clinician, authenticated and re-validated annually (LBAs don\'t qualify to validate it)',
+      status: 'verified',
+      cites: [{ title: 'MetroPlusHealth notice — 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+    },
     payer: 'MetroPlusHealth (NY Medicaid)',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · MetroPlusHealth (NY)',
@@ -915,6 +1013,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MetroPlusHealth notice \u2014 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'MetroPlus CSS or the metroplus.org provider authorization page \u2014 confirm telehealth code eligibility and POS in writing before scheduling remote sessions.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -931,6 +1030,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MetroPlusHealth notice \u2014 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'MetroPlus CSS or provider services via the metroplus.org provider authorization page.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -939,6 +1039,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MetroPlusHealth notice \u2014 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' }, { title: 'MetroPlus provider authorization page', url: 'https://metroplus.org/providers/provider-resources/provider-authorization/' }],
         verifyVia:
           'MetroPlus CSS or the metroplus.org provider authorization page \u2014 confirm authorization period, unit limits and rates per case.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -961,6 +1062,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'MetroPlusHealth notice \u2014 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' }],
         verifyVia:
           'MetroPlus CSS or provider services \u2014 confirm the rendering/supervising NPI convention before billing CBAA- or technician-delivered units.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -973,9 +1075,27 @@ export const newYorkPayers: Record<string, PayerConfig> = {
   'emblemhealth-new-york': {
     slug: 'emblemhealth-new-york',
     cardDesc: 'Published ABA content restates the state criteria verbatim; PA specifics unpublished — verify.',
-    assessmentPA: 'Not published \u2014 no distinct EmblemHealth ABA clinical policy was located; verify the assessment workflow in the emblemhealth.com provider portal and get the answer in writing',
-    treatmentPA: 'Not published \u2014 the plan\u2019s ABA content restates the state criteria verbatim without authorization specifics; silence is not proof there is no PA, so confirm per case in the portal',
-    dxRequired: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, referral from the state\'s practitioner list',
+    assessmentPA: {
+      value: 'Not published \u2014 no distinct EmblemHealth ABA clinical policy was located; verify the assessment workflow in the emblemhealth.com provider portal and get the answer in writing',
+      status: 'unverified',
+      cites: [{ title: 'EmblemHealth — Medicaid ABA benefit page', url: 'https://www.emblemhealth.com/providers/resources/State-Sponsored-Programs/medicaid-applied-behavior-analysis-benefit-' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+      verifyVia:
+        'EmblemHealth provider services through the emblemhealth.com provider portal. Ask whether 97151 requires authorization on the Medicaid line, and whether Carelon Behavioral Health runs ABA utilization management — get the answer in writing per case.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Not published \u2014 the plan\u2019s ABA content restates the state criteria verbatim without authorization specifics; silence is not proof there is no PA, so confirm per case in the portal',
+      status: 'unverified',
+      cites: [{ title: 'EmblemHealth — Medicaid ABA benefit page', url: 'https://www.emblemhealth.com/providers/resources/State-Sponsored-Programs/medicaid-applied-behavior-analysis-benefit-' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+      verifyVia:
+        'EmblemHealth provider services through the emblemhealth.com provider portal. Ask whether the treatment codes require authorization and which entity adjudicates; the plan’s silence in public materials is not proof there is no PA.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, referral from the state\'s practitioner list',
+      status: 'verified',
+      cites: [{ title: 'EmblemHealth — Medicaid ABA benefit page', url: 'https://www.emblemhealth.com/providers/resources/State-Sponsored-Programs/medicaid-applied-behavior-analysis-benefit-' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+    },
     payer: 'EmblemHealth (NY Medicaid)',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · EmblemHealth (NY)',
@@ -1055,6 +1175,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'EmblemHealth \u2014 Medicaid ABA benefit page', url: 'https://www.emblemhealth.com/providers/resources/State-Sponsored-Programs/medicaid-applied-behavior-analysis-benefit-' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'The emblemhealth.com provider portal or provider services \u2014 confirm telehealth code eligibility and place of service in writing per case.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1071,6 +1192,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'EmblemHealth \u2014 Medicaid ABA benefit page', url: 'https://www.emblemhealth.com/providers/resources/State-Sponsored-Programs/medicaid-applied-behavior-analysis-benefit-' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'The emblemhealth.com provider portal or provider services; Carelon Behavioral Health has historically managed Emblem\u2019s behavioral benefit, but its role in ABA utilization management is unconfirmed.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1079,6 +1201,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'EmblemHealth \u2014 Medicaid ABA benefit page', url: 'https://www.emblemhealth.com/providers/resources/State-Sponsored-Programs/medicaid-applied-behavior-analysis-benefit-' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'The emblemhealth.com provider portal or provider services \u2014 confirm authorization periods and any unit limits per case in writing.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1099,6 +1222,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'EmblemHealth \u2014 Medicaid ABA benefit page', url: 'https://www.emblemhealth.com/providers/resources/State-Sponsored-Programs/medicaid-applied-behavior-analysis-benefit-' }],
         verifyVia:
           'The emblemhealth.com provider portal or provider services \u2014 confirm the rendering/supervising NPI convention and the correct HIP entity for the member.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -1111,9 +1235,24 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     slug: 'molina-healthcare-new-york',
     family: 'molina',
     cardDesc: 'Ex-Affinity; ABA UM in-house since 9/2021 (formerly eviCore) — the classic stale-info trap.',
-    assessmentPA: 'PA-based per Molina\u2019s bulletin trail, but whether 97151 needs a separate authorization isn\u2019t published \u2014 confirm per case with provider services, in writing',
-    treatmentPA: 'Required \u2014 reviewed in-house by Molina\u2019s ABA care-review clinicians (including LBA reviewers) since the 9/1/2021 eviCore transition; route through Molina\u2019s own portal/Availity, never eviCore, and confirm the current PA code list from the NY Medicaid bulletins',
-    dxRequired: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the state practitioner referral',
+    assessmentPA: {
+      value: 'PA-based per Molina\u2019s bulletin trail, but whether 97151 needs a separate authorization isn\u2019t published \u2014 confirm per case with provider services, in writing',
+      status: 'unverified',
+      cites: [{ title: 'Molina NY provider notice — ABA prior authorization changes', url: 'https://www.molinahealthcare.com/providers/ny/medicaid/comm/-/media/Molina/PublicWebsite/PDF/Providers/ny/medicaid/Prior%20Authorization%20Update_Provider_Notice_for_ABA' }, { title: 'Molina NY Medicaid bulletins index', url: 'https://www.molinahealthcare.com/providers/ny/medicaid/comm/bulletin.aspx' }],
+      verifyVia:
+        'Molina NY provider services. Ask whether 97151 requires a separate authorization from treatment and for the current NY Medicaid PA code list, in writing per case — and disregard any eviCore-era instruction, which has been stale since 9/1/2021.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Required \u2014 reviewed in-house by Molina\u2019s ABA care-review clinicians (including LBA reviewers) since the 9/1/2021 eviCore transition; route through Molina\u2019s own portal/Availity, never eviCore, and confirm the current PA code list from the NY Medicaid bulletins',
+      status: 'verified',
+      cites: [{ title: 'Molina NY provider notice — ABA prior authorization changes', url: 'https://www.molinahealthcare.com/providers/ny/medicaid/comm/-/media/Molina/PublicWebsite/PDF/Providers/ny/medicaid/Prior%20Authorization%20Update_Provider_Notice_for_ABA' }],
+    },
+    dxRequired: {
+      value: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the state practitioner referral',
+      status: 'verified',
+      cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+    },
     payer: 'Molina Healthcare of New York',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · Molina Healthcare (NY)',
@@ -1210,6 +1349,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Molina NY Medicaid bulletins index', url: 'https://www.molinahealthcare.com/providers/ny/medicaid/comm/bulletin.aspx' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Molina NY provider services or the NY Medicaid bulletins index at molinahealthcare.com \u2014 confirm telehealth code eligibility and POS in writing.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1226,6 +1366,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Molina NY Medicaid bulletins index', url: 'https://www.molinahealthcare.com/providers/ny/medicaid/comm/bulletin.aspx' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Molina NY provider services and the NY Medicaid bulletins index \u2014 confirm in writing before billing the overlap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1234,6 +1375,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Molina NY Medicaid bulletins index', url: 'https://www.molinahealthcare.com/providers/ny/medicaid/comm/bulletin.aspx' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Molina NY provider services \u2014 confirm authorization periods and any unit limits per case in writing.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1254,6 +1396,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Molina NY provider notice \u2014 ABA prior authorization changes', url: 'https://www.molinahealthcare.com/providers/ny/medicaid/comm/-/media/Molina/PublicWebsite/PDF/Providers/ny/medicaid/Prior%20Authorization%20Update_Provider_Notice_for_ABA' }],
         verifyVia:
           'Molina NY provider services \u2014 confirm the current portal/Availity route, the PA code list, and the rendering/supervising NPI convention.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -1267,9 +1410,21 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     slug: 'aetna-new-york',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the NY autism mandate: no ABA-only visit caps, no age limit, LBA-only.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+      status: 'verified',
+      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+    },
     payer: 'Aetna in New York',
     state: 'NY', kind: 'commercial',
     pill: 'Payer Guide · Aetna · New York',
@@ -1358,6 +1513,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Aetna precertification intake (form GR-69017-4 via Availity or phone) \u2014 ask what evaluation age the reviewer will accept and get it in writing per case.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -1372,6 +1528,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'NY Insurance Law \u00a7 3216(i)(25) \u2014 current text (no ABA-only visit limits)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3216' }],
         verifyVia:
           'Aetna precertification (form GR-69017-4) \u2014 confirm which instrument results the reviewer requires for the specific plan.',
+        blocker: 'per-case',
       },
       referral: {
         value:
@@ -1386,6 +1543,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Aetna\u2019s telemedicine policy and the member\u2019s benefit document, confirmed at precertification before scheduling remote sessions.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1404,6 +1562,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Aetna\u2019s clinical payment, coding and policy changes pages and your participating-provider agreement \u2014 confirm with provider services before billing the overlap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1418,6 +1577,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
         verifyVia:
           'Aetna\u2019s provider manual medical-records standards and your participating-provider agreement.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1434,6 +1594,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' }, { title: 'NYSED Office of the Professions \u2014 Article 167 (Ed. Law \u00a7\u00a7 8800\u20138808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
         verifyVia:
           'Your Aetna participating-provider agreement and Aetna\u2019s professional claim submission guidance.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -1447,9 +1608,21 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     slug: 'cigna-new-york',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the NY mandate: no ABA-only visit caps, no age limit, LBA-only.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
     payer: 'Cigna / Evernorth in New York',
     state: 'NY', kind: 'commercial',
     pill: 'Payer Guide · Cigna · New York',
@@ -1566,6 +1739,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         verifyVia:
           'Cigna/Evernorth provider services and the applicable reimbursement (not coverage) policy \u2014 confirm in writing before billing the overlap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1592,6 +1766,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' }, { title: 'NYSED Office of the Professions \u2014 Article 167 (Ed. Law \u00a7\u00a7 8800\u20138808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' }],
         verifyVia:
           'Cigna/Evernorth provider services and your participating-provider agreement for claim-submission conventions.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -1605,9 +1780,21 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-new-york',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the NY mandate: no ABA-only visit caps, no age limit, LBA-only.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
     payer: 'UnitedHealthcare / Optum in New York',
     state: 'NY', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · New York',
@@ -1719,6 +1906,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum NY Medicaid ABA Provider Orientation (BH00869, 01/30/2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/nyaba/NYabaPres.pdf' }],
         verifyVia:
           'Optum/Provider Express virtual-visits requirements and the member\u2019s benefit plan \u2014 confirm code eligibility and POS before scheduling remote sessions.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1735,6 +1923,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/Provider Express provider services and UnitedHealthcare\u2019s reimbursement policies \u2014 confirm in writing before billing the overlap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1749,6 +1938,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/Provider Express documentation standards and the UnitedHealthcare provider administrative guide\u2019s medical-records section.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1763,6 +1953,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' }, { title: 'NYSED Office of the Professions \u2014 Article 167 (Ed. Law \u00a7\u00a7 8800\u20138808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' }],
         verifyVia:
           'Provider Express claim-submission guidance and your UnitedHealthcare participating-provider agreement.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -1776,9 +1967,27 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     slug: 'excellus-bcbs-new-york',
     family: 'bcbs',
     cardDesc: 'Central/Western NY + Southern Tier; own named ABA medical policy (3.01.11) — but outpatient PA specifics sit behind the portal login.',
-    assessmentPA: 'Not published for outpatient ABA \u2014 Medical Policy 3.01.11 describes \u201cmedical necessity review\u2026 when applicable\u201d rather than a code-level gate, and Excellus directs providers to check eMedNY for code coverage first; confirm with Provider Services',
-    treatmentPA: 'Not published \u2014 no standalone outpatient ABA PA form was located and BH/ABA is not delegated to eviCore (radiology, cardiology, MSK, oncology and sleep only); BH Care Management runs through Excellus directly, so confirm requirements and turnaround in writing before booking',
-    dxRequired: 'Yes — DSM-5-TR ASD per Excellus\'s own ABA medical policy (3.01.11), layered on the state\'s under-21 ASD/Rett baseline; Rett-specific language isn\'t in the Excellus policy itself',
+    assessmentPA: {
+      value: 'Not published for outpatient ABA \u2014 Medical Policy 3.01.11 describes \u201cmedical necessity review\u2026 when applicable\u201d rather than a code-level gate, and Excellus directs providers to check eMedNY for code coverage first; confirm with Provider Services',
+      status: 'unverified',
+      cites: [{ title: 'Excellus Medical Policy 3.01.11 — Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }, { title: 'Excellus — Prior Authorization', url: 'https://www.excellusbcbs.com/prior-authorization' }],
+      verifyVia:
+        'Excellus Provider Services. Ask whether 97151 carries a code-level PA requirement for outpatient ABA and get it in writing; no Excellus-published outpatient ABA PA list or form was located, and the plan directs providers to check eMedNY code coverage first.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Not published \u2014 no standalone outpatient ABA PA form was located and BH/ABA is not delegated to eviCore (radiology, cardiology, MSK, oncology and sleep only); BH Care Management runs through Excellus directly, so confirm requirements and turnaround in writing before booking',
+      status: 'unverified',
+      cites: [{ title: 'Excellus Medical Policy 3.01.11 — Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }, { title: 'Excellus — Prior Authorization', url: 'https://www.excellusbcbs.com/prior-authorization' }],
+      verifyVia:
+        'Excellus Provider Services — BH Care Management for Medicaid and HARP runs through Excellus directly, not eviCore. Confirm outpatient ABA PA requirements, turnaround times and the submission channel in writing before booking.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD per Excellus\'s own ABA medical policy (3.01.11), layered on the state\'s under-21 ASD/Rett baseline; Rett-specific language isn\'t in the Excellus policy itself',
+      status: 'verified',
+      cites: [{ title: 'Excellus Medical Policy 3.01.11 — Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+    },
     payer: 'Excellus BlueCross BlueShield (NY Medicaid)',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · Excellus BCBS (NY)',
@@ -1893,6 +2102,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Excellus Telemedicine and Telehealth Corporate Medical Policy (#1.01.49)', url: 'https://provider.excellusbcbs.com/documents/20152/127460/EXC-PRV-Telehealth_Telemedicine+Corporate+Medical+Policy.pdf' }, { title: 'Excellus Medical Policy 3.01.11 \u2014 Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }],
         verifyVia:
           'Excellus Provider Services \u2014 confirm ABA telehealth reimbursement and the required modifier before scheduling remote sessions.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1909,6 +2119,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Excellus Medical Policy 3.01.11 \u2014 Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Excellus Provider Services and the plan\u2019s claim-editing guidance \u2014 confirm in writing before billing the overlap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1935,6 +2146,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Excellus Medical Policy 3.01.11 \u2014 Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Excellus Provider Services and the \u201cNavigating the Blues\u201d billing orientation guidebook \u2014 confirm the rendering/supervising NPI convention.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -1947,9 +2159,21 @@ export const newYorkPayers: Record<string, PayerConfig> = {
   'mvp-health-plan-new-york': {
     slug: 'mvp-health-plan-new-york',
     cardDesc: 'In-house BH/ABA UM; PA required for both assessment and treatment — but 0362T/0373T are excluded from Medicaid Managed Care reimbursement.',
-    assessmentPA: 'Required — MVP\'s ABA payment policy requires prior authorization for the assessment, referred by an NYS-licensed, Medicaid-enrolled physician, psychologist, psychiatric NP, pediatric NP, or PA',
-    treatmentPA: 'Required — treatment authorized via MVP\'s BH authorization request (fax 1-855-853-4850); 0362T and 0373T appear on the covered-code list but are excluded from Medicaid Managed Care reimbursement specifically',
-    dxRequired: 'Yes — under 21, ASD/Rett per the state baseline; MVP\'s 2026 payment-policy update restates the NYS-licensed/Medicaid-enrolled referral rule verbatim, with a 2-year referral validity',
+    assessmentPA: {
+      value: 'Required — MVP\'s ABA payment policy requires prior authorization for the assessment, referred by an NYS-licensed, Medicaid-enrolled physician, psychologist, psychiatric NP, pediatric NP, or PA',
+      status: 'verified',
+      cites: [{ title: 'MVP Applied Behavior Analysis Services Payment Policy (eff. 4/1/2026)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' }, { title: 'MVP Behavioral Health Services and Authorization Requirements', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider/online-resources/bh-services-and-authorization-requirements' }],
+    },
+    treatmentPA: {
+      value: 'Required — treatment authorized via MVP\'s BH authorization request (fax 1-855-853-4850); 0362T and 0373T appear on the covered-code list but are excluded from Medicaid Managed Care reimbursement specifically',
+      status: 'verified',
+      cites: [{ title: 'MVP Applied Behavior Analysis Services Payment Policy (eff. 4/1/2026)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' }, { title: 'MVP Behavioral Health Services and Authorization Requirements', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider/online-resources/bh-services-and-authorization-requirements' }],
+    },
+    dxRequired: {
+      value: 'Yes — under 21, ASD/Rett per the state baseline; MVP\'s 2026 payment-policy update restates the NYS-licensed/Medicaid-enrolled referral rule verbatim, with a 2-year referral validity',
+      status: 'verified',
+      cites: [{ title: 'MVP Applied Behavior Analysis Services Payment Policy (eff. 4/1/2026)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+    },
     payer: 'MVP Health Plan (NY Medicaid)',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · MVP Health Plan (NY)',
@@ -2063,6 +2287,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MVP Applied Behavior Analysis Services Payment Policy (eff. 4/1/2026)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' }],
         verifyVia:
           'MVP Provider Services \u2014 confirm the current telehealth reimbursement status for ABA codes before scheduling remote sessions; the policy\u2019s waiver reference has not been updated since the cited date passed.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -2079,6 +2304,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MVP Applied Behavior Analysis Services Payment Policy (eff. 4/1/2026)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'MVP Provider Services (behavioral health 1-800-684-9286) \u2014 confirm in writing before billing the overlap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -2118,9 +2344,27 @@ export const newYorkPayers: Record<string, PayerConfig> = {
   'cdphp-new-york': {
     slug: 'cdphp-new-york',
     cardDesc: 'Capital District plan; ABA codes named in-house at CDPHP\'s own Behavioral Health Access Center — but PA specifics and limits sit behind the secure portal.',
-    assessmentPA: 'Not confirmed \u2014 outpatient BH by participating practitioners needs no authorization, but \u201ccertain\u201d Medicaid\u2013Select/HARP behavioral services do; whether 97151 is among them sits in the secure-portal Prior Authorization Guideline. Confirm at the Behavioral Health Access Center (518-641-3600 / 1-888-320-9584)',
-    treatmentPA: 'Not confirmed \u2014 same secure-portal deferral; the POAM names 97151\u201397158 as covered with \u201cno maximum benefit\u201d but routes code-level PA questions to the Behavioral Health Access Center. Get the answer in writing per case',
-    dxRequired: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the state practitioner referral; CDPHP names 97151–97158 in its POAM but defers PA/limit specifics to the secure provider portal',
+    assessmentPA: {
+      value: 'Not confirmed \u2014 outpatient BH by participating practitioners needs no authorization, but \u201ccertain\u201d Medicaid\u2013Select/HARP behavioral services do; whether 97151 is among them sits in the secure-portal Prior Authorization Guideline. Confirm at the Behavioral Health Access Center (518-641-3600 / 1-888-320-9584)',
+      status: 'unverified',
+      cites: [{ title: 'CDPHP Provider Office Administrative Manual, Section 18 — Behavioral Health (rev. July 2025)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-18-behavioral-health.pdf' }, { title: 'CDPHP Provider Office Administrative Manual, Section 5 — Referral/Authorization Process (rev. January 2025)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-5-referral-authorization-process.pdf' }],
+      verifyVia:
+        'CDPHP’s “Prior Authorization Guideline” — the complete list of Medicaid–Select and HARP behavioral services requiring prior authorization, held behind the secure login at provider.cdphp.com and not readable from public materials. Until it can be retrieved, the Behavioral Health Access Center (518-641-3600 / 1-888-320-9584) answers per case.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Not confirmed \u2014 same secure-portal deferral; the POAM names 97151\u201397158 as covered with \u201cno maximum benefit\u201d but routes code-level PA questions to the Behavioral Health Access Center. Get the answer in writing per case',
+      status: 'unverified',
+      cites: [{ title: 'CDPHP Provider Office Administrative Manual, Section 18 — Behavioral Health (rev. July 2025)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-18-behavioral-health.pdf' }, { title: 'CDPHP Provider Office Administrative Manual, Section 5 — Referral/Authorization Process (rev. January 2025)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-5-referral-authorization-process.pdf' }],
+      verifyVia:
+        'CDPHP’s “Prior Authorization Guideline” — the complete list of Medicaid–Select and HARP behavioral services requiring prior authorization, held behind the secure login at provider.cdphp.com and not readable from public materials. Until it can be retrieved, the Behavioral Health Access Center (518-641-3600 / 1-888-320-9584) answers per case.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the state practitioner referral; CDPHP names 97151–97158 in its POAM but defers PA/limit specifics to the secure provider portal',
+      status: 'verified',
+      cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'CDPHP Provider Office Administrative Manual, Section 18 — Behavioral Health (rev. July 2025)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-18-behavioral-health.pdf' }],
+    },
     payer: 'CDPHP (NY Medicaid)',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · CDPHP (NY)',
@@ -2229,6 +2473,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'CDPHP \u2014 American Telemedicine Association telemental health guidelines (hosted resource)', url: 'https://www.cdphp.com/-/media/files/providers/behavioral-health/hedis-toolkit-and-bh-guidelines/practice-guidelines-telemental-health.pdf' }, { title: 'CDPHP Provider Office Administrative Manual, Section 18 \u2014 Behavioral Health (rev. July 2025)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-18-behavioral-health.pdf' }],
         verifyVia:
           'The CDPHP Behavioral Health Access Center (518-641-3600 / 1-888-320-9584) \u2014 confirm POS and modifier requirements before delivering remotely.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -2245,6 +2490,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'CDPHP Provider Office Administrative Manual, Section 18 \u2014 Behavioral Health (rev. July 2025)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-18-behavioral-health.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'The CDPHP Behavioral Health Access Center (518-641-3600 / 1-888-320-9584) and the secure Prior Authorization Guideline at provider.cdphp.com.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -2273,6 +2519,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'CDPHP Provider Office Administrative Manual, Section 18 \u2014 Behavioral Health (rev. July 2025)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-18-behavioral-health.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'CDPHP Provider Services (518-641-3500 / 1-800-926-7526) \u2014 confirm the rendering/supervising NPI convention and the exact timely-filing window.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -2285,9 +2532,27 @@ export const newYorkPayers: Record<string, PayerConfig> = {
   'independent-health-new-york': {
     slug: 'independent-health-new-york',
     cardDesc: 'Erie County/Buffalo only (not Monroe); Carelon runs general BH, but ABA looks to be administered directly by Independent Health — confirm which before routing a case.',
-    assessmentPA: 'Not published \u2014 the MediSource handbook\u2019s member-facing PA list doesn\u2019t name ABA, but that list is a simplified summary, not the provider procedure-code grid; confirm per case (716-250-7183 / 1-833-891-9372)',
-    treatmentPA: 'Not published \u2014 and settle the routing question first: Carelon manages general BH for Independent Health\u2019s state products while ABA appears to be administered by Independent Health directly (strongly indicated, not confirmed in one explicit sentence)',
-    dxRequired: 'Yes — state baseline: under 21, ASD and/or Rett syndrome, assessed/treated by a Licensed Behavior Analyst or a Certified Behavior Analyst Assistant under LBA supervision, per the MediSource member handbook',
+    assessmentPA: {
+      value: 'Not published \u2014 the MediSource handbook\u2019s member-facing PA list doesn\u2019t name ABA, but that list is a simplified summary, not the provider procedure-code grid; confirm per case (716-250-7183 / 1-833-891-9372)',
+      status: 'unverified',
+      cites: [{ title: 'Independent Health MediSource Member Handbook (2026)', url: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf' }],
+      verifyVia:
+        'Independent Health’s provider prior-authorization procedure-code grid for MediSource, which sits behind the HealthTrio Connect provider-portal login — the handbook’s member-facing PA list is a simplified summary, not that grid. Provider Services (716-250-7183 / 1-833-891-9372) in the meantime.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Not published \u2014 and settle the routing question first: Carelon manages general BH for Independent Health\u2019s state products while ABA appears to be administered by Independent Health directly (strongly indicated, not confirmed in one explicit sentence)',
+      status: 'unverified',
+      cites: [{ title: 'Independent Health MediSource Member Handbook (2026)', url: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf' }, { title: 'Independent Health — Behavioral Health for State Products', url: 'https://www.independenthealth.com/providers/policies-and-guidelies/behavioral-health-for-state-products' }],
+      verifyVia:
+        'The same HealthTrio-gated MediSource prior-authorization procedure-code grid — and settle the routing question with Provider Services first (716-250-7183 / 1-833-891-9372): whether Independent Health or Carelon Behavioral Health actually adjudicates ABA authorizations and claims.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — state baseline: under 21, ASD and/or Rett syndrome, assessed/treated by a Licensed Behavior Analyst or a Certified Behavior Analyst Assistant under LBA supervision, per the MediSource member handbook',
+      status: 'verified',
+      cites: [{ title: 'Independent Health MediSource Member Handbook (2026)', url: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+    },
     payer: 'Independent Health (NY Medicaid)',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · Independent Health (NY)',
@@ -2397,6 +2662,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Independent Health MediSource Member Handbook (2026)', url: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Independent Health Provider Services \u2014 confirm telehealth eligibility, code list and place of service before scheduling remote sessions.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -2413,6 +2679,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Independent Health MediSource Member Handbook (2026)', url: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Independent Health Provider Services \u2014 and confirm first whether Independent Health or Carelon adjudicates ABA claims for the member.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -2421,6 +2688,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Independent Health MediSource Member Handbook (2026)', url: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf' }, { title: 'Independent Health \u2014 Behavioral Health for State Products', url: 'https://www.independenthealth.com/providers/policies-and-guidelies/behavioral-health-for-state-products' }],
         verifyVia:
           'Independent Health Provider Services \u2014 confirm authorization periods, unit limits and the correct claims-filing window for ABA specifically.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -2441,6 +2709,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Independent Health \u2014 Behavioral Health for State Products', url: 'https://www.independenthealth.com/providers/policies-and-guidelies/behavioral-health-for-state-products' }, { title: 'Independent Health MediSource Member Handbook (2026)', url: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Independent Health Provider Services \u2014 confirm the adjudicating entity, the rendering/supervising NPI convention and the claims-filing window.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -2454,9 +2723,21 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     slug: 'highmark-western-new-york',
     family: 'bcbs',
     cardDesc: '8 WNY counties; ABA requires authorization and carries a stated $45,000/year cap — delegate is Wellpoint Partnership Plan (a Carelon mention in the same manual is unresolved).',
-    assessmentPA: 'Required — a standalone "Request for Authorization: Autism Spectrum Disorder Testing" form gates the diagnostic workup, submitted via Availity Essentials or fax to 844-452-8073',
-    treatmentPA: 'Required — ABA services are listed as requiring authorization across MMC, HARP, and CHPlus in the Provider Manual\'s PA table; the same manual states a $45,000-per-calendar-year ABA benefit maximum',
-    dxRequired: 'Yes — state baseline (under 21, ASD/Rett); Highmark\'s testing-authorization form asks for validated screeners (ASRS, SCQ, SRS, M-CHAT, CARS, GADS) plus DSM-5/ICD-10 codes',
+    assessmentPA: {
+      value: 'Required — a standalone "Request for Authorization: Autism Spectrum Disorder Testing" form gates the diagnostic workup, submitted via Availity Essentials or fax to 844-452-8073',
+      status: 'verified',
+      cites: [{ title: 'Highmark WNY — Request for Authorization: Autism Spectrum Disorder Testing (Feb 2026)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYHM_ReqAuth_AutismSpectrumDisorderTesting.pdf' }, { title: 'Highmark BCBS of Western New York Provider Manual — Medicaid Managed Care and Child Health Plus (eff. 4/1/2026)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_ProviderManual.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — ABA services are listed as requiring authorization across MMC, HARP, and CHPlus in the Provider Manual\'s PA table; the same manual states a $45,000-per-calendar-year ABA benefit maximum',
+      status: 'verified',
+      cites: [{ title: 'Highmark BCBS of Western New York Provider Manual — Medicaid Managed Care and Child Health Plus (eff. 4/1/2026)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_ProviderManual.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — state baseline (under 21, ASD/Rett); Highmark\'s testing-authorization form asks for validated screeners (ASRS, SCQ, SRS, M-CHAT, CARS, GADS) plus DSM-5/ICD-10 codes',
+      status: 'verified',
+      cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'Highmark WNY — Request for Authorization: Autism Spectrum Disorder Testing (Feb 2026)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYHM_ReqAuth_AutismSpectrumDisorderTesting.pdf' }],
+    },
     payer: 'Highmark Western and Northeastern New York (NY Medicaid)',
     state: 'NY', kind: 'medicaid-mco', parent: 'New York Medicaid',
     pill: 'Payer Guide · Highmark WNY (NY)',
@@ -2570,6 +2851,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Highmark WNY \u2014 COVID-19 Guidance for Telehealth/Telephonic Care for Behavioral Health Services (rev. Jan 2022)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_CAID_PU_COVID19GuidanceTelehealthBH.pdf' }],
         verifyVia:
           'Highmark WNY Provider Services \u2014 confirm the COVID-era telehealth bulletin is still operative before billing 97151/97153/97155/97156/97157 via telehealth.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -2586,6 +2868,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Highmark BCBS of Western New York Provider Manual \u2014 Medicaid Managed Care and Child Health Plus (eff. 4/1/2026)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_ProviderManual.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Highmark WNY Provider Services, or the delegated behavioral-health team at WNYBehavioralHealthTeam@wellpoint.com \u2014 confirm in writing before billing the overlap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -2614,6 +2897,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Highmark BCBS of Western New York Provider Manual \u2014 Medicaid Managed Care and Child Health Plus (eff. 4/1/2026)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_ProviderManual.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Highmark WNY Provider Services \u2014 confirm the rendering/supervising NPI convention and any modifier requirement for CBAA- and technician-delivered units.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -2630,9 +2914,21 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     state: 'NY', kind: 'commercial',
     family: 'anthem',
     cardDesc: 'The 680-hour cap was repealed in 2020; Empire is now Anthem; 28-county service area.',
-    assessmentPA: 'Yes — 97151, 97152 and 0362T are authorized per authorization period, with an assessment-only pathway on Anthem\'s ASD form',
-    treatmentPA: 'Yes — 97153, 97154, 97155, 97158 and 0373T are authorized per week',
-    dxRequired: 'Yes — and the ABA must be prescribed or ordered by a licensed physician or licensed psychologist; an LBA may not diagnose or self-refer',
+    assessmentPA: {
+      value: 'Yes — 97151, 97152 and 0362T are authorized per authorization period, with an assessment-only pathway on Anthem\'s ASD form',
+      status: 'verified',
+      cites: [{ title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Yes — 97153, 97154, 97155, 97158 and 0373T are authorized per week',
+      status: 'verified',
+      cites: [{ title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — and the ABA must be prescribed or ordered by a licensed physician or licensed psychologist; an LBA may not diagnose or self-refer',
+      status: 'verified',
+      cites: [{ title: 'NY Insurance Law § 3216 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-32/3216/' }, { title: 'NYSED — LBA/CBAA assessment and treatment plans', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/professional-practice/assessment-and-treatment-plans' }],
+    },
     pill: 'Payer Guide · Anthem BCBS · New York',
     h1: 'Anthem BCBS New York ABA coverage: the intake guide.',
     metaTitle: 'Anthem BCBS New York (Empire) ABA Coverage & Prior Auth Guide | Carelu',
@@ -2779,6 +3075,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Anthem ABA Provider Resource Guide \u2014 New York and 10 other states (June 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/aba-provider-resource-guide-abc-ny.pdf' }],
         verifyVia:
           'Anthem\u2019s Virtual Visits reimbursement policy and the allowed-virtual-services list for New York \u2014 confirm ABA code eligibility before scheduling remote sessions.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {

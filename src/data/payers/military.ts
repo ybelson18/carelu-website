@@ -21,9 +21,33 @@ export const militaryPayers: Record<string, PayerConfig> = {
     payer: 'TRICARE East (Humana Military)',
     state: 'US', kind: 'commercial', family: 'tricare',
     cardDesc: 'ABA runs through the Autism Care Demonstration — referral chain, four outcome measures, six-month authorizations.',
-    assessmentPA: 'Required — Humana Military authorizes the initial assessment, treatment-plan development and outcome measures off the ASD referral',
-    treatmentPA: 'Required — a separate treatment authorization, re-requested every six months; claims for services rendered without prior authorization are denied',
-    dxRequired: 'Yes — definitive DSM-5 ASD diagnosis (F84.0) by a TRICARE-authorized PCM or specialized ASD diagnosing provider, documented on a DHA-approved DSM-5 checklist and confirmed by a validated assessment tool',
+    assessmentPA: {
+      value: 'Required — Humana Military authorizes the initial assessment, treatment-plan development and outcome measures off the ASD referral',
+      status: 'verified',
+      cites: [
+        { title: 'Humana Military — ACD authorization process', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/authorizationprocess' },
+        { title: 'Humana Military — ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' },
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — a separate treatment authorization, re-requested every six months; claims for services rendered without prior authorization are denied',
+      status: 'verified',
+      cites: [
+        { title: 'Humana Military — ACD authorization process', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/authorizationprocess' },
+        { title: 'Humana Military — ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' },
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — definitive DSM-5 ASD diagnosis (F84.0) by a TRICARE-authorized PCM or specialized ASD diagnosing provider, documented on a DHA-approved DSM-5 checklist and confirmed by a validated assessment tool',
+      status: 'verified',
+      cites: [
+        { title: 'Humana Military — ACD authorization process', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/authorizationprocess' },
+        { title: 'Humana Military — ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' },
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+      ],
+    },
     pill: 'Payer Guide · TRICARE East (Humana Military)',
     h1: 'TRICARE East ABA coverage: the Autism Care Demonstration.',
     metaTitle: 'TRICARE East (Humana Military) ABA & Autism Care Demonstration | Carelu',
@@ -185,8 +209,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Humana Military does not publish an ABA telehealth code list on its public ACD pages. What it does publish is the documentation consequence: the progress note must record the place of service as home, clinic/center, daycare (non-preschool), school, community or telemedicine, and GPS coordinates do not satisfy that. The West Region contractor publishes the DHA-level rule in full \u2014 telehealth limited to 97156, only after the first six-month treatment period, with a GT or 95 modifier and no audio-only \u2014 but that is TriWest\u2019s published restatement, not an East Region document, so confirm before scheduling remote hours in the East.',
         status: 'unverified',
         cites: [{ title: 'Humana Military \u2014 ACD progress notes', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/progressnotes' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
-        verifyVia:
-          'Humana Military\u2019s ABA dedicated line at (866) 323-7155, or the authorization letter itself in provider self-service. TRICARE Operations Manual Ch. 18, Sec. 3 is the governing document, but manuals.health.mil blocks automated retrieval.',
+        verifyVia: 'Humana Military\u2019s ABA dedicated line at (866) 323-7155, or the authorization letter itself in provider self-service. TRICARE Operations Manual Ch. 18, Sec. 3 is the governing document, but manuals.health.mil blocks automated retrieval.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -217,10 +241,11 @@ export const militaryPayers: Record<string, PayerConfig> = {
       dailyLimits: {
         value: 'Humana Military does not publish per-day unit ceilings on its public ACD pages; the ceilings live in TRICARE Operations Manual Ch. 18, Sec. 3 and in the authorization itself. One hard clock is public: all authorized 97151 units must be used within 14 calendar days of the first 97151 date of service or the claim is denied.',
         status: 'unverified',
-        verifyVia: 'Humana Military provider self-service authorization letter, the ABA dedicated line at (866) 323-7155, or TRICARE Operations Manual Ch. 18, Sec. 3 at manuals.health.mil',
         cites: [
           { title: 'Humana Military — ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' },
         ],
+        verifyVia: 'Humana Military provider self-service authorization letter, the ABA dedicated line at (866) 323-7155, or TRICARE Operations Manual Ch. 18, Sec. 3 at manuals.health.mil',
+        blocker: 'document',
       },
       noteSignature: {
         value: 'Progress notes must carry the name and credentials of the rendering ABA supervisor, assistant behavior analyst or behavior technician, with a dated signature. Notes are not submitted with claims but are pulled in ABA quality audits and compared against the claims. Required elements include beneficiary name, date and start/end times with session length, place of service, participants and their relationship to the beneficiary, clinical status as DHA defines it, a narrative session summary, techniques used, response to treatment and progress toward goals. A treatment plan alone does not satisfy the 97151 note requirement.',
@@ -254,9 +279,31 @@ export const militaryPayers: Record<string, PayerConfig> = {
     payer: 'TRICARE West (TriWest)',
     state: 'US', kind: 'commercial', family: 'tricare',
     cardDesc: 'TriWest took the West Region on Jan. 1, 2025 — ACD rules, a published place-of-service map, and the 97155 monthly penalty.',
-    assessmentPA: 'Required — TriWest issues an authorization for the initial ABA assessment once the beneficiary is enrolled in the ACD',
-    treatmentPA: 'Required — a separate treatment authorization after clinical necessity review; reauthorization is requested 60 to 30 days before expiry',
-    dxRequired: 'Yes — definitive ASD diagnosis by a TRICARE-authorized ASD diagnosing provider, plus a completed DSM-5-TR ASD criteria checklist and a validated assessment tool',
+    assessmentPA: {
+      value: 'Required — TriWest issues an authorization for the initial ABA assessment once the beneficiary is enrolled in the ACD',
+      status: 'verified',
+      cites: [
+        { title: 'TRICARE West — Steps to Obtain ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/How-to-Obtain-ABA-Services' },
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — a separate treatment authorization after clinical necessity review; reauthorization is requested 60 to 30 days before expiry',
+      status: 'verified',
+      cites: [
+        { title: 'TRICARE West — Steps to Obtain ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/How-to-Obtain-ABA-Services' },
+        { title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' },
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — definitive ASD diagnosis by a TRICARE-authorized ASD diagnosing provider, plus a completed DSM-5-TR ASD criteria checklist and a validated assessment tool',
+      status: 'verified',
+      cites: [
+        { title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' },
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+      ],
+    },
     pill: 'Payer Guide · TRICARE West (TriWest)',
     h1: 'TRICARE West ABA coverage under TriWest.',
     metaTitle: 'TRICARE West (TriWest) ABA & Autism Care Demonstration | Carelu',
@@ -473,9 +520,26 @@ export const militaryPayers: Record<string, PayerConfig> = {
     payer: 'CHAMPVA',
     state: 'US', kind: 'commercial',
     cardDesc: 'A VA program, not TRICARE. ABA is covered, treatment needs pre-authorization, and the family pays 25% after deductible.',
-    assessmentPA: 'Not required — the CHAMPVA Guidebook requires pre-authorization for ABA treatment only, "not the evaluation"',
-    treatmentPA: 'Required — ABA treatment is on CHAMPVA’s pre-authorization list; request it through CHAMPVA before treatment starts',
-    dxRequired: 'Not published — the Guidebook lists ABA as a covered benefit but does not publish diagnosis criteria; confirm what documentation CHAMPVA wants when you request pre-authorization',
+    assessmentPA: {
+      value: 'Not required — the CHAMPVA Guidebook requires pre-authorization for ABA treatment only, "not the evaluation"',
+      status: 'verified',
+      cites: [
+        { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — ABA treatment is on CHAMPVA’s pre-authorization list; request it through CHAMPVA before treatment starts',
+      status: 'verified',
+      cites: [
+        { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Not published — the Guidebook lists ABA as a covered benefit but does not publish diagnosis criteria; confirm what documentation CHAMPVA wants when you request pre-authorization',
+      status: 'unverified',
+      verifyVia: 'The CHAMPVA Operational Policy Manual (behavioral health chapter) at vha.cc.va.gov — a JavaScript portal that returns an empty shell to automated retrieval; the Jan. 1, 2025 Guidebook, which is fetchable, states no diagnosis criteria for ABA. Human retrieval via carelu.com/sources; interim answer from CHAMPVA on 800-733-8387 or VHAHAC.preauthorizationFM@va.gov.',
+      blocker: 'document',
+    },
     pill: 'Payer Guide · CHAMPVA',
     h1: 'CHAMPVA and ABA: what is actually published.',
     metaTitle: 'CHAMPVA ABA Coverage & Pre-Authorization: Intake Guide | Carelu',
@@ -558,6 +622,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
         verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -565,6 +630,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
         verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -572,6 +638,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
         verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -579,22 +646,25 @@ export const militaryPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }],
         verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'document',
       },
       supervision: {
         value: 'CHAMPVA does not publish supervision requirements, provider tiers or supervision ratios for ABA in the Guidebook. Do not assume TRICARE’s ACD tiers apply — CHAMPVA is a separate VA program.',
         status: 'unverified',
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook',
         cites: [
           { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
         ],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook',
+        blocker: 'document',
       },
       placeOfService: {
         value: 'No place-of-service policy for ABA is published in the Guidebook. The one setting rule that is published is CITI: services delivered in a VA medical center under the CHAMPVA In-house Treatment Initiative are exempt from pre-authorization and from beneficiary cost sharing.',
         status: 'unverified',
-        verifyVia: 'Confirm allowable settings in the pre-authorization decision before scheduling home, school or community sessions; CHAMPVA 800-733-8387',
         cites: [
           { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
         ],
+        verifyVia: 'Confirm allowable settings in the pre-authorization decision before scheduling home, school or community sessions; CHAMPVA 800-733-8387',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -610,6 +680,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
         verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -617,6 +688,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }],
         verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'document',
       },
       diagnosticTools: {
         value:
@@ -624,6 +696,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
         verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'document',
       },
       referral: {
         value:
@@ -637,6 +710,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
         verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -653,9 +727,30 @@ export const militaryPayers: Record<string, PayerConfig> = {
     payer: 'Johns Hopkins US Family Health Plan',
     state: 'MD', kind: 'commercial', family: 'tricare',
     cardDesc: 'A TRICARE Prime designated-provider plan that administers the ACD itself — Hopkins authorizes, not Humana Military.',
-    assessmentPA: 'Required — under the ACD, authorization is required for all ABA services including the initial assessment and treatment-plan development; the request goes to Johns Hopkins USFHP, not to a TRICARE regional contractor',
-    treatmentPA: 'Required — a six-month treatment authorization issued by the USFHP designated provider, with reauthorization every six months',
-    dxRequired: 'Yes — ASD diagnosis by an approved TRICARE ASD diagnosing provider, with a DSM-5 checklist and validated assessment tool, per ACD rules',
+    assessmentPA: {
+      value: 'Required — under the ACD, authorization is required for all ABA services including the initial assessment and treatment-plan development; the request goes to Johns Hopkins USFHP, not to a TRICARE regional contractor',
+      status: 'verified',
+      cites: [
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+        { title: 'TRICARE — Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — a six-month treatment authorization issued by the USFHP designated provider, with reauthorization every six months',
+      status: 'verified',
+      cites: [
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+        { title: 'TRICARE — Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD diagnosis by an approved TRICARE ASD diagnosing provider, with a DSM-5 checklist and validated assessment tool, per ACD rules',
+      status: 'verified',
+      cites: [
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+        { title: 'TRICARE — Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' },
+      ],
+    },
     pill: 'Payer Guide · Johns Hopkins US Family Health Plan',
     h1: 'Johns Hopkins USFHP ABA coverage under the ACD.',
     metaTitle: 'Johns Hopkins US Family Health Plan ABA Coverage (TRICARE USFHP) | Carelu',
@@ -752,24 +847,24 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Johns Hopkins publishes an ACD-ABA provider presentation and a USFHP provider manual, but both are served behind bot protection and could not be retrieved for this review, so the plan\u2019s concurrent-billing rules are not restated here. The DHA-level framework applies \u2014 the ACD excludes concurrent billing for its Category I codes outside narrow documented exceptions \u2014 but the plan administers the demonstration itself, so confirm against its material rather than another contractor\u2019s.',
         status: 'unverified',
         cites: [{ title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
-        verifyVia:
-          'Johns Hopkins USFHP provider relations \u2014 request the current ACD-ABA training deck and the USFHP provider manual; plan line 800-808-7347.',
+        verifyVia: 'Johns Hopkins USFHP provider relations \u2014 request the current ACD-ABA training deck and the USFHP provider manual; plan line 800-808-7347.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
           'Not retrievable for this review. The per-day unit ceilings under the ACD live in TRICARE Operations Manual Ch. 18, Sec. 3 and in the authorization itself, and Johns Hopkins\u2019 own ABA provider material is served behind bot protection. Do not assume another region\u2019s published ceilings apply.',
         status: 'unverified',
         cites: [{ title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
-        verifyVia:
-          'The authorization letter itself, and Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 ask for the current ACD-ABA training deck and provider manual.',
+        verifyVia: 'The authorization letter itself, and Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 ask for the current ACD-ABA training deck and provider manual.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
           'Not published where it could be verified for this review. What is established is the network fact that precedes it: USFHP members cannot use TRICARE network providers, so TRICARE certification is not enough \u2014 the ABA provider must be in the Hopkins USFHP network, and Johns Hopkins requires its ABA providers to attest that they have completed its ACD-ABA training and understand the ACD provider requirements, \u201ccorrect billing practices/claims filing, authorizations, exclusions, and medical records documentation for the ACD-ABA program.\u201d',
         status: 'unverified',
         cites: [{ title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }, { title: 'TRICARE \u2014 Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' }],
-        verifyVia:
-          'Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 request the ACD-ABA training deck and provider manual, and confirm the rendering-versus-billing NPI convention before the first claim.',
+        verifyVia: 'Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 request the ACD-ABA training deck and provider manual, and confirm the rendering-versus-billing NPI convention before the first claim.',
+        blocker: 'document',
       },
       placeOfService: {
         value: 'DHA’s ACD rule applies to all TRICARE plans: ABA delivered by a behavior technician in a school setting is not covered. A BCBA may be authorized where the goal is clinically necessary, focused and time-limited, with pre-authorization and the contractor approving the goals. For community settings, families are generally expected to generalize mastered skills on their own; a BCBA may be authorized for certain community settings only after checking with the plan.',
@@ -781,18 +876,20 @@ export const militaryPayers: Record<string, PayerConfig> = {
       supervision: {
         value: 'Johns Hopkins USFHP administers the ACD and requires its ABA providers to attest to completing its ACD-ABA training, but its plan-specific supervision requirements are published in provider material that could not be retrieved for this review. Do not apply another region’s contractor guidance in their place.',
         status: 'unverified',
-        verifyVia: 'Johns Hopkins USFHP provider relations — request the current ACD-ABA training deck and the USFHP provider manual; plan line 800-808-7347',
         cites: [
           { title: 'Johns Hopkins Health Plans — USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' },
         ],
+        verifyVia: 'Johns Hopkins USFHP provider relations — request the current ACD-ABA training deck and the USFHP provider manual; plan line 800-808-7347',
+        blocker: 'document',
       },
       noteSignature: {
         value: 'Johns Hopkins’ ACD-ABA attestation covers medical-records documentation for the program, but the plan’s specific session-note and signature standard is not published where it could be verified for this review.',
         status: 'unverified',
-        verifyVia: 'Johns Hopkins USFHP ACD-ABA training deck and provider manual, via provider relations',
         cites: [
           { title: 'Johns Hopkins Health Plans — USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' },
         ],
+        verifyVia: 'Johns Hopkins USFHP ACD-ABA training deck and provider manual, via provider relations',
+        blocker: 'document',
       },
     },
     intakeGates: {
@@ -831,8 +928,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Johns Hopkins\u2019 plan-specific ABA telehealth rules are published in provider material that is served behind bot protection and could not be retrieved for this review. The DHA-level setting rules do apply \u2014 technician-delivered school ABA is not covered, and a BCBA may be authorized only for a clinically necessary, focused and time-limited goal after review \u2014 but the telehealth code list is not stated at the DHA level in the sources cited here. Get the plan\u2019s written answer before scheduling remote hours rather than after.',
         status: 'unverified',
         cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' }, { title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
-        verifyVia:
-          'Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 request the current ACD-ABA training deck and the USFHP provider manual, and confirm which ABA codes the plan pays by telehealth.',
+        verifyVia: 'Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 request the current ACD-ABA training deck and the USFHP provider manual, and confirm which ABA codes the plan pays by telehealth.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -850,9 +947,30 @@ export const militaryPayers: Record<string, PayerConfig> = {
     payer: 'Martin’s Point US Family Health Plan',
     state: 'NY', kind: 'commercial', family: 'tricare',
     cardDesc: 'TRICARE Prime designated provider across northern New England, upstate NY, northern PA and Ohio — administers the ACD directly.',
-    assessmentPA: 'Required — ABA supervisors complete the initial assessment under CPT 97151 with the required outcome measures, and the plan authorizes it',
-    treatmentPA: 'Required — six-month treatment authorizations; reauthorization must be submitted at least 30 days before the current one expires',
-    dxRequired: 'Yes — ASD (F84.0) diagnosis by a TRICARE-authorized PCM or specialized ASD diagnosing provider, with a completed DSM-5 checklist and an approved validated assessment tool',
+    assessmentPA: {
+      value: 'Required — ABA supervisors complete the initial assessment under CPT 97151 with the required outcome measures, and the plan authorizes it',
+      status: 'verified',
+      cites: [
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+        { title: 'Martin’s Point — USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — six-month treatment authorizations; reauthorization must be submitted at least 30 days before the current one expires',
+      status: 'verified',
+      cites: [
+        { title: 'Martin’s Point — USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' },
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (F84.0) diagnosis by a TRICARE-authorized PCM or specialized ASD diagnosing provider, with a completed DSM-5 checklist and an approved validated assessment tool',
+      status: 'verified',
+      cites: [
+        { title: 'Martin’s Point — USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' },
+        { title: 'TRICARE — Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' },
+      ],
+    },
     pill: 'Payer Guide · Martin’s Point US Family Health Plan',
     h1: 'Martin’s Point USFHP ABA coverage under the ACD.',
     metaTitle: 'Martin’s Point US Family Health Plan ABA Coverage (TRICARE USFHP) | Carelu',
@@ -960,24 +1078,24 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Not addressed in Martin\u2019s Point\u2019s published ABA provider training, which covers eligibility, outcome measures, provider standards, exclusions and claims without stating whether two ABA codes may be billed for the same clock time. The plan states it administers ACD benefits \u201cin accordance with TRICARE\u2019s Program Manuals,\u201d so the governing rule is in TRICARE Operations Manual Ch. 18, Sec. 3 \u2014 a document manuals.health.mil blocks automated retrieval of.',
         status: 'unverified',
         cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
-        verifyVia:
-          'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask whether 97155 pays alongside 97153 for the same clock time and request the manual citation.',
+        verifyVia: 'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask whether 97155 pays alongside 97153 for the same clock time and request the manual citation.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
           'Not published by the plan. Martin\u2019s Point sets cadence rather than ceilings: treatment plans updated every six months, reauthorizations submitted at least 30 days before the current authorization expires, and six parent/caregiver training sessions required every six months. Per-day unit ceilings under the ACD live in the TRICARE Operations Manual and in the authorization itself; do not carry another contractor\u2019s published ceilings over.',
         status: 'unverified',
         cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
-        verifyVia:
-          'The authorization letter itself, or Martin\u2019s Point USFHP provider services on 888-241-4556.',
+        verifyVia: 'The authorization letter itself, or Martin\u2019s Point USFHP provider services on 888-241-4556.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
           'Not published. The plan\u2019s ABA provider training sets documentation expectations at the plan level \u2014 treatment plans updated every six months documenting progress on behavior targets, annual record audits, monitoring of documentation and billing compliance, with recoupment or additional monitoring for irregularities \u2014 but does not state who signs an individual session note or by when.',
         status: 'unverified',
         cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
-        verifyVia:
-          'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask for the session-note standard the annual audit is run against.',
+        verifyVia: 'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask for the session-note standard the annual audit is run against.',
+        blocker: 'document',
       },
       supervision: {
         value: 'Authorized ABA supervisors hold a master’s degree or higher in a relevant field and are state licensed and/or BACB certified. Assistant behavior analysts hold a bachelor’s degree with appropriate state licensure or BACB/QABA certification and must work under a qualified ABA supervisor. Behavior technicians must hold RBT, ABAT or BCAT certification and must operate under the direct supervision of an authorized ABA supervisor. Supervisors, assistants and technicians must also clear criminal history background checks — a felony conviction or a crime against children is disqualifying — and maintain CPR/BLS certification. Behavior technician training is not a reimbursable service.',
@@ -989,11 +1107,12 @@ export const militaryPayers: Record<string, PayerConfig> = {
       placeOfService: {
         value: 'The plan’s ABA provider training lists academic services and school-based ABA as non-reimbursable, alongside services provided by family members, non-ABA services and travel time unless authorized. DHA’s ACD guidance is narrower rather than contradictory — technician-delivered school ABA is not covered, while a BCBA may be authorized for a focused, time-limited, pre-authorized goal after clinical necessity review. Because Martin’s Point administers the demonstration itself, treat any school or community request as a plan-level decision and obtain it in writing before scheduling.',
         status: 'plan-dependent',
-        verifyVia: 'Martin’s Point USFHP provider services, 888-241-4556, before scheduling school or community sessions',
         cites: [
           { title: 'Martin’s Point — USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' },
           { title: 'TRICARE — Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' },
         ],
+        verifyVia: 'Martin’s Point USFHP provider services, 888-241-4556, before scheduling school or community sessions',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value: 'All claims must be submitted electronically, must use the proper HIPAA taxonomy codes for the provider type (behavior analyst, assistant behavior analyst, behavior technician), and must carry the ABA provider’s valid NPI. Services rendered by a non-authorized ABA provider are not reimbursable. Records are audited annually and irregular billing draws recoupment or added monitoring.',
@@ -1039,8 +1158,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Not addressed in Martin\u2019s Point\u2019s published ABA provider training. Its non-reimbursable list names behavior technician training, non-ABA services, travel time unless authorized, academic services and school-based ABA, services provided by family members, and services rendered by a non-authorized ABA provider \u2014 but says nothing about remote delivery. Because the plan administers the demonstration itself under contract with DHA, treat telehealth as a plan-level question and get the answer in writing before scheduling.',
         status: 'unverified',
         cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
-        verifyVia:
-          'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask which ABA codes the plan pays by telehealth, under which modifiers, and whether the authorization must say so.',
+        verifyVia: 'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask which ABA codes the plan pays by telehealth, under which modifiers, and whether the authorization must say so.',
+        blocker: 'document',
       },
     },
     faq: [

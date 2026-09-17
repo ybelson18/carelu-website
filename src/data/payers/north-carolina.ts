@@ -4,9 +4,27 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
   'north-carolina-medicaid': {
     slug: 'north-carolina-medicaid',
     cardDesc: 'RB-BHT under CCP 8F: PA on everything, tiered 180/90-day auths, published rates, HB 696 shakeup.',
-    assessmentPA: 'Required — PA for ALL RB-BHT services, including the assessment (CCP 8F)',
-    treatmentPA: 'Required — authorization length is TIERED by intensity: up to 180 calendar days at 16 hrs/week or fewer, but only up to 90 calendar days above 16 hrs/week (initial and reauth alike)',
-    dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+    assessmentPA: {
+      value: 'Required — PA for ALL RB-BHT services, including the assessment (CCP 8F)',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — authorization length is TIERED by intensity: up to 180 calendar days at 16 hrs/week or fewer, but only up to 90 calendar days above 16 hrs/week (initial and reauth alike)',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
     payer: 'North Carolina Medicaid',
     state: 'NC', kind: 'state-medicaid',
     pill: 'Payer Guide · North Carolina Medicaid',
@@ -219,9 +237,28 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'healthy-blue-north-carolina',
     family: 'anthem',
     cardDesc: 'Straight CCP 8F via Availity/ICR; RB-BHT exempt from network distance rules; CFSP sibling plan.',
-    assessmentPA: 'Required — per CCP 8F (all RB-BHT services PA\'d); submit via Availity Interactive Care Reviewer',
-    treatmentPA: 'Required — tiered auth cycles per 8F: up to 180 calendar days at ≤16 hrs/week, up to 90 calendar days at >16 hrs/week',
-    dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+    assessmentPA: {
+      value: 'Required — per CCP 8F (all RB-BHT services PA\'d); submit via Availity Interactive Care Reviewer',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — tiered auth cycles per 8F: up to 180 calendar days at ≤16 hrs/week, up to 90 calendar days at >16 hrs/week',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
     payer: 'Healthy Blue (NC)',
     state: 'NC', kind: 'medicaid-mco', parent: 'North Carolina Medicaid',
     pill: 'Payer Guide · Healthy Blue (NC)',
@@ -244,7 +281,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Healthy Blue administers RB-BHT',
         body: [
-          'The provider manual lists RB-BHT among covered behavioral-health services and adopts NC\'s Clinical Coverage Policies — so the whole clinical picture (PA on everything including assessment, 180-day cycles, LQASP plan reviews) is the CCP 8F baseline covered in the state guide. Submissions run through Availity Essentials\' Interactive Care Reviewer; behavioral-health authorization fax lines are (844) 429-9636 for outpatient and (844) 439-3574 for inpatient, with provider services at (844) 594-5072. Use the plan\'s Precertification Lookup Tool to confirm code-level requirements before submitting.',
+          'The provider manual lists RB-BHT among covered behavioral-health services and adopts NC\'s Clinical Coverage Policies — so the whole clinical picture (PA on everything including assessment, the tiered 180/90-day authorization cadence, LQASP plan reviews) is the CCP 8F baseline covered in the state guide. Submissions run through Availity Essentials\' Interactive Care Reviewer; behavioral-health authorization fax lines are (844) 429-9636 for outpatient and (844) 439-3574 for inpatient, with provider services at (844) 594-5072. Use the plan\'s Precertification Lookup Tool to confirm code-level requirements before submitting.',
           'One provider-friendly detail from the manual: RB-BHT is explicitly exempt from the plan\'s standard network time/distance standards — an open-network posture that matters if you\'re expanding into new counties.',
         ],
         cites: [
@@ -360,7 +397,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does Healthy Blue NC cover ABA therapy?', a: 'Yes — Healthy Blue administers NC Medicaid\'s RB-BHT benefit by adopting Clinical Coverage Policy 8F: PA on all services including assessment, 180-day authorization cycles, LQASP treatment-plan reviews.' },
+      { q: 'Does Healthy Blue NC cover ABA therapy?', a: 'Yes — Healthy Blue administers NC Medicaid\'s RB-BHT benefit by adopting Clinical Coverage Policy 8F: PA on all services including assessment, authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), LQASP treatment-plan reviews.' },
       { q: 'How do I submit an RB-BHT authorization to Healthy Blue?', a: 'Via Availity Essentials\' Interactive Care Reviewer, or fax (844) 429-9636 for outpatient behavioral health. Check the Precertification Lookup Tool for code-level requirements first.' },
       { q: 'What is Healthy Blue Care Together?', a: 'The separate Children & Families Specialty Plan (launched December 2025) for child-welfare-involved members, also run by Blue Cross NC. Foster families\' "Healthy Blue" cards may actually be CFSP — verify before submitting.' },
     ],
@@ -370,9 +407,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'amerihealth-caritas-north-carolina',
     family: 'amerihealth',
     cardDesc: 'CCP 8F deference; NaviNet + PA Lookup Tool; thinnest public paper trail of the NC plans.',
-    assessmentPA: 'Required — per CCP 8F; confirm code-level rules in AmeriHealth\'s PA Lookup Tool',
-    treatmentPA: 'Required — per CCP 8F 180-day cycles; UM at (888) 738-0004',
-    dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+    assessmentPA: {
+      value: 'Required — per CCP 8F; confirm code-level rules in AmeriHealth\'s PA Lookup Tool',
+      status: 'unverified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+      verifyVia: 'AmeriHealth Caritas NC Behavioral Health Utilization Management Guide + the plan\'s PA Lookup Tool. CCP 8F puts PA on every RB-BHT service including the assessment, but AmeriHealth removed PA from 240+ codes on 1/1/2025 and does not publish whether 9715x was included; the site blocks automated retrieval, so pull both from NaviNet or via carelu.com/sources.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — follows CCP 8F §5.1/5.1.1, which is TIERED by intensity: up to 180 calendar days at 16 hrs/week or fewer, but only up to 90 calendar days above 16 hrs/week, for the initial authorization and every reauthorization alike; UM at (888) 738-0004',
+      status: 'unverified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+      verifyVia: 'AmeriHealth Caritas NC Behavioral Health Utilization Management Guide. NOTE: the ‘180-day cycles’ in this value predates the 8/1/2026 CCP 8F rewrite — §5.1 is now tiered (up to 180 calendar days at ≤16 hrs/week, up to 90 above it). Confirm the plan restates the tiering before relying on the flat 180-day figure.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
     payer: 'AmeriHealth Caritas North Carolina',
     state: 'NC', kind: 'medicaid-mco', parent: 'North Carolina Medicaid',
     pill: 'Payer Guide · AmeriHealth Caritas (NC)',
@@ -395,7 +454,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How AmeriHealth administers RB-BHT',
         body: [
-          'The clinical rules are the CCP 8F baseline: PA on all RB-BHT services including the assessment, 180-day authorization cycles, LQASP treatment-plan reviews at least every six months. AmeriHealth\'s own layer is a Clinical Coverage Policy Reference Tool mapping to the state policies, a Behavioral Health Utilization Management Guide (January 2025 edition), and a PA Lookup Tool for code-level checks. One thing to verify directly: AmeriHealth eliminated prior authorization on 240+ physical and behavioral-health codes effective January 1, 2025 — whether any 9715x codes made that list isn\'t publicly confirmed, so run your codes through the Lookup Tool rather than assuming.',
+          'The clinical rules are the CCP 8F baseline: PA on all RB-BHT services including the assessment, authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), LQASP treatment-plan reviews at least every six months. AmeriHealth\'s own layer is a Clinical Coverage Policy Reference Tool mapping to the state policies, a Behavioral Health Utilization Management Guide (January 2025 edition), and a PA Lookup Tool for code-level checks. One thing to verify directly: AmeriHealth eliminated prior authorization on 240+ physical and behavioral-health codes effective January 1, 2025 — whether any 9715x codes made that list isn\'t publicly confirmed, so run your codes through the Lookup Tool rather than assuming.',
           'Because the plan\'s site blocks automated access, have your team download the current BH UM Guide and the PA Lookup results from the portal directly, and keep dated copies with your payer files.',
         ],
         cites: [
@@ -513,9 +572,28 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'carolina-complete-health',
     family: 'centene',
     cardDesc: 'Explicit CCP 8F deference + an ABA treatment-request checklist; statewide since 4/1/2026 (absorbed WellCare NC).',
-    assessmentPA: 'Required — per CCP 8F, before rendering any RB-BHT service including assessment',
-    treatmentPA: 'Required — submit with the ABA outpatient treatment request checklist via the provider portal',
-    dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+    assessmentPA: {
+      value: 'Required — per CCP 8F, before rendering any RB-BHT service including assessment',
+      status: 'verified',
+      cites: [
+        { title: 'Carolina Complete Health — behavioral health provider page', url: 'https://network.carolinacompletehealth.com/resources/behavioral-health.html' },
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — submit with the ABA outpatient treatment request checklist via the provider portal',
+      status: 'verified',
+      cites: [
+        { title: 'Carolina Complete Health — behavioral health provider page', url: 'https://network.carolinacompletehealth.com/resources/behavioral-health.html' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
     payer: 'Carolina Complete Health',
     state: 'NC', kind: 'medicaid-mco', parent: 'North Carolina Medicaid',
     pill: 'Payer Guide · Carolina Complete Health',
@@ -538,7 +616,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How CCH administers RB-BHT',
         body: [
-          'Clinically, everything is CCP 8F: PA before rendering any RB-BHT service (assessment included), 180-day authorization cycles, LQASP treatment-plan reviews. Requests go through the provider portal accompanied by the plan\'s ABA Outpatient Treatment Request Checklist — using it as your internal submission template removes back-and-forth. Behavioral health is integrated in-house (clinical training questions go to BH_training@centene.com), and provider services runs at (833) 552-3876, Monday–Saturday 7am–6pm. Carolina Complete Health became a statewide Standard Plan effective April 1, 2026, when WellCare of North Carolina merged into it — so eligibility should no longer be screened by county for this plan. Note also that Partners Health Management\'s Tailored Plan documentation cross-references CCH policies, reflecting shared Centene infrastructure.',
+          'Clinically, everything is CCP 8F: PA before rendering any RB-BHT service (assessment included), authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), LQASP treatment-plan reviews. Requests go through the provider portal accompanied by the plan\'s ABA Outpatient Treatment Request Checklist — using it as your internal submission template removes back-and-forth. Behavioral health is integrated in-house (clinical training questions go to BH_training@centene.com), and provider services runs at (833) 552-3876, Monday–Saturday 7am–6pm. Carolina Complete Health became a statewide Standard Plan effective April 1, 2026, when WellCare of North Carolina merged into it — so eligibility should no longer be screened by county for this plan. Note also that Partners Health Management\'s Tailored Plan documentation cross-references CCH policies, reflecting shared Centene infrastructure.',
         ],
         cites: [
           { title: 'Carolina Complete Health — behavioral health provider page', url: 'https://network.carolinacompletehealth.com/resources/behavioral-health.html' },
@@ -656,9 +734,27 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-north-carolina',
     family: 'unitedhealthcare',
     cardDesc: 'The Optum carve-out: separate assessment & treatment auths on Provider Express, own criteria.',
-    assessmentPA: 'Required — a SEPARATE Optum authorization for the assessment, distinct from treatment',
-    treatmentPA: 'Required — second authorization via Provider Express after the assessment',
-    dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+    assessmentPA: {
+      value: 'Required — a SEPARATE Optum authorization for the assessment, distinct from treatment',
+      status: 'verified',
+      cites: [
+        { title: 'Optum Provider Express — NC Medicaid ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaCAMediCal12.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — second authorization via Provider Express after the assessment',
+      status: 'verified',
+      cites: [
+        { title: 'Optum Provider Express — NC Medicaid ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaCAMediCal12.html' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
     payer: 'UnitedHealthcare Community Plan of North Carolina',
     state: 'NC', kind: 'medicaid-mco', parent: 'North Carolina Medicaid',
     pill: 'Payer Guide · UHC Community Plan (NC)',
@@ -802,9 +898,32 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'wellcare-north-carolina',
     family: 'centene',
     cardDesc: 'MERGED into Carolina Complete Health effective 4/1/2026 — no longer a standalone Standard Plan.',
-    assessmentPA: 'Required — per CCP 8F baseline; confirm code-level PA in WellCare\'s Authorization Lookup Tool',
-    treatmentPA: 'Required — WNC.CP.109 restates 8F: LQASP plan, review ≥ every 6 months',
-    dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+    assessmentPA: {
+      value: 'Required — per CCP 8F baseline; confirm code-level PA in WellCare\'s Authorization Lookup Tool',
+      status: 'unverified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy (historical)', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+      ],
+      verifyVia: 'WellCare NC Medicaid Behavioral Health Authorization List / Authorization Lookup Tool. WNC.CP.109 deliberately lists no PA\'d codes and delegates code-level requirements to the lookup tool, which is not publicly retrievable. (Historical plan — WellCare NC merged into Carolina Complete Health 4/1/2026.)',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — WNC.CP.109 restates 8F: LQASP plan, review ≥ every 6 months',
+      status: 'verified',
+      cites: [
+        { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy (historical)', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+      status: 'verified',
+      cites: [
+        { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy (historical)', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
     payer: 'WellCare of North Carolina',
     state: 'NC', kind: 'medicaid-mco', parent: 'North Carolina Medicaid',
     pill: 'Payer Guide · WellCare (NC)',
@@ -960,9 +1079,30 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'alliance-health-north-carolina',
     family: '',
     cardDesc: 'Tailored Plan publishing real rates + the strictest diagnostic-tool and service-order enforcement.',
-    assessmentPA: 'Required — per 8F, with Alliance\'s RB-BHT cover sheet accompanying service requests',
-    treatmentPA: 'Required — 180-day cycles per 8F, through Alliance UM',
-    dxRequired: 'Yes \u2014 ASD via ADI-R, ADOS-2, CARS-2, or TELE-ASD-PEDS; screeners alone rejected',
+    assessmentPA: {
+      value: 'Required — per 8F, with Alliance\'s RB-BHT cover sheet accompanying service requests',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — follows CCP 8F §5.1/5.1.1, which is TIERED by intensity: up to 180 calendar days at 16 hrs/week or fewer, but only up to 90 calendar days above 16 hrs/week, for the initial authorization and every reauthorization alike, through Alliance UM',
+      status: 'unverified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+      verifyVia: 'Alliance Health\'s RB-BHT provider guidance, reissued for the 8/1/2026 CCP 8F. The flat ‘180-day cycles’ here is the pre-rewrite cadence; §5.1 is now tiered (up to 180 calendar days at ≤16 hrs/week, up to 90 above it). Confirm Alliance UM applies the tiering before quoting a reauth date to a family.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD via ADI-R, ADOS-2, CARS-2, or TELE-ASD-PEDS; screeners alone rejected',
+      status: 'verified',
+      cites: [
+        { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+      ],
+    },
     payer: 'Alliance Health (NC Tailored Plan)',
     state: 'NC', kind: 'medicaid-mco', parent: 'North Carolina Medicaid',
     pill: 'Payer Guide · Alliance Health (NC)',
@@ -994,7 +1134,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Rates & submission',
         body: [
-          'Alliance publishes its standard rate schedule outright — RB-BHT at the state fee-schedule levels, per 15-minute unit, effective 10/1/2025: 97151 $30.56, 97152 $61.73, 97153 $20.81, 97154 $11.37, 97155 $32.22, 97156 $23.70, 97157 $11.51 (noted as subject to LME/MCO funding). Authorization follows the 8F baseline — PA on everything, 180-day cycles — with the plan\'s fillable RB-BHT cover sheet accompanying service requests through Alliance UM. Alliance also participates as a Children & Families Specialty Plan network partner.',
+          'Alliance publishes its standard rate schedule outright — RB-BHT at the state fee-schedule levels, per 15-minute unit, effective 10/1/2025: 97151 $30.56, 97152 $61.73, 97153 $20.81, 97154 $11.37, 97155 $32.22, 97156 $23.70, 97157 $11.51 (noted as subject to LME/MCO funding). Authorization follows the 8F baseline — PA on everything, with authorization length tiered by intensity (180 calendar days at ≤16 hrs/week, 90 above) — and with the plan\'s fillable RB-BHT cover sheet accompanying service requests through Alliance UM. Alliance also participates as a Children & Families Specialty Plan network partner.',
         ],
         cites: [
           { title: 'Alliance Health — Standard Rate Schedule (RB-BHT)', url: 'https://www.alliancehealthplan.org/document-library/97251' },
@@ -1123,10 +1263,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
   'trillium-health-resources': {
     slug: 'trillium-health-resources',
     family: '',
-    cardDesc: 'Tailored Plan with the best single reference doc: 180-day TARs, adult coverage, GT/KX modifier rules.',
-    assessmentPA: 'Required — TAR (prior authorization) on all RB-BHT codes, telehealth included',
-    treatmentPA: 'Required — initial and reauth up to 180 days each; reauth before current auth expires',
-    dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+    cardDesc: 'Tailored Plan with the best single reference doc: tiered 180/90-day TARs, adult coverage, GT/KX modifier rules.',
+    assessmentPA: {
+      value: 'Required — TAR (prior authorization) on all RB-BHT codes, telehealth included',
+      status: 'verified',
+      cites: [
+        { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — follows CCP 8F §5.1/5.1.1, which is TIERED by intensity: up to 180 calendar days at 16 hrs/week or fewer, but only up to 90 calendar days above 16 hrs/week, for the initial authorization and every reauthorization alike; reauth before the current authorization expires',
+      status: 'unverified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+      verifyVia: 'Trillium\'s Medicaid Child BH Services Benefit Plan, next revision. This value\'s flat ‘up to 180 days each’ predates the 8/1/2026 CCP 8F rewrite — §5.1 is tiered (up to 180 calendar days at ≤16 hrs/week, up to 90 above it), and this guide\'s own prose already states the tiering. Reconcile the two before relying on either.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
     payer: 'Trillium Health Resources (NC Tailored Plan)',
     state: 'NC', kind: 'medicaid-mco', parent: 'North Carolina Medicaid',
     pill: 'Payer Guide · Trillium (NC)',
@@ -1141,7 +1302,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { label: 'Plan type', value: 'NC Tailored Plan (public LME/MCO, eastern NC)' },
       { label: 'Clinical rules', value: 'CCP 8F via its benefit-plan service definition' },
       { label: 'Prior auth', value: 'TAR required on all codes 97151–97157, telehealth included' },
-      { label: 'Auth periods', value: 'Initial + reauth up to 180 days each; renew before expiry' },
+      { label: 'Auth periods', value: 'Tiered by intensity per CCP 8F §5.1/5.1.1 — up to 180 calendar days at ≤16 hrs/week, up to 90 above; renew before expiry' },
       { label: 'Ages', value: '"Children, Adolescents and Adults" — reflects the 21+ SPA coverage' },
       { label: 'Rates', value: '≥100% of the NC Medicaid fee schedule (state floor)' },
     ],
@@ -1285,9 +1446,29 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'vaya-health',
     family: '',
     cardDesc: 'Western-NC Tailored Plan; 8F via SARs to Vaya UM — key documents must be pulled manually.',
-    assessmentPA: 'Required — per 8F; Vaya publishes RB-BHT authorization guidelines (v2.0, eff. 9/2025) on its provider portal',
-    treatmentPA: 'Required — service authorization requests (SARs) reviewed by Vaya UM against 8F medical necessity',
-    dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+    assessmentPA: {
+      value: 'Required — per 8F; Vaya publishes RB-BHT authorization guidelines (v2.0, eff. 9/2025) on its provider portal',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — service authorization requests (SARs) reviewed by Vaya UM against 8F medical necessity',
+      status: 'verified',
+      cites: [
+        { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
     payer: 'Vaya Health (NC Tailored Plan)',
     state: 'NC', kind: 'medicaid-mco', parent: 'North Carolina Medicaid',
     pill: 'Payer Guide · Vaya Health (NC)',
@@ -1310,7 +1491,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Vaya administers RB-BHT',
         body: [
-          'The clinical picture is the CCP 8F baseline: PA on all services including the 97151 comprehensive assessment (which Vaya\'s guidelines designate as LQASP-billed), 180-day authorization cycles, and LQASP treatment-plan reviews. SARs submit through the provider portal and are reviewed by Vaya UM against medical necessity and the clinical coverage policy.',
+          'The clinical picture is the CCP 8F baseline: PA on all services including the 97151 comprehensive assessment (which Vaya\'s guidelines designate as LQASP-billed), authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), and LQASP treatment-plan reviews. SARs submit through the provider portal and are reviewed by Vaya UM against medical necessity and the clinical coverage policy.',
           'Vaya\'s "Authorization Guidelines: Medicaid RB-BHT Services for ASD" (v2.0, rev. 9/5/2025 — still current, no v2.1/2026 update found) sets specific passthrough thresholds worth building into intake: 97151 assessment requests up to 32 units per six months go through as notification-only, without a full SAR, while requests above 32 units need a complete SAR (service order, treatment plan, MD/DO/psychologist-validated ASD diagnosis). 97155 (protocol modification by a BCBA-LP) similarly passes through on notification alone up to a 1-hour-per-10-hours ratio against direct intervention (97153/97154); above that ratio it needs a full SAR for medical-necessity review. All other codes (97152, 97153, 97154, 97156, 97157) require a SAR plus FBA, treatment plan, and service order on both initial and concurrent requests. A companion document, "RB-BHT Guidance" (v1.0, rev. 5/1/2025), restates the CCP 8F service definitions and clarifies "Program Modification vs. Supervision" for 97155.',
         ],
         cites: [
@@ -1444,9 +1625,28 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'partners-health-management',
     family: '',
     cardDesc: 'Tailored Plan with the ALL-codes authorization: one auth covers every RB-BHT code via ProAuth.',
-    assessmentPA: 'Required — per adopted CCP 8F',
-    treatmentPA: 'Required — one "ALL codes" authorization on the base code covers every RB-BHT code/modifier',
-    dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+    assessmentPA: {
+      value: 'Required — per adopted CCP 8F',
+      status: 'verified',
+      cites: [
+        { title: 'Partners — Tailored Plan clinical coverage policies', url: 'https://www.partnersbhm.org/tailoredplan/providers/manuals-forms-and-policies/clinical-coverage-policies/' },
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — one "ALL codes" authorization on the base code covers every RB-BHT code/modifier',
+      status: 'verified',
+      cites: [
+        { title: 'Partners — ALL-codes authorization provider alert', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
+      status: 'verified',
+      cites: [
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      ],
+    },
     payer: 'Partners Health Management (NC Tailored Plan)',
     state: 'NC', kind: 'medicaid-mco', parent: 'North Carolina Medicaid',
     pill: 'Payer Guide · Partners (NC)',
@@ -1601,9 +1801,30 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'aetna-north-carolina',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the N.C.G.S. § 58-3-192 mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      ],
+      verifyVia: 'The member\'s Aetna plan (benefits line on the card) — ask whether the group carries ABA precertification and what reauthorization interval it uses. The national behavioral-health precertification list carries ABA but the interval and any self-funded carve-out are set at group level.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+    },
     payer: 'Aetna in North Carolina',
     state: 'NC', kind: 'commercial',
     pill: 'Payer Guide · Aetna · North Carolina',
@@ -1687,6 +1908,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
         ],
         verifyVia: 'Live benefits verification on the member ID — establish fully insured vs. self-funded ERISA, then the plan’s own age and benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value: 'Aetna puts no expiry on the ASD diagnosis itself, but it does run a 12-month clock on the functional evidence: medical necessity requires demonstration of functional impairment on a standardized scale of functioning in the past 12 months, at least one standard deviation below the population mean, or a significant risk of harm to self or others. Progress is then re-evaluated every six months.',
@@ -1730,6 +1952,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
         ],
         verifyVia: 'Availity, or the precertification line on the member ID card — ask which ABA codes Aetna will pay via telehealth on this specific plan, and with which POS code and modifier.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1748,6 +1971,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
         verifyVia: 'Aetna provider services / the participating-provider agreement, or a written coding determination from Aetna Behavioral Health (BACABACases@Aetna.com).',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'Aetna publishes no per-day or per-week unit ceiling for ABA. Authorized hours are set from documented symptom severity using the medical necessity guide’s severity assessment, against typical intensities of 10–25 hours a week for comprehensive and 1–20 hours a week for focused programmes — typical, not cap. Progress is evaluated every six months and coverage ends on the guide’s improvement thresholds. North Carolina’s mandate permits coverage to be limited to individuals 18 or younger and capped at $40,000 a year (CPI-indexed from 2017) on fully insured plans — quantitative treatment limits of doubtful enforceability against large-group plans under MHPAEA. The mandate does not apply to non-grandfathered individual and small-group plans, and self-funded ERISA plans are exempt by preemption.',
@@ -1765,6 +1989,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
         ],
         verifyVia: 'The participating-provider agreement and the Aetna Behavioral Health Provider Manual section on documentation and record retention.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value: 'Outpatient ABA is setting-agnostic in Aetna’s guide, which notes only that where ABA is delivered in an inpatient, residential or partial hospitalization setting the medical necessity criteria for that level of care apply and no separate ABA authorization is needed. The guide expects collaboration and coordination with existing providers and the school district as applicable, and a treatment plan that tapers higher intensities toward supports from other sources such as school. Aetna’s statement that it will not deny coverage solely because services are in a child’s educational setting is a Maryland provision, not national, and Aetna is not required to provide services under an IEP or an IDEA obligation of a public school.',
@@ -1792,9 +2017,29 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'cigna-north-carolina',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the N.C.G.S. § 58-3-192 mandate layer.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
     payer: 'Cigna / Evernorth in North Carolina',
     state: 'NC', kind: 'commercial',
     pill: 'Payer Guide · Cigna · North Carolina',
@@ -1875,6 +2120,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
         ],
         verifyVia: 'Live benefits verification, or the Evernorth Autism Care Coordinator team on 877.279.7603 — establish fully insured vs. self-funded ERISA first.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value: 'EN0499 puts no expiry on the ASD diagnosis, but it requires the name, credentials and licensure type of the diagnosing clinician and the date on which the diagnosis was most recently made — and a diagnosis termed provisional, proposed, potential, at risk of or rule out is not a confirmed diagnosis, nor is IDEA educational identification. The recency clocks sit on the data instead: the standardized assessment instrument must have been administered within 60 days prior to the start of treatment, quantitative baseline data collected within 60 days prior to start, current data within 60 days of the authorization request, a standardized instrument completed no more than one year prior for continued treatment, and a fresh standardized assessment after any break in treatment greater than 60 calendar days.',
@@ -1972,9 +2218,29 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-north-carolina',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the N.C.G.S. § 58-3-192 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'unverified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+      verifyVia: 'Optum/Provider Express portal support at (866) 209-9320 — ask what review interval will be set on this member\'s ABA treatment authorization. The ABA Supplemental Clinical Criteria require prior authorization for ABA but publish no 4–6 month reauthorization cycle; the span is assigned per authorization.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
+    },
     payer: 'UnitedHealthcare / Optum in North Carolina',
     state: 'NC', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · North Carolina',
@@ -2051,6 +2317,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
         ],
         verifyVia: 'Provider Express benefits check under a One Healthcare ID, or the behavioral health number on the member ID card — establish fully insured vs. self-funded ERISA first.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value: 'The SCC set no expiry on the ASD diagnosis itself; what they require is that the DSM-5-TR diagnosis and severity level be confirmed and documented by the diagnosing clinician using validated tools. The clocks run on review instead: where there has been inadequate or no demonstrable progress with targeted symptoms or behaviors within a 6-month period, or goals have not been achieved within the estimated timeframes, the reasons must be assessed and interventions modified; and continued-service review specifically addresses utilization of prior-authorization-period hours below 80% over a 2-week period, which requires documented barriers.',
@@ -2088,6 +2355,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Provider Express (Clinical Resources → ABA Information) or the behavioral health number on the member ID card — ask which ABA codes are payable by telehealth on this plan and with which POS code.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -2105,6 +2373,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum Provider Express National Network Manual and the participating-provider agreement, or a written coding determination from Optum.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'The SCC set no numeric hour cap — the number of service hours requested must be justified by the member’s documented clinical need according to level of impairment, symptom severity, treatment history and response, at the least restrictive and most clinically appropriate level. The operative review trigger runs the other way: utilization below 80% of prior-authorization-period hours over a two-week period is specifically addressed at continued-service review and requires documentation of barriers and how they will be addressed.',
@@ -2120,6 +2389,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Optum Provider Express National Network Manual (documentation standards) and the participating-provider agreement.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value: 'ABA must be provided at the least restrictive and most clinically appropriate level, with generalization and maintenance of skills outside the treatment environment into natural settings such as home and community forming part of the continued-service test. Not covered: services that are not ABA therapy, such as a 1:1 aide delivered simultaneously during classroom instruction, or services covered under IDEA. School-based ABA does allow coordination of services and covers teacher training, meetings with school personnel, and observations in the school setting, and the treatment plan is expected to coordinate with the school and any IFSP or IEP.',

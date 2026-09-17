@@ -4,9 +4,35 @@ export const arizonaPayers: Record<string, PayerConfig> = {
   'arizona-ahcccs': {
     slug: 'arizona-ahcccs',
     cardDesc: 'Dual path: six ACC plans or DDD Health Plans; no autism dx required; tiered rates.',
-    assessmentPA: 'Delegated to plans — the two largest (Mercy Care, UHC/Optum) require NO PA for 97151/97152; verify per plan',
-    treatmentPA: 'Plan-level — Mercy Care: 97153–97158 with 6-month auths; UHC/Optum: all codes except 97151/97152',
-    dxRequired: 'No — AMPM 320-S covers ASD "and/or other diagnoses as justified by medical necessity"',
+    assessmentPA: {
+      value: 'Delegated to plans — the two largest (Mercy Care, UHC/Optum) require NO PA for 97151/97152; verify per plan',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+      ],
+      verifyVia:
+        'The member\'s AHCCCS Contractor. AMPM 320-S sets no prior-authorization rules of its own and delegates PA to the plans, so the answer is per-plan: Mercy Care and UnitedHealthcare/Optum publish theirs, while Banner, BCBSAZ Health Choice and Molina do not — read their live PA grid/guide or call the plan before booking.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Plan-level — Mercy Care: 97153–97158 with 6-month auths; UHC/Optum: all codes except 97151/97152',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+      ],
+      verifyVia:
+        'The member\'s AHCCCS Contractor. AMPM 320-S sets no prior-authorization rules of its own and delegates PA to the plans, so the answer is per-plan: Mercy Care and UnitedHealthcare/Optum publish theirs, while Banner, BCBSAZ Health Choice and Molina do not — read their live PA grid/guide or call the plan before booking.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'No — AMPM 320-S covers ASD "and/or other diagnoses as justified by medical necessity"',
+      status: 'verified',
+      cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+    },
     payer: 'AHCCCS (Arizona Medicaid)',
     state: 'AZ', kind: 'state-medicaid',
     pill: 'Payer Guide · AHCCCS',
@@ -158,6 +184,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
         verifyVia:
           'The AHCCCS Telehealth code set and the Behavioral Health Services Billing Matrix on azahcccs.gov (both blocked to automated retrieval at this review), or the member\'s Contractor.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -174,6 +201,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
         verifyVia:
           'The AHCCCS Behavioral Health Services Billing Matrix and Medical Coding Resources (azahcccs.gov blocked automated retrieval at this review), and the Contractor\'s own reimbursement policy.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -182,6 +210,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
         verifyVia:
           'The AHCCCS Behavioral Health Services Billing Matrix, and the member\'s Contractor for authorized units.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -190,6 +219,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
         verifyVia:
           'The Contractor\'s provider manual and the AHCCCS AMPM documentation chapters; ADHS licensure rules (A.A.C. R9-10) for the health care institution\'s own record standards.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -201,6 +231,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The AHCCCS Behavioral Health Services Billing Matrix for covered settings, and the Contractor for school- and community-based delivery.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -225,9 +256,27 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'mercy-care-arizona',
     family: 'aetna',
     cardDesc: 'No PA on 97151/97152; 6-month auths on its own ABA form; serves ACC + DDD + DCS books.',
-    assessmentPA: 'Not required for 97151 and 97152 — explicit on the plan\'s ABA page',
-    treatmentPA: 'Required for 97153–97158 — dedicated ABA PA form with clinical documentation; 6-month authorization periods',
-    dxRequired: 'No — clinical criteria defer to AMPM 320-S: ASD and/or other diagnoses as justified by medical necessity',
+    assessmentPA: {
+      value: 'Not required for 97151 and 97152 — explicit on the plan\'s ABA page',
+      status: 'verified',
+      cites: [{ title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' }],
+    },
+    treatmentPA: {
+      value: 'Required for 97153–97158 — dedicated ABA PA form with clinical documentation; 6-month authorization periods',
+      status: 'verified',
+      cites: [
+        { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        { title: 'Mercy Care — ABA PA request form', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/PAabarequest_ua.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'No — clinical criteria defer to AMPM 320-S: ASD and/or other diagnoses as justified by medical necessity',
+      status: 'verified',
+      cites: [
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+      ],
+    },
     payer: 'Mercy Care (AZ)',
     state: 'AZ', kind: 'medicaid-mco', parent: 'AHCCCS (Arizona Medicaid)',
     pill: 'Payer Guide · Mercy Care',
@@ -339,6 +388,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Mercy Care provider services / Availity, and the AHCCCS Telehealth code set (azahcccs.gov blocked automated retrieval at this review; mercycareaz.org returns 403).',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -361,6 +411,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Mercy Care provider services and the plan\'s ABA PA form / Availity; mercycareaz.org returned 403 to automated retrieval at this review, so plan-level specifics could not be re-read.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -372,6 +423,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Mercy Care provider services and the plan\'s ABA PA form / Availity; mercycareaz.org returned 403 to automated retrieval at this review, so plan-level specifics could not be re-read.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -383,6 +435,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Mercy Care provider services and the plan\'s ABA PA form / Availity; mercycareaz.org returned 403 to automated retrieval at this review, so plan-level specifics could not be re-read.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -395,6 +448,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Mercy Care provider services and the plan\'s ABA PA form / Availity; mercycareaz.org returned 403 to automated retrieval at this review, so plan-level specifics could not be re-read.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -421,9 +475,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-arizona',
     family: 'unitedhealthcare',
     cardDesc: 'Optum-run; PA on everything except 97151/97152; explicit "no ASD dx required" rule.',
-    assessmentPA: 'Not required — "All ABA services require prior authorization except 97151 and 97152" (Optum AZ orientation)',
-    treatmentPA: 'Required for all treatment codes — Provider Express online ABA Treatment Form or fax 1-888-541-6691',
-    dxRequired: 'No — "ASD diagnosis is not required for ABA services for Arizona Medicaid members" (Optum AZ orientation, verbatim)',
+    assessmentPA: {
+      value: 'Not required — "All ABA services require prior authorization except 97151 and 97152" (Optum AZ orientation)',
+      status: 'verified',
+      cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required for all treatment codes — Provider Express online ABA Treatment Form or fax 1-888-541-6691',
+      status: 'verified',
+      cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
+    },
+    dxRequired: {
+      value: 'No — "ASD diagnosis is not required for ABA services for Arizona Medicaid members" (Optum AZ orientation, verbatim)',
+      status: 'verified',
+      cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
+    },
     payer: 'UnitedHealthcare Community Plan of Arizona',
     state: 'AZ', kind: 'medicaid-mco', parent: 'AHCCCS (Arizona Medicaid)',
     pill: 'Payer Guide · UHC Community Plan (AZ)',
@@ -525,6 +591,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Optum\'s Autism/Applied Behavior Analysis page on Provider Express and the Arizona autism clinical team, plus the AHCCCS telehealth code set.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -544,6 +611,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
         verifyVia:
           'Optum provider services / the Arizona autism clinical team, and the CMS NCCI edits Optum says it follows.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -552,6 +620,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
         verifyVia:
           'Optum provider services; confirm authorized units per code before scheduling.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -560,6 +629,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
         verifyVia:
           'The UnitedHealthcare Community Plan of Arizona / Optum provider manual and your participation agreement.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -571,6 +641,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Optum provider services for school- and community-based delivery, and the AHCCCS Behavioral Health Services Billing Matrix for covered settings.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -590,9 +661,30 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'arizona-complete-health',
     family: 'centene',
     cardDesc: 'Centene\'s CP.BH.104 overlay: dx confirmation, 5-year eval recency, hour bands; every county.',
-    assessmentPA: 'Not published as a standing rule — CP.BH.104 lists a behavioral assessment as a requestable service, but the plan\'s prior-authorization page works code by code, so run the 97151/97152 lookup before promising an auth-free assessment',
-    treatmentPA: 'Required per CP.BH.104 — BCBA behavioral assessment + FBA or skills assessment + individualized plan; updated assessment and plan every 6 months',
-    dxRequired: 'CP.BH.104 asks for a confirmed ASD dx — but defers to "state-defined ABA criteria," which in Arizona means non-ASD diagnoses qualify under AMPM 320-S; cite it',
+    assessmentPA: {
+      value: 'Not published as a standing rule — CP.BH.104 lists a behavioral assessment as a requestable service, but the plan\'s prior-authorization page works code by code, so run the 97151/97152 lookup before promising an auth-free assessment',
+      status: 'unverified',
+      cites: [
+        { title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' },
+        { title: 'AzCH — prior authorization page', url: 'https://www.azcompletehealth.com/providers/resources/prior-authorization.html' },
+      ],
+      verifyVia:
+        'The AzCH prior-authorization code lookup on azcompletehealth.com — read the 97151 and 97152 rows. CP.BH.104 is a medical-necessity policy and states no standing assessment-PA rule.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required per CP.BH.104 — BCBA behavioral assessment + FBA or skills assessment + individualized plan; updated assessment and plan every 6 months',
+      status: 'verified',
+      cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
+    },
+    dxRequired: {
+      value: 'CP.BH.104 asks for a confirmed ASD dx — but defers to "state-defined ABA criteria," which in Arizona means non-ASD diagnoses qualify under AMPM 320-S; cite it',
+      status: 'verified',
+      cites: [
+        { title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' },
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+      ],
+    },
     payer: 'Arizona Complete Health - Complete Care Plan',
     state: 'AZ', kind: 'medicaid-mco', parent: 'AHCCCS (Arizona Medicaid)',
     pill: 'Payer Guide · Arizona Complete Health',
@@ -709,6 +801,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
         verifyVia:
           'Centene Advanced Behavioral Health / AzCH provider services and the plan\'s payment policies on azcompletehealth.com.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -723,6 +816,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
         verifyVia:
           'The AzCH provider manual and your participation agreement\'s documentation clause.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -737,6 +831,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
         verifyVia:
           'AzCH provider services and the plan\'s billing manual; the AHCCCS credential modifiers (HM/HN/HO/HP) still govern the rate tier.',
+        blocker: 'document',
       },
     },
     faq: [
@@ -750,9 +845,30 @@ export const arizonaPayers: Record<string, PayerConfig> = {
   'banner-university-family-care': {
     slug: 'banner-university-family-care',
     cardDesc: 'State baseline + its own ABA PA form; specifics unpublished — verify in the Banner portal.',
-    assessmentPA: 'Not published — unlike Mercy Care and UHC/Optum, Banner states no assessment-PA position publicly; confirm whether 97151/97152 need PA before booking',
-    treatmentPA: 'Required — the plan publishes an ABA Prior Authorization Form; durations and specifics unpublished, verify in the portal',
-    dxRequired: 'No distinct plan policy published — AMPM 320-S baseline applies (autism dx not strictly required)',
+    assessmentPA: {
+      value: 'Not published — unlike Mercy Care and UHC/Optum, Banner states no assessment-PA position publicly; confirm whether 97151/97152 need PA before booking',
+      status: 'unverified',
+      cites: [
+        { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+      ],
+      verifyVia:
+        'Banner Health Plans (bannerhealth.com/bhpprovider) — ask the plan directly whether 97151/97152 need PA. Banner publishes no assessment-PA position at all, so do not assume the Mercy Care / UHC pattern.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Required — the plan publishes an ABA Prior Authorization Form; durations and specifics unpublished, verify in the portal',
+      status: 'verified',
+      cites: [{ title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' }],
+    },
+    dxRequired: {
+      value: 'No distinct plan policy published — AMPM 320-S baseline applies (autism dx not strictly required)',
+      status: 'verified',
+      cites: [
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+      ],
+    },
     payer: 'Banner-University Family Care',
     state: 'AZ', kind: 'medicaid-mco', parent: 'AHCCCS (Arizona Medicaid)',
     pill: 'Payer Guide · Banner-University Family Care',
@@ -864,6 +980,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -886,6 +1003,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -897,6 +1015,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -908,6 +1027,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -920,6 +1040,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -944,9 +1065,33 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'health-choice-arizona',
     family: 'bcbs',
     cardDesc: 'Now officially "Blue Cross Blue Shield of Arizona Health Choice"; grid-driven PA, no published ABA policy.',
-    assessmentPA: 'Not published as a standing rule — read the 97151/97152 rows in the current PA Guidelines grid on healthchoiceaz.com, or call the PA line 1-800-322-8670 / fax 480-760-4732',
-    treatmentPA: 'Not published as a standing rule — the plan runs PA from frequently revised PA Guidelines grids rather than an ABA program document; check the 97153–97158 rows in the live grid',
-    dxRequired: 'No distinct plan policy published — AMPM 320-S baseline applies (autism dx not strictly required)',
+    assessmentPA: {
+      value: 'Not published as a standing rule — read the 97151/97152 rows in the current PA Guidelines grid on healthchoiceaz.com, or call the PA line 1-800-322-8670 / fax 480-760-4732',
+      status: 'unverified',
+      cites: [
+        { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+      ],
+      verifyVia:
+        'The current PA Guidelines grid on healthchoiceaz.com — read the 97151 and 97152 rows (the grids revise several times a year), or the PA line 1-800-322-8670 / fax 480-760-4732.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Not published as a standing rule — the plan runs PA from frequently revised PA Guidelines grids rather than an ABA program document; check the 97153–97158 rows in the live grid',
+      status: 'unverified',
+      cites: [{ title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' }],
+      verifyVia:
+        'The current PA Guidelines grid on healthchoiceaz.com — read the 97153-97158 rows (the grids revise several times a year), or the PA line 1-800-322-8670 / fax 480-760-4732.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'No distinct plan policy published — AMPM 320-S baseline applies (autism dx not strictly required)',
+      status: 'verified',
+      cites: [
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+      ],
+    },
     payer: 'Blue Cross Blue Shield of Arizona Health Choice',
     state: 'AZ', kind: 'medicaid-mco', parent: 'AHCCCS (Arizona Medicaid)',
     pill: 'Payer Guide · BCBSAZ Health Choice',
@@ -1059,6 +1204,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -1081,6 +1227,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -1092,6 +1239,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -1103,6 +1251,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1115,6 +1264,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -1139,9 +1289,33 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'molina-healthcare-arizona',
     family: 'molina',
     cardDesc: 'Smallest ACC footprint (3 Phoenix-metro counties); no published ABA policy — verify by phone.',
-    assessmentPA: 'Not published — verify the 97151/97152 rows in the current Prior Auth and Pre-Service Review Guide, or call Healthcare Services at (844) 782-2678',
-    treatmentPA: 'Not published as a standing ABA rule — the mechanics run through Molina\'s Prior Auth and Pre-Service Review Guide, with PA initiated at (844) 782-2678 or fax (833) 832-1015 and Availity Essentials as the encouraged portal',
-    dxRequired: 'No distinct plan policy published — AMPM 320-S baseline applies (autism dx not strictly required)',
+    assessmentPA: {
+      value: 'Not published — verify the 97151/97152 rows in the current Prior Auth and Pre-Service Review Guide, or call Healthcare Services at (844) 782-2678',
+      status: 'unverified',
+      cites: [
+        { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+      ],
+      verifyVia:
+        'The current Molina Prior Auth and Pre-Service Review Guide — read the 97151/97152 rows — or Healthcare Services at (844) 782-2678.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Not published as a standing ABA rule — the mechanics run through Molina\'s Prior Auth and Pre-Service Review Guide, with PA initiated at (844) 782-2678 or fax (833) 832-1015 and Availity Essentials as the encouraged portal',
+      status: 'unverified',
+      cites: [{ title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' }],
+      verifyVia:
+        'The current Molina Prior Auth and Pre-Service Review Guide — read the 97153-97158 rows — or Healthcare Services at (844) 782-2678 / fax (833) 832-1015.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'No distinct plan policy published — AMPM 320-S baseline applies (autism dx not strictly required)',
+      status: 'verified',
+      cites: [
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+      ],
+    },
     payer: 'Molina Healthcare of Arizona',
     state: 'AZ', kind: 'medicaid-mco', parent: 'AHCCCS (Arizona Medicaid)',
     pill: 'Payer Guide · Molina Healthcare (AZ)',
@@ -1244,6 +1418,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -1266,6 +1441,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -1277,6 +1453,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -1288,6 +1465,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1300,6 +1478,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -1323,9 +1502,32 @@ export const arizonaPayers: Record<string, PayerConfig> = {
   'arizona-ddd': {
     slug: 'arizona-ddd',
     cardDesc: 'The second funnel: ALTCS-DD members get ABA via Mercy Care DD or UHCCP DD, statewide.',
-    assessmentPA: 'Follows the member\'s DDD Health Plan — Mercy Care DD and UHCCP DD both skip PA on 97151/97152',
-    treatmentPA: 'Through the member\'s DDD Health Plan (Mercy Care DD or UHCCP DD), on the same ABA PA machinery as their ACC lines',
-    dxRequired: 'No — AMPM 320-S applies; autism is a DDD qualifying-condition category, but ABA rides on medical necessity',
+    assessmentPA: {
+      value: 'Follows the member\'s DDD Health Plan — Mercy Care DD and UHCCP DD both skip PA on 97151/97152',
+      status: 'verified',
+      cites: [
+        { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Through the member\'s DDD Health Plan (Mercy Care DD or UHCCP DD), on the same ABA PA machinery as their ACC lines',
+      status: 'verified',
+      cites: [
+        { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'No — AMPM 320-S applies; autism is a DDD qualifying-condition category, but ABA rides on medical necessity',
+      status: 'verified',
+      cites: [
+        { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+      ],
+    },
     payer: 'DES/DDD (Arizona Division of Developmental Disabilities)',
     state: 'AZ', kind: 'medicaid-mco', parent: 'AHCCCS (Arizona Medicaid)',
     pill: 'Payer Guide · Arizona DES/DDD',
@@ -1439,6 +1641,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -1461,6 +1664,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -1472,6 +1676,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
+        blocker: 'document',
       },
       noteSignature: {
         value:
@@ -1483,6 +1688,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1495,6 +1701,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
+        blocker: 'document',
       },
       billAsProvider: {
         value:
@@ -1519,9 +1726,33 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'aetna-arizona',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + Steven\'s Law with its caps repealed by SB 1590 (2025).',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+      verifyVia:
+        'Aetna CPB 0554 / CPB 0648 and the ABA Medical Necessity Guide. The substantive rule — ASD only, ABA for other diagnoses considered experimental — is sourced, but the code range printed here is NOT: the Medical Necessity Guide states "(ICD-10/ F84.0; F84.3 - F84.9)", which omits F84.1 and F84.2. Confirm the governing code set with Aetna before relying on "F84.0-F84.9".',
+      blocker: 'document',
+    },
     payer: 'Aetna in Arizona',
     state: 'AZ', kind: 'commercial',
     pill: 'Payer Guide · Aetna · Arizona',
@@ -1611,6 +1842,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1646,6 +1878,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Aetna provider services at the number on the member\'s ID card, and the plan\'s telehealth/virtual-care policy — confirm before scheduling remote 97155 or 97156.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1661,6 +1894,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Aetna precertification/provider services at the number on the member\'s ID card, and the plan\'s own reimbursement schedule — ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1669,6 +1903,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1676,6 +1911,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'The Aetna provider manual and your participation agreement\'s documentation clause.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1684,6 +1920,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'The member\'s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -1703,9 +1940,27 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'cigna-arizona',
     family: 'cigna',
     cardDesc: 'EN0499 (no AZ carve-out) + Steven\'s Law with its caps repealed by SB 1590 (2025).',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
     payer: 'Cigna / Evernorth in Arizona',
     state: 'AZ', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Arizona',
@@ -1793,6 +2048,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1851,6 +2107,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1859,6 +2116,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         verifyVia:
           'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -1870,6 +2128,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\'s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -1889,9 +2148,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-arizona',
     family: 'unitedhealthcare',
     cardDesc: 'BH803ABASCC + Optum\'s AZ state-mandate entry reflecting SB 1590\'s cap repeal.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
     payer: 'UnitedHealthcare / Optum in Arizona',
     state: 'AZ', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · Arizona',
@@ -1990,6 +2261,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -2022,6 +2294,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -2053,6 +2326,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
         verifyVia:
           'The UnitedHealthcare/Optum provider manual and your participation agreement\'s documentation clause.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -2061,6 +2335,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'UnitedHealthcare/Optum provider services and the member\'s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:

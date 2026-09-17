@@ -93,7 +93,7 @@ fetching the named document, then either correct the guide (and note it in the c
 sources that blocked a fact this cycle. Open a real request in `carelu-sources/requests.json`
 for any that does not already have one (step 5c), and cross-reference the REQ id back here.
 
-3e. COVERAGE AUDIT — run `node scripts/payer-coverage.mjs` at the START and END of the refresh.
+3e. COVERAGE AUDIT — run `npm run payers:coverage` at the START and END of the refresh.
 It reports, per field, how many of the guides carry it. This is the directory's completeness
 metric and the answer to "is our data actually uniform?" — without it, field coverage silently
 decays as new guides are added faster than old ones are filled. Rules:
@@ -101,6 +101,17 @@ decays as new guides are added faster than old ones are filled. Rules:
 - No field group may go DOWN. Adding guides without their fields is how coverage rots; if you
   add guides this cycle, fill their fields in the same cycle.
 - Treat any field below 60% as a standing priority until it clears.
+- Report the `document` vs `per-case` split too. Only `document` is debt — it means the answer
+  is written down and we could not open the file, so a human fetch closes it. `per-case` means
+  no document states it and "ask the plan" is the finished answer; it never closes and must not
+  be chased.
+
+3f. INVARIANT GATE — run `npm run payers:check`. It must exit 0 before you ship. It enforces
+what keeps this dataset honest, and each rule exists because its absence produced wrong live
+data: every fact carries a status (a statusless bare string is how the wrong Virginia diagnosis
+claim survived unaudited for two months), every 'verified' fact cites a source, and every
+non-verified fact carries both a `verifyVia` and a `blocker` so it is never a dead end for the
+intake team reading it.
 
 ## SOURCE ACCESS — what blocks automated fetching (learned 2026-09-17)
 
@@ -111,8 +122,8 @@ instead of silently dropping the fact or, worse, publishing an unverified one.
 |---|---|---|
 | `mmis.georgia.gov` (GAMMIS) | Connection refused outright — not even a 403 | None found. Human retrieval via carelu.com/sources. Gates GA's current ASD manual + fee schedule. |
 | `mass.gov` | 403 to WebFetch and curl alike | Human retrieval. |
-| `codes.ohio.gov` | WebFetch gets ECONNREFUSED; curl returns 000 and times out on every path — the host does not answer at all. Wayback holds only an SPA shell. | None found. Gates the in-force OAC 5160-34-02 text. Human retrieval. |
-| `hca.nm.gov` / `hsd.state.nm.us` | CloudFront 403, "configured to block access from your country" | None found. Gates MAD Supplement 24-13, Letter of Direction #53, MAD-877/878. |
+| `codes.ohio.gov` | WebFetch gets ECONNREFUSED; curl returns 000 and times out on every path. Wayback has NO capture of the ABA rule at all. | None found — the highest-value open document request. Route: Rules@Medicaid.Ohio.gov or JCARR. **Do NOT substitute Cornell LII**: its Ohio chapter 5160-34 is a stale snapshot of the superseded *skilled therapies* chapter (5160-34-01 is the RESCINDED PT/OT/SLP rule), so a Cornell 200 on an Ohio Medicaid rule is the wrong document, not a hit. |
+| `hca.nm.gov` / `hsd.state.nm.us` | CloudFront 403, "configured to block access from your country" | **SOLVED** — `curl "https://web.archive.org/web/2026id_/<url>"` returns LOD #53 and MAD Supplement 24-13 in full as real PDFs. For NMAC rule text, `srca.nm.gov` is better than the Cornell mirror: `https://www.srca.nm.gov/parts/title08/08.321.0002.html` carries the complete in-force 8.321.2.13. |
 | `azahcccs.gov` | Hard 403 from an Azure Application Gateway to every client and header combination | The `web.archive.org/web/2026id_/` curl route, when the Archive is up. Gates the AHCCCS BH Billing Matrix and telehealth code set. |
 | `mercycareaz.org` | 403 Access Denied on the ABA provider page and the PA form | Human retrieval. |
 | `portal.kmap-state-ks.us` | Connection timeout — no response at all | Human retrieval. Gates the KMAP Mental Health and Professional FFS provider manuals. |
@@ -128,7 +139,7 @@ instead of silently dropping the fact or, worse, publishing an unverified one.
 | `providernews.anthem.com` article pages | JS SPA — HTTP 200 with an empty body | Use `files.providernews.anthem.com` PDFs instead. **A 200 here is not a success** — check the body. |
 | `web.archive.org` | WebFetch refuses this host entirely | `curl` works — and this is the single most useful unblock available. `curl "https://web.archive.org/web/2026id_/<original-url>"` retrieves documents from hosts that refuse us directly; it is what recovered the whole Virginia backfill. |
 | `vamedicaid.dmas.virginia.gov` | Connection refused (ECONNREFUSED) to every client | The `web.archive.org/web/2026id_/` curl trick above. |
-| `medicaid-documents.dhhs.utah.gov` | 403 to WebFetch and to curl with a browser UA | No direct route; an archived earlier edition may exist. Human retrieval for the current manual. |
+| `medicaid-documents.dhhs.utah.gov` | 403 to WebFetch and to curl with a browser UA; `web.archive.org/2026id_/` 404s on every path | **SOLVED** — `https://r.jina.ai/<url>` returns the full current manual as clean text (it retrieved the 28-page January 2026 ASD Services manual, published 13 Apr 2026, that the guide itself recorded as unretrievable). |
 | `public.providerexpress.com` (Optum) | HTTP 200 returning a JS "Preparing your download" shell, not the document | **Append `?__tracked=1` to the DAM path** (`…/abaSCC.pdf?__tracked=1`) — that is the redirect the interstitial itself uses, and it returns the real PDF. Then `pdftotext`. Without this the whole Optum policy set reads as unreachable. |
 | `medicaid.georgia.gov/document/document/telehealth-guidance/download` | Serves a March 2020 COVID emergency letter, NOT the current Part II Telehealth Guidance | A 200 with a real PDF can still be the WRONG document — check its version date. The current 10/1/2025 guidance carries Georgia's live Category I ABS code table and is the best GAMMIS workaround found so far. |
 | `static.cigna.com` PDFs | WebFetch returns unparsed binary | Save with `curl`, extract with `pdftotext`. |
@@ -174,8 +185,15 @@ on this. If the refresh FAILED or was partial, append `{type:'refresh-issue', su
 went wrong>'}` instead — never skip both.
 
 6. Completed full sweep → bump `PAYER_REVIEWED` in `types.ts`.
-7. Validate: `npx tsc --noEmit` AND `npm install && npm run build` must pass; cannot pass →
+7. Validate: `npm install && npm run build` must pass; cannot pass →
 revert to clean and report instead of pushing broken code (and log a refresh-issue event).
+
+**`npx tsc --noEmit` IS A NO-OP IN THIS REPO.** The root `tsconfig.json` is a solution file with
+`"files": []` and project references, so bare `tsc` compiles nothing and exits 0 however broken
+the code is — it reported clean against 583 real type errors on 2026-09-17. The real typecheck is
+`npm run build` (which runs `tsc -b`), or `npx tsc -p tsconfig.app.json --noEmit`. And
+`tsconfig.app.json` includes only `src`, so `api/` is typechecked by NEITHER — parse-check changes
+there separately, e.g. `npx esbuild api/ask.ts --outfile=/dev/null`.
 
 ## PHASE 3 — SHIP
 

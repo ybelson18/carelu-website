@@ -4,9 +4,21 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
   'masshealth-massachusetts-medicaid': {
     slug: 'masshealth-massachusetts-medicaid',
     cardDesc: 'EPSDT under 21, no caps, 100% managed-care ABA via six BH administrators; 1:10 audit live.',
-    assessmentPA: 'Required — the MA Standard ABA PA Form has a distinct "Request for initial evaluation"; PA is required for all ABA services/hours/units',
-    treatmentPA: 'Required — all treatment hours/units; continued-service authorizations in up to 6-month periods, submitted to the member\'s plan\'s BH administrator',
-    dxRequired: 'Yes — ASD via a comprehensive DSM-aligned assessment by a qualified licensed diagnostician; from 1/1/2026 also sole-diagnosis Down syndrome (genetic-testing confirmed)',
+    assessmentPA: {
+      value: 'Required — the MA Standard ABA PA Form has a distinct "Request for initial evaluation"; PA is required for all ABA services/hours/units',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — all treatment hours/units; continued-service authorizations in up to 6-month periods, submitted to the member\'s plan\'s BH administrator',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD via a comprehensive DSM-aligned assessment by a qualified licensed diagnostician; from 1/1/2026 also sole-diagnosis Down syndrome (genetic-testing confirmed)',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' }, { title: 'The Arc of Massachusetts — ABA for Down syndrome expansion (eff. 1/1/2026)', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' }],
+    },
     payer: 'MassHealth (Massachusetts Medicaid)',
     state: 'MA', kind: 'state-medicaid',
     intakeGates: {
@@ -23,6 +35,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'MassHealth\'s own ABA Provider FAQ on mass.gov (403 to automated clients — human retrieval), and the behavioral-health administrator behind the member\'s plan.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -65,6 +78,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'The behavioral-health administrator behind the member\u2019s plan \u2014 Carelon/MBHP via ProviderConnect, WellSense\u2019s in-house BH team, Point32Health for Tufts, or Optum for Mass General Brigham. Ask whether 97155 pays alongside 97153 for the same clock time.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -93,6 +107,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }],
         verifyVia:
           'The member\u2019s BH administrator and your contract; the rate regulation settles price, not claim identity.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · MassHealth',
@@ -210,9 +225,21 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
   'mbhp-massachusetts': {
     slug: 'mbhp-massachusetts',
     cardDesc: 'The biggest MA ABA gatekeeper: PCC Plan + Primary Care ACOs + HNE, Carelon-run, standard form.',
-    assessmentPA: 'Required — Massachusetts Standard ABA PA Form process; submissions via Carelon\'s ProviderConnect portal',
-    treatmentPA: 'Required — 6-month authorization periods, per the state standard-form process',
-    dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
+    assessmentPA: {
+      value: 'Required — Massachusetts Standard ABA PA Form process; submissions via Carelon\'s ProviderConnect portal',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon Behavioral Health — Massachusetts forms & guides', url: 'https://www.carelonbehavioralhealth.com/providers/forms-and-guides/ma' }],
+    },
+    treatmentPA: {
+      value: 'Required — 6-month authorization periods, per the state standard-form process',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon Behavioral Health — Massachusetts forms & guides', url: 'https://www.carelonbehavioralhealth.com/providers/forms-and-guides/ma' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+    },
     family: 'carelon',
     payer: 'Massachusetts Behavioral Health Partnership (MBHP)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
@@ -230,6 +257,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Carelon/MBHP provider relations via ProviderConnect; MassHealth\'s ABA Provider FAQ on mass.gov is 403 to automated clients and needs human retrieval.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -272,6 +300,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Carelon/MBHP provider relations via ProviderConnect.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -300,6 +329,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Carelon/MBHP provider relations; the performance specification governs service delivery, not claim identity.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · MBHP (Carelon)',
@@ -365,9 +395,21 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
   'wellsense-massachusetts': {
     slug: 'wellsense-massachusetts',
     cardDesc: 'Largest ACPP footprint (8 of 15) + Essential MCO; insourced BH from Carelon 1/1/2026, hosts the standard form.',
-    assessmentPA: 'Required — "Request for initial evaluation" on the standard form with the comprehensive diagnostic assessment attached; initial requests cover a 3-month timeframe',
-    treatmentPA: 'Required — continued services in 6-month timeframes; submit pages 1–7 of the standard form (portal or fax 857-264-2673)',
-    dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; the plan\'s form also carries the 1/1/2026 Down syndrome pathway',
+    assessmentPA: {
+      value: 'Required — "Request for initial evaluation" on the standard form with the comprehensive diagnostic assessment attached; initial requests cover a 3-month timeframe',
+      status: 'verified',
+      cites: [{ title: 'WellSense ABA PA Form (MassHealth, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — continued services in 6-month timeframes; submit pages 1–7 of the standard form (portal or fax 857-264-2673)',
+      status: 'verified',
+      cites: [{ title: 'WellSense ABA PA Form (MassHealth, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD via comprehensive DSM-aligned assessment; the plan\'s form also carries the 1/1/2026 Down syndrome pathway',
+      status: 'verified',
+      cites: [{ title: 'WellSense ABA PA Form (MassHealth, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+    },
     payer: 'WellSense Health Plan',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
     intakeGates: {
@@ -384,6 +426,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
         verifyVia:
           'WellSense provider services / its reimbursement and medical policies in PolicyTech.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -410,6 +453,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'WellSense provider services — confirm the in-house BH team applies the MBHP telehealth conditions verbatim.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -420,6 +464,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'WellSense\u2019s own ABA medical policy and its reimbursement policies in PolicyTech \u2014 the plan\u2019s medical-policy notices direct providers to \u201creview the Plan\u2019s reimbursement policies for Plan billing guidelines.\u201d',
+        blocker: 'document',
       },
       concurrentBilling: {
         value:
@@ -427,6 +472,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'WellSense provider services / PolicyTech reimbursement policies. Note that WellSense\u2019s posted ABA medical policy covers the MA Clarity (ConnectorCare) product, not the MassHealth line.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -435,6 +481,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'WellSense Health Plan \u2014 Massachusetts Provider Manual (eff. Jan. 1, 2026)', url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/MA_Provider_Manual.pdf' }],
         verifyVia:
           'WellSense reimbursement policies in PolicyTech.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -443,6 +490,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'WellSense provider services.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · WellSense',
@@ -510,9 +558,25 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
   'tufts-health-together': {
     slug: 'tufts-health-together',
     cardDesc: 'MCO product discontinued 1/1/2026 — only its 2 ACPPs (w/ Cambridge Health Alliance, w/ UMass Memorial) remain.',
-    assessmentPA: 'Required — via Point32Health UM on the plan\'s own updated ABA PA form (not the MA standard form)',
-    treatmentPA: 'Required — Point32Health\'s own ABA PA form, submitted electronically with the form uploaded, or fax 888-977-0776',
-    dxRequired: 'Yes — ASD; covers sole-diagnosis Down syndrome effective 1/1/2026 (incl. Tufts Health Together)',
+    assessmentPA: {
+      value: 'Required — via Point32Health UM on the plan\'s own updated ABA PA form (not the MA standard form)',
+      status: 'unverified',
+      verifyVia:
+        'Point32Health provider services and the Tufts Health Together ABA Medical Necessity Guideline — the October 2025 update names the Point32Health ABA prior-authorization form for Together members but does not say whether the assessment codes themselves are separately authorized. (point32health.org serves HTML in place of its PDFs, so the MNG needs human retrieval.)',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — Point32Health\'s own ABA PA form, submitted electronically with the form uploaded, or fax 888-977-0776',
+      status: 'unverified',
+      verifyVia:
+        'Point32Health provider services and the Tufts Health Together ABA Medical Necessity Guideline. NOTE: the October 2025 Point32Health update lists fax 888-977-0776 under Tufts Health DIRECT members and publishes no fax number for Tufts Health Together — confirm the Together submission channel before faxing.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes — ASD; covers sole-diagnosis Down syndrome effective 1/1/2026 (incl. Tufts Health Together)',
+      status: 'verified',
+      cites: [{ title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }],
+    },
     family: 'point32',
     payer: 'Tufts Health Together (Point32Health)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
@@ -530,6 +594,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }, { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
         verifyVia:
           'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -538,6 +603,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }],
         verifyVia:
           'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
+        blocker: 'document',
       },
       diagnosticTools: {
         value:
@@ -546,6 +612,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }],
         verifyVia:
           'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
+        blocker: 'document',
       },
       referral: {
         value:
@@ -554,6 +621,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }],
         verifyVia:
           'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
+        blocker: 'document',
       },
       telehealth: {
         value:
@@ -562,6 +630,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
+        blocker: 'document',
       },
     },
     deliveryRules: {
@@ -572,6 +641,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Point32Health provider services / the Tufts Health Public Plans provider manual; note the Together MCO was slated for discontinuation effective January 1, 2026, so confirm the member\u2019s current product first.',
+        blocker: 'document',
       },
       dailyLimits: {
         value:
@@ -580,6 +650,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }],
         verifyVia:
           'Point32Health provider services.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -588,6 +659,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Point32Health provider services.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · Tufts Health Together',
@@ -660,9 +732,21 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
   'fallon-health-massachusetts': {
     slug: 'fallon-health-massachusetts',
     cardDesc: 'Three ACPPs (2023 roster), Carelon-run BH, state-baseline rules; first-wave audit recoupments.',
-    assessmentPA: 'Required — via the Carelon process on the MA standard form; plan-level specifics not published, verify with Carelon',
-    treatmentPA: 'Required — 6-month authorization periods (per statewide practice), via Carelon',
-    dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
+    assessmentPA: {
+      value: 'Required — via the Carelon process on the MA standard form; plan-level specifics not published, verify with Carelon',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — 6-month authorization periods (per statewide practice), via Carelon',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' }],
+    },
     payer: 'Fallon Health (MassHealth ACPPs)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
     intakeGates: {
@@ -679,6 +763,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Carelon Behavioral Health provider relations for the Fallon line of business — confirm the MBHP performance specification is applied verbatim.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -707,6 +792,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Carelon Behavioral Health provider relations for the Fallon line of business — confirm the MBHP performance specification is applied verbatim.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -717,6 +803,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Carelon Behavioral Health provider relations for the Fallon line of business \u2014 confirm whether the MBHP performance specification is applied verbatim.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -725,6 +812,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }],
         verifyVia:
           'Carelon provider relations for Fallon; the rate regulation is statewide, the claim edits are not.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -733,6 +821,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Carelon provider relations for the Fallon line of business.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · Fallon Health',
@@ -795,9 +884,21 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
   'health-new-england-massachusetts': {
     slug: 'health-new-england-massachusetts',
     cardDesc: 'Western-MA ACPP (BeHealthy Partnership); ABA auth is the MBHP flow, state-baseline rules.',
-    assessmentPA: 'Required — via the MBHP process (Massachusetts Standard ABA PA Form)',
-    treatmentPA: 'Required — via MBHP; 6-month authorization periods',
-    dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
+    assessmentPA: {
+      value: 'Required — via the MBHP process (Massachusetts Standard ABA PA Form)',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — via MBHP; 6-month authorization periods',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' }],
+    },
     payer: 'Health New England — BeHealthy Partnership',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
     intakeGates: {
@@ -814,6 +915,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Carelon/MBHP provider relations via ProviderConnect; MassHealth\'s ABA Provider FAQ on mass.gov is 403 to automated clients and needs human retrieval.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -864,6 +966,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Carelon/MBHP provider relations via ProviderConnect.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -941,9 +1044,21 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
   'mass-general-brigham-health-plan': {
     slug: 'mass-general-brigham-health-plan',
     cardDesc: 'The Optum-run MassHealth ACPP: BH803ABA state supplement, 30 hr/wk EI cap, codified 1:10 ratio.',
-    assessmentPA: 'Required — via the Optum Behavioral Health process (plan-level submission specifics not published; verify via Provider Express)',
-    treatmentPA: 'Required — Optum process; 6-month authorization periods per statewide practice',
-    dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
+    assessmentPA: {
+      value: 'Required — via the Optum Behavioral Health process (plan-level submission specifics not published; verify via Provider Express)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — Optum process; 6-month authorization periods per statewide practice',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
+      status: 'verified',
+      cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
     payer: 'Mass General Brigham Health Plan (MassHealth ACPP)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
     intakeGates: {
@@ -960,6 +1075,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business — Optum\'s published ABA criteria are commercial documents, and the plan does not republish the MassHealth standard-form requirements.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -968,6 +1084,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business — Optum\'s published ABA criteria are commercial documents, and the plan does not republish the MassHealth standard-form requirements.',
+        blocker: 'per-case',
       },
       diagnosticTools: {
         value:
@@ -976,6 +1093,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business — Optum\'s published ABA criteria are commercial documents, and the plan does not republish the MassHealth standard-form requirements.',
+        blocker: 'per-case',
       },
       referral: {
         value:
@@ -984,6 +1102,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
         verifyVia:
           'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business — Optum\'s published ABA criteria are commercial documents, and the plan does not republish the MassHealth standard-form requirements.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -992,6 +1111,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business — Optum\'s published ABA criteria are commercial documents, and the plan does not republish the MassHealth standard-form requirements.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1002,6 +1122,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1010,6 +1131,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }],
         verifyVia:
           'Optum provider services for the MGB Health Plan line.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1018,6 +1140,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
         verifyVia:
           'Optum Care Advocate for the MGB Health Plan line.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · MGB Health Plan',
@@ -1065,6 +1188,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Submission channel', desc: 'Confirm the Optum route (Provider Express vs. plan-specific) before the first authorization.' },
     ],
     sources: [
+      { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
@@ -1084,9 +1208,24 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     slug: 'aetna-massachusetts',
     family: 'aetna',
     cardDesc: 'CPB 0554/0648 + ARICA (no caps, any age) + Aetna\'s own hosted MA Standard ABA form.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes — ASD only (F84.0–F84.9) under CPB 0554; fully-insured MA plans must also cover sole-diagnosis Down syndrome from 1/1/2026 (Ch. 388)',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only (F84.0–F84.9) under CPB 0554; fully-insured MA plans must also cover sole-diagnosis Down syndrome from 1/1/2026 (Ch. 388)',
+      status: 'plan-dependent',
+      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'The Arc of Massachusetts — ABA for Down syndrome expansion (eff. 1/1/2026)', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' }],
+      verifyVia:
+        'The member\u2019s benefit document and Aetna precertification \u2014 funding type decides the diagnosis gate: CPB 0554 covers ASD only (and calls ABA experimental for Down syndrome without an ASD co-morbidity), while a Massachusetts fully-insured plan must also cover sole-diagnosis Down syndrome from 1/1/2026 under Ch. 388.',
+      blocker: 'per-case',
+    },
     payer: 'Aetna in Massachusetts',
     state: 'MA', kind: 'commercial',
     intakeGates: {
@@ -1097,6 +1236,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' }],
         verifyVia:
           'The member\'s benefit document and Aetna precertification — funding type decides whether the state mandate or the plan document sets the age boundary.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1123,6 +1263,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'Aetna precertification/provider services at the number on the member\'s ID card, and the member\'s benefit document — ask whether the plan layers a referral requirement on behavioral health.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -1131,6 +1272,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' }],
         verifyVia:
           'Aetna provider services and the member\'s benefit document — confirm which ABA codes pay by telehealth and with which POS code before scheduling remote supervision or caregiver training.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1146,6 +1288,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Aetna precertification/provider services at the number on the member\u2019s ID card, and the plan\u2019s own reimbursement schedule \u2014 ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -1153,6 +1296,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1160,6 +1304,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'The Aetna provider manual and your participation agreement\u2019s documentation clause.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1168,6 +1313,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'The member\u2019s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -1241,6 +1387,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'LABA of record', desc: 'The MA standard form Aetna uses is completed by the rendering or supervising LABA.' },
     ],
     sources: [
+      { title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna-hosted MA Standard ABA PA Form', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/ma-behavior-prior-auth-form.pdf' },
@@ -1263,9 +1410,24 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     slug: 'cigna-massachusetts',
     family: 'cigna',
     cardDesc: 'EN0499 (no MA carve-out) + ARICA\'s no-cap, any-age floor for fully-insured plans.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499; fully-insured MA plans must also cover sole-diagnosis Down syndrome from 1/1/2026 (Ch. 388)',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499; fully-insured MA plans must also cover sole-diagnosis Down syndrome from 1/1/2026 (Ch. 388)',
+      status: 'plan-dependent',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'The Arc of Massachusetts — ABA for Down syndrome expansion (eff. 1/1/2026)', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' }],
+      verifyVia:
+        'The member\u2019s benefit document and Evernorth Provider Services at 800.926.2273 \u2014 funding type decides the diagnosis gate: EN0499 carries no Massachusetts provision and covers ASD only (F84.0\u2013F84.9 except F84.2), while a Massachusetts fully-insured plan must also cover sole-diagnosis Down syndrome from 1/1/2026 under Ch. 388.',
+      blocker: 'per-case',
+    },
     payer: 'Cigna / Evernorth in Massachusetts',
     state: 'MA', kind: 'commercial',
     intakeGates: {
@@ -1276,6 +1438,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' }],
         verifyVia:
           'The member\'s benefit document and Evernorth Provider Services at 800.926.2273 — funding type decides whether the state mandate or the plan document sets the age boundary.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1302,6 +1465,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 and the member\'s benefit document — referral rules, where they exist, are a plan-design feature rather than a policy feature.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -1313,10 +1477,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'Not published as a ratio. The Evernorth autism resource guide governs credentialing and billing rather than supervision intensity, and Evernorth publishes no percentage floor or caseload cap for technician supervision.',
-        status: 'unverified',
-        verifyVia:
-          'Evernorth Provider Services at 800.926.2273, and the Intensive Behavioral Interventions coverage policy (EN0499).',
+          'Evernorth DOES publish a supervision standard, in EN0499 — direct case supervision (the BCBA face-to-face with the individual alongside the RBT or BCaBA) plus indirect case supervision “is consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment”, and “when direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided.” It is stated as a standard of care rather than a hard caseload cap, and supervisory services must match the CPT code descriptions.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions (Supervision / Direction of Treatment, p.5)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
       concurrentBilling: {
         value:
@@ -1331,6 +1494,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -1338,6 +1502,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1346,6 +1511,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\u2019s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -1436,9 +1602,21 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-massachusetts',
     family: 'unitedhealthcare',
     cardDesc: 'Optum BH803ABASCC + ARICA + two explicit MA entries in Optum\'s state-mandate supplement.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.); MA commercial members also covered for sole-diagnosis Down syndrome eff. 1/1/2026 (Optum state-mandate supplement)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.); MA commercial members also covered for sole-diagnosis Down syndrome eff. 1/1/2026 (Optum state-mandate supplement)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+    },
     payer: 'UnitedHealthcare / Optum in Massachusetts',
     state: 'MA', kind: 'commercial',
     intakeGates: {
@@ -1449,6 +1627,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' }],
         verifyVia:
           'The member\'s benefit document and Optum via Provider Express — funding type decides whether the state mandate or the plan document sets the age boundary.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1457,6 +1636,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum via Provider Express, or the Care Advocate handling the authorization — ask whether the plan applies a diagnostic-evaluation recency window at intake.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -1477,6 +1657,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum via Provider Express and the member\'s benefit document — referral requirements, where they exist, are a plan-design feature.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -1485,6 +1666,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'The Optum Care Advocate at authorization and Provider Express — Optum runs a virtual-visits attestation on some lines of business, so confirm approval status and the billing POS before scheduling remote 97155 or 97156.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1513,6 +1695,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
         verifyVia:
           'The UnitedHealthcare/Optum provider manual and your participation agreement\u2019s documentation clause.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1521,6 +1704,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'UnitedHealthcare provider services and the member\u2019s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:

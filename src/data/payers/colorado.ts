@@ -4,9 +4,30 @@ export const coloradoPayers: Record<string, PayerConfig> = {
   'colorado-medicaid': {
     slug: 'colorado-medicaid',
     cardDesc: 'No autism-dx gate; FFS carve-out (RAEs don\'t run ABA); PAR on everything; no 97156.',
-    assessmentPA: 'Required — ALL PBT services need a Prior Authorization Request (PAR) via Acentra\'s Atrezzo portal (ColoradoPAR.com), including the 97151 assessment',
-    treatmentPA: 'Required — same Acentra PAR process; approvals valid up to 6 months, reauth needs charts-and-graphs progress data',
-    dxRequired: 'NO — no autism diagnosis required; any of three criteria (qualifying condition, functional interference, or safety risk) opens the benefit',
+    assessmentPA: {
+      value: 'Required — ALL PBT services need a Prior Authorization Request (PAR) via Acentra\'s Atrezzo portal (ColoradoPAR.com), including the 97151 assessment',
+      status: 'verified',
+      cites: [
+        { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+        { title: 'HCPF PM 25-005 — Pediatric Behavioral Therapy Policy Clarification', url: 'https://hcpf.colorado.gov/sites/hcpf/files/HCPF%20PM%2025-005%20Pediatric%20Behavioral%20Therapy%20Policy%20Clarification.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — same Acentra PAR process; approvals valid up to 6 months, reauth needs charts-and-graphs progress data',
+      status: 'verified',
+      cites: [
+        { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+        { title: 'HCPF PM 25-005 — Pediatric Behavioral Therapy Policy Clarification', url: 'https://hcpf.colorado.gov/sites/hcpf/files/HCPF%20PM%2025-005%20Pediatric%20Behavioral%20Therapy%20Policy%20Clarification.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'NO — no autism diagnosis required; any of three criteria (qualifying condition, functional interference, or safety risk) opens the benefit',
+      status: 'verified',
+      cites: [
+        { title: 'Health First Colorado Criteria for Behavioral Therapies (Feb 2023)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Health%20First%20Colorado%20Criteria%20for%20Behavioral%20Therapies%20February%202023.pdf' },
+        { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+      ],
+    },
     payer: 'Health First Colorado (Colorado Medicaid)',
     state: 'CO', kind: 'state-medicaid',
     pill: 'Payer Guide · Health First Colorado',
@@ -188,6 +209,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'ColoradoPAR (Acentra/Atrezzo) and the HCPF PBT policy contact named on PM 25-005 — ask specifically whether 97155 is payable alongside 97153 when the analyst is directing the technician with the member present.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -241,9 +263,33 @@ export const coloradoPayers: Record<string, PayerConfig> = {
     slug: 'aetna-colorado',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the C.R.S. § 10-16-104(1.4) mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+      status: 'unverified',
+      cites: [
+        { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+      ],
+      verifyVia:
+        'Aetna CPB 0554 / CPB 0648 and the ABA Medical Necessity Guide. The substantive rule — ASD only, ABA for other diagnoses considered experimental — is sourced, but the code range printed here is NOT: the Medical Necessity Guide states "(ICD-10/ F84.0; F84.3 - F84.9)", which omits F84.1 and F84.2. Confirm the governing code set with Aetna before relying on "F84.0-F84.9".',
+      blocker: 'document',
+    },
     payer: 'Aetna in Colorado',
     state: 'CO', kind: 'commercial',
     pill: 'Payer Guide · Aetna · Colorado',
@@ -325,6 +371,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -360,6 +407,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Aetna provider services at the number on the member\'s ID card, and the plan\'s telehealth/virtual-care policy — confirm before scheduling remote 97155 or 97156.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -375,6 +423,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Aetna precertification/provider services at the number on the member\'s ID card, and the plan\'s own reimbursement schedule — ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -383,6 +432,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -390,6 +440,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'The Aetna provider manual and your participation agreement\'s documentation clause.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -398,6 +449,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'The member\'s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -418,9 +470,27 @@ export const coloradoPayers: Record<string, PayerConfig> = {
     slug: 'cigna-colorado',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the C.R.S. § 10-16-104(1.4) mandate layer.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [
+        { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
     payer: 'Cigna / Evernorth in Colorado',
     state: 'CO', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Colorado',
@@ -501,6 +571,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -559,6 +630,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -567,6 +639,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         verifyVia:
           'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -578,6 +651,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\'s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -598,9 +672,21 @@ export const coloradoPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-colorado',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the C.R.S. § 10-16-104(1.4) mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
     payer: 'UnitedHealthcare / Optum in Colorado',
     state: 'CO', kind: 'commercial',
     pill: 'Payer Guide · UnitedHealthcare · Colorado',
@@ -685,6 +771,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -717,6 +804,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -748,6 +836,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
         verifyVia:
           'The UnitedHealthcare/Optum provider manual and your participation agreement\'s documentation clause.',
+        blocker: 'document',
       },
       placeOfService: {
         value:
@@ -756,6 +845,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'UnitedHealthcare/Optum provider services and the member\'s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -778,9 +868,30 @@ export const coloradoPayers: Record<string, PayerConfig> = {
     state: 'CO', kind: 'commercial',
     family: 'anthem',
     cardDesc: 'Anthem reviews ABA in-house (not Carelon); weekly approved units since 3/1/2026; no mandate caps.',
-    assessmentPA: 'Yes — 97151 sits inside the authorized ABA set; the request goes to Anthem behavioral health via Availity Essentials',
-    treatmentPA: 'Yes — and since March 1, 2026 the authorization is denominated in weekly approved units',
-    dxRequired: 'Yes — and Colorado requires the treatment itself to be prescribed or ordered by a licensed physician or licensed psychologist',
+    assessmentPA: {
+      value: 'Yes — 97151 sits inside the authorized ABA set; the request goes to Anthem behavioral health via Availity Essentials',
+      status: 'verified',
+      cites: [
+        { title: 'Anthem Colorado Precertification/Prior Authorization List (updated 07/10/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/CO_PA_List.pdf' },
+        { title: 'Anthem Colorado — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/colorado/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Yes — and since March 1, 2026 the authorization is denominated in weekly approved units',
+      status: 'verified',
+      cites: [
+        { title: 'Anthem Colorado — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/colorado/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
+        { title: 'Anthem Colorado Precertification/Prior Authorization List (updated 07/10/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/CO_PA_List.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — and Colorado requires the treatment itself to be prescribed or ordered by a licensed physician or licensed psychologist',
+      status: 'verified',
+      cites: [
+        { title: 'C.R.S. § 10-16-104 (Justia)', url: 'https://law.justia.com/codes/colorado/title-10/article-16/part-1/section-10-16-104/' },
+        { title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
+      ],
+    },
     pill: 'Payer Guide · Anthem BCBS · Colorado',
     h1: 'Anthem BCBS Colorado ABA coverage: the intake guide.',
     metaTitle: 'Anthem BCBS Colorado ABA Coverage & Prior Auth: Intake Guide | Carelu',
@@ -941,6 +1052,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Anthem Behavioral Health at 800-424-4014, or the authorization request itself through Availity Essentials — MCG B-806-T is not publicly available.',
+        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -952,6 +1064,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         verifyVia:
           'Anthem Behavioral Health at 800-424-4014 for the diagnostic-credential standard applied under MCG B-806-T.',
+        blocker: 'document',
       },
       diagnosticTools: {
         value:
@@ -960,6 +1073,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' }],
         verifyVia:
           'Anthem Behavioral Health at 800-424-4014 — ask which instruments MCG B-806-T expects behind the diagnosis and behind the requested intensity.',
+        blocker: 'document',
       },
       referral: {
         value:

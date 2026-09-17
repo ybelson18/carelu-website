@@ -72,12 +72,31 @@ function PayerGuide({ config }: { config: PayerConfig }) {
       if (!allSources.some((x) => x.url === c.url)) allSources.push(c);
     }
   }
-  for (const r of [...Object.values(config.deliveryRules ?? {}), ...Object.values(config.intakeGates ?? {})]) {
+  for (const r of [
+    ...Object.values(config.deliveryRules ?? {}),
+    ...Object.values(config.intakeGates ?? {}),
+    config.assessmentPA, config.treatmentPA, config.dxRequired,
+  ]) {
     for (const c of r?.cites ?? []) {
       if (!allSources.some((x) => x.url === c.url)) allSources.push(c);
     }
   }
   const srcNum = (url: string) => allSources.findIndex((x) => x.url === url) + 1;
+  /* 'Ask the plan' is a finished answer, not missing data — it reads differently
+     from 'we could not open the document that states this'. */
+  const StatusChip = ({ fact }: { fact?: { status: string; blocker?: string } }) => {
+    if (!fact || fact.status === 'verified') return null;
+    const label = fact.status === 'plan-dependent' ? 'Plan-dependent'
+      : fact.blocker === 'per-case' ? 'Ask the plan'
+      : fact.blocker === 'licensed' ? 'Licensed criteria'
+      : 'Unverified';
+    return (
+      <span style={{
+        fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase',
+        color: 'rgba(43,42,38,0.5)', background: HAIR, borderRadius: 20, padding: '2px 8px',
+      }}>{label}</span>
+    );
+  };
   const CiteSup = ({ cites }: { cites?: PayerSource[] }) => {
     if (!cites || cites.length === 0) return null;
     return (
@@ -161,13 +180,23 @@ function PayerGuide({ config }: { config: PayerConfig }) {
               display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             }}>
               {[
-                { label: 'Prior auth for the assessment', value: config.assessmentPA },
-                { label: 'Prior auth for treatment', value: config.treatmentPA },
-                { label: 'Autism diagnosis required?', value: config.dxRequired },
-              ].filter((x) => x.value).map((x) => (
+                { label: 'Prior auth for the assessment', fact: config.assessmentPA },
+                { label: 'Prior auth for treatment', fact: config.treatmentPA },
+                { label: 'Autism diagnosis required?', fact: config.dxRequired },
+              ].filter((x) => x.fact).map((x) => (
                 <div key={x.label} style={{ padding: 'clamp(16px, 2.2vw, 22px)', borderTop: `3px solid ${GREEN}` }}>
-                  <div style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: '0.11em', textTransform: 'uppercase', color: GREEN, marginBottom: 7 }}>{x.label}</div>
-                  <div style={{ fontSize: 14.5, fontWeight: 600, color: INK, lineHeight: 1.55 }}>{x.value}</div>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap', marginBottom: 7 }}>
+                    <span style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: '0.11em', textTransform: 'uppercase', color: GREEN }}>{x.label}</span>
+                    <StatusChip fact={x.fact} />
+                  </div>
+                  <div style={{ fontSize: 14.5, fontWeight: 600, color: INK, lineHeight: 1.55 }}>
+                    {x.fact!.value}<CiteSup cites={x.fact!.cites} />
+                  </div>
+                  {x.fact!.verifyVia && (
+                    <div style={{ fontSize: 12.5, color: 'rgba(43,42,38,0.55)', lineHeight: 1.5, marginTop: 6, fontWeight: 400 }}>
+                      {x.fact!.blocker === 'document' ? 'Blocked on: ' : x.fact!.blocker === 'licensed' ? 'In licensed criteria: ' : 'Ask the plan: '}{x.fact!.verifyVia}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -312,19 +341,14 @@ function PayerGuide({ config }: { config: PayerConfig }) {
                 }}>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 9, flexWrap: 'wrap', marginBottom: 4 }}>
                     <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: GREEN }}>{label}</span>
-                    {r!.status !== 'verified' && (
-                      <span style={{
-                        fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase',
-                        color: 'rgba(43,42,38,0.5)', background: HAIR, borderRadius: 20, padding: '2px 8px',
-                      }}>{r!.status === 'plan-dependent' ? 'Plan-dependent' : 'Unverified'}</span>
-                    )}
+                    <StatusChip fact={r!} />
                   </div>
                   <p style={{ fontSize: 14.5, color: 'rgba(43,42,38,0.75)', lineHeight: 1.62, margin: 0 }}>
                     {r!.value}<CiteSup cites={r!.cites} />
                   </p>
                   {r!.verifyVia && (
                     <p style={{ fontSize: 13, color: 'rgba(43,42,38,0.55)', lineHeight: 1.55, margin: '6px 0 0' }}>
-                      Confirm via: {r!.verifyVia}
+                      {r!.blocker === 'document' ? 'Blocked on: ' : r!.blocker === 'licensed' ? 'In licensed criteria: ' : 'Ask the plan: '}{r!.verifyVia}
                     </p>
                   )}
                 </div>
@@ -370,19 +394,14 @@ function PayerGuide({ config }: { config: PayerConfig }) {
                 }}>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 9, flexWrap: 'wrap', marginBottom: 4 }}>
                     <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: GREEN }}>{label}</span>
-                    {r!.status !== 'verified' && (
-                      <span style={{
-                        fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase',
-                        color: 'rgba(43,42,38,0.5)', background: HAIR, borderRadius: 20, padding: '2px 8px',
-                      }}>{r!.status === 'plan-dependent' ? 'Plan-dependent' : 'Unverified'}</span>
-                    )}
+                    <StatusChip fact={r!} />
                   </div>
                   <p style={{ fontSize: 14.5, color: 'rgba(43,42,38,0.75)', lineHeight: 1.62, margin: 0 }}>
                     {r!.value}<CiteSup cites={r!.cites} />
                   </p>
                   {r!.verifyVia && (
                     <p style={{ fontSize: 13, color: 'rgba(43,42,38,0.55)', lineHeight: 1.55, margin: '6px 0 0' }}>
-                      Confirm via: {r!.verifyVia}
+                      {r!.blocker === 'document' ? 'Blocked on: ' : r!.blocker === 'licensed' ? 'In licensed criteria: ' : 'Ask the plan: '}{r!.verifyVia}
                     </p>
                   )}
                 </div>

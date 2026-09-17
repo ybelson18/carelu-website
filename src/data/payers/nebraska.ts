@@ -4,9 +4,21 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
   'nebraska-medicaid': {
     slug: 'nebraska-medicaid',
     cardDesc: 'Under 21 via EPSDT; ASD dx NOT required; deep Aug 2025 rate cuts (97153 → $18.70).',
-    assessmentPA: 'MCO-administered — the treatment MSD requires the assessment + treatment plan with the initial PA request; an IDI within 12 months must establish the need first',
-    treatmentPA: 'Required — via the member\'s MCO; PA duration is variable per medical necessity (no fixed statewide period); treatment plan reviewed at least every 90 days',
-    dxRequired: 'No — ASD or a developmental or intellectual disability qualifies, when the ABA assessment establishes treatment need',
+    assessmentPA: {
+      value: 'MCO-administered — the treatment MSD requires the assessment + treatment plan with the initial PA request; an IDI within 12 months must establish the need first',
+      status: 'verified',
+      cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — via the member\'s MCO; PA duration is variable per medical necessity (no fixed statewide period); treatment plan reviewed at least every 90 days',
+      status: 'verified',
+      cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'Provider Bulletin 25-02 — ABA Service Definitions (eff. Feb 7, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-02.pdf' }],
+    },
+    dxRequired: {
+      value: 'No — ASD or a developmental or intellectual disability qualifies, when the ABA assessment establishes treatment need',
+      status: 'verified',
+      cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'Provider Bulletin 26-06 — Updated Service Definition and Changes to Billing and Utilization of ABA Services (June 1, 2026; eff. July 1, 2026)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2026-06.pdf' }],
+    },
     payer: 'Nebraska Medicaid (Heritage Health)',
     state: 'NE', kind: 'state-medicaid',
     deliveryRules: {
@@ -23,6 +35,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
         verifyVia:
           'The member\'s Heritage Health MCO — Nebraska Total Care, Molina, or UnitedHealthcare Community Plan (Optum). Ask specifically whether 97155 pays alongside 97153 for the same clock time.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -215,9 +228,23 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     slug: 'nebraska-total-care',
     family: 'centene',
     cardDesc: 'Closest to the state baseline; OTR-based PA, documentation-heavy NE.CP.BH.105 policy.',
-    treatmentPA: 'Required — Outpatient Treatment Request (OTR) via the provider portal or fax 866-593-1955, with hours per code, titration/discharge plan, crisis plan, and coordination-of-care attempts',
-    dxRequired: 'ASD per DSM-5-TR "or an appropriate diagnosis as otherwise specified according to state-defined ABA criteria" — mirrors the state\'s non-ASD pathway',
-    assessmentPA: 'Not published — NE.CP.BH.105 specifies what the behavior identification assessment package must contain (IDI + FBA with direct assessment and data analysis) but never states whether the assessment CPT codes themselves need PA; verify in the portal or with the plan before booking',
+    treatmentPA: {
+      value: 'Required — Outpatient Treatment Request (OTR) via the provider portal or fax 866-593-1955, with hours per code, titration/discharge plan, crisis plan, and coordination-of-care attempts',
+      status: 'verified',
+      cites: [{ title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }, { title: 'Nebraska Total Care — behavioral health forms (ABA Form, OTR tip sheets)', url: 'https://www.nebraskatotalcare.com/providers/resources/behavioral-health-forms.html' }],
+    },
+    dxRequired: {
+      value: 'ASD per DSM-5-TR "or an appropriate diagnosis as otherwise specified according to state-defined ABA criteria" — mirrors the state\'s non-ASD pathway',
+      status: 'verified',
+      cites: [{ title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }],
+    },
+    assessmentPA: {
+      value: 'Not published — NE.CP.BH.105 specifies what the behavior identification assessment package must contain (IDI + FBA with direct assessment and data analysis) but never states whether the assessment CPT codes themselves need PA; verify in the portal or with the plan before booking',
+      status: 'unverified',
+      verifyVia:
+        'Nebraska Total Care\u2019s prior-authorization code list / Pre-Auth Check tool on provider.nebraskatotalcare.com \u2014 NE.CP.BH.105 sets the assessment package contents but not the code-level PA requirement.',
+      blocker: 'document',
+    },
     payer: 'Nebraska Total Care (Centene)',
     state: 'NE', kind: 'medicaid-mco', parent: 'Nebraska Medicaid (Heritage Health)',
     deliveryRules: {
@@ -234,6 +261,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }],
         verifyVia:
           'Nebraska Total Care provider services / the secure provider portal at provider.nebraskatotalcare.com.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -260,6 +288,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }],
         verifyVia:
           'Nebraska Total Care provider services / the secure provider portal at provider.nebraskatotalcare.com.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -365,9 +394,23 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     slug: 'molina-healthcare-nebraska',
     family: 'molina',
     cardDesc: 'Newest MCO (2024); state-baseline rules, Availity intake, quarterly PA-list churn.',
-    assessmentPA: 'Not published for Nebraska — no Molina statement exists on whether the ABA assessment codes need PA; requirements live in the quarterly PA code-change lists and the PA look-up tool (Availity). Verify before booking; the state MSD requires the ABA assessment before treatment either way',
-    treatmentPA: 'Required — ABA treatment runs on prior authorization under the state MSD (ABA assessment + treatment plan filed with the initial request); Molina publishes no ABA-specific form, so submit via Availity Essentials (fax (833) 832-1015, phone (844) 782-2678) and re-check the current-quarter PA code list',
-    dxRequired: 'State MSD rules govern — ASD or a developmental or intellectual disability qualifies, with an IDI within the previous 12 months establishing the need; Molina publishes no Nebraska-specific diagnosis criteria',
+    assessmentPA: {
+      value: 'Not published for Nebraska — no Molina statement exists on whether the ABA assessment codes need PA; requirements live in the quarterly PA code-change lists and the PA look-up tool (Availity). Verify before booking; the state MSD requires the ABA assessment before treatment either way',
+      status: 'unverified',
+      verifyVia:
+        'Molina Nebraska\u2019s current-quarter prior-authorization code-change PDF and the PA look-up tool on Availity Essentials \u2014 the code-level PA answer is published there, not in any ABA policy. Molina\u2019s PA code lists change quarterly, so re-check per cohort rather than per year.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required — ABA treatment runs on prior authorization under the state MSD (ABA assessment + treatment plan filed with the initial request); Molina publishes no ABA-specific form, so submit via Availity Essentials (fax (833) 832-1015, phone (844) 782-2678) and re-check the current-quarter PA code list',
+      status: 'verified',
+      cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'Molina NE Medicaid — prior authorization page (Availity, fax, phone, quarterly PA code changes)', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+    },
+    dxRequired: {
+      value: 'State MSD rules govern — ASD or a developmental or intellectual disability qualifies, with an IDI within the previous 12 months establishing the need; Molina publishes no Nebraska-specific diagnosis criteria',
+      status: 'verified',
+      cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }],
+    },
     payer: 'Molina Healthcare of Nebraska',
     state: 'NE', kind: 'medicaid-mco', parent: 'Nebraska Medicaid (Heritage Health)',
     deliveryRules: {
@@ -384,6 +427,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
         verifyVia:
           'Molina Nebraska via Availity Essentials or the PA look-up tool, and the current-quarter PA code-change PDF — Molina\'s PA code lists change quarterly, so re-check per cohort rather than per year.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -412,6 +456,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
         verifyVia:
           'Molina Nebraska via Availity Essentials or the PA look-up tool, and the current-quarter PA code-change PDF — Molina\'s PA code lists change quarterly, so re-check per cohort rather than per year.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -517,9 +562,21 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-community-plan-nebraska',
     family: 'unitedhealthcare',
     cardDesc: 'ABA carved to Optum since 2017; all autism services need PA, two-step assessment→treatment auth.',
-    assessmentPA: 'Required — "All Autism Services require Prior Authorization"; written assessment request (treatment form marked as assessment) with the diagnostic evaluation / IDI / FBA attached',
-    treatmentPA: 'Required — for all services and additional units; medical necessity applies at initial and concurrent review',
-    dxRequired: 'State MSD rules govern — ASD or a developmental/intellectual disability qualifies; attach the diagnosing provider\'s evaluation to the request',
+    assessmentPA: {
+      value: 'Required — "All Autism Services require Prior Authorization"; written assessment request (treatment form marked as assessment) with the diagnostic evaluation / IDI / FBA attached',
+      status: 'verified',
+      cites: [{ title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }, { title: 'NE Heritage Health Medicaid Autism/ABA Program provider training (NE_4556)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/NE_4556_ABA-HeritageTrain.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — for all services and additional units; medical necessity applies at initial and concurrent review',
+      status: 'verified',
+      cites: [{ title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }],
+    },
+    dxRequired: {
+      value: 'State MSD rules govern — ASD or a developmental/intellectual disability qualifies; attach the diagnosing provider\'s evaluation to the request',
+      status: 'verified',
+      cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }],
+    },
     payer: 'UnitedHealthcare Community Plan of Nebraska',
     state: 'NE', kind: 'medicaid-mco', parent: 'Nebraska Medicaid (Heritage Health)',
     deliveryRules: {
@@ -536,6 +593,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
         verifyVia:
           'The Optum Care Advocate / the NE Heritage Health Medicaid Autism-ABA Program page on Provider Express.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -564,6 +622,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }],
         verifyVia:
           'The Optum Care Advocate / the NE Heritage Health Medicaid Autism-ABA Program page on Provider Express.',
+        blocker: 'per-case',
       },
     },
     intakeGates: {
@@ -675,9 +734,21 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     slug: 'aetna-nebraska',
     family: 'aetna',
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the Neb. Rev. Stat. § 44-7,106 mandate layer.',
-    assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
-    treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-    dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+    assessmentPA: {
+      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
+      status: 'verified',
+      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+    },
     payer: 'Aetna in Nebraska',
     state: 'NE', kind: 'commercial',
     deliveryRules: {
@@ -693,6 +764,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Aetna precertification/provider services at the number on the member\'s ID card, and the plan\'s own reimbursement schedule — ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
@@ -700,6 +772,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -707,6 +780,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         status: 'unverified',
         verifyVia:
           'The Aetna provider manual and your participation agreement\'s documentation clause.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -715,6 +789,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
         verifyVia:
           'The member\'s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -731,6 +806,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
         verifyVia:
           'The member\'s benefit document and Aetna precertification — funding type decides whether the state mandate or the plan document sets the age boundary.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -757,6 +833,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'Aetna precertification/provider services at the number on the member\'s ID card, and the member\'s benefit document — ask whether the plan layers a referral requirement on behavioral health.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -765,6 +842,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
         verifyVia:
           'Aetna provider services and the member\'s benefit document — confirm which ABA codes pay by telehealth and with which POS code before scheduling remote supervision or caregiver training.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · Aetna · Nebraska',
@@ -830,6 +908,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Requested weekly hours vs. the 25-hour cap', desc: 'Where the mandate governs, BHT including ABA caps at 25 hrs/week — plan intensity and any parity argument accordingly.' },
     ],
     sources: [
+      { title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
@@ -848,18 +927,29 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     slug: 'cigna-nebraska',
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the Neb. Rev. Stat. § 44-7,106 mandate layer.',
-    assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
-    treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
-    dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+    assessmentPA: {
+      value: 'Not required for assessment codes 97151, 97152, 0362T (per Cigna\'s autism resource guide — EN0499 itself states no prior-authorization rule)',
+      status: 'verified',
+      cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — assessment + treatment plan with the ABA PA form (see Cigna\'s autism resource guide; EN0499 sets the clinical criteria, not the PA rule)',
+      status: 'verified',
+      cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
+      status: 'verified',
+      cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+    },
     payer: 'Cigna / Evernorth in Nebraska',
     state: 'NE', kind: 'commercial',
     deliveryRules: {
       supervision: {
         value:
-          'Not published as a ratio. The Evernorth autism resource guide governs credentialing and billing rather than supervision intensity, and Evernorth publishes no percentage floor or caseload cap for technician supervision.',
-        status: 'unverified',
-        verifyVia:
-          'Evernorth Provider Services at 800.926.2273, and the Intensive Behavioral Interventions coverage policy (EN0499).',
+          'Evernorth DOES publish a supervision standard, in EN0499 — direct case supervision (the BCBA face-to-face with the individual alongside the RBT or BCaBA) plus indirect case supervision “is consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment”, and “when direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided.” It is stated as a standard of care rather than a hard caseload cap, and supervisory services must match the CPT code descriptions.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions (Supervision / Direction of Treatment, p.5)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
       concurrentBilling: {
         value:
@@ -874,6 +964,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 and your fee schedule.',
+        blocker: 'per-case',
       },
       noteSignature: {
         value:
@@ -882,6 +973,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         verifyVia:
           'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -890,6 +982,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\'s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -906,6 +999,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
         verifyVia:
           'The member\'s benefit document and Evernorth Provider Services at 800.926.2273 — funding type decides whether the state mandate or the plan document sets the age boundary.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -932,6 +1026,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         verifyVia:
           'Evernorth Provider Services at 800.926.2273 and the member\'s benefit document — referral rules, where they exist, are a plan-design feature rather than a policy feature.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -1020,9 +1115,21 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     slug: 'unitedhealthcare-nebraska',
     family: 'unitedhealthcare',
     cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the Neb. Rev. Stat. § 44-7,106 mandate layer.',
-    assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
-    treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
-    dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+    assessmentPA: {
+      value: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    treatmentPA: {
+      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
+    dxRequired: {
+      value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
+      status: 'verified',
+      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+    },
     payer: 'UnitedHealthcare / Optum in Nebraska',
     state: 'NE', kind: 'commercial',
     deliveryRules: {
@@ -1051,6 +1158,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
         verifyVia:
           'The UnitedHealthcare/Optum provider manual and your participation agreement\'s documentation clause.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1059,6 +1167,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'UnitedHealthcare provider services and the member\'s benefit document.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
@@ -1075,6 +1184,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
         verifyVia:
           'The member\'s benefit document and Optum via Provider Express — funding type decides whether the state mandate or the plan document sets the age boundary.',
+        blocker: 'per-case',
       },
       dxRecency: {
         value:
@@ -1083,6 +1193,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum via Provider Express, or the Care Advocate handling the authorization — ask whether the plan applies a diagnostic-evaluation recency window at intake.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
@@ -1103,6 +1214,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum via Provider Express and the member\'s benefit document — referral requirements, where they exist, are a plan-design feature.',
+        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -1111,6 +1223,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
         verifyVia:
           'The Optum Care Advocate at authorization and Provider Express — Optum runs a virtual-visits attestation on some lines of business, so confirm approval status and the billing POS before scheduling remote 97155 or 97156.',
+        blocker: 'per-case',
       },
     },
     pill: 'Payer Guide · UnitedHealthcare · Nebraska',
