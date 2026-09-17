@@ -109,6 +109,120 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Utah Code Title 58, Chapter 61, Part 7 — Behavior Analyst Licensing Act', url: 'https://le.utah.gov/xcode/Title58/Chapter61/58-61-P7.html' },
       { title: 'Utah Administrative Rule R156-61a — Behavior Analyst Licensing Act Rule', url: 'https://adminrules.utah.gov/public/rule/R156-61a/Current%20Rules' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'A QHP must supervise a minimum of 10 percent of the time the member receives direct services from a technician or assistant behavior analyst, and at least 50 percent of that supervision must be direct supervision. An additional 10 percent of direct supervision can be prior-authorized with documented medical necessity, and additional time approved for direct supervision cannot be used for indirect supervision. The QHP is responsible for all aspects of clinical direction, supervision and case management, must know each team member\'s ability before assigning clinical activities, and must observe the technician implementing the plan. Remote supervision counts only via synchronous two-way audio-video.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          '97155 is written to contemplate the QHP simultaneously directing a technician in administering the modified protocol while the member is present, with the QHP required to be onsite — onsite meaning immediately available and interruptible, not necessarily in the room. The manual\'s explicit prohibition runs the other way: when a behavior analyst or assistant behavior analyst personally provides the direct intervention under 97153 or 97154, the provider must not also bill for behavior-analyst-level services. Direct case supervision reports under 97155; indirect case supervision must be reported under HCPCS H0032, not 97155.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Utah caps by authorization period, not by day — the Maximum Allowed column describes average utilization across the 26-week period and the provider must track it. Per 26 weeks: 97151, 1 assessment (up to 24 units); 97153, 780 hours (3,120 units), about 30 hours a week; 97155 and H0032 combined, 84 hours (336 units), at least half of it direct supervision; 97154, 52 episodes (up to 4 units each); 97158, 26 episodes; 97157, 3 episodes; 97156 carries a recommended minimum of 3 episodes (up to 4 units each). Alternative service-hour combinations may be requested at under 30 hours a week of combined technician individual and group therapy. Requests above the Maximum Allowed go to secondary medical review.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'The treatment plan submitted with the initial PA must carry the name and signature of the QHP who conducted the assessment and developed the plan; the continued-services treatment plan must carry the name and signature of the QHP conducting the reassessment, and reassessments and treatment-plan updates must be conducted by a QHP. Each PA also requires an attestation of medical necessity by the psychologist or behavior analyst. The assessment\'s total time or start and stop times must be noted in the medical record, and the provider must retain records of time spent in direct and indirect supervision. Charting or data collection occurring separately from the time documenting direct observations while working directly with the member is non-covered.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'ABA may be delivered in multiple settings on the same day: naturally occurring home and community settings, and clinic or center-based settings where the environment can be controlled or group services are provided. Schools are the exception — ASD-related services listed on a child\'s IEP must be provided through the Medicaid School-Based Skills Development Services benefit, and apart from the psychologist\'s or behavior analyst\'s participation in the annual IEP development meeting (billable fee-for-service), Medicaid will not reimburse fee-for-service ABA in school-based settings in addition to services listed on an IEP. School-based settings include LEA-funded charter schools but not privately funded schools. Telehealth reports POS 02. Setting-associated costs — resorts, spas, therapeutic programs, camps — and provider travel time are non-covered.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Technicians are certified paraprofessionals who practise under the direct supervision of a QHP, who is responsible for all work performed; assistant behavior analysts likewise work under QHP supervision. Claims for services provided by a behavior analyst in training are covered when supervised by a psychologist or behavior analyst and delivered under the licensure exceptions at Utah Code 58-61-707(10)-(12). Direct and indirect case supervision must carry the modifier identifying the credentials of the clinician who performed the supervision: HP for a psychologist or BCBA-D, HO for a BCBA, HN for a BCaBA or behavior analyst in training. Group services must carry a group-size modifier (UN, UP, UQ, UR, US) or the claim denies. Because ABA is a fee-for-service carve-out, none of the four ACOs credential ABA staff — enrolment runs through the state in PRISM.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Code Title 58, Chapter 61, Part 7 — Behavior Analyst Licensing Act', url: 'https://le.utah.gov/xcode/Title58/Chapter61/58-61-P7.html' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'No upper age limit. Utah offers ASD-related services regardless of age, and the PRISM coverage lookup shows allowed ages 1 and older with Traditional Adult and Targeted Adult plans among the covered eligibility groups — so adults with ASD are in scope, which almost no other state Medicaid program offers. One caveat: an older family-facing FAQ still live on medicaid.utah.gov (v2, 7/15/24) states eligibility as under 21 and CHEC/EPSDT-only, contradicting this; the PRISM lookup and the program page are the stronger sources, but confirm adult eligibility case-by-case in PRISM until the state reconciles the two documents.',
+        status: 'verified',
+        cites: [
+          { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+          { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'No recency window could be sourced. The ASD manual\'s initial prior-authorization checklist requires a copy of the written ASD diagnosis and the screening or evaluation instruments used, but states no maximum age for that diagnosis; what the manual does date is the ABA order (renewed annually) and the reassessment cadence (assessments generally at initiation and every six months thereafter).',
+        status: 'unverified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+        verifyVia: 'The January 2026 ASD manual\'s current PA text, or the Utah Medicaid PA unit at dmhfmedicalpolicy@utah.gov — the state also lists a further 04/13/2026 manual update whose PDF was not retrievable at review.',
+      },
+      diagnosingProviders: {
+        value:
+          'Utah names no specialty list. The manual states that clinicians authorized under the scope of their licensure and trained in the use and interpretation of the selected assessment tool may render the ASD diagnosis, and the initial PA requires a copy of a written ASD diagnosis by a clinician authorized under the scope of their licensure to render a diagnosis. Note that the diagnostic evaluation itself is carved out of the ACOs to fee-for-service, so it does not route through the member\'s health plan.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'No specific instrument is mandated, but standardized measurement is. The diagnostic evaluation must determine the presence of DSM-5 criteria for ASD using evidence-based standardized measures, on top of health, developmental, socioemotional and behavioral histories and a developmental, adaptive and/or cognitive evaluation. A copy of the medical records containing the ASD diagnosis and the screening or evaluation instruments used must be submitted with the initial prior-authorization request, and the treatment plan must attach a copy of the assessment tool(s) used to assess functional skills and maladaptive behaviors.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Yes. ASD services are covered based on the recommendation and referral of a qualified health care professional, and the initial PA packet must include an order (prescription) for ABA services from a licensed clinician authorized to prescribe ABA under their scope of licensure and training. For ongoing services a new order must be submitted annually — so the prescription is a recurring intake chase, not a one-off.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Covered for supervision of an assistant behavior analyst or behavior technician and for parent training when clinically appropriate (per Utah Administrative Rule R414-42), synchronous only — real-time two-way video and audio — with the provider delivering or supervising only one member or one group session at a time and documentation substantiating clinical appropriateness. Not covered by telehealth: adaptive behavior treatment administered by a technician, group adaptive behavior treatment administered by a technician, and group adaptive behavior treatment with protocol modification administered by a QHP. Remote services report Place of Service 02 on the CMS-1500, and the treatment plan must describe the settings including hours delivered via remote technology.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Utah Medicaid cover ABA therapy?', a: 'Yes — as a state-plan ASD service, fee-for-service, regardless of age (PRISM shows ages 1 and older, adult plans included). No PA on assessments; treatment requires PA in 26-week periods, with a 10-business-day grace to submit after starting services.' },
       { q: 'My client is on Molina / SelectHealth / Healthy U / Health Choice — where does the ABA request go?', a: 'To Utah Medicaid directly. ABA is carved out of all four ACO contracts to state fee-for-service — the ACO handles only ASD-related PT/OT/ST. There are no per-plan ABA portals, forms, or criteria in Utah.' },
@@ -210,7 +324,136 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Select Health — Preauthorization Forms & Reports', url: 'https://selecthealth.org/providers/preauthorization/forms-reports' },
       { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
       { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+      { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+      { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
+      { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — the QHP must supervise at least 10% of technician or assistant-analyst direct-service time, at least half of it direct supervision. No Select Health commercial supervision standard is publicly retrievable.',
+        status: 'unverified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+        ],
+        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+      },
+      concurrentBilling: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — 97155 contemplates the QHP simultaneously directing a technician with the member present, while a behavior analyst personally delivering 97153/97154 may not also bill analyst-level services. No Select Health commercial concurrent-billing rule is publicly retrievable.',
+        status: 'unverified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+        ],
+        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+      },
+      dailyLimits: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — limits are set per 26-week authorization period, not per day (97153 up to 780 hours; 97155 plus H0032 capped at 84 combined hours). On the commercial side the Utah mandate removed hour caps for individual and large-group plans entered or renewed since 1/1/2020 — the 600-hours-a-year floor survives only on legacy pre-2020 plans — but small-group and self-funded plans sit outside the statute.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+        verifyVia: 'A live benefits verification — annual maximums and any plan-level hour limits are plan-specific, and Policy #630 could not be retrieved.',
+      },
+      noteSignature: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — the treatment plan must carry the name and signature of the QHP who conducted the assessment and developed it, with an attestation of medical necessity. No Select Health commercial documentation or signature standard is publicly retrievable.',
+        status: 'unverified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+        ],
+        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+      },
+      placeOfService: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — home, community and clinic settings are payable across the same day, while IEP-listed school services route to the School-Based Skills Development benefit instead. For commercial members, Select Health\'s ABA Preauthorization Form collects a full weekly schedule by setting (office, home, other) plus school and other-therapy schedules and IEP/ISP/504/ARD status, which is how setting is actually adjudicated.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+        ],
+        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+      },
+      billAsProvider: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — technicians and assistant analysts work under a QHP who is responsible for all work performed, with credential modifiers (HP, HO, HN) on supervision codes and group-size modifiers on group codes; enrolment runs through state PRISM, not Select Health. No Select Health commercial claim-attribution rule is publicly retrievable.',
+        status: 'unverified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+        ],
+        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — no upper age limit, PRISM showing ages 1 and older including adult plans. For Select Health commercial members, the Utah mandate sets the floor where it applies: Utah Code § 31A-22-642 imposes no age limit on individual and large-group plans entered or renewed since 1/1/2020, but small-group plans are not named by the statute and self-funded ERISA plans are exempt.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+          { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+        verifyVia: 'A live benefits verification of the member\'s market segment (individual, small-group, large-group or self-funded) — the mandate\'s protections do not reach small-group or self-funded business.',
+      },
+      dxRecency: {
+        value:
+          'No recency window is published on either side. Utah Medicaid states none (see our Utah Medicaid guide), and Select Health\'s commercial ABA Preauthorization Form distinguishes an initial request, which requires the diagnostic evaluation report, from a concurrent request, which requires an updated treatment plan with progress data — without dating the diagnosis.',
+        status: 'unverified',
+        cites: [
+          { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+      },
+      diagnosingProviders: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — the diagnosis may be rendered by any clinician authorized under the scope of their licensure and trained in the use and interpretation of the selected assessment tool. For commercial members the Utah mandate\'s definition is narrower and stricter: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — no specific instrument is mandated, but the DSM-5 determination must rest on evidence-based standardized measures and the completed tool accompanies the initial PA. For commercial members, Select Health\'s ABA Preauthorization Form requires the diagnostic evaluation report on an initial request; the instrument criteria inside Policy #630 could not be retrieved.',
+        status: 'unverified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+        ],
+        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+      },
+      referral: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — an order or prescription for ABA from a licensed clinician authorized to prescribe it is required in the initial packet and renewed annually. For commercial members, Select Health requires preauthorization on its own ABA Preauthorization Form (commercialUMintake@imail.org, fax 801-442-0825), with Utah decisions due within 14 days absent expedited review; no separate physician referral requirement is published.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+        ],
+        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+      },
+      telehealth: {
+        value:
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — telehealth covers supervision and parent training but not technician-delivered 97153/97154 or QHP-delivered group 97158, synchronous only, POS 02. For commercial members the form collects a weekly ABA schedule by setting (office, home, other) rather than stating a telehealth rule.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+        ],
+        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
+      },
+    },
     faq: [
       { q: 'Does Select Health cover ABA therapy in Utah?', a: 'Depends which Select Health. SelectHealth Community Care (the Medicaid ACO) never administers ABA — it rides Utah Medicaid\'s fee-for-service carve-out. Select Health commercial (employer/individual) plans cover ABA under the plan\'s own Policy #630, with prior authorization required.' },
       { q: 'My client has "Select Health Community Care" — where does the ABA request go?', a: 'To Utah Medicaid directly, not to Select Health. ABA is carved out of all four Utah Medicaid ACOs (including SelectHealth Community Care) to state fee-for-service — see our Utah Medicaid guide.' },
@@ -296,7 +539,130 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
       { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
+      { title: 'Utah Code § 31A-22-642 (prior version, effective 5/4/2022)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2022050420220504.pdf' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'CPB 0554 sets no supervision ratio. In Utah the binding floor is licensure: the Licensed Behavior Analyst and Licensed Assistant Behavior Analyst credentials under the Behavior Analyst Licensing Act (Utah Code Title 58, Chapter 61, Part 7), administered by DOPL, with behavior technicians working as certified paraprofessionals under QHP supervision rather than as licensees. The mandate separately requires plan networks to include board certified behavior analysts and qualified licensed mental health providers.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+        verifyVia: 'Aetna provider relations and the participating-provider agreement — CPB 0554 carries no supervision standard.',
+      },
+      concurrentBilling: {
+        value:
+          'Not addressed in CPB 0554 or CPB 0648; concurrent-billing edits live in Aetna\'s reimbursement and code-editing policies rather than its clinical bulletins.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+        verifyVia: 'Aetna\'s commercial reimbursement/code-editing policies via Availity, or provider relations.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling is published. Under the Utah mandate there is no cap on covered ABA hours for individual and large-group plans entered or renewed since 1/1/2020; the 600-hours-a-year floor applies only to legacy pre-2020 plans, and small-group and self-funded plans sit outside the statute entirely.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+        verifyVia: 'A live benefits verification — hour and dollar maximums are plan-specific outside the mandate.',
+      },
+      noteSignature: {
+        value:
+          'Not addressed in CPB 0554 or CPB 0648.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+        verifyVia: 'Aetna provider relations or the participating-provider agreement — the clinical bulletins carry no documentation or signature standard.',
+      },
+      placeOfService: {
+        value:
+          'CPB 0554 describes ABA as evaluating observable behavior within relevant settings including the home, school and community but sets no place-of-service restriction; CPB 0648 notes many Aetna plans exclude coverage of educational services and may exclude developmental or intelligence testing in educational settings, making the school boundary a benefit-exclusion question.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+        verifyVia: 'A live benefits verification — the educational-services exclusion is written into the plan document, not the clinical policy.',
+      },
+      billAsProvider: {
+        value:
+          'Not addressed in Aetna\'s clinical bulletins. In Utah the licensure structure is the constraint: practising behavior analysis requires a DOPL licence (LBA or LABA) under Utah Code 58-61 Part 7, and technicians work under QHP supervision as paraprofessionals.',
+        status: 'unverified',
+        cites: [
+          { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+        verifyVia: 'Aetna provider relations and the participating-provider agreement — rendering-versus-supervising NPI rules are contractual, not in CPB 0554.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Aetna\'s national policy sets no age limit. In Utah the legal floor is Utah Code § 31A-22-642: no age limit and no cap on covered ABA hours for individual and large-group plans entered or renewed on or after 1/1/2020 (the 600-hours-a-year floor and the ages-2-to-under-10 window govern only legacy pre-2020 plans), the treatment plan due to the insurer within 14 business days of starting treatment, and insurer review at most once every 3 months. Small-group plans are not named by the statute and self-funded ERISA plans are exempt, so market segment is the load-bearing question.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+        verifyVia: 'A live benefits verification — market segment (individual, small-group, large-group) and funding type decide whether the mandate applies.',
+      },
+      dxRecency: {
+        value:
+          'Neither CPB 0554 nor CPB 0648 states a recency window on the ASD diagnosis, and the Utah mandate sets none. Where currency is tested is reauthorization, commonly on a roughly 6-month cadence, and the mandate separately gives the insurer the right to review the treatment plan at most once every 3 months.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+        verifyVia: 'Aetna precertification (form GR-69017-4) via Availity, and the plan document for any plan-specific evaluation-currency rule.',
+      },
+      diagnosingProviders: {
+        value:
+          'CPB 0648 requires the evaluation to be performed by the appropriate certified or licensed health care professional, naming board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist/audiologist. The Utah mandate\'s own diagnosis definition is strict and applies to plans it reaches: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'CPB 0648 names the instruments it treats as medically necessary components of testing for the diagnosis of pervasive developmental disorders: the ADI-R, the ADOS-2, the CARS-2 and the Asperger Syndrome Diagnostic Scale. It does not say whether all four or a subset are required.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+      },
+      referral: {
+        value:
+          'Aetna imposes no referral or physician order of its own — the gate is precertification on form GR-69017-4 for both assessment and treatment, via Availity or phone. The Utah mandate adds no order requirement, but it does put a clock on the practice: the treatment plan is due to the insurer within 14 business days of starting treatment.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+        verifyVia: 'The member\'s plan document and a live benefits verification — HMO products may carry their own referral rules.',
+      },
+      telehealth: {
+        value:
+          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA, and the Utah mandate is silent on modality. Treat it as a plan and network question.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+        verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
+      },
+    },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Utah?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Utah\'s mandate (Utah Code § 31A-22-642) for individual and large-group fully-insured plans. Small-group and self-funded employer plans sit outside the mandate, so always verify market segment and funding type first.' },
       { q: 'What does the Utah autism mandate require?', a: 'For individual and large-group plans entered or renewed since 1/1/2020: coverage for ASD diagnosis and treatment with no age limit and no cap on ABA hours, a treatment plan due within 14 business days of starting treatment, insurer reviews at most every 3 months, and networks that include BCBAs. Small group is not covered by the statute.' },
@@ -381,7 +747,115 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
       { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
+      { title: 'Utah Code § 31A-22-642 (prior version, effective 5/4/2022)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2022050420220504.pdf' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Case supervision is performed by a BCBA, LBA, or a mental health professional licensed to practise independently with documented ABA training. Direct case supervision (the BCBA face-to-face with the individual and the RBT or BCaBA delivering treatment) plus indirect case supervision runs at the accepted standard of one to two hours per ten hours of direct treatment; where direct treatment is 10 hours a week or less, a minimum of one to two hours a week of direct case supervision is provided, and the name and credentials of the supervisor must be documented. In Utah the LBA must additionally hold a DOPL licence under Utah Code 58-61 Part 7.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'EN0499 defines concurrent billing as multiple providers billing for the same patient at the same time regardless of funding source, and flatly excludes ABA delivered to the same individual at the same time as any other treatment modality (ABA and speech therapy, or ABA and occupational therapy). ABA delivered by multiple provider organizations in the same authorization period is not medically necessary unless additional documented conditions are met. It does not separately bless or bar a 97153-plus-97155 pairing.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'No per-day or per-week unit ceiling is published. EN0499 defines treatment intensity as direct ABA treatment hours per week, excluding case supervision and caregiver training, individually determined from assessment data and set on medical necessity independent of the individual\'s outside schedule or prior utilization. Under the Utah mandate there is no hour cap for individual and large-group plans entered or renewed since 1/1/2020.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Each session record must carry the start date and time, end date and time, location of service delivery, focus of service, a detailed description of the intervention, the individuals present, the specific service delivered (direct service, supervision, stakeholder training), and the name, credential where applicable, and signature of the ABA provider who rendered the service.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Goals must be defined across every setting where treatment will occur, and EN0499 names residential facilities, childcare facilities, homes, schools, transportation, community settings, clinics, vocational or educational classes, and recreational and social environments as payable sites when medically necessary. The boundary is purpose: services primarily educational or vocational in nature, or related to academic or work performance, are not covered, and ABA may not replace or replicate activities that are the responsibility of the setting — classroom aide, 1:1 teacher, tutor, vocational coach, respite.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'EN0499 governs who may render and supervise but publishes no rendering-versus-supervising NPI rule; claim-level attribution is a reimbursement-policy and contract question. In Utah, whoever supervises must hold the DOPL behavior-analyst licence.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
+        ],
+        verifyVia: 'Cigna/Evernorth provider services and the participating-provider agreement — EN0499 is a coverage policy and carries no claim-attribution rule.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EN0499 sets no age limit — its gate is a confirmed ASD diagnosis. Utah fully-insured business is squarely subject to EN0499 (Virginia is the policy\'s only state carve-out). In Utah the legal floor is Utah Code § 31A-22-642: no age limit and no cap on covered ABA hours for individual and large-group plans entered or renewed on or after 1/1/2020 (the 600-hours-a-year floor and the ages-2-to-under-10 window govern only legacy pre-2020 plans), the treatment plan due to the insurer within 14 business days of starting treatment, and insurer review at most once every 3 months. Small-group plans are not named by the statute and self-funded ERISA plans are exempt, so market segment is the load-bearing question.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'EN0499 sets no recency window on the ASD diagnosis itself, but requires the date on which the diagnosis was most recently made to be supplied, and requires the standardized ABA assessment instrument to have been administered within the 60 days before treatment starts.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'A confirmed ASD diagnosis (ICD-10-CM F84.0-F84.9, excluding F84.2 Rett syndrome) made against DSM-5-TR criteria by a health care professional licensed to practise independently and whose licensure board considers diagnostics within their scope of practice, with the name, credentials and type of licensure of the diagnosing clinician provided. The Utah mandate\'s own diagnosis definition is strict and applies to plans it reaches: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'A reliable, valid and standardized assessment instrument measuring the DSM-5-TR ASD domains. EN0499 names no fixed list but sets conditions: completed in its entirety and as designed, reliability and validity established for the population tested, administered and interpreted by someone trained to do so, the most current version (Vineland-3, not Vineland-II), and reported with the date of administration, the respondent, and the form type.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'EN0499 imposes no referral or physician order — the gate is the confirmed independent-licensure diagnosis plus a full ABA assessment by a BCBA, LBA, or independently licensed mental health clinician with documented ABA training, and where that assessment came from someone other than the requesting provider, documented collaboration plus confirmation that the results reflect current functioning. The Utah mandate adds its own clock: the treatment plan is due to the insurer within 14 business days of starting treatment.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements; the line-of-sight and close-proximity requirement on direct treatment expressly does not apply to telehealth services.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Cigna cover ABA therapy in Utah?', a: 'Yes — under national policy EN0499 (which fully applies in Utah, unlike Virginia), layered on Utah\'s mandate (Utah Code § 31A-22-642) for individual and large-group fully-insured plans. Small-group and self-funded employer plans sit outside the mandate, so always verify market segment and funding type first.' },
       { q: 'Does the ABA assessment need prior authorization with Cigna in Utah?', a: 'No — EN0499 requires no PA on assessment codes 97151, 97152, and 0362T, and Utah is fully subject to that policy. Treatment then requires the completed assessment plus a treatment plan with Cigna\'s ABA PA form.' },
@@ -469,7 +943,117 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
       { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
       { title: 'Utah Medicaid Managed Care page (PMHP list)', url: 'https://medicaid.utah.gov/managed-care/' },
+      { title: 'Utah Code § 31A-22-642 (prior version, effective 5/4/2022)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2022050420220504.pdf' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Consistent with CASP standards of care, direct case supervision is required at 1 to 2 hours for every 10 hours of direct treatment per week. Technicians must work under the applicable supervision of a BCBA or licensed behavioral health clinician and should be RBTs or another appropriately certified behavior technician as allowable by state mandate; a BCaBA or non-licensed individual works under the direct supervision of a BCBA or licensed behavioral health clinician who takes responsibility for the individual\'s care. Where significant challenging behaviors are present, a higher staff-to-patient ratio and on-site direction by the supervisor may be needed. In Utah the supervising analyst must hold a DOPL licence under Utah Code 58-61 Part 7.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Not addressed in Optum\'s supplemental clinical criteria, which govern medical necessity rather than claim editing.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum/UnitedHealthcare reimbursement policy via Provider Express, or the participating-provider agreement.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling is published. Optum frames total intensity as direct plus indirect services (caregiver training and supervision included), increased or decreased on the individual\'s response to treatment. Under the Utah mandate there is no hour cap for individual and large-group plans entered or renewed since 1/1/2020.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Optum specifies the content that must be documented — goals and objectives, baseline behaviors, frequency, intensity, duration and progress-measurement method for each intervention, the percentage of planned sessions attended, and progress against standardized norm-referenced adaptive measures — but does not state who must sign a session note or when.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum provider services via Provider Express — the supplemental clinical criteria carry no signature standard.',
+      },
+      placeOfService: {
+        value:
+          'ABA must be provided at the least restrictive, most clinically appropriate level. The school boundary is explicit: ABA is not covered for services that are not ABA therapy, such as a 1:1 aide delivered simultaneously during classroom instruction, or for services covered under IDEA — but school ABA does cover coordination of services, including teacher training, meetings with school personnel, and observations in the school setting, and the treatment plan must be coordinated with the school and any applicable IFSP or IEP.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Optum defines who may render — a master\'s- or doctoral-level BCBA, a licensed behavioral health clinician attested and credentialed to provide ABA, or a BCaBA or non-licensed technician under the direct supervision of one of those — but publishes no rendering-versus-supervising NPI rule. In Utah, ABA is carved out of Medicaid managed care entirely, so a UnitedHealthcare name on the Medicaid side (United Behavioral Health as a Prepaid Mental Health Plan contractor) never touches ABA.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum provider services via Provider Express and the participating-provider agreement — claim-attribution rules are contractual.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Optum\'s criteria set no age bound — the gate is a valid ASD diagnosis — and Utah has no entry in Optum\'s ABA State Mandates supplemental criteria (January 2026 edition), so Utah commercial ABA runs on the standard national criteria. In Utah the legal floor is Utah Code § 31A-22-642: no age limit and no cap on covered ABA hours for individual and large-group plans entered or renewed on or after 1/1/2020 (the 600-hours-a-year floor and the ages-2-to-under-10 window govern only legacy pre-2020 plans), the treatment plan due to the insurer within 14 business days of starting treatment, and insurer review at most once every 3 months. Small-group plans are not named by the statute and self-funded ERISA plans are exempt, so market segment is the load-bearing question.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA State Mandates supplemental criteria (no Utah entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Optum\'s criteria set no recency window on the ASD diagnosis. Currency is tested on the treatment side instead: continued-service reviews every 4 to 6 months against updated standardized, norm-referenced adaptive measures.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'A valid ASD diagnosis (or other applicable diagnosis required by governing law) issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make that diagnosis under DSM-5-TR criteria, with the DSM-5 diagnosis and severity level confirmed and documented by the diagnosing clinician. The Utah mandate\'s own diagnosis definition is strict and applies to plans it reaches: a board-certified neurologist, psychiatrist or pediatrician with ASD experience, or an experienced licensed psychologist.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'At least one clinically validated tool must confirm the diagnosis and severity level. Optum groups them: first-level screeners (ABC, CHAT/M-CHAT, CSBS-DP-IT, ASQ, AQ, CAST), second-level screeners and diagnostic aids (CARS/CARS-2, RITA-T, STAT), and formal diagnostic tools used in a comprehensive diagnostic evaluation (ADI-R, ADOS/ADOS-2, DISCO). Treatment intensity must separately be set from at least one validated measurement tool — ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, Vineland (VABS) or CFQL-2 — plus norm-referenced instruments comparing the individual to age-matched neurotypical peers.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Optum imposes no referral or physician order. Prior authorization is the gate — a two-step process on Provider Express, assessment authorized first and then treatment — unless otherwise specified or mandated by contract or law. The Utah mandate adds the 14-business-day treatment-plan deadline after treatment starts.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Optum treats telehealth as an available modality, citing practice parameters for telehealth implementation of ABA and noting delivery across a broad range of clinical settings (home, clinic, school) — but the telehealth options are intended to supplement, not supplant, in-person service.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Utah?', a: 'Yes — under Optum\'s national two-step authorization process for ASD, layered on Utah\'s mandate (Utah Code § 31A-22-642) for individual and large-group fully-insured plans. Small-group and self-funded employer plans sit outside the mandate, so always verify market segment and funding type first.' },
       { q: 'Does Optum have Utah-specific ABA criteria?', a: 'No — Utah has no entry in Optum\'s ABA State Mandates supplemental criteria (January 2026 edition), so Utah commercial ABA runs on Optum\'s standard national criteria plus the state mandate.' },

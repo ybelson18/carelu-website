@@ -72,7 +72,7 @@ function PayerGuide({ config }: { config: PayerConfig }) {
       if (!allSources.some((x) => x.url === c.url)) allSources.push(c);
     }
   }
-  for (const r of Object.values(config.deliveryRules ?? {})) {
+  for (const r of [...Object.values(config.deliveryRules ?? {}), ...Object.values(config.intakeGates ?? {})]) {
     for (const c of r?.cites ?? []) {
       if (!allSources.some((x) => x.url === c.url)) allSources.push(c);
     }
@@ -274,6 +274,61 @@ function PayerGuide({ config }: { config: PayerConfig }) {
                   </div>
                 );
               })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Intake gates — what decides whether a family can start */}
+      {config.intakeGates && Object.values(config.intakeGates).some(Boolean) && (
+        <section style={{ paddingTop: 'clamp(36px, 5vw, 56px)' }}>
+          <div style={MEASURE}>
+            <h2 className="rv" style={{
+              fontFamily: 'var(--font-display)', fontSize: 'clamp(23px, 2.6vw, 31px)',
+              fontWeight: 400, color: INK, lineHeight: 1.2, letterSpacing: '-0.014em', margin: '0 0 10px',
+            }}>Intake gates</h2>
+            <p className="rv" style={{ fontSize: 14.5, color: 'rgba(43,42,38,0.68)', lineHeight: 1.7, margin: '0 0 16px' }}>
+              The questions that decide whether a family can start with {config.payer}, and what they
+              have to bring. Each maps onto something intake should ask on the first call.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {([
+                ['Age limit', config.intakeGates.ageLimit],
+                ['Diagnosis recency', config.intakeGates.dxRecency],
+                ['Who may diagnose', config.intakeGates.diagnosingProviders],
+                ['Diagnostic tools required', config.intakeGates.diagnosticTools],
+                ['Referral required?', config.intakeGates.referral],
+                ['Telehealth', config.intakeGates.telehealth],
+              ] as const)
+                .filter(([, r]) => r)
+                .sort(([, a], [, b]) => {
+                  const rank = (st?: string) => (st === 'verified' ? 0 : st === 'plan-dependent' ? 1 : 2);
+                  return rank(a!.status) - rank(b!.status);
+                })
+                .map(([label, r]) => (
+                <div key={label} className="rv" style={{
+                  background: '#fff', borderRadius: 14, padding: 'clamp(14px, 2vw, 20px)',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03)',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 9, flexWrap: 'wrap', marginBottom: 4 }}>
+                    <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: GREEN }}>{label}</span>
+                    {r!.status !== 'verified' && (
+                      <span style={{
+                        fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase',
+                        color: 'rgba(43,42,38,0.5)', background: HAIR, borderRadius: 20, padding: '2px 8px',
+                      }}>{r!.status === 'plan-dependent' ? 'Plan-dependent' : 'Unverified'}</span>
+                    )}
+                  </div>
+                  <p style={{ fontSize: 14.5, color: 'rgba(43,42,38,0.75)', lineHeight: 1.62, margin: 0 }}>
+                    {r!.value}<CiteSup cites={r!.cites} />
+                  </p>
+                  {r!.verifyVia && (
+                    <p style={{ fontSize: 13, color: 'rgba(43,42,38,0.55)', lineHeight: 1.55, margin: '6px 0 0' }}>
+                      Confirm via: {r!.verifyVia}
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

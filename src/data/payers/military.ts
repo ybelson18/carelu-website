@@ -149,6 +149,46 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'Humana Military — ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' },
       { title: 'Humana Military — Beneficiaries in the new TRICARE contract', url: 'https://www.humanamilitary.com/beneupdates' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'None. DHA states plainly that the Autism Care Demonstration carries no age limit, no time limit and no yearly or lifetime dollar cap on ABA. What ages out is the diagnosing pathway, not the benefit: if the first ASD diagnosis comes at age 8 or later it must come from a specialized ASD diagnosing provider rather than a primary care provider. Separately, whether the child is still a TRICARE-eligible dependent is its own eligibility question \u2014 the ACD gates on plan enrollment, not on age.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }, { title: 'Humana Military \u2014 ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Two clocks, and both belong on the intake form. First, the diagnosis: a child diagnosed more than two years before ABA is requested must get an updated diagnostic assessment \u2014 so ask for the date of the initial ASD diagnosis, not just the diagnosis. Second, the referral: it runs two years, and every two years an approved ASD diagnosing provider must issue a new referral with an updated DHA-approved DSM-5 checklist. Neither is the ABA provider\u2019s to sign, which is why the two-year renewal is a diary item to set on day one rather than a task to discover at reauthorization. Outcome measures carry their own window: they must be completed no earlier than 90 days before their due date.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }, { title: 'Humana Military \u2014 ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' }, { title: 'Humana Military \u2014 ACD outcome measures', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/outcomemeasures' }],
+      },
+      diagnosingProviders: {
+        value:
+          'A closed list, and the single most common intake failure on a TRICARE case. Approved primary care providers are limited to family practice physicians, pediatricians, and pediatric or family nurse practitioners. Approved specialists are board-certified or board-eligible physicians in developmental-behavioral pediatrics, neurodevelopmental pediatrics, pediatric neurology, or adult or child psychiatry, plus doctoral-level licensed clinical psychologists and Doctors of Nursing Practice meeting specific criteria. A physician assistant or an unlisted specialty cannot diagnose or refer for the ACD, whatever their scope elsewhere. And a first diagnosis at age 8 or later must come from the specialist half of the list.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }, { title: 'TRICARE \u2014 Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' }, { title: 'Humana Military \u2014 ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Two instruments-and-forms requirements, on different clocks. At the door, the referral must carry \u201ca definitive diagnosis of ASD using the DSM-5 (or current edition) criteria,\u201d those criteria \u201cmust be documented in a DHA-approved checklist in the referral,\u201d and a validated assessment tool must accompany the referral and confirm the diagnosis. Then, for the life of the case, four standardized outcome measures are mandatory and \u201cmust be received prior to issuing a treatment authorization\u201d: the PDDBI at baseline and every six months (the ABA supervisor completes the teacher form), the Vineland-3 at baseline and annually, the SRS-2 parent form at baseline and annually, and the PSI-4 short form (birth through 12) or the SIPA (ages 11 to 19) at baseline and every six months. Submission mechanics bounce as many authorizations as scores do: measures completed no earlier than 90 days before their due date, the full publisher print report or hand-scored protocols, scores that \u201ccannot be imbedded within the TP or any other clinical documents,\u201d a respondent name and relationship that match across all forms, and \u2014 for the Vineland-3 \u2014 all composite scores including both maladaptive behavior composites. Where the ABA provider administers a measure, bill CPT 97151 with a 99 modifier.',
+        status: 'verified',
+        cites: [{ title: 'Humana Military \u2014 ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' }, { title: 'Humana Military \u2014 ACD outcome measures', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/outcomemeasures' }, { title: 'TRICARE \u2014 Understanding Outcome Measures for ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/Outcome-Measures' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
+      },
+      referral: {
+        value:
+          'Required, defined, and renewable on a two-year clock. The referral is a document rather than a note: it must include a definitive DSM-5 ASD diagnosis by a PCM or specialized ASD diagnosing provider, the DSM-5 criteria documented in a DHA-approved checklist, and a validated assessment tool confirming the diagnosis. On a complete referral Humana Military authorizes the initial assessment, treatment-plan development and the outcome measures, provided an authorized ABA supervisor has an opening; a six-month treatment authorization follows the completed assessment and baseline measures. For active duty families a second, non-clinical gate applies and intake should ask about it on the first call: the sponsor must enrol the child in their branch\u2019s Exceptional Family Member Program, and the child must register for the Extended Care Health Option. Without the ECHO path, ABA cannot be authorized regardless of the clinical picture. \u201cClaims for services rendered without prior authorization will be denied.\u201d',
+        status: 'verified',
+        cites: [{ title: 'Humana Military \u2014 ACD authorization process', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/authorizationprocess' }, { title: 'Humana Military \u2014 ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
+      },
+      telehealth: {
+        value:
+          'Humana Military does not publish an ABA telehealth code list on its public ACD pages. What it does publish is the documentation consequence: the progress note must record the place of service as home, clinic/center, daycare (non-preschool), school, community or telemedicine, and GPS coordinates do not satisfy that. The West Region contractor publishes the DHA-level rule in full \u2014 telehealth limited to 97156, only after the first six-month treatment period, with a GT or 95 modifier and no audio-only \u2014 but that is TriWest\u2019s published restatement, not an East Region document, so confirm before scheduling remote hours in the East.',
+        status: 'unverified',
+        cites: [{ title: 'Humana Military \u2014 ACD progress notes', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/progressnotes' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
+        verifyVia:
+          'Humana Military\u2019s ABA dedicated line at (866) 323-7155, or the authorization letter itself in provider self-service. TRICARE Operations Manual Ch. 18, Sec. 3 is the governing document, but manuals.health.mil blocks automated retrieval.',
+      },
+    },
     faq: [
       { q: 'Does TRICARE East cover ABA therapy?', a: 'Yes, but not through the regular medical benefit. ABA is covered under the Comprehensive Autism Care Demonstration, a separate program currently authorized through Dec. 31, 2028 and administered in the East Region by Humana Military. Every ABA service requires prior authorization.' },
       { q: 'What outcome measures does the Autism Care Demonstration require?', a: 'Four: the PDDBI (baseline and every six months, with the ABA supervisor completing the teacher form), the Vineland-3 (baseline and annually), the SRS-2 (baseline and annually), and the PSI-4 short form for ages birth through 12 or the SIPA for ages 11 to 19 (baseline and every six months). They must be received before a treatment authorization will issue.' },
@@ -336,6 +376,44 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'Humana Military — Beneficiaries in the new TRICARE contract', url: 'https://www.humanamilitary.com/beneupdates' },
       { title: 'Federal Register — Extension of the Comprehensive Autism Care Demonstration (Aug. 4, 2022)', url: 'https://www.govinfo.gov/content/pkg/FR-2022-08-04/html/2022-16742.htm' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'No age limit and no annual cap on ABA under the demonstration. Age instead decides which instrument and which diagnosing provider apply. If the first ASD diagnosis comes at age 8 or older, the beneficiary must first be evaluated by a specialized ASD diagnosing provider; an adult beneficiary who ages out of a diagnosing provider\u2019s pediatric scope may only be diagnosed and referred by a clinical psychologist. On outcome measures the split is the PSI-4 short form for birth through 12 years 11 months and the SIPA for 11 through 19 years 11 months, with either acceptable in the 11 to 12 years 11 months overlap and only the SIPA above it.',
+        status: 'verified',
+        cites: [{ title: 'TriWest \u2014 Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
+      },
+      dxRecency: {
+        value:
+          'Two clocks. If the beneficiary has never had ABA and the initial ASD diagnosis is more than two years old, an updated evaluation is required. And referrals last two years: TriWest accepts a new referral within six months of the current one expiring and recommends getting it no more than six months in advance. The DSM-5-TR ASD criteria checklist must be completed at ACD enrollment and every two years after, and only approved TRICARE diagnosing providers may complete it \u2014 not ABA providers. Usefully, the diagnostic evaluation and the validated assessment tool are one-time requirements and are not repeated at the two-year renewal. For a beneficiary new to the ACD, TRICARE West will accept outcome measures administered up to one year before ABA starts.',
+        status: 'verified',
+        cites: [{ title: 'TriWest \u2014 Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
+      },
+      diagnosingProviders: {
+        value:
+          'The ACD\u2019s closed list, plus two West-specific rules. Approved primary care providers are family practice physicians, pediatricians, and pediatric or family nurse practitioners; approved specialists are board-certified or board-eligible physicians in developmental-behavioral pediatrics, neurodevelopmental pediatrics, pediatric neurology, or adult or child psychiatry, plus doctoral-level licensed clinical psychologists and qualifying Doctors of Nursing Practice. A first diagnosis at age 8 or older requires the specialist half of the list. An adult beneficiary past a diagnosing provider\u2019s pediatric scope may only be diagnosed and referred by a clinical psychologist. The DSM-5-TR checklist is theirs to complete, never the ABA provider\u2019s.',
+        status: 'verified',
+        cites: [{ title: 'TriWest \u2014 Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }, { title: 'TRICARE \u2014 Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' }],
+      },
+      diagnosticTools: {
+        value:
+          'A validated tool at the door and four standardized measures for the life of the case. TriWest states the rule flatly: all beneficiaries need complete and valid outcome measure scores for ABA service requests to be approved. The PDDBI parent form is due before treatment and every six months; the PDDBI teacher form, completed by the treating ABA supervisor, is required with the first reassessment and every six months after; the Vineland-3 and SRS-2 are due before treatment and annually; the PSI-4 short form (birth through 12 years 11 months) or the SIPA (11 through 19 years 11 months) is due before treatment and every six months. Only the scores go in \u2014 the full publisher report or a clearly written hand-scored protocol with summary score sheets, labelled parent or teacher, with the respondent\u2019s name and relationship. Measures other than the PDDBI may be authorized to the ABA provider without a separate diagnosing-provider referral, under CPT 97151 with modifier 99 and one unit per measure, but they must be requested through a treatment plan update \u2014 requests made outside that update are cancelled, and measures are not split between providers.',
+        status: 'verified',
+        cites: [{ title: 'TriWest \u2014 Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'TRICARE \u2014 Understanding Outcome Measures for ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/Outcome-Measures' }],
+      },
+      referral: {
+        value:
+          'Four conditions must be true before anything is authorized: the beneficiary is enrolled in a TRICARE health plan; a TRICARE-authorized ASD diagnosing provider has made a definitive ASD diagnosis; active duty family members are registered for the Extended Care Health Option; and the active duty sponsor is enrolled in their branch\u2019s Exceptional Family Member Program. TriWest may grant provisional 90-day ECHO eligibility while registration completes, but if proof of EFMP enrollment is not complete within 90 days the beneficiary is disenrolled from ECHO and loses ABA eligibility \u2014 capture where the family sits on that clock. Referrals last two years. Treatment then follows a clinical necessity review of goals, requested hours, location of services and outcome-measure scores; if changes are required the provider has 10 calendar days to submit a modified plan for a second review, and reauthorization may be filed up to 60 days ahead but no later than 30 days before expiry.',
+        status: 'verified',
+        cites: [{ title: 'TriWest \u2014 Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'TRICARE West \u2014 Clinical Necessity Reviews', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/Clinical-Necessity-Reviews' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
+      },
+      telehealth: {
+        value:
+          'The narrowest telehealth rule in this directory, and TriWest publishes it explicitly. Telehealth is POS 02, one code only \u2014 97156 \u2014 and only after the first six-month treatment period, with a GT or 95 modifier. Audio-only is not allowed under the ACD at all. 97151, 97153, 97155, 97157 and 97158 may not be delivered remotely. Plan the first six months as fully in-person and treat remote parent training as an earned option rather than a starting assumption.',
+        status: 'verified',
+        cites: [{ title: 'TriWest \u2014 Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }],
+      },
+    },
     faq: [
       { q: 'Who administers TRICARE West now?', a: 'TriWest Healthcare Alliance, under contracts that began Jan. 1, 2025. Six states — Arkansas, Illinois, Louisiana, Oklahoma, Texas and Wisconsin — moved from the East Region to the West on that date. TRICARE resolves the boundary by ZIP code lookup.' },
       { q: 'Can ABA be delivered in a school in the West Region?', a: 'Yes, but narrowly. Only the authorized ABA supervisor may deliver, under CPT 97153, with a current IEP submitted alongside the treatment plan, specific school-setting goals targeting core ASD symptoms, a short expected duration and a planned fade. Providers may not duplicate IEP services or target academic goals.' },
@@ -473,14 +551,35 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'VA — CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' },
       { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
     ],
-    faq: [
-      { q: 'Does CHAMPVA cover ABA therapy?', a: 'Yes. Applied behavior analysis appears in the CHAMPVA Guidebook as a covered behavioral health benefit, with pre-authorization required for treatment only, not for the evaluation.' },
-      { q: 'Is CHAMPVA the same as TRICARE?', a: 'No. CHAMPVA is a VA program and TRICARE is the Department of Defense program. They are mutually exclusive: a person eligible for or enrolled in TRICARE cannot receive CHAMPVA benefits. None of the TRICARE Autism Care Demonstration rules apply to CHAMPVA.' },
-      { q: 'What does a CHAMPVA family pay for ABA?', a: 'When CHAMPVA is the primary payer, the annual deductible of $50 per individual or $100 per family, then a 25% cost-share, with CHAMPVA paying 75% of the allowable amount. Beneficiary cost sharing is capped at $3,000 a year. When CHAMPVA is secondary or tertiary, the patient pays nothing in most cases.' },
-      { q: 'Does CHAMPVA have a provider network?', a: 'No. The VA states that CHAMPVA does not have a network of health care providers and beneficiaries can visit most authorized providers. Pre-authorization, not network status, is the gate for ABA treatment.' },
-      { q: 'How long does a CHAMPVA ABA authorization last?', a: 'CHAMPVA does not publish an authorization interval for ABA in the Guidebook. Ask when you request pre-authorization on 800-733-8387 and get the period, the renewal requirements and any credential or setting limits in writing.' },
-    ],
     deliveryRules: {
+      concurrentBilling: {
+        value:
+          'Not published. The CHAMPVA Guidebook lists ABA as a covered benefit with pre-authorization for treatment only, and says nothing about billing two ABA codes for the same clock time. Do not import TRICARE\u2019s ACD concurrent-billing matrix \u2014 CHAMPVA is a VA program under a different statute, and the two are mutually exclusive for any given beneficiary.',
+        status: 'unverified',
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. No per-day unit ceiling, MUE table or hour band for ABA appears in the Guidebook. What is published is the money: CHAMPVA pays 75 percent of the allowable amount as primary, the patient pays a $50 individual / $100 family annual deductible plus a 25 percent cost-share, and beneficiary cost sharing is capped at $3,000 a year, after which CHAMPVA pays 100 percent of allowable costs for the rest of the year.',
+        status: 'unverified',
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+      },
+      noteSignature: {
+        value:
+          'Not published. The Guidebook states no session-note content or signature standard for ABA. With nothing published, the pre-authorization decision and your own contemporaneous record of the call are the operative documentation guidance.',
+        status: 'unverified',
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+      },
+      billAsProvider: {
+        value:
+          'Not published. The Guidebook does not define who may render or supervise ABA, nor whose NPI a technician-delivered claim must carry. One structural fact does bear on it: CHAMPVA \u201cdoes not have a network of health care providers, so you can visit most authorized providers\u201d \u2014 so the gate is pre-authorization and provider authorization, not network status.',
+        status: 'unverified',
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+      },
       supervision: {
         value: 'CHAMPVA does not publish supervision requirements, provider tiers or supervision ratios for ABA in the Guidebook. Do not assume TRICARE’s ACD tiers apply — CHAMPVA is a separate VA program.',
         status: 'unverified',
@@ -498,6 +597,55 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
       },
     },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'No ABA-specific age limit is published; what bounds the case is dependent eligibility. A dependent child can remain eligible from 18 to 23 while enrolled in school, and a child who is permanently unable to support themselves because of a disability that began before age 18 can remain eligible beyond that. Eligibility runs to the spouse or dependent child of a veteran rated permanently and totally disabled from a service-connected disability, and to the surviving spouse or child of a veteran who died from \u2014 or was rated permanently and totally disabled from \u2014 a service-connected disability.',
+        status: 'verified',
+        cites: [{ title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. The Guidebook states no ASD diagnosis requirement and no recency rule for the diagnostic evaluation. Capture the evaluation date and the diagnosing provider anyway and expect to send them with the treatment request \u2014 the evaluation itself does not need pre-authorization, so there is no reason to wait on CHAMPVA before getting one.',
+        status: 'unverified',
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+      },
+      diagnosingProviders: {
+        value:
+          'Not published. The Guidebook does not state who may make the ASD diagnosis for ABA purposes. Do not apply TRICARE\u2019s closed ACD diagnosing-provider list here \u2014 different department, different statute, different rules \u2014 and ask CHAMPVA which credentials it will recognise for the diagnosing, rendering and supervising roles on the same call as the pre-authorization.',
+        status: 'unverified',
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+      },
+      diagnosticTools: {
+        value:
+          'Not published. The Guidebook names no required assessment instruments and no outcome measures for ABA. None of the ACD\u2019s four-measure regime applies.',
+        status: 'unverified',
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+      },
+      referral: {
+        value:
+          'The split is the operationally useful fact, and it is published twice. ABA appears among the services requiring pre-authorization as \u201cApplied behavior analysis (ABA) for treatment only (not the evaluation),\u201d and again in the Behavioral Health Services benefit table as \u201cAutism \u2013 Applied Behavioral Analysis (ABA) requires pre-authorization for treatment only (not evaluation).\u201d So a family can be evaluated without waiting on CHAMPVA. Treatment requests go directly to CHAMPVA by phone on 800-733-8387, by email to VHAHAC.preauthorizationFM@va.gov, or by mail to the VHA Office of Integrated Veteran Care. Two published exceptions remove the requirement entirely: services provided through CITI, the CHAMPVA In-house Treatment Initiative at a VA medical center (also exempt from beneficiary cost sharing), and services another health insurer has already authorized \u2014 though if that insurer denies for failure to follow its rules or for lack of medical necessity, CHAMPVA will deny as well.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Not published for ABA. The Guidebook states no telehealth policy, code list or modifier requirement for applied behavior analysis.',
+        status: 'unverified',
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
+      },
+    },
+    faq: [
+      { q: 'Does CHAMPVA cover ABA therapy?', a: 'Yes. Applied behavior analysis appears in the CHAMPVA Guidebook as a covered behavioral health benefit, with pre-authorization required for treatment only, not for the evaluation.' },
+      { q: 'Is CHAMPVA the same as TRICARE?', a: 'No. CHAMPVA is a VA program and TRICARE is the Department of Defense program. They are mutually exclusive: a person eligible for or enrolled in TRICARE cannot receive CHAMPVA benefits. None of the TRICARE Autism Care Demonstration rules apply to CHAMPVA.' },
+      { q: 'What does a CHAMPVA family pay for ABA?', a: 'When CHAMPVA is the primary payer, the annual deductible of $50 per individual or $100 per family, then a 25% cost-share, with CHAMPVA paying 75% of the allowable amount. Beneficiary cost sharing is capped at $3,000 a year. When CHAMPVA is secondary or tertiary, the patient pays nothing in most cases.' },
+      { q: 'Does CHAMPVA have a provider network?', a: 'No. The VA states that CHAMPVA does not have a network of health care providers and beneficiaries can visit most authorized providers. Pre-authorization, not network status, is the gate for ABA treatment.' },
+      { q: 'How long does a CHAMPVA ABA authorization last?', a: 'CHAMPVA does not publish an authorization interval for ABA in the Guidebook. Ask when you request pre-authorization on 800-733-8387 and get the period, the renewal requirements and any credential or setting limits in writing.' },
+    ],
   },
 
   'johns-hopkins-usfhp': {
@@ -598,15 +746,31 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE — Understanding Outcome Measures for ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/Outcome-Measures' },
       { title: 'TRICARE — Compare Health Plan Costs', url: 'https://tricare.mil/Costs/Compare' },
     ],
-    faq: [
-      { q: 'Is Johns Hopkins USFHP the same as TRICARE?', a: 'It is a TRICARE Prime option — one of six Uniformed Services Family Health Plans administered by nonprofit health systems. Members get TRICARE Prime benefits and Prime cost-sharing, but through the plan’s own network, and cannot use TRICARE network providers or military hospitals and clinics except for emergency care.' },
-      { q: 'Who authorizes ABA for a Johns Hopkins USFHP member?', a: 'The plan. DHA directs the ASD diagnosing provider to submit the ABA referral to the regional contractor or the US Family Health Plan provider — for a USFHP member that is Johns Hopkins, not Humana Military.' },
-      { q: 'Does the Autism Care Demonstration apply to USFHP members?', a: 'Yes. ABA for TRICARE beneficiaries is covered under the ACD regardless of plan, and the referral, six-month authorization cycle, two-year referral renewal and four outcome measures all apply. Johns Hopkins requires its ABA providers to attest to completing its ACD-ABA training.' },
-      { q: 'What is the Johns Hopkins USFHP service area?', a: 'Maryland and Washington DC plus parts of Pennsylvania, Delaware, Virginia and West Virginia. The plan’s own site lists Delaware alongside Maryland and DC, while TRICARE’s listing puts it among the partial states — check the ZIP against the plan’s service-area tool.' },
-      { q: 'Do USFHP families get an Autism Services Navigator?', a: 'No. DHA states that beneficiaries enrolled in USFHP, and those living overseas, do not have an ASN. The coordination the navigator normally provides falls to the plan and the ABA provider.' },
-      { q: 'What does a Johns Hopkins USFHP family pay for ABA?', a: 'TRICARE Prime rates, since USFHP has the same out-of-pocket costs as Prime. ABA is outpatient specialty care and one copay covers all ABA services on a single day: currently $0 for active duty family members and $39 for retirees and others on network specialty care. There is no annual or lifetime cap on ABA.' },
-    ],
     deliveryRules: {
+      concurrentBilling: {
+        value:
+          'Johns Hopkins publishes an ACD-ABA provider presentation and a USFHP provider manual, but both are served behind bot protection and could not be retrieved for this review, so the plan\u2019s concurrent-billing rules are not restated here. The DHA-level framework applies \u2014 the ACD excludes concurrent billing for its Category I codes outside narrow documented exceptions \u2014 but the plan administers the demonstration itself, so confirm against its material rather than another contractor\u2019s.',
+        status: 'unverified',
+        cites: [{ title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
+        verifyVia:
+          'Johns Hopkins USFHP provider relations \u2014 request the current ACD-ABA training deck and the USFHP provider manual; plan line 800-808-7347.',
+      },
+      dailyLimits: {
+        value:
+          'Not retrievable for this review. The per-day unit ceilings under the ACD live in TRICARE Operations Manual Ch. 18, Sec. 3 and in the authorization itself, and Johns Hopkins\u2019 own ABA provider material is served behind bot protection. Do not assume another region\u2019s published ceilings apply.',
+        status: 'unverified',
+        cites: [{ title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
+        verifyVia:
+          'The authorization letter itself, and Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 ask for the current ACD-ABA training deck and provider manual.',
+      },
+      billAsProvider: {
+        value:
+          'Not published where it could be verified for this review. What is established is the network fact that precedes it: USFHP members cannot use TRICARE network providers, so TRICARE certification is not enough \u2014 the ABA provider must be in the Hopkins USFHP network, and Johns Hopkins requires its ABA providers to attest that they have completed its ACD-ABA training and understand the ACD provider requirements, \u201ccorrect billing practices/claims filing, authorizations, exclusions, and medical records documentation for the ACD-ABA program.\u201d',
+        status: 'unverified',
+        cites: [{ title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }, { title: 'TRICARE \u2014 Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' }],
+        verifyVia:
+          'Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 request the ACD-ABA training deck and provider manual, and confirm the rendering-versus-billing NPI convention before the first claim.',
+      },
       placeOfService: {
         value: 'DHA’s ACD rule applies to all TRICARE plans: ABA delivered by a behavior technician in a school setting is not covered. A BCBA may be authorized where the goal is clinically necessary, focused and time-limited, with pre-authorization and the contractor approving the goals. For community settings, families are generally expected to generalize mastered skills on their own; a BCBA may be authorized for certain community settings only after checking with the plan.',
         status: 'verified',
@@ -631,6 +795,54 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
       },
     },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'None under the ACD: no age limit, no time limit and no annual or lifetime dollar cap on ABA, and the demonstration applies to USFHP members the same way it applies to regional TRICARE members. Age changes the diagnosing pathway rather than the benefit \u2014 a first diagnosis at age 8 or later must come from a specialized ASD diagnosing provider. Eligibility itself runs to active duty family members, retired service members and their families, activated and non-activated Guard and Reserve families, TAMP qualifiers, retired Guard and Reserve aged 60 and older, survivors, Medal of Honor recipients and qualified former spouses \u2014 plus TRICARE Young Adult, for which USFHP can be chosen.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }, { title: 'TRICARE \u2014 Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' }],
+      },
+      dxRecency: {
+        value:
+          'The ACD clocks apply unchanged: a diagnosis more than two years old requires an updated diagnostic assessment, and a new referral from the ASD diagnosing provider is required every two years along with an updated DSM-5 checklist. Because USFHP families do not get an Autism Services Navigator \u2014 DHA states beneficiaries enrolled in USFHP and those living overseas do not have one \u2014 nobody outside your team is chasing those dates. Build the renewal calendar at intake.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }, { title: 'TRICARE \u2014 Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' }, { title: 'TRICARE \u2014 Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' }],
+      },
+      diagnosingProviders: {
+        value:
+          'The ACD\u2019s closed list, and the plan does not widen it. Approved primary care providers are family practice physicians, pediatricians, and pediatric or family nurse practitioners. Approved specialists are board-certified or board-eligible physicians in developmental-behavioral pediatrics, neurodevelopmental pediatrics, pediatric neurology, or adult or child psychiatry, plus doctoral-level licensed clinical psychologists and qualifying Doctors of Nursing Practice. A first diagnosis at age 8 or later must come from a specialized ASD diagnosing provider.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }, { title: 'TRICARE \u2014 Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' }],
+      },
+      diagnosticTools: {
+        value:
+          'A DSM-5 checklist and a validated assessment tool at the door, then the ACD\u2019s four outcome measures for the life of the case: the PDDBI, the Vineland Adaptive Behavior Scales, the Social Responsiveness Scale, and either the Parent Stress Index or the Stress Index for Parents of Adolescents. All four must be completed by the family and provider team before ABA services can begin. After baseline the cadence is mixed \u2014 the PDDBI and the PSI-4-SF or SIPA every six months, the Vineland-3 and SRS-2 annually \u2014 with the ABA provider completing the PDDBI teacher form and the SRS-2 interview or teacher form annually. With no Autism Services Navigator to chase a stuck measure, these deadlines belong to your team.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }, { title: 'TRICARE \u2014 Understanding Outcome Measures for ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/Outcome-Measures' }, { title: 'TRICARE \u2014 Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' }],
+      },
+      referral: {
+        value:
+          'Required, and the routing is the whole point of this guide. DHA directs the diagnosing provider to submit the ABA referral \u201cto your regional contractor or US Family Health Plan provider for authorization\u201d \u2014 for a USFHP member that is Johns Hopkins, not Humana Military. The first authorization covers the ABA assessment; the provider completes the assessment and treatment plan; a six-month treatment authorization follows; reauthorization is requested every six months; and a new referral from the ASD diagnosing provider is required every two years. Active duty family members must register in ECHO, with EFMP enrollment the prerequisite. Two network facts gate the same door: USFHP members cannot use TRICARE network providers or military hospitals and clinics except for emergencies, and Johns Hopkins requires its ABA providers to hold an ACD-ABA training attestation.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }, { title: 'TRICARE \u2014 Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' }, { title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
+      },
+      telehealth: {
+        value:
+          'Johns Hopkins\u2019 plan-specific ABA telehealth rules are published in provider material that is served behind bot protection and could not be retrieved for this review. The DHA-level setting rules do apply \u2014 technician-delivered school ABA is not covered, and a BCBA may be authorized only for a clinically necessary, focused and time-limited goal after review \u2014 but the telehealth code list is not stated at the DHA level in the sources cited here. Get the plan\u2019s written answer before scheduling remote hours rather than after.',
+        status: 'unverified',
+        cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' }, { title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
+        verifyVia:
+          'Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 request the current ACD-ABA training deck and the USFHP provider manual, and confirm which ABA codes the plan pays by telehealth.',
+      },
+    },
+    faq: [
+      { q: 'Is Johns Hopkins USFHP the same as TRICARE?', a: 'It is a TRICARE Prime option — one of six Uniformed Services Family Health Plans administered by nonprofit health systems. Members get TRICARE Prime benefits and Prime cost-sharing, but through the plan’s own network, and cannot use TRICARE network providers or military hospitals and clinics except for emergency care.' },
+      { q: 'Who authorizes ABA for a Johns Hopkins USFHP member?', a: 'The plan. DHA directs the ASD diagnosing provider to submit the ABA referral to the regional contractor or the US Family Health Plan provider — for a USFHP member that is Johns Hopkins, not Humana Military.' },
+      { q: 'Does the Autism Care Demonstration apply to USFHP members?', a: 'Yes. ABA for TRICARE beneficiaries is covered under the ACD regardless of plan, and the referral, six-month authorization cycle, two-year referral renewal and four outcome measures all apply. Johns Hopkins requires its ABA providers to attest to completing its ACD-ABA training.' },
+      { q: 'What is the Johns Hopkins USFHP service area?', a: 'Maryland and Washington DC plus parts of Pennsylvania, Delaware, Virginia and West Virginia. The plan’s own site lists Delaware alongside Maryland and DC, while TRICARE’s listing puts it among the partial states — check the ZIP against the plan’s service-area tool.' },
+      { q: 'Do USFHP families get an Autism Services Navigator?', a: 'No. DHA states that beneficiaries enrolled in USFHP, and those living overseas, do not have an ASN. The coordination the navigator normally provides falls to the plan and the ABA provider.' },
+      { q: 'What does a Johns Hopkins USFHP family pay for ABA?', a: 'TRICARE Prime rates, since USFHP has the same out-of-pocket costs as Prime. ABA is outpatient specialty care and one copay covers all ABA services on a single day: currently $0 for active duty family members and $39 for retirees and others on network specialty care. There is no annual or lifetime cap on ABA.' },
+    ],
   },
 
   'martins-point-usfhp': {
@@ -742,15 +954,31 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE — Understanding Outcome Measures for ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/Outcome-Measures' },
       { title: 'TRICARE — Compare Health Plan Costs', url: 'https://tricare.mil/Costs/Compare' },
     ],
-    faq: [
-      { q: 'Does Martin’s Point US Family Health Plan cover ABA?', a: 'Yes. Martin’s Point states that the US Family Health Plan is contracted with the Defense Health Agency to administer Autism Care Demonstration benefits in accordance with TRICARE’s program manuals. The ACD has been in effect since 2014 and expires Dec. 31, 2028 unless extended.' },
-      { q: 'Which assessment tools will Martin’s Point accept for the ASD diagnosis?', a: 'The STAT, ADOS-2, ADI-R, CARS-2 or GARS-3. The GARS-3 alone is not sufficient — an approved ASD diagnosing provider must also submit a diagnostic evaluation. A general observation interview alone is not a valid diagnostic tool. For children under 12 months the diagnosing provider may choose an appropriate age-based tool.' },
-      { q: 'How much parent training does the plan require?', a: 'Six parent/caregiver training sessions every six months, to teach treatment protocols. Parent/caregiver involvement is mandatory and the treatment plan must document it.' },
-      { q: 'Can ABA be delivered in school for a Martin’s Point member?', a: 'The plan’s own ABA provider training lists academic services and school-based ABA among non-reimbursable services, while DHA’s ACD guidance allows a narrow BCBA pathway for focused, time-limited, pre-authorized goals. Because the plan administers the demonstration itself, get its written answer before scheduling a school session.' },
-      { q: 'What does the plan require before a provider can stop seeing a child?', a: 'At least 45 calendar days’ notice to the contractor before terminating services, for any reason. Discharge criteria are meeting the ABA goals or a lack of measurable progress across several assessments.' },
-      { q: 'What does a Martin’s Point USFHP family pay for ABA?', a: 'TRICARE Prime amounts, since USFHP has the same out-of-pocket costs as Prime. ABA bills as outpatient specialty care and one copayment covers all ABA on a single day — currently $0 for active duty family members and $39 for retirees and others in network. There is no annual or lifetime cap on ABA.' },
-    ],
     deliveryRules: {
+      concurrentBilling: {
+        value:
+          'Not addressed in Martin\u2019s Point\u2019s published ABA provider training, which covers eligibility, outcome measures, provider standards, exclusions and claims without stating whether two ABA codes may be billed for the same clock time. The plan states it administers ACD benefits \u201cin accordance with TRICARE\u2019s Program Manuals,\u201d so the governing rule is in TRICARE Operations Manual Ch. 18, Sec. 3 \u2014 a document manuals.health.mil blocks automated retrieval of.',
+        status: 'unverified',
+        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
+        verifyVia:
+          'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask whether 97155 pays alongside 97153 for the same clock time and request the manual citation.',
+      },
+      dailyLimits: {
+        value:
+          'Not published by the plan. Martin\u2019s Point sets cadence rather than ceilings: treatment plans updated every six months, reauthorizations submitted at least 30 days before the current authorization expires, and six parent/caregiver training sessions required every six months. Per-day unit ceilings under the ACD live in the TRICARE Operations Manual and in the authorization itself; do not carry another contractor\u2019s published ceilings over.',
+        status: 'unverified',
+        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
+        verifyVia:
+          'The authorization letter itself, or Martin\u2019s Point USFHP provider services on 888-241-4556.',
+      },
+      noteSignature: {
+        value:
+          'Not published. The plan\u2019s ABA provider training sets documentation expectations at the plan level \u2014 treatment plans updated every six months documenting progress on behavior targets, annual record audits, monitoring of documentation and billing compliance, with recoupment or additional monitoring for irregularities \u2014 but does not state who signs an individual session note or by when.',
+        status: 'unverified',
+        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
+        verifyVia:
+          'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask for the session-note standard the annual audit is run against.',
+      },
       supervision: {
         value: 'Authorized ABA supervisors hold a master’s degree or higher in a relevant field and are state licensed and/or BACB certified. Assistant behavior analysts hold a bachelor’s degree with appropriate state licensure or BACB/QABA certification and must work under a qualified ABA supervisor. Behavior technicians must hold RBT, ABAT or BCAT certification and must operate under the direct supervision of an authorized ABA supervisor. Supervisors, assistants and technicians must also clear criminal history background checks — a felony conviction or a crime against children is disqualifying — and maintain CPR/BLS certification. Behavior technician training is not a reimbursable service.',
         status: 'verified',
@@ -775,5 +1003,53 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
       },
     },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'No age limit and no yearly or lifetime dollar cap on ABA under the demonstration. Eligibility rather than age is the gate: Martin\u2019s Point can authorize ABA only where the beneficiary is a dependent of an active duty service member enrolled in the US Family Health Plan and registered for ECHO; a retiree or retiree family member on TRICARE Prime or Select; covered under TAMP; covered under TRICARE For Life; a TRICARE Young Adult participant; a NATO or Partnership for Peace participant; or a Continued Health Care Benefit Program participant. Age does decide the stress measure \u2014 the PSI-4 below, the SIPA for adolescents.',
+        status: 'verified',
+        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
+      },
+      dxRecency: {
+        value:
+          'The ACD clocks apply: a diagnosis more than two years old requires an updated diagnostic assessment, and the referral runs two years. The enrollment packet must carry the date of the initial ASD diagnosis alongside the referral or diagnostic evaluation, so capture that date at intake rather than at reauthorization. Reauthorizations must be submitted at least 30 days before the current authorization expires, with progress reports and updated outcome measures. USFHP families have no Autism Services Navigator, so the renewal calendar is your team\u2019s to keep.',
+        status: 'verified',
+        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }, { title: 'TRICARE \u2014 Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' }],
+      },
+      diagnosingProviders: {
+        value:
+          'The diagnosis must come from a TRICARE-authorized PCM or specialized ASD diagnosing provider and must be made under the TRICARE basic benefit \u2014 the ACD\u2019s closed list of family practice physicians, pediatricians and pediatric or family nurse practitioners on the primary-care side, and developmental-behavioral pediatrics, neurodevelopmental pediatrics, pediatric neurology, adult or child psychiatry, doctoral-level licensed clinical psychologists and qualifying DNPs on the specialist side. One published mercy: the plan may accept a diagnosis through source verification on a case-by-case basis where the diagnosing provider was not TRICARE-authorized but would otherwise have qualified and the diagnosis meets the requirements. Worth asking about before you turn a family away.',
+        status: 'verified',
+        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
+      },
+      diagnosticTools: {
+        value:
+          'The closed validated-tool list in this directory, and it is worth memorising: the STAT, the ADOS-2, the ADI-R, the CARS-2 or the GARS-3 \u2014 with the caveat that \u201ccompletion of the GARS alone is not sufficient for diagnostic documentation\u201d and an approved diagnosing provider must submit a diagnostic evaluation alongside it. A general observation interview alone is not a valid diagnostic tool. For beneficiaries younger than 12 months the diagnosing provider may choose an appropriate age-based tool. On top of that sit the four ACD outcome measures, which the ABA supervisor folds into the initial 97151 assessment: the PDDBI and the PSI-4 or SIPA every six months, the Vineland-3 and the SRS-2 annually.',
+        status: 'verified',
+        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }, { title: 'TRICARE \u2014 Understanding Outcome Measures for ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/Outcome-Measures' }],
+      },
+      referral: {
+        value:
+          'Required, and the enrollment packet is specific: a referral or diagnostic evaluation stating the diagnosis, the date of the initial ASD diagnosis, a completed DSM-5 diagnostic checklist, and complete results of an approved validated assessment tool. The initial referral must also include a complete assessment and the level of support needed. For active duty families, EFMP enrollment is the prerequisite for ECHO and ECHO registration is the prerequisite for the ACD. Two plan-level requirements with no commercial analogue belong on the same checklist: six parent/caregiver training sessions are required every six months to teach treatment protocols, and a provider terminating services with a beneficiary for any reason must notify the contractor at least 45 calendar days in advance.',
+        status: 'verified',
+        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
+      },
+      telehealth: {
+        value:
+          'Not addressed in Martin\u2019s Point\u2019s published ABA provider training. Its non-reimbursable list names behavior technician training, non-ABA services, travel time unless authorized, academic services and school-based ABA, services provided by family members, and services rendered by a non-authorized ABA provider \u2014 but says nothing about remote delivery. Because the plan administers the demonstration itself under contract with DHA, treat telehealth as a plan-level question and get the answer in writing before scheduling.',
+        status: 'unverified',
+        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
+        verifyVia:
+          'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask which ABA codes the plan pays by telehealth, under which modifiers, and whether the authorization must say so.',
+      },
+    },
+    faq: [
+      { q: 'Does Martin’s Point US Family Health Plan cover ABA?', a: 'Yes. Martin’s Point states that the US Family Health Plan is contracted with the Defense Health Agency to administer Autism Care Demonstration benefits in accordance with TRICARE’s program manuals. The ACD has been in effect since 2014 and expires Dec. 31, 2028 unless extended.' },
+      { q: 'Which assessment tools will Martin’s Point accept for the ASD diagnosis?', a: 'The STAT, ADOS-2, ADI-R, CARS-2 or GARS-3. The GARS-3 alone is not sufficient — an approved ASD diagnosing provider must also submit a diagnostic evaluation. A general observation interview alone is not a valid diagnostic tool. For children under 12 months the diagnosing provider may choose an appropriate age-based tool.' },
+      { q: 'How much parent training does the plan require?', a: 'Six parent/caregiver training sessions every six months, to teach treatment protocols. Parent/caregiver involvement is mandatory and the treatment plan must document it.' },
+      { q: 'Can ABA be delivered in school for a Martin’s Point member?', a: 'The plan’s own ABA provider training lists academic services and school-based ABA among non-reimbursable services, while DHA’s ACD guidance allows a narrow BCBA pathway for focused, time-limited, pre-authorized goals. Because the plan administers the demonstration itself, get its written answer before scheduling a school session.' },
+      { q: 'What does the plan require before a provider can stop seeing a child?', a: 'At least 45 calendar days’ notice to the contractor before terminating services, for any reason. Discharge criteria are meeting the ABA goals or a lack of measurable progress across several assessments.' },
+      { q: 'What does a Martin’s Point USFHP family pay for ABA?', a: 'TRICARE Prime amounts, since USFHP has the same out-of-pocket costs as Prime. ABA bills as outpatient specialty care and one copayment covers all ABA on a single day — currently $0 for active duty family members and $39 for retirees and others in network. There is no annual or lifetime cap on ABA.' },
+    ],
   },
 };

@@ -52,7 +52,8 @@
      for Aetna/Cigna/UnitedHealthcare (none of the three publish
      code-level unit caps, POS codes, or modifiers in their national
      clinical policies) with New York's mandate specifics — the
-     680-hour/year cap and LBA-only delivery requirement — layered on
+     no-ABA-only-visit-limits rule (the 680-hour cap was repealed
+     effective 1/1/2020) and the LBA-only delivery requirement — layered on
      as notes, since DFS Circular Letter 6 and NYSED Article 167 (both
      already cited in the guide prose) verify them for New York
      directly.
@@ -79,7 +80,7 @@ const AVAILITY_PAYER_LIST = src(
 );
 const DFS_CL6 = src(
   'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06',
-  'DFS Insurance Circular Letter No. 6 (2014) — Standards for Insurance Coverage for ABA: 680 hours/policy-year cap (not a dollar cap), no age limit, LBA/CBAA delivery requirement effective 10/11/2014.'
+  'DFS Insurance Circular Letter No. 6 (2014) — Standards for Insurance Coverage for ABA: no age limit, LBA/CBAA delivery requirement effective 10/11/2014. Its 680 hours/policy-year recital is OUTDATED — that cap was repealed effective 1/1/2020; cite this letter for licensure, never for hours.'
 );
 const NYSED_ARTICLE_167 = src(
   'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167',
@@ -121,7 +122,7 @@ const ALL_CODES = ['97151', '97152', '97153', '97154', '97155', '97156', '97157'
 
 function nyMandateNote(extra?: string): string {
   return [
-    "New York's autism mandate (Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee); DFS CL6) caps ABA at 680 hours per policy/calendar year for fully-insured plans (an hours cap, not dollars) and requires NYSED LBA/CBAA delivery or supervision — self-funded ERISA plans are exempt by preemption.",
+    "New York's autism mandate (Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee)) bars fully-insured plans from applying any limitation on visits solely to ASD treatment — the former 680-hour annual ABA ceiling was repealed effective 1/1/2020, so an ABA-only hour or visit cap is a parity flag, not an expected benefit limit. Mandated ABA must be delivered or supervised by a NYSED-licensed LBA/CBAA. Self-funded ERISA plans are exempt by preemption. NOTE: DFS Circular Letter No. 6 (2014) still recites the 680-hour figure and predates the repeal — cite it for licensure, never for hours.",
     extra,
   ]
     .filter(Boolean)

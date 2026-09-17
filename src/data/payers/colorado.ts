@@ -110,7 +110,124 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'HB26-1425 — Applied Behavior Analysis Services (enacted bill text)', url: 'https://leg.colorado.gov/bill_files/116474/download' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'HCPF Provider Enrollment (fingerprint background check requirements & CY2026 fee)', url: 'https://hcpf.colorado.gov/provider-enrollment' },
+      { title: 'Health First Colorado Fee Schedule (July 1, 2026 v1.1) — PBT rates unchanged', url: 'https://hcpf.colorado.gov/provider-rates-fee-schedule' },
+      { title: 'HCPF Provider News — PBT exempted from the HB 26-1410 2.0% rate cut (through 7/27/2026)', url: 'https://hcpf.colorado.gov/provider-news' },
+      { title: 'HCPF — Telemedicine Provider Information (allowed procedure codes, POS rules)', url: 'https://hcpf.colorado.gov/telemedicine-provider-information' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Age 20 and younger. The Pediatric Behavioral Therapies benefit is available to members who "are 20 years old and younger" and meet EPSDT medical-necessity criteria; Section 8.281.3.A sets the same line as "under the age of 21." There is no lower bound — children under three qualify on being "at risk for delay" from biological or environmental factors, without a named diagnosed condition.',
+        status: 'verified',
+        cites: [
+          { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+          { title: 'HCPF Emergency Rule MSB 25-09-04-A — Section 8.281 (Oct 2025)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Doc%2009%20MSB%2025-09-04-Av1%20Emergency%20-%20Oct%202025.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Twelve months, on the evaluation rather than on a diagnosis. The clinical documentation must include "a signed comprehensive diagnostic evaluation performed within the previous twelve (12) months by a qualified health care professional... who prescribes and/or recommends behavioral therapy services," together with the name, date and significant results of the completed and signed screening questionnaire. Separately, any assessment or progress notes submitted with a PAR "must not be more than 60 days prior to submission of PAR request."',
+        status: 'verified',
+        cites: [
+          { title: 'Health First Colorado Criteria for Behavioral Therapies (Feb 2023)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Health%20First%20Colorado%20Criteria%20for%20Behavioral%20Therapies%20February%202023.pdf' },
+          { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'No autism diagnosis is required at all — the benefit opens on any one of three pathways (a diagnosed condition for which behavioral therapy is evidence-based or evidence-informed, "including autism spectrum disorder"; inability to adequately participate in home, school or community activities; or a safety risk to self or others). Where an evaluation is performed, the Criteria name "a qualified health care professional such as the client\'s physician, nurse practitioner, or psychologist," and Section 8.281.2.E adds that a diagnostic evaluation "may be performed by a psychologist, developmental pediatrician, neurologist, or other credentialed clinician."',
+        status: 'verified',
+        cites: [
+          { title: 'Health First Colorado Criteria for Behavioral Therapies (Feb 2023)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Health%20First%20Colorado%20Criteria%20for%20Behavioral%20Therapies%20February%202023.pdf' },
+          { title: 'HCPF Emergency Rule MSB 25-09-04-A — Section 8.281 (Oct 2025)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Doc%2009%20MSB%2025-09-04-Av1%20Emergency%20-%20Oct%202025.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'No single instrument is mandated, but the rule names the expected ones: standardized diagnostic tools "such as the Autism Diagnostic Observation Schedule (ADOS-2), Autism Diagnostic Interview-Revised (ADI-R)"; developmental, cognitive and adaptive functioning measures "(e.g., Vineland, cognitive/IQ testing)"; and a review of medical, educational and psychosocial history. The functional-interference pathway additionally requires "a standardized assessment of maladaptive behaviors," and the PAR requires a standardized norm-referenced adaptive-behavior assessment completed by the PBT provider — instrument choice is the provider\'s.',
+        status: 'verified',
+        cites: [
+          { title: 'HCPF Emergency Rule MSB 25-09-04-A — Section 8.281 (Oct 2025)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Doc%2009%20MSB%2025-09-04-Av1%20Emergency%20-%20Oct%202025.pdf' },
+          { title: 'Health First Colorado Criteria for Behavioral Therapies (Feb 2023)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Health%20First%20Colorado%20Criteria%20for%20Behavioral%20Therapies%20February%202023.pdf' },
+          { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+        ],
+      },
+      referral: {
+        value:
+          'Required, and from a short list. "All Outpatient therapy services must have a written order/prescription/referral by any of the following: Physician (M.D. or D.O.); Physician Assistant; Nurse Practitioner; Licensed Psychologist" — Licensed Psychologist was added 8/12/2024 to align with the criteria and the federal ordering/prescribing/referring rules. The PAR must include the "legibly written and signed ordering practitioner prescription or approved Plan of Care" carrying the diagnosis (preferably ICD-10), reason for therapy, sessions per week, total duration, treatment history, measurable goals and medical-necessity documentation; and the claim must carry a valid OPR NPI in CMS-1500 field 17b, per 42 CFR § 455.440.',
+        status: 'verified',
+        cites: [{ title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' }],
+      },
+      telehealth: {
+        value:
+          'Covered, on any modality. "Pediatric Behavioral Therapists are covered under the telemedicine policy," and "Home Health Agency services and therapies, Hospice, and Pediatric Behavioral Treatment may be provided via any telemedicine modality" — unlike outpatient PT/OT/speech, which must have interactive audio-visual. Every PBT code is on the allowable-telemedicine list: 97151, 97153, 97154, 97155 and 97158. POS 02 is on the PBT allowed-place-of-service table and the telemedicine manual directs POS 02 or 10. Two conditions travel with it: "the use of telecommunications equipment for delivery of services does not change prior authorization requirements," and before the first telemedicine treatment the provider must furnish the member (or legal representative) signed written disclosure statements, after which the initial face-to-face requirement may be waived.',
+        status: 'verified',
+        cites: [
+          { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+          { title: 'HCPF — Telemedicine Provider Information (allowed procedure codes, POS rules)', url: 'https://hcpf.colorado.gov/telemedicine-provider-information' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Three layers, and one of them is a number. Code-level: "A Registered Behavior Technician (RBT) is the minimum qualification required to administer ABA services... under CPT code 97153," and "a Board-Certified Behavior Analyst (BCBA), or equivalent, is the minimum qualification required to administer services under CPT code 97155." Rule-level: Section 8.281.4.A.6 requires billing providers to ensure RBTs "receive ongoing supervision per the requirements of the BACB" and that ABATs "adhere to a 5% quarterly supervision requirement," plus annual background checks on every service provider they supervise and no sanctions from the applicable board. Exclusion-level: "asynchronous supervision or reviews" are expressly non-covered, as are "services not delivered or supervised by a qualified provider."',
+        status: 'verified',
+        cites: [
+          { title: 'HCPF PM 25-005 — Pediatric Behavioral Therapy Policy Clarification', url: 'https://hcpf.colorado.gov/sites/hcpf/files/HCPF%20PM%2025-005%20Pediatric%20Behavioral%20Therapy%20Policy%20Clarification.pdf' },
+          { title: 'HCPF Emergency Rule MSB 25-09-04-A — Section 8.281 (Oct 2025)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Doc%2009%20MSB%2025-09-04-Av1%20Emergency%20-%20Oct%202025.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Colorado publishes no rule on billing 97153 and 97155 for the same clock time. What it does publish is cross-discipline co-treatment: co-treatment between two outpatient therapists is covered only where "a valid clinical rationale for providing co-treatment must be present" and "each provider must have an approved plan of care which includes co-treatment," with notes describing the additional services, identifying the co-treatment providers and justifying the arrangement. The hard edge is the billing rule: "time while members are napping is not covered or billable time. Time while the other modality is treating is also not billable," and claims for either are subject to recoupment. The billing manual\'s co-treatment matrix says the same thing from the other side — "providers will only bill for the time interacting with the member, and not the total time in the room."',
+        status: 'unverified',
+        cites: [
+          { title: 'HCPF PM 25-005 — Pediatric Behavioral Therapy Policy Clarification', url: 'https://hcpf.colorado.gov/sites/hcpf/files/HCPF%20PM%2025-005%20Pediatric%20Behavioral%20Therapy%20Policy%20Clarification.pdf' },
+          { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+        ],
+        verifyVia:
+          'ColoradoPAR (Acentra/Atrezzo) and the HCPF PBT policy contact named on PM 25-005 — ask specifically whether 97155 is payable alongside 97153 when the analyst is directing the technician with the member present.',
+      },
+      dailyLimits: {
+        value:
+          'Colorado\'s published ceilings are per-year, not per-day. "Code 97151 is a flat rate, and one (1) unit is to be billed once every 365 days. Code 97151TJ is set at two (2) units that can be billed once every 365 days." Section 8.281.6 limits initial pediatric therapy assessments and periodic reassessments to one session per provider every 12 calendar months each, with additional sessions only where the Department authorises them as medically necessary. No per-day unit ceiling is published for 97153 or 97155 — the operative ceilings are the units approved on the PAR and PM 25-005\'s rule that 40 hours a week of clinic-based PBT is no longer covered when the child has access to school hours unless the district shows the child cannot be served in a classroom.',
+        status: 'verified',
+        cites: [
+          { title: 'HCPF PM 25-005 — Pediatric Behavioral Therapy Policy Clarification', url: 'https://hcpf.colorado.gov/sites/hcpf/files/HCPF%20PM%2025-005%20Pediatric%20Behavioral%20Therapy%20Policy%20Clarification.pdf' },
+          { title: 'HCPF Emergency Rule MSB 25-09-04-A — Section 8.281 (Oct 2025)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Doc%2009%20MSB%2025-09-04-Av1%20Emergency%20-%20Oct%202025.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'The service provider signs, personally, before the claim goes out. "Each entry in a medical record must be signed and dated by the individual providing the service or good. Stamped signatures are not acceptable. Printed or displayed electronic records must note that signatures and dates have been applied electronically (10 CCR 2505-10 § 8.130.2.G)," and "providers are required to ensure that all required signatures are obtained before any claims are submitted for payment." Session notes "are required to contain detailed descriptions of therapy sessions... basic patient information, a narrative summary of the treatment provided, and a detailed summary of behavior targets, intervention types, and other relevant data," and ABA documentation must meet CASP minimum requirements. On the claim form itself, initials, typed or computer-printed names and "signature on file" are all unacceptable in field 31.',
+        status: 'verified',
+        cites: [
+          { title: 'HCPF PM 25-005 — Pediatric Behavioral Therapy Policy Clarification', url: 'https://hcpf.colorado.gov/sites/hcpf/files/HCPF%20PM%2025-005%20Pediatric%20Behavioral%20Therapy%20Policy%20Clarification.pdf' },
+          { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Five POS codes are allowed: 02 telemedicine, 03 school, 11 office, 12 home and 99 other/community-based (the rule permits a "Community" location and 99 is the closest code). EVV is mandatory for PBT delivered in the home or the community, capturing member ID, the individual providing the service, start and end times, the service, the date and the location. School is payable — POS 03 has been allowed for all fee-for-service benefits since May 3, 2024, and PM 25-005 confirms "Health First Colorado covers medically necessary PBT services in a school setting" — but community providers must follow school-district policy, and therapies provided under a member\'s IEP and billed to the School Health Services Program "are not separately reimbursable." Section 8.281.5.B adds the clinical test: services "must be delivered in a clinically appropriate setting for the behavior being treated." One tension worth knowing before a PAR: the February 2023 Criteria\'s exclusion list still names "school-based services" among non-covered items.',
+        status: 'verified',
+        cites: [
+          { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+          { title: 'HCPF PM 25-005 — Pediatric Behavioral Therapy Policy Clarification', url: 'https://hcpf.colorado.gov/sites/hcpf/files/HCPF%20PM%2025-005%20Pediatric%20Behavioral%20Therapy%20Policy%20Clarification.pdf' },
+          { title: 'HCPF Emergency Rule MSB 25-09-04-A — Section 8.281 (Oct 2025)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Doc%2009%20MSB%2025-09-04-Av1%20Emergency%20-%20Oct%202025.pdf' },
+          { title: 'Health First Colorado Criteria for Behavioral Therapies (Feb 2023)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Health%20First%20Colorado%20Criteria%20for%20Behavioral%20Therapies%20February%202023.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Both NPIs, and the enrollment has to match. "PBT services must be billed using the 837 Professional (837P) transaction or CMS 1500 form, which requires using rendering and billing National Provider IDs (NPIs)." Organisations with a Tax ID enrol as Provider Type 83 (Behavioral Therapy Clinic); the individuals who may affiliate to it are Provider Type 37 (doctoral psychologist), 38 (licensed behavioral health clinician) and 84 (behavioral therapist), and all three must be affiliated with the Type 83. Providers formerly enrolled as Type 24/25 had to convert by September 1, 2025. The ordering practitioner\'s OPR NPI goes in field 17b, and field 32 carries the service facility.',
+        status: 'verified',
+        cites: [
+          { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+          { title: 'HCPF PM 25-005 — Pediatric Behavioral Therapy Policy Clarification', url: 'https://hcpf.colorado.gov/sites/hcpf/files/HCPF%20PM%2025-005%20Pediatric%20Behavioral%20Therapy%20Policy%20Clarification.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Colorado Medicaid require an autism diagnosis for ABA?', a: 'No — a genuine differentiator. The Criteria for Behavioral Therapies open the Pediatric Behavioral Therapies benefit on any of three pathways: a qualifying diagnosed condition (including but not limited to ASD), functional interference with home/school/community participation, or a safety risk to self or others. A signed comprehensive evaluation within the past 12 months is still required.' },
       { q: 'Do I submit Colorado ABA authorizations to the member\'s RAE?', a: 'No — PBT/ABA is a fee-for-service carve-out. Regardless of RAE region (RMHP, NHP, CCHA, or Colorado Access) or the Elevate MCO, all PARs go to the state UM vendor Acentra through the Atrezzo portal (ColoradoPAR.com), and claims go to the state fiscal agent.' },
@@ -195,7 +312,100 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'C.R.S. § 10-16-104 (FindLaw, current through 1/1/2025)', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
       { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+      { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Colorado\'s mandate carries no age limit: C.R.S. § 10-16-104(1.4) applies to all health benefit plans issued or renewed in the state except short-term limited-duration policies and individual grandfathered plans, with no age terms and no dollar caps (the cap language was struck effective 1/1/2017). The carrier\'s national ABA policy adds no age bound of its own, so age comes from the benefit document — and self-funded ERISA plans sit outside the mandate entirely.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'C.R.S. § 10-16-104 (FindLaw, current through 1/1/2025)', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+        verifyVia:
+          'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+      },
+      dxRecency: {
+        value:
+          'Aetna puts the recency clock on the functional assessment, not the diagnosis: medical necessity requires "demonstration of functional impairment on a standardized scale of functioning in the past 12 months," and the impairment must be at least one standard deviation below the population mean or represent a significant risk of harm to self or others. The ABA Medical Necessity Guide sets no expiry on the ASD diagnosis itself.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '"There is a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10/ F84.0; F84.3 - F84.9) obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Note the code set the guide actually prints: F84.0 plus F84.3–F84.9, which leaves out F84.1 and F84.2.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No diagnostic instrument is mandated; the named instruments sit on the functional-impairment test — "the Vineland Adaptive Behavior Scales 3 (VABS-3), the Adaptive Behavior Assessment Scale (ABAS), VB-MAPP or ABLLS" are given as examples of the standardized scale that must show impairment within the past 12 months.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral or physician order is required by the national guide — the gate is the diagnosis "obtained by an appropriate provider" plus precertification. The only prescription requirement Aetna publishes is its Maryland exhibit (COMAR 31.10.39), where the child\'s primary care or specialty physician must perform the evaluation and prescribe the treatment with specific goals; that exhibit does not reach plans outside Maryland.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Not published. Aetna\'s ABA Medical Necessity Guide and CPB 0554 set medical-necessity criteria and precertification requirements but say nothing about which ABA codes may be delivered remotely, or with which place-of-service code.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+        verifyVia:
+          'Aetna provider services at the number on the member\'s ID card, and the plan\'s telehealth/virtual-care policy — confirm before scheduling remote 97155 or 97156.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Aetna sets a duty, not a number. Where a state mandate, plan document or contract allows services from someone neither state-licensed nor BACB-certified, "there must be supervision and direction of the unlicensed or non-certified providers in line with practice standards." The ABA Medical Necessity Guide publishes no supervision percentage, ratio or caseload cap — the operative standard is professional practice plus whatever the contract adds.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither the ABA Medical Necessity Guide nor Aetna\'s clinical policy bulletin on ABA addresses whether 97153 and 97155 may be billed for the same clock time; Aetna carries the concurrency question in its claim editing rather than in a public policy.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna precertification/provider services at the number on the member\'s ID card, and the plan\'s own reimbursement schedule — ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. Aetna\'s ABA documents set medical-necessity criteria and precertification requirements for 97151–97158, 0362T and 0373T, but no per-day unit ceiling and no statement of which MUE table applies. The guide does publish typical intensity bands — comprehensive ABA 10–25 hours/week, focused ABA 1–20 hours/week — as clinical guidance, not claim edits.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+      },
+      noteSignature: {
+        value:
+          'Not published in Aetna\'s ABA materials — no rule on who signs a session note or within what window.',
+        status: 'unverified',
+        verifyVia:
+          'The Aetna provider manual and your participation agreement\'s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'Aetna does not publish a POS code list for ABA. The one place-of-service boundary it does state is the schools carve-out: pursuant to applicable law Aetna "is not required [to] provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act." That is a limit on paying for what the IEP owes, not a blanket ban on the school setting — and it yields to a stronger state mandate. Where ABA is payable in a school, in the community or in a group home is a benefit-document question on Aetna plans.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'The member\'s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+      },
+      billAsProvider: {
+        value:
+          'The claim carries the analyst, not the technician. "Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise." The escape clause matters: a state mandate or your contract can move the line, so confirm before enrolling technicians.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Colorado?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Colorado\'s mandate (C.R.S. § 10-16-104(1.4)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Colorado autism mandate require?', a: 'It applies to all Colorado-issued or renewed health benefit plans (short-term limited-duration and individual grandfathered plans excepted), with no age limits and no dollar caps — the historical $34K/$12K annual ABA caps were removed from the statute. Self-funded ERISA plans are exempt by preemption.' },
@@ -280,6 +490,102 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'C.R.S. § 10-16-104 (FindLaw, current through 1/1/2025)', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
       { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Colorado\'s mandate carries no age limit: C.R.S. § 10-16-104(1.4) applies to all health benefit plans issued or renewed in the state except short-term limited-duration policies and individual grandfathered plans, with no age terms and no dollar caps (the cap language was struck effective 1/1/2017). The carrier\'s national ABA policy adds no age bound of its own, so age comes from the benefit document — and self-funded ERISA plans sit outside the mandate entirely.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'C.R.S. § 10-16-104 (FindLaw, current through 1/1/2025)', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+        verifyVia:
+          'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+      },
+      dxRecency: {
+        value:
+          'EN0499 puts no expiry on the ASD diagnosis — it requires only that the submission carry "the name, credentials, and type of licensure of the individual who made the diagnosis" and "the date on which the diagnosis was most recently made." The 60-day clocks run on the assessment instead: administration of the standardized assessment instrument must be completed within 60 days prior to the start of treatment, and quantitative baseline data must be collected within 60 days prior to the start of treatment.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '"A confirmed diagnosis of autism spectrum disorder (ASD); (ICD-10-CM Diagnosis Codes F84.0 – F84.9, with the exception of F84.2, Rett syndrome) based on the criteria in the DSM-5-TR by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." The ABA assessment itself is then performed by a BCBA, LBA, or an independently licensed mental health clinician with documented ABA training.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'EN0499 names no instrument but sets six tests the instrument must pass: it must be reliable, valid and standardized, measure functioning in the DSM-5-TR ASD domains (social communication/interaction; restricted, repetitive behavior), be completed in its entirety and as designed, have established reliability and validity for the population tested, be administered by someone trained to administer and interpret it, and be the most current version — "must be the Vineland-3 vs. Vineland-II." Date of administration, respondent and form type must be recorded.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral or physician order is required. Prior authorization is not required on assessment codes 97151, 97152 or 0362T with an autism diagnosis "as long as the provider is independently licensed or a Board Certified Behavior Analyst (BCBA) and the patient\'s policy covers ABA services"; the authorization gate arrives at the treatment step, with the completed assessment and treatment plan.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          '"All ABA CPT codes are covered telehealth services," subject to EN0499. The policy adds a documentation duty rather than a code restriction: where services are delivered "via telehealth modalities," the record must show the service still meets the definition of direct treatment/direct engagement "regardless of treatment location or modality" and is conducted per the treatment-plan goals.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'One to two hours per ten hours of direct treatment. "Direct case supervision (occurs concurrently with the delivery of direct treatment to the individual and consists of BCBA face-to-face with the individual and either the Registered Behavior Technician or the Board Certified Assistant Behavior Analyst) and indirect case supervision is consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment." When direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided, and the supervisor\'s name and credentials must be documented.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Yes — and Evernorth writes it as an explicit carve-out from its general rule: "Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Both must be with the patient; analyst time away from the patient is not inside the exception.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Not published. The resource guide sets the code set (97151–97158, 0362T and 0373T only, all in 15-minute increments) but no per-day unit ceiling and no statement of which MUE table Evernorth applies.',
+        status: 'unverified',
+        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273.',
+      },
+      noteSignature: {
+        value:
+          'Not published in the autism resource guide — no rule on who signs a session note or when. EN0499 does require the name and credentials of the supervising and stakeholder-training providers to be documented, and dates of administration on every assessment instrument.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia:
+          'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+      },
+      placeOfService: {
+        value:
+          'No POS list is published. EN0499 requires the treatment plan to identify the "settings and environments where treatment will occur (e.g., home, clinic, school, community setting)" and to collect data corresponding to each location of service; for settings with competing behavioral expectations — "academic setting, vocational placement, services delivered via telehealth modalities" — the record must show the service still meets the direct-treatment definition. Which of those settings is payable is a benefit-document question.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\'s benefit document.',
+      },
+      billAsProvider: {
+        value:
+          'Under the supervising provider, because the technician cannot be credentialed: "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." Practically, the BCBA\'s credential is what the claim rides on for technician-delivered 97153.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does Cigna cover ABA therapy in Colorado?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Colorado\'s mandate (C.R.S. § 10-16-104(1.4)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does the ABA assessment need prior authorization with Cigna in Colorado?', a: 'Per the national EN0499 policy, no — assessment codes 97151, 97152, and 0362T need no PA, and we found no Colorado carve-out from that policy. Confirm on the benefits call, since the current policy PDF could not be fully parsed for the state-exceptions list.' },
@@ -365,7 +671,99 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'C.R.S. § 10-16-104 (FindLaw, current through 1/1/2025)', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
       { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
       { title: 'HCPF — Accountable Care Collaborative Phase III', url: 'https://hcpf.colorado.gov/accphaseIII' },
+      { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Colorado\'s mandate carries no age limit: C.R.S. § 10-16-104(1.4) applies to all health benefit plans issued or renewed in the state except short-term limited-duration policies and individual grandfathered plans, with no age terms and no dollar caps (the cap language was struck effective 1/1/2017). The carrier\'s national ABA policy adds no age bound of its own, so age comes from the benefit document — and self-funded ERISA plans sit outside the mandate entirely. Colorado still has no entry in Optum\'s ABA State Mandates supplemental criteria (BH803ABASTM72026, effective July 2026), so no carrier-specific state overlay narrows this.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'C.R.S. § 10-16-104 (FindLaw, current through 1/1/2025)', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+        verifyVia:
+          'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+      },
+      dxRecency: {
+        value:
+          'Optum\'s Supplemental Clinical Criteria set no recency clock on the ASD diagnosis. What they require instead is current assessment: the comprehensive diagnostic evaluation and functional assessment "form the basis for the treatment plan," baseline skills and norm-referenced measures must reflect the individual\'s "specific and current abilities," and continued coverage rides on documentation of movement from baseline at each 4–6 month review.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '"A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'The DSM-5-TR diagnosis and severity level must be "confirmed and documented by the diagnosing clinician using at least one clinically validated tool," on a three-tier list: first-level screening (ABC, CHAT/M-CHAT, CSBS-DP-IT Checklist, ASQ, AQ, CAST), second-level screening (CARS/CARS-2, RITA-T, STAT) and formal diagnostic tools used in a comprehensive evaluation (ADI-R, ADOS/ADOS-2, DISCO). Treatment intensity must then be set against at least one validated measurement tool — ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, VABS or CFQL-2.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      referral: {
+        value:
+          'No physician referral or order is required. The front door is Optum\'s two-step authorization on Provider Express — "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)" — with the diagnosis, the credentialed ABA provider and the assessment package standing in for a referral.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Optum publishes no ABA telehealth code list in the Supplemental Clinical Criteria; it points providers to CASP\'s Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition, which it describes as a resource for ABA "delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)" and as a supplement to, not a replacement for, in-person delivery.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Two numbers, from two documents. Clinically, "consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week," with technicians under the supervision of a BCBA or licensed behavioral health clinician and parents discouraged from serving as their own child\'s RBT. On the claim side, the commercial reimbursement policy polices the boundary rather than a ratio: "CPT codes 97153 and 97155 may not be billed for technician training," and 97155 "should be reported only for services where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient" — treatment planning is indirect and not separately reimbursable.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Yes, with a single-provider exclusion. "Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently." So the concurrency has to be two people — technician on 97153, analyst on 97155 directing them with the patient present. Separately, 97155 and 97156 may both pay on the same date of service only if the services are separate, distinct and clearly documented in the progress notes.',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Optum publishes its own per-day table on top of CMS MUEs — maximum frequency per day: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs). MUEs otherwise apply per CMS guidance, and billing above 32 units/day of 97153 "may be subject to non-reimbursement or recovery."',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No signature rule is published, but the documentation burden is explicit where money turns on it: services billed on the same date must be "separate, distinct, and clearly documented in the progress notes," and if documentation does not clearly separate them the claim may be denied. Who signs, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        verifyVia:
+          'The UnitedHealthcare/Optum provider manual and your participation agreement\'s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'No POS code list is published. The clinical criteria draw the school line instead: ABA is not covered for "services that are not ABA therapy, such as 1:1 aid delivered simultaneously during classroom instruction, or services covered under the Individuals with Disabilities Education Act (IDEA)," while "school ABA services do allow for coordination of services and would cover services such as teacher training, meetings with school personnel, and observations in the school setting."',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'UnitedHealthcare/Optum provider services and the member\'s benefit document.',
+      },
+      billAsProvider: {
+        value:
+          'One provider-level modifier per line, matching whoever actually rendered the service: HM = Registered Behavior Technician (less than bachelor\'s level), HN = BCaBA (bachelor\'s level), HO = BCBA or master\'s-level licensed clinician, HP = BCBA-D or doctoral-level licensed clinician. A billable ABA-supervisor service is billed with the applicable CPT code plus HO. Stacking level modifiers is a denial risk: "Billing multiple provider-level modifiers (HN, HM, HO, HP) on the same service line same service and same DOS is not appropriate and may result in claim denial."',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Colorado?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Colorado\'s mandate (C.R.S. § 10-16-104(1.4)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Optum have Colorado-specific ABA criteria?', a: 'No — Colorado has no entry in Optum\'s ABA State Mandates supplemental criteria (effective January 2026), so the national two-step authorization guideline plus the state mandate is the whole picture.' },
@@ -489,6 +887,14 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'Anthem Colorado — MCG Care Guidelines 27th edition update (Feb 1, 2024)', url: 'https://files.providernews.elevancehealth.com/3731/COBCBS-CM-047275-23-MCG-Care-Gdlns-27th-Ed-6.1.24-Updte-BH_FINALv2.pdf' },
     ],
     deliveryRules: {
+      supervision: {
+        value: 'No ratio is published — Anthem sets a supervision structure instead. Approved ABA service providers include "providers practicing under the direction and supervision of the BCBA," and the statutory autism-services-provider ladder Anthem reproduces ends with a BACB registered behavior technician who "provides direct services to a person with an autism spectrum disorder under the supervision of an autism services provider" in one of the five higher tiers. Anthem\'s own supervision paragraph is a billing rule rather than a dosage rule: supervised or directed services billed with a QHP-performed procedure are subject to its Incident To Services and Billing reimbursement policy.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
+          { title: 'C.R.S. § 10-16-104 (Justia)', url: 'https://law.justia.com/codes/colorado/title-10/article-16/part-1/section-10-16-104/' },
+        ],
+      },
       concurrentBilling: {
         value: 'Allowed only in the narrow case: a physician or other QHP billing 97155 can add 97153 only if both the technician and the QHP are face-to-face with the patient at the same time and the QHP is directing the technician.',
         status: 'verified',
@@ -514,6 +920,59 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value: 'ABA performed by therapy assistants, behavior technicians or paraprofessionals must show the supervising BCBA or other qualified healthcare professional in box 31 of the CMS-1500. Degree-level modifiers HM (less than bachelor\'s), HN (bachelor\'s) and HO (master\'s) identify the rendering staff level.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' }],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'No age limit. C.R.S. § 10-16-104(1.4) requires all health benefit plans issued or renewed in Colorado to cover the assessment, diagnosis and treatment of autism spectrum disorders, naming applied behavior analysis in the definition of covered treatment, and carries no age terms — the dollar-cap language that once framed coverage was struck effective January 1, 2017 and replaced with a parity clause. The only carve-outs written into the subsection are short-term limited-duration policies and individual grandfathered plans; self-funded ERISA plans are preempted out.',
+        status: 'verified',
+        cites: [{ title: 'C.R.S. § 10-16-104 (Justia)', url: 'https://law.justia.com/codes/colorado/title-10/article-16/part-1/section-10-16-104/' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Anthem reviews ABA in Colorado against MCG B-806-T, which is licensed and proprietary, and the Colorado ABA provider resource guide states no recency rule for the diagnostic evaluation. The nearest published anchor is structural rather than temporal: the treatment plan must be prescribed "pursuant to a comprehensive evaluation or reevaluation," which contemplates re-evaluation without naming a clock.',
+        status: 'unverified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
+          { title: 'C.R.S. § 10-16-104 (Justia)', url: 'https://law.justia.com/codes/colorado/title-10/article-16/part-1/section-10-16-104/' },
+        ],
+        verifyVia:
+          'Anthem Behavioral Health at 800-424-4014, or the authorization request itself through Availity Essentials — MCG B-806-T is not publicly available.',
+      },
+      diagnosingProviders: {
+        value:
+          'Who may make the ASD diagnosis is not published — the criteria set is MCG B-806-T, which Anthem does not publish. What Colorado does fix is the prescriber: the treatment plan is "developed for an individual by an autism services provider and prescribed by a licensed physician or a licensed psychologist pursuant to a comprehensive evaluation or reevaluation," and the statute requires treatment for ASD to be prescribed or ordered by a licensed physician or licensed psychologist. A BCBA\'s recommendation alone does not satisfy it.',
+        status: 'unverified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
+          { title: 'C.R.S. § 10-16-104 (Justia)', url: 'https://law.justia.com/codes/colorado/title-10/article-16/part-1/section-10-16-104/' },
+        ],
+        verifyVia:
+          'Anthem Behavioral Health at 800-424-4014 for the diagnostic-credential standard applied under MCG B-806-T.',
+      },
+      diagnosticTools: {
+        value:
+          'Not published. Anthem\'s Colorado ABA provider resource guide covers credentialing, coding, documentation, place of service and supervision, but names no diagnostic or assessment instrument, and the operative criteria set (MCG B-806-T) is proprietary.',
+        status: 'unverified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' }],
+        verifyVia:
+          'Anthem Behavioral Health at 800-424-4014 — ask which instruments MCG B-806-T expects behind the diagnosis and behind the requested intensity.',
+      },
+      referral: {
+        value:
+          'Required, and it is a Colorado-specific gate that catches files at appeal. The treatment plan must be "developed for an individual by an autism services provider and prescribed by a licensed physician or a licensed psychologist pursuant to a comprehensive evaluation or reevaluation," and must state the individual\'s diagnosis, the proposed treatment by type, frequency and anticipated duration, the anticipated outcomes stated as goals, and how often the plan will be updated. Capture the ordering clinician\'s name, credential and order date at intake.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
+          { title: 'C.R.S. § 10-16-104 (Justia)', url: 'https://law.justia.com/codes/colorado/title-10/article-16/part-1/section-10-16-104/' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Payable, with the code list held elsewhere. Anthem names two telehealth places of service for ABA in Colorado — "10 = Telehealth (member located in home while receiving services)" and "02 = Telehealth (member located outside of home while receiving services)" — each "subject to the member\'s coverage and reviews by the plan." Which codes are eligible is governed by Anthem\'s Virtual Visits reimbursement policy: "allowed codes may vary. Refer to the Allowed virtual services in addition to CPT Appendix P to obtain codes that are eligible for reimbursement in your state."',
         status: 'verified',
         cites: [{ title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' }],
       },

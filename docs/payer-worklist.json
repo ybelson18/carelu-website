@@ -10,44 +10,92 @@
   "created": "2026-09-17",
   "ruleFields": [
     {
+      "group": "intakeGates",
+      "id": "ageLimit",
+      "label": "Age limit",
+      "question": "What upper (and any lower) age bound does this payer put on the ABA benefit, and does EPSDT change it?",
+      "sourceHint": "State manual eligibility section; payer clinical policy; state autism mandate statute."
+    },
+    {
+      "group": "intakeGates",
+      "id": "dxRecency",
+      "label": "Diagnosis recency",
+      "question": "How recent must the diagnostic evaluation be, and what restarts the clock?",
+      "sourceHint": "State manual documentation/PA section; payer medical-necessity criteria."
+    },
+    {
+      "group": "intakeGates",
+      "id": "diagnosingProviders",
+      "label": "Who may diagnose",
+      "question": "Which credentials may make the ASD diagnosis this payer will accept?",
+      "sourceHint": "Payer medical-necessity criteria; state manual diagnosing-provider list."
+    },
+    {
+      "group": "intakeGates",
+      "id": "diagnosticTools",
+      "label": "Diagnostic tools required",
+      "question": "Which standardized instruments must sit behind the diagnosis (ADOS-2, ADI-R, Vineland, CARS-2)?",
+      "sourceHint": "Payer criteria document; state manual assessment section."
+    },
+    {
+      "group": "intakeGates",
+      "id": "referral",
+      "label": "Referral required?",
+      "question": "Is a referral or order required, from whom, and how current must it be?",
+      "sourceHint": "State manual PA/ordering section; payer precert requirements."
+    },
+    {
+      "group": "intakeGates",
+      "id": "telehealth",
+      "label": "Telehealth",
+      "question": "Which ABA codes may be delivered remotely, with which POS codes, and with what in-person floor?",
+      "sourceHint": "State telehealth policy/manual; payer telehealth reimbursement policy; CMS telehealth list."
+    },
+    {
+      "group": "deliveryRules",
       "id": "supervision",
       "label": "Supervision",
-      "question": "What supervision does this payer require over technicians delivering 97153 \u2014 a percentage floor, a ratio cap, direct vs. asynchronous, and who may supervise?",
+      "question": "What supervision does this payer require over technicians delivering 97153 \u2014 percentage floor, ratio cap, direct vs. asynchronous, and who may supervise?",
       "sourceHint": "State Medicaid provider/billing manual; payer ABA clinical policy; provider agreement."
     },
     {
+      "group": "deliveryRules",
       "id": "concurrentBilling",
       "label": "Concurrent billing (97153 + 97155)",
-      "question": "May 97153 and 97155 be billed for the same clock time for the same member, and under what conditions (direction-of-technician vs. direct treatment)?",
-      "sourceHint": "Payer ABA reimbursement policy; state manual concurrent-services section; NCCI/CMS edits."
+      "question": "May 97153 and 97155 be billed for the same clock time, and under what conditions (direction-of-technician vs. direct treatment)?",
+      "sourceHint": "Payer reimbursement policy; state manual concurrent-services section; NCCI/CMS edits."
     },
     {
+      "group": "deliveryRules",
       "id": "dailyLimits",
       "label": "Daily limits / MUEs",
-      "question": "What per-day unit ceilings does this payer enforce per ABA code, and does it follow Medicaid or Medicare MUE tables or publish its own limits?",
-      "sourceHint": "CMS MUE tables (Medicaid vs. Practitioner); payer reimbursement policy; state fee schedule."
+      "question": "What per-day unit ceilings apply per code, and does the payer follow the Medicaid or the Practitioner MUE table, or publish its own?",
+      "sourceHint": "CMS MUE tables (two different tables); payer reimbursement policy; state fee schedule."
     },
     {
+      "group": "deliveryRules",
       "id": "noteSignature",
       "label": "Session-note signature",
-      "question": "Who must sign each session note (rendering technician, supervising BCBA, both), and within what timeframe?",
+      "question": "Who must sign each session note, and within what timeframe?",
       "sourceHint": "State manual documentation standards; payer audit/documentation policy."
     },
     {
+      "group": "deliveryRules",
       "id": "placeOfService",
       "label": "Place of service",
-      "question": "Is ABA payable in school, in the community, and in a group home \u2014 and with which POS codes or restrictions?",
+      "question": "Is ABA payable in school, community and group home, and with which POS codes or restrictions?",
       "sourceHint": "State manual place-of-service section; payer policy; POS code table."
     },
     {
+      "group": "deliveryRules",
       "id": "billAsProvider",
       "label": "Bill as provider",
-      "question": "Whose NPI must the claim carry \u2014 rendering technician, supervising analyst, or the group/agency \u2014 and what modifiers ride along?",
-      "sourceHint": "State manual billing section; payer claims/billing guide; enrollment rules."
+      "question": "Whose NPI must the claim carry, and what modifiers ride along?",
+      "sourceHint": "State manual billing section; payer claims guide; enrollment rules."
     }
   ],
   "ruleFieldBacklog": {
-    "target": "Every guide in src/data/payers/*.ts carries a deliveryRules block for as many of the six fields as primary sources support.",
+    "target": "Every guide in src/data/payers/*.ts carries both field groups (12 fields) for as many as primary sources support. Measured by `node scripts/payer-coverage.mjs`; no group may regress.",
     "order": "State Medicaid guides first (their manuals answer all six in one document and MCOs inherit the floor), then Medicaid MCOs where the plan deviates from the state rule, then commercial.",
     "cadence": "Fill the six fields for at least two state programs and their MCOs each refresh; omit a field rather than guess.",
     "progress": [
@@ -525,7 +573,8 @@
         "omitted": []
       }
     ],
-    "progressNote": "deliveryRules pass run 2026-09-17 across GA, NJ and MA. 'verified' = a fetched primary source states the rule; 'plan-dependent' = the rule genuinely varies by plan or the published sources conflict; 'unverified' = the field carries a note plus a verifyVia naming the portal, phone line or document that would settle it; 'omitted' = no source and no useful verifyVia. Blocked or unreachable sources this pass: GAMMIS (mmis.georgia.gov) refuses connections, so Georgia's current quarterly ASD manual and live fee schedule could not be read \u2014 the posted January 2018 Part II manual is what Georgia's entries rest on and it predates the 97151-97158 code set. mass.gov returns 403 to automated fetches, so the MassHealth ABA Provider FAQ was not read. The NJ DMAHS ABA newsletter was retrievable only by direct download from web.archive.org. horizonnjhealth.com and aetnabetterhealth.com return HTML stubs or 403 to automated fetches, so no Horizon NJ Health or Aetna Better Health of NJ ABA document could be read."
+    "progressNote": "deliveryRules pass run 2026-09-17 across GA, NJ and MA. 'verified' = a fetched primary source states the rule; 'plan-dependent' = the rule genuinely varies by plan or the published sources conflict; 'unverified' = the field carries a note plus a verifyVia naming the portal, phone line or document that would settle it; 'omitted' = no source and no useful verifyVia. Blocked or unreachable sources this pass: GAMMIS (mmis.georgia.gov) refuses connections, so Georgia's current quarterly ASD manual and live fee schedule could not be read \u2014 the posted January 2018 Part II manual is what Georgia's entries rest on and it predates the 97151-97158 code set. mass.gov returns 403 to automated fetches, so the MassHealth ABA Provider FAQ was not read. The NJ DMAHS ABA newsletter was retrievable only by direct download from web.archive.org. horizonnjhealth.com and aetnabetterhealth.com return HTML stubs or 403 to automated fetches, so no Horizon NJ Health or Aetna Better Health of NJ ABA document could be read.",
+    "method": "Extraction before research: where a guide's own cited prose already states the fact, lift it into the field with the same citation. Only research what prose does not cover."
   },
   "newPayers": [
     {
@@ -1186,7 +1235,153 @@
       "slug": "georgia-medicaid",
       "claim": "States Georgia reimburses 97151-97158 in 15-minute units with U1-U5 practitioner modifiers.",
       "challenge": "The publicly posted Part II ASD manual (Jan 2018) contains ZERO occurrences of 97151-97158 and 147 of the retired Category III set (0359T-0374T), priced in 90- and 30-minute units. The modern code set is almost certainly what Georgia actually pays, but the claim is currently unsourced because the live fee schedule sits inside GAMMIS. Two further claims ('8 hours per 6-month period' assessment cap; 'telehealth within 50 miles of the border') also appear nowhere in the posted manual.",
-      "resolve": "Blocked on DR-001. Do not 'correct' the guide to the legacy codes \u2014 the posted manual is the stale artifact, not the guide."
+      "resolve": "Blocked on DR-001. Do not 'correct' the guide to the legacy codes \u2014 the posted manual is the stale artifact, not the guide.",
+      "update_2026_09_17": "PARTIAL UNBLOCK found. The GA DCH Part II Telehealth Guidance (version date 10/1/2025) publishes a CURRENT Category I ABS code table \u2014 97151-97158, 0362T, 0373T in 15-minute units with GT plus U1-U5 practitioner modifiers and rates \u2014 from a live DCH document, without needing GAMMIS. That corroborates the guide's modern code set and contradicts the posted Jan-2018 ASD manual. Re-verify and re-cite georgia-medicaid's code-set claim against the Telehealth Guidance; the assessment-hours and 50-mile claims remain unresolved."
+    },
+    {
+      "id": "VC-004",
+      "priority": 1,
+      "status": "open",
+      "slug": "georgia-medicaid",
+      "claim": "'Telehealth is billable only if the rendering provider is in Georgia or within 50 miles of the border', cited to the Part II ASD Policy Manual.",
+      "challenge": "That manual has NO telehealth section \u2014 neither 'telehealth' nor 'telemedicine' appears in it. The current DCH Part II Telehealth Guidance (10/1/2025) does not carry the rule either: its distant-site definition turns on Georgia practice authority (O.C.G.A. 43-34-31), and its only 50-mile reference is about ambulance transportation. CareSource MM-0212 does assert the rule and attributes it to that guidance.",
+      "resolve": "Either find the version CareSource is restating, or drop the claim. The citation is wrong either way."
+    },
+    {
+      "id": "VC-005",
+      "priority": 1,
+      "status": "open",
+      "slug": "anthem-bcbs-georgia",
+      "claim": "'Standardized developmental assessments at minimum every 2 years' and 'protocol modification up to 2 hours per 10 direct hours, max 8/week', both cited to the Anthem ABA Provider Resource Guide (Oct 2024).",
+      "challenge": "That PDF was read in full and contains NEITHER statement. It says only that documentation must show the treatment plan was reviewed and/or updated at least every six months, and defers unit limits to CMS MUEs. Both facts likely come from CG-BEH-02, which is not public at the cited URL.",
+      "resolve": "Re-source both or remove them. Pairs with VC-001 (the CG-BEH-02 retirement question)."
+    },
+    {
+      "id": "VC-006",
+      "priority": 2,
+      "status": "open",
+      "slug": "humana-healthy-horizons-florida",
+      "claim": "Non-participating claims 'default-pay at a percentage of the Florida Medicaid allowable fee schedule'; pre-existing Acentra authorizations auto-extended 120 days.",
+      "challenge": "The current flyer (1025703FL0626) says non-par pay is the LESSER of the amount specified in the authorization request form or 100% of the applicable Medicaid fee schedule \u2014 100%, and a lesser-of test \u2014 and that continuity runs up to 90 days, not 120. The guide cites the older 675204FL0225 edition, so it may have been right at carve-in.",
+      "resolve": "Re-verify against the current flyer edition and update both figures."
+    },
+    {
+      "id": "VC-007",
+      "priority": 3,
+      "status": "open",
+      "slug": "caresource-georgia",
+      "claim": "Cites CareSource MM-0212 effective 1/1/2025 throughout.",
+      "challenge": "A newer edition effective 7/1/2026 is published at .../medicaid-ga-policy-medical-mm-0212-20260701.",
+      "resolve": "Re-verify against the 7/1/2026 edition and reprint citations."
+    },
+    {
+      "id": "VC-008",
+      "priority": 3,
+      "status": "open",
+      "slug": "amerigroup-georgia",
+      "claim": "deliveryRules is incomplete \u2014 placeOfService and billAsProvider are absent.",
+      "challenge": "Left untouched during the Georgia backfill because that file's delivery rules were out of scope for the agent that filled its intake gates.",
+      "resolve": "Fill both fields next cycle."
+    },
+    {
+      "id": "VC-009",
+      "priority": 2,
+      "status": "open",
+      "slug": "virginia-medicaid + 5 Cardinal Care MCOs",
+      "claim": "RESOLVED 2026-09-17 \u2014 recorded for audit trail.",
+      "challenge": "dxRequired read 'Yes \u2014 ASD diagnosis by a qualified professional (DMAS)' on six guides. DMAS Appendix D (rev. 7/17/2025) contains ZERO occurrences of 'autism'; admission turns on a youth under 21 with a primary ICD/DSM diagnosis in the disruptive-behaviour, mood, substance-use or trauma-and-stressor categories, or a provisional psychiatric diagnosis from an LMHP when none is definitive, plus two functional-impairment criteria. Also corrected: prose claiming DMAS sets no supervision frequency \u2014 Appendix D requires monthly observation of the youth and twice-monthly supervision of unlicensed staff.",
+      "resolve": "DONE. Verified against the primary document and applied.",
+      "status_note": "resolved"
+    },
+    {
+      "id": "VC-010",
+      "priority": 1,
+      "status": "open",
+      "slug": "north-carolina-medicaid + Healthy Blue, AmeriHealth, Trillium, WellCare NC",
+      "claim": "'Treatment plans are reviewed at least every 6 months and rewritten annually.'",
+      "challenge": "The 8/1/2026 CCP 8F revision retitled subsection 5.3.4 and REMOVED 'Annual Rewriting'. Review now triggers on each goal's target date, a change in needs, a change in provider, or a new service, with short-range goals never exceeding 12 months.",
+      "resolve": "Re-read CCP 8F 5.3.4 and update the four MCO guides plus the state guide."
+    },
+    {
+      "id": "VC-011",
+      "priority": 2,
+      "status": "open",
+      "slug": "alliance-health-north-carolina",
+      "claim": "dxRequired names 'ADI-R, ADOS-2, CARS-2, or TELE-ASD-PEDS' as accepted instruments.",
+      "challenge": "That list comes from Alliance's Feb 2026 guidance, which predates the rewrite. Finalized CCP 8F 3.2.4 names BOSA, Tele-ASD-Peds, ADOS-2 and CARS2-ST/CARS2-HF \u2014 ADI-R is NOT on the state list.",
+      "resolve": "Confirm whether Alliance still accepts ADI-R above the state floor, or align to 8F."
+    },
+    {
+      "id": "VC-012",
+      "priority": 2,
+      "status": "open",
+      "slug": "north-carolina-medicaid",
+      "claim": "'At least 10% of approved services should be directly observed by the LQASP.'",
+      "challenge": "CCP 8F 6.3(a) says 10% of services PROVIDED BY A PARAPROFESSIONAL \u2014 a materially different (and smaller) denominator.",
+      "resolve": "Correct the denominator."
+    },
+    {
+      "id": "VC-013",
+      "priority": 1,
+      "status": "open",
+      "slug": "kansas-medicaid, sunflower-health-plan-kansas, unitedhealthcare-community-plan-kansas, healthy-blue-kansas",
+      "claim": "'Both Sunflower and Optum/UHC require diagnosis validation within the last 6 months', and KMAP 26140 'layers on top of rather than replacing' that rule.",
+      "challenge": "Bulletin 26140 states the opposite: once diagnosed by a qualified diagnostician, members are eligible 'without the need for a re-evaluation of their autism spectrum disorder diagnosis. There is also no time limit on how soon they begin autism treatment.' Optum's July-2026 State Mandates supplement reproduces that verbatim for Kansas and no longer carries any 6-month language. Only Sunflower's KS.CP.01 still has it \u2014 last reviewed 06/2019, and it concedes state Medicaid provisions take precedence on conflict.",
+      "resolve": "Human decision needed on the prose. The dxRecency fields already state both rules and the conflict. NOTE: the 26140 effective date was corrected 2026-09-17 from 9/1/2026 to 11/1/2026 (bulletin reissued 8/31/2026) \u2014 verified against the live page."
+    },
+    {
+      "id": "VC-014",
+      "priority": 2,
+      "status": "open",
+      "slug": "cigna-* and aetna-* (multiple states)",
+      "claim": "Cigna guides credit 'no PA on 97151/97152/0362T' to EN0499; Aetna guides credit precertification to CPB 0554.",
+      "challenge": "Both documents were read in full and neither addresses prior authorization at all. The facts are right, the attributions are wrong \u2014 they come from the Evernorth autism resource guide and the Aetna BH precertification list (eff. 8/1/2024) respectively.",
+      "resolve": "Re-point the citations. Correct URLs are already in cites/sources on the NM/NC/OH guides."
+    },
+    {
+      "id": "VC-015",
+      "priority": 3,
+      "status": "open",
+      "slug": "multiple (Optum-citing guides)",
+      "claim": "Cites 'Optum ABA State Mandates BH803ABASTM12026, effective January 2026' and 'BH803ABASCC'.",
+      "challenge": "Live documents at the same URLs are BH803ABASTM72026 (effective July 2026) and BH803ABASCC082025 (interim review April 2026). Substance unchanged for AZ and CO.",
+      "resolve": "Refresh the document identifiers and dates."
+    },
+    {
+      "id": "VC-016",
+      "priority": 3,
+      "status": "open",
+      "slug": "aetna-* (all states)",
+      "claim": "dxRequired reads 'ASD only (F84.0-F84.9)'.",
+      "challenge": "Aetna's own ABA Medical Necessity Guide prints 'ICD-10/ F84.0; F84.3 - F84.9' \u2014 F84.1 and F84.2 are not in its list.",
+      "resolve": "Decide whether to narrow the range to Aetna's printed set across the Aetna guides."
+    },
+    {
+      "id": "VC-017",
+      "priority": 1,
+      "status": "open",
+      "slug": "north-carolina-medicaid",
+      "claim": "RESOLVED 2026-09-17 \u2014 recorded for audit trail.",
+      "challenge": "atGlance, treatmentPA, cardDesc, metaDescription and body prose all stated a blanket 'up to 180 days' authorization period. CCP 8F 5.1 is TIERED: up to 180 calendar days at 16 hrs/week or fewer, but only up to 90 calendar days above 16 hrs/week. Verified verbatim against the current 8/1/2026 policy PDF. Corrected on north-carolina-medicaid and healthy-blue-north-carolina.",
+      "resolve": "DONE."
+    },
+    {
+      "id": "VC-018",
+      "priority": 2,
+      "status": "open",
+      "slug": "nebraska-medicaid",
+      "claim": "The FAQ says 'The state's documents conflict: the MSD caps direct service at 6 hrs/day and 20 hrs/week, while DHHS summaries describe up to 30 hours/week.'",
+      "challenge": "The page's own body section says the conflict was resolved in the MSD's favour, and the current live MSD reads 20 cleanly with no 30-hour alternate. The June 2025 archived MSD did read '20-30', which is where the ambiguity came from \u2014 but it is gone. The FAQ now contradicts the body of its own page.",
+      "resolve": "Reword the FAQ to match the body."
+    },
+    {
+      "id": "VC-019",
+      "priority": 3,
+      "status": "open",
+      "slug": "massachusetts guides (several)",
+      "claim": "Prose says the standard PA form is 'completed by the LABA rendering or supervising services.'",
+      "challenge": "The form says 'The Board-Certified Behavioral Analyst (BCBA) rendering and/or supervising the services SHOULD complete this form' \u2014 'should', not 'must', and BCBA, not LABA. The LABA requirement comes from the Carelon/MBHP performance spec (262 CMR 10.00), not the form.",
+      "resolve": "Attribute each half to the right document."
     }
   ],
   "documentRequests": [
@@ -1232,5 +1427,62 @@
       "impact": "Cosmetic only \u2014 PayerPage appends orphan cites to the numbered source list at render time, so readers still see every source. The `sources` array is simply not a complete bibliography.",
       "resolve": "Append each missing URL to its guide's `sources`. Mechanical; do it a few states per refresh. Heaviest: AZ, KS, NE, NC, VA."
     }
-  ]
+  ],
+  "coverageBaseline": {
+    "date": "2026-09-17",
+    "guides": 193,
+    "note": "Measured before the field backfill. Re-run scripts/payer-coverage.mjs to compare.",
+    "topLevel": {
+      "cardDesc": 193,
+      "assessmentPA": 173,
+      "treatmentPA": 180,
+      "dxRequired": 190,
+      "family": 142
+    },
+    "deliveryRules": {
+      "supervision": 30,
+      "concurrentBilling": 34,
+      "dailyLimits": 34,
+      "noteSignature": 33,
+      "placeOfService": 38,
+      "billAsProvider": 29
+    },
+    "intakeGates": {
+      "ageLimit": 0,
+      "dxRecency": 0,
+      "diagnosingProviders": 0,
+      "diagnosticTools": 0,
+      "referral": 0,
+      "telehealth": 0
+    }
+  },
+  "coverageAfter": {
+    "date": "2026-09-17",
+    "guides": 193,
+    "note": "After the field backfill. Compare against coverageBaseline.",
+    "topLevel": {
+      "cardDesc": 193,
+      "assessmentPA": 193,
+      "treatmentPA": 193,
+      "dxRequired": 193,
+      "family": 146
+    },
+    "deliveryRules": {
+      "supervision": 189,
+      "concurrentBilling": 190,
+      "dailyLimits": 192,
+      "noteSignature": 189,
+      "placeOfService": 192,
+      "billAsProvider": 183
+    },
+    "intakeGates": {
+      "ageLimit": 193,
+      "dxRecency": 193,
+      "diagnosingProviders": 193,
+      "diagnosticTools": 193,
+      "referral": 193,
+      "telehealth": 193
+    },
+    "caveat": "Coverage counts fields PRESENT, not fields verified. A large minority are status 'unverified' with a verifyVia naming who to call \u2014 that is the honest state, not a gap to paper over. The next measure worth adding is percent-verified per field."
+  }
 }

@@ -96,7 +96,88 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Rules of the TN Applied Behavior Analyst Licensing Committee, Ch. 1180-05 (rev. May 2025)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
       { title: 'BACB — Meeting RBT Requirements During the 2026 Transition (updated 08/2025)', url: 'https://www.bacb.com/wp-content/uploads/2025/07/RBT-2026-Requirements_250723-a.pdf' },
       { title: 'BACB RBT Handbook', url: 'https://assets.bacb.com/wp-content/uploads/2022/01/RBTHandbook_230622-a.pdf' },
+      { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Birth through age 20. ABA rides on EPSDT, and TennCare defines that benefit as \u201ca full program of checkups and health care services for children from birth through age 20 who have TennCare.\u201d The shared tri-MCO program description sets no age floor and no age ceiling of its own \u2014 so the EPSDT boundary is the operative one, there is no minimum age, and the 21st birthday is the coverage cliff to diary at intake.',
+        status: 'verified',
+        cites: [{ title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'No recency rule on the ASD diagnosis itself. The program description requires only that the diagnosis be \u201c(a) issued by a qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns, (b) based on current DSM-5-TR criteria if applicable, and (c) include history, observation, and if/when clinically appropriate formal assessment of developmental skills.\u201d What does carry a clock is functional re-evaluation: the initial pre-certification review expects providers to describe outcomes \u201cincluding updated evaluation of functioning via standardized tools at least every two years.\u201d The universal form asks for the date the diagnosis was initially rendered and whether a standard assessment was used \u2014 so an older report is a documentation question, not a disqualifier.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '\u201cASD or other identified diagnosis necessitating ABA intervention should be\u2026 issued by a qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns\u201d \u2014 the program names no specific license. Initial pre-certification separately requires \u201cdocumentation by a TN licensed clinician supporting medical necessity for ABA.\u201d The universal form captures the diagnosing facility/group plus the provider name and credentials. Note Tennessee is not autism-only: another qualifying DSM-5-TR diagnosis \u201cfor which ABA is proven to be an effective appropriate intervention\u201d also opens the door, and the form asks about it explicitly.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No single instrument is mandated. The diagnosis \u201cmust be validated by a documented comprehensive assessment demonstrating the presence of\u201d the DSM-5-TR ASD criteria, and the evaluation should include \u201cformal assessment of developmental skills (e.g. cognitive, adaptive, ASD assessment tools).\u201d The ABA assessment itself \u201cshould be comprehensive and include direct observation (ideally a minimum of one in-person contact), file review, interviews with one or more informants, and standardized assessments to evaluate cognition, communication, social skills, adaptive skills, and behavioral domains,\u201d plus a Functional Behavioral Assessment. The program points to AAP/AAN/AACAP-recommended instruments generically rather than publishing a required list; the form asks only \u201cWas Standard Assessment used: In diagnosis of ASD?\u201d and, at continuation, \u201cList Standardized Assessments used to validate progress and include scores.\u201d',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      referral: {
+        value:
+          'Yes \u2014 a doctor\'s order, attached to the request. The universal ABA request form\u2019s assessment section carries a hard \u201cDoctor\u2019s Order Attached: Yes/No\u201d checkbox alongside \u201cDiagnostic Report Attached,\u201d and the review requires documentation by a TN-licensed clinician supporting medical necessity. No validity window is published for the order, so submit the most current one. The three MCOs sharpen this differently \u2014 UnitedHealthcare requires a physician order or script at initiation and Wellpoint asks for an MD order or treating-provider recommendation \u2014 see the per-MCO guides.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Available per code, not blanket-approved. Every code row on the universal request form \u2014 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158 \u2014 carries an \u201cIndicate if Hours are telehealth\u201d checkbox, and \u201cTelehealth\u201d is one of the place-of-service options alongside Clinic, Home, Community and School, so telehealth hours are requested and authorized code by code. The program description adds no prohibition but frames it cautiously: providers must weigh the CDC-derived limitations, \u201cidentify protocols for clinical appropriateness of telehealth models (i.e., direct service, clinical direction, caregiver consultation),\u201d use HIPAA-compliant technology and ensure provider competence.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Tennessee sets no numeric ratio of its own \u2014 the BACB floor governs by incorporation. The program description requires that \u201cRBT\u2019s and their supervising BCBA providers, must comply with ALL of the current Behavior Analyst Certification Board (BACB) requirements for credentialing, ethics, competency, supervision, and maintenance of the RBT credential,\u201d which puts the operative standard at 5% of monthly service hours supervised with two face-to-face contacts per month. Direct ABA \u201cmust be provided by or supervised by a Board-Certified Behavior Analyst (BCBA) licensed in TN (LBA) or a health professional permissible under TN state law\u201d; \u201cunlicensed persons may deliver applied behavior analysis (ABA) services under the extended authority and direction of a TN LBA\u201d and \u201cshall not represent themselves as professional behavior analysts.\u201d One carve-out: a licensed mental health clinician who can attest to BACB and MCO standards may deliver direct ABA without an LBA license if practicing within a provider group, not independently. The supervision overhead itself is not payable \u2014 \u201cnon-client specific administrative Supervision/training of behavior technician/paraprofessionals\u201d is an explicit non-covered service.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Rules of the TN Applied Behavior Analyst Licensing Committee, Ch. 1180-05 (rev. May 2025)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not answered for 97153 with 97155. The program description\u2019s non-covered list bars \u201cmore than one appropriately trained, licensed psychologist/LABA delivering services to a member during a specific time interval\u201d and \u201cservices provided simultaneously with other medical services such as occupational therapy, speech and language therapy, physical therapy, and psychotherapy\u201d \u2014 both about two distinct services on the same clock, neither about an analyst modifying protocol while a technician runs it. The AMA descriptor for 97155 already contemplates simultaneous direction of a technician, and the universal form lets a provider request 97153 and 97155 units in the same authorization without addressing overlap.',
+        status: 'unverified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+        verifyVia:
+          'The member\u2019s MCO and its claim-edit policy \u2014 BlueCare behavioral (BHABA@bcbst.com, (423) 535-5717 option 2), Wellpoint provider services (833) 731-2154, or UnitedHealthcare\u2019s TN ABA line (800) 690-1606. TennCare publishes no ABA fee schedule or edit table, so the answer lives in each MCO contract.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling, no annual benefit limit and no fixed weekly-hour cap. The universal form asks for units \u201cper week\u201d and \u201cper authorization period\u201d in 15-minute increments, justified against a severity/unit guide that scores communication, social, behavior and adaptive domains at levels 1\u20133. The only published quantitative ceiling is group size: \u201cgroup size should be no larger than six to eight participants as a best practice.\u201d Utilization is policed at the back end instead of the front \u2014 continuation requests must compute units utilized divided by units approved times 100, and \u201cif under 90% utilized, please explain,\u201d with the form noting \u201cthese figures are in reference to 97153/direct care, per authorization.\u201d UnitedHealthcare separately applies extra scrutiny above 20 hours per week.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'The program description sets no session-note co-signature rule. What it does require is BACB-standard documentation control \u2014 behavior analysts \u201ccomply with all applicable requirements (e.g., BACB rules, laws, regulations, contracts, funder, and organization requirements) for storing, transporting, retaining, and destroying\u201d records, and \u201cwhen a behavior analyst leaves an organization, these responsibilities remain with the organization\u201d \u2014 plus individualized treatment plans within 30 days of admission, reviewed every 6 months. The one signature rule that is published belongs to the authorization request, not the note: \u201cthis may be the signature of the person completing the form; however, it should note that is on behalf of the current treating provider. Or the actual recommending current treating provider may sign,\u201d attesting that everything submitted sits in the member\u2019s medical record.',
+        status: 'unverified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+        verifyVia:
+          'The member\u2019s MCO provider manual (BlueCare\u2019s Provider Administration Manual, Wellpoint\u2019s TN provider manual, UHC\u2019s TN Community Plan manual) and the record-documentation terms of your MCO participation agreement.',
+      },
+      placeOfService: {
+        value:
+          'Home, clinic, community and school are all payable \u2014 the universal request form\u2019s place-of-service grid lists Clinic, Home, Community, School, Telehealth and Other, and the program description states that \u201cschool based behavioral health services that are medically necessary are not required to be included in a child\u2019s Individualized educational plan (IEP) in order to be reimbursable.\u201d That makes Tennessee materially friendlier than New York, which bars school-setting ABA outright. The line is drawn around function, not building: \u201cproviding services that are part of an individualized education program (IEP) or functioning as an educational aide in the school setting\u201d is non-covered, as are provider travel time, transporting the member in lieu of a caregiver, a provider residing in the member\u2019s home as live-in help, billing while the member is sleeping, and accompanying the member to outside activities not in the documented treatment plan.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'The claim goes out under the enrolled group or servicing provider, with practitioner level riding as a modifier rather than a separate NPI. The universal form collects Group Name, Group TIN and Group NPI and \u2014 \u201cif practicing as a solo provider\u201d \u2014 the Servicing Provider NPI, plus the supervisor\u2019s name, credentials and phone, and a TN Medicaid ID for out-of-network providers. Level is expressed through modifiers on the form\u2019s code grid: HO on the analyst-delivered codes (97151, 97155, 97156, 97157, 97158) and HM on the technician-delivered ones (97152, 97154), with 97153 split \u201c97153 BA or RBT \u2014 indicate with modifier.\u201d Because TennCare publishes no fee schedule, the rate behind each modifier lives in your MCO contract, not a state lookup.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does TennCare cover ABA therapy?', a: 'Yes — for members up to age 21 through the EPSDT benefit, with no annual benefit limit and no fixed hour cap (hours are justified clinically). Coverage requires prior authorization and medical necessity, through the member\'s MCO.' },
       { q: 'Who can provide ABA under TennCare?', a: 'Direct ABA must be delivered by a BCBA or qualified licensed clinician who holds a Tennessee Licensed Behavior Analyst (LBA) license, with RBTs working under LBA authority.' },
@@ -158,10 +239,94 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Full therapy schedule', desc: 'ABA hours are counted separately from OT/PT — document everything.' },
     ],
     sources: [
+      { title: 'BlueCare Tennessee Provider Administration Manual', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
       { title: 'BlueCare — Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' },
       { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' },
       { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
+      { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
+      { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
+      { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the TennCare rule: EPSDT covers \u201cchildren from birth through age 20 who have TennCare,\u201d and the shared tri-MCO program description adds no age floor or ceiling of its own. BlueCare publishes no deviating age rule \u2014 its own initiation/continuation form collects date of birth without an age gate.',
+        status: 'verified',
+        cites: [{ title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Follows the TennCare rule: no recency limit on the ASD diagnosis itself, with functional re-evaluation by standardized tools expected \u201cat least every two years.\u201d BlueCare\u2019s own forms ask for \u201cInitial/First Date ASD Diagnosed\u201d and for diagnostic confirmation \u2014 \u201cdiagnostic reports, doctor\u2019s orders, etc.\u201d \u2014 plus the DSM severity level (Level 1/2/3), but set no maximum age on the report. Continuation requests are due at least once every six months.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the TennCare rule: the diagnosis must be issued by \u201ca qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns,\u201d with a TN-licensed clinician documenting medical necessity. BlueCare\u2019s forms ask only for diagnostic confirmation and severity level and name no additional credential of their own.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the TennCare rule \u2014 no named instrument is required; the diagnosis must be validated by a documented comprehensive assessment against DSM-5-TR criteria, and the ABA assessment must include direct observation, file review, informant interviews and standardized assessments across cognition, communication, social, adaptive and behavioral domains. BlueCare adds a severity checkbox (Level 1/2/3) and, at continuation, asks for measurable goals and evidence of progress rather than a named test battery.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+      },
+      referral: {
+        value:
+          'Follows the TennCare rule: the assessment request needs the diagnostic report and a doctor\u2019s order. Both BlueCare forms ask for \u201cdiagnostic confirmation like diagnostic reports, doctor\u2019s orders, etc.\u201d BlueCare-specific mechanics: submit through Availity (Tennessee providers) or Cohere (out-of-state), with fax fallback to (800) 292-5311 for BlueCare/TennCareSelect and (800) 851-2491 for CoverKids; UM questions go to BHABA@bcbst.com or (423) 535-5717, option 2. No referral validity window is published.',
+        status: 'verified',
+        cites: [{ title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the TennCare rule: telehealth hours are requested and authorized per code on the universal tri-MCO form, which carries an \u201cIndicate if Hours are telehealth\u201d checkbox on every ABA code and lists Telehealth among the places of service. No BlueCare-specific ABA telehealth policy was located \u2014 its own initiation/continuation and assessment forms collect proposed service locations without a telehealth rule of their own \u2014 so the shared program description\u2019s caution about clinical appropriateness, HIPAA-compliant technology and provider competence is the operative standard.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the TennCare rule: direct ABA must be delivered by or supervised by a TN Licensed Behavior Analyst (or a health professional permissible under TN law), unlicensed persons work \u201cunder the extended authority and direction of a TN LBA,\u201d and RBTs plus their supervising BCBAs must comply with all current BACB supervision requirements \u2014 which sets the operative floor at 5% of monthly service hours with two face-to-face contacts. BlueCare publishes no ratio of its own; its forms capture the provider\u2019s name, credentials and NPI/Tax ID rather than a supervision schedule.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not answered. BlueCare publishes no same-clock-time rule for 97153 with 97155, and the shared program description addresses only two other situations \u2014 more than one licensed analyst serving a member \u201cduring a specific time interval\u201d and ABA delivered simultaneously with OT, speech, PT or psychotherapy. What BlueCare does say is the converse for scheduling: \u201cthe hours per week authorized aren\u2019t inclusive of other services being provided (e.g. occupational therapy, physical therapy),\u201d so a full therapy calendar does not shrink the ABA request.',
+        status: 'unverified',
+        cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+        verifyVia:
+          'BlueCare behavioral health \u2014 BHABA@bcbst.com or (423) 535-5717, option 2 \u2014 and the BlueCare Tennessee Provider Administration Manual\u2019s ABA and claim-editing sections.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day ceiling and no annual limit. BlueCare authorizes in 26-week (six-month) certification periods and its initiation/continuation form asks for hours per week by code, a clinical justification for any increase, and \u2014 \u201cif concurrent\u201d \u2014 the hours approved versus hours used in the last authorization period. That last field is the operative constraint: like every TennCare MCO, BlueCare expects an explanation when utilization of authorized direct-care units falls below 90%.',
+        status: 'verified',
+        cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No session-note co-signature rule is published. Both BlueCare forms end with a provider signature, printed name and credentials, and the attestation that \u201cby submitting this request, you\u2019re confirming that you\u2019ve provided all clinical information available pertinent to this request and you\u2019re requesting the decision be made based on information provided in your submission\u201d \u2014 a request-level attestation, not a note-level rule.',
+        status: 'unverified',
+        cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+        verifyVia:
+          'The BlueCare Tennessee Provider Administration Manual\u2019s record-documentation section, or BlueCare provider relations at (800) 468-9736.',
+      },
+      placeOfService: {
+        value:
+          'Follows the TennCare rule: Clinic, Home, Community, School, Telehealth and Other are all on the universal form\u2019s place-of-service grid, and medically necessary school-based behavioral health services \u201care not required to be included in a child\u2019s Individualized educational plan (IEP) in order to be reimbursable.\u201d BlueCare\u2019s assessment form asks providers to state where \u201cABA therapy will be provided between the qualified practitioner and the individual member and/or caregiver at the following proposed location(s),\u201d so the setting is authorized rather than assumed. IEP services and functioning as an educational aide remain non-covered.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Follows the TennCare rule \u2014 the claim rides on the group or servicing provider with the practitioner level carried as a modifier (HO for analyst-delivered codes, HM for technician-delivered, 97153 split between them). BlueCare\u2019s own forms collect \u201cProvider ID, NPI Number, or Tax ID\u201d plus the provider name and credentials; no separate rendering-versus-supervising NPI convention is published, and rates are contract-negotiated because TennCare publishes no ABA fee schedule.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does BlueCare Tennessee cover ABA therapy?', a: 'Yes — BlueCare administers the TennCare ABA benefit under the shared tri-MCO program description: EPSDT members under 21, prior authorization on assessment and treatment, TN LBA licensure for direct ABA.' },
       { q: 'How do I submit an ABA prior authorization to BlueCare?', a: 'Through Availity (or provider.bcbst.com), or by fax to (800) 292-5311 for BlueCare/TennCareSelect — using the universal tri-MCO ABA request form, plus BlueCare\'s initiation/continuation form for treatment. Non-urgent decisions come within 14 calendar days.' },
@@ -227,7 +392,89 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'UHC — Level of Care Guidelines: ABA (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' },
       { title: 'UHC TN Community Plan — behavioral health provider page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/tennessee-health-plans/tn-comm-plan-home/tn-cp-behavioral-health.html' },
       { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' },
+      { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
+      { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the TennCare rule: EPSDT covers \u201cchildren from birth through age 20 who have TennCare.\u201d UHC\u2019s own Level of Care Guidelines for ABA set no age limit \u2014 they instead add adolescent and young-adult content, directing that \u201cwhen adolescents, young adults, or adults are receiving ABA services, it\u2019s important to include a focus on transition to adulthood.\u201d',
+        status: 'verified',
+        cites: [{ title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' }, { title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Follows the TennCare rule \u2014 no recency limit on the diagnosis itself, with updated functional evaluation by standardized tools expected at least every two years. UHC\u2019s overlay puts its clock on progress rather than the diagnosis: \u201cthe patient must be reassessed at the end of each authorized period,\u201d and \u201cif the patient shows no meaningful measurable changes, on a norm based assessment, for period of 3 months of optimal treatment, then ABA may no longer be considered medically necessary.\u201d',
+        status: 'verified',
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Stricter than the shared baseline. UHC requires \u201ca comprehensive clinical evaluation by a TN licensed clinician supporting medical necessity for ABA\u201d and that \u201cthe member has been assigned a DSM-5 TR diagnosis of Autism or another identified diagnosis for which ABA is the least restrictive and most clinically appropriate treatment.\u201d The guidelines name no single license for the diagnostician, but the evaluation must be a TN-licensed clinician\u2019s and must be separate from the physician order that follows it.',
+        status: 'verified',
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No named instrument, but a named battery. UHC requires that \u201cassessments should include norm referenced assessments, skills assessments, a risk assessment, and a behavioral assessment,\u201d and gates prior authorization on \u201ca reasonable expectation on the part of a treating healthcare professional that the individual\u2019s behavior will improve significantly, as measured by norm referenced assessments.\u201d Progress and discharge decisions both turn on norm-referenced scores, so the instrument you choose at intake is the one you will be re-scored against at concurrent review.',
+        status: 'verified',
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }],
+      },
+      referral: {
+        value:
+          'The strictest of the three TennCare MCOs: \u201cthe member will need a physician order/script recommending ABA services, based on their review of the diagnostic assessment.\u201d That order is an initiation criterion in its own right, on top of the comprehensive clinical evaluation, and the universal form\u2019s \u201cDoctor\u2019s Order Attached\u201d checkbox is where it lands. Chase it at intake, not at submission. UHC also notes that while \u201cthe initial evaluation may be ordered by the primary care provider or specialist, the number of hours proposed by the ABA provider must be substantiated as medically necessary.\u201d',
+        status: 'verified',
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Per-code on the universal form, with a UHC-specific clinical gate on top: \u201cdirect Telehealth services may only be considered medically necessary when the provider has assessed that a member has core skills to attend to a device for an extended period of time.\u201d The guidelines add that \u201ctelehealth service delivery for ABA should include an ongoing review of ethical, efficacy, and scope of practice considerations.\u201d So document device-attention skills before requesting telehealth hours \u2014 it is a medical-necessity element, not a logistics preference.',
+        status: 'verified',
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          '\u201cABA services must be located in TN and must be provided by or supervised by a TN board-certified Behavior Analyst (BCBA) or a health professional permissible under TN state law. Unlicensed persons may deliver applied behavior analysis (ABA) services under the extended authority and direction of an LBA or an LABA who is supervised by an LBA. Such persons shall not represent themselves as professional behavior analysts.\u201d UHC also splits the work by tier: assessment, plan development, revision, caregiver observation, effectiveness monitoring and on-site crisis assistance \u201cmay be performed by a Behavioral Analyst,\u201d while only the last four may be performed by a Behavioral Specialist. No numeric ratio is published, so the shared program description\u2019s incorporation of the BACB supervision requirements governs.',
+        status: 'verified',
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not answered for 97153 with 97155. The Level of Care Guidelines address intensity and medical necessity rather than claim edits, and the shared program description bars only two overlaps \u2014 more than one licensed analyst serving a member during a specific time interval, and ABA delivered simultaneously with OT, speech, PT or psychotherapy.',
+        status: 'unverified',
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }],
+        verifyVia:
+          'UnitedHealthcare\u2019s TN ABA line (800) 690-1606 or tn_medicaid_aba@uhc.com, and the UHC Community Plan of Tennessee reimbursement policies on uhcprovider.com.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling, but the only real intensity gate among the TennCare MCOs: \u201cHigh frequency/Comprehensive ABA (greater than 20 hours per week) should generally only be considered when the member has multiple needs related to behaviors and social communication challenges, is early in receiving ABA services (i.e. within the first 2 years of ABA), and has a symptom severity of at least 2 or 3 per DSM-V criteria.\u201d Proposed intensity must also leave room for \u201cappropriate rest breaks, nutrition breaks, family time and time for play or non-learning activities,\u201d and maintenance-phase ABA \u201cshould be at a lower intensity of services\u2026 these programs should not be comprehensive or full time in nature.\u201d Authorization length is set by the MCO to the individual\u2019s needs.',
+        status: 'verified',
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No session-note signature rule is published in the Level of Care Guidelines, and the shared program description sets none either \u2014 it requires BACB-standard record storage and retention and a treatment plan within 30 days of admission reviewed every 6 months, but names no signer. The universal request form\u2019s signature block is the only published signature requirement, and it covers the authorization request rather than the session note.',
+        status: 'unverified',
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+        verifyVia:
+          'The UnitedHealthcare Community Plan of Tennessee Care Provider Manual\u2019s medical-records standards, or the TN ABA line (800) 690-1606.',
+      },
+      placeOfService: {
+        value:
+          'Follows the TennCare rule \u2014 Clinic, Home, Community, School, Telehealth and Other are all requestable on the universal form, and medically necessary school-based behavioral health services need not sit in an IEP to be reimbursable. UHC adds two conditions of its own: services \u201cmust be located in TN,\u201d and \u201cthe rationale for services and schedule of treatment with location should be a part of the treatment plan\u201d \u2014 so setting is a documented clinical choice, not a scheduling convenience. Treatment protocols are expected to be \u201cimplemented repeatedly, frequently, and consistently across environments until the client can function independently in multiple situations.\u201d',
+        status: 'verified',
+        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Follows the TennCare rule: the claim rides on the group or servicing provider identified on the universal form, with the practitioner level carried as a modifier \u2014 HO on analyst-delivered codes, HM on technician-delivered, and 97153 split between the two. UHC\u2019s guidelines describe who may perform which component rather than whose NPI the claim carries, and no separate UHC rendering-versus-supervising convention is published for TennCare ABA.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Tennessee cover ABA?', a: 'Yes — it administers the TennCare ABA benefit (EPSDT, under 21) under the shared tri-MCO program description, plus UHC\'s own Level of Care Guidelines with additional requirements like an explicit physician order.' },
       { q: 'How is UHC different from the other TennCare MCOs for ABA?', a: 'It\'s the only one with a distinct clinical overlay: physician-order requirement, extra scrutiny above 20 hours/week of comprehensive ABA, a device-attention test for telehealth, and a 3-month no-measurable-progress discharge rule.' },
@@ -292,7 +539,88 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Universal Request for ABA form (Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' },
       { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
       { title: 'Wellpoint TN — ABA provider page', url: 'https://www.provider.wellpoint.com/tennessee-provider/patient-care/behavioral-health/applied-behavior-analysis' },
+      { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the TennCare rule: EPSDT covers \u201cchildren from birth through age 20 who have TennCare,\u201d and the shared tri-MCO program description Wellpoint hosts sets no age floor or ceiling of its own. Wellpoint publishes no deviating age rule.',
+        status: 'verified',
+        cites: [{ title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Follows the TennCare rule: no recency limit on the ASD diagnosis, with updated evaluation of functioning via standardized tools expected \u201cat least every two years.\u201d The universal form Wellpoint hosts asks for the date the diagnosis was initially rendered and whether a standard assessment was used in it. Authorizations then run in 26-week periods.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the TennCare rule \u2014 the diagnosis must be issued by \u201ca qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns,\u201d and a TN-licensed clinician must document medical necessity. Wellpoint names no additional credential; its emphasis falls on the ordering provider instead (see referral).',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the TennCare rule \u2014 no named instrument. The diagnosis must be validated by a documented comprehensive assessment against DSM-5-TR criteria, and the ABA assessment must include direct observation, file review, informant interviews and standardized assessments across cognition, communication, social, adaptive and behavioral domains. At continuation the universal form asks providers to \u201clist Standardized Assessments used to validate progress and include scores,\u201d with page references.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      referral: {
+        value:
+          'Required, with Wellpoint\u2019s own emphasis: the assessment request needs an MD order or a licensed treating provider\u2019s recommendation, landing on the universal form\u2019s \u201cDoctor\u2019s Order Attached\u201d checkbox alongside the diagnostic report. Wellpoint\u2019s stated preferred workflow is to complete the universal tri-MCO form and attach it as the clinical documentation in Availity\u2019s Interactive Care Reviewer; fax fallback is (866) 920-6006, with (888) 881-6309 also listed on the form. No validity window is published for the order.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the TennCare rule: telehealth is requested and authorized per code via the \u201cIndicate if Hours are telehealth\u201d checkbox that appears on every ABA code row of the universal form Wellpoint hosts, with Telehealth also listed among the places of service. No Wellpoint-Tennessee-specific ABA telehealth policy was located, so the shared program description\u2019s cautions \u2014 clinical appropriateness protocols by model, HIPAA-compliant technology, demonstrated provider competence \u2014 are the operative standard.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the TennCare rule: direct ABA must be provided by or supervised by a TN Licensed Behavior Analyst (or a health professional permissible under TN law); unlicensed persons deliver \u201cunder the extended authority and direction of a TN LBA\u201d and may not represent themselves as behavior analysts; and RBTs with their supervising BCBAs must comply with all current BACB supervision requirements, which sets the floor at 5% of monthly service hours and two face-to-face contacts. Wellpoint publishes no ratio of its own. Non-client-specific administrative supervision and technician training remain non-covered.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not answered for 97153 with 97155 \u2014 the program description Wellpoint hosts bars only two overlaps (more than one licensed analyst serving the member during a specific time interval, and ABA delivered simultaneously with OT, speech, PT or psychotherapy), and the universal form lets both codes be requested in one authorization without an overlap rule.',
+        status: 'unverified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+        verifyVia:
+          'Wellpoint TN provider services (833) 731-2154 or the named regional ABA contacts published in the tri-MCO update materials; Wellpoint\u2019s own reimbursement policies on provider.wellpoint.com.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day ceiling, no annual limit and no fixed weekly cap \u2014 units are requested per week and per 26-week authorization period in 15-minute increments and justified against the severity/unit guide. The back-end constraint is Wellpoint\u2019s signature rule: continuation must report units utilized divided by units approved times 100, and \u201cif under 90% utilized, please explain,\u201d measured on 97153 direct care. The form also asks for the volume of parent training (97156) delivered per week or per month.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No session-note signature rule is published. The universal form Wellpoint hosts requires a provider signature \u2014 \u201cthis may be the signature of the person completing the form; however, it should note that is on behalf of the current treating provider. Or the actual recommending current treating provider may sign\u201d \u2014 with an attestation that all the information is in the member\u2019s medical record. That is a request-level rule; the program description otherwise relies on BACB documentation standards.',
+        status: 'unverified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+        verifyVia:
+          'Wellpoint TN provider services (833) 731-2154 and the Wellpoint Tennessee provider manual\u2019s medical-record documentation standards.',
+      },
+      placeOfService: {
+        value:
+          'Follows the TennCare rule: Clinic, Home, Community, School, Telehealth and Other are all on the universal form\u2019s place-of-service grid, and medically necessary school-based behavioral health services \u201care not required to be included in a child\u2019s Individualized educational plan (IEP) in order to be reimbursable.\u201d Non-covered regardless of setting: IEP services and functioning as an educational aide, provider travel time, transport in lieu of a caregiver, live-in help, billing while the member sleeps, and accompanying the member to outside activities not in the treatment plan.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Follows the TennCare rule \u2014 the claim rides on the Group NPI (or the Servicing Provider NPI for a solo practitioner) captured on the universal form, with the supervisor\u2019s name and credentials recorded alongside and a TN Medicaid ID required if out of network. Practitioner level is expressed as a modifier: HO for analyst-delivered codes, HM for technician-delivered, 97153 split between them. Rates sit in the Wellpoint participating-provider agreement, since TennCare publishes no ABA fee schedule.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does Wellpoint Tennessee cover ABA therapy?', a: 'Yes — Wellpoint (formerly Amerigroup) administers the TennCare ABA benefit under the shared tri-MCO program description: EPSDT members under 21, PA on assessment and treatment, TN LBA licensure.' },
       { q: 'How do I submit an ABA authorization to Wellpoint TN?', a: 'Complete the universal tri-MCO ABA request form and attach it as clinical documentation in Availity\'s Interactive Care Reviewer; fax fallback (866) 920-6006. The assessment request needs an MD order or treating-provider recommendation.' },
@@ -394,7 +722,90 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'BCBST — ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' },
       { title: 'BCBST — Initiation and Continuation of ABA Therapy Form', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' },
       { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' },
+      { title: 'TennCare MCO Statewide Contract (template, current through Amendment 25, eff. 7/1/2026)', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+      { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
+      { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the TennCare rule: EPSDT covers \u201cchildren from birth through age 20 who have TennCare,\u201d and the shared tri-MCO program description sets no age of its own. TennCare Select\u2019s population skews younger and higher-acuity \u2014 SSI children under 21, DCS custody youth, Katie Beckett Part A children up to 18 \u2014 but the ABA age boundary is the state\u2019s.',
+        status: 'verified',
+        cites: [{ title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare Tennessee Provider Administration Manual', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Follows the TennCare rule: no recency limit on the ASD diagnosis, with updated evaluation of functioning by standardized tools expected at least every two years, and 26-week (six-month) certification periods. The BCBST forms that serve TennCare Select members ask for \u201cInitial/First Date ASD Diagnosed\u201d and the DSM severity level (1\u20133) without capping the report\u2019s age; continuation requests \u201cmust be submitted at least once every six months.\u201d',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the TennCare rule \u2014 the diagnosis must come from \u201ca qualified health professional, practicing within their scope, with training in assessment of individuals with ASD and/or other neurodevelopmental concerns,\u201d with a TN-licensed clinician documenting medical necessity. No TennCare Select-specific diagnostician rule exists; the BCBST forms ask only for diagnostic confirmation and severity level.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the TennCare rule: no named instrument, but the diagnosis must be validated by a documented comprehensive assessment against DSM-5-TR criteria, and the ABA assessment must include direct observation, file review, informant interviews and standardized assessments across cognition, communication, social, adaptive and behavioral domains. BCBST\u2019s forms capture severity level and measurable goals rather than a required test battery.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
+      },
+      referral: {
+        value:
+          'Follows the TennCare rule \u2014 the assessment request needs the diagnostic report plus a doctor\u2019s order; the BCBST forms ask for \u201cdiagnostic confirmation like diagnostic reports, doctor\u2019s orders, etc.\u201d TennCare Select-specific mechanics: Tennessee providers submit in Availity, out-of-state providers through Cohere, and PA questions route to (423) 535-5717, option 2, with TennCare Select\u2019s own prior-auth line at 1-800-711-4104 (fax 1-800-292-5311 is shared with BlueCare).',
+        status: 'verified',
+        cites: [{ title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the TennCare rule: telehealth hours are requested per code on the universal tri-MCO form, which carries a telehealth checkbox on every ABA code row and lists Telehealth among the places of service. No TennCare Select-specific ABA telehealth policy was located \u2014 the BCBST forms collect proposed service locations without a telehealth rule of their own \u2014 so the shared program description\u2019s appropriateness, HIPAA and competence cautions govern.',
+        status: 'verified',
+        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the TennCare rule: direct ABA must be delivered or supervised by a TN Licensed Behavior Analyst (or a health professional permissible under TN law), unlicensed persons work under the LBA\u2019s extended authority and direction, and RBTs with their supervising BCBAs must meet all current BACB supervision requirements \u2014 the operative floor being 5% of monthly service hours with two face-to-face contacts. One TennCare Select-specific staffing overlay matters more than the ratio: members in CHOICES, ECF CHOICES, 1915(c) waivers or Katie Beckett trigger TennCare\u2019s Aligned Background Check Protocol for every employee with direct member contact.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare Tennessee Provider Administration Manual', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not answered for 97153 with 97155. The shared program description bars only more than one licensed analyst serving a member during a specific time interval and ABA delivered simultaneously with OT, speech, PT or psychotherapy; BlueCare\u2019s own form states the converse for scheduling \u2014 \u201cthe hours per week authorized aren\u2019t inclusive of other services being provided.\u201d',
+        status: 'unverified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
+        verifyVia:
+          'TennCare Select prior auth 1-800-711-4104 or (423) 535-5717 option 2, and the BlueCare Tennessee Provider Administration Manual\u2019s ABA and claim-editing sections.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day ceiling and no annual benefit limit. Authorizations run 26 weeks and the BCBST initiation/continuation form asks for hours per week by code plus a clinical justification for any increase and, \u201cif concurrent,\u201d hours approved versus hours used in the last authorization period \u2014 the same sub-90% utilization discipline the whole program applies to 97153. Group sizes are capped as best practice at six to eight participants.',
+        status: 'verified',
+        cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No session-note co-signature rule is published. The BCBST forms close with a provider signature, printed name and credentials plus an attestation that all pertinent clinical information was supplied \u2014 a request-level rule. The program description otherwise relies on BACB record-storage and retention standards, with treatment plans due within 30 days of admission and reviewed every six months.',
+        status: 'unverified',
+        cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+        verifyVia:
+          'The BlueCare Tennessee Provider Administration Manual\u2019s record-documentation section, or TennCare Select provider services 1-800-276-1978.',
+      },
+      placeOfService: {
+        value:
+          'Follows the TennCare rule \u2014 Clinic, Home, Community, School, Telehealth and Other are all requestable, and medically necessary school-based behavioral health services need not be in an IEP to be reimbursable; IEP services and functioning as an educational aide stay non-covered. BCBST\u2019s assessment form asks providers to state the \u201cproposed location(s)\u201d where ABA will be delivered, so setting is authorized rather than assumed.',
+        status: 'verified',
+        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Follows the TennCare rule \u2014 the claim rides on the group or servicing provider, with practitioner level carried as a modifier (HO analyst-delivered, HM technician-delivered, 97153 split). BlueCare\u2019s Provider Administration Manual covers BlueCare and TennCareSelect members under one shared ABA policy with the same codes (97151\u201397155, 0362T, 0373T) and the same RBT/BCaBA/BCBA billing structure, and the BCBST forms collect \u201cProvider ID, NPI Number, or Tax ID.\u201d Rates are contract-negotiated.',
+        status: 'verified',
+        cites: [{ title: 'BlueCare Tennessee Provider Administration Manual', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
+      },
+    },
     faq: [
       { q: 'Is TennCare Select the same as BlueCare Tennessee?', a: 'No — they\'re separate state contracts (different Edison contract IDs) even though both are administered by Volunteer State Health Plan, a BlueCross BlueShield of Tennessee subsidiary. Members are assigned to TennCare Select by the Division of TennCare, not chosen; contact numbers and some LTSS programs differ.' },
       { q: 'Who is on TennCare Select?', a: 'SSI-eligible children under 21, children in DCS foster-care custody ("SelectKids"), members in intellectual-disability HCBS waivers ("SelectCommunity"), Katie Beckett Part A children, and some out-of-state or safety-net enrollees — roughly 37,095 members statewide (CY2024 average).' },
@@ -479,6 +890,104 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Tenn. Code Ann. § 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' },
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'No age limit in Aetna\u2019s national policy \u2014 neither CPB 0554 nor CPB 0648 states an upper or lower age bound for ABA. Tennessee\u2019s mandate does not supply one either in the way most states do: \u00a7 56-7-2367 is a parity rule keyed to insureds under 12, requiring plans that cover neurological disorders to provide at least as comprehensive ASD benefits, and it expressly does not expand the type or scope of treatment. So the operative age answer on a Tennessee Aetna card comes from the benefit document, not from either rulebook.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
+        verifyVia:
+          'Live benefits verification on the specific plan, and the summary plan description for a self-funded employer group.',
+      },
+      dxRecency: {
+        value:
+          'Aetna\u2019s policies are silent on how recent the diagnostic evaluation must be, and set no re-evaluation interval, so recency is a plan-document and utilization-review question rather than a published rule. Reauthorization is commonly on a roughly six-month cadence, which is the practical clock intake should plan around.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        verifyVia:
+          'Precertification intake at Aetna (form GR-69017-4 via Availity or phone) \u2014 ask what evaluation age the reviewer will accept, and get the answer in writing per case.',
+      },
+      diagnosingProviders: {
+        value:
+          'CPB 0648 frames the diagnosis as made by an \u201cappropriate certified/licensed health care professional\u201d and names the professional types it contemplates in an ASD workup \u2014 board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist. Tennessee layers a delivery-side credential on top that is not a diagnostic one: direct ABA requires a TN Licensed Behavior Analyst under T.C.A. \u00a7\u00a7 63-11-301\u2013311.',
+        status: 'verified',
+        cites: [{ title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'CPB 0648 names four ASD instruments by name \u2014 the Autism Diagnostic Interview-Revised (ADI-R), Autism Diagnostic Observation Schedule-2nd edition (ADOS-2), Childhood Autism Rating Scale 2nd edition (CARS-2) and Asperger Syndrome Diagnostic Scale. The policy does not state that any one of them is mandatory for an ABA authorization, so treat the list as the instruments Aetna recognizes rather than a required battery, and confirm per case at precertification.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        verifyVia:
+          'Aetna precertification (form GR-69017-4) \u2014 confirm which instrument results the reviewer requires for the specific plan.',
+      },
+      referral: {
+        value:
+          'Aetna\u2019s ABA policies are silent on whether a referral, prescription or physician order is required; what is required is precertification for both assessment and treatment on form GR-69017-4, submitted through Availity or by phone. Tennessee\u2019s statute imposes no ordering requirement either \u2014 it names no treatment type at all. Many plans still ask for a physician order as a benefit-document term, so verify per plan rather than assuming none is needed.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
+        verifyVia:
+          'Live benefits verification and the plan document; Aetna precertification intake for the specific member.',
+      },
+      telehealth: {
+        value:
+          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA codes, so there is no published Aetna rule to cite for Tennessee \u2014 and no Tennessee-specific Aetna ABA policy, form or supplement exists to supply one. Coverage and any place-of-service requirement fall to the member\u2019s benefit plan and Aetna\u2019s general telemedicine terms.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        verifyVia:
+          'Aetna\u2019s telemedicine policy and the member\u2019s benefit document, confirmed at precertification before scheduling remote sessions.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Not published. Aetna\u2019s ABA policies set no supervision ratio, no supervisor-to-technician cap and no observation cadence. In Tennessee the binding supervision requirement is therefore the state licensure one: direct ABA must be delivered by a Licensed Behavior Analyst under T.C.A. \u00a7\u00a7 63-11-301 through 63-11-311, administered by the Applied Behavior Analyst Licensing Committee, with assistant-level LABAs practicing only under LBA supervision \u2014 the same gate that governs TennCare work.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+        verifyVia:
+          'Aetna provider services and your participating-provider agreement; the TN Applied Behavior Analyst Licensing Committee for the licensure floor.',
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither CPB 0554 nor CPB 0648 addresses whether 97153 and 97155 may be billed for the same clock time, and Aetna publishes no Tennessee-specific ABA reimbursement policy.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        verifyVia:
+          'Aetna\u2019s clinical payment, coding and policy changes pages and your participating-provider agreement; confirm with provider services per case before billing the overlap.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. Aetna states no per-day MUE, unit ceiling or weekly hour maximum for ABA, and Tennessee\u2019s mandate supplies none either \u2014 \u00a7 56-7-2367 creates no ABA-specific benefit, so any numeric limit a Tennessee family meets is a plan-document term or a medical-necessity determination. Federal parity still constrains how hard a numeric limit can be applied to a group plan.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
+        verifyVia:
+          'Live benefits verification for the specific plan \u2014 ask for visit, hour and dollar limits in writing, and flag any ABA-only limit for a parity review.',
+      },
+      noteSignature: {
+        value:
+          'Not published in the ABA policies. Aetna\u2019s documentation and signature expectations for ABA sit in its general medical-record standards and the participating-provider agreement rather than in CPB 0554 or CPB 0648.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        verifyVia:
+          'Aetna\u2019s provider manual medical-records standards and your participating-provider agreement.',
+      },
+      placeOfService: {
+        value:
+          'Not published. Neither ABA policy names payable settings, and there is no Tennessee-specific Aetna supplement. Worth knowing for contrast: TennCare does pay for school-setting ABA that is not part of an IEP, so a Tennessee family moving between Medicaid and a commercial Aetna plan may find the setting answer changes.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        verifyVia:
+          'Live benefits verification and Aetna\u2019s place-of-service reimbursement guidance for the specific plan.',
+      },
+      billAsProvider: {
+        value:
+          'Not published in the ABA policies. Aetna sets no rendering-versus-supervising NPI convention for ABA in CPB 0554 or CPB 0648. In Tennessee the constraint that does bind is licensure \u2014 direct ABA requires an LBA, with LABAs practicing only under LBA supervision \u2014 and rates are contract-negotiated, because no national carrier publishes commercial ABA fee schedules for Tennessee.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+        verifyVia:
+          'Your Aetna participating-provider agreement and Aetna\u2019s professional claim submission guidance.',
+      },
+    },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Tennessee?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Tennessee\'s mandate (Tenn. Code Ann. § 56-7-2367) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Tennessee autism mandate require?', a: 'Tennessee’s statute is the weakest of the states we cover — it’s a parity rule, not an ABA mandate. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
@@ -562,6 +1071,88 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Tenn. Code Ann. § 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' },
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EN0499 states no age limit \u2014 the policy gates on diagnosis, assessment and data rather than age. Tennessee\u2019s mandate does not add one usefully either: \u00a7 56-7-2367 is a parity rule keyed to insureds under 12 that never names ABA, so an age answer on a Tennessee Cigna card comes from the benefit document rather than from the policy or the statute.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
+        verifyVia:
+          'Live benefits verification on the specific plan; the summary plan description for a self-funded employer group.',
+      },
+      dxRecency: {
+        value:
+          'EN0499 puts its clocks on the assessment and the data, not on the diagnosis. The diagnosis must be confirmed with \u201cthe date on which the diagnosis was most recently made\u201d documented, but carries no maximum age. What must be current is the instrument and the data: \u201cadministration of the assessment instrument has been completed within 60 days prior to the start of treatment,\u201d quantitative baseline data likewise within 60 days, current data within 60 days of both the start date and the date the request is received, and a fresh standardized instrument \u201cfollowing any break in treatment greater than 60 calendar days.\u201d Continued treatment needs an instrument \u201ccompleted no more than one year prior to the start date of the continued treatment request.\u201d',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '\u201cThe individual has a confirmed diagnosis of autism spectrum disorder (ASD)\u2026 based on the criteria in the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR) by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,\u201d with the name, credentials and type of licensure of the diagnostician and the date of the most recent diagnosis all provided. The ABA assessment is separate and must be performed by a BCBA, LBA, or an independently licensed mental health clinician with documented ABA training. Note the diagnosis must be ASD (F84.0\u2013F84.9): Rett syndrome (F84.2) is excluded.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No instrument is named, but the specification is strict. The assessment must administer \u201ca reliable, valid, and standardized assessment instrument that measures the individual\u2019s functioning in the domains included in the diagnostic criteria for ASD in the DSM-5-TR\u2026 social communication and social interaction; and restricted, repetitive patterns of behavior, interests, or activities,\u201d and the instrument must be \u201ccompleted in its entirety and as designed,\u201d validated for the population tested, administered and interpreted by someone trained to do so, and \u201cthe most current version\u2026 (e.g., must be the Vineland-3 vs. Vineland-II).\u201d Standardized scores, score tables and scoring grids must be provided, with the date of administration, respondent name and form type.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      referral: {
+        value:
+          'EN0499 requires no referral or physician order \u2014 the gate is the confirmed diagnosis plus the ABA assessment. Assessment codes 97151, 97152 and 0362T carry no prior authorization at all; the rigor arrives at the treatment step, which needs the completed assessment and a treatment plan submitted on Cigna\u2019s ABA PA form. Tennessee adds nothing here: \u00a7 56-7-2367 imposes no ordering requirement and Cigna publishes no Tennessee-specific ABA supplement.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
+      },
+      telehealth: {
+        value:
+          'Permitted, with no code list and no place-of-service rule published: \u201cABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities,\u201d chosen on individual characteristics, treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Telehealth is one of the environments where the policy requires services to be \u201cclearly identified and documented,\u201d and the line-of-sight/proximity requirement expressly \u201cdoes not apply to telehealth services, when applicable.\u201d',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          '\u201cDirect case supervision (occurs concurrently with the delivery of direct treatment to the individual and consists of BCBA face-to-face with the individual and either the Registered Behavior Technician [RBT] or the Board Certified Assistant Behavior Analyst [BCaBA]) and indirect case supervision is consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment,\u201d and \u201cwhen direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided.\u201d The supervisor must be a BCBA, LBA, or an independently licensed mental health professional with documented ABA training, and \u201cthe name and credentials of the individual who will provide supervision must be documented.\u201d In Tennessee that person must also hold the state LBA license to deliver direct ABA.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not answered for 97153 with 97155. EN0499 defines concurrent billing only in its glossary \u2014 \u201cregardless of the funding source, multiple providers bill for services rendered to the same patient when those services occur at the same time\u201d \u2014 and the rule it actually states is about modalities: \u201cprovision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy).\u201d The 97155 descriptor Cigna reproduces already contemplates \u201csimultaneous direction of technician,\u201d but whether both codes may be billed for the same clock time is not addressed.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia:
+          'Cigna/Evernorth provider services and the applicable reimbursement (not coverage) policy; confirm in writing before billing the overlap.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling and no hour maximum. EN0499 is explicit that intensity is individually determined: \u201cthe recommended intensity of treatment should be based on what is medically necessary for the individual independent of the individual\u2019s schedule of activities outside of treatment or previous utilization of services,\u201d defined as direct ABA hours per week excluding case supervision and caregiver training. An increase request must carry a clinical rationale plus quantitative data showing how the added intensity would improve outcome. Any numeric ceiling a Tennessee family meets is a plan-document term, not a policy limit.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'The rendering provider signs, per service. \u201cA separate written record is expected for each individual receiving ABA intervention corresponding with each service noted through identified CPT Code\u201d and must include the start date and time and end date and time for each service, location of service delivery, focus of service, a detailed description of the intervention, individuals present, the specific service delivered, and \u201cname, credential (if applicable), and signature of ABA provider who rendered the service.\u201d No supervising-analyst co-signature is required.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Setting follows clinical need rather than a payable-locations list: \u201ccare must be deliverable in any setting that is relevant for the individual to achieve treatment goals \u2014 whether in the home, at school, in a clinic or center, or in the community,\u201d with residential treatment facilities, childcare facilities, transportation, vocational or educational classes and recreational and social environments all named. Two guardrails apply: \u201cservices that are considered primarily educational or vocational in nature, or related to academic or work performance are not covered or reimbursable,\u201d and ABA may not \u201creplace or replicate activities that are the responsibility of the setting\u2026 (e.g., classroom aide, 1:1 teacher, tutor, vocational assistant/coach, respite services).\u201d Data must be reported separately by location when treatment spans settings.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'EN0499 sets no rendering-versus-supervising NPI convention \u2014 it governs who may perform each service (BCBA/LBA/independently licensed clinician for assessment, supervision and caregiver training; technician for 97152/97153/97154 under direction) and requires the signature of whoever rendered it, but not whose number the claim carries. In Tennessee the delivery credential is the binding constraint: direct ABA requires a Licensed Behavior Analyst under T.C.A. \u00a7\u00a7 63-11-301\u2013311. Rates are contract-negotiated; Cigna publishes no Tennessee ABA fee schedule.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+        verifyVia:
+          'Cigna/Evernorth provider services and your participating-provider agreement for claim-submission conventions.',
+      },
+    },
     faq: [
       { q: 'Does Cigna cover ABA therapy in Tennessee?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Tennessee\'s mandate (Tenn. Code Ann. § 56-7-2367) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Tennessee autism mandate require?', a: 'Tennessee’s statute is the weakest of the states we cover — it’s a parity rule, not an ABA mandate. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
@@ -640,7 +1231,94 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Tenn. Code Ann. § 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' },
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
+      { title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Optum\u2019s Supplemental Clinical Criteria state no age limit \u2014 they note ABA is \u201ceffective across the lifespan\u201d and carry adolescent- and adult-focused content. Age limits reach Optum through its ABA State Mandates supplement, and that document has no Tennessee entry at all (its state list runs Arizona, California, Connecticut, Florida, Indiana, Kansas, Kentucky, Maryland, Massachusetts, New Jersey, New York, Ohio, Pennsylvania and Virginia). Tennessee\u2019s own statute is a parity rule keyed to insureds under 12 that never names ABA, so the age answer sits in the benefit document.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
+        verifyVia:
+          'Live benefits verification on the specific plan; the summary plan description for a self-funded employer group.',
+      },
+      dxRecency: {
+        value:
+          'Optum\u2019s criteria set no maximum age on the diagnostic evaluation. The recurring clock is the review cycle instead \u2014 continued-service reviews every four to six months, with progress documented \u201cin standardized assessment of norm-referenced, adaptive functioning\u201d and coverage at risk where \u201cdeclining or no progress on standardized adaptive measures of functioning such as the Vineland\u201d persists across successive authorization periods.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '\u201cA valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR.\u201d The ABA provider is a separate credential: a master\u2019s- or doctoral-level BCBA, a credentialed licensed behavioral health clinician attesting to sufficient ABA expertise, or a BCaBA or non-licensed individual under the direct supervision of one of those. In Tennessee the delivering analyst must additionally hold the state LBA license.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Optum publishes the most explicit instrument list of any national ABA policy, in two tiers. The diagnosis and severity level \u201care confirmed and documented by the diagnosing clinician using at least one clinically validated tool (not an all-inclusive list)\u201d \u2014 first-level screeners (ABC, CHAT/M-CHAT, CSBS-DP-IT-Checklist, ASQ, AQ, CAST), second-level screeners (CARS/CARS-2, RITA-T, STAT) and formal diagnostic tools (ADI-R, ADOS/ADOS-2, DISCO). Treatment intensity must then be \u201cchosen according to baseline measurement with the use of at least one of the following validated measurement tools\u201d \u2014 ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, Vineland (VABS) or CFQL-2 \u2014 selected individually rather than uniformly.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral or physician order is required by Optum\u2019s criteria \u2014 the gate is the validated diagnosis plus prior authorization: \u201cprior authorization is required for ABA (unless otherwise specified or mandated by contract or law),\u201d run as a two-step process on Provider Express with the assessment authorized first and treatment second. Tennessee adds no ordering requirement on the commercial side, and Optum\u2019s State Mandates supplement carries no Tennessee entry.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
+      },
+      telehealth: {
+        value:
+          'Optum names no ABA telehealth code list and no place-of-service rule. It points to the Council of Autism Service Providers\u2019 Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition as best practice, noting those guidelines cover delivery \u201cin a broad range of clinical settings (e.g., home, clinic, school),\u201d and adds the framing that matters at authorization: \u201cthe telehealth options presented are not intended to supplant in-person service; rather, they are intended to supplement the traditional in-person service delivery model.\u201d',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum/Provider Express virtual-visits requirements and the member\u2019s benefit plan \u2014 confirm code eligibility and POS before scheduling remote sessions.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          '\u201cConsistent with CASP standards of care, direct case supervision is required 1\u20132 hours for every 10 hours of direct treatment per week.\u201d Technicians \u201cmust be under the applicable supervision of a BCBA or licensed behavioral health clinician\u201d and \u201cshould be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate.\u201d Optum also bars a family workaround: \u201cit is not recommended that parents serve in an RBT role due to numerous ethical and conflicting relationships issues,\u201d and a BCBA supervising a parent acting as RBT for their own child \u201cwould also be in violation of their ethics code.\u201d Tennessee layers its LBA licensure on top for direct delivery.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not answered. The Supplemental Clinical Criteria govern medical necessity, not claim edits, and say nothing about billing 97153 and 97155 for the same clock time. The nearest published rule is a documentation one \u2014 behavior analysts \u201cdo not implement or bill non-behavioral services under an authorization or contract for behavioral services.\u201d',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum/Provider Express provider services and UnitedHealthcare\u2019s reimbursement policies; confirm in writing before billing the overlap.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day or per-week ceiling is set, and Optum argues against one on the evidence: \u201caccording to current research there is a lack of high-quality clinical evidence to suggest that a higher number of hours results in improved outcomes\u2026 no difference was noted in outcomes between 15 hours versus 25 hours per week,\u201d while also noting \u201climited evidence to show those individuals receiving very low intensity services make as much progress.\u201d Schedules must allow \u201crest and nutrition breaks and interactions with peers,\u201d and \u201cfull time ABA programs are rare and should be specific, focused on intensive behavioral challenges and addressing short term behavioral goals.\u201d Naps, extended recreational reinforcement, meals without active goals and extended breaks are not billable. The operational flag intake should know: utilization below 80% of authorized hours draws attention at review.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No session-note signature rule is published in the Supplemental Clinical Criteria. What Optum does require is that \u201cbehavior analysts identify their services accurately and include all required information on reports, bills, invoices, requests for reimbursement, and receipts,\u201d and that all components of care be tracked and updated with regular updates throughout authorization periods.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum/Provider Express documentation standards and the UnitedHealthcare provider administrative guide\u2019s medical-records section.',
+      },
+      placeOfService: {
+        value:
+          'Optum declines to restrict setting: \u201ctreatment should not be restricted to specific settings but instead should be delivered in the settings that maximize treatment outcomes for the individual patient,\u201d and \u201cABA should be rendered in multiple settings to support transition and generalization.\u201d The exclusion is functional, not geographic: ABA is not covered for \u201cservices that are not ABA therapy, such as 1:1 aid delivered simultaneously during classroom instruction, or services covered under the Individuals with Disabilities Education Act (IDEA),\u201d while \u201cschool ABA services do allow for coordination of services and would cover services such as teacher training, meetings with school personnel, and observations in the school setting.\u201d',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Not published. Optum\u2019s criteria define who may render each service \u2014 BCBA or credentialed licensed clinician for assessment, plan development and supervision; BCaBA or non-licensed technician under direct supervision for implementation \u2014 but set no rendering-versus-supervising NPI convention. In Tennessee the binding constraint is the LBA licensure gate under T.C.A. \u00a7\u00a7 63-11-301\u2013311, and rates sit in the participating-provider agreement, since no national carrier publishes Tennessee commercial ABA fee schedules.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+        verifyVia:
+          'Provider Express claim-submission guidance and your UnitedHealthcare participating-provider agreement.',
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Tennessee?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Tennessee\'s mandate (Tenn. Code Ann. § 56-7-2367) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Tennessee autism mandate require?', a: 'Tennessee’s statute is the weakest of the states we cover — it’s a parity rule, not an ABA mandate. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },

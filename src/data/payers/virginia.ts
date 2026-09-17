@@ -6,7 +6,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     cardDesc: 'EPSDT under 21; NO auth on assessment codes, per-code unit SAs, licensure-tiered rates.',
     assessmentPA: 'Not required — assessment codes 97151, 97152, 0362T need no service authorization',
     treatmentPA: 'Required — all treatment hours; units itemized per CPT code (eff. 10/15/2025)',
-    dxRequired: 'Yes \u2014 ASD diagnosis by a qualified professional (DMAS)',
+    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
     payer: 'Virginia Medicaid (DMAS)',
     state: 'VA', kind: 'state-medicaid',
     pill: 'Payer Guide · Virginia Medicaid',
@@ -83,7 +83,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         body: [
           'Virginia does not require the RBT credential. Technician-level Medicaid ABA is delivered by unlicensed personnel working under a Licensed Behavior Analyst (LBA) or Licensed Assistant Behavior Analyst (LABA) per the Board of Medicine\'s supervision rules (18VAC85-150), and there is no state technician registry — DMAS classifies staff simply as licensed or unlicensed. Scope limits still bind: technicians may give input but cannot develop, review, or update the ISP (an LBA/LABA/LMHP task), and cannot render or bill parent/family training. If you staff with RBTs voluntarily, the BACB floor travels with the credential — age 18+, high-school education, the 40-hour training, a competency assessment, a criminal background check plus abuse-registry check within the 180 days before applying, and ongoing supervision of at least 5% of monthly service hours. VirginiaABA\'s guidance also holds that technicians must be W-2 employees paid for indirect time (supervision, data analysis), not 1099 contractors — association guidance we couldn\'t trace to a DMAS document, but worth pricing into the staffing model.',
           'The screening picture is unusual: ABA agencies sit outside DBHDS licensure (the pre-2012 DBHDS outpatient ABA license became unnecessary once the Board of Medicine took over individual licensure), so Virginia\'s barrier-crime regime — Va. Code § 37.2-416\'s CCRE/FBI checks and DSS child-abuse-registry searches — does not bind an ABA-only agency; it applies only if you separately hold a DBHDS license for other services. Employee-level checks instead arrive through the BACB (for RBT-certified hires) and through MCO contracts: Anthem HealthKeepers Plus\'s provider manual (effective 7/1/2026) requires OIG LEIE exclusion screening before hiring or contracting with any individual, periodic re-checks of current employees and contractors, and immediate reporting of any exclusion — the federal rule behind it (42 CFR 1001.1901) bars payment for anything an excluded person furnishes. At the entity level, Medicaid enrollment consent covers criminal background checks, with fingerprinting only if DMAS or CMS designates the provider high categorical risk (42 CFR 455.434); ABA is not on the federal high-risk provider list, but DMAS\'s risk-category assignment for ABA isn\'t published — confirm at enrollment. Revalidation runs at least every five years via PRSS.',
-          'Supervisor licensure runs through the Board of Medicine under Va. Code § 54.1-2957.16: LBA requires current BCBA certification, LABA requires current BCaBA plus documented supervision by an LBA. The supervision floors are qualitative, not ratio-based — 18VAC85-150-120 makes the LBA ultimately responsible for care under his supervision, requires a written supervisory agreement with each LABA, and sets formal LABA supervision at no less than one hour at least every four weeks (informal phone/email contact doesn\'t count), with no numeric supervisor-to-technician ratio or percent-of-hours observation floor anywhere in the regulation; DMAS explicitly defers unlicensed-staff supervision frequency to the Board and the BACB. Two billing consequences: supervision without the client present isn\'t separately billable (technician rates were built to include it), and each LBA must be individually enrolled in MES and credentialed with each Cardinal Care MCO you accept — a per-supervisor, per-plan administrative load. Two items we couldn\'t verify directly: the current Appendix D\'s own staffing text (host unreachable at review) and the LBA continuing-education renewal rule (18VAC85-150-100) — confirm both with DMAS provider enrollment and the Board.',
+          'Supervisor licensure runs through the Board of Medicine under Va. Code § 54.1-2957.16: LBA requires current BCBA certification, LABA requires current BCaBA plus documented supervision by an LBA. The supervision floors are qualitative, not ratio-based — 18VAC85-150-120 makes the LBA ultimately responsible for care under his supervision, requires a written supervisory agreement with each LABA, and sets formal LABA supervision at no less than one hour at least every four weeks (informal phone/email contact doesn\'t count), with no numeric supervisor-to-technician ratio or percent-of-hours observation floor in the licensure regulation itself. DMAS, however, sets its own frequency floors in Appendix D, and they bind regardless: the LBA, LABA or LMHP must \u201cobserve the youth and supervise services monthly,\u201d with that supervision documented in the record as a review of progress notes and data plus dialogue with supervised staff, and \u201csupervision of unlicensed staff shall occur at least twice a month by the LBA, LABA or Licensed Clinical Psychologist,\u201d evidenced by the licensed supervisor\u2019s contemporaneously dated signature. Treat those two cadences \u2014 monthly on the youth, twice monthly on unlicensed staff \u2014 as the audit standard. Two billing consequences: supervision without the client present isn\'t separately billable (technician rates were built to include it), and each LBA must be individually enrolled in MES and credentialed with each Cardinal Care MCO you accept — a per-supervisor, per-plan administrative load. Two items we couldn\'t verify directly: the current Appendix D\'s own staffing text (host unreachable at review) and the LBA continuing-education renewal rule (18VAC85-150-100) — confirm both with DMAS provider enrollment and the Board.',
         ],
         cites: [
           { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
@@ -121,7 +121,122 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Anthem HealthKeepers Plus — provider manual (eff. 7/1/2026)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf' },
       { title: 'BACB — RBT Handbook (2026)', url: 'https://www.bacb.com/wp-content/uploads/2025/08/RBTHandbook_260116-a.pdf' },
       { title: '42 CFR 455.434 — criminal background checks', url: 'https://www.law.cornell.edu/cfr/text/42/455.434' },
+      { title: 'VirginiaABA — July 1, 2025 Medicaid changes (Molina exit, Humana entry)', url: 'https://virginiaaba.org/july-1st-medicaid-changes-what-providers-need-to-know/' },
+      { title: 'VirginiaABA — October 2025 Medicaid changes (per-code SAs)', url: 'https://virginiaaba.org/october-2025-medicaid-changes-what-providers-need-to-know/' },
+      { title: 'DMAS — ABA billing guidance (modifier tiers)', url: 'https://virginiaaba.org/wp-content/uploads/2021/11/ABA-Billing-Guidance-from-DMAS-Nov21.pdf' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Three separate floors. The LBA, LABA or LMHP must at a minimum observe the youth and supervise services monthly, with supervision documented as a review of progress notes and data plus dialogue with supervised staff about progress and the effectiveness of the ISP. Supervision of unlicensed staff must occur at least twice a month by the LBA, LABA or Licensed Clinical Psychologist, demonstrated by the contemporaneously dated signature of the licensed supervisor. Clinical supervision is required for services rendered by an LABA, LMHP-R, LMHP-RP or LMHP-S, consistent with the scope of practice set by the applicable Virginia Department of Health Professions board — on the nature of supervision DMAS defers to that board and to the BACB. Supervision time without the individual present is not billable; the technician rates were built to include it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: '18VAC85-150-120 — supervisory responsibilities', url: 'https://www.law.cornell.edu/regulations/virginia/18VAC85-150-120' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Appendix D publishes the combinations that may be billed at the same time: 97152 with 97151 (except 97152 HN together with 97151 HN); 97153 with 97155 (except 97153 HN together with 97155 HN) — DMAS adds that 97155 and 97153 may be billed together for supervision activities when the QHP is directing the technician in delivering treatment and the QHP, technician and youth are all present; 97154 and 97158 at the same time for different youth in the same group, with identical professional-level modifiers; 97153 at the same time for two technicians when the reason is documented in a service-authorized ISP; and services with the youth alongside family or group family training when delivered by different qualified staff. What is barred: an additional technician-level code alongside 97158 or 97154. Separately, ABA may not be authorized concurrently with Intensive In-Home, Mental Health Skill Building, Psychosocial Rehabilitation, Partial Hospitalization or Assertive Community Treatment, though short-term authorization overlaps are allowed during transitions.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling. Assessment codes 97151, 97152 and 0362T carry no service authorization and no unit limit, but may only be billed as part of an initial assessment or a full reassessment. Since dates of service 10/15/2025 every treatment code is authorized with its own predetermined number of units rather than bundled under 97155. Requests at or above 20 hours (80 units) a week must include an individualized schedule of activities that distinguishes therapeutic from recreational time — a general schedule of clinic-based activities is not sufficient. Group sizes follow CPT guidelines. In Residential Treatment Services settings, including therapeutic group homes and PRTFs, the payable ABA set narrows to 97151, 97154 (with modifier HN, HO or TF only), 97155, 97156 and 97157.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Documentation must carry the initial assessment completed by the LBA, LABA or LMHP including the assessment instruments used, dates of service and face-to-face contacts, staff and participant names, and staff credentials and signatures. Treatment progress must be documented through daily data collection plus a weekly summary note, with graphical analysis of goals and objectives for those dates of service. Supervision is demonstrated by the contemporaneously dated signature of the licensed supervisor. The ISP must be reviewed at least every 30 calendar days — a progress note satisfies the review if it documents the discussion, any alterations, and the individual\'s response; the individual\'s signature is not required, and the 30-day review is held for audit rather than submitted.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'ABA may be provided in home or community settings where the targeted behaviors are likely to occur, and in clinic settings — the setting must be justified in the ISP. School is the constrained one: ABA may only be provided in the school setting when the purpose is observation and collaboration by the QHP related to behavior and skill acquisition, not direct therapy, and only when authorized by the school, the parent and the provider and included in the ISP. Technician-level codes may not be billed for school observation and collaboration, and DMAS interprets school as any education setting, private or public; additional school ABA may be available under school health services through the local education agency. Services rendered primarily by a relative or guardian who is legally responsible for the youth\'s care are not covered.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'ABA providers must be enrolled with DMAS under the ABA provider types (PCT 156 or 456 with PS 903; PCT 020 or 023; PCT 256 with PS 104), licensed by the applicable Virginia Department of Health Professions board, and credentialed with the youth\'s Medicaid MCO for managed-care members. Every CPT code is billed with the staff modifier that identifies the professional providing the service: HN for an LABA, HO for an LBA, TF for an LMHP. QHP-level codes must be provided by an LBA or LMHP, with an LABA able to act as a QHP as determined by the supervising LBA under 18VAC85-150-120, and LMHP-Rs, LMHP-RPs and LMHP-Ss with completed ABA education and training able to provide them under the supervising LMHP. Technician-level codes may be delivered by an LMHP-R/RP/S under supervision, an LABA under an LBA, personnel supervised by an LBA or LABA under 18VAC85-150-10 et seq., personnel supervised by a Licensed Clinical Psychologist under § 54.1-3614, or by an LBA or LMHP acting as the technician — LBAs may bill technician-level codes with the appropriate modifier. Unlicensed personnel include but are not limited to RBTs; Virginia does not require the RBT credential.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '18VAC85-150-120 — supervisory responsibilities', url: 'https://www.law.cornell.edu/regulations/virginia/18VAC85-150-120' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Under 21 — Appendix D\'s ABA admission criteria state it as the first requirement, and the benefit rides EPSDT, so there is no hard hour cap beneath it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'No recency window on the diagnosis. Appendix D admits on a current primary ICD diagnosis correlating to a DSM diagnosis, or on a provisional psychiatric diagnosis developed by an LMHP where no definitive diagnosis has been made — and DMAS states there is no timeframe for the use of a provisional psychiatric diagnosis, expecting the LBA to follow up with the youth\'s physician or other LMHPs as more information is gathered. What must stay current is the assessment: it is reviewed and updated at least annually by the LBA, LABA or LMHP, and continued-stay criteria test symptoms within the past 30 days.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Two different questions, and Appendix D answers both. The diagnosis: the youth must currently meet criteria for a primary ICD diagnosis that correlates to a DSM diagnosis, or have a provisional psychiatric diagnosis as developed by an LMHP — Appendix D does not restrict the benefit to autism or name a specialty list of diagnosing clinicians. The ABA assessment: it must be completed by an LBA, LABA or LMHP acting within scope (an LMHP-R, LMHP-RP or LMHP-S with completed education and training in ABA may complete it under the supervising LMHP), conducted in person with the youth and the family or caregivers, and an assessment completed by an LABA may be used only for ABA, not as a Comprehensive Needs Assessment for other services.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'The initial assessment must include a functional assessment using validated tools, completed by the LBA, LABA or LMHP within scope, and documentation must describe any assessment tools used. DMAS publishes no approved list — the QHP may use clinical judgement to choose the best assessments for the youth — so what is audited is that a validated instrument was used and named, not which one.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'No physician order. DMAS retired the requirement for an order or letter recommending services signed by a physician, nurse practitioner or physician assistant — what replaced it is a notification duty: the QHP must notify the youth\'s primary care physician that the child is receiving ABA, providers must communicate the results of the assessment and treatment planning to the PCP, and care coordination with the PCP must be documented in the youth\'s record.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Initial assessments must be conducted in person with the youth and the family or caregivers. Beyond that, coverage of services delivered by telemedicine is governed by the Telehealth Services Supplement to the Mental Health Services manual, and the use of telemedicine must be documented in the ISP submitted with both the initial and the continued-stay authorization. Care coordination, data analysis and treatment-plan activities billed under 97151 or 97155 do not have to be provided face to face. MCO-contracted providers must consult their contracted MCO for that plan\'s telehealth policies.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Virginia Medicaid cover ABA therapy?', a: 'Yes — for members under 21 with autism, under the EPSDT benefit, with no hard hour cap. Assessment codes need no service authorization; all treatment hours are authorized with units itemized per CPT code.' },
       { q: 'Does the ABA assessment need prior authorization in Virginia?', a: 'No — 97151, 97152, and 0362T require no service authorization under DMAS rules (confirmed in the manual and the fee file\'s PA flags). Treatment codes do.' },
@@ -138,7 +253,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     cardDesc: 'DMAS forms/criteria via Availity; the auth lives on the LBA\'s NPI — changes need a new auth.',
     assessmentPA: 'Not required — DMAS rule: assessment codes 97151, 97152, 0362T need no service authorization',
     treatmentPA: 'Required — DMAS standardized initial/continued-stay forms via Availity or fax (833) 757-1583',
-    dxRequired: 'Yes \u2014 ASD diagnosis by a qualified professional (DMAS)',
+    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
     payer: 'Aetna Better Health of Virginia',
     state: 'VA', kind: 'medicaid-mco', parent: 'Virginia Medicaid (DMAS)',
     pill: 'Payer Guide · Aetna Better Health (VA)',
@@ -188,7 +303,131 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
       { title: 'Aetna Better Health VA — prior authorization page', url: 'https://www.aetnabetterhealth.com/virginia/providers/prior-authorization.html' },
       { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+      { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: three separate floors. The LBA, LABA or LMHP must at a minimum observe the youth and supervise services monthly, with supervision documented as a review of progress notes and data plus dialogue with supervised staff about progress and the effectiveness of the ISP. Supervision of unlicensed staff must occur at least twice a month by the LBA, LABA or Licensed Clinical Psychologist, demonstrated by the contemporaneously dated signature of the licensed supervisor. Clinical supervision is required for services rendered by an LABA, LMHP-R, LMHP-RP or LMHP-S, consistent with the scope of practice set by the applicable Virginia Department of Health Professions board — on the nature of supervision DMAS defers to that board and to the BACB. Supervision time without the individual present is not billable; the technician rates were built to include it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: Appendix D publishes the combinations that may be billed at the same time: 97152 with 97151 (except 97152 HN together with 97151 HN); 97153 with 97155 (except 97153 HN together with 97155 HN) — DMAS adds that 97155 and 97153 may be billed together for supervision activities when the QHP is directing the technician in delivering treatment and the QHP, technician and youth are all present; 97154 and 97158 at the same time for different youth in the same group, with identical professional-level modifiers; 97153 at the same time for two technicians when the reason is documented in a service-authorized ISP; and services with the youth alongside family or group family training when delivered by different qualified staff. What is barred: an additional technician-level code alongside 97158 or 97154. Separately, ABA may not be authorized concurrently with Intensive In-Home, Mental Health Skill Building, Psychosocial Rehabilitation, Partial Hospitalization or Assertive Community Treatment, though short-term authorization overlaps are allowed during transitions.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no per-day unit ceiling. Assessment codes 97151, 97152 and 0362T carry no service authorization and no unit limit, but may only be billed as part of an initial assessment or a full reassessment. Since dates of service 10/15/2025 every treatment code is authorized with its own predetermined number of units rather than bundled under 97155. Requests at or above 20 hours (80 units) a week must include an individualized schedule of activities that distinguishes therapeutic from recreational time — a general schedule of clinic-based activities is not sufficient. Group sizes follow CPT guidelines. In Residential Treatment Services settings, including therapeutic group homes and PRTFs, the payable ABA set narrows to 97151, 97154 (with modifier HN, HO or TF only), 97155, 97156 and 97157.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: documentation must carry the initial assessment completed by the LBA, LABA or LMHP including the assessment instruments used, dates of service and face-to-face contacts, staff and participant names, and staff credentials and signatures. Treatment progress must be documented through daily data collection plus a weekly summary note, with graphical analysis of goals and objectives for those dates of service. Supervision is demonstrated by the contemporaneously dated signature of the licensed supervisor. The ISP must be reviewed at least every 30 calendar days — a progress note satisfies the review if it documents the discussion, any alterations, and the individual\'s response; the individual\'s signature is not required, and the 30-day review is held for audit rather than submitted. On Aetna Better Health\'s own SA forms, signature-font e-signatures are rejected and a blank discharge-date field counts as an incomplete submission; after a medical-necessity denial, the peer-to-peer reconsideration window is 7 calendar days.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: ABA may be provided in home or community settings where the targeted behaviors are likely to occur, and in clinic settings — the setting must be justified in the ISP. School is the constrained one: ABA may only be provided in the school setting when the purpose is observation and collaboration by the QHP related to behavior and skill acquisition, not direct therapy, and only when authorized by the school, the parent and the provider and included in the ISP. Technician-level codes may not be billed for school observation and collaboration, and DMAS interprets school as any education setting, private or public; additional school ABA may be available under school health services through the local education agency. Services rendered primarily by a relative or guardian who is legally responsible for the youth\'s care are not covered.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: ABA providers must be enrolled with DMAS under the ABA provider types (PCT 156 or 456 with PS 903; PCT 020 or 023; PCT 256 with PS 104), licensed by the applicable Virginia Department of Health Professions board, and credentialed with the youth\'s Medicaid MCO for managed-care members. Every CPT code is billed with the staff modifier that identifies the professional providing the service: HN for an LABA, HO for an LBA, TF for an LMHP. QHP-level codes must be provided by an LBA or LMHP, with an LABA able to act as a QHP as determined by the supervising LBA under 18VAC85-150-120, and LMHP-Rs, LMHP-RPs and LMHP-Ss with completed ABA education and training able to provide them under the supervising LMHP. Technician-level codes may be delivered by an LMHP-R/RP/S under supervision, an LABA under an LBA, personnel supervised by an LBA or LABA under 18VAC85-150-10 et seq., personnel supervised by a Licensed Clinical Psychologist under § 54.1-3614, or by an LBA or LMHP acting as the technician — LBAs may bill technician-level codes with the appropriate modifier. Unlicensed personnel include but are not limited to RBTs; Virginia does not require the RBT credential. Aetna Better Health layers one plan rule on top that drives practice design: the authorization lives on the rendering LBA/LMHP\'s NPI and must match the claim\'s rendering NPI, with no exceptions — changing the rendering provider closes the existing authorization and requires a new one, so a supervisor transfer is an authorization event, not just a staffing one.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: under 21 — Appendix D\'s ABA admission criteria state it as the first requirement, and the benefit rides EPSDT, so there is no hard hour cap beneath it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no recency window on the diagnosis. Appendix D admits on a current primary ICD diagnosis correlating to a DSM diagnosis, or on a provisional psychiatric diagnosis developed by an LMHP where no definitive diagnosis has been made — and DMAS states there is no timeframe for the use of a provisional psychiatric diagnosis, expecting the LBA to follow up with the youth\'s physician or other LMHPs as more information is gathered. What must stay current is the assessment: it is reviewed and updated at least annually by the LBA, LABA or LMHP, and continued-stay criteria test symptoms within the past 30 days.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: two different questions, and Appendix D answers both. The diagnosis: the youth must currently meet criteria for a primary ICD diagnosis that correlates to a DSM diagnosis, or have a provisional psychiatric diagnosis as developed by an LMHP — Appendix D does not restrict the benefit to autism or name a specialty list of diagnosing clinicians. The ABA assessment: it must be completed by an LBA, LABA or LMHP acting within scope (an LMHP-R, LMHP-RP or LMHP-S with completed education and training in ABA may complete it under the supervising LMHP), conducted in person with the youth and the family or caregivers, and an assessment completed by an LABA may be used only for ABA, not as a Comprehensive Needs Assessment for other services.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: the initial assessment must include a functional assessment using validated tools, completed by the LBA, LABA or LMHP within scope, and documentation must describe any assessment tools used. DMAS publishes no approved list — the QHP may use clinical judgement to choose the best assessments for the youth — so what is audited is that a validated instrument was used and named, not which one.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no physician order. DMAS retired the requirement for an order or letter recommending services signed by a physician, nurse practitioner or physician assistant — what replaced it is a notification duty: the QHP must notify the youth\'s primary care physician that the child is receiving ABA, providers must communicate the results of the assessment and treatment planning to the PCP, and care coordination with the PCP must be documented in the youth\'s record.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: initial assessments must be conducted in person with the youth and the family or caregivers. Beyond that, coverage of services delivered by telemedicine is governed by the Telehealth Services Supplement to the Mental Health Services manual, and the use of telemedicine must be documented in the ISP submitted with both the initial and the continued-stay authorization. Care coordination, data analysis and treatment-plan activities billed under 97151 or 97155 do not have to be provided face to face. MCO-contracted providers must consult their contracted MCO for that plan\'s telehealth policies. Aetna Better Health adds that telehealth follows state policy with the GT modifier.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Aetna Better Health of Virginia cover ABA?', a: 'Yes — on DMAS\'s EPSDT criteria and standardized forms (Aetna\'s commercial CPB 0554 policy doesn\'t apply). Assessment codes need no authorization; treatment codes do, via Availity or fax.' },
       { q: 'What happens if our supervising BCBA changes mid-authorization?', a: 'The authorization is tied to the rendering LBA/LMHP\'s NPI — a change closes the existing auth and requires a new one. Request it before the transition to avoid denied claims.' },
@@ -202,7 +441,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     cardDesc: 'DMAS forms via Availity/ICR; publishes the clearest code/modifier/POS grid in Virginia.',
     assessmentPA: 'Not required — published grid confirms no SA on 97151, 97152, 0362T',
     treatmentPA: 'Required — 97153–97158, 0373T on DMAS standardized forms; ≥20 hrs/wk needs the activity schedule',
-    dxRequired: 'Yes \u2014 ASD diagnosis by a qualified professional (DMAS)',
+    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
     payer: 'Anthem HealthKeepers Plus (VA)',
     state: 'VA', kind: 'medicaid-mco', parent: 'Virginia Medicaid (DMAS)',
     pill: 'Payer Guide · Anthem HealthKeepers Plus',
@@ -252,7 +491,132 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
       { title: 'Anthem VA — ABA initial SA request form', url: 'https://providers.anthem.com/docs/gpp/VA_CCC_BH_ABA_InitialStay.pdf?v=202301010312' },
       { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      { title: 'Anthem VA — provider news: ABA authorization submission changes', url: 'https://providernews.anthem.com/virginia/articles/important-changes-to-applied-behavioral-analysis-aba-authori-26746' },
+      { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+      { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: three separate floors. The LBA, LABA or LMHP must at a minimum observe the youth and supervise services monthly, with supervision documented as a review of progress notes and data plus dialogue with supervised staff about progress and the effectiveness of the ISP. Supervision of unlicensed staff must occur at least twice a month by the LBA, LABA or Licensed Clinical Psychologist, demonstrated by the contemporaneously dated signature of the licensed supervisor. Clinical supervision is required for services rendered by an LABA, LMHP-R, LMHP-RP or LMHP-S, consistent with the scope of practice set by the applicable Virginia Department of Health Professions board — on the nature of supervision DMAS defers to that board and to the BACB. Supervision time without the individual present is not billable; the technician rates were built to include it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: Appendix D publishes the combinations that may be billed at the same time: 97152 with 97151 (except 97152 HN together with 97151 HN); 97153 with 97155 (except 97153 HN together with 97155 HN) — DMAS adds that 97155 and 97153 may be billed together for supervision activities when the QHP is directing the technician in delivering treatment and the QHP, technician and youth are all present; 97154 and 97158 at the same time for different youth in the same group, with identical professional-level modifiers; 97153 at the same time for two technicians when the reason is documented in a service-authorized ISP; and services with the youth alongside family or group family training when delivered by different qualified staff. What is barred: an additional technician-level code alongside 97158 or 97154. Separately, ABA may not be authorized concurrently with Intensive In-Home, Mental Health Skill Building, Psychosocial Rehabilitation, Partial Hospitalization or Assertive Community Treatment, though short-term authorization overlaps are allowed during transitions.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no per-day unit ceiling. Assessment codes 97151, 97152 and 0362T carry no service authorization and no unit limit, but may only be billed as part of an initial assessment or a full reassessment. Since dates of service 10/15/2025 every treatment code is authorized with its own predetermined number of units rather than bundled under 97155. Requests at or above 20 hours (80 units) a week must include an individualized schedule of activities that distinguishes therapeutic from recreational time — a general schedule of clinic-based activities is not sufficient. Group sizes follow CPT guidelines. In Residential Treatment Services settings, including therapeutic group homes and PRTFs, the payable ABA set narrows to 97151, 97154 (with modifier HN, HO or TF only), 97155, 97156 and 97157.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+          { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: documentation must carry the initial assessment completed by the LBA, LABA or LMHP including the assessment instruments used, dates of service and face-to-face contacts, staff and participant names, and staff credentials and signatures. Treatment progress must be documented through daily data collection plus a weekly summary note, with graphical analysis of goals and objectives for those dates of service. Supervision is demonstrated by the contemporaneously dated signature of the licensed supervisor. The ISP must be reviewed at least every 30 calendar days — a progress note satisfies the review if it documents the discussion, any alterations, and the individual\'s response; the individual\'s signature is not required, and the 30-day review is held for audit rather than submitted. Anthem\'s initial SA request form additionally requires an LMHP-level attestation signature (LMHP, LMHP-R, LMHP-S or LMHP-RP).',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem VA — ABA initial SA request form', url: 'https://providers.anthem.com/docs/gpp/VA_CCC_BH_ABA_InitialStay.pdf?v=202301010312' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: ABA may be provided in home or community settings where the targeted behaviors are likely to occur, and in clinic settings — the setting must be justified in the ISP. School is the constrained one: ABA may only be provided in the school setting when the purpose is observation and collaboration by the QHP related to behavior and skill acquisition, not direct therapy, and only when authorized by the school, the parent and the provider and included in the ISP. Technician-level codes may not be billed for school observation and collaboration, and DMAS interprets school as any education setting, private or public; additional school ABA may be available under school health services through the local education agency. Services rendered primarily by a relative or guardian who is legally responsible for the youth\'s care are not covered. Anthem\'s published grid allows school as a place of service (POS 03) for 97151, 97155 and 97156 — the assessment, protocol-modification and family-training codes, consistent with the DMAS observation-and-collaboration boundary.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: ABA providers must be enrolled with DMAS under the ABA provider types (PCT 156 or 456 with PS 903; PCT 020 or 023; PCT 256 with PS 104), licensed by the applicable Virginia Department of Health Professions board, and credentialed with the youth\'s Medicaid MCO for managed-care members. Every CPT code is billed with the staff modifier that identifies the professional providing the service: HN for an LABA, HO for an LBA, TF for an LMHP. QHP-level codes must be provided by an LBA or LMHP, with an LABA able to act as a QHP as determined by the supervising LBA under 18VAC85-150-120, and LMHP-Rs, LMHP-RPs and LMHP-Ss with completed ABA education and training able to provide them under the supervising LMHP. Technician-level codes may be delivered by an LMHP-R/RP/S under supervision, an LABA under an LBA, personnel supervised by an LBA or LABA under 18VAC85-150-10 et seq., personnel supervised by a Licensed Clinical Psychologist under § 54.1-3614, or by an LBA or LMHP acting as the technician — LBAs may bill technician-level codes with the appropriate modifier. Unlicensed personnel include but are not limited to RBTs; Virginia does not require the RBT credential.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: under 21 — Appendix D\'s ABA admission criteria state it as the first requirement, and the benefit rides EPSDT, so there is no hard hour cap beneath it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no recency window on the diagnosis. Appendix D admits on a current primary ICD diagnosis correlating to a DSM diagnosis, or on a provisional psychiatric diagnosis developed by an LMHP where no definitive diagnosis has been made — and DMAS states there is no timeframe for the use of a provisional psychiatric diagnosis, expecting the LBA to follow up with the youth\'s physician or other LMHPs as more information is gathered. What must stay current is the assessment: it is reviewed and updated at least annually by the LBA, LABA or LMHP, and continued-stay criteria test symptoms within the past 30 days.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: two different questions, and Appendix D answers both. The diagnosis: the youth must currently meet criteria for a primary ICD diagnosis that correlates to a DSM diagnosis, or have a provisional psychiatric diagnosis as developed by an LMHP — Appendix D does not restrict the benefit to autism or name a specialty list of diagnosing clinicians. The ABA assessment: it must be completed by an LBA, LABA or LMHP acting within scope (an LMHP-R, LMHP-RP or LMHP-S with completed education and training in ABA may complete it under the supervising LMHP), conducted in person with the youth and the family or caregivers, and an assessment completed by an LABA may be used only for ABA, not as a Comprehensive Needs Assessment for other services.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: the initial assessment must include a functional assessment using validated tools, completed by the LBA, LABA or LMHP within scope, and documentation must describe any assessment tools used. DMAS publishes no approved list — the QHP may use clinical judgement to choose the best assessments for the youth — so what is audited is that a validated instrument was used and named, not which one.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no physician order. DMAS retired the requirement for an order or letter recommending services signed by a physician, nurse practitioner or physician assistant — what replaced it is a notification duty: the QHP must notify the youth\'s primary care physician that the child is receiving ABA, providers must communicate the results of the assessment and treatment planning to the PCP, and care coordination with the PCP must be documented in the youth\'s record. Anthem\'s initial SA form adds a history question that is an intake question, not a billing one: it requires a listing of all ABA or behavior-therapy treatment episodes from the past 12 months across all providers, plus an LMHP-level attestation signature.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem VA — ABA initial SA request form', url: 'https://providers.anthem.com/docs/gpp/VA_CCC_BH_ABA_InitialStay.pdf?v=202301010312' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: initial assessments must be conducted in person with the youth and the family or caregivers. Beyond that, coverage of services delivered by telemedicine is governed by the Telehealth Services Supplement to the Mental Health Services manual, and the use of telemedicine must be documented in the ISP submitted with both the initial and the continued-stay authorization. Care coordination, data analysis and treatment-plan activities billed under 97151 or 97155 do not have to be provided face to face. MCO-contracted providers must consult their contracted MCO for that plan\'s telehealth policies. Anthem publishes the combinations: GT telehealth pairings are payable on 97151, 97153, 97155 and 97156 among others on its ABA code/modifier/place-of-service grid.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem VA — ABA requirements bulletin (Feb 2023)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Anthem HealthKeepers Plus cover ABA?', a: 'Yes — Virginia\'s Cardinal Care ABA benefit on DMAS criteria and standardized forms: no authorization on assessment codes, SA on treatment codes 97153–97158 and 0373T, submitted via Availity\'s Interactive Care Reviewer.' },
       { q: 'Does Anthem HealthKeepers Plus cover ABA by telehealth or in schools?', a: 'Its published grid pays GT telehealth combinations on 97151, 97153, 97155, and 97156, and allows school as a place of service (POS 03) for 97151, 97155, and 97156.' },
@@ -265,7 +629,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     cardDesc: 'Virginia\'s newest MCO (7/2025, ex-Molina members); DMAS forms, one PA-list quirk on 0362T.',
     assessmentPA: 'Not required for 97151/97152 (off the PA list) — but Humana\'s list does flag 0362T, unlike DMAS',
     treatmentPA: 'Required — 97153–97158, 0373T per the plan\'s PA list (eff. 7/1/2025), on DMAS standardized forms',
-    dxRequired: 'Yes \u2014 ASD diagnosis by a qualified professional (DMAS)',
+    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
     payer: 'Humana Healthy Horizons in Virginia',
     state: 'VA', kind: 'medicaid-mco', parent: 'Virginia Medicaid (DMAS)',
     pill: 'Payer Guide · Humana Healthy Horizons (VA)',
@@ -315,7 +679,132 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
       { title: 'Humana Healthy Horizons VA — BH provider resource guide', url: 'https://assets.humana.com/is/content/humana/VA_BH_Provider_Resource_Guidepdf' },
       { title: 'VirginiaABA — July 1, 2025 Medicaid changes', url: 'https://virginiaaba.org/july-1st-medicaid-changes-what-providers-need-to-know/' },
+      { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+      { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: three separate floors. The LBA, LABA or LMHP must at a minimum observe the youth and supervise services monthly, with supervision documented as a review of progress notes and data plus dialogue with supervised staff about progress and the effectiveness of the ISP. Supervision of unlicensed staff must occur at least twice a month by the LBA, LABA or Licensed Clinical Psychologist, demonstrated by the contemporaneously dated signature of the licensed supervisor. Clinical supervision is required for services rendered by an LABA, LMHP-R, LMHP-RP or LMHP-S, consistent with the scope of practice set by the applicable Virginia Department of Health Professions board — on the nature of supervision DMAS defers to that board and to the BACB. Supervision time without the individual present is not billable; the technician rates were built to include it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: Appendix D publishes the combinations that may be billed at the same time: 97152 with 97151 (except 97152 HN together with 97151 HN); 97153 with 97155 (except 97153 HN together with 97155 HN) — DMAS adds that 97155 and 97153 may be billed together for supervision activities when the QHP is directing the technician in delivering treatment and the QHP, technician and youth are all present; 97154 and 97158 at the same time for different youth in the same group, with identical professional-level modifiers; 97153 at the same time for two technicians when the reason is documented in a service-authorized ISP; and services with the youth alongside family or group family training when delivered by different qualified staff. What is barred: an additional technician-level code alongside 97158 or 97154. Separately, ABA may not be authorized concurrently with Intensive In-Home, Mental Health Skill Building, Psychosocial Rehabilitation, Partial Hospitalization or Assertive Community Treatment, though short-term authorization overlaps are allowed during transitions.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no per-day unit ceiling. Assessment codes 97151, 97152 and 0362T carry no service authorization and no unit limit, but may only be billed as part of an initial assessment or a full reassessment. Since dates of service 10/15/2025 every treatment code is authorized with its own predetermined number of units rather than bundled under 97155. Requests at or above 20 hours (80 units) a week must include an individualized schedule of activities that distinguishes therapeutic from recreational time — a general schedule of clinic-based activities is not sufficient. Group sizes follow CPT guidelines. In Residential Treatment Services settings, including therapeutic group homes and PRTFs, the payable ABA set narrows to 97151, 97154 (with modifier HN, HO or TF only), 97155, 97156 and 97157. Humana\'s PA list matches DMAS on 97151 and 97152 being authorization-free but adds 0362T to its PA list — request the authorization and note the DMAS rule in the request rather than litigating it on the back end.',
+        status: 'verified',
+        cites: [
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: documentation must carry the initial assessment completed by the LBA, LABA or LMHP including the assessment instruments used, dates of service and face-to-face contacts, staff and participant names, and staff credentials and signatures. Treatment progress must be documented through daily data collection plus a weekly summary note, with graphical analysis of goals and objectives for those dates of service. Supervision is demonstrated by the contemporaneously dated signature of the licensed supervisor. The ISP must be reviewed at least every 30 calendar days — a progress note satisfies the review if it documents the discussion, any alterations, and the individual\'s response; the individual\'s signature is not required, and the 30-day review is held for audit rather than submitted.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: ABA may be provided in home or community settings where the targeted behaviors are likely to occur, and in clinic settings — the setting must be justified in the ISP. School is the constrained one: ABA may only be provided in the school setting when the purpose is observation and collaboration by the QHP related to behavior and skill acquisition, not direct therapy, and only when authorized by the school, the parent and the provider and included in the ISP. Technician-level codes may not be billed for school observation and collaboration, and DMAS interprets school as any education setting, private or public; additional school ABA may be available under school health services through the local education agency. Services rendered primarily by a relative or guardian who is legally responsible for the youth\'s care are not covered.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: ABA providers must be enrolled with DMAS under the ABA provider types (PCT 156 or 456 with PS 903; PCT 020 or 023; PCT 256 with PS 104), licensed by the applicable Virginia Department of Health Professions board, and credentialed with the youth\'s Medicaid MCO for managed-care members. Every CPT code is billed with the staff modifier that identifies the professional providing the service: HN for an LABA, HO for an LBA, TF for an LMHP. QHP-level codes must be provided by an LBA or LMHP, with an LABA able to act as a QHP as determined by the supervising LBA under 18VAC85-150-120, and LMHP-Rs, LMHP-RPs and LMHP-Ss with completed ABA education and training able to provide them under the supervising LMHP. Technician-level codes may be delivered by an LMHP-R/RP/S under supervision, an LABA under an LBA, personnel supervised by an LBA or LABA under 18VAC85-150-10 et seq., personnel supervised by a Licensed Clinical Psychologist under § 54.1-3614, or by an LBA or LMHP acting as the technician — LBAs may bill technician-level codes with the appropriate modifier. Unlicensed personnel include but are not limited to RBTs; Virginia does not require the RBT credential.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: under 21 — Appendix D\'s ABA admission criteria state it as the first requirement, and the benefit rides EPSDT, so there is no hard hour cap beneath it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no recency window on the diagnosis. Appendix D admits on a current primary ICD diagnosis correlating to a DSM diagnosis, or on a provisional psychiatric diagnosis developed by an LMHP where no definitive diagnosis has been made — and DMAS states there is no timeframe for the use of a provisional psychiatric diagnosis, expecting the LBA to follow up with the youth\'s physician or other LMHPs as more information is gathered. What must stay current is the assessment: it is reviewed and updated at least annually by the LBA, LABA or LMHP, and continued-stay criteria test symptoms within the past 30 days.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: two different questions, and Appendix D answers both. The diagnosis: the youth must currently meet criteria for a primary ICD diagnosis that correlates to a DSM diagnosis, or have a provisional psychiatric diagnosis as developed by an LMHP — Appendix D does not restrict the benefit to autism or name a specialty list of diagnosing clinicians. The ABA assessment: it must be completed by an LBA, LABA or LMHP acting within scope (an LMHP-R, LMHP-RP or LMHP-S with completed education and training in ABA may complete it under the supervising LMHP), conducted in person with the youth and the family or caregivers, and an assessment completed by an LABA may be used only for ABA, not as a Comprehensive Needs Assessment for other services.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: the initial assessment must include a functional assessment using validated tools, completed by the LBA, LABA or LMHP within scope, and documentation must describe any assessment tools used. DMAS publishes no approved list — the QHP may use clinical judgement to choose the best assessments for the youth — so what is audited is that a validated instrument was used and named, not which one. One Humana deviation matters at the assessment step: unlike DMAS, Humana\'s own PA and notification list (eff. 7/1/2025) flags 0362T as prior-authorization-required, so a team-based assessment for a Humana member needs an authorization the state rule would not require.',
+        status: 'verified',
+        cites: [
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no physician order. DMAS retired the requirement for an order or letter recommending services signed by a physician, nurse practitioner or physician assistant — what replaced it is a notification duty: the QHP must notify the youth\'s primary care physician that the child is receiving ABA, providers must communicate the results of the assessment and treatment planning to the PCP, and care coordination with the PCP must be documented in the youth\'s record. Humana\'s behavioral-health access standard commits to an appointment within 5 business days of a coverage-criteria determination.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Humana Healthy Horizons VA — BH provider resource guide', url: 'https://assets.humana.com/is/content/humana/VA_BH_Provider_Resource_Guidepdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: initial assessments must be conducted in person with the youth and the family or caregivers. Beyond that, coverage of services delivered by telemedicine is governed by the Telehealth Services Supplement to the Mental Health Services manual, and the use of telemedicine must be documented in the ISP submitted with both the initial and the continued-stay authorization. Care coordination, data analysis and treatment-plan activities billed under 97151 or 97155 do not have to be provided face to face. MCO-contracted providers must consult their contracted MCO for that plan\'s telehealth policies.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Humana Healthy Horizons in Virginia cover ABA?', a: 'Yes — it administers the Cardinal Care ABA benefit on DMAS criteria and standardized forms, having entered Virginia on July 1, 2025 as Molina\'s replacement.' },
       { q: 'What happened to Molina members in Virginia?', a: 'DMAS terminated Molina\'s contract effective June 30, 2025; members auto-transitioned to Humana with a 90-day plan-change window and authorizations honored at least 30 days. Verify plan identity on any inquiry that mentions Molina.' },
@@ -329,7 +818,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     cardDesc: 'First to post the new DMAS units-per-code form; dedicated BCBA-change workflow, PAL lookup tool.',
     assessmentPA: 'Not required — DMAS rule; Sentara\'s ABA forms cover treatment codes only',
     treatmentPA: 'Required — new DMAS preservice form (posted for DOS 9/1/2025+); fax (844) 895-3231',
-    dxRequired: 'Yes \u2014 ASD diagnosis by a qualified professional (DMAS)',
+    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
     payer: 'Sentara Community Plan (VA)',
     state: 'VA', kind: 'medicaid-mco', parent: 'Virginia Medicaid (DMAS)',
     pill: 'Payer Guide · Sentara Community Plan',
@@ -372,7 +861,132 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Sentara — BH prior authorization forms (government plans)', url: 'https://www.sentarahealthplans.com/en/providers/claims-authorizations/authorizations/behavioral-health/government' },
       { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
       { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+      { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+      { title: 'Sentara — BH authorization fax numbers and forms update (eff. 8/1/2025)', url: 'https://www.sentarahealthplans.com/en/providers/updates/behavioral-health-authorization-fax-numbers-and-forms' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: three separate floors. The LBA, LABA or LMHP must at a minimum observe the youth and supervise services monthly, with supervision documented as a review of progress notes and data plus dialogue with supervised staff about progress and the effectiveness of the ISP. Supervision of unlicensed staff must occur at least twice a month by the LBA, LABA or Licensed Clinical Psychologist, demonstrated by the contemporaneously dated signature of the licensed supervisor. Clinical supervision is required for services rendered by an LABA, LMHP-R, LMHP-RP or LMHP-S, consistent with the scope of practice set by the applicable Virginia Department of Health Professions board — on the nature of supervision DMAS defers to that board and to the BACB. Supervision time without the individual present is not billable; the technician rates were built to include it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: Appendix D publishes the combinations that may be billed at the same time: 97152 with 97151 (except 97152 HN together with 97151 HN); 97153 with 97155 (except 97153 HN together with 97155 HN) — DMAS adds that 97155 and 97153 may be billed together for supervision activities when the QHP is directing the technician in delivering treatment and the QHP, technician and youth are all present; 97154 and 97158 at the same time for different youth in the same group, with identical professional-level modifiers; 97153 at the same time for two technicians when the reason is documented in a service-authorized ISP; and services with the youth alongside family or group family training when delivered by different qualified staff. What is barred: an additional technician-level code alongside 97158 or 97154. Separately, ABA may not be authorized concurrently with Intensive In-Home, Mental Health Skill Building, Psychosocial Rehabilitation, Partial Hospitalization or Assertive Community Treatment, though short-term authorization overlaps are allowed during transitions.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no per-day unit ceiling. Assessment codes 97151, 97152 and 0362T carry no service authorization and no unit limit, but may only be billed as part of an initial assessment or a full reassessment. Since dates of service 10/15/2025 every treatment code is authorized with its own predetermined number of units rather than bundled under 97155. Requests at or above 20 hours (80 units) a week must include an individualized schedule of activities that distinguishes therapeutic from recreational time — a general schedule of clinic-based activities is not sufficient. Group sizes follow CPT guidelines. In Residential Treatment Services settings, including therapeutic group homes and PRTFs, the payable ABA set narrows to 97151, 97154 (with modifier HN, HO or TF only), 97155, 97156 and 97157. Sentara was the first plan to post the DMAS units-per-code preservice form, for dates of service 9/1/2025 onward, ahead of the statewide 10/15/2025 mandate; its worked example models 2 hours a day across 5 days for 24 weeks, which puts roughly 6-month authorization spans as the practical norm.',
+        status: 'verified',
+        cites: [
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: documentation must carry the initial assessment completed by the LBA, LABA or LMHP including the assessment instruments used, dates of service and face-to-face contacts, staff and participant names, and staff credentials and signatures. Treatment progress must be documented through daily data collection plus a weekly summary note, with graphical analysis of goals and objectives for those dates of service. Supervision is demonstrated by the contemporaneously dated signature of the licensed supervisor. The ISP must be reviewed at least every 30 calendar days — a progress note satisfies the review if it documents the discussion, any alterations, and the individual\'s response; the individual\'s signature is not required, and the 30-day review is held for audit rather than submitted.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: ABA may be provided in home or community settings where the targeted behaviors are likely to occur, and in clinic settings — the setting must be justified in the ISP. School is the constrained one: ABA may only be provided in the school setting when the purpose is observation and collaboration by the QHP related to behavior and skill acquisition, not direct therapy, and only when authorized by the school, the parent and the provider and included in the ISP. Technician-level codes may not be billed for school observation and collaboration, and DMAS interprets school as any education setting, private or public; additional school ABA may be available under school health services through the local education agency. Services rendered primarily by a relative or guardian who is legally responsible for the youth\'s care are not covered.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: ABA providers must be enrolled with DMAS under the ABA provider types (PCT 156 or 456 with PS 903; PCT 020 or 023; PCT 256 with PS 104), licensed by the applicable Virginia Department of Health Professions board, and credentialed with the youth\'s Medicaid MCO for managed-care members. Every CPT code is billed with the staff modifier that identifies the professional providing the service: HN for an LABA, HO for an LBA, TF for an LMHP. QHP-level codes must be provided by an LBA or LMHP, with an LABA able to act as a QHP as determined by the supervising LBA under 18VAC85-150-120, and LMHP-Rs, LMHP-RPs and LMHP-Ss with completed ABA education and training able to provide them under the supervising LMHP. Technician-level codes may be delivered by an LMHP-R/RP/S under supervision, an LABA under an LBA, personnel supervised by an LBA or LABA under 18VAC85-150-10 et seq., personnel supervised by a Licensed Clinical Psychologist under § 54.1-3614, or by an LBA or LMHP acting as the technician — LBAs may bill technician-level codes with the appropriate modifier. Unlicensed personnel include but are not limited to RBTs; Virginia does not require the RBT credential. Sentara runs supervisor changes as paperwork rather than a new authorization: it maintains a dedicated BCBA Change Request Form (updated 3/2026), which is the opposite of the NPI-matching rule at Aetna Better Health.',
+        status: 'verified',
+        cites: [
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: under 21 — Appendix D\'s ABA admission criteria state it as the first requirement, and the benefit rides EPSDT, so there is no hard hour cap beneath it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no recency window on the diagnosis. Appendix D admits on a current primary ICD diagnosis correlating to a DSM diagnosis, or on a provisional psychiatric diagnosis developed by an LMHP where no definitive diagnosis has been made — and DMAS states there is no timeframe for the use of a provisional psychiatric diagnosis, expecting the LBA to follow up with the youth\'s physician or other LMHPs as more information is gathered. What must stay current is the assessment: it is reviewed and updated at least annually by the LBA, LABA or LMHP, and continued-stay criteria test symptoms within the past 30 days.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: two different questions, and Appendix D answers both. The diagnosis: the youth must currently meet criteria for a primary ICD diagnosis that correlates to a DSM diagnosis, or have a provisional psychiatric diagnosis as developed by an LMHP — Appendix D does not restrict the benefit to autism or name a specialty list of diagnosing clinicians. The ABA assessment: it must be completed by an LBA, LABA or LMHP acting within scope (an LMHP-R, LMHP-RP or LMHP-S with completed education and training in ABA may complete it under the supervising LMHP), conducted in person with the youth and the family or caregivers, and an assessment completed by an LABA may be used only for ABA, not as a Comprehensive Needs Assessment for other services.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: the initial assessment must include a functional assessment using validated tools, completed by the LBA, LABA or LMHP within scope, and documentation must describe any assessment tools used. DMAS publishes no approved list — the QHP may use clinical judgement to choose the best assessments for the youth — so what is audited is that a validated instrument was used and named, not which one.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no physician order. DMAS retired the requirement for an order or letter recommending services signed by a physician, nurse practitioner or physician assistant — what replaced it is a notification duty: the QHP must notify the youth\'s primary care physician that the child is receiving ABA, providers must communicate the results of the assessment and treatment planning to the PCP, and care coordination with the PCP must be documented in the youth\'s record.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: initial assessments must be conducted in person with the youth and the family or caregivers. Beyond that, coverage of services delivered by telemedicine is governed by the Telehealth Services Supplement to the Mental Health Services manual, and the use of telemedicine must be documented in the ISP submitted with both the initial and the continued-stay authorization. Care coordination, data analysis and treatment-plan activities billed under 97151 or 97155 do not have to be provided face to face. MCO-contracted providers must consult their contracted MCO for that plan\'s telehealth policies.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Sentara Community Plan cover ABA?', a: 'Yes — Virginia\'s Cardinal Care ABA benefit on DMAS criteria and forms: no authorization on assessment codes, treatment authorized with units per CPT code on the new DMAS preservice form.' },
       { q: 'Is Optima Family Care the same as Sentara Community Plan?', a: 'Yes — Optima Family Care and Virginia Premier merged into Sentara Community Plan under the Cardinal Care rebrand. Anything still labeled Optima is stale.' },
@@ -386,7 +1000,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     cardDesc: 'DMAS criteria with ABA carved to Optum: Provider Express submission, separate credentialing.',
     assessmentPA: 'Not required — DMAS rule; assessment codes are auth-free',
     treatmentPA: 'Required — DMAS service-specific forms, submitted via fax or Provider Express (not the standard UHC PA tool)',
-    dxRequired: 'Yes \u2014 ASD diagnosis by a qualified professional (DMAS)',
+    dxRequired: 'NO \u2014 not autism-restricted. DMAS admits a youth under 21 with a primary ICD diagnosis correlating to a DSM diagnosis in the disruptive-behavior, mood, substance-use or trauma-and-stressor categories \u2014 or a provisional psychiatric diagnosis from an LMHP when none is definitive \u2014 plus at least two functional-impairment criteria',
     payer: 'UnitedHealthcare Community Plan of Virginia',
     state: 'VA', kind: 'medicaid-mco', parent: 'Virginia Medicaid (DMAS)',
     pill: 'Payer Guide · UHC Community Plan (VA)',
@@ -427,7 +1041,132 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'UHC Community Plan VA — PA requirements (eff. 3/1/2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/va/prior-authorization-and-notification/VA-UHCCP-Prior-Authorization-Effective-3-1-2025.pdf' },
       { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
       { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+      { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+      { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: three separate floors. The LBA, LABA or LMHP must at a minimum observe the youth and supervise services monthly, with supervision documented as a review of progress notes and data plus dialogue with supervised staff about progress and the effectiveness of the ISP. Supervision of unlicensed staff must occur at least twice a month by the LBA, LABA or Licensed Clinical Psychologist, demonstrated by the contemporaneously dated signature of the licensed supervisor. Clinical supervision is required for services rendered by an LABA, LMHP-R, LMHP-RP or LMHP-S, consistent with the scope of practice set by the applicable Virginia Department of Health Professions board — on the nature of supervision DMAS defers to that board and to the BACB. Supervision time without the individual present is not billable; the technician rates were built to include it.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: Appendix D publishes the combinations that may be billed at the same time: 97152 with 97151 (except 97152 HN together with 97151 HN); 97153 with 97155 (except 97153 HN together with 97155 HN) — DMAS adds that 97155 and 97153 may be billed together for supervision activities when the QHP is directing the technician in delivering treatment and the QHP, technician and youth are all present; 97154 and 97158 at the same time for different youth in the same group, with identical professional-level modifiers; 97153 at the same time for two technicians when the reason is documented in a service-authorized ISP; and services with the youth alongside family or group family training when delivered by different qualified staff. What is barred: an additional technician-level code alongside 97158 or 97154. Separately, ABA may not be authorized concurrently with Intensive In-Home, Mental Health Skill Building, Psychosocial Rehabilitation, Partial Hospitalization or Assertive Community Treatment, though short-term authorization overlaps are allowed during transitions.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no per-day unit ceiling. Assessment codes 97151, 97152 and 0362T carry no service authorization and no unit limit, but may only be billed as part of an initial assessment or a full reassessment. Since dates of service 10/15/2025 every treatment code is authorized with its own predetermined number of units rather than bundled under 97155. Requests at or above 20 hours (80 units) a week must include an individualized schedule of activities that distinguishes therapeutic from recreational time — a general schedule of clinic-based activities is not sufficient. Group sizes follow CPT guidelines. In Residential Treatment Services settings, including therapeutic group homes and PRTFs, the payable ABA set narrows to 97151, 97154 (with modifier HN, HO or TF only), 97155, 97156 and 97157.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: documentation must carry the initial assessment completed by the LBA, LABA or LMHP including the assessment instruments used, dates of service and face-to-face contacts, staff and participant names, and staff credentials and signatures. Treatment progress must be documented through daily data collection plus a weekly summary note, with graphical analysis of goals and objectives for those dates of service. Supervision is demonstrated by the contemporaneously dated signature of the licensed supervisor. The ISP must be reviewed at least every 30 calendar days — a progress note satisfies the review if it documents the discussion, any alterations, and the individual\'s response; the individual\'s signature is not required, and the 30-day review is held for audit rather than submitted.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: ABA may be provided in home or community settings where the targeted behaviors are likely to occur, and in clinic settings — the setting must be justified in the ISP. School is the constrained one: ABA may only be provided in the school setting when the purpose is observation and collaboration by the QHP related to behavior and skill acquisition, not direct therapy, and only when authorized by the school, the parent and the provider and included in the ISP. Technician-level codes may not be billed for school observation and collaboration, and DMAS interprets school as any education setting, private or public; additional school ABA may be available under school health services through the local education agency. Services rendered primarily by a relative or guardian who is legally responsible for the youth\'s care are not covered.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: ABA providers must be enrolled with DMAS under the ABA provider types (PCT 156 or 456 with PS 903; PCT 020 or 023; PCT 256 with PS 104), licensed by the applicable Virginia Department of Health Professions board, and credentialed with the youth\'s Medicaid MCO for managed-care members. Every CPT code is billed with the staff modifier that identifies the professional providing the service: HN for an LABA, HO for an LBA, TF for an LMHP. QHP-level codes must be provided by an LBA or LMHP, with an LABA able to act as a QHP as determined by the supervising LBA under 18VAC85-150-120, and LMHP-Rs, LMHP-RPs and LMHP-Ss with completed ABA education and training able to provide them under the supervising LMHP. Technician-level codes may be delivered by an LMHP-R/RP/S under supervision, an LABA under an LBA, personnel supervised by an LBA or LABA under 18VAC85-150-10 et seq., personnel supervised by a Licensed Clinical Psychologist under § 54.1-3614, or by an LBA or LMHP acting as the technician — LBAs may bill technician-level codes with the appropriate modifier. Unlicensed personnel include but are not limited to RBTs; Virginia does not require the RBT credential. The plan\'s Cardinal Care PA requirements list singles ABA out for submission via fax or Optum\'s Provider Express rather than the standard UHC Provider Portal PA and notification tool, and ABA providers credential through the Optum network at providerexpress.com in addition to mandatory DMAS PRSS enrolment. No referral is needed for outpatient behavioral health.',
+        status: 'verified',
+        cites: [
+          { title: 'UHC Community Plan VA — PA requirements (eff. 3/1/2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/va/prior-authorization-and-notification/VA-UHCCP-Prior-Authorization-Effective-3-1-2025.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: under 21 — Appendix D\'s ABA admission criteria state it as the first requirement, and the benefit rides EPSDT, so there is no hard hour cap beneath it. UnitedHealthcare\'s 2026 provider manual is explicit that all mental-health services including ABA require registration or authorization using a DMAS service-specific form, and Optum\'s national ABA guideline does not override the Virginia rules — Optum is the plumbing, not a second rulebook.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no recency window on the diagnosis. Appendix D admits on a current primary ICD diagnosis correlating to a DSM diagnosis, or on a provisional psychiatric diagnosis developed by an LMHP where no definitive diagnosis has been made — and DMAS states there is no timeframe for the use of a provisional psychiatric diagnosis, expecting the LBA to follow up with the youth\'s physician or other LMHPs as more information is gathered. What must stay current is the assessment: it is reviewed and updated at least annually by the LBA, LABA or LMHP, and continued-stay criteria test symptoms within the past 30 days. UnitedHealthcare\'s 2026 provider manual is explicit that all mental-health services including ABA require registration or authorization using a DMAS service-specific form, and Optum\'s national ABA guideline does not override the Virginia rules — Optum is the plumbing, not a second rulebook.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: two different questions, and Appendix D answers both. The diagnosis: the youth must currently meet criteria for a primary ICD diagnosis that correlates to a DSM diagnosis, or have a provisional psychiatric diagnosis as developed by an LMHP — Appendix D does not restrict the benefit to autism or name a specialty list of diagnosing clinicians. The ABA assessment: it must be completed by an LBA, LABA or LMHP acting within scope (an LMHP-R, LMHP-RP or LMHP-S with completed education and training in ABA may complete it under the supervising LMHP), conducted in person with the youth and the family or caregivers, and an assessment completed by an LABA may be used only for ABA, not as a Comprehensive Needs Assessment for other services. UnitedHealthcare\'s 2026 provider manual is explicit that all mental-health services including ABA require registration or authorization using a DMAS service-specific form, and Optum\'s national ABA guideline does not override the Virginia rules — Optum is the plumbing, not a second rulebook.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: the initial assessment must include a functional assessment using validated tools, completed by the LBA, LABA or LMHP within scope, and documentation must describe any assessment tools used. DMAS publishes no approved list — the QHP may use clinical judgement to choose the best assessments for the youth — so what is audited is that a validated instrument was used and named, not which one. UnitedHealthcare\'s 2026 provider manual is explicit that all mental-health services including ABA require registration or authorization using a DMAS service-specific form, and Optum\'s national ABA guideline does not override the Virginia rules — Optum is the plumbing, not a second rulebook.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: no physician order. DMAS retired the requirement for an order or letter recommending services signed by a physician, nurse practitioner or physician assistant — what replaced it is a notification duty: the QHP must notify the youth\'s primary care physician that the child is receiving ABA, providers must communicate the results of the assessment and treatment planning to the PCP, and care coordination with the PCP must be documented in the youth\'s record. UnitedHealthcare\'s 2026 provider manual is explicit that all mental-health services including ABA require registration or authorization using a DMAS service-specific form, and Optum\'s national ABA guideline does not override the Virginia rules — Optum is the plumbing, not a second rulebook.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Virginia Medicaid (DMAS) rule: initial assessments must be conducted in person with the youth and the family or caregivers. Beyond that, coverage of services delivered by telemedicine is governed by the Telehealth Services Supplement to the Mental Health Services manual, and the use of telemedicine must be documented in the ISP submitted with both the initial and the continued-stay authorization. Care coordination, data analysis and treatment-plan activities billed under 97151 or 97155 do not have to be provided face to face. MCO-contracted providers must consult their contracted MCO for that plan\'s telehealth policies. UnitedHealthcare\'s 2026 provider manual is explicit that all mental-health services including ABA require registration or authorization using a DMAS service-specific form, and Optum\'s national ABA guideline does not override the Virginia rules — Optum is the plumbing, not a second rulebook.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Virginia cover ABA?', a: 'Yes — on DMAS criteria and service-specific forms, with the behavioral benefit administered by Optum. Assessment codes need no authorization; treatment authorizations go by fax or Provider Express.' },
       { q: 'Do I use the standard UHC portal for Virginia ABA authorizations?', a: 'No — the plan\'s PA list routes ABA specifically to fax or Optum\'s Provider Express, unlike its other services.' },
@@ -510,7 +1249,129 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
       { title: 'Autism Speaks — Virginia state-regulated coverage', url: 'https://www.autismspeaks.org/virginia-state-regulated-insurance-coverage' },
       { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+      { title: '18VAC85-150-120 — supervisory responsibilities', url: 'https://www.law.cornell.edu/regulations/virginia/18VAC85-150-120' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'CPB 0554 sets no supervision ratio. In Virginia the binding floor is licensure plus the mandate: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Virginia Board of Medicine (Va. Code § 54.1-2957.16), so licensure is a coverage requirement, not merely a credentialing one, and the Board\'s rules at 18VAC85-150-120 make the LBA ultimately responsible for care under supervision and require a written supervisory agreement with each LABA.',
+        status: 'verified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+          { title: '18VAC85-150-120 — supervisory responsibilities', url: 'https://www.law.cornell.edu/regulations/virginia/18VAC85-150-120' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Not addressed in CPB 0554 or CPB 0648; concurrent-billing edits live in Aetna\'s reimbursement and code-editing policies rather than its clinical bulletins.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+        verifyVia: 'Aetna\'s commercial reimbursement/code-editing policies via Availity, or provider relations.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling is published. Virginia bars visit limits outright but keeps a dollar cap: ABA is subject to a $35,000 annual maximum benefit unless the insurer elects to provide more — a quantitative treatment limit whose enforceability against a large-group plan is a parity question worth raising rather than conceding.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+        verifyVia: 'A live benefits verification — whether the plan actually applies the $35,000 maximum, and any plan-level limits outside the mandate.',
+      },
+      noteSignature: {
+        value:
+          'Not addressed in CPB 0554 or CPB 0648.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+        verifyVia: 'Aetna provider relations or the participating-provider agreement — the clinical bulletins carry no documentation or signature standard.',
+      },
+      placeOfService: {
+        value:
+          'CPB 0554 describes ABA as evaluating observable behavior within relevant settings including the home, school and community but sets no place-of-service restriction; CPB 0648 notes many Aetna plans exclude coverage of educational services and may exclude developmental or intelligence testing in educational settings, making the school boundary a benefit-exclusion question.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+        verifyVia: 'A live benefits verification — the educational-services exclusion is written into the plan document, not the clinical policy.',
+      },
+      billAsProvider: {
+        value:
+          'Not addressed in Aetna\'s clinical bulletins, but Virginia constrains who the claim can rest on: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Board of Medicine, and the prescribing practitioner must be independent of the ABA provider.',
+        status: 'verified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Aetna\'s national policy sets no age limit. Any age. Virginia\'s mandate has applied to individuals of any age since 1/1/2020 — 2019\'s HB 2577 removed the old age-2 floor as well as the upper limit — for individual and group policies and HMO contracts, extended to the individual and small group markets for policies delivered, issued, reissued or extended on or after 1/1/2021. ABA remains subject to a $35,000 annual maximum benefit unless the insurer elects more, with no visit limits; as a quantitative treatment limit on a mental-health benefit that cap is a live parity question for large-group plans rather than a settled rule. Self-funded ERISA plans sit outside the statute.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+        verifyVia: 'A live benefits verification — funding type decides whether the mandate applies at all.',
+      },
+      dxRecency: {
+        value:
+          'Neither CPB 0554 nor CPB 0648 states a recency window on the ASD diagnosis, and the Virginia mandate sets none. What Virginia does date is review: the insurer may review the treatment plan not more than once every 12 months absent agreement with the treating physician or psychologist — twice as generous as Aetna\'s usual roughly 6-month reauthorization cadence, on plans the statute reaches.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+        verifyVia: 'Aetna precertification (form GR-69017-4) via Availity, and the plan document for any plan-specific evaluation-currency rule.',
+      },
+      diagnosingProviders: {
+        value:
+          'CPB 0648 requires the evaluation to be performed by the appropriate certified or licensed health care professional, naming board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist/audiologist. Virginia narrows it. Virginia writes the gate into the benefit itself: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Board of Medicine, and the prescribing practitioner must be independent of the ABA provider. The treatment plan is defined as one developed by a licensed physician or licensed psychologist following a comprehensive evaluation or reevaluation performed consistently with the most recent clinical report or recommendation of the AAP or AACAP, and treatment must be prescribed or ordered by a licensed physician or psychologist who determines it medically necessary. A referral written by a clinician inside your own practice can fail the independence test.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'CPB 0648 names the instruments it treats as medically necessary components of testing for the diagnosis of pervasive developmental disorders: the ADI-R, the ADOS-2, the CARS-2 and the Asperger Syndrome Diagnostic Scale. It does not say whether all four or a subset are required. The Virginia statute names no instrument but requires the comprehensive evaluation behind the treatment plan to be performed consistently with the most recent AAP or AACAP clinical report or recommendation.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+      },
+      referral: {
+        value:
+          'Yes, and it is statutory rather than a carrier rule: treatment must be prescribed or ordered by a licensed physician or licensed psychologist who determines the care medically necessary, and that prescribing practitioner must be independent of the ABA provider. The insurer may review the treatment plan not more than once every 12 months unless the insurer and the individual\'s licensed physician or psychologist agree more frequent review is necessary, with the cost of any such review covered under the policy. Aetna separately requires precertification on form GR-69017-4 for both assessment and treatment.',
+        status: 'verified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA, and the Virginia mandate is silent on modality.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+        verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
+      },
+    },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Virginia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Virginia\'s mandate (Va. Code § 38.2-3418.17) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Virginia autism mandate require?', a: 'Virginia’s mandate covers individual and group policies and HMO plans, and since January 1, 2020 it applies at any age — the old age caps were removed by 2019’s HB 2577. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
@@ -523,6 +1384,9 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     family: 'cigna',
     cardDesc: 'EN0499 + autism resource guide + the Va. Code § 38.2-3418.17 mandate layer.',
     payer: 'Cigna / Evernorth in Virginia',
+    assessmentPA: 'Depends on funding type — EN0499\'s no-PA-on-97151/97152/0362T fast path reaches self-funded (ASO) plans only; Virginia fully-insured business is carved out of EN0499, so the plan document and the state mandate govern',
+    treatmentPA: 'Required — for self-funded plans, the completed assessment plus a treatment plan on Cigna\'s ABA PA form (EN0499); for fully-insured Virginia plans confirm the authorization requirement against the plan document',
+    dxRequired: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499. Virginia separately requires the prescribing practitioner to be a licensed physician or psychologist independent of the ABA provider',
     state: 'VA', kind: 'commercial',
     pill: 'Payer Guide · Cigna · Virginia',
     h1: 'Cigna / Evernorth ABA coverage in Virginia: the intake guide.',
@@ -593,6 +1457,125 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — Virginia state-regulated coverage', url: 'https://www.autismspeaks.org/virginia-state-regulated-insurance-coverage' },
       { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Under EN0499 (self-funded plans): case supervision by a BCBA, LBA, or independently licensed mental health professional with documented ABA training, with direct plus indirect case supervision at one to two hours per ten hours of direct treatment, and a minimum of one to two hours a week of direct case supervision where direct treatment is 10 hours a week or less. In Virginia the mandate adds a coverage condition regardless of funding: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Board of Medicine.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'EN0499 defines concurrent billing as multiple providers billing for the same patient at the same time regardless of funding source, and flatly excludes ABA delivered to the same individual at the same time as any other treatment modality (ABA and speech therapy, or ABA and occupational therapy). ABA delivered by multiple provider organizations in the same authorization period is not medically necessary unless additional documented conditions are met. For fully-insured Virginia members that policy does not apply, so claim editing follows the plan document.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+        verifyVia: 'A live benefits verification — Virginia fully-insured business is carved out of EN0499, so concurrent-billing edits come from the plan document and Cigna reimbursement policy.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day or per-week unit ceiling is published. EN0499 defines treatment intensity as direct ABA treatment hours per week, excluding case supervision and caregiver training, set on medical necessity independent of the individual\'s outside schedule or prior utilization. Virginia bars visit limits outright but keeps a $35,000 annual maximum benefit on ABA unless the insurer elects more — a quantitative treatment limit whose enforceability against a large-group plan is a parity question.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+        verifyVia: 'A live benefits verification — whether the plan applies the $35,000 maximum, and any plan-level limits.',
+      },
+      noteSignature: {
+        value:
+          'Under EN0499 each session record must carry the start date and time, end date and time, location of service delivery, focus of service, a detailed description of the intervention, the individuals present, the specific service delivered, and the name, credential where applicable, and signature of the ABA provider who rendered the service. For fully-insured Virginia members that policy does not bind; the plan document does.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+        verifyVia: 'A live benefits verification — Virginia fully-insured business is carved out of EN0499.',
+      },
+      placeOfService: {
+        value:
+          'Under EN0499, ABA may be delivered in residential facilities, childcare facilities, homes, schools, transportation, community settings, clinics, vocational or educational classes, and recreational and social environments when medically necessary — but services primarily educational or vocational in nature, or related to academic or work performance, are not covered, and ABA may not replace or replicate activities that are the responsibility of the setting (classroom aide, 1:1 teacher, tutor, vocational coach, respite). For fully-insured Virginia members the plan document governs instead.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+        verifyVia: 'A live benefits verification — Virginia fully-insured business is carved out of EN0499.',
+      },
+      billAsProvider: {
+        value:
+          'EN0499 governs who may render and supervise but publishes no rendering-versus-supervising NPI rule. In Virginia the mandate does constrain the claim: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Board of Medicine, and the prescribing practitioner must be independent of the ABA provider.',
+        status: 'verified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Virginia is the one state EN0499 carves out — the policy states that Virginia fully-insured business is not subject to it. For a fully-insured Virginia member the plan document and the state mandate govern; for self-funded (ASO) plans EN0499 still applies, so funding type decides which rulebook you are reading. Under EN0499 there is no age limit — the gate is a confirmed ASD diagnosis. Any age. Virginia\'s mandate has applied to individuals of any age since 1/1/2020 — 2019\'s HB 2577 removed the old age-2 floor as well as the upper limit — for individual and group policies and HMO contracts, extended to the individual and small group markets for policies delivered, issued, reissued or extended on or after 1/1/2021. ABA remains subject to a $35,000 annual maximum benefit unless the insurer elects more, with no visit limits; as a quantitative treatment limit on a mental-health benefit that cap is a live parity question for large-group plans rather than a settled rule. Self-funded ERISA plans sit outside the statute.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+        verifyVia: 'A live benefits verification — fully-insured Virginia business is outside EN0499, so the plan document and the mandate control.',
+      },
+      dxRecency: {
+        value:
+          'Virginia is the one state EN0499 carves out — the policy states that Virginia fully-insured business is not subject to it. For a fully-insured Virginia member the plan document and the state mandate govern; for self-funded (ASO) plans EN0499 still applies, so funding type decides which rulebook you are reading. EN0499 sets no recency window on the ASD diagnosis itself, but requires the date the diagnosis was most recently made to be supplied and the standardized ABA assessment instrument to have been administered within the 60 days before treatment starts. The Virginia mandate sets no recency rule but caps insurer-initiated treatment-plan review at once every 12 months.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+        verifyVia: 'A live benefits verification — the 60-day assessment-currency rule binds only self-funded plans reading EN0499.',
+      },
+      diagnosingProviders: {
+        value:
+          'Virginia is the one state EN0499 carves out — the policy states that Virginia fully-insured business is not subject to it. For a fully-insured Virginia member the plan document and the state mandate govern; for self-funded (ASO) plans EN0499 still applies, so funding type decides which rulebook you are reading. Under EN0499: a confirmed ASD diagnosis (F84.0-F84.9, excluding F84.2 Rett syndrome) against DSM-5-TR criteria by a health care professional licensed to practise independently whose licensure board considers diagnostics within scope, with the name, credentials and licensure type of the diagnosing clinician provided. Under the Virginia mandate the standard is narrower. Virginia writes the gate into the benefit itself: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Board of Medicine, and the prescribing practitioner must be independent of the ABA provider. The treatment plan is defined as one developed by a licensed physician or licensed psychologist following a comprehensive evaluation or reevaluation performed consistently with the most recent clinical report or recommendation of the AAP or AACAP, and treatment must be prescribed or ordered by a licensed physician or psychologist who determines it medically necessary. A referral written by a clinician inside your own practice can fail the independence test.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Virginia is the one state EN0499 carves out — the policy states that Virginia fully-insured business is not subject to it. For a fully-insured Virginia member the plan document and the state mandate govern; for self-funded (ASO) plans EN0499 still applies, so funding type decides which rulebook you are reading. EN0499 requires a reliable, valid and standardized assessment instrument measuring the DSM-5-TR ASD domains, completed in its entirety and as designed, with reliability and validity established for the population tested, administered and interpreted by someone trained to do so, in the most current version (Vineland-3, not Vineland-II), reported with the date of administration, the respondent and the form type. The Virginia statute names no instrument but requires the comprehensive evaluation behind the treatment plan to follow the most recent AAP or AACAP clinical report or recommendation.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+      },
+      referral: {
+        value:
+          'Yes, and it is statutory rather than a carrier rule: treatment must be prescribed or ordered by a licensed physician or licensed psychologist who determines the care medically necessary, and that prescribing practitioner must be independent of the ABA provider. The insurer may review the treatment plan not more than once every 12 months unless the insurer and the individual\'s licensed physician or psychologist agree more frequent review is necessary, with the cost of any such review covered under the policy. EN0499 itself imposes no referral requirement — for self-funded plans the gate is the independent-licensure diagnosis plus a full ABA assessment by a BCBA, LBA, or independently licensed mental health clinician with documented ABA training.',
+        status: 'verified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Virginia is the one state EN0499 carves out — the policy states that Virginia fully-insured business is not subject to it. For a fully-insured Virginia member the plan document and the state mandate govern; for self-funded (ASO) plans EN0499 still applies, so funding type decides which rulebook you are reading. EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the line-of-sight and close-proximity requirement on direct treatment expressly not applying to telehealth. The Virginia mandate is silent on modality.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+        verifyVia: 'A live benefits verification — for fully-insured Virginia members the plan document, not EN0499, sets modality terms.',
+      },
+    },
     faq: [
       { q: 'Does Cigna cover ABA therapy in Virginia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Virginia\'s mandate (Va. Code § 38.2-3418.17) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Virginia autism mandate require?', a: 'Virginia’s mandate covers individual and group policies and HMO plans, and since January 1, 2020 it applies at any age — the old age caps were removed by 2019’s HB 2577. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
@@ -682,7 +1665,123 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
       { title: 'Autism Speaks — Virginia state-regulated coverage', url: 'https://www.autismspeaks.org/virginia-state-regulated-insurance-coverage' },
       { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+      { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Consistent with CASP standards of care, direct case supervision is required at 1 to 2 hours for every 10 hours of direct treatment per week. Technicians must work under the applicable supervision of a BCBA or licensed behavioral health clinician and should be RBTs or another appropriately certified behavior technician as allowable by state mandate; a BCaBA or non-licensed individual works under the direct supervision of a BCBA or licensed behavioral health clinician who takes responsibility for the individual\'s care. In Virginia the mandate makes licensure a coverage condition: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Board of Medicine.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Not addressed in Optum\'s supplemental clinical criteria, which govern medical necessity rather than claim editing.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum/UnitedHealthcare reimbursement policy via Provider Express, or the participating-provider agreement.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling is published. Optum frames total intensity as direct plus indirect services (caregiver training and supervision included), adjusted on response to treatment, with an operational flag when utilization falls below 80% of authorized hours. Virginia bars visit limits outright but keeps a $35,000 annual ABA maximum unless the insurer elects more — a quantitative treatment limit whose enforceability against a large-group plan is a parity question.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Optum specifies the content that must be documented — goals and objectives, baseline behaviors, frequency, intensity, duration and progress-measurement method for each intervention, the percentage of planned sessions attended, and progress against standardized norm-referenced adaptive measures — but does not state who must sign a session note or when.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum provider services via Provider Express — the supplemental clinical criteria carry no signature standard.',
+      },
+      placeOfService: {
+        value:
+          'ABA must be provided at the least restrictive, most clinically appropriate level. The school boundary is explicit: ABA is not covered for services that are not ABA therapy, such as a 1:1 aide delivered simultaneously during classroom instruction, or for services covered under IDEA — but school ABA does cover coordination of services, including teacher training, meetings with school personnel, and observations in the school setting, and the treatment plan must be coordinated with the school and any applicable IFSP or IEP.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Optum defines who may render — a master\'s- or doctoral-level BCBA, a licensed behavioral health clinician attested and credentialed to provide ABA, or a BCaBA or non-licensed technician under the direct supervision of one of those — but publishes no rendering-versus-supervising NPI rule. In Virginia the mandate constrains the claim anyway: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Board of Medicine, and the prescribing practitioner must be independent of the ABA provider.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Optum\'s national criteria set no age bound, and for Virginia there is a state-specific overlay that matters: for Virginia commercial fully-insured HMO and insurance plans (effective July 2022), Optum adopts the Virginia statutory definitions of autism spectrum disorder and medically necessary in place of its standard criteria. Any age. Virginia\'s mandate has applied to individuals of any age since 1/1/2020 — 2019\'s HB 2577 removed the old age-2 floor as well as the upper limit — for individual and group policies and HMO contracts, extended to the individual and small group markets for policies delivered, issued, reissued or extended on or after 1/1/2021. ABA remains subject to a $35,000 annual maximum benefit unless the insurer elects more, with no visit limits; as a quantitative treatment limit on a mental-health benefit that cap is a live parity question for large-group plans rather than a settled rule. Self-funded ERISA plans sit outside the statute.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Optum sets no recency window on the ASD diagnosis; currency is tested on the treatment side through continued-service reviews every 4 to 6 months against updated standardized, norm-referenced adaptive measures. Virginia separately caps insurer-initiated treatment-plan review at once every 12 months on plans the mandate reaches.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Optum requires a valid ASD diagnosis (or other applicable diagnosis required by governing law) issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make that diagnosis under DSM-5-TR criteria, with the DSM-5 diagnosis and severity level confirmed and documented by the diagnosing clinician — and for Virginia fully-insured members it adopts the statute\'s own definitions. Virginia writes the gate into the benefit itself: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Board of Medicine, and the prescribing practitioner must be independent of the ABA provider. The treatment plan is defined as one developed by a licensed physician or licensed psychologist following a comprehensive evaluation or reevaluation performed consistently with the most recent clinical report or recommendation of the AAP or AACAP, and treatment must be prescribed or ordered by a licensed physician or psychologist who determines it medically necessary. A referral written by a clinician inside your own practice can fail the independence test.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'At least one clinically validated tool must confirm the diagnosis and severity level. Optum groups them: first-level screeners (ABC, CHAT/M-CHAT, CSBS-DP-IT, ASQ, AQ, CAST), second-level screeners and diagnostic aids (CARS/CARS-2, RITA-T, STAT), and formal diagnostic tools used in a comprehensive diagnostic evaluation (ADI-R, ADOS/ADOS-2, DISCO). Treatment intensity must separately be set from at least one validated measurement tool — ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, Vineland (VABS) or CFQL-2 — plus norm-referenced instruments comparing the individual to age-matched neurotypical peers. The Virginia statute adds that the comprehensive evaluation behind the treatment plan must follow the most recent AAP or AACAP clinical report or recommendation.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+      },
+      referral: {
+        value:
+          'Yes, and it is statutory rather than a carrier rule: treatment must be prescribed or ordered by a licensed physician or licensed psychologist who determines the care medically necessary, and that prescribing practitioner must be independent of the ABA provider. The insurer may review the treatment plan not more than once every 12 months unless the insurer and the individual\'s licensed physician or psychologist agree more frequent review is necessary, with the cost of any such review covered under the policy. Optum itself imposes no referral requirement; prior authorization is the gate, as a two-step process on Provider Express with the assessment authorized first and then treatment.',
+        status: 'verified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Optum treats telehealth as an available modality, citing practice parameters for telehealth implementation of ABA and noting delivery across a broad range of clinical settings (home, clinic, school) — but the telehealth options are intended to supplement, not supplant, in-person service. The Virginia mandate is silent on modality.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Virginia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Virginia\'s mandate (Va. Code § 38.2-3418.17) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Virginia autism mandate require?', a: 'Virginia’s mandate covers individual and group policies and HMO plans, and since January 1, 2020 it applies at any age — the old age caps were removed by 2019’s HB 2577. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
@@ -798,6 +1897,17 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Anthem Virginia — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/virginia/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27236' },
     ],
     deliveryRules: {
+      supervision: {
+        value:
+          'Anthem publishes no numeric supervision ratio for Virginia, and neither criteria set its ABA rows point to — Anthem Applied Behavioral Analysis for HMO/EPO, MCG Guidelines for PPO — is published. What does bind is statutory: covered ABA must be provided or supervised by a board certified behavior analyst who is licensed by the Virginia Board of Medicine, making licensure a coverage condition rather than only a credentialing one, and the Board\'s regulations at 18VAC85-150 make the licensed behavior analyst responsible for care rendered under that supervision, with an assistant behavior analyst required to document supervision by an LBA. Anthem\'s own ABA provider resource guide reflects the structure on the claim side: work by therapy assistants, behavior technicians or paraprofessionals must show the supervising BCBA or other QHP, with HM, HN and HO identifying the rendering staff level.',
+        status: 'verified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Va. Code § 54.1-2957.16 — licensure of behavior analysts', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+          { title: '18VAC85-150-10 — behavior analyst regulations, definitions', url: 'https://law.lis.virginia.gov/admincode/title18/agency85/chapter150/section10/' },
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+      },
       concurrentBilling: {
         value: 'A physician or other QHP billing 97155 can add 97153 only if both the technician and the QHP are face-to-face with the patient at the same time and the QHP is directing the technician. Supervised or directed services billed alongside a QHP-performed procedure are also subject to Anthem\'s Incident To Services and Billing reimbursement policy.',
         status: 'verified',
@@ -830,6 +1940,63 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
           { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Any age. Virginia\'s mandate has applied to individuals of any age since 1/1/2020 — 2019\'s HB 2577 removed the old age-2 floor as well as the upper limit — for individual and group policies and HMO contracts, extended to the individual and small group markets for policies delivered, issued, reissued or extended on or after 1/1/2021. ABA remains subject to a $35,000 annual maximum benefit unless the insurer elects more, with no visit limits; as a quantitative treatment limit on a mental-health benefit that cap is a live parity question for large-group plans rather than a settled rule. Self-funded ERISA plans sit outside the statute. Anthem\'s own Virginia precertification lists carry no age column for the ABA rows.',
+        status: 'verified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'No recency window is published. Neither Virginia\'s statute nor Anthem\'s Virginia precertification lists date the diagnosis, and neither of the two criteria sets the lists point to — Anthem Applied Behavioral Analysis for HMO and EPO, MCG Guidelines for PPO — is published. What Virginia does date is review: the insurer may review the treatment plan not more than once every 12 months unless the insurer and the individual\'s licensed physician or psychologist agree more frequent review is necessary.',
+        status: 'unverified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
+        ],
+        verifyVia: 'Anthem behavioral health prior authorization at 800-755-0851 or via Availity — the criteria sets behind the ABA rows (Anthem Applied Behavioral Analysis; MCG B-806-T) are not published.',
+      },
+      diagnosingProviders: {
+        value:
+          'Virginia writes the gate into the benefit itself: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Board of Medicine, and the prescribing practitioner must be independent of the ABA provider. The treatment plan is defined as one developed by a licensed physician or licensed psychologist following a comprehensive evaluation or reevaluation performed consistently with the most recent clinical report or recommendation of the AAP or AACAP, and treatment must be prescribed or ordered by a licensed physician or psychologist who determines it medically necessary. A referral written by a clinician inside your own practice can fail the independence test. This is where Anthem\'s own multi-state ABA provider resource guide can mislead: it lists a broad approved set including psychiatrists, psychologists, LCSWs, LPCs, LMFTs with ABA training, BCBAs and people working under BCBA direction. In Virginia the statute is the narrower and controlling standard — credential to the statute, not to the guide.',
+        status: 'verified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'No instrument list is published for Virginia. The statute names none; it requires the treatment plan to follow a comprehensive evaluation or reevaluation performed consistently with the most recent clinical report or recommendation of the AAP or AACAP. Anthem\'s HMO/EPO and PPO criteria sets for ABA are not published, so what you can control is the completeness of the submission.',
+        status: 'unverified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
+        ],
+        verifyVia: 'Anthem behavioral health prior authorization at 800-755-0851 or via Availity — neither the Anthem Applied Behavioral Analysis criteria nor MCG B-806-T is published.',
+      },
+      referral: {
+        value:
+          'Yes, and it is statutory rather than a carrier rule: treatment must be prescribed or ordered by a licensed physician or licensed psychologist who determines the care medically necessary, and that prescribing practitioner must be independent of the ABA provider. The insurer may review the treatment plan not more than once every 12 months unless the insurer and the individual\'s licensed physician or psychologist agree more frequent review is necessary, with the cost of any such review covered under the policy. Anthem layers its own process on top: prior authorization is requested through Availity, the mental health and substance use prior-authorization line is 800-755-0851 staffed 24/7, and for non-urgent requests all required clinical information should be submitted 14 calendar days before the proposed service. The ordering or rendering provider is responsible for completing the prior-authorization process. On HMO products services rendered without prior authorization are not eligible for reimbursement; on EPO and PPO prior approval is highly recommended and skipping it triggers a pre-payment claim review that may end in denial.',
+        status: 'verified',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Anthem names the telehealth places of service for ABA directly: POS 10 for telehealth with the member at home and POS 02 for telehealth with the member elsewhere, each subject to the member\'s coverage and plan review, alongside POS 12 home, 11 office/clinic, 99 community and 03 school.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
         ],
       },
     },

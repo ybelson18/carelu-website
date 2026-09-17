@@ -59,10 +59,22 @@ state file is new, and append it to `public/sitemap.xml`. Then set that entry's 
 `'shipped'` with `shippedAt`. A payer you researched but could NOT source → `status: 'blocked'`
 with a `blockedReason`, plus a document request per step 5c.
 
-3b. DELIVERY RULES — the six fields in the worklist's `ruleFields` (supervision, concurrent
-billing of 97153+97155, daily limits/MUEs, session-note signature, place of service, bill-as
-provider). Fill them for at least two state Medicaid programs and their MCOs each refresh,
-following `ruleFieldBacklog.order`. The state's own provider/billing manual usually answers all
+3b. STRUCTURED FIELDS — two groups, twelve fields, defined in `src/data/payers/types.ts`:
+`intakeGates` (ageLimit, dxRecency, diagnosingProviders, diagnosticTools, referral, telehealth —
+the front door) and `deliveryRules` (supervision, concurrentBilling, dailyLimits, noteSignature,
+placeOfService, billAsProvider — the claim side). EVERY guide should carry every field its payer
+publishes an answer for. Fill gaps for at least two state Medicaid programs and their MCOs each
+refresh, following `ruleFieldBacklog.order`.
+
+**Extraction before research.** A large share of these facts already sit in the guides as cited
+prose. When a guide's own sourced paragraph already states the fact, lift it into the structured
+field carrying the SAME citation, status 'verified'. That costs nothing and risks nothing. Only
+research what prose does not cover.
+
+**MCO inheritance.** An MCO inherits the state floor unless it publishes its own policy. Having
+confirmed the state rule AND checked that the MCO publishes nothing of its own, write the field
+as an explicit statement of the state rule and cite the state manual — that is a verified answer.
+Never assume inheritance without checking; unchecked means 'unverified' with a verifyVia. The state's own provider/billing manual usually answers all
 six in one document; MCOs inherit the state floor unless their own policy deviates, and for
 commercial plans these often live in a reimbursement policy rather than the clinical policy.
 Per field: a plain-language `value`, `status`, and `cites` to the primary source. A rule you
@@ -81,6 +93,15 @@ fetching the named document, then either correct the guide (and note it in the c
 sources that blocked a fact this cycle. Open a real request in `carelu-sources/requests.json`
 for any that does not already have one (step 5c), and cross-reference the REQ id back here.
 
+3e. COVERAGE AUDIT — run `node scripts/payer-coverage.mjs` at the START and END of the refresh.
+It reports, per field, how many of the guides carry it. This is the directory's completeness
+metric and the answer to "is our data actually uniform?" — without it, field coverage silently
+decays as new guides are added faster than old ones are filled. Rules:
+- Report both numbers in the final report (step 10, section H), as a delta.
+- No field group may go DOWN. Adding guides without their fields is how coverage rots; if you
+  add guides this cycle, fill their fields in the same cycle.
+- Treat any field below 60% as a standing priority until it clears.
+
 ## SOURCE ACCESS — what blocks automated fetching (learned 2026-09-17)
 
 Several primary sources cannot be read the obvious way. Reach for the documented workaround
@@ -90,17 +111,37 @@ instead of silently dropping the fact or, worse, publishing an unverified one.
 |---|---|---|
 | `mmis.georgia.gov` (GAMMIS) | Connection refused outright — not even a 403 | None found. Human retrieval via carelu.com/sources. Gates GA's current ASD manual + fee schedule. |
 | `mass.gov` | 403 to WebFetch and curl alike | Human retrieval. |
+| `codes.ohio.gov` | WebFetch gets ECONNREFUSED; curl returns 000 and times out on every path — the host does not answer at all. Wayback holds only an SPA shell. | None found. Gates the in-force OAC 5160-34-02 text. Human retrieval. |
+| `hca.nm.gov` / `hsd.state.nm.us` | CloudFront 403, "configured to block access from your country" | None found. Gates MAD Supplement 24-13, Letter of Direction #53, MAD-877/878. |
+| `azahcccs.gov` | Hard 403 from an Azure Application Gateway to every client and header combination | The `web.archive.org/web/2026id_/` curl route, when the Archive is up. Gates the AHCCCS BH Billing Matrix and telehealth code set. |
+| `mercycareaz.org` | 403 Access Denied on the ABA provider page and the PA form | Human retrieval. |
+| `portal.kmap-state-ks.us` | Connection timeout — no response at all | Human retrieval. Gates the KMAP Mental Health and Professional FFS provider manuals. |
+| `hcpf.colorado.gov` | 403 to WebFetch | `curl` with a browser user agent works. |
+| `dhhs.ne.gov` | Connection refused / 75s timeout on 443 to curl and WebFetch alike — the handshake never completes | `https://r.jina.ai/<url>` returned the full current PDFs. |
+| `www.molinahealthcare.com` | 403 to WebFetch | `r.jina.ai` proxy. |
+| `point32health.org` PDFs | Returns HTML, not the PDF | None found. Gates Tufts Health Together's ABA medical-necessity guideline. |
 | `magellanprovider.com` | Cloudflare interstitial on every path; curl 403 with any header set | Chrome browser tool, then extract PDFs in-page. |
 | `manuals.health.mil` | F5 bot wall + cert-chain failure | None found — quote a contractor's or DHA's restatement of the manual, never the manual itself. |
 | `tricare.mil`, `martinspoint.org`, `tricare.triwest.com` | Block direct automated fetches | Text-extraction proxy or browser; pages load fine for a human. |
 | `hopkinsmedicine.org` PDFs | Cloudflare 403 (HTML pages are fine) | Human retrieval. |
 | `horizonnjhealth.com`, `aetnabetterhealth.com` | ~930-byte stub / 403 on ABA PDFs | Human retrieval. |
 | `providernews.anthem.com` article pages | JS SPA — HTTP 200 with an empty body | Use `files.providernews.anthem.com` PDFs instead. **A 200 here is not a success** — check the body. |
-| `web.archive.org` | WebFetch refuses this host entirely | `curl` works. |
+| `web.archive.org` | WebFetch refuses this host entirely | `curl` works — and this is the single most useful unblock available. `curl "https://web.archive.org/web/2026id_/<original-url>"` retrieves documents from hosts that refuse us directly; it is what recovered the whole Virginia backfill. |
+| `vamedicaid.dmas.virginia.gov` | Connection refused (ECONNREFUSED) to every client | The `web.archive.org/web/2026id_/` curl trick above. |
+| `medicaid-documents.dhhs.utah.gov` | 403 to WebFetch and to curl with a browser UA | No direct route; an archived earlier edition may exist. Human retrieval for the current manual. |
+| `public.providerexpress.com` (Optum) | HTTP 200 returning a JS "Preparing your download" shell, not the document | **Append `?__tracked=1` to the DAM path** (`…/abaSCC.pdf?__tracked=1`) — that is the redirect the interstitial itself uses, and it returns the real PDF. Then `pdftotext`. Without this the whole Optum policy set reads as unreachable. |
+| `medicaid.georgia.gov/document/document/telehealth-guidance/download` | Serves a March 2020 COVID emergency letter, NOT the current Part II Telehealth Guidance | A 200 with a real PDF can still be the WRONG document — check its version date. The current 10/1/2025 guidance carries Georgia's live Category I ABS code table and is the best GAMMIS workaround found so far. |
+| `static.cigna.com` PDFs | WebFetch returns unparsed binary | Save with `curl`, extract with `pdftotext`. |
 | `federalregister.gov` | 302s to an unblock interstitial | Use the JSON API (`/api/v1/documents.json`) for docket sweeps; `govinfo.gov` for document text. |
 
-Two habits this table encodes: an HTTP 200 is not proof you got the document (check the body
-length and content), and a source you could not read is a document request, never a guess.
+Three habits this table encodes:
+1. **An HTTP 200 is not proof you got the document.** Check the body length and content type. It
+   may be a JS interstitial, an SPA shell, or — as at `medicaid.georgia.gov` — a genuine PDF that
+   is simply the wrong document. Check version dates, not just status codes.
+2. **A WebFetch "the document doesn't mention X" is not evidence of absence.** On image-heavy or
+   compressed PDFs the summarizer returns "absent" for content that is plainly there. Download
+   with `curl` and read it with `pdftotext -layout` before concluding a rule does not exist.
+3. **A source you could not read is a document request, never a guess.**
 
 ## PHASE 2 — APPLY (verified changes only)
 
@@ -177,8 +218,9 @@ not be blocked by the sync.
 
 10. FINAL MESSAGE: REFRESH REPORT — A. INBOX PROCESSED; B. APPLIED (slug, old→new, source);
 C. WATCHLIST STATUS; D. UNTOUCHED/UNVERIFIABLE; E. OPEN DOCUMENT REQUESTS; F. SHIPPED
-(commits); G. LEADTRAP SYNC (PR link, or the issue that prevented it); H. WORKLIST — guides
-shipped and delivery-rule fields filled this month, plus how many entries remain open.
+(commits); G. LEADTRAP SYNC (PR link, or the issue that prevented it); H. WORKLIST + COVERAGE —
+guides shipped and fields filled this month, how many worklist entries remain open, and the
+`payer-coverage.mjs` before/after table.
 
 11. Slack (POST `{"text": "..."}` plain text to
 https://hooks.slack.com/triggers/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):

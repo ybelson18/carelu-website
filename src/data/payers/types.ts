@@ -41,6 +41,24 @@ export interface PayerDeliveryRules {
   placeOfService?: PayerRuleFact;    // school / community / group home / home — where ABA is payable
   billAsProvider?: PayerRuleFact;    // whose NPI the claim goes out under (rendering vs supervising)
 }
+/* ---------------------------------------------------------------
+   INTAKE GATES — the questions that decide whether a family can
+   START, and what they must bring. Where deliveryRules govern the
+   claim, these govern the front door: they map directly onto intake
+   form questions and document requests. Same verified-only contract
+   as deliveryRules; most of this already exists as cited prose in
+   the guides, so filling a field is usually extraction from a
+   sourced paragraph rather than fresh research.
+   --------------------------------------------------------------- */
+export interface PayerIntakeGates {
+  ageLimit?: PayerRuleFact;            // upper (and any lower) age bound on the ABA benefit
+  dxRecency?: PayerRuleFact;           // how recent the diagnostic evaluation must be
+  diagnosingProviders?: PayerRuleFact; // who is allowed to make the ASD diagnosis
+  diagnosticTools?: PayerRuleFact;     // instruments the payer requires behind the diagnosis
+  referral?: PayerRuleFact;            // is a referral/order required, from whom, how current
+  telehealth?: PayerRuleFact;          // which ABA codes may be delivered remotely, and where
+}
+
 export type PayerKind = 'state-medicaid' | 'medicaid-mco' | 'commercial';
 export interface PayerConfig {
   slug: string;
@@ -67,6 +85,8 @@ export interface PayerConfig {
   dxRequired?: string;     // is an autism diagnosis required (and how strict)?
   // Operational layer: how the service must be staffed, documented and billed.
   deliveryRules?: PayerDeliveryRules;
+  // Front-door layer: what decides whether a family can start, and what they must bring.
+  intakeGates?: PayerIntakeGates;
 }
 
 export const PAYER_REVIEWED = 'September 2026';

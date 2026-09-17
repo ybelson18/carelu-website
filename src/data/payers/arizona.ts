@@ -111,7 +111,108 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'DES/DDD — Staff Roster and Background Check Guide', url: 'https://des.az.gov/sites/default/files/media/Roster_and_BG_Check_Guide_110822.pdf' },
       { title: 'DES/DDD — Central Registry, LEIE and SAM background check requirements (8/7/2015)', url: 'https://des.az.gov/sites/default/files/central_registry_leie_sam_requirements.pdf' },
       { title: 'BACB — RBT 2026 requirements transition guidance', url: 'https://www.bacb.com/wp-content/uploads/2025/07/RBT-2026-Requirements_250723-a.pdf' },
+      { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+      { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+      { title: 'AHCCCS — FY26 Behavioral Health Outpatient MCO fee schedule (9715x absent)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/Behavioral/FY26BHOP_MCO_10012025.xlsx' },
+      { title: 'acuity.news — Arizona Medicaid ABA rates & AHCCCS reform 2026', url: 'https://acuity.news/regulation/arizona-medicaid-aba-reimbursement-ahcccs-reform-2026/' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'AMPM 320-S sets no age bound of its own. Behavior Analysis Services are covered "for individuals with Autism Spectrum Disorder (ASD) and/or other diagnoses as justified by medical necessity," and the policy applies across ACC, ALTCS E/PD, DCS/CMDP, DES/DDD, the RBHA contracts and fee-for-service programs without an age criterion. In practice children reach the benefit through EPSDT, and nothing in the policy text excludes adults — screen on medical necessity, not birthday.',
+        status: 'verified',
+        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'None at the state level. AMPM 320-S imposes no recency clock on the diagnostic evaluation — and no autism diagnosis at all is strictly required. What must be current is the assessment: services are "prescribed or recommended in specific dosages, frequency, intensity, and duration by a qualified BHP as the result of an assessment of the member." Plan-level overlays can be stricter, so check the per-plan guide before telling a family an old evaluation still counts.',
+        status: 'verified',
+        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+        status: 'verified',
+        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No single instrument is mandated. "Behavior Analysis Services shall be based upon assessment(s) that include Standardized and/or Non-standardized instruments through both direct and indirect methods." Standardized examples named in the policy: the Pervasive Developmental Disabilities Behavior Inventory, the Brigance Inventory of Early Development and the Vineland Adaptive Behavior Scales. Non-standardized examples: curriculum-referenced assessments and stimulus preference assessment procedures.',
+        status: 'verified',
+        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+      },
+      referral: {
+        value:
+          'A prescription or recommendation from a qualified Behavioral Health Professional, based on an assessment of the member, is the referral — AMPM 320-S requires nothing else and sets no prior-authorization rules of its own, leaving PA to the Contractors. The two largest plans both skip PA on the assessment codes: Mercy Care states no PA is needed for 97151 and 97152, and Optum\'s Arizona orientation states "All ABA services require prior authorization except 97151 and 97152."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'AMPM 320-S permits telehealth delivery but does not price it: the individualized treatment plan must "identify the modality by which the service will be delivered (whether in person or via telehealth, or in-group or individual setting, or combination thereof)." Which 9715x codes are actually payable remotely, and with which place-of-service code or modifier, lives in the AHCCCS telehealth code set and the Behavioral Health Services Billing Matrix, neither of which we could retrieve at this review — azahcccs.gov returns 403 to automated fetching.',
+        status: 'unverified',
+        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+        verifyVia:
+          'The AHCCCS Telehealth code set and the Behavioral Health Services Billing Matrix on azahcccs.gov (both blocked to automated retrieval at this review), or the member\'s Contractor.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'A duty with no number attached. "Behavior Analysis Services shall be directed and overseen by Behavior Analysts and supported, where applicable, by Behavior Analysis Trainees and/or Behavior Technicians." The Behavior Analyst "is responsible for all aspects of clinical direction, supervision, and provider-level case management," for training Trainees and Technicians, for ensuring that "the extent, kind, and quality" of what they deliver matches their training and experience, and for their compliance with the policy and A.R.S. § 32-2091. A Behavior Analysis Trainee needs "direct and ongoing supervision consistent with the standards set by a nationally recognized Behavior Analyst certification board." AMPM 320-S publishes no supervision percentage and no caseload cap, so for RBT-credentialed staff the BACB floor is the operative number.',
+        status: 'verified',
+        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'AMPM 320-S does not address whether 97153 and 97155 may be billed for the same clock time. The policy routes every coding question elsewhere: "Refer to the Behavioral Health Services Billing Matrix and Medical Coding Resources on the AHCCCS website for more information regarding required coding information, including covered settings, modifiers for Behavior Analysis Trainee billing, or other billing/coding information."',
+        status: 'unverified',
+        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+        verifyVia:
+          'The AHCCCS Behavioral Health Services Billing Matrix and Medical Coding Resources (azahcccs.gov blocked automated retrieval at this review), and the Contractor\'s own reimbursement policy.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling appears in AMPM 320-S; the policy sets clinical content, not claim edits, and defers unit and coding questions to the Behavioral Health Services Billing Matrix. Dosage is set case by case — services are prescribed "in specific dosages, frequency, intensity, and duration" by the recommending BHP — so the binding ceiling in practice is the Contractor\'s authorization.',
+        status: 'unverified',
+        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+        verifyVia:
+          'The AHCCCS Behavioral Health Services Billing Matrix, and the member\'s Contractor for authorized units.',
+      },
+      noteSignature: {
+        value:
+          'AMPM 320-S sets a reporting cadence, not a signature rule. Progress reports are required "at minimum, every six months" and must include member identification; background information (family dynamics, school placement, cultural considerations, prenatal and/or developmental history, medical history, sensory, dietary and adaptive needs, sleep patterns, medications); assessment findings; outcomes (measurable objectives, progress toward goals, clinical recommendations, treatment dosage, family role and outcomes); and care coordination (transition statement and individualized discharge criteria). Who signs a session note, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' }],
+        verifyVia:
+          'The Contractor\'s provider manual and the AHCCCS AMPM documentation chapters; ADHS licensure rules (A.A.C. R9-10) for the health care institution\'s own record standards.',
+      },
+      placeOfService: {
+        value:
+          'AMPM 320-S requires the treatment plan to "specify the setting(s) in which services will be delivered" but publishes no payable-setting list, pointing instead to the Behavioral Health Services Billing Matrix "regarding required coding information, including covered settings." What is documented at the rate level is that setting changes the money: the November 2023 fixed-rate notice pays home delivery (POS 12) roughly 10% above the clinic rate on every ABA code.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+        ],
+        verifyVia:
+          'The AHCCCS Behavioral Health Services Billing Matrix for covered settings, and the Contractor for school- and community-based delivery.',
+      },
+      billAsProvider: {
+        value:
+          'The claim line has to say who actually delivered the service. AHCCCS pays credential-tiered rates through modifiers — HM below bachelor\'s (technician level), HN bachelor\'s, HO master\'s, HP doctoral — and AMPM 320-S points to the Behavioral Health Services Billing Matrix for "modifiers for Behavior Analysis Trainee billing." Whose NPI goes in the rendering field is set per Contractor: UnitedHealthcare Community Plan, for instance, requires the rendering provider\'s 10-digit NPI in box 24J, "must be an active AHCCCS registered provider (The rendering provider is the BCBA/Licensed Clinician)."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does AHCCCS cover ABA therapy?', a: 'Yes — under AMPM 320-S, for members with autism spectrum disorder and/or other diagnoses as justified by medical necessity. Coverage runs through the member\'s ACC plan, or through a DDD Health Plan (Mercy Care DD or UHCCP DD) for ALTCS-DD members.' },
       { q: 'Does Arizona Medicaid require an autism diagnosis for ABA?', a: 'No — AMPM 320-S explicitly covers "other diagnoses as justified by medical necessity," and Optum\'s Arizona orientation states verbatim that an ASD diagnosis is not required for AHCCCS members. A qualified Behavioral Health Professional must still recommend the service based on assessment.' },
@@ -177,7 +278,138 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
       { title: 'Mercy Care — ABA PA request form', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/PAabarequest_ua.pdf' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+      { title: 'azfamily — Nearly 1K Arizona children lose in-network ABA (3/5/2026)', url: 'https://www.azfamily.com/2026/03/05/nearly-1k-arizona-children-with-autism-lose-aba-therapy-coverage/' },
+      { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+      { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: AMPM 320-S sets no age bound of its own. Behavior Analysis Services are covered "for individuals with Autism Spectrum Disorder (ASD) and/or other diagnoses as justified by medical necessity," and the policy applies across ACC, ALTCS E/PD, DCS/CMDP, DES/DDD, the RBHA contracts and fee-for-service programs without an age criterion. In practice children reach the benefit through EPSDT, and nothing in the policy text excludes adults — screen on medical necessity, not birthday.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: None at the state level. AMPM 320-S imposes no recency clock on the diagnostic evaluation — and no autism diagnosis at all is strictly required. What must be current is the assessment: services are "prescribed or recommended in specific dosages, frequency, intensity, and duration by a qualified BHP as the result of an assessment of the member." Plan-level overlays can be stricter, so check the per-plan guide before telling a family an old evaluation still counts.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: No single instrument is mandated. "Behavior Analysis Services shall be based upon assessment(s) that include Standardized and/or Non-standardized instruments through both direct and indirect methods." Standardized examples named in the policy: the Pervasive Developmental Disabilities Behavior Inventory, the Brigance Inventory of Early Development and the Vineland Adaptive Behavior Scales. Non-standardized examples: curriculum-referenced assessments and stimulus preference assessment procedures.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: a prescription or recommendation from a qualified Behavioral Health Professional, based on an assessment of the member. On top of that the plan states no prior authorization is needed for adaptive behavior assessment codes 97151 and 97152, while treatment codes 97153–97158 require PA on Mercy Care\'s own ABA PA form through Availity, in 6-month authorization blocks. The child and family team determines medically necessary services, so expect care-team coordination rather than a pure paper review.',
+        status: 'verified',
+        cites: [
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+          { title: 'Mercy Care — ABA PA request form', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/PAabarequest_ua.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: AMPM 320-S permits telehealth delivery but does not price it: the individualized treatment plan must "identify the modality by which the service will be delivered (whether in person or via telehealth, or in-group or individual setting, or combination thereof)." Which 9715x codes are actually payable remotely, and with which place-of-service code or modifier, lives in the AHCCCS telehealth code set and the Behavioral Health Services Billing Matrix, neither of which we could retrieve at this review — azahcccs.gov returns 403 to automated fetching.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        ],
+        verifyVia:
+          'Mercy Care provider services / Availity, and the AHCCCS Telehealth code set (azahcccs.gov blocked automated retrieval at this review; mercycareaz.org returns 403).',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: A duty with no number attached. "Behavior Analysis Services shall be directed and overseen by Behavior Analysts and supported, where applicable, by Behavior Analysis Trainees and/or Behavior Technicians." The Behavior Analyst "is responsible for all aspects of clinical direction, supervision, and provider-level case management," for training Trainees and Technicians, for ensuring that "the extent, kind, and quality" of what they deliver matches their training and experience, and for their compliance with the policy and A.R.S. § 32-2091. A Behavior Analysis Trainee needs "direct and ongoing supervision consistent with the standards set by a nationally recognized Behavior Analyst certification board." AMPM 320-S publishes no supervision percentage and no caseload cap, so for RBT-credentialed staff the BACB floor is the operative number.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: AMPM 320-S does not address whether 97153 and 97155 may be billed for the same clock time. The policy routes every coding question elsewhere: "Refer to the Behavioral Health Services Billing Matrix and Medical Coding Resources on the AHCCCS website for more information regarding required coding information, including covered settings, modifiers for Behavior Analysis Trainee billing, or other billing/coding information."',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — ABA PA request form', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/PAabarequest_ua.pdf' },
+        ],
+        verifyVia:
+          'Mercy Care provider services and the plan\'s ABA PA form / Availity; mercycareaz.org returned 403 to automated retrieval at this review, so plan-level specifics could not be re-read.',
+      },
+      dailyLimits: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: No per-day unit ceiling appears in AMPM 320-S; the policy sets clinical content, not claim edits, and defers unit and coding questions to the Behavioral Health Services Billing Matrix. Dosage is set case by case — services are prescribed "in specific dosages, frequency, intensity, and duration" by the recommending BHP — so the binding ceiling in practice is the Contractor\'s authorization.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — ABA PA request form', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/PAabarequest_ua.pdf' },
+        ],
+        verifyVia:
+          'Mercy Care provider services and the plan\'s ABA PA form / Availity; mercycareaz.org returned 403 to automated retrieval at this review, so plan-level specifics could not be re-read.',
+      },
+      noteSignature: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: AMPM 320-S sets a reporting cadence, not a signature rule. Progress reports are required "at minimum, every six months" and must include member identification; background information (family dynamics, school placement, cultural considerations, prenatal and/or developmental history, medical history, sensory, dietary and adaptive needs, sleep patterns, medications); assessment findings; outcomes (measurable objectives, progress toward goals, clinical recommendations, treatment dosage, family role and outcomes); and care coordination (transition statement and individualized discharge criteria). Who signs a session note, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — ABA PA request form', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/PAabarequest_ua.pdf' },
+        ],
+        verifyVia:
+          'Mercy Care provider services and the plan\'s ABA PA form / Availity; mercycareaz.org returned 403 to automated retrieval at this review, so plan-level specifics could not be re-read.',
+      },
+      placeOfService: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: AMPM 320-S requires the treatment plan to "specify the setting(s) in which services will be delivered" but publishes no payable-setting list, pointing instead to the Behavioral Health Services Billing Matrix "regarding required coding information, including covered settings." What is documented at the rate level is that setting changes the money: the November 2023 fixed-rate notice pays home delivery (POS 12) roughly 10% above the clinic rate on every ABA code.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'Mercy Care — ABA PA request form', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/PAabarequest_ua.pdf' },
+        ],
+        verifyVia:
+          'Mercy Care provider services and the plan\'s ABA PA form / Availity; mercycareaz.org returned 403 to automated retrieval at this review, so plan-level specifics could not be re-read.',
+      },
+      billAsProvider: {
+        value:
+          'Follows the AHCCCS rule — Mercy Care runs no separate medical-necessity policy and links AMPM 320-S as its criteria: The claim line has to say who actually delivered the service. AHCCCS pays credential-tiered rates through modifiers — HM below bachelor\'s (technician level), HN bachelor\'s, HO master\'s, HP doctoral — and AMPM 320-S points to the Behavioral Health Services Billing Matrix for "modifiers for Behavior Analysis Trainee billing." Whose NPI goes in the rendering field is set per Contractor: UnitedHealthcare Community Plan, for instance, requires the rendering provider\'s 10-digit NPI in box 24J, "must be an active AHCCCS registered provider (The rendering provider is the BCBA/Licensed Clinician)."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'Mercy Care — ABA PA request form', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/PAabarequest_ua.pdf' },
+        ],
+        verifyVia:
+          'Mercy Care provider services and the plan\'s ABA PA form / Availity; mercycareaz.org returned 403 to automated retrieval at this review, so plan-level specifics could not be re-read.',
+      },
+    },
     faq: [
       { q: 'Does Mercy Care cover ABA therapy?', a: 'Yes — on AMPM 320-S criteria (the plan links the state policy directly). Assessment codes 97151/97152 need no PA; treatment codes 97153–97158 require PA on the plan\'s ABA form, in 6-month authorization periods.' },
       { q: 'Is Mercy Care the same as Aetna?', a: 'Mercy Care is administered by Aetna Medicaid Administrators LLC, so the machinery is Aetna\'s — but it\'s a Medicaid plan on AHCCCS rules, not Aetna\'s commercial CPB 0554 policy. A family saying "we have Aetna" in Phoenix may well be a Mercy Care member.' },
@@ -241,7 +473,112 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
       { title: 'UHC Community Plan — Arizona DDD program page', url: 'https://www.uhc.com/communityplan/arizona/plans/medicaid/developmental-disabilities' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+      { title: 'azfamily — Nearly 1K Arizona children lose in-network ABA (3/5/2026)', url: 'https://www.azfamily.com/2026/03/05/nearly-1k-arizona-children-with-autism-lose-aba-therapy-coverage/' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Optum\'s Arizona eligibility list is membership-based, not age-based: the member must be covered under AHCCCS (Arizona Complete Care or the Developmentally Disabled program) and "diagnosed with a condition for which ABA-based therapy services are recognized as therapeutically appropriate, including autism spectrum disorder, by a qualified health care professional." No upper or lower age bound is published, and AMPM 320-S sets none either.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'None published. Neither Optum\'s Arizona orientation nor AMPM 320-S puts a clock on the diagnostic evaluation; each clinical review instead asks for "confirmation member has an appropriate DSM-5 diagnosis that can benefit from ABA," current medications, concurrent services and school hours.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          '"Diagnosed with a condition for which ABA-based therapy services are recognized as therapeutically appropriate, including autism spectrum disorder, by a qualified health care professional. ASD diagnosis is not required for ABA services for Arizona Medicaid members." That last sentence is the one to quote in any diagnosis-gate dispute.',
+        status: 'verified',
+        cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Optum\'s Arizona orientation names no required instrument — it asks each review to confirm an appropriate DSM-5 diagnosis. The instrument standard is the state\'s: AMPM 320-S requires assessments using standardized and/or non-standardized instruments through both direct and indirect methods, naming the PDDBI, the Brigance Inventory of Early Development and the Vineland Adaptive Behavior Scales as standardized examples.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'No physician referral is required; the gate is authorization. "All ABA services require prior authorization except 97151 and 97152" — assessment requests go through the online ABA Treatment Form on Provider Express, treatment requests through the same form or fax 1-888-541-6691. The treatment request must carry baseline and mastery criteria, a transition plan, discharge criteria, a behavior-reduction/crisis plan, parent goals, supervision and treatment-planning hours, relevant psychological information and coordination of care, and goals "must not be educational or academic in nature."',
+        status: 'verified',
+        cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Not published. Optum\'s Arizona AHCCCS ABA orientation covers eligibility, authorization, documentation, coding and claims but says nothing about telehealth delivery of the ABA codes; AMPM 320-S permits telehealth as a treatment-plan modality without naming payable codes.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+        verifyVia:
+          'Optum\'s Autism/Applied Behavior Analysis page on Provider Express and the Arizona autism clinical team, plus the AHCCCS telehealth code set.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Credentialing conditions rather than a ratio. For ABA/IBT groups Optum requires that "Behavior Technicians receive appropriate training and supervision by BCBAs or licensed clinician," that a "BCBA or licensed clinician on staff [provides] program oversight," and that a "BCBA or licensed clinician performs skills assessments and provides direct supervision of behavior technicians in joint sessions with client and family." Supervision hours must be itemised in the treatment request. No percentage or caseload cap is published, and AMPM 320-S sets none — so the BACB floor governs RBT-credentialed staff.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Not addressed directly. The orientation\'s only concurrency rule is a pointer: "Providers are responsible for billing in accordance with nationally recognized CMS Correct Coding Initiative (CCI) standards," which is where the 97153/97155 same-time question is actually settled.',
+        status: 'unverified',
+        cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
+        verifyVia:
+          'Optum provider services / the Arizona autism clinical team, and the CMS NCCI edits Optum says it follows.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling is published for the Arizona Medicaid program; Optum points to CMS Correct Coding Initiative standards and enforces the authorization instead — "units exceed authorization" is one of the named coding reasons claims get denied, alongside missing unit counts.',
+        status: 'unverified',
+        cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
+        verifyVia:
+          'Optum provider services; confirm authorized units per code before scheduling.',
+      },
+      noteSignature: {
+        value:
+          'No session-note signature rule is published in the Arizona orientation. What it does require at intake is a signed consent for billing using protected health information "including signature on file," informed consent for services, and a signed and dated Release of Information for each party granted access to PHI, with any refusal noted in the treatment record.',
+        status: 'unverified',
+        cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
+        verifyVia:
+          'The UnitedHealthcare Community Plan of Arizona / Optum provider manual and your participation agreement.',
+      },
+      placeOfService: {
+        value:
+          'No payable-setting list is published. The orientation treats setting as a coding input — "Place of service (home or clinic)" is one of the factors that determines which code and rate applies — and AMPM 320-S requires the treatment plan to specify the settings in which services will be delivered.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+        verifyVia:
+          'Optum provider services for school- and community-based delivery, and the AHCCCS Behavioral Health Services Billing Matrix for covered settings.',
+      },
+      billAsProvider: {
+        value:
+          'The supervisor carries the claim. "The rendering provider\'s 10-digit NPI is required in box 24J and must be an active AHCCCS registered provider (The rendering provider is the BCBA/Licensed Clinician)," and "Field 31 must have a rendering provider name. Rendering supervisor (BCBA/Licensed Clinician) will bill for all services by them or the BCaBAs/RBTs under the supervisory protocol." The agency must hold an AHCCCS registration number as provider type 77, BCBAs must be individually AHCCCS-registered, claims go on a Form 1500 to payer ID 03432, and when a provider is contracted as a group the payment is made to the group, not the individual.',
+        status: 'verified',
+        cites: [{ title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Arizona cover ABA?', a: 'Yes — through Optum\'s AZ AHCCCS ABA Program. Assessment codes 97151/97152 need no PA; all other ABA codes require authorization via Provider Express or fax, with a detailed treatment-request documentation list.' },
       { q: 'Does UHC require an autism diagnosis for AHCCCS ABA?', a: 'No — Optum\'s Arizona orientation states verbatim that an ASD diagnosis is not required for ABA services for Arizona Medicaid members. Medical necessity, supported by assessment, governs.' },
@@ -253,6 +590,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'arizona-complete-health',
     family: 'centene',
     cardDesc: 'Centene\'s CP.BH.104 overlay: dx confirmation, 5-year eval recency, hour bands; every county.',
+    assessmentPA: 'Not published as a standing rule — CP.BH.104 lists a behavioral assessment as a requestable service, but the plan\'s prior-authorization page works code by code, so run the 97151/97152 lookup before promising an auth-free assessment',
     treatmentPA: 'Required per CP.BH.104 — BCBA behavioral assessment + FBA or skills assessment + individualized plan; updated assessment and plan every 6 months',
     dxRequired: 'CP.BH.104 asks for a confirmed ASD dx — but defers to "state-defined ABA criteria," which in Arizona means non-ASD diagnoses qualify under AMPM 320-S; cite it',
     payer: 'Arizona Complete Health - Complete Care Plan',
@@ -305,7 +643,102 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' },
       { title: 'AzCH — prior authorization page', url: 'https://www.azcompletehealth.com/providers/resources/prior-authorization.html' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+      { title: 'azfamily — Nearly 1K Arizona children lose in-network ABA (3/5/2026)', url: 'https://www.azfamily.com/2026/03/05/nearly-1k-arizona-children-with-autism-lose-aba-therapy-coverage/' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'CP.BH.104 carries no age criterion. The policy frames ASD as "typically a lifelong diagnosis... requiring treatment at any point in time," and says of Focused ABA that "it is not restricted by age, cognitive level, or co-occurring conditions." Arizona adds none either — AMPM 320-S sets no age bound.',
+        status: 'verified',
+        cites: [
+          { title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Five years — and it is a plan rule, not a state one. CP.BH.104 requires that "a comprehensive diagnostic evaluation, as specified according to state-defined ABA criteria, has been conducted within the past five years," including a summary of how current symptoms affect functioning across settings (family, peer, school) in communication, socialization, restricted/repetitive behaviour and adaptive functioning. AMPM 320-S imposes no recency clock, so this is the gate that catches stale evaluations on this plan.',
+        status: 'verified',
+        cites: [
+          { title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          '"ABA is recommended by a qualified licensed health care provider working within their scope of practice and who is qualified to diagnose ASD." The diagnosis itself must be "a confirmed autism spectrum disorder (ASD) diagnosis, according to the most current version of the [DSM] criteria or an appropriate diagnosis as otherwise specified according to state-defined ABA criteria" — that second clause is what lets a non-ASD Arizona diagnosis through under AMPM 320-S.',
+        status: 'verified',
+        cites: [
+          { title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'CP.BH.104 names its instruments explicitly. The ASD diagnosis and severity level must be confirmed by one of: CHAT; M-CHAT/M-CHAT-R/F; STAT; SCQ; ASSQ; CAST; ADOS/ADOS-2; ADI-R; CARS/CARS-2; GARS-3; EarliPoint; SWYC-POSI; RITA-T; CSBS-ITC; or another evidence-based assessment reviewed case by case. The behavioral assessment then needs record review, interviews, rating scales and direct observation using continuous or discontinuous measurement, plus either an FBA (descriptive, traditional functional analysis, or IISCA) or a skills assessment from a named list — VB-MAPP, ABLLS-R, AFLS, PEAK, SSIS, EFL or Socially Savvy.',
+        status: 'verified',
+        cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
+      },
+      referral: {
+        value:
+          'No separate physician prescription is required — the recommendation from a qualified licensed health care provider qualified to diagnose ASD is the referral. What CP.BH.104 does demand up front is a completed behavioral assessment by a BCBA (or duly certified, licensed or registered equivalent under state law) feeding an individualized treatment plan, plus documented coordination of care with school, prescribers and any PT/OT/speech providers. Whether the plan requires PA on the 97151 assessment for AHCCCS members is not published as a standing rule — its prior-authorization page works code by code.',
+        status: 'verified',
+        cites: [
+          { title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' },
+          { title: 'AzCH — prior authorization page', url: 'https://www.azcompletehealth.com/providers/resources/prior-authorization.html' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Permitted, without a code list. CP.BH.104 states that ABA "services may be provided in various settings (e.g., home, clinic, school, community) and modalities (e.g., in-person, telehealth)," and devotes a section to CASP\'s Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis: telehealth "is not intended to replace in person service, as it is intended to supplement the traditional in person service delivery model," with modality selected on the member\'s needs, preference, caregiver availability and environmental support — and "providers should refer to respective state allowances for telehealth services."',
+        status: 'verified',
+        cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'One to two hours of supervision per ten hours of direct treatment "is considered standard of care in most cases; two hours of supervision is required if direct treatment totals less than 10 hours per week." The policy also requires "a comprehensive infrastructure for case supervision by a behavior analyst of all assessments and treatment," and documentation at both initiation and every 6-month continuation that treatment "will be delivered or supervised by an ABA-credentialed professional."',
+        status: 'verified',
+        cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not addressed. CP.BH.104 is a medical-necessity policy; its CPT table is explicitly informational — "inclusion or exclusion of any codes does not guarantee coverage" — and it states no rule on billing 97153 and 97155 for the same clock time.',
+        status: 'unverified',
+        cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
+        verifyVia:
+          'Centene Advanced Behavioral Health / AzCH provider services and the plan\'s payment policies on azcompletehealth.com.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling. CP.BH.104 works in weekly bands — focused ABA 10 to 25 hours per week of direct treatment, comprehensive ABA 30 to 40 — and requires the treatment plan to outline "hours of therapy per day... with the goal of increasing or decreasing the intensity of therapy as the member/enrollee\'s ability to tolerate and participate permits," justified by impairment level, symptom severity, treatment history and response, and taking account of the member\'s age, school attendance requirements and other daily activities.',
+        status: 'verified',
+        cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'Not published. CP.BH.104 requires an updated behavior assessment and treatment plan every six months (or more often where state-mandated) with qualitative and quantitative data gathered from providers, parents, teachers and other caregivers and collected in multiple settings, but says nothing about who signs a session note or when.',
+        status: 'unverified',
+        cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
+        verifyVia:
+          'The AzCH provider manual and your participation agreement\'s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'Settings are open, with two boundaries. ABA "services may be provided in various settings (e.g., home, clinic, school, community)," and data must be "collected in multiple settings, such as in a clinic, home, and school (as applicable)." The limits: ABA is not covered for services otherwise covered under IDEA — with the express carve-back that "unless restricted within a state Medicaid benefit, ABA services can occur in coordination with school services and transition plans" — and treatment is a discontinuation candidate when "services are in lieu of school, respite care, or other community-based settings of care."',
+        status: 'verified',
+        cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Not addressed. CP.BH.104 requires the behavioral assessment to be completed by a BCBA "or other duly certified, licensed, or registered equivalent provider (as defined by state law)" and treatment to be delivered or supervised by an ABA-credentialed professional, but it does not say whose NPI the claim goes out under.',
+        status: 'unverified',
+        cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
+        verifyVia:
+          'AzCH provider services and the plan\'s billing manual; the AHCCCS credential modifiers (HM/HN/HO/HP) still govern the rate tier.',
+      },
+    },
     faq: [
       { q: 'Does Arizona Complete Health cover ABA?', a: 'Yes — under Centene\'s clinical policy CP.BH.104 layered on the AHCCCS baseline: a BCBA behavioral assessment, an FBA or skills assessment, and an individualized treatment plan at initiation, with updates every 6 months.' },
       { q: 'Does Arizona Complete Health require an autism diagnosis?', a: 'CP.BH.104 asks for a confirmed ASD diagnosis, but its own text defers to "state-defined ABA criteria" — and Arizona\'s AMPM 320-S covers other diagnoses justified by medical necessity. For non-ASD cases, cite AMPM 320-S in the request.' },
@@ -317,6 +750,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
   'banner-university-family-care': {
     slug: 'banner-university-family-care',
     cardDesc: 'State baseline + its own ABA PA form; specifics unpublished — verify in the Banner portal.',
+    assessmentPA: 'Not published — unlike Mercy Care and UHC/Optum, Banner states no assessment-PA position publicly; confirm whether 97151/97152 need PA before booking',
     treatmentPA: 'Required — the plan publishes an ABA Prior Authorization Form; durations and specifics unpublished, verify in the portal',
     dxRequired: 'No distinct plan policy published — AMPM 320-S baseline applies (autism dx not strictly required)',
     payer: 'Banner-University Family Care',
@@ -368,7 +802,137 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
       { title: 'AHCCCS — Available Health Plans list', url: 'https://www.azahcccs.gov/Members/Downloads/Resources/ENGLISH_HealthPlanList.pdf' },
+      { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+      { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+      { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: AMPM 320-S sets no age bound of its own. Behavior Analysis Services are covered "for individuals with Autism Spectrum Disorder (ASD) and/or other diagnoses as justified by medical necessity," and the policy applies across ACC, ALTCS E/PD, DCS/CMDP, DES/DDD, the RBHA contracts and fee-for-service programs without an age criterion. In practice children reach the benefit through EPSDT, and nothing in the policy text excludes adults — screen on medical necessity, not birthday.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: None at the state level. AMPM 320-S imposes no recency clock on the diagnostic evaluation — and no autism diagnosis at all is strictly required. What must be current is the assessment: services are "prescribed or recommended in specific dosages, frequency, intensity, and duration by a qualified BHP as the result of an assessment of the member." Plan-level overlays can be stricter, so check the per-plan guide before telling a family an old evaluation still counts.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: No single instrument is mandated. "Behavior Analysis Services shall be based upon assessment(s) that include Standardized and/or Non-standardized instruments through both direct and indirect methods." Standardized examples named in the policy: the Pervasive Developmental Disabilities Behavior Inventory, the Brigance Inventory of Early Development and the Vineland Adaptive Behavior Scales. Non-standardized examples: curriculum-referenced assessments and stimulus preference assessment procedures.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: A prescription or recommendation from a qualified Behavioral Health Professional, based on an assessment of the member, is the referral — AMPM 320-S requires nothing else and sets no prior-authorization rules of its own, leaving PA to the Contractors. The two largest plans both skip PA on the assessment codes: Mercy Care states no PA is needed for 97151 and 97152, and Optum\'s Arizona orientation states "All ABA services require prior authorization except 97151 and 97152."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: AMPM 320-S permits telehealth delivery but does not price it: the individualized treatment plan must "identify the modality by which the service will be delivered (whether in person or via telehealth, or in-group or individual setting, or combination thereof)." Which 9715x codes are actually payable remotely, and with which place-of-service code or modifier, lives in the AHCCCS telehealth code set and the Behavioral Health Services Billing Matrix, neither of which we could retrieve at this review — azahcccs.gov returns 403 to automated fetching.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+        verifyVia:
+          'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: A duty with no number attached. "Behavior Analysis Services shall be directed and overseen by Behavior Analysts and supported, where applicable, by Behavior Analysis Trainees and/or Behavior Technicians." The Behavior Analyst "is responsible for all aspects of clinical direction, supervision, and provider-level case management," for training Trainees and Technicians, for ensuring that "the extent, kind, and quality" of what they deliver matches their training and experience, and for their compliance with the policy and A.R.S. § 32-2091. A Behavior Analysis Trainee needs "direct and ongoing supervision consistent with the standards set by a nationally recognized Behavior Analyst certification board." AMPM 320-S publishes no supervision percentage and no caseload cap, so for RBT-credentialed staff the BACB floor is the operative number.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: AMPM 320-S does not address whether 97153 and 97155 may be billed for the same clock time. The policy routes every coding question elsewhere: "Refer to the Behavioral Health Services Billing Matrix and Medical Coding Resources on the AHCCCS website for more information regarding required coding information, including covered settings, modifiers for Behavior Analysis Trainee billing, or other billing/coding information."',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+        verifyVia:
+          'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
+      },
+      dailyLimits: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: No per-day unit ceiling appears in AMPM 320-S; the policy sets clinical content, not claim edits, and defers unit and coding questions to the Behavioral Health Services Billing Matrix. Dosage is set case by case — services are prescribed "in specific dosages, frequency, intensity, and duration" by the recommending BHP — so the binding ceiling in practice is the Contractor\'s authorization.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+        verifyVia:
+          'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
+      },
+      noteSignature: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: AMPM 320-S sets a reporting cadence, not a signature rule. Progress reports are required "at minimum, every six months" and must include member identification; background information (family dynamics, school placement, cultural considerations, prenatal and/or developmental history, medical history, sensory, dietary and adaptive needs, sleep patterns, medications); assessment findings; outcomes (measurable objectives, progress toward goals, clinical recommendations, treatment dosage, family role and outcomes); and care coordination (transition statement and individualized discharge criteria). Who signs a session note, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+        verifyVia:
+          'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
+      },
+      placeOfService: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: AMPM 320-S requires the treatment plan to "specify the setting(s) in which services will be delivered" but publishes no payable-setting list, pointing instead to the Behavioral Health Services Billing Matrix "regarding required coding information, including covered settings." What is documented at the rate level is that setting changes the money: the November 2023 fixed-rate notice pays home delivery (POS 12) roughly 10% above the clinic rate on every ABA code.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+        verifyVia:
+          'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
+      },
+      billAsProvider: {
+        value:
+          'Follows the AHCCCS rule — Banner publishes no distinct ABA clinical policy, only its own ABA Prior Authorization Form: The claim line has to say who actually delivered the service. AHCCCS pays credential-tiered rates through modifiers — HM below bachelor\'s (technician level), HN bachelor\'s, HO master\'s, HP doctoral — and AMPM 320-S points to the Behavioral Health Services Billing Matrix for "modifiers for Behavior Analysis Trainee billing." Whose NPI goes in the rendering field is set per Contractor: UnitedHealthcare Community Plan, for instance, requires the rendering provider\'s 10-digit NPI in box 24J, "must be an active AHCCCS registered provider (The rendering provider is the BCBA/Licensed Clinician)."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'Banner Health Plans — behavioral health materials and forms', url: 'https://www.bannerhealth.com/bhpprovider/resources/bh/materials' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Banner-University Family Care cover ABA?', a: 'Yes — as an AHCCCS ACC plan it covers Behavior Analysis Services under AMPM 320-S. Treatment requires PA via Banner\'s ABA Prior Authorization Form; the plan publishes no distinct clinical policy beyond the state baseline.' },
       { q: 'Does Banner require PA for the ABA assessment?', a: 'Not published — unlike Mercy Care and UHC, Banner\'s assessment-PA position isn\'t stated publicly. Verify with the plan or the current PA form before booking an assessment as auth-free.' },
@@ -380,6 +944,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'health-choice-arizona',
     family: 'bcbs',
     cardDesc: 'Now officially "Blue Cross Blue Shield of Arizona Health Choice"; grid-driven PA, no published ABA policy.',
+    assessmentPA: 'Not published as a standing rule — read the 97151/97152 rows in the current PA Guidelines grid on healthchoiceaz.com, or call the PA line 1-800-322-8670 / fax 480-760-4732',
+    treatmentPA: 'Not published as a standing rule — the plan runs PA from frequently revised PA Guidelines grids rather than an ABA program document; check the 97153–97158 rows in the live grid',
     dxRequired: 'No distinct plan policy published — AMPM 320-S baseline applies (autism dx not strictly required)',
     payer: 'Blue Cross Blue Shield of Arizona Health Choice',
     state: 'AZ', kind: 'medicaid-mco', parent: 'AHCCCS (Arizona Medicaid)',
@@ -431,7 +997,137 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Available Health Plans list (lists "Blue Cross Blue Shield of Arizona Health Choice")', url: 'https://www.azahcccs.gov/Members/Downloads/Resources/ENGLISH_HealthPlanList.pdf' },
       { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+      { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+      { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+      { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: AMPM 320-S sets no age bound of its own. Behavior Analysis Services are covered "for individuals with Autism Spectrum Disorder (ASD) and/or other diagnoses as justified by medical necessity," and the policy applies across ACC, ALTCS E/PD, DCS/CMDP, DES/DDD, the RBHA contracts and fee-for-service programs without an age criterion. In practice children reach the benefit through EPSDT, and nothing in the policy text excludes adults — screen on medical necessity, not birthday.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: None at the state level. AMPM 320-S imposes no recency clock on the diagnostic evaluation — and no autism diagnosis at all is strictly required. What must be current is the assessment: services are "prescribed or recommended in specific dosages, frequency, intensity, and duration by a qualified BHP as the result of an assessment of the member." Plan-level overlays can be stricter, so check the per-plan guide before telling a family an old evaluation still counts.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: No single instrument is mandated. "Behavior Analysis Services shall be based upon assessment(s) that include Standardized and/or Non-standardized instruments through both direct and indirect methods." Standardized examples named in the policy: the Pervasive Developmental Disabilities Behavior Inventory, the Brigance Inventory of Early Development and the Vineland Adaptive Behavior Scales. Non-standardized examples: curriculum-referenced assessments and stimulus preference assessment procedures.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: A prescription or recommendation from a qualified Behavioral Health Professional, based on an assessment of the member, is the referral — AMPM 320-S requires nothing else and sets no prior-authorization rules of its own, leaving PA to the Contractors. The two largest plans both skip PA on the assessment codes: Mercy Care states no PA is needed for 97151 and 97152, and Optum\'s Arizona orientation states "All ABA services require prior authorization except 97151 and 97152."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: AMPM 320-S permits telehealth delivery but does not price it: the individualized treatment plan must "identify the modality by which the service will be delivered (whether in person or via telehealth, or in-group or individual setting, or combination thereof)." Which 9715x codes are actually payable remotely, and with which place-of-service code or modifier, lives in the AHCCCS telehealth code set and the Behavioral Health Services Billing Matrix, neither of which we could retrieve at this review — azahcccs.gov returns 403 to automated fetching.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+        verifyVia:
+          'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: A duty with no number attached. "Behavior Analysis Services shall be directed and overseen by Behavior Analysts and supported, where applicable, by Behavior Analysis Trainees and/or Behavior Technicians." The Behavior Analyst "is responsible for all aspects of clinical direction, supervision, and provider-level case management," for training Trainees and Technicians, for ensuring that "the extent, kind, and quality" of what they deliver matches their training and experience, and for their compliance with the policy and A.R.S. § 32-2091. A Behavior Analysis Trainee needs "direct and ongoing supervision consistent with the standards set by a nationally recognized Behavior Analyst certification board." AMPM 320-S publishes no supervision percentage and no caseload cap, so for RBT-credentialed staff the BACB floor is the operative number.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: AMPM 320-S does not address whether 97153 and 97155 may be billed for the same clock time. The policy routes every coding question elsewhere: "Refer to the Behavioral Health Services Billing Matrix and Medical Coding Resources on the AHCCCS website for more information regarding required coding information, including covered settings, modifiers for Behavior Analysis Trainee billing, or other billing/coding information."',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+        verifyVia:
+          'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
+      },
+      dailyLimits: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: No per-day unit ceiling appears in AMPM 320-S; the policy sets clinical content, not claim edits, and defers unit and coding questions to the Behavioral Health Services Billing Matrix. Dosage is set case by case — services are prescribed "in specific dosages, frequency, intensity, and duration" by the recommending BHP — so the binding ceiling in practice is the Contractor\'s authorization.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+        verifyVia:
+          'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
+      },
+      noteSignature: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: AMPM 320-S sets a reporting cadence, not a signature rule. Progress reports are required "at minimum, every six months" and must include member identification; background information (family dynamics, school placement, cultural considerations, prenatal and/or developmental history, medical history, sensory, dietary and adaptive needs, sleep patterns, medications); assessment findings; outcomes (measurable objectives, progress toward goals, clinical recommendations, treatment dosage, family role and outcomes); and care coordination (transition statement and individualized discharge criteria). Who signs a session note, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+        verifyVia:
+          'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
+      },
+      placeOfService: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: AMPM 320-S requires the treatment plan to "specify the setting(s) in which services will be delivered" but publishes no payable-setting list, pointing instead to the Behavioral Health Services Billing Matrix "regarding required coding information, including covered settings." What is documented at the rate level is that setting changes the money: the November 2023 fixed-rate notice pays home delivery (POS 12) roughly 10% above the clinic rate on every ABA code.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+        verifyVia:
+          'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
+      },
+      billAsProvider: {
+        value:
+          'Follows the AHCCCS rule — BCBSAZ Health Choice publishes no distinct ABA clinical policy, running prior authorization from frequently revised PA grids instead: The claim line has to say who actually delivered the service. AHCCCS pays credential-tiered rates through modifiers — HM below bachelor\'s (technician level), HN bachelor\'s, HO master\'s, HP doctoral — and AMPM 320-S points to the Behavioral Health Services Billing Matrix for "modifiers for Behavior Analysis Trainee billing." Whose NPI goes in the rendering field is set per Contractor: UnitedHealthcare Community Plan, for instance, requires the rendering provider\'s 10-digit NPI in box 24J, "must be an active AHCCCS registered provider (The rendering provider is the BCBA/Licensed Clinician)."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'Health Choice Arizona — PA guidelines (grids)', url: 'https://www.healthchoiceaz.com/providers/pa-guidelines' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Blue Cross Blue Shield of Arizona Health Choice cover ABA?', a: 'Yes — as an AHCCCS ACC plan, on the AMPM 320-S baseline. It publishes no distinct ABA clinical policy; PA requirements live in its frequently-updated PA grids.' },
       { q: 'Does BCBSAZ Health Choice require PA for ABA codes?', a: 'Not published as a standing rule — check the current PA grid rows for 97151–97158 on healthchoiceaz.com, or call the PA line at 1-800-322-8670. Grids have revised at least seven times since early 2024.' },
@@ -443,6 +1139,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
     slug: 'molina-healthcare-arizona',
     family: 'molina',
     cardDesc: 'Smallest ACC footprint (3 Phoenix-metro counties); no published ABA policy — verify by phone.',
+    assessmentPA: 'Not published — verify the 97151/97152 rows in the current Prior Auth and Pre-Service Review Guide, or call Healthcare Services at (844) 782-2678',
+    treatmentPA: 'Not published as a standing ABA rule — the mechanics run through Molina\'s Prior Auth and Pre-Service Review Guide, with PA initiated at (844) 782-2678 or fax (833) 832-1015 and Availity Essentials as the encouraged portal',
     dxRequired: 'No distinct plan policy published — AMPM 320-S baseline applies (autism dx not strictly required)',
     payer: 'Molina Healthcare of Arizona',
     state: 'AZ', kind: 'medicaid-mco', parent: 'AHCCCS (Arizona Medicaid)',
@@ -484,7 +1182,137 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
       { title: 'AHCCCS — Available Health Plans list', url: 'https://www.azahcccs.gov/Members/Downloads/Resources/ENGLISH_HealthPlanList.pdf' },
+      { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+      { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+      { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: AMPM 320-S sets no age bound of its own. Behavior Analysis Services are covered "for individuals with Autism Spectrum Disorder (ASD) and/or other diagnoses as justified by medical necessity," and the policy applies across ACC, ALTCS E/PD, DCS/CMDP, DES/DDD, the RBHA contracts and fee-for-service programs without an age criterion. In practice children reach the benefit through EPSDT, and nothing in the policy text excludes adults — screen on medical necessity, not birthday.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: None at the state level. AMPM 320-S imposes no recency clock on the diagnostic evaluation — and no autism diagnosis at all is strictly required. What must be current is the assessment: services are "prescribed or recommended in specific dosages, frequency, intensity, and duration by a qualified BHP as the result of an assessment of the member." Plan-level overlays can be stricter, so check the per-plan guide before telling a family an old evaluation still counts.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: No single instrument is mandated. "Behavior Analysis Services shall be based upon assessment(s) that include Standardized and/or Non-standardized instruments through both direct and indirect methods." Standardized examples named in the policy: the Pervasive Developmental Disabilities Behavior Inventory, the Brigance Inventory of Early Development and the Vineland Adaptive Behavior Scales. Non-standardized examples: curriculum-referenced assessments and stimulus preference assessment procedures.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: A prescription or recommendation from a qualified Behavioral Health Professional, based on an assessment of the member, is the referral — AMPM 320-S requires nothing else and sets no prior-authorization rules of its own, leaving PA to the Contractors. The two largest plans both skip PA on the assessment codes: Mercy Care states no PA is needed for 97151 and 97152, and Optum\'s Arizona orientation states "All ABA services require prior authorization except 97151 and 97152."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: AMPM 320-S permits telehealth delivery but does not price it: the individualized treatment plan must "identify the modality by which the service will be delivered (whether in person or via telehealth, or in-group or individual setting, or combination thereof)." Which 9715x codes are actually payable remotely, and with which place-of-service code or modifier, lives in the AHCCCS telehealth code set and the Behavioral Health Services Billing Matrix, neither of which we could retrieve at this review — azahcccs.gov returns 403 to automated fetching.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+        verifyVia:
+          'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: A duty with no number attached. "Behavior Analysis Services shall be directed and overseen by Behavior Analysts and supported, where applicable, by Behavior Analysis Trainees and/or Behavior Technicians." The Behavior Analyst "is responsible for all aspects of clinical direction, supervision, and provider-level case management," for training Trainees and Technicians, for ensuring that "the extent, kind, and quality" of what they deliver matches their training and experience, and for their compliance with the policy and A.R.S. § 32-2091. A Behavior Analysis Trainee needs "direct and ongoing supervision consistent with the standards set by a nationally recognized Behavior Analyst certification board." AMPM 320-S publishes no supervision percentage and no caseload cap, so for RBT-credentialed staff the BACB floor is the operative number.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: AMPM 320-S does not address whether 97153 and 97155 may be billed for the same clock time. The policy routes every coding question elsewhere: "Refer to the Behavioral Health Services Billing Matrix and Medical Coding Resources on the AHCCCS website for more information regarding required coding information, including covered settings, modifiers for Behavior Analysis Trainee billing, or other billing/coding information."',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+        verifyVia:
+          'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
+      },
+      dailyLimits: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: No per-day unit ceiling appears in AMPM 320-S; the policy sets clinical content, not claim edits, and defers unit and coding questions to the Behavioral Health Services Billing Matrix. Dosage is set case by case — services are prescribed "in specific dosages, frequency, intensity, and duration" by the recommending BHP — so the binding ceiling in practice is the Contractor\'s authorization.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+        verifyVia:
+          'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
+      },
+      noteSignature: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: AMPM 320-S sets a reporting cadence, not a signature rule. Progress reports are required "at minimum, every six months" and must include member identification; background information (family dynamics, school placement, cultural considerations, prenatal and/or developmental history, medical history, sensory, dietary and adaptive needs, sleep patterns, medications); assessment findings; outcomes (measurable objectives, progress toward goals, clinical recommendations, treatment dosage, family role and outcomes); and care coordination (transition statement and individualized discharge criteria). Who signs a session note, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+        verifyVia:
+          'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
+      },
+      placeOfService: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: AMPM 320-S requires the treatment plan to "specify the setting(s) in which services will be delivered" but publishes no payable-setting list, pointing instead to the Behavioral Health Services Billing Matrix "regarding required coding information, including covered settings." What is documented at the rate level is that setting changes the money: the November 2023 fixed-rate notice pays home delivery (POS 12) roughly 10% above the clinic rate on every ABA code.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+        verifyVia:
+          'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
+      },
+      billAsProvider: {
+        value:
+          'Follows the AHCCCS rule — Molina publishes no distinct ABA clinical policy, only its Prior Auth and Pre-Service Review Guide: The claim line has to say who actually delivered the service. AHCCCS pays credential-tiered rates through modifiers — HM below bachelor\'s (technician level), HN bachelor\'s, HO master\'s, HP doctoral — and AMPM 320-S points to the Behavioral Health Services Billing Matrix for "modifiers for Behavior Analysis Trainee billing." Whose NPI goes in the rendering field is set per Contractor: UnitedHealthcare Community Plan, for instance, requires the rendering provider\'s 10-digit NPI in box 24J, "must be an active AHCCCS registered provider (The rendering provider is the BCBA/Licensed Clinician)."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Molina Healthcare of Arizona cover ABA?', a: 'Yes — as an AHCCCS ACC plan on the AMPM 320-S baseline. Molina publishes no distinct ABA clinical policy; PA mechanics run through its Prior Auth and Pre-Service Review Guide and Availity Essentials.' },
       { q: 'Does Molina require PA for ABA in Arizona?', a: 'Its code-level ABA PA rules aren\'t published as a standing rule — verify against the current Prior Auth Guide or call Healthcare Services at (844) 782-2678 before booking.' },
@@ -549,7 +1377,137 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
       { title: 'AZA United — navigating the systems of care', url: 'https://azaunited.org/blog/navigating-the-systems-of-care' },
+      { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+      { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+      { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: AMPM 320-S sets no age bound of its own. Behavior Analysis Services are covered "for individuals with Autism Spectrum Disorder (ASD) and/or other diagnoses as justified by medical necessity," and the policy applies across ACC, ALTCS E/PD, DCS/CMDP, DES/DDD, the RBHA contracts and fee-for-service programs without an age criterion. In practice children reach the benefit through EPSDT, and nothing in the policy text excludes adults — screen on medical necessity, not birthday.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: None at the state level. AMPM 320-S imposes no recency clock on the diagnostic evaluation — and no autism diagnosis at all is strictly required. What must be current is the assessment: services are "prescribed or recommended in specific dosages, frequency, intensity, and duration by a qualified BHP as the result of an assessment of the member." Plan-level overlays can be stricter, so check the per-plan guide before telling a family an old evaluation still counts.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: AMPM 320-S gates on who recommends ABA, not on who diagnoses: services must be "prescribed or recommended... by a qualified BHP." A Behavioral Health Professional is defined as an individual licensed under A.R.S. Title 32, Chapter 33 whose scope allows independent behavioral health practice (or practice under direct supervision, except a licensed substance abuse technician); a psychiatrist (A.R.S. § 36-501); a psychologist (A.R.S. § 32-2061); a physician; a Behavior Analyst (A.R.S. § 32-2091); a registered nurse practitioner licensed as an adult psychiatric and mental health nurse; or a registered nurse with psychiatric-mental health certification or one year of behavioral health experience.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: No single instrument is mandated. "Behavior Analysis Services shall be based upon assessment(s) that include Standardized and/or Non-standardized instruments through both direct and indirect methods." Standardized examples named in the policy: the Pervasive Developmental Disabilities Behavior Inventory, the Brigance Inventory of Early Development and the Vineland Adaptive Behavior Scales. Non-standardized examples: curriculum-referenced assessments and stimulus preference assessment procedures.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+      },
+      referral: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: A prescription or recommendation from a qualified Behavioral Health Professional, based on an assessment of the member, is the referral — AMPM 320-S requires nothing else and sets no prior-authorization rules of its own, leaving PA to the Contractors. The two largest plans both skip PA on the assessment codes: Mercy Care states no PA is needed for 97151 and 97152, and Optum\'s Arizona orientation states "All ABA services require prior authorization except 97151 and 97152."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: AMPM 320-S permits telehealth delivery but does not price it: the individualized treatment plan must "identify the modality by which the service will be delivered (whether in person or via telehealth, or in-group or individual setting, or combination thereof)." Which 9715x codes are actually payable remotely, and with which place-of-service code or modifier, lives in the AHCCCS telehealth code set and the Behavioral Health Services Billing Matrix, neither of which we could retrieve at this review — azahcccs.gov returns 403 to automated fetching.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+        verifyVia:
+          'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: A duty with no number attached. "Behavior Analysis Services shall be directed and overseen by Behavior Analysts and supported, where applicable, by Behavior Analysis Trainees and/or Behavior Technicians." The Behavior Analyst "is responsible for all aspects of clinical direction, supervision, and provider-level case management," for training Trainees and Technicians, for ensuring that "the extent, kind, and quality" of what they deliver matches their training and experience, and for their compliance with the policy and A.R.S. § 32-2091. A Behavior Analysis Trainee needs "direct and ongoing supervision consistent with the standards set by a nationally recognized Behavior Analyst certification board." AMPM 320-S publishes no supervision percentage and no caseload cap, so for RBT-credentialed staff the BACB floor is the operative number.',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: AMPM 320-S does not address whether 97153 and 97155 may be billed for the same clock time. The policy routes every coding question elsewhere: "Refer to the Behavioral Health Services Billing Matrix and Medical Coding Resources on the AHCCCS website for more information regarding required coding information, including covered settings, modifiers for Behavior Analysis Trainee billing, or other billing/coding information."',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+        verifyVia:
+          'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
+      },
+      dailyLimits: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: No per-day unit ceiling appears in AMPM 320-S; the policy sets clinical content, not claim edits, and defers unit and coding questions to the Behavioral Health Services Billing Matrix. Dosage is set case by case — services are prescribed "in specific dosages, frequency, intensity, and duration" by the recommending BHP — so the binding ceiling in practice is the Contractor\'s authorization.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+        verifyVia:
+          'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
+      },
+      noteSignature: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: AMPM 320-S sets a reporting cadence, not a signature rule. Progress reports are required "at minimum, every six months" and must include member identification; background information (family dynamics, school placement, cultural considerations, prenatal and/or developmental history, medical history, sensory, dietary and adaptive needs, sleep patterns, medications); assessment findings; outcomes (measurable objectives, progress toward goals, clinical recommendations, treatment dosage, family role and outcomes); and care coordination (transition statement and individualized discharge criteria). Who signs a session note, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+        verifyVia:
+          'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
+      },
+      placeOfService: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: AMPM 320-S requires the treatment plan to "specify the setting(s) in which services will be delivered" but publishes no payable-setting list, pointing instead to the Behavioral Health Services Billing Matrix "regarding required coding information, including covered settings." What is documented at the rate level is that setting changes the money: the November 2023 fixed-rate notice pays home delivery (POS 12) roughly 10% above the clinic rate on every ABA code.',
+        status: 'unverified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+        verifyVia:
+          'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
+      },
+      billAsProvider: {
+        value:
+          'Identical to the ACC path — AMPM 320-S applies to DES/DDD by its own terms, and authorization then runs through the member\'s chosen DDD Health Plan (Mercy Care DD or UHCCP DD) on that plan\'s ABA machinery: The claim line has to say who actually delivered the service. AHCCCS pays credential-tiered rates through modifiers — HM below bachelor\'s (technician level), HN bachelor\'s, HO master\'s, HP doctoral — and AMPM 320-S points to the Behavioral Health Services Billing Matrix for "modifiers for Behavior Analysis Trainee billing." Whose NPI goes in the rendering field is set per Contractor: UnitedHealthcare Community Plan, for instance, requires the rendering provider\'s 10-digit NPI in box 24J, "must be an active AHCCCS registered provider (The rendering provider is the BCBA/Licensed Clinician)."',
+        status: 'verified',
+        cites: [
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
+        ],
+      },
+    },
     faq: [
       { q: 'How do DDD members get ABA in Arizona?', a: 'Through their chosen DDD Health Plan — Mercy Care DD or UHCCP DD, both statewide — on the same AMPM 320-S clinical rules and the same plan-level ABA PA machinery as those plans\' ACC lines.' },
       { q: 'Can a child get ABA through an ACC plan instead of DDD?', a: 'Yes — children under 21 can get ABA via their ACC plan under EPSDT even without DDD. If the child is ALTCS/DDD-eligible, the DDD path adds bundled services (habilitation, respite); over age 3, ALTCS approval is the gate.' },
@@ -637,7 +1595,103 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 20-826.04 — current text', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
       { title: 'Autism Speaks — Arizona state-regulated insurance coverage', url: 'https://www.autismspeaks.org/arizona-state-regulated-insurance-coverage' },
       { title: 'A.R.S. § 32-2091 — behavior analyst licensure', url: 'https://www.azleg.gov/ars/32/02091.htm' },
+      { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+      { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+      { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Steven\'s Law now carries no explicit age limit: SB 1590 (signed May 7, 2025) struck the dollar-cap subsection from all four sections of the mandate, and the age tiers — under 9, and 9 through 16 — lived inside that subsection. Optum\'s own state-mandate entry describes the change as repealing "the maximum benefit limitations for behavioral therapy coverage for eligible persons who are 16 years old and younger." The carrier\'s national ABA policy adds no age bound of its own, so age comes from the benefit document, not the statute.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'SB 1590 — chaptered law (Laws 2025, ch. 142)', url: 'https://www.azleg.gov/legtext/57leg/1R/laws/0142.pdf' },
+          { title: 'A.R.S. § 20-826.04 — current text (caps absent)', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+        verifyVia:
+          'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+      },
+      dxRecency: {
+        value:
+          'Aetna puts the recency clock on the functional assessment, not the diagnosis: medical necessity requires "demonstration of functional impairment on a standardized scale of functioning in the past 12 months," and the impairment must be at least one standard deviation below the population mean or represent a significant risk of harm to self or others. The ABA Medical Necessity Guide sets no expiry on the ASD diagnosis itself.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '"There is a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10/ F84.0; F84.3 - F84.9) obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Note the code set the guide actually prints: F84.0 plus F84.3–F84.9, which leaves out F84.1 and F84.2.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No diagnostic instrument is mandated; the named instruments sit on the functional-impairment test — "the Vineland Adaptive Behavior Scales 3 (VABS-3), the Adaptive Behavior Assessment Scale (ABAS), VB-MAPP or ABLLS" are given as examples of the standardized scale that must show impairment within the past 12 months.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral or physician order is required by the national guide — the gate is the diagnosis "obtained by an appropriate provider" plus precertification. The only prescription requirement Aetna publishes is its Maryland exhibit (COMAR 31.10.39), where the child\'s primary care or specialty physician must perform the evaluation and prescribe the treatment with specific goals; that exhibit does not reach plans outside Maryland.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Not published. Aetna\'s ABA Medical Necessity Guide and CPB 0554 set medical-necessity criteria and precertification requirements but say nothing about which ABA codes may be delivered remotely, or with which place-of-service code.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+        verifyVia:
+          'Aetna provider services at the number on the member\'s ID card, and the plan\'s telehealth/virtual-care policy — confirm before scheduling remote 97155 or 97156.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Aetna sets a duty, not a number. Where a state mandate, plan document or contract allows services from someone neither state-licensed nor BACB-certified, "there must be supervision and direction of the unlicensed or non-certified providers in line with practice standards." The ABA Medical Necessity Guide publishes no supervision percentage, ratio or caseload cap — the operative standard is professional practice plus whatever the contract adds.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither the ABA Medical Necessity Guide nor Aetna\'s clinical policy bulletin on ABA addresses whether 97153 and 97155 may be billed for the same clock time; Aetna carries the concurrency question in its claim editing rather than in a public policy.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna precertification/provider services at the number on the member\'s ID card, and the plan\'s own reimbursement schedule — ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. Aetna\'s ABA documents set medical-necessity criteria and precertification requirements for 97151–97158, 0362T and 0373T, but no per-day unit ceiling and no statement of which MUE table applies. The guide does publish typical intensity bands — comprehensive ABA 10–25 hours/week, focused ABA 1–20 hours/week — as clinical guidance, not claim edits.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+      },
+      noteSignature: {
+        value:
+          'Not published in Aetna\'s ABA materials — no rule on who signs a session note or within what window.',
+        status: 'unverified',
+        verifyVia:
+          'The Aetna provider manual and your participation agreement\'s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'Aetna does not publish a POS code list for ABA. The one place-of-service boundary it does state is the schools carve-out: pursuant to applicable law Aetna "is not required [to] provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act." That is a limit on paying for what the IEP owes, not a blanket ban on the school setting — and it yields to a stronger state mandate. Where ABA is payable in a school, in the community or in a group home is a benefit-document question on Aetna plans.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'The member\'s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+      },
+      billAsProvider: {
+        value:
+          'The claim carries the analyst, not the technician. "Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise." The escape clause matters: a state mandate or your contract can move the line, so confirm before enrolling technicians.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Arizona?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Steven\'s Law for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Arizona still cap ABA benefits at $50,000 a year?', a: 'No — SB 1590 (signed May 7, 2025) repealed the $50,000/$25,000 annual behavioral-therapy caps from all four Steven\'s Law sections. No annual dollar ceiling remains on any state-regulated group plan.' },
@@ -725,7 +1779,105 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 20-826.04 — current text', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
       { title: 'Autism Speaks — Arizona state-regulated insurance coverage', url: 'https://www.autismspeaks.org/arizona-state-regulated-insurance-coverage' },
       { title: 'A.R.S. § 32-2091 — behavior analyst licensure', url: 'https://www.azleg.gov/ars/32/02091.htm' },
+      { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Steven\'s Law now carries no explicit age limit: SB 1590 (signed May 7, 2025) struck the dollar-cap subsection from all four sections of the mandate, and the age tiers — under 9, and 9 through 16 — lived inside that subsection. Optum\'s own state-mandate entry describes the change as repealing "the maximum benefit limitations for behavioral therapy coverage for eligible persons who are 16 years old and younger." The carrier\'s national ABA policy adds no age bound of its own, so age comes from the benefit document, not the statute.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'SB 1590 — chaptered law (Laws 2025, ch. 142)', url: 'https://www.azleg.gov/legtext/57leg/1R/laws/0142.pdf' },
+          { title: 'A.R.S. § 20-826.04 — current text (caps absent)', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+        verifyVia:
+          'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+      },
+      dxRecency: {
+        value:
+          'EN0499 puts no expiry on the ASD diagnosis — it requires only that the submission carry "the name, credentials, and type of licensure of the individual who made the diagnosis" and "the date on which the diagnosis was most recently made." The 60-day clocks run on the assessment instead: administration of the standardized assessment instrument must be completed within 60 days prior to the start of treatment, and quantitative baseline data must be collected within 60 days prior to the start of treatment.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '"A confirmed diagnosis of autism spectrum disorder (ASD); (ICD-10-CM Diagnosis Codes F84.0 – F84.9, with the exception of F84.2, Rett syndrome) based on the criteria in the DSM-5-TR by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." The ABA assessment itself is then performed by a BCBA, LBA, or an independently licensed mental health clinician with documented ABA training.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'EN0499 names no instrument but sets six tests the instrument must pass: it must be reliable, valid and standardized, measure functioning in the DSM-5-TR ASD domains (social communication/interaction; restricted, repetitive behavior), be completed in its entirety and as designed, have established reliability and validity for the population tested, be administered by someone trained to administer and interpret it, and be the most current version — "must be the Vineland-3 vs. Vineland-II." Date of administration, respondent and form type must be recorded.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral or physician order is required. Prior authorization is not required on assessment codes 97151, 97152 or 0362T with an autism diagnosis "as long as the provider is independently licensed or a Board Certified Behavior Analyst (BCBA) and the patient\'s policy covers ABA services"; the authorization gate arrives at the treatment step, with the completed assessment and treatment plan.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          '"All ABA CPT codes are covered telehealth services," subject to EN0499. The policy adds a documentation duty rather than a code restriction: where services are delivered "via telehealth modalities," the record must show the service still meets the definition of direct treatment/direct engagement "regardless of treatment location or modality" and is conducted per the treatment-plan goals.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'One to two hours per ten hours of direct treatment. "Direct case supervision (occurs concurrently with the delivery of direct treatment to the individual and consists of BCBA face-to-face with the individual and either the Registered Behavior Technician or the Board Certified Assistant Behavior Analyst) and indirect case supervision is consistent with the general accepted standard of care of one to two hours per ten hours of direct treatment." When direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided, and the supervisor\'s name and credentials must be documented.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Yes — and Evernorth writes it as an explicit carve-out from its general rule: "Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Both must be with the patient; analyst time away from the patient is not inside the exception.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Not published. The resource guide sets the code set (97151–97158, 0362T and 0373T only, all in 15-minute increments) but no per-day unit ceiling and no statement of which MUE table Evernorth applies.',
+        status: 'unverified',
+        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273.',
+      },
+      noteSignature: {
+        value:
+          'Not published in the autism resource guide — no rule on who signs a session note or when. EN0499 does require the name and credentials of the supervising and stakeholder-training providers to be documented, and dates of administration on every assessment instrument.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia:
+          'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+      },
+      placeOfService: {
+        value:
+          'No POS list is published. EN0499 requires the treatment plan to identify the "settings and environments where treatment will occur (e.g., home, clinic, school, community setting)" and to collect data corresponding to each location of service; for settings with competing behavioral expectations — "academic setting, vocational placement, services delivered via telehealth modalities" — the record must show the service still meets the direct-treatment definition. Which of those settings is payable is a benefit-document question.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\'s benefit document.',
+      },
+      billAsProvider: {
+        value:
+          'Under the supervising provider, because the technician cannot be credentialed: "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." Practically, the BCBA\'s credential is what the claim rides on for technician-delivered 97153.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does Cigna cover ABA therapy in Arizona?', a: 'Yes — under national policy EN0499 for ASD (no Arizona carve-out exists), layered on Steven\'s Law for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Arizona still cap ABA benefits at $50,000 a year?', a: 'No — SB 1590 (signed May 7, 2025) repealed the $50,000/$25,000 annual behavioral-therapy caps from all four Steven\'s Law sections. No annual dollar ceiling remains on any state-regulated group plan.' },
@@ -821,7 +1973,102 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 20-826.04 — current text', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
       { title: 'Autism Speaks — Arizona state-regulated insurance coverage', url: 'https://www.autismspeaks.org/arizona-state-regulated-insurance-coverage' },
       { title: 'A.R.S. § 32-2091 — behavior analyst licensure', url: 'https://www.azleg.gov/ars/32/02091.htm' },
+      { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+      { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+      { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Steven\'s Law now carries no explicit age limit: SB 1590 (signed May 7, 2025) struck the dollar-cap subsection from all four sections of the mandate, and the age tiers — under 9, and 9 through 16 — lived inside that subsection. Optum\'s own state-mandate entry describes the change as repealing "the maximum benefit limitations for behavioral therapy coverage for eligible persons who are 16 years old and younger." The carrier\'s national ABA policy adds no age bound of its own, so age comes from the benefit document, not the statute. Optum operationalises this in its own ABA State Mandates supplement, which carries an explicit Arizona Commercial entry.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'SB 1590 — chaptered law (Laws 2025, ch. 142)', url: 'https://www.azleg.gov/legtext/57leg/1R/laws/0142.pdf' },
+          { title: 'A.R.S. § 20-826.04 — current text (caps absent)', url: 'https://www.azleg.gov/ars/20/00826-04.htm' },
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+        verifyVia:
+          'Benefits verification on the specific plan — funding type first, then the ABA benefit terms.',
+      },
+      dxRecency: {
+        value:
+          'Optum\'s Supplemental Clinical Criteria set no recency clock on the ASD diagnosis. What they require instead is current assessment: the comprehensive diagnostic evaluation and functional assessment "form the basis for the treatment plan," baseline skills and norm-referenced measures must reflect the individual\'s "specific and current abilities," and continued coverage rides on documentation of movement from baseline at each 4–6 month review.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '"A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'The DSM-5-TR diagnosis and severity level must be "confirmed and documented by the diagnosing clinician using at least one clinically validated tool," on a three-tier list: first-level screening (ABC, CHAT/M-CHAT, CSBS-DP-IT Checklist, ASQ, AQ, CAST), second-level screening (CARS/CARS-2, RITA-T, STAT) and formal diagnostic tools used in a comprehensive evaluation (ADI-R, ADOS/ADOS-2, DISCO). Treatment intensity must then be set against at least one validated measurement tool — ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, VABS or CFQL-2.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      referral: {
+        value:
+          'No physician referral or order is required. The front door is Optum\'s two-step authorization on Provider Express — "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)" — with the diagnosis, the credentialed ABA provider and the assessment package standing in for a referral.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Optum publishes no ABA telehealth code list in the Supplemental Clinical Criteria; it points providers to CASP\'s Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition, which it describes as a resource for ABA "delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)" and as a supplement to, not a replacement for, in-person delivery.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Two numbers, from two documents. Clinically, "consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week," with technicians under the supervision of a BCBA or licensed behavioral health clinician and parents discouraged from serving as their own child\'s RBT. On the claim side, the commercial reimbursement policy polices the boundary rather than a ratio: "CPT codes 97153 and 97155 may not be billed for technician training," and 97155 "should be reported only for services where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient" — treatment planning is indirect and not separately reimbursable.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Yes, with a single-provider exclusion. "Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently." So the concurrency has to be two people — technician on 97153, analyst on 97155 directing them with the patient present. Separately, 97155 and 97156 may both pay on the same date of service only if the services are separate, distinct and clearly documented in the progress notes.',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Optum publishes its own per-day table on top of CMS MUEs — maximum frequency per day: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs). MUEs otherwise apply per CMS guidance, and billing above 32 units/day of 97153 "may be subject to non-reimbursement or recovery."',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No signature rule is published, but the documentation burden is explicit where money turns on it: services billed on the same date must be "separate, distinct, and clearly documented in the progress notes," and if documentation does not clearly separate them the claim may be denied. Who signs, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        verifyVia:
+          'The UnitedHealthcare/Optum provider manual and your participation agreement\'s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'No POS code list is published. The clinical criteria draw the school line instead: ABA is not covered for "services that are not ABA therapy, such as 1:1 aid delivered simultaneously during classroom instruction, or services covered under the Individuals with Disabilities Education Act (IDEA)," while "school ABA services do allow for coordination of services and would cover services such as teacher training, meetings with school personnel, and observations in the school setting."',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'UnitedHealthcare/Optum provider services and the member\'s benefit document.',
+      },
+      billAsProvider: {
+        value:
+          'One provider-level modifier per line, matching whoever actually rendered the service: HM = Registered Behavior Technician (less than bachelor\'s level), HN = BCaBA (bachelor\'s level), HO = BCBA or master\'s-level licensed clinician, HP = BCBA-D or doctoral-level licensed clinician. A billable ABA-supervisor service is billed with the applicable CPT code plus HO. Stacking level modifiers is a denial risk: "Billing multiple provider-level modifiers (HN, HM, HO, HP) on the same service line same service and same DOS is not appropriate and may result in claim denial."',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Arizona?', a: 'Yes — under Optum\'s national two-step authorization policy for ASD, layered on Steven\'s Law for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Arizona still cap ABA benefits at $50,000 a year?', a: 'No — SB 1590 (signed May 7, 2025) repealed the $50,000/$25,000 annual caps, and Optum\'s own Arizona state-mandate entry (effective January 2026) already reflects the repeal. No annual dollar ceiling remains on any state-regulated group plan.' },

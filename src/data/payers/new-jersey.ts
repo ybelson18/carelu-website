@@ -9,6 +9,48 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional; a comprehensive diagnostic evaluation is not required',
     payer: 'NJ FamilyCare (New Jersey Medicaid)',
     state: 'NJ', kind: 'state-medicaid',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Two published numbers, and they differ in precision rather than in substance. The founding DMAHS newsletter sets the benefit for "any Medicaid eligible child, under the age of 21, who has been diagnosed with ASD as defined by ICD 10 diagnoses F84.0 through F84.9 by a qualified healthcare provider," delivered under EPSDT, which reaches "individuals under the age of twenty-one." Optum\'s New Jersey Medicaid entry adds the floor as well as the ceiling: "ABA services shall be made available to children 18 months to 21 years of age based on medical necessity," and its NJ FamilyCare provider orientation repeats it — "Must be 18 months – 21 years old," including in the specialized FamilyCare carve-out. No hour caps are attached to the age band.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the DMAHS newsletter nor Optum\'s New Jersey entry sets a maximum age for the diagnostic evaluation, and the state\'s written position runs the other way: Optum\'s NJ Medicaid entry says flatly that "A comprehensive diagnostic evaluation is not required to access ABA services," so there is no comprehensive evaluation whose recency could be gated. What is dated in New Jersey is the authorization rather than the diagnosis — Horizon issues 32 units of 97151 valid for 30 days, and treatment authorizations run in 6-month spans.',
+        status: 'unverified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' }],
+        verifyVia:
+          'The member\'s MCO, or DMAHS\'s dedicated Autism Line for ABA and DIR services (609-588-8522 / MAHS.ASDinquiries@dhs.nj.gov).',
+      },
+      diagnosingProviders: {
+        value:
+          'New Jersey names them twice, and the second list is narrower than the first. The newsletter\'s general test: "The need for ABA services must be determined by a qualified healthcare professional (QHP) capable of making a diagnosis of autism. QHPs include licensed health care professionals, who are qualified by education, training, or licensure/regulation (when applicable) to perform a professional service within his/her scope of practice." The enumerated list of acceptable QHPs "for the diagnosis and treatment planning for adaptive behavior services" is then: Physicians; Psychologists, which "Requires an active board certified behavior analyst (BCBA) certification in good standing and a qualifying doctoral-level degree (BCBA-D)"; and BCBAs, who appear for treatment planning rather than diagnosis. Optum\'s NJ entry restates the split: the diagnosis comes from "a physician or psychologist," and "It is not uncommon for one QHP to make the diagnosis (such as a physician) and a separate QHP (such as a BCBA) to develop and supervise the treatment plan."',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'None required — and New Jersey is one of the few states that says so in terms. Optum\'s NJ Medicaid entry: "A comprehensive diagnostic evaluation is not required to access ABA services," with "ABA services … available to any child diagnosed with autism spectrum disorder as defined by ICD-10 diagnoses F84.0 through F84.9." The DMAHS newsletter names no instrument either. That makes this the friendliest diagnostic bar of the three states on this page — intake should not queue a New Jersey family for an ADOS-2 before starting the authorization.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      referral: {
+        value:
+          'No PCP referral and no physician order. The sequence the state sets is QHP determination, then MCO authorization: "Once an individual is properly diagnosed with ASD, the MCO shall authorize a QHP to assess the child for the development of a proposed treatment plan," and treatment follows "Contingent upon approval of the treatment plan." The genuine intake asset sits one step earlier — members still fee-for-service pending MCO enrollment are covered through Gainwell with no prior authorization required at all, so enrollment status, not a referral, is the routing question. Plan practice adds paperwork rather than a referral: Horizon wants an ASD diagnosis "script" from a QHP attached to the assessment request, which is the diagnosis document under another name.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' }],
+      },
+      telehealth: {
+        value:
+          'The state is silent and the carrier layer is not. Neither the founding DMAHS newsletter nor the daily unit guide addresses telehealth, remote delivery, modifiers or place-of-service codes for ABA. The one published New Jersey position is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider (attestation on Provider Express) and flags virtual delivery to the Care Advocate at authorization — then bills "the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not in that carve-out.',
+        status: 'unverified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+        verifyVia:
+          'The member\'s MCO — the state sets no ABA telehealth rule, so each plan answers for itself; DMAHS\'s Autism Line (609-588-8522) is the state-side route.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -162,6 +204,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Autism NJ — Behavior Analyst Licensure in New Jersey: Where We Are Now', url: 'https://autismnj.org/article/behavior-analyst-licensure-in-new-jersey-where-we-are-now/' },
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
       { title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' },
+      { title: 'NJ DMAHS — NJ FamilyCare Health Plans (current MCO roster)', url: 'https://nj.gov/humanservices/dmahs/providers-stakeholders/provider-resources/health-plans' },
     ],
     faq: [
       { q: 'Does NJ FamilyCare cover ABA therapy?', a: 'Yes — under EPSDT for members with autism (roughly 18 months to 21), delivered and prior-authorized through the five NJ FamilyCare MCOs since April 1, 2020.' },
@@ -180,6 +223,48 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) with a diagnosis script from a qualified healthcare professional',
     payer: 'Horizon NJ Health',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Two published numbers, and they differ in precision rather than in substance. The founding DMAHS newsletter sets the benefit for "any Medicaid eligible child, under the age of 21, who has been diagnosed with ASD as defined by ICD 10 diagnoses F84.0 through F84.9 by a qualified healthcare provider," delivered under EPSDT, which reaches "individuals under the age of twenty-one." Optum\'s New Jersey Medicaid entry adds the floor as well as the ceiling: "ABA services shall be made available to children 18 months to 21 years of age based on medical necessity," and its NJ FamilyCare provider orientation repeats it — "Must be 18 months – 21 years old," including in the specialized FamilyCare carve-out. No hour caps are attached to the age band. Horizon manages ABA across Core Medicaid, DDD, MLTSS and FIDE-SNP populations, so note which segment the member sits in alongside age.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the DMAHS newsletter nor Optum\'s New Jersey entry sets a maximum age for the diagnostic evaluation, and the state\'s written position runs the other way: Optum\'s NJ Medicaid entry says flatly that "A comprehensive diagnostic evaluation is not required to access ABA services," so there is no comprehensive evaluation whose recency could be gated. What is dated in New Jersey is the authorization rather than the diagnosis — Horizon issues 32 units of 97151 valid for 30 days, and treatment authorizations run in 6-month spans. Horizon is the plan those clocks come from: its assessment authorization is 32 units of 97151 valid for 30 days, so book the assessment before requesting it. Search excerpts of Horizon\'s 1/1/2026 medical-policy revision reference standardized-instrument testing no more often than every 6 months, but that text could not be confirmed against the live policy.',
+        status: 'unverified',
+        cites: [{ title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Horizon NJ Health provider services, or the ABA UM escalation contact on the DMAHS BH integration contact sheet.',
+      },
+      diagnosingProviders: {
+        value:
+          'New Jersey names them twice, and the second list is narrower than the first. The newsletter\'s general test: "The need for ABA services must be determined by a qualified healthcare professional (QHP) capable of making a diagnosis of autism. QHPs include licensed health care professionals, who are qualified by education, training, or licensure/regulation (when applicable) to perform a professional service within his/her scope of practice." The enumerated list of acceptable QHPs "for the diagnosis and treatment planning for adaptive behavior services" is then: Physicians; Psychologists, which "Requires an active board certified behavior analyst (BCBA) certification in good standing and a qualifying doctoral-level degree (BCBA-D)"; and BCBAs, who appear for treatment planning rather than diagnosis. Optum\'s NJ entry restates the split: the diagnosis comes from "a physician or psychologist," and "It is not uncommon for one QHP to make the diagnosis (such as a physician) and a separate QHP (such as a BCBA) to develop and supervise the treatment plan."',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'None required — and New Jersey is one of the few states that says so in terms. Optum\'s NJ Medicaid entry: "A comprehensive diagnostic evaluation is not required to access ABA services," with "ABA services … available to any child diagnosed with autism spectrum disorder as defined by ICD-10 diagnoses F84.0 through F84.9." The DMAHS newsletter names no instrument either. That makes this the friendliest diagnostic bar of the three states on this page — intake should not queue a New Jersey family for an ADOS-2 before starting the authorization. Horizon NJ Health publishes no deviation from this, and its own material was checked for one.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      referral: {
+        value:
+          'The state sets no referral requirement, and Horizon turns the diagnosis itself into the trigger document: the ABA Authorization Request Form goes through NaviNet\'s UM Request Tool "with an ASD diagnosis script from a QHP attached," and once Horizon confirms eligibility, diagnosis and the script it issues the 32-unit/30-day assessment authorization without full clinical review. Treatment is the second step — the post-assessment ABA Request Form back through NaviNet, reviewed against MCG criteria within 14 days, approved in 6-month spans. So collect the script at first contact: it is not a referral, but it functions as one here.',
+        status: 'verified',
+        cites: [{ title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      telehealth: {
+        value:
+          'The state is silent and the carrier layer is not. Neither the founding DMAHS newsletter nor the daily unit guide addresses telehealth, remote delivery, modifiers or place-of-service codes for ABA. The one published New Jersey position is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider (attestation on Provider Express) and flags virtual delivery to the Care Advocate at authorization — then bills "the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not in that carve-out. Horizon republishes no telehealth position of its own for ABA.',
+        status: 'unverified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+        verifyVia:
+          'Horizon NJ Health provider services, or the ABA UM escalation contact on the DMAHS BH integration contact sheet.',
+      },
+    },
     deliveryRules: {
       concurrentBilling: {
         value:
@@ -274,6 +359,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'DMAHS BH Integration Points of Contact V3.1', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+      { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
     ],
     faq: [
       { q: 'Does Horizon NJ Health cover ABA therapy?', a: 'Yes — it administers the NJ FamilyCare ABA benefit under EPSDT, with its own medical policy and MCG-based review layered on the state code set. Both assessment and treatment require prior authorization via NaviNet.' },
@@ -291,6 +377,48 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
     payer: 'Aetna Better Health of New Jersey',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Two published numbers, and they differ in precision rather than in substance. The founding DMAHS newsletter sets the benefit for "any Medicaid eligible child, under the age of 21, who has been diagnosed with ASD as defined by ICD 10 diagnoses F84.0 through F84.9 by a qualified healthcare provider," delivered under EPSDT, which reaches "individuals under the age of twenty-one." Optum\'s New Jersey Medicaid entry adds the floor as well as the ceiling: "ABA services shall be made available to children 18 months to 21 years of age based on medical necessity," and its NJ FamilyCare provider orientation repeats it — "Must be 18 months – 21 years old," including in the specialized FamilyCare carve-out. No hour caps are attached to the age band. Aetna Better Health of New Jersey publishes no deviation from this, and its own material was checked for one.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the DMAHS newsletter nor Optum\'s New Jersey entry sets a maximum age for the diagnostic evaluation, and the state\'s written position runs the other way: Optum\'s NJ Medicaid entry says flatly that "A comprehensive diagnostic evaluation is not required to access ABA services," so there is no comprehensive evaluation whose recency could be gated. What is dated in New Jersey is the authorization rather than the diagnosis — Horizon issues 32 units of 97151 valid for 30 days, and treatment authorizations run in 6-month spans.',
+        status: 'unverified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Aetna Better Health of New Jersey provider services (1-855-232-3596) or the plan\'s named ABA clinical contacts on the DMAHS BH integration contact sheet.',
+      },
+      diagnosingProviders: {
+        value:
+          'New Jersey names them twice, and the second list is narrower than the first. The newsletter\'s general test: "The need for ABA services must be determined by a qualified healthcare professional (QHP) capable of making a diagnosis of autism. QHPs include licensed health care professionals, who are qualified by education, training, or licensure/regulation (when applicable) to perform a professional service within his/her scope of practice." The enumerated list of acceptable QHPs "for the diagnosis and treatment planning for adaptive behavior services" is then: Physicians; Psychologists, which "Requires an active board certified behavior analyst (BCBA) certification in good standing and a qualifying doctoral-level degree (BCBA-D)"; and BCBAs, who appear for treatment planning rather than diagnosis. Optum\'s NJ entry restates the split: the diagnosis comes from "a physician or psychologist," and "It is not uncommon for one QHP to make the diagnosis (such as a physician) and a separate QHP (such as a BCBA) to develop and supervise the treatment plan."',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'None required — and New Jersey is one of the few states that says so in terms. Optum\'s NJ Medicaid entry: "A comprehensive diagnostic evaluation is not required to access ABA services," with "ABA services … available to any child diagnosed with autism spectrum disorder as defined by ICD-10 diagnoses F84.0 through F84.9." The DMAHS newsletter names no instrument either. That makes this the friendliest diagnostic bar of the three states on this page — intake should not queue a New Jersey family for an ADOS-2 before starting the authorization. Aetna Better Health of New Jersey publishes no deviation from this, and its own material was checked for one.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      referral: {
+        value:
+          'No PCP referral and no physician order. The sequence the state sets is QHP determination, then MCO authorization: "Once an individual is properly diagnosed with ASD, the MCO shall authorize a QHP to assess the child for the development of a proposed treatment plan," and treatment follows "Contingent upon approval of the treatment plan." The genuine intake asset sits one step earlier — members still fee-for-service pending MCO enrollment are covered through Gainwell with no prior authorization required at all, so enrollment status, not a referral, is the routing question. Plan practice adds paperwork rather than a referral: Horizon wants an ASD diagnosis "script" from a QHP attached to the assessment request, which is the diagnosis document under another name. Aetna Better Health is the plan that hews closest to the state baseline — its published ABA Program sheet copies the DMAHS rates and unit limits verbatim — and adds no referral requirement of its own; what it adds is a clock, with urgent requests decided in 24 hours and routine in 7 days.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Aetna Better Health NJ — ABA Program rates (eff. 4/1/2020)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/pdf/Applied%20behavioral%20analysis%20program.pdf' }],
+      },
+      telehealth: {
+        value:
+          'The state is silent and the carrier layer is not. Neither the founding DMAHS newsletter nor the daily unit guide addresses telehealth, remote delivery, modifiers or place-of-service codes for ABA. The one published New Jersey position is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider (attestation on Provider Express) and flags virtual delivery to the Care Advocate at authorization — then bills "the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not in that carve-out. Aetna Better Health of New Jersey publishes no ABA telehealth position.',
+        status: 'unverified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+        verifyVia:
+          'Aetna Better Health of New Jersey provider services (1-855-232-3596) or the plan\'s named ABA clinical contacts on the DMAHS BH integration contact sheet.',
+      },
+    },
     deliveryRules: {
       concurrentBilling: {
         value:
@@ -374,6 +502,8 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+      { title: 'Autism NJ — Medicaid rate increase for ABA services', url: 'https://autismnj.org/news/autism-new-jerseys-advocacy-leads-to-medicaid-rate-increase-for-aba-services/' },
+      { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
     ],
     faq: [
       { q: 'Does Aetna Better Health of New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit closest to the state baseline of all five MCOs, with a published rate sheet and unit limits copied from the DMAHS schedule. PA is required, via Availity or the BH prior auth form.' },
@@ -391,6 +521,48 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
     payer: 'Fidelis Care New Jersey (formerly WellCare)',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Two published numbers, and they differ in precision rather than in substance. The founding DMAHS newsletter sets the benefit for "any Medicaid eligible child, under the age of 21, who has been diagnosed with ASD as defined by ICD 10 diagnoses F84.0 through F84.9 by a qualified healthcare provider," delivered under EPSDT, which reaches "individuals under the age of twenty-one." Optum\'s New Jersey Medicaid entry adds the floor as well as the ceiling: "ABA services shall be made available to children 18 months to 21 years of age based on medical necessity," and its NJ FamilyCare provider orientation repeats it — "Must be 18 months – 21 years old," including in the specialized FamilyCare carve-out. No hour caps are attached to the age band. Fidelis publishes no NJ-specific ABA policy at all, so the state band is the only published answer.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the DMAHS newsletter nor Optum\'s New Jersey entry sets a maximum age for the diagnostic evaluation, and the state\'s written position runs the other way: Optum\'s NJ Medicaid entry says flatly that "A comprehensive diagnostic evaluation is not required to access ABA services," so there is no comprehensive evaluation whose recency could be gated. What is dated in New Jersey is the authorization rather than the diagnosis — Horizon issues 32 units of 97151 valid for 30 days, and treatment authorizations run in 6-month spans.',
+        status: 'unverified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Fidelis Care New Jersey\'s ABA UM contact (per the DMAHS BH integration contact sheet) before the first submission — nothing ABA-specific is published by the plan.',
+      },
+      diagnosingProviders: {
+        value:
+          'New Jersey names them twice, and the second list is narrower than the first. The newsletter\'s general test: "The need for ABA services must be determined by a qualified healthcare professional (QHP) capable of making a diagnosis of autism. QHPs include licensed health care professionals, who are qualified by education, training, or licensure/regulation (when applicable) to perform a professional service within his/her scope of practice." The enumerated list of acceptable QHPs "for the diagnosis and treatment planning for adaptive behavior services" is then: Physicians; Psychologists, which "Requires an active board certified behavior analyst (BCBA) certification in good standing and a qualifying doctoral-level degree (BCBA-D)"; and BCBAs, who appear for treatment planning rather than diagnosis. Optum\'s NJ entry restates the split: the diagnosis comes from "a physician or psychologist," and "It is not uncommon for one QHP to make the diagnosis (such as a physician) and a separate QHP (such as a BCBA) to develop and supervise the treatment plan." No Fidelis-specific diagnostician list is published.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'None required — and New Jersey is one of the few states that says so in terms. Optum\'s NJ Medicaid entry: "A comprehensive diagnostic evaluation is not required to access ABA services," with "ABA services … available to any child diagnosed with autism spectrum disorder as defined by ICD-10 diagnoses F84.0 through F84.9." The DMAHS newsletter names no instrument either. That makes this the friendliest diagnostic bar of the three states on this page — intake should not queue a New Jersey family for an ADOS-2 before starting the authorization. Fidelis Care New Jersey publishes no deviation from this, and its own material was checked for one.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      referral: {
+        value:
+          'No PCP referral and no physician order. The sequence the state sets is QHP determination, then MCO authorization: "Once an individual is properly diagnosed with ASD, the MCO shall authorize a QHP to assess the child for the development of a proposed treatment plan," and treatment follows "Contingent upon approval of the treatment plan." The genuine intake asset sits one step earlier — members still fee-for-service pending MCO enrollment are covered through Gainwell with no prior authorization required at all, so enrollment status, not a referral, is the routing question. Plan practice adds paperwork rather than a referral: Horizon wants an ASD diagnosis "script" from a QHP attached to the assessment request, which is the diagnosis document under another name. Fidelis publishes no ABA-specific request format, so confirm what its UM expects in the packet before the first submission rather than after the first denial; outpatient authorization requests go through provider.fideliscarenj.com or fax (888) 339-2677.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Fidelis Care NJ — Authorizations', url: 'https://www.fideliscarenj.com/providers/medicaid/authorizations.html' }],
+      },
+      telehealth: {
+        value:
+          'The state is silent and the carrier layer is not. Neither the founding DMAHS newsletter nor the daily unit guide addresses telehealth, remote delivery, modifiers or place-of-service codes for ABA. The one published New Jersey position is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider (attestation on Provider Express) and flags virtual delivery to the Care Advocate at authorization — then bills "the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not in that carve-out. Fidelis Care New Jersey publishes no ABA telehealth position.',
+        status: 'unverified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+        verifyVia:
+          'Fidelis Care New Jersey\'s ABA UM contact (per the DMAHS BH integration contact sheet) before the first submission — nothing ABA-specific is published by the plan.',
+      },
+    },
     deliveryRules: {
       concurrentBilling: {
         value:
@@ -472,6 +644,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Fidelis Care NJ — Authorizations', url: 'https://www.fideliscarenj.com/providers/medicaid/authorizations.html' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+      { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
     ],
     faq: [
       { q: 'Does Fidelis Care New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan). No plan-specific ABA policy is published, so the state baseline is the rulebook to plan against.' },
@@ -489,6 +662,46 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) by a physician or psychologist; a comprehensive diagnostic evaluation is NOT required (BH803ABASTM12026)',
     payer: 'UnitedHealthcare Community Plan (NJ FamilyCare)',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Two published numbers, and they differ in precision rather than in substance. The founding DMAHS newsletter sets the benefit for "any Medicaid eligible child, under the age of 21, who has been diagnosed with ASD as defined by ICD 10 diagnoses F84.0 through F84.9 by a qualified healthcare provider," delivered under EPSDT, which reaches "individuals under the age of twenty-one." Optum\'s New Jersey Medicaid entry adds the floor as well as the ceiling: "ABA services shall be made available to children 18 months to 21 years of age based on medical necessity," and its NJ FamilyCare provider orientation repeats it — "Must be 18 months – 21 years old," including in the specialized FamilyCare carve-out. No hour caps are attached to the age band. This is the plan the 18-month floor comes from: Optum\'s NJ FamilyCare provider orientation states it directly — "Must be 18 months – 21 years old," "Must have Autism Diagnosis" — and extends it to the specialized FamilyCare carve-out. Flag edge cases at either end early.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the DMAHS newsletter nor Optum\'s New Jersey entry sets a maximum age for the diagnostic evaluation, and the state\'s written position runs the other way: Optum\'s NJ Medicaid entry says flatly that "A comprehensive diagnostic evaluation is not required to access ABA services," so there is no comprehensive evaluation whose recency could be gated. What is dated in New Jersey is the authorization rather than the diagnosis — Horizon issues 32 units of 97151 valid for 30 days, and treatment authorizations run in 6-month spans. Optum\'s NJ entry was specifically revised in the November 18, 2025 interim review, so the no-comprehensive-evaluation position reflects current Optum thinking rather than a legacy line.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'The Optum Care Advocate, or BH intake at 1-888-362-3368 (option 3); the dedicated NJ ABA path lives on Provider Express.',
+      },
+      diagnosingProviders: {
+        value:
+          'New Jersey names them twice, and the second list is narrower than the first. The newsletter\'s general test: "The need for ABA services must be determined by a qualified healthcare professional (QHP) capable of making a diagnosis of autism. QHPs include licensed health care professionals, who are qualified by education, training, or licensure/regulation (when applicable) to perform a professional service within his/her scope of practice." The enumerated list of acceptable QHPs "for the diagnosis and treatment planning for adaptive behavior services" is then: Physicians; Psychologists, which "Requires an active board certified behavior analyst (BCBA) certification in good standing and a qualifying doctoral-level degree (BCBA-D)"; and BCBAs, who appear for treatment planning rather than diagnosis. Optum\'s NJ entry restates the split: the diagnosis comes from "a physician or psychologist," and "It is not uncommon for one QHP to make the diagnosis (such as a physician) and a separate QHP (such as a BCBA) to develop and supervise the treatment plan." Optum\'s NJ entry is the document that states this most plainly: "The need for ABA services must be determined by a qualified healthcare professional (QHP) capable of making a diagnosis of autism, such as a physician or psychologist."',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'None required — and New Jersey is one of the few states that says so in terms. Optum\'s NJ Medicaid entry: "A comprehensive diagnostic evaluation is not required to access ABA services," with "ABA services … available to any child diagnosed with autism spectrum disorder as defined by ICD-10 diagnoses F84.0 through F84.9." The DMAHS newsletter names no instrument either. That makes this the friendliest diagnostic bar of the three states on this page — intake should not queue a New Jersey family for an ADOS-2 before starting the authorization. This is the plan that publishes the sentence — do not hold a UnitedHealthcare Community Plan family waiting on a full diagnostic workup.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      referral: {
+        value:
+          'No PCP referral and no physician order. The sequence the state sets is QHP determination, then MCO authorization: "Once an individual is properly diagnosed with ASD, the MCO shall authorize a QHP to assess the child for the development of a proposed treatment plan," and treatment follows "Contingent upon approval of the treatment plan." The genuine intake asset sits one step earlier — members still fee-for-service pending MCO enrollment are covered through Gainwell with no prior authorization required at all, so enrollment status, not a referral, is the routing question. Plan practice adds paperwork rather than a referral: Horizon wants an ASD diagnosis "script" from a QHP attached to the assessment request, which is the diagnosis document under another name. On this plan the paperwork route is Optum\'s: ABA and DIR requests go through the dedicated NJ ABA path on Provider Express (navigate from providerexpress.com — the saved abaNJ.html URL returned a 404 in mid-2026), with general behavioral-health PA by phone at 1-888-362-3368, option 3.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      telehealth: {
+        value:
+          'The one New Jersey plan with a published ABA telehealth rule, and it is specific. Optum allows BCBAs and licensed BH clinicians within contracted ABA practices to deliver ABA supervision and caregiver training by telehealth, but only after the practice becomes an approved Optum virtual-visits provider by attestation on Provider Express, and only if it alerts the Care Advocate that the services will be virtual while completing the authorization. Billing is then plain: "include the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not inside the carve-out, and the state publishes no ABA telehealth rule of its own.',
+        status: 'verified',
+        cites: [{ title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -602,6 +815,48 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
     payer: 'Wellpoint New Jersey (formerly Amerigroup)',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Two published numbers, and they differ in precision rather than in substance. The founding DMAHS newsletter sets the benefit for "any Medicaid eligible child, under the age of 21, who has been diagnosed with ASD as defined by ICD 10 diagnoses F84.0 through F84.9 by a qualified healthcare provider," delivered under EPSDT, which reaches "individuals under the age of twenty-one." Optum\'s New Jersey Medicaid entry adds the floor as well as the ceiling: "ABA services shall be made available to children 18 months to 21 years of age based on medical necessity," and its NJ FamilyCare provider orientation repeats it — "Must be 18 months – 21 years old," including in the specialized FamilyCare carve-out. No hour caps are attached to the age band. Wellpoint New Jersey publishes no deviation from this, and its own material was checked for one.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the DMAHS newsletter nor Optum\'s New Jersey entry sets a maximum age for the diagnostic evaluation, and the state\'s written position runs the other way: Optum\'s NJ Medicaid entry says flatly that "A comprehensive diagnostic evaluation is not required to access ABA services," so there is no comprehensive evaluation whose recency could be gated. What is dated in New Jersey is the authorization rather than the diagnosis — Horizon issues 32 units of 97151 valid for 30 days, and treatment authorizations run in 6-month spans.',
+        status: 'unverified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Wellpoint New Jersey provider services ((833) 731-2149 / (800) 454-3730), and Carelon Behavioral Health (provider.relations.NJ@carelon.com), which runs the ABA network.',
+      },
+      diagnosingProviders: {
+        value:
+          'New Jersey names them twice, and the second list is narrower than the first. The newsletter\'s general test: "The need for ABA services must be determined by a qualified healthcare professional (QHP) capable of making a diagnosis of autism. QHPs include licensed health care professionals, who are qualified by education, training, or licensure/regulation (when applicable) to perform a professional service within his/her scope of practice." The enumerated list of acceptable QHPs "for the diagnosis and treatment planning for adaptive behavior services" is then: Physicians; Psychologists, which "Requires an active board certified behavior analyst (BCBA) certification in good standing and a qualifying doctoral-level degree (BCBA-D)"; and BCBAs, who appear for treatment planning rather than diagnosis. Optum\'s NJ entry restates the split: the diagnosis comes from "a physician or psychologist," and "It is not uncommon for one QHP to make the diagnosis (such as a physician) and a separate QHP (such as a BCBA) to develop and supervise the treatment plan." No Wellpoint-specific diagnostician list is published.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'None required — and New Jersey is one of the few states that says so in terms. Optum\'s NJ Medicaid entry: "A comprehensive diagnostic evaluation is not required to access ABA services," with "ABA services … available to any child diagnosed with autism spectrum disorder as defined by ICD-10 diagnoses F84.0 through F84.9." The DMAHS newsletter names no instrument either. That makes this the friendliest diagnostic bar of the three states on this page — intake should not queue a New Jersey family for an ADOS-2 before starting the authorization. Wellpoint New Jersey publishes no deviation from this, and its own material was checked for one.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      referral: {
+        value:
+          'No PCP referral and no physician order. The sequence the state sets is QHP determination, then MCO authorization: "Once an individual is properly diagnosed with ASD, the MCO shall authorize a QHP to assess the child for the development of a proposed treatment plan," and treatment follows "Contingent upon approval of the treatment plan." The genuine intake asset sits one step earlier — members still fee-for-service pending MCO enrollment are covered through Gainwell with no prior authorization required at all, so enrollment status, not a referral, is the routing question. Plan practice adds paperwork rather than a referral: Horizon wants an ASD diagnosis "script" from a QHP attached to the assessment request, which is the diagnosis document under another name. One Wellpoint-specific routing fact costs weeks when it is discovered late, and it is not a clinical gate: ABA network contracting runs through Carelon Behavioral Health, separately from the Wellpoint medical plan, so being contracted for medical services does not put a practice in the ABA network. Authorization itself submits through Availity or (800) 454-3730.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      telehealth: {
+        value:
+          'The state is silent and the carrier layer is not. Neither the founding DMAHS newsletter nor the daily unit guide addresses telehealth, remote delivery, modifiers or place-of-service codes for ABA. The one published New Jersey position is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider (attestation on Provider Express) and flags virtual delivery to the Care Advocate at authorization — then bills "the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not in that carve-out. Wellpoint New Jersey publishes no ABA telehealth position.',
+        status: 'unverified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+        verifyVia:
+          'Wellpoint New Jersey provider services ((833) 731-2149 / (800) 454-3730), and Carelon Behavioral Health (provider.relations.NJ@carelon.com), which runs the ABA network.',
+      },
+    },
     deliveryRules: {
       concurrentBilling: {
         value:
@@ -682,6 +937,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'DMAHS BH Integration Points of Contact V3.1 — Wellpoint ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+      { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
     ],
     faq: [
       { q: 'Does Wellpoint New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit on the state baseline (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan), with authorization via Availity or (800) 454-3730. No plan-specific ABA criteria are published.' },
@@ -699,6 +955,50 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
     payer: 'Aetna in New Jersey',
     state: 'NJ', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Aetna sets no upper age limit in its national medical-necessity criteria. The ABA Medical Necessity Guide gives age only as clinical shape, not as a gate: comprehensive ABA carries a "typical age range" of 0-7 years at 10-25 hours a week for 1-2 years, while focused ABA is listed for "All ages" at 1-20 hours a week. The binding age question is the legal layer underneath: New Jersey\'s mandate (P.L. 2009, c.115) reaches individuals under 21 on state-regulated plans, with the IHC and SEH program boards extending ABA to adults 21+ in the individual and small-employer markets from January 2015; a self-funded ERISA plan answers to its own plan document. Establish funding type before quoting an age answer. So a 21-plus New Jersey inquiry is a market-analysis question, not an automatic turn-away.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' }],
+        verifyVia:
+          'The member\'s benefit document and Aetna precertification — funding type decides whether the state mandate or the plan document sets the age boundary.',
+      },
+      dxRecency: {
+        value:
+          'Twelve months, and it attaches to the functional measure rather than to the diagnosis. Aetna\'s medical-necessity criteria require that "There is demonstration of functional impairment on a standardized scale of functioning in the past 12 months," with the impairment at least one standard deviation below the population mean or representing a significant risk of harm to self or others. The ASD diagnosis itself carries no stated shelf life — so a family with an older diagnostic report is not blocked, but a stale adaptive score is.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'A scope-of-practice test rather than a specialty list. Aetna requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9) obtained by an appropriate provider," and defines that as a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." Note the code range: F84.2 (Rett syndrome) sits outside the listed set, and ABA for diagnoses other than ASD is treated as experimental. One New Jersey wrinkle on the code range: DOBI\'s implementing bulletin notes carriers may exclude clear Rett and childhood disintegrative disorder diagnoses from the mandate\'s autism definition, but must still consider them under the mandate\'s developmental-disability therapy prongs — so a Rett exclusion in the carrier policy is not the end of the coverage conversation on a state-regulated plan.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Aetna names adaptive-functioning instruments, not autism diagnostic instruments. The medical-necessity criteria require demonstrated functional impairment "on a standardized scale of functioning in the past 12 months. For instance, the Vineland Adaptive Behavior Scales 3 (VABS-3), the Adaptive Behavior Assessment Scale (ABAS), VB-MAPP or ABLLS," and quality-of-care elements add "Repeated measurement with standardized measures to assess progress." No ADOS-2 or ADI-R requirement appears anywhere — the instrument Aetna asks for is the one that sizes the hours, and the level-of-impairment calculation is what justifies the number requested.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      referral: {
+        value:
+          'Not published. Aetna\'s ABA Medical Necessity Guide and its ABA clinical policy bulletin set a diagnosis requirement, a precertification requirement and a provider-licensure requirement, but state no referral or physician order as a condition of coverage. The gate that does exist is precertification itself — required for both the assessment and treatment.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'Aetna precertification/provider services at the number on the member\'s ID card, and the member\'s benefit document — ask whether the plan layers a referral requirement on behavioral health.',
+      },
+      telehealth: {
+        value:
+          'Not published. Aetna\'s ABA materials set medical-necessity criteria and precertification requirements for 97151-97158, 0362T and 0373T but say nothing about remote delivery, telehealth modifiers or place-of-service codes. Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor to fall back on here — unlike Nebraska, whose statute names telehealth expressly.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'Aetna provider services and the member\'s benefit document — confirm which ABA codes pay by telehealth and with which POS code before scheduling remote supervision or caregiver training.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -826,6 +1126,48 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
     payer: 'Cigna / Evernorth in New Jersey',
     state: 'NJ', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EN0499 sets no age limit. The policy\'s medical-necessity criteria turn on diagnosis, assessment and treatment-plan content rather than on age, and its own definitions note only that assessment instruments must have established reliability and validity "for use with members of the population tested (e.g., age, language preference, etc.)." The binding age question is the legal layer underneath: New Jersey\'s mandate (P.L. 2009, c.115) reaches individuals under 21 on state-regulated plans, with the IHC and SEH program boards extending ABA to adults 21+ in the individual and small-employer markets from January 2015; a self-funded ERISA plan answers to its own plan document. So a 21-plus New Jersey inquiry is a market-analysis question, not an automatic turn-away.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' }],
+        verifyVia:
+          'The member\'s benefit document and Evernorth Provider Services at 800.926.2273 — funding type decides whether the state mandate or the plan document sets the age boundary.',
+      },
+      dxRecency: {
+        value:
+          'Evernorth dates the diagnosis without expiring it, and expires the assessment instead. The diagnosis package must carry "The name, credentials, and type of licensure of the individual who made the diagnosis" and "The date on which the diagnosis was most recently made" — but no maximum age for that date. Where recency does bite is the continued-treatment request: improvement must be demonstrated "with the use of a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request," against data collected within the previous six months of treatment.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'An independent-practice test, with two explicit disqualifiers. The diagnosis must be made "based on the criteria in the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR) by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." What does not count: "educational identification or meeting educational eligibility for services related to autism through the [Individuals] with Disabilities Education Act may not meet criteria as a formal diagnosis of ASD," and a diagnosis termed "provisional," "proposed," "potential," "at risk of" or "rule out" is not confirmed. F84.2 (Rett syndrome) is excluded from the covered code range. One New Jersey wrinkle on the code range: DOBI\'s implementing bulletin notes carriers may exclude clear Rett and childhood disintegrative disorder diagnoses from the mandate\'s autism definition, but must still consider them under the mandate\'s developmental-disability therapy prongs — so a Rett exclusion in the carrier policy is not the end of the coverage conversation on a state-regulated plan.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No named instrument, but a strict standard for whichever one is used. The comprehensive ABA assessment must include "Administration of a reliable, valid, and standardized assessment instrument that measures the individual\'s functioning in the domains included in the diagnostic criteria for ASD in the DSM-5-TR" — social communication and social interaction, and restricted, repetitive patterns of behavior. The instrument must be completed in its entirety and as designed, be reliable and valid for the population tested, be administered and interpreted by someone trained to do so, be the most current version ("must be the Vineland-3 vs. Vineland-II"), assess current abilities, and record the date of administration, the respondent and the form type. Where someone other than the requesting provider administered it, the request must show documented collaboration with that professional and that the results correspond with the requesting provider\'s own direct observation.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      referral: {
+        value:
+          'Not published as a requirement. EN0499 gates coverage on a confirmed DSM-5-TR diagnosis, a qualifying assessment and a compliant treatment plan, and Evernorth\'s front door is famously open on the assessment side — no prior authorization on 97151, 97152 or 0362T. Neither document states a referral or physician order as a condition.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 and the member\'s benefit document — referral rules, where they exist, are a plan-design feature rather than a policy feature.',
+      },
+      telehealth: {
+        value:
+          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor to fall back on here — unlike Nebraska, whose statute names telehealth expressly.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -956,6 +1298,52 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
     payer: 'UnitedHealthcare / Optum in New Jersey',
     state: 'NJ', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Optum\'s Supplemental Clinical Criteria set no age limit for ABA — coverage turns on a valid ASD diagnosis, a credentialed provider and demonstrated medical necessity, with age entering only through norm-referenced instruments that compare functioning "to age-matched neurotypical peers." The binding age question is the legal layer underneath: New Jersey\'s mandate (P.L. 2009, c.115) reaches individuals under 21 on state-regulated plans, with the IHC and SEH program boards extending ABA to adults 21+ in the individual and small-employer markets from January 2015; a self-funded ERISA plan answers to its own plan document. Watch the line of business here: Optum\'s ABA State Mandates document does carry a dedicated New Jersey section, but it is "For New Jersey Medicaid members" only and governs UnitedHealthcare Community Plan, not commercial cards. Its looser standard — no comprehensive diagnostic evaluation required, ages 18 months to 21 — does not bleed into commercial requests.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' }],
+        verifyVia:
+          'The member\'s benefit document and Optum via Provider Express — funding type decides whether the state mandate or the plan document sets the age boundary.',
+      },
+      dxRecency: {
+        value:
+          'Not published. Optum\'s ABA criteria require a valid DSM-5-TR diagnosis confirmed with at least one clinically validated tool but set no maximum age for the diagnostic evaluation. The recency Optum does police is progress rather than diagnosis: continued coverage looks for demonstrable progress within a 6-month window and for updated standardized adaptive measures with change scores. The NJ Medicaid entry\'s "comprehensive diagnostic evaluation is not required" line is a Medicaid provision and does not apply to a commercial card.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Optum via Provider Express, or the Care Advocate handling the authorization — ask whether the plan applies a diagnostic-evaluation recency window at intake.',
+      },
+      diagnosingProviders: {
+        value:
+          'A licensure test with a diagnostic-competence qualifier: "A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level. Once the diagnosis is confirmed, the ABA provider identified for the member must be a master\'s- or doctoral-level BCBA, a licensed behavioral health clinician who has attested to sufficient expertise and been credentialed for ABA, or a BCaBA or non-licensed individual working under direct supervision. One New Jersey wrinkle on the code range: DOBI\'s implementing bulletin notes carriers may exclude clear Rett and childhood disintegrative disorder diagnoses from the mandate\'s autism definition, but must still consider them under the mandate\'s developmental-disability therapy prongs — so a Rett exclusion in the carrier policy is not the end of the coverage conversation on a state-regulated plan.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Optum publishes the most explicit instrument list of any national carrier, and splits it three ways. The DSM-5 diagnosis and severity level must be confirmed "using at least one clinically validated tool (not an all-inclusive list)": first-level screeners (ABC, CHAT/M-CHAT, CSBS-DP-IT-Checklist, ASQ, AQ, CAST), second-level screeners (CARS/CARS-2, RITA-T, STAT), and formal diagnostic tools used as part of a comprehensive diagnostic evaluation — the Autism Diagnostic Interview-Revised (ADI), the Autism Diagnostic Observation Schedule (ADOS/ADOS-2), and the Diagnostic Interview for Social and Communication Disorders (DISCO). Separately, treatment intensity must be chosen against baseline measurement using at least one of ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, VABS or CFQL-2, individualized to the client rather than applied uniformly. On a commercial New Jersey card this validated-tool standard is the one that applies, not the NJ Medicaid entry\'s no-evaluation-required rule.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      referral: {
+        value:
+          'Not published as a coverage condition. Optum gates ABA on prior authorization — "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)" — delivered as a two-step assessment-then-treatment workflow on Provider Express, with a valid diagnosis rather than a referral as the clinical trigger. What the criteria do require is coordination: documentation of communication with day care, preschool, school, early intervention and allied health providers to avoid duplication.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum via Provider Express and the member\'s benefit document — referral requirements, where they exist, are a plan-design feature.',
+      },
+      telehealth: {
+        value:
+          'Optum endorses telehealth without publishing a code list. Its ABA criteria point providers to the "Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition" as the best-practice reference, describe telehealth guidelines as a resource "for designing, implementing, and operating ABA services delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)," and set the boundary plainly: "The telehealth options presented are not intended to supplant in-person service; rather, they are intended to supplement the traditional in-person service delivery model." Which codes pay remotely, and with which place-of-service code, is not stated in the clinical criteria — and daily progress notes must record the place of service regardless. Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor to fall back on here — unlike Nebraska, whose statute names telehealth expressly. Optum\'s published New Jersey telehealth instruction — 97155 or 97156 with POS 02 after a virtual-visits attestation — sits in its NJ FamilyCare Medicaid orientation, so confirm rather than assume it for a commercial member.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'The Optum Care Advocate at authorization and Provider Express — Optum runs a virtual-visits attestation on some lines of business, so confirm approval status and the billing POS before scheduling remote 97155 or 97156.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:

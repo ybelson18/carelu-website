@@ -9,6 +9,86 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — eligibility is functional impairment of a major life activity, gated by a physician referral + order + Comprehensive Diagnostic Evaluation (no F84.x requirement)',
     payer: 'Florida Medicaid — Behavior Analysis Services (AHCA)',
     state: 'FL', kind: 'state-medicaid',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Under 21, with no lower bound. The coverage policy covers “Florida Medicaid recipients under the age of 21 years requiring medically necessary BA services to address behavior that impairs a recipient’s ability to perform a major life activity.” No minimum age is set: the BASC-3 PRQ requirement starts at age 2 and the Vineland-3 Maladaptive Behavior Domain at age 3, but those are documentation thresholds, not eligibility floors. EPSDT sits on top — services for recipients under 21 “exceeding the coverage described within this policy or the associated fee schedule may be approved, if medically necessary.”',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'No autism diagnosis is required, so no diagnosis-recency rule exists — and the policy sets no maximum age for the Comprehensive Diagnostic Evaluation either. What is time-bound is the assessment cycle: a behavior assessment must be conducted before interventions begin; “a reassessment and updated behavior plan to renew prior authorization for continued services must be completed at least every six months”; and “the core instruments must be included with reassessments every 12 months.” More frequent assessment is required when new interfering behavior emerges. A full assessment may be requested on a change of provider, but a change in a practitioner’s status (an RBT becoming a BCaBA) is not grounds for one.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Whether a given MMA plan will accept an older CDE — the state policy sets no ceiling, but plans layer their own freshness rules (Carelon, for Simply members, requires the treatment plan and data to be no older than 30 days at submission).',
+      },
+      diagnosingProviders: {
+        value:
+          'No ASD diagnosis is required, so no diagnosing-provider rule gates entry — what gates it is who leads the Comprehensive Diagnostic Evaluation. The CDE “may be performed by a multidisciplinary team or individual practitioner. In any case, the CDE must be led by a licensed practitioner working within their medical, developmental, or psychological scope(s) of practice,” and it “must include assessment findings and treatment recommendations appropriate to the recipient.” Claims still carry “the most current and appropriate diagnosis code to the highest level of specificity that supports medical necessity,” plus any co-occurring disorders that affect medical necessity.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Two core standardized instruments, named in rule and required at the initial assessment: the Vineland-3 Comprehensive Parent Interview Form for all recipients, plus the Maladaptive Behavior Domain for recipients ages 3 and older; and the Behavior Assessment System for Children, Third Edition, Parenting Relationship Questionnaire (BASC-3 PRQ) for all recipients ages 2 through 18. “The complete scoring report, including outcome measure scores, must be submitted with service prior authorization requests.” Additional tools are at the Lead Analyst’s discretion, and the two core instruments must be re-administered with reassessments every 12 months.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      referral: {
+        value:
+          'Required — and in Florida the referral, not a diagnosis, is the front door. “The recipient must be referred by an independent physician or practitioner qualified to assess and diagnose disorders related to functional impairment,” namely a primary care physician with a family practice, internal medicine or pediatrics specialty; a board-certified or board-eligible physician specialising in developmental behavioral pediatrics, neurodevelopmental pediatrics, pediatric neurology or adult/child psychiatry; or a child psychologist. “The referral must include a physician’s order for behavior analysis services and a comprehensive diagnostic evaluation (CDE) performed according to national evidence-based practice standards.” “Independent physician” is defined by the financial-independence test at 42 U.S.C. 1395nn. The original referral documentation must be kept in the recipient’s medical record; the policy sets no expiry date on it.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Narrow — one code. The only telemedicine provision in the coverage policy is caregiver training: “The Lead Analyst may provide up to two hours per week of training to parents or guardians via telemedicine in accordance with Rule 59G-1.057, Florida Administrative Code.” That is 97156 at the Lead Analyst level (billed with GT on the fee schedule), capped at two hours a week. The policy authorises no telemedicine delivery of 97153 direct treatment, 97155 protocol modification, or the assessment codes — plan for those to be in person.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'A standards reference, not a ratio. “Florida Medicaid requires supervision of BCaBAs and RBTs in accordance with current practice standards as published by the Council of Autism Service Providers, and specified in the supervision plan of the approved behavior plan” — and that behavior plan must name the authorized supervisor(s). The structural floor is in who may render: a Lead Analyst is a BCBA, an FL-CBA, or a practitioner fully licensed under Chapters 490 or 491, F.S.; a BCaBA works under the supervision of a BCBA; an RBT works under a BCBA or a BCaBA. The incorporated CASP standard is 1–2 hours of case supervision per 10 hours of direct treatment, with the BACB’s 5%-of-monthly-hours RBT minimum underneath it.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'CASP — ABA Practice Guidelines for the Treatment of ASD (3.0)', url: 'https://assets-002.noviams.com/novi-file-uploads/casp/pdfs-and-documents/ASD_Guidelines/ABA_Practice_Guidelines_3_0-70a721a1.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'No — not as a default, and Florida says so twice. On reimbursement: “The supervisor may be reimbursed for observing a supervisee implementing the behavior plan. The supervisee will not be reimbursed when the supervisor is reimbursed for the same time period.” On coverage: “services provided simultaneously by more than one BA provider” are non-covered “unless determined to be medically necessary, prior authorized, and indicated in the approved behavior plan.” So 97155 alongside 97153 for the same clock time is something the approved behavior plan has to carry, not a standing permission. One named exception: a recipient may receive BA from one rendering provider within a provider group while the parent, guardian or caregiver receives family adaptive behavior treatment guidance from a second rendering provider in the same group.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Florida caps by the week, not the day: “Florida Medicaid covers up to 40 hours per week of BA intervention services as indicated in the recipient’s prior-authorized behavior plan,” and EPSDT lets recipients under 21 exceed the policy and fee-schedule limits when medically necessary. Group adaptive behavior treatment — by protocol or with protocol modification — maxes at six participants. Units are 15 minutes on the CMS 8-minute rule: total minutes divided by 15, with a remainder of 8 minutes or more counting as one unit and a remainder under 8 not reimbursable. The fee schedule adds per-assessment ceilings (97151 to a maximum of 24 units per assessment; reassessment 97151-TS to 18) and caps 97156 telemedicine at two hours a week. No per-code per-day MUE ceiling is published in the coverage policy.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Which MUE table (CMS Medicaid NCCI vs. Practitioner) a plan’s claim editor applies, and the current per-assessment unit caps — AHCA’s fee-schedule PDFs block automated retrieval, so confirm the live schedule with AHCA or the MMA plan before modelling units.',
+      },
+      noteSignature: {
+        value:
+          'The person who delivered the service signs — “session notes must be signed and dated by the rendering practitioner” — with no supervising-analyst co-signature required. Each note must carry the date, time, location and duration of services; the maladaptive behaviors observed; the replacement/compensatory skills targeted; a description of the recipient’s response; any protocol modification, goal change or therapist direction given; an explanation if the parent or guardian was not present; and the participants, including observers, teachers, caregivers and other health care providers. Separately — and this is the signature most often missed at intake — “the behavior assessment and behavior plan must be signed by the Lead Analyst and the recipient’s parent or guardian.”',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Setting is documented and gated rather than restricted by a code list: session notes must record the location, and the behavior plan must name the treatment setting(s). School is the gated one — “authorization requests for services to be delivered in a school must include the recipient’s Individualized Education Plan (IEP),” failing which the provider submits documentation justifying the services plus an estimated timeframe for the IEP; a 504 plan if the school does not conduct IEPs; and if it conducts neither, the school’s name with an explanation. Non-covered regardless of setting: recipient supervision, personal care assistance (acting as a 1:1 aide), companion, chaperone or shadow services “regardless of activity or setting,” caregiver or childcare services, and travel time. BA is also non-covered on the same day as behavioral health overlay services, therapeutic behavioral on-site services, or therapeutic group care.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'A professional claim (837P / CMS-1500) under the enrolled rendering practitioner — Florida is unusual in enrolling the technicians themselves. Every rendering practitioner individually enrolls with AHCA: Lead Analysts as provider type 392, BCaBAs as 391 and RBTs as 390, with 390s and 391s enrollable only as members of an enrolled BA group (type 393). Each application needs a colour copy of the BACB certification matching the applicant’s legal name and a completed Level 2 background screening; AHCA names missing screenings and missing tax-ID proof as the two most common causes of delay. Credential level is priced into the code rather than a universal modifier set — 97155 pays at the Lead Analyst tier and at a lower rate with the HN modifier for a BCaBA, while 97153 pays the same whether an RBT, a BCaBA or a Lead Analyst renders it.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'AHCA — Enrolling as a Florida Medicaid Behavior Analysis Provider (webinar deck + FAQ)', url: 'https://ahca.myflorida.com/content/download/11448/file/Enrolling_as_a_Florida_Medicaid_Behavior_Analysis_Provider.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Florida Medicaid',
     h1: 'Florida Medicaid Behavior Analysis (BA) coverage: the intake guide.',
     metaTitle: 'Florida Medicaid ABA (Behavior Analysis) Coverage & Prior Auth Guide | Carelu',
@@ -134,6 +214,88 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
     payer: 'Sunshine Health (FL)',
     state: 'FL', kind: 'medicaid-mco', parent: 'Florida Medicaid (AHCA)',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Florida Medicaid rule: BA is for recipients under the age of 21. Sunshine’s BA Quick Reference Guide and BA prior-authorization form publish no plan-specific age limit, and the coverage policy forbids one — managed care plans “must not be subject to more stringent service coverage limits than specified in Florida Medicaid policies.” The BA PA form does require the member’s date of birth and age on every request.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'No autism diagnosis is required for eligibility, but Sunshine puts a hard clock on the instruments: “the Vineland-3 and BASC-3 PRQ core assessments are required to be included for initial assessment and annually for reassessments,” and “the complete scoring reports for the Vineland and BASC, including outcome measure scores, must be submitted with service at each prior authorization request.” The PA form goes further, asking for the date and score of the most recent AND the previous administration of each instrument — so a stale or single-point score set is visible on its face. The form also collects the “Date of Initial Diagnosis” and the “Standardized Diagnostic Assessments Utilized” even though no diagnosis gates the benefit. Authorizations run up to six months.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Sunshine restates the state referral gate rather than adding to it: “the recipient must be referred by an independent physician or practitioner qualified to assess and diagnose disorders related to functional impairment, including: primary care physician with family practice, internal medicine or pediatrics specialty; board certified or board eligible physician with specialty in developmental behavioral pediatrics, neurodevelopmental pediatrics, pediatric neurology, adult or child psychiatry; child psychologist.” The PA form separately captures the “Diagnosing Clinicians Name and Credentials” and the “Referring Clinicians’ Name and Credentials” as distinct fields — collect both at intake, because they are not always the same person.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'The state pair, with Sunshine’s own age wording: the Vineland-3 Comprehensive Parent Interview Form including the Maladaptive Behavior Domain “for all recipients,” and the BASC-3 PRQ “for all recipients 2 years old and less than 19 years old.” The PA form requires, for each instrument, the date of the most recent assessment, the score of the most recent assessment and the score of the previous assessment, plus a free field for “any other assessments used” on the same three data points. A comprehensive diagnostic evaluation (CDE) “performed according to national evidence-based practice standards” attaches to both the initial assessment and the initial treatment request.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }],
+      },
+      referral: {
+        value:
+          'Required, and Sunshine has layered two plan-specific gates on top. The state referral plus physician order plus CDE go in with the initial ABA assessment request. Since 8/1/2026 every NEW BA authorization request must also carry a “PCP Acknowledgement and Care Coordination Form” — Sunshine states that “authorizations submitted on or after August 1, 2026, will not be approved without this form.” The PCP confirms awareness of the BA services and any care-coordination considerations but does not set BA hours or approve the treatment plan; the form updates annually, yet the ORIGINAL signed copy must be resubmitted with every prior-authorization request. And since 7/15/2026, a family switching BA providers does not transfer the authorization: the new provider files a brand-new initial request with its own current Vineland-3 and BASC-3, plus a Change of Provider Form.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — PCP Acknowledgement and Care Coordination Form, eff. 8/1/2026 (published 7/31/2026)', url: 'https://www.sunshinehealth.com/newsroom/pcp-acknowledgement.html' }, { title: 'Sunshine Health — Behavior Analysis (BA) Provider Changes Require New Authorization (7/15/2026)', url: 'https://www.sunshinehealth.com/newsroom/ba-provider-change-guidance.html' }, { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      telehealth: {
+        value:
+          'One code only, stated on the face of Sunshine’s own PA form: “telehealth only allowed for 97156 with limits (see fee schedule)” — matching the state policy’s two-hours-a-week cap on Lead Analyst caregiver training by telemedicine. Sunshine adds two conditions of its own: an out-of-state rendering provider “must be registered with the Florida Department of Health,” and “the telehealth platform must be compliant with HIPAA.”',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Sunshine restates the credential chain — RBTs work “under the supervision of a BCBA or BCaBA” and BCaBAs “under the supervision of a BCBA” — and leaves supervision intensity to the state rule, which incorporates the Council of Autism Service Providers practice standards and the supervision plan inside the approved behavior plan. What Sunshine adds is an attestation with the signer’s name on it: the BA PA form closes with a BCBA/licensed-clinician signature and date under the line “I attest that all individuals rendering service under the proposed treatment plan have the appropriate training and education required to render services.”',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Sunshine publishes a claim mechanic, not a coverage permission: “to ensure Medicaid claim acceptance for codes 97153XP and 97155XP, continue to bill with a minimum charge of $0.01.” The XP (separate practitioner) lines presuppose two different renderers, but the governing rule is still the state’s — the supervisee is not reimbursed when the supervisor is reimbursed for the same time period, and simultaneous services by more than one BA provider are non-covered unless medically necessary, prior authorized and indicated in the approved behavior plan.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Whether Sunshine will authorize 97153 and 97155 for the same clock time on a specific behavior plan — ask Sunshine UM at 1-844-477-8313 before building a schedule that depends on it.',
+      },
+      dailyLimits: {
+        value:
+          'By the week. Sunshine prints “Behavior Analysis services — 40 hour/week maximum” across the top of its BA PA request form, and its QRG restates that “Florida Medicaid Behavior Analysis service policy identifies a 40-hour per week limit for behavior analysis services.” The form asks for total units requested per code plus the schedule of requested BA services, so intensity is reviewed code by code against that weekly ceiling. No per-code per-day unit ceiling is published.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }],
+        verifyVia:
+          'Sunshine UM (1-844-477-8313) for any per-day unit edit its claim system applies, and the current Florida BA fee schedule for per-assessment unit caps.',
+      },
+      noteSignature: {
+        value:
+          'Sunshine restates the state signature rule — “the behavior assessment and behavior plan must be signed by the Lead Analyst and the recipient’s parent or guardian” — and the state rule that session notes are signed and dated by the rendering practitioner governs underneath. The PA packet itself carries a third signature: the BCBA or licensed clinician signs and dates the request, attesting to the training and education of everyone rendering under the plan.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Sunshine publishes no place-of-service rule of its own; the BA PA form simply has a “Treatment Setting” field that the request must fill in, and the state rule governs — school-based requests carry the IEP (or 504, or a documented explanation), group treatment caps at six participants, and 1:1 shadow/personal-care and travel time are non-covered regardless of setting.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Whether Sunshine imposes any setting-specific documentation beyond the state IEP/504 rule — confirm with Sunshine UM before starting school-based hours.',
+      },
+      billAsProvider: {
+        value:
+          'The PA form is built around the supervising clinician’s identity: it collects the BCBA/licensed-clinician name, credentials and individual provider NPI, plus the group facility name, group NPI and group tax ID where applicable. Underneath, the state enrollment structure governs — every rendering practitioner enrolls with AHCA (Lead Analyst 392, BCaBA 391, RBT 390, BA group 393), with 390s and 391s enrollable only inside an enrolled group. A member transferring from another insurer requires proof of the previous authorization with the request.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Sunshine Health',
     h1: 'Sunshine Health ABA / Behavior Analysis coverage (Florida MMA plan).',
     metaTitle: 'Sunshine Health (Florida Medicaid) ABA Coverage & Prior Auth | Carelu',
@@ -228,6 +390,86 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
     payer: 'Children\'s Medical Services (CMS) Health Plan (FL)',
     state: 'FL', kind: 'medicaid-mco', parent: 'Florida Medicaid (AHCA)',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Florida Medicaid rule: BA is for recipients under the age of 21 — and because this is the Title XIX/XXI specialty plan for children with chronic conditions, essentially the whole membership sits inside that window. Neither Sunshine’s BA materials nor the plan notice publishes a CMS-specific age limit, and the coverage policy forbids a plan from being more stringent than state policy.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }],
+      },
+      dxRecency: {
+        value:
+          'No autism diagnosis is required. The instrument clock is Sunshine’s, because CMS Health Plan runs on Sunshine’s BA process: the Vineland-3 and BASC-3 PRQ core assessments are required at the initial assessment and annually for reassessments, with complete scoring reports submitted at each prior-authorization request, on top of the state’s six-month reassessment and updated-behavior-plan cycle.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'The state rule, unchanged: the CDE must be led by a licensed practitioner working within their medical, developmental or psychological scope of practice, and the referral comes from an independent physician or qualifying practitioner. This matters more on this plan than anywhere else in Florida — members carry co-occurring chronic conditions and rich specialist records, and the no-diagnosis eligibility means functionally impairing behavior qualifies through the referral gate without an ASD label.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }],
+      },
+      diagnosticTools: {
+        value:
+          'The state pair, via Sunshine’s process: Vineland-3 Comprehensive Parent Interview Form (plus the Maladaptive Behavior Domain for ages 3 and older) and the BASC-3 PRQ for ages 2 through 18, with complete scoring reports attached to every PA request and re-administration annually.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      referral: {
+        value:
+          'Required — the state referral plus physician order plus CDE, submitted through Sunshine’s BA process. Two CMS-specific mechanics: prior authorization applies to the ABA CPT codes for Title 21 (CHIP) members as well as Title 19, so a CHIP card does not shortcut the workflow; and determinations run up to seven calendar days rather than Sunshine’s five, which is the longest published clock among the Sunshine lines.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the Florida Medicaid rule as administered by Sunshine: telehealth is allowed only for 97156 caregiver training, within the state’s two-hours-a-week telemedicine cap, with a HIPAA-compliant platform and Florida Department of Health registration for an out-of-state rendering provider. No CMS Health Plan-specific telehealth expansion is published.',
+        status: 'verified',
+        cites: [{ title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Sunshine’s machinery on the state floor: RBTs under a BCBA or BCaBA, BCaBAs under a BCBA, supervision intensity per the Council of Autism Service Providers standards as set out in the supervision plan inside the approved behavior plan, which must name the authorized supervisors.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }],
+      },
+      concurrentBilling: {
+        value:
+          'The state rule governs and Sunshine publishes no CMS-specific variation: the supervisee is not reimbursed when the supervisor is reimbursed for the same time period, and simultaneous services by more than one BA provider are non-covered unless medically necessary, prior authorized and indicated in the approved behavior plan.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Sunshine UM at 1-844-477-8313, which administers CMS Health Plan BA, for whether a specific plan may carry 97153 and 97155 on the same clock time.',
+      },
+      dailyLimits: {
+        value:
+          'The state weekly ceiling: up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, with EPSDT available to exceed policy and fee-schedule limits when medically necessary, and group treatment capped at six participants. No per-day unit ceiling is published for this plan.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }],
+        verifyVia:
+          'Sunshine UM for any per-day claim edit; the current AHCA BA fee schedule for per-assessment unit caps.',
+      },
+      noteSignature: {
+        value:
+          'The state rule, unchanged: session notes are signed and dated by the rendering practitioner and must carry date, time, location, duration, behaviors observed, skills targeted, the recipient’s response, any protocol modification or therapist direction, an explanation if the parent or guardian was absent, and the participants. The behavior assessment and behavior plan are signed by the Lead Analyst and the parent or guardian.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }],
+      },
+      placeOfService: {
+        value:
+          'The state rule: a school-based request must include the IEP, or a 504 plan, or documentation naming the school and explaining that neither exists; 1:1 shadow, personal care, companion and chaperone services are non-covered regardless of setting, as is travel time; BA is non-covered on the same day as behavioral health overlay, therapeutic behavioral on-site, or therapeutic group care services — a same-day conflict worth checking on a chronic-condition population that often carries other Medicaid benefits.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Claims run through Sunshine on the state enrollment structure: every rendering practitioner enrolls with AHCA (Lead Analyst 392, BCaBA 391, RBT 390), with 390s and 391s enrollable only as members of an enrolled BA group (393), and the PA request carries the supervising BCBA or licensed clinician’s NPI plus the group NPI and tax ID.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }],
+      },
+    },
     pill: 'Payer Guide · CMS Health Plan (FL)',
     h1: 'Children\'s Medical Services Health Plan ABA coverage (Florida specialty plan).',
     metaTitle: 'CMS Health Plan (Florida Medicaid) ABA Coverage & Prior Auth | Carelu',
@@ -264,6 +506,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' },
       { title: 'Sunshine Health — PA required for ABA CPT codes incl. CMS Title 21 (plan notice)', url: 'https://www.sunshinehealth.com/newsroom/aba-cpt-codes.html' },
+      { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
     ],
     faq: [
@@ -281,6 +524,90 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
     payer: 'Simply Healthcare Plans (FL)',
     state: 'FL', kind: 'medicaid-mco', parent: 'Florida Medicaid (AHCA)',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Florida Medicaid rule: BA is for recipients under the age of 21. Carelon’s February 2025 behavioral analysis training for Simply publishes no age criterion of its own, and the coverage policy bars a plan from applying more stringent service coverage limits than state policy.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }],
+      },
+      dxRecency: {
+        value:
+          'No autism diagnosis is required, but Carelon imposes the tightest freshness rule of the nine Florida plans: the treatment plan and supporting data “should be no older than 30 days at the time of submission,” and “the plan should contain current Vineland and BASC scores.” That is a process rule sitting on top of the state’s clinical cycle — reassessment and an updated behavior plan at least every six months, core instruments re-administered every 12 — and it changes sequencing: refresh data collection before assembling a renewal packet rather than finalising the plan months ahead.',
+        status: 'verified',
+        cites: [{ title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Carelon narrows the CDE author in its own training material: “CDE: diagnostic evaluation completed by a medical doctor specializing in developmental behavioral pediatrics, neurodevelopmental pediatrics, pediatric neurology, adult or child psychiatry, or a child psychologist,” and the evaluation must be “signed by the qualified diagnostician.” Note what is missing against the state list — the primary care physician in family practice, internal medicine or pediatrics. Because the coverage policy forbids a plan from being more stringent than Florida Medicaid policy, a PCP-authored CDE should still be acceptable, but Carelon’s published packet does not say so.',
+        status: 'verified',
+        cites: [{ title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Carelon (eServices, or provider.relations.FL@carelon.com) on whether a PCP-authored CDE is accepted for a Simply member — the state list is wider than Carelon’s published one.',
+      },
+      diagnosticTools: {
+        value:
+          'The state pair, with a currency requirement: Carelon requires the submitted treatment plan to “contain current Vineland and BASC scores,” which in the state policy means the Vineland-3 Comprehensive Parent Interview Form (plus the Maladaptive Behavior Domain for ages 3 and older) and the BASC-3 PRQ for ages 2 through 18, with complete scoring reports attached to the prior-authorization request and re-administration every 12 months.',
+        status: 'verified',
+        cites: [{ title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      referral: {
+        value:
+          'Required. Carelon’s submission checklist is explicit: “a referral for BA therapy by a qualified diagnostician,” with the CDE attached and signed by that diagnostician; an up-to-date treatment plan with member-specific information and data; the completed request form; and the IEP or 504 plan if applicable. The state requirement that the referral include a physician’s order for BA services applies underneath.',
+        status: 'verified',
+        cites: [{ title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the Florida Medicaid rule: the only telemedicine provision is up to two hours per week of Lead Analyst caregiver training (97156) under Rule 59G-1.057, F.A.C. Carelon’s February 2025 BA training for Simply publishes no telehealth rule of its own — no code list, no place-of-service guidance and no expansion beyond the state provision.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }],
+        verifyVia:
+          'Carelon eServices or provider.relations.FL@carelon.com before scheduling any remote session other than 97156 caregiver training.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'The state floor, unchanged by the Carelon delegation: supervision of BCaBAs and RBTs follows the Council of Autism Service Providers practice standards as specified in the supervision plan inside the approved behavior plan, which must name the authorized supervisors. Rendering is credential-chained — Lead Analyst (BCBA, FL-CBA, or Ch. 490/491 licensee), BCaBA under a BCBA, RBT under a BCBA or BCaBA. Carelon’s BA training adds no ratio or caseload cap.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }],
+      },
+      concurrentBilling: {
+        value:
+          'The state rule governs and Carelon publishes no variation: the supervisee is not reimbursed when the supervisor is reimbursed for the same time period, and simultaneous services by more than one BA provider are non-covered unless medically necessary, prior authorized and indicated in the approved behavior plan.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Carelon’s National Provider Service Line or provider.relations.FL@carelon.com for whether an authorization can carry 97153 and 97155 on the same clock time.',
+      },
+      dailyLimits: {
+        value:
+          'The state weekly ceiling: up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, EPSDT available above it when medically necessary, group treatment capped at six participants, and 15-minute units on the CMS 8-minute rule. Carelon publishes no per-day unit table for Simply.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }],
+        verifyVia:
+          'Carelon for the per-day edits its claim system applies; the current AHCA BA fee schedule for per-assessment unit caps.',
+      },
+      noteSignature: {
+        value:
+          'The state rule: session notes are signed and dated by the rendering practitioner, carrying date, time, location, duration, behaviors observed, skills targeted, the recipient’s response, protocol modifications or therapist direction, an explanation if the parent or guardian was absent, and the participants. The behavior assessment and behavior plan carry two signatures — the Lead Analyst and the parent or guardian. Carelon layers a date discipline rather than a signature one: the plan and data must be under 30 days old when submitted, so document dates are themselves a claim risk.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }],
+      },
+      placeOfService: {
+        value:
+          'The state rule, with Carelon collecting the school evidence in its packet: the IEP or 504 plan is a listed submission item “if applicable,” and the state requires a school-based request to carry the IEP, or a 504, or documentation naming the school and explaining that neither exists. Non-covered regardless of setting: 1:1 shadow, personal care assistance, companion and chaperone services, caregiver or childcare, and travel time.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }],
+      },
+      billAsProvider: {
+        value:
+          'Your counterparty is Carelon, not Simply: authorizations go to Carelon through eServices or fax 1-800-370-1116, and claims go to Carelon through Availity Essentials — its preferred direct-data-entry channel — with Payspan handling payments. The claim itself still rides on the state enrollment structure: each rendering practitioner enrolls with AHCA (Lead Analyst 392, BCaBA 391, RBT 390), with 390s and 391s enrollable only inside an enrolled BA group (393). Three registrations — eServices, Availity, Payspan — precede the first Simply member.',
+        status: 'verified',
+        cites: [{ title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Simply Healthcare (FL)',
     h1: 'Simply Healthcare ABA / Behavior Analysis coverage (Florida MMA plan).',
     metaTitle: 'Simply Healthcare (Florida Medicaid) ABA Coverage & Prior Auth | Carelu',
@@ -343,6 +670,90 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
     payer: 'UnitedHealthcare Community Plan of Florida',
     state: 'FL', kind: 'medicaid-mco', parent: 'Florida Medicaid (AHCA)',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Florida Medicaid rule: BA is for recipients under the age of 21, with EPSDT available above the policy and fee-schedule limits. The plan’s SMMC Behavioral Analysis Program quick reference guide and Optum’s Florida ABA QRG are both administrative — continuity of care, portal navigation, claims, payment — and publish no clinical criteria, including no age criterion.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' }, { title: 'Optum Provider Express — Florida ABA QRG', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'No autism diagnosis is required. The state cycle governs: reassessment and an updated behavior plan at least every six months to renew, with the Vineland-3 and BASC-3 PRQ core instruments re-administered every 12 months, and no maximum age on the Comprehensive Diagnostic Evaluation itself. Neither the plan QRG nor Optum’s Florida ABA QRG publishes a Florida-specific recency window.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' }, { title: 'Optum Provider Express — Florida ABA QRG', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'The state rule, unchanged: the referral comes from an independent physician or qualifying practitioner (PCP in family practice, internal medicine or pediatrics; a developmental-behavioral, neurodevelopmental, pediatric-neurology or adult/child-psychiatry specialist; or a child psychologist), and the CDE must be led by a licensed practitioner working within their medical, developmental or psychological scope of practice. Optum’s national ABA criteria — which require a DSM-5-TR diagnosis from a state-licensed physician, psychologist or other qualified state-licensed clinician — are the commercial pattern, not the Florida Medicaid gate, and the state contract makes the AHCA policy the floor and ceiling.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'The state pair: Vineland-3 Comprehensive Parent Interview Form for all recipients (plus the Maladaptive Behavior Domain for ages 3 and older) and the BASC-3 PRQ for ages 2 through 18, with the complete scoring reports submitted with every prior-authorization request. Additional tools are at the Lead Analyst’s discretion. Neither the plan QRG nor Optum’s Florida ABA QRG adds an instrument requirement.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' }, { title: 'Optum Provider Express — Florida ABA QRG', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf' }],
+      },
+      referral: {
+        value:
+          'Required — the state gate (independent physician referral, physician’s order for BA services, and a CDE performed to national evidence-based practice standards) applies unchanged. What is UHC-specific is the channel, not the content: “all behavioral analysis services require prior authorization. Requests must be submitted via the secure portal” — Provider Express, Auths, Request a new authorization, then “ABA Assessment” or “ABA Treatment” from the dropdown. No fax pathway is advertised for BA, which makes One Healthcare ID and Provider Express registration a day-one task rather than a fallback.',
+        status: 'verified',
+        cites: [{ title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the Florida Medicaid rule: the only telemedicine provision is up to two hours per week of Lead Analyst caregiver training (97156) under Rule 59G-1.057, F.A.C. Neither the plan’s SMMC Behavioral Analysis Program QRG nor Optum’s Florida ABA QRG publishes a telehealth code list, place-of-service rule or modifier set for Florida Medicaid BA, and Optum’s national supplemental criteria treat telehealth as a best-practice reference rather than a coded benefit.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' }, { title: 'Optum Provider Express — Florida ABA QRG', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf' }],
+        verifyVia:
+          'Optum Behavioral Health provider services (1-877-614-0484) before scheduling any remote BA session other than 97156 caregiver training.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'The state floor: supervision of BCaBAs and RBTs follows the Council of Autism Service Providers practice standards as set out in the supervision plan inside the approved behavior plan, which must name the authorized supervisors; a Lead Analyst is a BCBA, FL-CBA or Ch. 490/491 licensee, a BCaBA works under a BCBA, and an RBT under a BCBA or BCaBA. Optum’s Florida BA materials publish no ratio or caseload cap, and Optum’s Gold Card program can waive prior authorization for eligible network behavioral providers once a track record exists.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not published for this plan. Optum’s commercial ABA reimbursement policy does permit 97153 and 97155 concurrently when two different providers render them, but it is a commercial policy and does not govern the Florida Medicaid line; the state rule that does govern is the opposite default — the supervisee is not reimbursed when the supervisor is reimbursed for the same time period, and simultaneous services by more than one BA provider are non-covered unless medically necessary, prior authorized and indicated in the approved behavior plan.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Optum Behavioral Health provider services (1-877-614-0484) — ask specifically whether the commercial concurrency rule is applied to UnitedHealthcare Community Plan of Florida BA claims, or whether the AHCA rule stands alone.',
+      },
+      dailyLimits: {
+        value:
+          'The state weekly ceiling of up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, EPSDT available above it, group treatment capped at six participants, and 15-minute units on the CMS 8-minute rule. No per-day unit table is published for the Florida Medicaid line — Optum’s published per-day maximum-frequency table sits in its commercial reimbursement policy, which does not govern this plan.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Optum Behavioral Health provider services (1-877-614-0484) for the per-day unit edits applied to Florida Community Plan BA claims, and the current AHCA BA fee schedule.',
+      },
+      noteSignature: {
+        value:
+          'The state rule: “session notes must be signed and dated by the rendering practitioner,” carrying date, time, location and duration, behaviors observed, skills targeted, the recipient’s response, protocol modifications and therapist directions, an explanation if the parent or guardian was absent, and the participants. The behavior assessment and behavior plan are signed by the Lead Analyst and the parent or guardian. Optum’s Florida BA materials add no signature rule.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'The state rule: a school-based request must carry the IEP, or a 504 plan, or documentation naming the school and explaining that neither is available; 1:1 shadow, personal care assistance, companion and chaperone services are non-covered “regardless of activity or setting,” as are caregiver/childcare services and travel time. Optum’s Florida BA materials publish no place-of-service code list for this plan.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Optum Behavioral Health provider services for whether the Florida Medicaid line expects a POS code set beyond what the state policy requires.',
+      },
+      billAsProvider: {
+        value:
+          'Claims go to UnitedHealthcare Community Plan under payer ID 87726 within 180 days of the date of service, on EDI 837P/CMS-1500 (or 837I/UB-04), with clean claims “processed within 15 calendar days after receipt.” A first-time submitter must include a W9 — the March 2025 edition of the plan QRG also required a copy of the Florida license with that first claim. Underneath, the state enrollment structure governs whose NPI can render: Lead Analyst 392, BCaBA 391, RBT 390, with 390s and 391s enrollable only inside an enrolled BA group (393). Payment is electronic only, by ACH via Optum Pay or virtual card.',
+        status: 'verified',
+        cites: [{ title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' }, { title: 'Optum Provider Express — Florida ABA QRG', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+    },
     pill: 'Payer Guide · UHC Community Plan (FL)',
     h1: 'UnitedHealthcare Community Plan of Florida ABA / BA coverage (MMA plan).',
     metaTitle: 'UHC Community Plan Florida (Medicaid) ABA Coverage & Prior Auth | Carelu',
@@ -406,6 +817,88 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
     payer: 'Humana Healthy Horizons in Florida',
     state: 'FL', kind: 'medicaid-mco', parent: 'Florida Medicaid (AHCA)',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Florida Medicaid rule: BA is for recipients under the age of 21, with EPSDT available above the coverage-policy and fee-schedule limits. Humana’s BA informational flyer and ABA toolkit publish no plan-specific age limit, and the state policy forbids a plan from applying more stringent service coverage limits.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }],
+      },
+      dxRecency: {
+        value:
+          'No autism diagnosis is required. Humana’s own instrument clock tracks the state cycle: the BASC-3 PRQ is required for ages 2 through 18 at the initial request and every 12 months, on top of the state’s reassessment and updated behavior plan at least every six months. The Comprehensive Diagnostic Evaluation itself carries no published expiry.',
+        status: 'verified',
+        cites: [{ title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'The state rule, restated in Humana’s documentation list: the physician’s order and the Comprehensive Diagnostic Evaluation both attach to the request, with the referral coming from an independent physician or qualifying practitioner and the CDE led by a licensed practitioner working within their medical, developmental or psychological scope of practice. Humana publishes no narrower list of its own.',
+        status: 'verified',
+        cites: [{ title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Humana names the BASC-3 PRQ explicitly — ages 2 through 18, at the initial request and every 12 months — as a required attachment alongside the CDE and the physician’s order. The state pair applies in full, so the Vineland-3 Comprehensive Parent Interview Form (plus the Maladaptive Behavior Domain for ages 3 and older) rides with it, complete scoring reports included.',
+        status: 'verified',
+        cites: [{ title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      referral: {
+        value:
+          'Required, and Humana publishes the fullest documentation list of the nine plans: the Comprehensive Diagnostic Evaluation, the physician’s order, the BASC-3 PRQ, a rationale for the requested hours, and the IEP or 504 plan when services are school-based — submitted on the Florida ABA PA form (MCD 466) through Availity Essentials (preferred), the 24/7 IVR at 800-523-0023, or fax 813-321-7220. Humana’s current flyer adds that “the Behavior Analysis Authorization form should be completed and included with your authorization request” and that “a valid Medicaid ID is required for all providers, whether located in Florida or out of state, as a condition of payment.”',
+        status: 'verified',
+        cites: [{ title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }, { title: 'Humana FL — ABA PA Form (MCD 466)', url: 'https://assets.humana.com/is/content/humana/ABA_PA_Formpdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the Florida Medicaid rule: the only telemedicine provision is up to two hours per week of Lead Analyst caregiver training (97156) under Rule 59G-1.057, F.A.C. Humana’s BA informational flyer and ABA toolkit publish no telehealth code list, modifier set or place-of-service rule for Florida BA.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }],
+        verifyVia:
+          'Humana’s Florida BA mailbox (FLBA@humana.com) or the provider line 800-477-6931 before scheduling a remote session other than 97156 caregiver training.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'The state floor: supervision of BCaBAs and RBTs per the Council of Autism Service Providers practice standards, specified in the supervision plan inside the approved behavior plan, which names the authorized supervisors. Humana adds no ratio or caseload cap — but it does ask for a rationale for the requested hours with every authorization, which is where a supervision schedule has to be justified.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'The state rule governs and Humana publishes no variation: the supervisee is not reimbursed when the supervisor is reimbursed for the same time period, and simultaneous services by more than one BA provider are non-covered unless medically necessary, prior authorized and indicated in the approved behavior plan.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Humana’s Florida BA mailbox (FLBA@humana.com) or the named regional BA representative for whether an authorization may carry 97153 and 97155 on the same clock time.',
+      },
+      dailyLimits: {
+        value:
+          'The state weekly ceiling of up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, with EPSDT available above it and group treatment capped at six participants. Humana bills “reimbursement for all services in 15-minute increments” and requires add-on codes to be billed with the corresponding base code. No per-day unit table is published.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }],
+        verifyVia:
+          'Humana provider services (800-477-6931) for per-day claim edits; the AHCA fee schedule under Rule 59G-4.002 for per-assessment unit caps.',
+      },
+      noteSignature: {
+        value:
+          'The state rule: session notes signed and dated by the rendering practitioner, carrying date, time, location, duration, behaviors observed, skills targeted, the recipient’s response, protocol modification or therapist direction, an explanation if the parent or guardian was absent, and the participants; the behavior assessment and behavior plan signed by the Lead Analyst and the parent or guardian. Humana publishes no additional signature rule for BA.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }],
+      },
+      placeOfService: {
+        value:
+          'Humana makes the state school rule an explicit line item on its documentation list — the IEP or 504 plan is required when services are school-based — and the state rule supplies the rest: in the absence of an IEP, documentation justifying the services plus an estimated IEP timeframe; 1:1 shadow, personal care, companion and chaperone services non-covered regardless of setting; travel time non-covered.',
+        status: 'verified',
+        cites: [{ title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Humana publishes the box-by-box rule: “use the CMS-1500 form to submit claims for behavioral analysis services”; if the rendering provider is in a group and the group is being paid, “the group will be captured in the billing provider section (Box 33), and then the rendering provider will be captured in the rendering provider section (Box 24)”; if the rendering provider is the one being reimbursed, they go in Box 33; and “enter the individual rendering (treating) provider’s number in Item 24 J… only when it is different from the pay-to provider number.” Claims go out under payer ID 61101 through Availity (paper to the Lexington, KY claims office), clean claims process within 20 days, and for codes inside an approved authorization non-participating providers default to the lesser of the amount Humana specified on the authorization form or 100% of the applicable Medicaid fee schedule.',
+        status: 'verified',
+        cites: [{ title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Humana Healthy Horizons (FL)',
     h1: 'Humana Healthy Horizons in Florida ABA / BA coverage (MMA plan).',
     metaTitle: 'Humana Healthy Horizons Florida (Medicaid) ABA Coverage & Prior Auth | Carelu',
@@ -472,6 +965,94 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
     payer: 'Aetna Better Health of Florida',
     state: 'FL', kind: 'medicaid-mco', parent: 'Florida Medicaid (AHCA)',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Florida Medicaid rule: BA is for recipients under the age of 21, with EPSDT available above the coverage-policy and fee-schedule limits. The coverage policy binds every MMA plan — “the provision of services to recipients enrolled in a Florida Medicaid managed care plan must not be subject to more stringent service coverage limits than specified in Florida Medicaid policies” — so ABHFL cannot narrow the age window even though its own BA one-pager and FAQ could not be retrieved (aetnabetterhealth.com returns HTTP 403 to automated clients).',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'No autism diagnosis is required, so no diagnosis-recency rule applies; the state cycle governs — reassessment and an updated behavior plan at least every six months, core instruments re-administered every 12 months, and no published expiry on the Comprehensive Diagnostic Evaluation. Whether ABHFL layers a document-freshness rule of its own (as Carelon does for Simply) is not publicly verifiable.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'The ABHFL Behavior Analysis one-pager and BA FAQ in the provider portal, or the plan’s recurring BA Provider Open Office Hours — both PDFs return HTTP 403 to automated retrieval.',
+      },
+      diagnosingProviders: {
+        value:
+          'The state rule, which ABHFL cannot narrow: the referral comes from an independent physician or qualifying practitioner (PCP in family practice, internal medicine or pediatrics; a developmental-behavioral, neurodevelopmental, pediatric-neurology or adult/child-psychiatry specialist; or a child psychologist), and the CDE must be led by a licensed practitioner working within their medical, developmental or psychological scope of practice.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'The state pair: the Vineland-3 Comprehensive Parent Interview Form for all recipients, plus the Maladaptive Behavior Domain for ages 3 and older, and the BASC-3 PRQ for ages 2 through 18, with complete scoring reports submitted with every prior-authorization request and re-administration every 12 months.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      referral: {
+        value:
+          'Required — the state gate applies: an independent physician referral, a physician’s order for BA services, and a Comprehensive Diagnostic Evaluation performed to national evidence-based practice standards. Plan notices indicate ABHFL ran extended carve-in continuity into mid-2025, with universal prior authorization applying to all members receiving BA from July 1, 2025. What is not publicly verifiable is the submission channel and whether a BA-specific ABHFL form exists — the plan’s general guidance points to Availity.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'ABHFL — BA Provider Open Office Hours notice (02/24/2025)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/pdf/ABHFL_BA_Office_Hours_Provider_Notice_02.24.2025.pdf' }],
+        verifyVia:
+          'The ABHFL provider portal or a BA Provider Open Office Hours session for the live submission channel and any plan-specific BA form.',
+      },
+      telehealth: {
+        value:
+          'Follows the Florida Medicaid rule: the only telemedicine provision is up to two hours per week of Lead Analyst caregiver training (97156) under Rule 59G-1.057, F.A.C. No ABHFL-specific BA telehealth expansion could be verified — the plan’s BA one-pager, BA FAQ and provider resource guide all return HTTP 403 to automated retrieval.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'The ABHFL provider portal, the BA FAQ, or a BA Provider Open Office Hours session — the state provision is the dependable floor in the meantime.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'The state floor: supervision of BCaBAs and RBTs per the Council of Autism Service Providers practice standards, as specified in the supervision plan inside the approved behavior plan, which must name the authorized supervisors. Rendering is credential-chained — Lead Analyst (BCBA, FL-CBA or Ch. 490/491 licensee), BCaBA under a BCBA, RBT under a BCBA or BCaBA. No ABHFL supervision ratio is publicly verifiable.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'ABHFL provider relations, or Behavioral Services Network (BSN) — the plan’s delegated BA contracting and credentialing partner — for anything the plan layers on top.',
+      },
+      concurrentBilling: {
+        value:
+          'The state rule is the floor: the supervisee is not reimbursed when the supervisor is reimbursed for the same time period, and simultaneous services by more than one BA provider are non-covered unless medically necessary, prior authorized and indicated in the approved behavior plan. ABHFL publishes no retrievable BA reimbursement policy of its own.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'ABHFL provider services or a BA Provider Open Office Hours session — ask whether 97155 pays alongside 97153 when analyst, technician and member are all present.',
+      },
+      dailyLimits: {
+        value:
+          'The state weekly ceiling: up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, EPSDT available above it, group treatment capped at six participants, 15-minute units on the CMS 8-minute rule. No ABHFL per-day unit table could be retrieved.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'ABHFL provider portal / BA office hours, and the current AHCA BA fee schedule under Rule 59G-4.002.',
+      },
+      noteSignature: {
+        value:
+          'The state rule: “session notes must be signed and dated by the rendering practitioner,” with date, time, location, duration, behaviors observed, skills targeted, the recipient’s response, protocol modification or therapist direction, an explanation if the parent or guardian was absent, and the participants; the behavior assessment and behavior plan are signed by the Lead Analyst and the parent or guardian.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'The state rule: a school-based request must include the IEP, or a 504 plan, or documentation naming the school and explaining that neither exists; 1:1 shadow, personal care assistance, companion and chaperone services are non-covered “regardless of activity or setting,” as are caregiver/childcare services and travel time; BA is non-covered on the same day as behavioral health overlay, therapeutic behavioral on-site, or therapeutic group care services.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'The state enrollment structure governs the claim: a professional claim (837P / CMS-1500) under an individually enrolled rendering practitioner — Lead Analyst 392, BCaBA 391, RBT 390 — with 390s and 391s enrollable only as members of an enrolled BA group (393). Network entry is the ABHFL-specific step: BA contracting and credentialing are delegated to Behavioral Services Network, Inc. (BSN) rather than run through Aetna, so a group must complete BSN credentialing before any of those NPIs can bill.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'ABHFL — BA Provider Open Office Hours notice (02/24/2025)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/pdf/ABHFL_BA_Office_Hours_Provider_Notice_02.24.2025.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Aetna Better Health (FL)',
     h1: 'Aetna Better Health of Florida ABA / BA coverage (MMA plan).',
     metaTitle: 'Aetna Better Health of Florida (Medicaid) ABA Coverage & Prior Auth | Carelu',
@@ -537,6 +1118,96 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
     payer: 'Molina Healthcare of Florida',
     state: 'FL', kind: 'medicaid-mco', parent: 'Florida Medicaid (AHCA)',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Florida Medicaid rule: BA is for recipients under the age of 21, with EPSDT available above the coverage-policy and fee-schedule limits. The coverage policy binds every MMA plan and forbids more stringent service coverage limits than state policy, so Molina cannot narrow the window — which matters here because molinahealthcare.com returns HTTP 403 to automated retrieval and the plan’s BA Quick Reference Guide could not be read.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'No autism diagnosis is required, so no diagnosis-recency rule applies; the state cycle governs — reassessment and an updated behavior plan at least every six months, core instruments re-administered every 12 months, and no published expiry on the Comprehensive Diagnostic Evaluation. Whether Molina layers a document-freshness rule of its own is not publicly verifiable.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Molina’s BA Quick Reference Guide (October 2025 / 2026 editions) and Prior Authorization Code Lookup Tool inside the Molina provider portal — the published URL returns HTTP 403.',
+      },
+      diagnosingProviders: {
+        value:
+          'The state rule, which Molina cannot narrow: the referral comes from an independent physician or qualifying practitioner (PCP in family practice, internal medicine or pediatrics; a developmental-behavioral, neurodevelopmental, pediatric-neurology or adult/child-psychiatry specialist; or a child psychologist), and the CDE must be led by a licensed practitioner working within their medical, developmental or psychological scope of practice.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'The state pair: Vineland-3 Comprehensive Parent Interview Form for all recipients (plus the Maladaptive Behavior Domain for ages 3 and older) and the BASC-3 PRQ for ages 2 through 18, with complete scoring reports attached to every prior-authorization request and re-administration every 12 months.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      referral: {
+        value:
+          'Required — the state gate applies: an independent physician referral, a physician’s order for BA services, and a Comprehensive Diagnostic Evaluation performed to national evidence-based practice standards, with prior authorization on all BA services. The submission channel, any Molina-specific form and the turnaround commitments are not publicly verifiable; Molina’s Prior Authorization Code Lookup Tool and provider portal are the authoritative sources.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Molina FL — BA Quick Reference Guide 2026 (access-restricted)', url: 'https://www.molinahealthcare.com/providers/fl/medicaid/comm/-/media/D0605825716B47F8819AD3B554626A86.ashx' }],
+        verifyVia:
+          'Molina’s BA Quick Reference Guide and PA Code Lookup Tool in the provider portal — build the first Molina submission around a portal session.',
+      },
+      telehealth: {
+        value:
+          'Follows the Florida Medicaid rule: the only telemedicine provision is up to two hours per week of Lead Analyst caregiver training (97156) under Rule 59G-1.057, F.A.C. No Molina-specific BA telehealth expansion could be verified — the plan’s BA Quick Reference Guide returns HTTP 403 to automated retrieval.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Molina’s BA Quick Reference Guide in the provider portal; the state provision is the dependable floor in the meantime.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'The state floor: supervision of BCaBAs and RBTs per the Council of Autism Service Providers practice standards, as specified in the supervision plan inside the approved behavior plan, which must name the authorized supervisors; Lead Analyst is a BCBA, FL-CBA or Ch. 490/491 licensee, a BCaBA works under a BCBA, and an RBT under a BCBA or BCaBA. No Molina supervision ratio is publicly verifiable.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Molina provider services / the BA Quick Reference Guide for anything the plan layers on top of the state standard.',
+      },
+      concurrentBilling: {
+        value:
+          'The state rule is the floor: the supervisee is not reimbursed when the supervisor is reimbursed for the same time period, and simultaneous services by more than one BA provider are non-covered unless medically necessary, prior authorized and indicated in the approved behavior plan. No retrievable Molina BA reimbursement policy addresses the same-clock-time question.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Molina provider services — ask whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+      },
+      dailyLimits: {
+        value:
+          'The state weekly ceiling: up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, EPSDT available above it, group treatment capped at six participants, and 15-minute units on the CMS 8-minute rule. No Molina per-day unit table could be retrieved.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Molina’s Prior Authorization Code Lookup Tool and BA Quick Reference Guide in the portal, plus the current AHCA BA fee schedule.',
+      },
+      noteSignature: {
+        value:
+          'The state rule: “session notes must be signed and dated by the rendering practitioner,” carrying date, time, location, duration, behaviors observed, skills targeted, the recipient’s response, protocol modification or therapist direction, an explanation if the parent or guardian was absent, and the participants; the behavior assessment and behavior plan are signed by the Lead Analyst and the parent or guardian.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'The state rule: a school-based request must include the IEP, or a 504 plan, or documentation naming the school and explaining that neither exists; 1:1 shadow, personal care assistance, companion and chaperone services are non-covered “regardless of activity or setting,” as are caregiver/childcare services and travel time; BA is non-covered on the same day as behavioral health overlay, therapeutic behavioral on-site, or therapeutic group care services.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'The state enrollment structure governs: a professional claim (837P / CMS-1500) under an individually enrolled rendering practitioner — Lead Analyst 392, BCaBA 391, RBT 390 — with 390s and 391s enrollable only as members of an enrolled BA group (393). Molina publishes no retrievable BA-specific billing-provider rule.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Molina’s BA Quick Reference Guide for any plan-specific claim-form or modifier instruction.',
+      },
+    },
     pill: 'Payer Guide · Molina Healthcare (FL)',
     h1: 'Molina Healthcare of Florida ABA / BA coverage (MMA plan).',
     metaTitle: 'Molina Healthcare of Florida (Medicaid) ABA Coverage & Prior Auth | Carelu',
@@ -589,6 +1260,86 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
     payer: 'Community Care Plan (FL)',
     state: 'FL', kind: 'medicaid-mco', parent: 'Florida Medicaid (AHCA)',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Under 21, and CCP states it from both directions: its BA provider manual authorizes services for “Medicaid Ages 0-21,” and its service exclusions open with “any Medicaid member 21 years old and over.” That tracks the state benefit exactly — Florida Medicaid BA is for recipients under the age of 21, with EPSDT available above the coverage-policy and fee-schedule limits.',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'No autism diagnosis is required. CCP publishes the cycle precisely: “the behavior reassessment is required every 6 months”; “the core standardized behavior instruments are only required on an annual basis unless a new behavior emerges or additional hours are requested”; and the reassessment must “be submitted at least 10 days but not more than 30 days prior to the last day of the previously certified service” — so a renewal filed too early is as much a problem as one filed too late. Modifications are never authorized retrospectively.',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'CCP requires a “prescription or referral form” issued “by an independent physician or practitioner qualified to assess and diagnose disorders related to functional impairments,” including the diagnosis and an order for BA services, plus the Comprehensive Diagnostic Evaluation. It then adds a signature-block rule that intake should treat as a document check: “all practitioner’s signature must include their NPI, credentials and date of signature as defined in Chapter 668, Part I, F.S. Please ensure that the referring provider’s (physician/ARNP/P.A.) LMN, prescription or referral form includes their NPI, credentials and date of signature” — note that CCP names ARNPs and PAs, which the state referral list does not.',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          '“2 core standardized behavior instruments required (required once a year)”: the Vineland-3 Comprehensive Parent Interview Form for all recipients plus the Maladaptive Behavior Domain for ages 3 and older, and the BASC-3 PRQ for recipients ages 2 through 18 — with “additional assessment tools… at the lead analyst’s discretion,” and administration, scoring and reporting all documented in the behavior assessment. The behavior plan must also identify the functions of behavior “based on a Functional Analysis (FA), brief FA, precursor FA or conditional probability.”',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      referral: {
+        value:
+          'Required, and it is the first item on CCP’s own checklist for authorizing the behavior assessment: the prescription or referral form from an independent physician or qualified practitioner, carrying the diagnosis and an order for BA services, plus the CDE. Everything on the Florida BA fee schedule needs prior authorization from Therapy Network of Florida — “behavior assessments, behavior reassessments, behavior intervention/treatment, modification request and all codes on the Florida BA Fee Schedule require prior authorization by Therapy Network” — via the portal at asp.healthsystemone.com/hs1providers, with fax as an emergency backup. Standard approvals land within 5 calendar days, expedited within 2.',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the Florida Medicaid rule: the only telemedicine provision is up to two hours per week of Lead Analyst caregiver training (97156) under Rule 59G-1.057, F.A.C. CCP’s BA provider manual publishes no telehealth section, and “any services not included on the Florida Behavior Analysis Fee Schedule” are non-covered — so a telehealth line that is not on that schedule will not pay.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }],
+        verifyVia:
+          'Therapy Network of Florida provider relations (1-888-550-8800, option 2) before scheduling any remote session other than 97156 caregiver training.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'CCP makes supervision visible on the schedule rather than as a ratio. The behavior plan must carry a “supervision plan, including name(s) of authorized supervisor(s), and list this in the schedule,” and the requested weekly schedule must show “days of the week, hours of the day, service codes for those hours, to include supervision” — CCP’s own worked example pairs 97153 blocks with 97155 and 97156 blocks by day. The state standard sits underneath: supervision of BCaBAs and RBTs per the Council of Autism Service Providers practice standards, as specified in the approved behavior plan.',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'CCP restates the state exclusion verbatim in its own exclusion list: “services by more than one BA provider unless determined to be medically necessary, prior authorized and indicated in the approved behavior plan.” The reimbursement half of the state rule applies too — the supervisee is not reimbursed when the supervisor is reimbursed for the same time period. So concurrency is something the approved plan and the TNFL authorization have to carry explicitly; the requested schedule is where it gets declared.',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'By the week, with a documentation trigger. The state ceiling of up to 40 hours per week as prior-authorized in the behavior plan applies, and CCP’s documentation tips flag “any requests for more than 40 hours” as needing support. “Services not on the Florida BA fee schedule are non-covered,” and members 21 and over are excluded outright. No per-code per-day unit ceiling is published.',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'Therapy Network of Florida for any per-day claim edit, and the current AHCA BA fee schedule for per-assessment unit caps.',
+      },
+      noteSignature: {
+        value:
+          'CCP publishes three signature rules, and this is the tightest-documented set among Florida’s nine plans. Session notes: “the notes must be signed and dated by the rendering practitioner,” carrying date, time, location and duration, maladaptive behaviors observed, replacement/compensatory skills targeted, the recipient’s response, protocol modification or therapist direction, an explanation if the parent or guardian was not present, and the participants. Plan: “the behavior assessment and behavior plan must be signed by the Lead Analyst and the recipient’s parent or caregiver.” And every signature on the treatment-plan document “must include their NPI, credentials and date of signature as defined in Chapter 668, Part I, F.S.”',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'School is gated, and CCP asks for the detail up front: the full behavior assessment must include “detailed information about the school name, time frame, classroom type, IEP recommendation, 504 plan and services,” and an authorization request for services delivered in a school must include the IEP — failing which, documentation justifying the services plus an estimated IEP timeframe, a 504 plan if the school does not conduct IEPs, or the school’s name with an explanation if it conducts neither. The behavior plan must also name the treatment setting. CCP’s exclusion list goes one item beyond the state’s: personal care assistance, companion, chaperone or shadow; caregiver or childcare; travel time; and “services in PPEC.”',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Everything goes to Therapy Network of Florida, not to Community Care Plan — “do not send any claims to the health plans,” and a payment made in error by the plan is an overpayment to be returned. TNFL’s payer ID is 65062 for professional claims and 12k89 for institutional; paper claims go on an original CMS-1500 (or UB-04 for institutionally billed claims) to the TNFL claims processing centre in Ft. Lauderdale. A claim submitted before the authorization is approved “will deny for no authorization.” Adjustment requests run 365 days from the EOP/EOB date. Underneath, the state enrollment structure still decides whose NPI may render: Lead Analyst 392, BCaBA 391, RBT 390, inside an enrolled BA group (393).',
+        status: 'verified',
+        cites: [{ title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Community Care Plan',
     h1: 'Community Care Plan ABA / BA coverage (Florida MMA plan).',
     metaTitle: 'Community Care Plan (Florida Medicaid) ABA Coverage & Prior Auth | Carelu',
@@ -651,6 +1402,90 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
     payer: 'Florida Community Care',
     state: 'FL', kind: 'medicaid-mco', parent: 'Florida Medicaid (AHCA)',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Florida Medicaid rule: BA is for recipients under the age of 21, with EPSDT available above the coverage-policy and fee-schedule limits. FCC’s published BA services page is procedural — which form, which fax, which mailbox — and states no age criterion of its own; the coverage policy forbids a plan from applying more stringent service coverage limits than state policy.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' }],
+      },
+      dxRecency: {
+        value:
+          'No autism diagnosis is required, so no diagnosis-recency rule applies. The state cycle governs: reassessment and an updated behavior plan at least every six months, the two core instruments re-administered every 12 months, and no published expiry on the Comprehensive Diagnostic Evaluation. FCC’s BA page publishes no plan-specific freshness rule.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' }],
+        verifyVia:
+          'The Florida Community Care ABA Prior Authorization Request Form itself (via the FCC Provider Portal, or FCCUMDepartment@FCCHealthPlan.com) for any date requirement the form imposes.',
+      },
+      diagnosingProviders: {
+        value:
+          'The state rule, which FCC cannot narrow: the referral comes from an independent physician or qualifying practitioner (PCP in family practice, internal medicine or pediatrics; a developmental-behavioral, neurodevelopmental, pediatric-neurology or adult/child-psychiatry specialist; or a child psychologist), and the CDE must be led by a licensed practitioner working within their medical, developmental or psychological scope of practice. Given FCC’s long-term-care and CIDD membership, much of that record usually already exists — mine it rather than re-commissioning it.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' }],
+      },
+      diagnosticTools: {
+        value:
+          'The state pair: the Vineland-3 Comprehensive Parent Interview Form for all recipients (plus the Maladaptive Behavior Domain for ages 3 and older) and the BASC-3 PRQ for ages 2 through 18, with complete scoring reports submitted with every prior-authorization request and re-administration every 12 months. FCC publishes no additional instrument requirement.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' }],
+      },
+      referral: {
+        value:
+          'Required — the state gate (independent physician referral, physician’s order for BA services, and a CDE performed to national evidence-based practice standards) applies unchanged. FCC’s contribution is the channel: prior authorization is required after the continuity-of-care period, and providers “must submit the Florida Community Care ABA Prior Authorization Request Form” for new courses of treatment, by fax to 305-675-6138, by email to FCCUMDepartment@FCCHealthPlan.com, or through the FCC Provider Portal — email submission being unusual among Florida’s nine plans.',
+        status: 'verified',
+        cites: [{ title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the Florida Medicaid rule: the only telemedicine provision is up to two hours per week of Lead Analyst caregiver training (97156) under Rule 59G-1.057, F.A.C. FCC’s BA services page publishes no telehealth rule, code list or place-of-service guidance.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' }],
+        verifyVia:
+          'The FCC Utilization Department (FCCUMDepartment@FCCHealthPlan.com) or the provider call centre 1-833-322-7526 before scheduling a remote session other than 97156 caregiver training.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'The state floor: supervision of BCaBAs and RBTs per the Council of Autism Service Providers practice standards, as specified in the supervision plan inside the approved behavior plan, which must name the authorized supervisors; Lead Analyst is a BCBA, FL-CBA or Ch. 490/491 licensee, a BCaBA works under a BCBA, and an RBT under a BCBA or BCaBA. FCC publishes no ratio or caseload cap of its own.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' }],
+      },
+      concurrentBilling: {
+        value:
+          'The state rule is the floor and FCC publishes no variation: the supervisee is not reimbursed when the supervisor is reimbursed for the same time period, and simultaneous services by more than one BA provider are non-covered unless medically necessary, prior authorized and indicated in the approved behavior plan.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'The FCC Utilization Department for whether an authorization can carry 97153 and 97155 on the same clock time.',
+      },
+      dailyLimits: {
+        value:
+          'The state weekly ceiling: up to 40 hours per week of BA intervention as prior-authorized in the behavior plan, EPSDT available above it, group treatment capped at six participants, and 15-minute units on the CMS 8-minute rule. FCC publishes no per-day unit table.',
+        status: 'unverified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        verifyVia:
+          'The FCC ABA Prior Authorization Request Form and the FCC Utilization Department, plus the current AHCA BA fee schedule for per-assessment unit caps.',
+      },
+      noteSignature: {
+        value:
+          'The state rule: “session notes must be signed and dated by the rendering practitioner,” carrying date, time, location, duration, behaviors observed, skills targeted, the recipient’s response, protocol modification or therapist direction, an explanation if the parent or guardian was absent, and the participants; the behavior assessment and behavior plan are signed by the Lead Analyst and the parent or guardian. FCC adds no published signature rule.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'The state rule: a school-based request must include the IEP, or a 504 plan, or documentation naming the school and explaining that neither is available; 1:1 shadow, personal care assistance, companion and chaperone services are non-covered “regardless of activity or setting,” as are caregiver/childcare services and travel time; BA is non-covered on the same day as behavioral health overlay, therapeutic behavioral on-site, or therapeutic group care. The same-day exclusions deserve a second look on a long-term-care and CIDD population that often carries other Medicaid benefits.',
+        status: 'verified',
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Claims run under payer ID FLCCR through Availity or your clearinghouse, with the provider portal at secure.healthx.com and a provider call centre at 1-833-322-7526. The state enrollment structure decides whose NPI may render: a professional claim (837P / CMS-1500) under an individually enrolled practitioner — Lead Analyst 392, BCaBA 391, RBT 390 — with 390s and 391s enrollable only as members of an enrolled BA group (393).',
+        status: 'verified',
+        cites: [{ title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Florida Community Care',
     h1: 'Florida Community Care ABA / BA coverage (specialty plan).',
     metaTitle: 'Florida Community Care (Medicaid) ABA Coverage & Prior Auth | Carelu',
@@ -703,6 +1538,93 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
     payer: 'Aetna in Florida',
     state: 'FL', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Aetna publishes none. The ABA Medical Necessity Guide gives a “typical age range” of 0–7 years for comprehensive ABA and “all ages” for focused ABA, which is planning guidance, not a benefit boundary, and CPB 0554/0648 set no age criterion. The age terms that bite in Florida come from the Geller Act, and only for the plans it reaches: an eligible individual is “under 18 years of age or 18 years of age or older and in high school” AND “diagnosed as having a developmental disability at 8 years of age or younger.” That mandate covers fully-insured large-group and state-employee plans only — individual, individually underwritten and small-employer plans are excluded by the statute’s own text, and self-funded ERISA plans sit outside state reach. Federal parity limits how hard age terms can be enforced against covered group plans, so treat an age-based decline on a large-group plan as an escalation, not an answer.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+        verifyVia:
+          'Plan funding type and group size first, then a live benefits verification — the mandate, not the carrier policy, is what carries the age terms.',
+      },
+      dxRecency: {
+        value:
+          'Aetna sets no expiry on the ASD diagnosis itself, but it puts a 12-month clock on the functional evidence: “there is demonstration of functional impairment on a standardized scale of functioning in the past 12 months… the impairment must be at least one standard deviation below the population mean OR represent a significant risk of harm to self or others.” In practice that is the recency rule intake must schedule around — a current standardized functional score, not a fresh diagnostic report. Reauthorization commonly runs on a roughly six-month cadence.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Broad, and tied to scope of practice: the ASD diagnosis must be “obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice).” CPB 0648 lists who Aetna expects to be involved in an ASD evaluation — “board certified behavioral analyst; developmental pediatrician; neurologist; occupational therapist; physical therapist; primary care provider; psychiatrist; psychologist; or speech-language pathologist and audiologist” — evaluated by “the appropriate certified/licensed health care professional.” The diagnosis itself must be DSM-5 ASD (ICD-10 F84.0, F84.3–F84.9); ABA for other indications is considered experimental, investigational or unproven.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+      },
+      diagnosticTools: {
+        value:
+          'Two layers, and intake needs both. For the diagnosis, CPB 0648 names the instruments Aetna expects alongside clinical assessment: “Autism Diagnostic Interview-Revised (ADI-R), Autism Diagnostic Observation Schedule-2nd edition (ADOS-2), Childhood Autism Rating Scale 2nd edition (CARS-2) and Asperger Syndrome Diagnostic Scale.” For medical necessity, the ABA Medical Necessity Guide requires a standardized scale of functioning administered in the past 12 months — “for instance, the Vineland Adaptive Behavior Scales 3 (VABS-3), the Adaptive Behavior Assessment Scale (ABAS), VB-MAPP or ABLLS” — scoring at least one standard deviation below the population mean, or documenting a significant risk of harm.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+      },
+      referral: {
+        value:
+          'Aetna gates ABA with precertification rather than a referral: form GR-69017-4, submitted through Availity or by phone, for both the assessment and treatment. Neither CPB 0554, CPB 0648 nor the ABA Medical Necessity Guide publishes a referral or physician-order requirement — the Guide mentions “involvement of, or referrals to, appropriate health care, community or supplemental resources” as a quality element, not an entry condition. Whether the specific plan needs a PCP referral is a benefit-design question, not a policy one.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        verifyVia:
+          'The member’s benefit document and Aetna precertification at the number on the ID card — ask whether a PCP referral is required in addition to precertification.',
+      },
+      telehealth: {
+        value:
+          'Not published. Aetna’s ABA materials — CPB 0554, CPB 0648 and the ABA Medical Necessity Guide — say nothing about telehealth delivery of ABA: no code list, no place-of-service codes, no modifiers and no limits. Do not assume the Florida Medicaid position either, which is narrower than most commercial practice (telemedicine for caregiver training only).',
+        status: 'unverified',
+        verifyVia:
+          'Aetna’s telemedicine policy and provider services at the number on the member’s ID card — confirm which ABA codes pay by telehealth on that specific Florida plan before scheduling remote sessions.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'A duty, not a number. Where a state mandate, plan document or contract allows services from someone neither state-licensed nor BACB-certified, “there must be supervision and direction of the unlicensed or non-certified providers in line with practice standards.” The ABA Medical Necessity Guide publishes no supervision percentage, ratio or caseload cap — the operative standard is professional practice plus whatever the participating-provider agreement adds. Florida supplies no licensure backstop of its own: the state licenses no behavior analysts, and the Geller Act keys ABA coverage to s. 393.17, F.S. certification (BACB/FL-CBA) or Chapter 490/491 licensure.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither the ABA Medical Necessity Guide nor Aetna’s clinical policy bulletins on ABA address whether 97153 and 97155 may be billed for the same clock time; Aetna carries the concurrency question in its claim editing rather than in a public policy.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna precertification/provider services at the number on the member’s ID card, and the plan’s own reimbursement schedule — ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. Aetna’s ABA documents set medical-necessity criteria and precertification requirements for 97151–97158, 0362T and 0373T but no per-day unit ceiling and no statement of which MUE table applies. The Guide’s intensity table is descriptive rather than limiting — 10–25 hours a week over 1–2 years for comprehensive ABA, 1–20 hours a week over 1–4 years for focused ABA — and the Geller Act’s nominal $36,000-a-year and $200,000-lifetime ABA caps are dollar limits, not unit limits, and are arguably unenforceable against parity-subject group plans.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+        verifyVia:
+          'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+      },
+      noteSignature: {
+        value:
+          'Not published in Aetna’s ABA materials — no rule on who signs a session note or within what window.',
+        status: 'unverified',
+        verifyVia:
+          'The Aetna provider manual and your participation agreement’s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'Aetna publishes no place-of-service code list for ABA. The one boundary it does state is the schools carve-out: pursuant to applicable law Aetna “is not required [to] provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act.” That limits paying for what the IEP owes; it is not a blanket ban on the school setting, and it yields to a stronger state mandate. Florida’s mandate does not itself name settings, so where ABA is payable in a school, in the community or in a group home is a benefit-document question on Aetna plans.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+        verifyVia:
+          'The member’s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+      },
+      billAsProvider: {
+        value:
+          'The claim carries the analyst, not the technician: “services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise.” Florida has no behavior-analyst licensure law, so the operative credential is BACB certification (or the legacy FL-CBA, or Chapter 490/491 licensure) — and the Geller Act keys covered ABA to exactly that s. 393.17 certification or 490/491 licensure. The escape clause matters: a state mandate or your contract can move the line, so confirm before enrolling technicians.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+      },
+    },
     pill: 'Payer Guide · Aetna · Florida',
     h1: 'Aetna ABA coverage in Florida: the intake guide.',
     metaTitle: 'Aetna ABA Coverage in Florida: Prior Auth & Mandate Guide | Carelu',
@@ -772,6 +1694,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
       { title: 'FL Dept. of Financial Services — ASD coverage overview', url: 'https://www.myfloridacfo.com/division/consumers/consumerprotections/autism-spectrum-disorder' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Florida?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Florida\'s Geller Act (§ 627.6686) for covered fully-insured group plans. Individual, small-group, and self-funded employer plans sit outside the mandate, so always verify plan funding type first.' },
@@ -789,6 +1712,92 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
     payer: 'Cigna / Evernorth in Florida',
     state: 'FL', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EN0499 publishes no age limit — coverage turns on a confirmed DSM-5-TR ASD diagnosis and medical necessity, not on age. The age terms in Florida come from the Geller Act, and only for the plans it reaches: an eligible individual is under 18, or 18 or older and still in high school, AND was diagnosed with a developmental disability at 8 years of age or younger. The statute excludes individual-market, individually underwritten and small-employer plans by its own text, and self-funded ERISA plans sit outside state reach; federal parity limits how hard age terms can be enforced against covered group plans.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+        verifyVia:
+          'Plan funding type and group size, then a live benefits verification — EN0499 itself will not answer an age question.',
+      },
+      dxRecency: {
+        value:
+          'EN0499 sets no maximum age on the diagnosis, but it requires the date to be on the record and puts the currency burden on the instruments. Required with the diagnosis: “the name, credentials, and type of licensure of the individual who made the diagnosis” and “the date on which the diagnosis was most recently made.” For the assessment instrument, “the instrument used represents the most current version, and does not represent obsolete editions of the assessment (e.g., must be the Vineland-3 vs. Vineland-II)” and “the instrument used assesses the individual’s specific and current abilities and skills,” with the date of administration and the respondent named. A diagnosis termed “provisional,” “proposed,” “potential,” “at risk of” or “rule out” is not a confirmed diagnosis.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Scope-of-practice based, and strict about what does not count. The individual must have “a confirmed diagnosis of autism spectrum disorder (ASD) (ICD-10-CM Diagnosis Codes F84.0 – F84.9, with the exception of F84.2, Rett syndrome) based on the criteria in the… DSM-5-TR by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice.” Two disqualifiers intake should screen for: “educational identification or meeting educational eligibility for services related to autism through the [Individuals] with Disabilities Education Act may not meet criteria as a formal diagnosis of ASD,” and a provisional or rule-out diagnosis is not confirmed. The ABA assessment itself must be performed by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health clinician with documented training in ABA.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'EN0499 names no required instrument list — it sets instrument criteria instead, which is a harder bar to meet by accident. The assessment must include “administration of a reliable, valid, and standardized assessment instrument that measures the individual’s functioning in the domains included in the diagnostic criteria for ASD in the DSM-5-TR… social communication and social interaction; and restricted, repetitive patterns of behavior, interests, or activities,” and the instrument “must be completed in its entirety and as designed,” have established reliability and validity “for use with members of the population tested (e.g., age, language preference),” be administered and interpreted by someone trained to do so, be the most current version, assess current abilities, and carry the date of administration, the respondent’s name and the form type.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral requirement is published, and Cigna’s front door is unusually open: assessment codes 97151, 97152 and 0362T need no prior authorization under EN0499, so the assessment can start on the diagnosis alone. The rigour arrives at the treatment step, which requires the completed assessment plus a treatment plan submitted with Cigna’s ABA prior-authorization form. Whether a specific plan layers a PCP referral on top is a benefit-design question.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'A live benefits verification and Evernorth Provider Services at 800.926.2273 — confirm whether the plan requires a referral in addition to the treatment PA.',
+      },
+      telehealth: {
+        value:
+          'Open, and stated at both the policy and the guide level. EN0499: “ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities,” with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements — and the line-of-sight/close-proximity documentation rule expressly “does not apply to telehealth services, when applicable.” The Evernorth autism resource guide is blunter: “all ABA CPT codes are covered telehealth services,” subject to EN0499. Services delivered via telehealth still have to meet the direct treatment / direct engagement definition and be documented as such.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'No ratio, but a stated principle. EN0499 requires case supervision to be “performed by a Board Certified Behavior Analyst (BCBA), Licensed Behavior Analyst (LBA), or a mental health professional who is licensed to practice independently,” and its clinical discussion is explicit that the amount is individualised: “an individual’s needs will dictate the amount of case supervision required for each individual case,” with richer supervision expected for rapid progress, barriers to acquisition, severe behavior and the early stages of treatment. Evernorth publishes no percentage floor or caseload cap.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Yes — and Evernorth writes it as an explicit carve-out from its general rule: “only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).” Both must be with the patient; analyst time away from the patient is outside the exception. EN0499 separately treats ABA delivered by multiple provider organisations in the same authorization period as not medically necessary absent a documented coordination plan.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Not published. The Evernorth autism resource guide sets the code set — 97151–97158, 0362T and 0373T only, all in 15-minute increments — but no per-day unit ceiling and no statement of which MUE table Evernorth applies. The Geller Act’s nominal $36,000-a-year and $200,000-lifetime ABA caps are dollar limits rather than unit limits, and are arguably unenforceable against parity-subject group plans.',
+        status: 'unverified',
+        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273.',
+      },
+      noteSignature: {
+        value:
+          'Not published in the Evernorth autism resource guide or EN0499 — no rule on who signs a session note or when. What EN0499 does police is content: progress data must be dated, goals measured against baseline, and services documented against the treatment plan.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia:
+          'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+      },
+      placeOfService: {
+        value:
+          'No place-of-service code list, but EN0499 does set a setting rule with teeth. Where services are delivered “within environments that may also include additional and/or alternative behavioral expectations (e.g., academic setting, vocational placement, services delivered via telehealth modalities),” the documentation must identify that the services still meet the direct treatment definition “regardless of treatment location or modality,” are conducted against the treatment-plan goals, and — the exclusion that decides most school cases — that “the ABA services are not utilized to replace or replicate activities that are the responsibility of the setting and environment where services occur (e.g., classroom aide, 1:1 teacher, tutor, vocational assistant/coach, respite services).” Telehealth is separately open across all ABA codes.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 plus the member’s benefit document for whether a school or group-home setting is payable on that plan.',
+      },
+      billAsProvider: {
+        value:
+          'Under the supervising provider, because the technician cannot be credentialed: “Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.” Practically, the BCBA’s credential is what the claim rides on for technician-delivered 97153. Florida adds no licensure of its own — it licenses no behavior analysts — so BACB certification (or the legacy FL-CBA, or Chapter 490/491 licensure) is the operative credential, and the Geller Act keys covered ABA to exactly that.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+      },
+    },
     pill: 'Payer Guide · Cigna · Florida',
     h1: 'Cigna / Evernorth ABA coverage in Florida: the intake guide.',
     metaTitle: 'Cigna ABA Coverage in Florida: Prior Auth & Mandate Guide | Carelu',
@@ -874,6 +1883,94 @@ export const floridaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
     payer: 'UnitedHealthcare / Optum in Florida',
     state: 'FL', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Optum’s ABA Supplemental Clinical Criteria publish no age limit — coverage turns on a valid ASD diagnosis and medical necessity. Two age-bearing layers sit above it in Florida. The Geller Act: under 18, or 18 and older and still in high school, with the developmental-disability diagnosis made at 8 years of age or younger, for fully-insured large-group and state-employee plans only. And Optum’s own Florida entry in its ABA State Mandates criteria, which reaches “mid and large group fully insured (does not include individual and small)” plans. Federal parity limits how hard age terms can be enforced against covered group plans.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+        verifyVia:
+          'Plan funding type and group size before anything else — they decide whether the mandate layer applies at all.',
+      },
+      dxRecency: {
+        value:
+          'Not published. The Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis confirmed with at least one clinically validated tool, but set no maximum age on that diagnosis and no re-diagnosis interval. What Optum does clock is the review cycle — continued-service reviews every 4–6 months — and the documentation standard that assessment instruments be norm-referenced against age-matched peers and used to “assess developmental gains as a result of interventions,” which implies current rather than historical scores without naming a window.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum Behavioral Health provider services and Provider Express — ask whether an evaluation older than a given date triggers re-evaluation before an ABA authorization.',
+      },
+      diagnosingProviders: {
+        value:
+          'State-licensed and scope-qualified: “a valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR.” The diagnosing clinician — not the ABA provider — confirms and documents both the diagnosis and the severity level. Note the parenthetical: “or other applicable diagnosis as required by governing laws” is what carries Florida’s Down syndrome path, since Optum’s Florida State Mandates entry covers ABA “for the treatment of Down Syndrome” on mid- and large-group fully-insured plans.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Optum publishes the fullest instrument taxonomy of the national carriers, in two stages. For the diagnosis, “the DSM-5 diagnosis and severity level are confirmed and documented by the diagnosing clinician using at least one clinically validated tool (not an all-inclusive list),” across first-level screening tools (ABC, CHAT/M-CHAT, CSBS-DP-IT-Checklist, ASQ, AQ, CAST), second-level screening tools (CARS/CARS-2, RITA-T, STAT) and formal diagnostic tools (ADI-R, ADOS/ADOS-2, DISCO). For treatment intensity, the plan must be set from baseline measurement “with the use of at least one of the following validated measurement tools”: ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, Vineland (VABS) or CFQL-2 — with the caveat that “measurement tools should be individualized and will not be the same for all individuals or programs.” The ABA provider separately completes a standard or functional behavioral assessment, caregiver interviews, direct observation, record review, a baseline skills assessment and norm-referenced instruments against age-matched peers.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral requirement is published; the gate is authorization. “Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law),” run as Optum’s two-step structure on Provider Express — assessment authorized first, then treatment — with continued-service reviews every 4–6 months. Whether a specific plan also requires a PCP referral is a benefit-design question.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'A live benefits verification plus Provider Express — confirm whether the plan layers a referral requirement on top of the two-step authorization.',
+      },
+      telehealth: {
+        value:
+          'Not published as a coded benefit. The Supplemental Clinical Criteria treat telehealth as a best-practice reference rather than a rule — pointing providers to the “Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition” for “designing, implementing, and operating ABA services delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)” and noting that “the telehealth options presented are not intended to supplant in-person service; rather, they are intended to supplement the traditional in-person service delivery model.” No code list, place-of-service code or unit limit for telehealth appears in the criteria, and Optum’s commercial ABA reimbursement policy is silent on telehealth entirely.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        verifyVia:
+          'Optum Behavioral Health provider services and the member’s benefit document — confirm which ABA codes pay by telehealth, and under which place-of-service code, before scheduling remote sessions.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'No percentage or caseload cap — the commercial reimbursement policy refers providers to the ABA Coding Coalition for supervision requirements. What Optum polices is the boundary: “CPT codes 97153 and 97155 may not be billed for technician training,” including training a technician new to the organisation on a client’s programming or on reassessment-driven goal changes; and 97155 “should be reported only for services where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient” — treatment planning is an indirect service and is not separately reimbursable. The clinical criteria add the credential chain: technicians work “under the applicable supervision of a BCBA or licensed behavioral health clinician” and “should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate,” with an explicit warning that a parent serving as their own child’s RBT creates an ethics conflict for the supervising BCBA.',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Yes, with a single-provider exclusion. “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the concurrency has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Separately, 97155 and 97156 may both pay on the same date of service only if the services are separate, distinct and clearly documented; “a single provider can’t bill for both simultaneously (e.g., in the same 15-minute block).”',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Optum publishes its own per-day table on top of CMS MUEs — maximum frequency per day: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs). MUEs otherwise apply per CMS guidance, and billing above 32 units a day of 97153 “may be subject to non-reimbursement or recovery.” Time is counted on the CMS 15-minute rule (1 unit at 8 minutes or more, 2 at 23 or more, and so on). The Geller Act’s $36,000-a-year and $200,000-lifetime ABA caps are dollar limits rather than unit limits, and are arguably unenforceable against parity-subject group plans.',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+      },
+      noteSignature: {
+        value:
+          'No signature rule is published, but the note content is specified and the money turns on it. Daily progress notes must include the place of service, start and stop time, who rendered the service, the specific service (parent/caregiver training, supervision, direct service), who attended the session, the interventions that occurred, and the licensure or credentials of those in the session — and “all documentation must be legible.” On the reimbursement side, services billed on the same date must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied. Who signs, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        verifyVia:
+          'The UnitedHealthcare/Optum provider manual and your participation agreement’s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'The commercial ABA reimbursement policy sets codes, modifiers, units and concurrency but no place-of-service rule; the clinical criteria only require the place of service to appear on every daily progress note, and the treatment plan to be coordinated with the school and any IFSP/IEP. Florida is one of the states where Optum publishes a genuine state supplement, but it is a covered-condition rule rather than a setting rule: for Florida members on mid- and large-group fully-insured plans, “Applied Behavior Analysis (ABA) is covered for the treatment of Down Syndrome. Speech therapy, physical therapy, occupational therapy, and ABA must be covered to the same extent as the existing Florida autism mandate.”',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        verifyVia:
+          'UnitedHealthcare/Optum provider services and the member’s benefit document for whether school, community or group-home ABA is payable on that plan.',
+      },
+      billAsProvider: {
+        value:
+          'One provider-level modifier per line, matching whoever actually rendered the service: HM = Registered Behavior Technician (less than bachelor’s level), HN = BCaBA (bachelor’s level), HO = BCBA or master’s-level licensed clinician, HP = BCBA-D or doctoral-level licensed clinician. A billable ABA-supervisor service is billed with the applicable CPT code plus HO. Stacking level modifiers is a denial risk: “billing multiple provider-level modifiers (HN, HM, HO, HP) on the same service line same service and same DOS is not appropriate and may result in claim denial.” Indirect work has no code of its own — it is bundled into the direct-service code. Florida adds no licensure layer, so BACB certification (or the legacy FL-CBA, or Chapter 490/491 licensure) is the operative credential.',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+      },
+    },
     pill: 'Payer Guide · UnitedHealthcare · Florida',
     h1: 'UnitedHealthcare / Optum ABA coverage in Florida: the intake guide.',
     metaTitle: 'UnitedHealthcare ABA Coverage in Florida: Prior Auth & Mandate Guide | Carelu',
@@ -951,6 +2048,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
       { title: 'FL Dept. of Financial Services — ASD coverage overview', url: 'https://www.myfloridacfo.com/division/consumers/consumerprotections/autism-spectrum-disorder' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'UHC Community Plan FL \u2014 SMMC Behavioral Analysis Program QRG', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Florida?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on Florida\'s Geller Act (§ 627.6686) for covered fully-insured group plans. Self-funded, individual, and small-group plans sit outside the mandate, so verify plan funding type first.' },

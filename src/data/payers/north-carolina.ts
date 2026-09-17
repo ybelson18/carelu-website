@@ -3,9 +3,9 @@ import type { PayerConfig } from './types.js';
 export const northCarolinaPayers: Record<string, PayerConfig> = {
   'north-carolina-medicaid': {
     slug: 'north-carolina-medicaid',
-    cardDesc: 'RB-BHT under CCP 8F: PA on everything, 180-day auths, published rates, HB 696 shakeup.',
+    cardDesc: 'RB-BHT under CCP 8F: PA on everything, tiered 180/90-day auths, published rates, HB 696 shakeup.',
     assessmentPA: 'Required — PA for ALL RB-BHT services, including the assessment (CCP 8F)',
-    treatmentPA: 'Required — initial and reauthorization periods up to 180 days each',
+    treatmentPA: 'Required — authorization length is TIERED by intensity: up to 180 calendar days at 16 hrs/week or fewer, but only up to 90 calendar days above 16 hrs/week (initial and reauth alike)',
     dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
     payer: 'North Carolina Medicaid',
     state: 'NC', kind: 'state-medicaid',
@@ -13,14 +13,14 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     h1: 'North Carolina Medicaid ABA coverage: the intake guide.',
     metaTitle: 'North Carolina Medicaid ABA (RB-BHT) Coverage, Rates & Prior Auth | Carelu',
     metaDescription:
-      'How NC Medicaid covers ABA as Research-Based Behavioral Health Treatment (RB-BHT) under Clinical Coverage Policy 8F — prior authorization, 180-day auth cycles, published fee-schedule rates, the HB 696 overhaul, and the Standard/Tailored plan landscape.',
+      'How NC Medicaid covers ABA as Research-Based Behavioral Health Treatment (RB-BHT) under Clinical Coverage Policy 8F — prior authorization, tiered 180/90-day auth cycles, published fee-schedule rates, the HB 696 overhaul, and the Standard/Tailored plan landscape.',
     intro: [
       'North Carolina is one of the highest-demand ABA states in the country, and NC Medicaid covers ABA as "Research-Based Behavioral Health Treatment" (RB-BHT) under Clinical Coverage Policy 8F. The benefit is available in every delivery channel — NC Medicaid Direct, all five Standard Plans, all four Tailored Plans, and the new Children & Families Specialty Plan — and the plans must pay at least the state fee schedule. But 2025–2026 brought a rate cut and reversal, a major legislative overhaul (HB 696), and a rewritten Clinical Coverage Policy 8F that took effect August 1, 2026, so this is a market where staying current is part of the job.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — RB-BHT under CCP 8F; under 21 via EPSDT, adults 21+ via a 2021 SPA' },
       { label: 'Prior auth', value: 'Required for ALL RB-BHT services, assessment included' },
-      { label: 'Auth periods', value: 'Initial and reauth each up to 180 days' },
+      { label: 'Auth periods', value: 'Tiered by intensity — up to 180 calendar days at ≤16 hrs/week; up to 90 calendar days at >16 hrs/week (CCP 8F §5.1)' },
       { label: 'Plan review', value: 'LQASP treatment plan reviewed ≥ every 6 months, rewritten annually' },
       { label: 'Rates (per 15 min)', value: '97151 $30.56 · 97153 $20.81 · 97155 $32.22 · 97156 $23.70' },
       { label: 'Watch', value: 'CCP 8F rewrite finalized & published, effective 8/1/2026 — telehealth removed for 97152/97153/97154, 97155 capped at 50% per 180 days' },
@@ -43,7 +43,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Authorization & treatment plan',
         body: [
-          'Prior authorization is required for all RB-BHT services — including the assessment. Initial authorizations run up to 180 days, reauthorizations up to another 180, and the reauth must be submitted before the current authorization expires. The treatment plan must be written and reviewed at least every six months by a Licensed Qualified Autism Service Provider (LQASP), rewritten annually, and at least 10% of approved services should be directly observed by the LQASP. As with any long review cadence, the baseline data collected at intake is what every future review is measured against.',
+          'Prior authorization is required for all RB-BHT services — including the assessment. Authorization length is tiered by intensity, which is the detail most often missed: CCP §5.1 gives up to 180 calendar days for treatment plans of 16 hours or fewer per week, but only up to 90 calendar days when the plan exceeds 16 hours a week — so most comprehensive programmes reauthorise quarterly, not twice a year. The reauth must be submitted before the current authorization expires. The treatment plan must be written and reviewed at least every six months by a Licensed Qualified Autism Service Provider (LQASP), rewritten annually, and at least 10% of approved services should be directly observed by the LQASP. As with any long review cadence, the baseline data collected at intake is what every future review is measured against.',
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT)', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -113,7 +113,100 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
       { title: 'Alliance Health — Guidance for RB-BHT Providers', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
       { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+      { title: 'Disability Rights NC — autism-related services in NC (incl. 2021 SPA)', url: 'https://disabilityrightsnc.org/resources/autism-related-services-in-nc/' },
+      { title: 'NC Medicaid — Tailored Plans', url: 'https://medicaid.ncdhhs.gov/tailored-plans' },
+      { title: 'Acuity News — NC ABA rates restored + HB 696 oversight', url: 'https://acuity.news/regulation/nc-medicaid-aba-rates-restored-hb696-oversight-2026/' },
+      { title: 'NCTracks — CCP 8F public-comment notice (5/2026)', url: 'https://www.nctracks.nc.gov/content/public/providers/provider-communications/2026----Announcements/Public-Comment-Notice--Policy-8F---Research-Based-Behavioral-Health-Treatment-for-Autism-Spectrum-Disorder.html' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'No upper age bound in the policy. The 8/1/2026 rewrite struck the phrase "under 21 years of age" from the eligibility provision at subsection 2.1.2, and a 2021 State Plan Amendment extends RB-BHT to adults 21 and older. Under-21 beneficiaries additionally carry the EPSDT special provision (42 U.S.C. § 1396d(r)), under which limits on scope, amount, duration, frequency and location of service may be exceeded where documentation shows the service is medically necessary to correct or ameliorate the condition. At the bottom end, beneficiaries under three years of age at the time services begin may start on a provisional diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      dxRecency: {
+        value: 'CCP 8F sets no expiry date on the ASD diagnosis itself — medical necessity requires a "current ASD diagnosis" recognised by the current edition of the DSM. Two clocks do run. A beneficiary who started under age three on a provisional diagnosis must have a non-provisional ASD diagnosis within six months of the provisional one, or the provider implements transition or discharge. And at least one adaptive behavior assessment must have been completed within the last 3 years. The provider must verify and hold documentation of a qualifying ASD diagnosis before initiating RB-BHT; services rendered without adequate diagnostic documentation are subject to denial, recoupment or termination.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Non-provisional ASD diagnosis: a Licensed Psychologist (where an autism diagnosis is within their experience and competence under Article 18G of the Psychology Practice Act), a Licensed Psychological Associate with the required supervision, or a physician (MD or DO) acting within their legal NC scope. An evaluation by a Licensed School Psychologist that includes any or all of the required testing may be used to meet the diagnostic criteria where there is no clinical indication to repeat testing. A provisional diagnosis for an under-3 may additionally be made by a licensed clinician with at least a master’s degree who has completed the training and supervision to administer validated ASD instruments and for whom this is within scope.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'The non-provisional ASD diagnosis must be made with one of four named instruments (or later versions): Brief Observation of Symptoms of Autism (BOSA), Tele-ASD-Peds (TAP), ADOS-2, or CARS2-ST / CARS2-HF. Services may not be initiated on screening tools, educational determinations or informal clinical impressions alone. The authorization packet also needs a skills assessment using VB-MAPP, ABLLS-R or the ESDM Curriculum Checklist, a functional behavior assessment (or functional behavioral analysis at provider option) where challenging behaviors are targeted, and an adaptive behavior assessment completed within the last 3 years — VABS-3, ABAS-3 or DP-4. An alternative instrument may be substituted with clinical justification where the required one is not clinically indicated.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      referral: {
+        value: 'Yes — a written service order completed and signed by a Licensed MD, Licensed DO or Licensed Psychologist working within scope, signed and dated with the date the service was ordered. It must be in place prior to or on the day the service is first provided, must rest on a behavioral, adaptive or functional assessment plus a treatment plan built from that assessment, and is valid for one year: medical necessity must be reconfirmed and services re-ordered annually from the date of the original order. 97151 and 97152 do not require a service order or treatment plan for prior approval; a service order must be in place before 97153, 97154, 97155, 97156 or 97157.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      telehealth: {
+        value: 'Per code, under Attachment A of the 8/1/2026 policy. Telehealth billable with modifier GT: 97151, with clinical justification recorded in the treatment plan; and 97155, capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period, with clinical justification in the treatment plan if more telehealth units are needed. Not telehealth billable at all: 97152, 97153 and 97154. 97156 and 97157 are telehealth eligible and are additionally the only telephonic (audio-only, modifier KX) services, allowed where the caregiver’s physical or behavioral health status, or an access barrier such as transportation or technology, prevents in-person or telehealth participation. Telehealth and telephonic claims are filed with the provider’s usual place-of-service code, and delivery follows Clinical Coverage Policy 1-H.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'At least ten percent of all services delivered by a paraprofessional must involve observation and direction of that paraprofessional by a Licensed Qualified Autism Service Provider (LQASP). For a beneficiary receiving more than 200 hours of paraprofessional-delivered RB-BHT in a 180-calendar-day period, the ratio of LQASP-delivered to paraprofessional-delivered hours must be no less than 1:10 (10%) and no more than 2:10 (20%), measured over the authorization period and documented in the treatment plan; any plan requesting a ratio outside that band needs written clinical justification. Incidental supervision — ensuring competent, ethical practice, adherence to employer policy, ongoing skill development and personal support — is not billable.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Yes, in one direction only. 97153 and 97154 may be billed concurrently with 97155 when the paraprofessional is delivering the direct service and an eligible provider is observing; 97155 may be billed concurrently with 97153 or 97154. A single rendering provider may not bill 97153 or 97154 and 97155 simultaneously. 97151, 97152, 97156 and 97157 carry no concurrent-billing allowance. Separately, a non-RB-BHT Medicaid service may not be billed at the same time as an RB-BHT service, though same-day delivery is allowable.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      dailyLimits: {
+        value: 'CCP 8F publishes no per-day unit ceiling — every RB-BHT code bills in 15-minute units and Attachment A carries no daily maximum. The binding limits are per authorization period: treatment plans at 16 hours per week or fewer get up to 180 calendar days initial and reauthorize at least every 180 days, while plans above 16 hours per week get up to 90 calendar days and must be reviewed, modified and resubmitted at least every 90 days. Within a 180-day period, 97155 telehealth is capped at 50% of total 97155 billing, the LQASP-to-paraprofessional ratio band is 10–20% once paraprofessional hours pass 200, and a minimum of six caregiver training sessions must be completed. Hours spent in educational settings and receiving IEP services are excluded from the treatment-hour calculation.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      noteSignature: {
+        value: 'The staff member who provides the service signs the written entry, and the signature documents credentials for a professional or a job title for a paraprofessional. Notably, an LQASP or Certified Qualified Professional is NOT required to countersign a service note written by staff who hold neither status. A full service note is required for each contact or intervention on each date of service, carrying beneficiary name, Medicaid ID, date, service name, type of contact, place of service, purpose against a treatment-plan goal, description of the intervention, duration with session time in and out, assessment of effectiveness with data collected, caregivers present, a plan-of-care or protocol modification note for 97155, and the signature, date and credentials or job title of the staff member — with the beneficiary name, Medicaid ID and record number on every page. The treatment plan itself must be signed and dated by the responsible LQASP and the person consenting to treatment before services are delivered.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      placeOfService: {
+        value: 'Clinic, office, home, school and community settings are all payable, in any combination across the course of treatment, with the place-of-service decision documented in the treatment plan, made individually in collaboration with the family, and clinically justified for each location; where treatment starts in a structured clinic setting the goal is to advance into the beneficiary’s natural settings. Team members may not appear at a beneficiary’s place of work without prior permission. Services available through IDEA or other educational programs that duplicate or supplant the authorized treatment plan are not covered, nor is 1:1 support that substitutes for educational personnel. Telehealth and telephonic claims are filed with the provider’s usual place-of-service code.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      billAsProvider: {
+        value: 'A professional claim (CMS-1500 / 837P) billed through the beneficiary’s health plan or its dedicated vendor. Attachment B fixes who may render each code: 97151 by a physician, Licensed Psychologist / Licensed Psychological Associate or Licensed Behavior Analyst; 97152, 97153 and 97154 by a behavior technician under the direction of one of those practitioners or an LaBA, or by the practitioner directly; 97155 by a physician, psychologist, LBA or LaBA (non-licensed analysts only under required supervision); 97156 and 97157 by a physician, psychologist or LBA. Behavior technicians must be certified as an RBT (BACB) or ABAT (QABA) and produce evidence to the agency within 120 calendar days of hire or of the agency’s first Medicaid enrollment, whichever is later, and must stop rendering if they miss that window. The agency must be enrolled with NC Medicaid through NCTracks, and per NC Medicaid’s August 2026 reminder all LQASPs and C-QPs must enroll as in-state providers as of August 2, 2026.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does North Carolina Medicaid cover ABA therapy?', a: 'Yes — as Research-Based Behavioral Health Treatment (RB-BHT) under Clinical Coverage Policy 8F, in every delivery channel (Medicaid Direct, Standard Plans, Tailored Plans, and the Children & Families Specialty Plan). All RB-BHT services require prior authorization, including the assessment.' },
       { q: 'What does NC Medicaid pay for ABA?', a: 'Published per-15-minute rates, effective 10/1/2025: 97151 $30.56, 97153 $20.81, 97155 $32.22, 97156 $23.70 — and every managed-care plan must pay at least 100% of the state fee schedule unless the provider agrees otherwise.' },
@@ -127,7 +220,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     family: 'anthem',
     cardDesc: 'Straight CCP 8F via Availity/ICR; RB-BHT exempt from network distance rules; CFSP sibling plan.',
     assessmentPA: 'Required — per CCP 8F (all RB-BHT services PA\'d); submit via Availity Interactive Care Reviewer',
-    treatmentPA: 'Required — 180-day auth cycles per 8F',
+    treatmentPA: 'Required — tiered auth cycles per 8F: up to 180 calendar days at ≤16 hrs/week, up to 90 calendar days at >16 hrs/week',
     dxRequired: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
     payer: 'Healthy Blue (NC)',
     state: 'NC', kind: 'medicaid-mco', parent: 'North Carolina Medicaid',
@@ -176,6 +269,96 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Healthy Blue NC — prior authorization page', url: 'https://provider.healthybluenc.com/north-carolina-provider/prior-authorization' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the NC Medicaid rule: CCP 8F carries no upper age bound (the 8/1/2026 rewrite removed "under 21 years of age" from the eligibility provision), under-21 members carry the EPSDT special provision, and beneficiaries under three may start on a provisional diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the NC Medicaid rule: no expiry on the ASD diagnosis itself, but a provisional under-3 diagnosis must become non-provisional within six months, an adaptive behavior assessment must be under 3 years old, and diagnostic documentation must be verified and on file before services start.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the NC Medicaid rule: a non-provisional ASD diagnosis comes from a Licensed Psychologist, a supervised Licensed Psychological Associate, or a physician (MD or DO); a Licensed School Psychologist evaluation may be used where the required testing is included; a provisional under-3 diagnosis may also come from a trained master’s-level licensed clinician within scope.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the NC Medicaid rule: the ASD diagnosis must use BOSA, Tele-ASD-Peds, ADOS-2, or CARS2-ST/CARS2-HF; screeners, educational determinations and informal impressions cannot start services. The packet also needs a skills assessment (VB-MAPP, ABLLS-R or ESDM Curriculum Checklist), an FBA where challenging behaviors are targeted, and an adaptive behavior assessment within 3 years (VABS-3, ABAS-3 or DP-4).',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      referral: {
+        value: 'Follows the NC Medicaid rule — a service order signed and dated by a Licensed MD, DO or Licensed Psychologist, in place on or before the first date of service, based on an assessment and treatment plan, valid one year. Healthy Blue adopts the state Clinical Coverage Policies wholesale and publishes no ABA-specific referral rule of its own; code-level requirements are confirmed in the plan’s Precertification Lookup Tool and requests go through Availity Essentials’ Interactive Care Reviewer.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
+        ],
+      },
+      telehealth: {
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Follows the NC Medicaid rule: 97153 or 97154 may be billed concurrently with 97155 when a paraprofessional delivers the direct service under an eligible provider’s observation, but a single rendering provider may not bill 97153/97154 and 97155 simultaneously. 97151, 97152, 97156 and 97157 allow no concurrent billing, and non-RB-BHT services may not be billed for the same clock time.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Follows the NC Medicaid rule: no per-day unit ceiling is published — the limits are per authorization period. Plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      noteSignature: {
+        value: 'Follows the NC Medicaid rule: the staff member who delivered the service signs the note with credentials (professional) or job title (paraprofessional), and an LQASP or C-QP is not required to countersign a note written by non-LQASP/C-QP staff. A full note is required per contact per date of service with the elements listed in 8F subsection 5.5.1, and the treatment plan is signed and dated by the LQASP and the consenting party before services begin.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      placeOfService: {
+        value: 'Follows the NC Medicaid rule on covered settings (clinic, home, school, community, individually justified in the treatment plan). One plan-level note that matters for geography rather than the claim: the Healthy Blue provider manual exempts RB-BHT from the plan’s standard network time and distance standards.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the NC Medicaid rule: a professional CMS-1500/837P claim through the plan, with Attachment B fixing which provider type may render each code; behavior technicians must hold RBT or ABAT certification within 120 calendar days of hire or of the agency’s first Medicaid enrollment, and all LQASPs and C-QPs must enroll as in-state NC providers as of August 2, 2026.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Healthy Blue NC cover ABA therapy?', a: 'Yes — Healthy Blue administers NC Medicaid\'s RB-BHT benefit by adopting Clinical Coverage Policy 8F: PA on all services including assessment, 180-day authorization cycles, LQASP treatment-plan reviews.' },
       { q: 'How do I submit an RB-BHT authorization to Healthy Blue?', a: 'Via Availity Essentials\' Interactive Care Reviewer, or fax (844) 429-9636 for outpatient behavioral health. Check the Precertification Lookup Tool for code-level requirements first.' },
@@ -229,7 +412,97 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'AmeriHealth Caritas NC — prior authorization resources (bot-blocked; access via portal)', url: 'https://www.amerihealthcaritasnc.com/provider/resources/physical-prior-auth' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (pull manually; bot-blocked)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the NC Medicaid rule: CCP 8F carries no upper age bound (the 8/1/2026 rewrite removed "under 21 years of age" from the eligibility provision), under-21 members carry the EPSDT special provision, and beneficiaries under three may start on a provisional diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the NC Medicaid rule: no expiry on the ASD diagnosis itself, but a provisional under-3 diagnosis must become non-provisional within six months, an adaptive behavior assessment must be under 3 years old, and diagnostic documentation must be verified and on file before services start.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the NC Medicaid rule: a non-provisional ASD diagnosis comes from a Licensed Psychologist, a supervised Licensed Psychological Associate, or a physician (MD or DO); a Licensed School Psychologist evaluation may be used where the required testing is included; a provisional under-3 diagnosis may also come from a trained master’s-level licensed clinician within scope.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the NC Medicaid rule: the ASD diagnosis must use BOSA, Tele-ASD-Peds, ADOS-2, or CARS2-ST/CARS2-HF; screeners, educational determinations and informal impressions cannot start services. The packet also needs a skills assessment (VB-MAPP, ABLLS-R or ESDM Curriculum Checklist), an FBA where challenging behaviors are targeted, and an adaptive behavior assessment within 3 years (VABS-3, ABAS-3 or DP-4).',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      referral: {
+        value: 'Follows the NC Medicaid rule: a service order signed and dated by a Licensed MD, DO or Licensed Psychologist, in place on or before the first date of service, based on a behavioral/adaptive/functional assessment and treatment plan, valid one year and re-ordered annually. 97151 and 97152 need no service order for prior approval; 97153–97157 do.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      telehealth: {
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Follows the NC Medicaid rule: 97153 or 97154 may be billed concurrently with 97155 when a paraprofessional delivers the direct service under an eligible provider’s observation, but a single rendering provider may not bill 97153/97154 and 97155 simultaneously. 97151, 97152, 97156 and 97157 allow no concurrent billing, and non-RB-BHT services may not be billed for the same clock time.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Follows the NC Medicaid rule: no per-day unit ceiling; limits are per authorization period (180-day cycles at or under 16 hours a week, 90-day cycles above it), with the 50% 97155 telehealth cap and the six-caregiver-training minimum per 180 days. AmeriHealth publishes no plan-specific ABA unit table; because the plan removed prior authorization from 240+ codes effective January 1, 2025 without publicly confirming whether any 9715x codes were included, run the planned codes through the plan’s PA Lookup Tool rather than assuming.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (pull manually; bot-blocked)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'Follows the NC Medicaid rule: the staff member who delivered the service signs the note with credentials (professional) or job title (paraprofessional), and an LQASP or C-QP is not required to countersign a note written by non-LQASP/C-QP staff. A full note is required per contact per date of service with the elements listed in 8F subsection 5.5.1, and the treatment plan is signed and dated by the LQASP and the consenting party before services begin.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      placeOfService: {
+        value: 'Follows the NC Medicaid rule: clinic, home, school and community settings are all payable in any combination, individually justified and documented in the treatment plan, with the goal of advancing toward natural settings. IDEA-duplicative school services are excluded, and telehealth or telephonic claims carry the provider’s usual place-of-service code.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the NC Medicaid rule: a professional CMS-1500/837P claim through the plan, with Attachment B fixing which provider type may render each code; behavior technicians must hold RBT or ABAT certification within 120 calendar days of hire or of the agency’s first Medicaid enrollment, and all LQASPs and C-QPs must enroll as in-state NC providers as of August 2, 2026.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does AmeriHealth Caritas NC cover ABA therapy?', a: 'Yes — as a Standard Plan it administers NC Medicaid\'s RB-BHT benefit under Clinical Coverage Policy 8F, with prior authorization per the state baseline. Confirm code-level rules in the plan\'s PA Lookup Tool.' },
       { q: 'How do I reach AmeriHealth Caritas NC utilization management?', a: 'UM runs at (888) 738-0004; the provider workflow uses NaviNet and the PA Lookup Tool at amerihealthcaritasnc.com. The January 2025 Behavioral Health UM Guide has the current details — pull it from the portal.' },
@@ -284,6 +557,95 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the NC Medicaid rule: CCP 8F carries no upper age bound (the 8/1/2026 rewrite removed "under 21 years of age" from the eligibility provision), under-21 members carry the EPSDT special provision, and beneficiaries under three may start on a provisional diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the NC Medicaid rule: no expiry on the ASD diagnosis itself, but a provisional under-3 diagnosis must become non-provisional within six months, an adaptive behavior assessment must be under 3 years old, and diagnostic documentation must be verified and on file before services start.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the NC Medicaid rule: a non-provisional ASD diagnosis comes from a Licensed Psychologist, a supervised Licensed Psychological Associate, or a physician (MD or DO); a Licensed School Psychologist evaluation may be used where the required testing is included; a provisional under-3 diagnosis may also come from a trained master’s-level licensed clinician within scope.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the NC Medicaid rule: the ASD diagnosis must use BOSA, Tele-ASD-Peds, ADOS-2, or CARS2-ST/CARS2-HF; screeners, educational determinations and informal impressions cannot start services. The packet also needs a skills assessment (VB-MAPP, ABLLS-R or ESDM Curriculum Checklist), an FBA where challenging behaviors are targeted, and an adaptive behavior assessment within 3 years (VABS-3, ABAS-3 or DP-4).',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      referral: {
+        value: 'Follows the NC Medicaid rule — an MD/DO/Licensed Psychologist service order, dated on or before the first service, assessment-based, valid one year. Carolina Complete Health states outright that the clinical requirements are detailed in Policy 8F on the state Medicaid website; its own layer is the ABA Outpatient Treatment Request Checklist that structures portal submissions.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Carolina Complete Health — behavioral health provider page', url: 'https://network.carolinacompletehealth.com/resources/behavioral-health.html' },
+        ],
+      },
+      telehealth: {
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Follows the NC Medicaid rule: 97153 or 97154 may be billed concurrently with 97155 when a paraprofessional delivers the direct service under an eligible provider’s observation, but a single rendering provider may not bill 97153/97154 and 97155 simultaneously. 97151, 97152, 97156 and 97157 allow no concurrent billing, and non-RB-BHT services may not be billed for the same clock time.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Follows the NC Medicaid rule: no per-day unit ceiling is published — the limits are per authorization period. Plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      noteSignature: {
+        value: 'Follows the NC Medicaid rule: the staff member who delivered the service signs the note with credentials (professional) or job title (paraprofessional), and an LQASP or C-QP is not required to countersign a note written by non-LQASP/C-QP staff. A full note is required per contact per date of service with the elements listed in 8F subsection 5.5.1, and the treatment plan is signed and dated by the LQASP and the consenting party before services begin.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      placeOfService: {
+        value: 'Follows the NC Medicaid rule: clinic, home, school and community settings are all payable in any combination, individually justified and documented in the treatment plan, with the goal of advancing toward natural settings. IDEA-duplicative school services are excluded, and telehealth or telephonic claims carry the provider’s usual place-of-service code.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the NC Medicaid rule: a professional CMS-1500/837P claim through the plan, with Attachment B fixing which provider type may render each code; behavior technicians must hold RBT or ABAT certification within 120 calendar days of hire or of the agency’s first Medicaid enrollment, and all LQASPs and C-QPs must enroll as in-state NC providers as of August 2, 2026.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Carolina Complete Health cover ABA therapy?', a: 'Yes — RB-BHT per NC Clinical Coverage Policy 8F, which the plan defers to explicitly. PA is required before any RB-BHT service, submitted through the provider portal with the plan\'s ABA treatment-request checklist.' },
       { q: 'Is Carolina Complete Health available statewide?', a: 'Yes, as of April 1, 2026 — it absorbed WellCare of North Carolina and now operates statewide as a Standard Plan, rather than the smaller regional footprint it held before the merger.' },
@@ -339,6 +701,96 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'UHC Community Plan NC — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/north-carolina-health-plans/nc-comm-plan-home/nc-cp-prior-auth.html' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the NC Medicaid rule: CCP 8F carries no upper age bound (the 8/1/2026 rewrite removed "under 21 years of age" from the eligibility provision), under-21 members carry the EPSDT special provision, and beneficiaries under three may start on a provisional diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the NC Medicaid rule: no expiry on the ASD diagnosis itself, but a provisional under-3 diagnosis must become non-provisional within six months, an adaptive behavior assessment must be under 3 years old, and diagnostic documentation must be verified and on file before services start.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the NC Medicaid rule: a non-provisional ASD diagnosis comes from a Licensed Psychologist, a supervised Licensed Psychological Associate, or a physician (MD or DO); a Licensed School Psychologist evaluation may be used where the required testing is included; a provisional under-3 diagnosis may also come from a trained master’s-level licensed clinician within scope.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the NC Medicaid rule: the ASD diagnosis must use BOSA, Tele-ASD-Peds, ADOS-2, or CARS2-ST/CARS2-HF; screeners, educational determinations and informal impressions cannot start services. The packet also needs a skills assessment (VB-MAPP, ABLLS-R or ESDM Curriculum Checklist), an FBA where challenging behaviors are targeted, and an adaptive behavior assessment within 3 years (VABS-3, ABAS-3 or DP-4).',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      referral: {
+        value: 'Follows the NC Medicaid rule for the service order itself — MD/DO/Licensed Psychologist, dated on or before the first service, valid one year — but the authorization flow is Optum’s: since July 1, 2021 Optum manages the plan’s ABA network and requires an authorization for the assessment that is separate from the treatment authorization, both submitted through Provider Express with a One Healthcare ID. Sequence intake as benefits check, assessment auth, assessment, treatment auth, with the 8F diagnosis and service order satisfied before step one.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Optum Provider Express — NC Medicaid ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaCAMediCal12.html' },
+        ],
+      },
+      telehealth: {
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Follows the NC Medicaid rule: 97153 or 97154 may be billed concurrently with 97155 when a paraprofessional delivers the direct service under an eligible provider’s observation, but a single rendering provider may not bill 97153/97154 and 97155 simultaneously. 97151, 97152, 97156 and 97157 allow no concurrent billing, and non-RB-BHT services may not be billed for the same clock time.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Follows the NC Medicaid rule: no per-day unit ceiling is published — the limits are per authorization period. Plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      noteSignature: {
+        value: 'Follows the NC Medicaid rule: the staff member who delivered the service signs the note with credentials (professional) or job title (paraprofessional), and an LQASP or C-QP is not required to countersign a note written by non-LQASP/C-QP staff. A full note is required per contact per date of service with the elements listed in 8F subsection 5.5.1, and the treatment plan is signed and dated by the LQASP and the consenting party before services begin.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      placeOfService: {
+        value: 'Follows the NC Medicaid rule: clinic, home, school and community settings are all payable in any combination, individually justified and documented in the treatment plan, with the goal of advancing toward natural settings. IDEA-duplicative school services are excluded, and telehealth or telephonic claims carry the provider’s usual place-of-service code.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the NC Medicaid rule on rendering-provider eligibility and the professional CMS-1500/837P claim, with one credentialing dependency layered on: providers must be enrolled with NC Medicaid through NCTracks before they can join the Optum ABA network, and both enrolments must be in place before serving members.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Optum Provider Express — NC Medicaid ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaCAMediCal12.html' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of NC cover ABA?', a: 'Yes — RB-BHT under the CCP 8F baseline, administered through Optum, which has managed the plan\'s ABA network since July 2021, with UHC\'s own supplemental clinical criteria on top.' },
       { q: 'How is UHC\'s NC authorization process different?', a: 'It\'s a two-step flow on Provider Express: a separate authorization for the assessment, then a second for treatment — unlike the single-request flow at most other NC plans.' },
@@ -394,6 +846,110 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy (historical)', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the NC Medicaid rule: CCP 8F carries no upper age bound (the 8/1/2026 rewrite removed "under 21 years of age" from the eligibility provision), under-21 members carry the EPSDT special provision, and beneficiaries under three may start on a provisional diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        ],
+      },
+      dxRecency: {
+        value: 'Historical. WNC.CP.109 mirrored the state rule — a validated diagnostic tool, and a provisional diagnosis under age three with a definitive diagnosis within six months. WellCare of North Carolina merged into Carolina Complete Health effective April 1, 2026, so the operative rule for these members is now the state rule as administered by Carolina Complete Health.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+          { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the NC Medicaid rule: a non-provisional ASD diagnosis comes from a Licensed Psychologist, a supervised Licensed Psychological Associate, or a physician (MD or DO); a Licensed School Psychologist evaluation may be used where the required testing is included; a provisional under-3 diagnosis may also come from a trained master’s-level licensed clinician within scope.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the NC Medicaid rule: the ASD diagnosis must use BOSA, Tele-ASD-Peds, ADOS-2, or CARS2-ST/CARS2-HF; screeners, educational determinations and informal impressions cannot start services. The packet also needs a skills assessment (VB-MAPP, ABLLS-R or ESDM Curriculum Checklist), an FBA where challenging behaviors are targeted, and an adaptive behavior assessment within 3 years (VABS-3, ABAS-3 or DP-4).',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        ],
+      },
+      referral: {
+        value: 'Follows the NC Medicaid rule: a service order signed and dated by a Licensed MD, DO or Licensed Psychologist, in place on or before the first date of service, based on a behavioral/adaptive/functional assessment and treatment plan, valid one year and re-ordered annually. 97151 and 97152 need no service order for prior approval; 97153–97157 do.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        ],
+      },
+      telehealth: {
+        value: 'Historical. WellCare governed RB-BHT telehealth through a separate policy, WNC.CP.193, allowing telephonic parent training only for documented caregiver health or access barriers. The state’s finalized CCP 8F (eff. 8/1/2026) now controls statewide: telehealth removed entirely for 97152, 97153 and 97154, 97155 capped at 50% of billing per beneficiary per 180 days, 97151 telehealth eligible with clinical justification, and 97156/97157 keeping the KX telephonic caregiver-barrier exception. WellCare of NC merged into Carolina Complete Health on April 1, 2026.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+          { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Follows the NC Medicaid rule: 97153 or 97154 may be billed concurrently with 97155 when a paraprofessional delivers the direct service under an eligible provider’s observation, but a single rendering provider may not bill 97153/97154 and 97155 simultaneously. 97151, 97152, 97156 and 97157 allow no concurrent billing, and non-RB-BHT services may not be billed for the same clock time.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Follows the NC Medicaid rule: no per-day unit ceiling is published — the limits are per authorization period. Plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'Follows the NC Medicaid rule: the staff member who delivered the service signs the note with credentials (professional) or job title (paraprofessional), and an LQASP or C-QP is not required to countersign a note written by non-LQASP/C-QP staff. A full note is required per contact per date of service with the elements listed in 8F subsection 5.5.1, and the treatment plan is signed and dated by the LQASP and the consenting party before services begin.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'Follows the NC Medicaid rule: clinic, home, school and community settings are all payable in any combination, individually justified and documented in the treatment plan, with the goal of advancing toward natural settings. IDEA-duplicative school services are excluded, and telehealth or telephonic claims carry the provider’s usual place-of-service code.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the NC Medicaid rule: a professional CMS-1500/837P claim through the plan, with Attachment B fixing which provider type may render each code; behavior technicians must hold RBT or ABAT certification within 120 calendar days of hire or of the agency’s first Medicaid enrollment, and all LQASPs and C-QPs must enroll as in-state NC providers as of August 2, 2026.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does WellCare of North Carolina still exist?', a: 'No — WellCare of North Carolina merged into Carolina Complete Health effective April 1, 2026, and is no longer a standalone NC Medicaid Standard Plan. Members and providers should use the Carolina Complete Health guide going forward.' },
       { q: 'What happened to WellCare NC members after the merger?', a: 'They are now served by Carolina Complete Health, which expanded from its prior regional footprint to a statewide Standard Plan as part of the merger.' },
@@ -455,6 +1011,108 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Alliance Health — Standard Rate Schedule', url: 'https://www.alliancehealthplan.org/document-library/97251' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the NC Medicaid rule: CCP 8F carries no upper age bound (the 8/1/2026 rewrite removed "under 21 years of age" from the eligibility provision), under-21 members carry the EPSDT special provision, and beneficiaries under three may start on a provisional diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the NC Medicaid rule: no expiry on the ASD diagnosis itself, but a provisional under-3 diagnosis must become non-provisional within six months, an adaptive behavior assessment must be under 3 years old, and diagnostic documentation must be verified and on file before services start.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the NC Medicaid rule: a non-provisional ASD diagnosis comes from a Licensed Psychologist, a supervised Licensed Psychological Associate, or a physician (MD or DO); a Licensed School Psychologist evaluation may be used where the required testing is included; a provisional under-3 diagnosis may also come from a trained master’s-level licensed clinician within scope.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Alliance enforces the diagnostic-instrument bar more explicitly than any other NC plan: its February 2026 RB-BHT guidance names ADI-R, ADOS-2, CARS-2 and TELE-ASD-PEDS as acceptable and rejects GARS, M-CHAT and SRS as standalone diagnoses. Note the state rule it sits on has since been rewritten — the finalized CCP 8F (eff. 8/1/2026) names BOSA, Tele-ASD-Peds, ADOS-2 and CARS2-ST/CARS2-HF, and does not list ADI-R — so screen referral packets against both lists and confirm the current Alliance guidance version before relying on ADI-R alone.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+      referral: {
+        value: 'Alliance is the strictest documented enforcer of the state service-order rule: signed by an MD, DO or licensed psychologist, based on a behavioral, adaptive or functional assessment, dated on or before the service start, valid one year — and a bare "medical necessity statement" does not qualify. Alliance’s fillable RB-BHT cover sheet accompanies each service request.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+      telehealth: {
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Follows the NC Medicaid rule: 97153 or 97154 may be billed concurrently with 97155 when a paraprofessional delivers the direct service under an eligible provider’s observation, but a single rendering provider may not bill 97153/97154 and 97155 simultaneously. 97151, 97152, 97156 and 97157 allow no concurrent billing, and non-RB-BHT services may not be billed for the same clock time.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Follows the NC Medicaid rule: no per-day unit ceiling is published — the limits are per authorization period. Plans at or under 16 hours a week run 180-day initial and reauthorization cycles; plans above 16 hours a week run 90-day cycles. Within a 180-day period, 97155 telehealth is capped at 50% of 97155 billing and at least six caregiver training sessions are required. Educational-setting and IEP hours are excluded from the treatment-hour calculation.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+      noteSignature: {
+        value: 'Follows the NC Medicaid rule: the staff member who delivered the service signs the note with credentials (professional) or job title (paraprofessional), and an LQASP or C-QP is not required to countersign a note written by non-LQASP/C-QP staff. A full note is required per contact per date of service with the elements listed in 8F subsection 5.5.1, and the treatment plan is signed and dated by the LQASP and the consenting party before services begin.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+      placeOfService: {
+        value: 'Follows the NC Medicaid rule: clinic, home, school and community settings are all payable in any combination, individually justified and documented in the treatment plan, with the goal of advancing toward natural settings. IDEA-duplicative school services are excluded, and telehealth or telephonic claims carry the provider’s usual place-of-service code.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the NC Medicaid rule: a professional CMS-1500/837P claim through the plan, with Attachment B fixing which provider type may render each code; behavior technicians must hold RBT or ABAT certification within 120 calendar days of hire or of the agency’s first Medicaid enrollment, and all LQASPs and C-QPs must enroll as in-state NC providers as of August 2, 2026.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Alliance Health cover ABA therapy?', a: 'Yes — as a Tailored Plan, Alliance administers RB-BHT under CCP 8F, paying the state fee-schedule rates (97153 at $20.81/15-min, 97155 at $32.22/15-min, effective 10/1/2025).' },
       { q: 'What diagnostic tools does Alliance accept for ABA?', a: 'ADI-R, ADOS-2, CARS-2, and TELE-ASD-PEDS. GARS, M-CHAT, and SRS are explicitly insufficient as standalone diagnoses — a common reason referral packets bounce.' },
@@ -512,6 +1170,110 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the NC Medicaid rule — no upper age bound. Trillium is explicit about it: its Medicaid Child Behavioral Health Benefit Plan lists RB-BHT for "Children, Adolescents and Adults," reflecting the 2021 State Plan Amendment that extended coverage past 21. Under-21 members carry EPSDT; under-3s may start on a provisional diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the NC Medicaid rule: no expiry on the ASD diagnosis itself, but a provisional under-3 diagnosis must become non-provisional within six months, an adaptive behavior assessment must be under 3 years old, and diagnostic documentation must be verified and on file before services start.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the NC Medicaid rule: a non-provisional ASD diagnosis comes from a Licensed Psychologist, a supervised Licensed Psychological Associate, or a physician (MD or DO); a Licensed School Psychologist evaluation may be used where the required testing is included; a provisional under-3 diagnosis may also come from a trained master’s-level licensed clinician within scope.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the NC Medicaid rule: the ASD diagnosis must use BOSA, Tele-ASD-Peds, ADOS-2, or CARS2-ST/CARS2-HF; screeners, educational determinations and informal impressions cannot start services. The packet also needs a skills assessment (VB-MAPP, ABLLS-R or ESDM Curriculum Checklist), an FBA where challenging behaviors are targeted, and an adaptive behavior assessment within 3 years (VABS-3, ABAS-3 or DP-4).',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+      referral: {
+        value: 'Follows the NC Medicaid rule, enforced at the TAR: the initial request needs the written assessment, diagnosis documentation from a validated tool, and the MD/DO/Licensed Psychologist service order; treatment requests add a complete treatment plan signed by the LQASP and the legally responsible person, plus a discharge plan. Every RB-BHT code (97151–97157) requires a TAR, telehealth and telephonic delivery included.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+      telehealth: {
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Follows the NC Medicaid rule: 97153 or 97154 may be billed concurrently with 97155 when a paraprofessional delivers the direct service under an eligible provider’s observation, but a single rendering provider may not bill 97153/97154 and 97155 simultaneously. 97151, 97152, 97156 and 97157 allow no concurrent billing, and non-RB-BHT services may not be billed for the same clock time.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Follows the NC Medicaid rule. Trillium states there are no published unit caps — units run in 15-minute increments — so the binding limits are the authorization periods: 180-day initial and reauthorization cycles at or under 16 hours a week, 90-day cycles above it, with reauthorization due before the current one expires and all services subject to post-payment review. Existing prior authorizations are unaffected by the change and none will be shortened.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+        ],
+      },
+      noteSignature: {
+        value: 'Follows the NC Medicaid rule: the staff member who delivered the service signs the note with credentials (professional) or job title (paraprofessional), and an LQASP or C-QP is not required to countersign a note written by non-LQASP/C-QP staff. A full note is required per contact per date of service with the elements listed in 8F subsection 5.5.1, and the treatment plan is signed and dated by the LQASP and the consenting party before services begin.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'Follows the NC Medicaid rule: clinic, home, school and community settings are all payable in any combination, individually justified and documented in the treatment plan, with the goal of advancing toward natural settings. IDEA-duplicative school services are excluded, and telehealth or telephonic claims carry the provider’s usual place-of-service code.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the NC Medicaid rule: a professional CMS-1500/837P claim through the plan, with Attachment B fixing which provider type may render each code; behavior technicians must hold RBT or ABAT certification within 120 calendar days of hire or of the agency’s first Medicaid enrollment, and all LQASPs and C-QPs must enroll as in-state NC providers as of August 2, 2026.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Trillium cover ABA therapy?', a: 'Yes — RB-BHT under CCP 8F, with a TAR (prior authorization) required for every code including telehealth delivery, in 180-day cycles (90-day for plans above 16 hours/week under the finalized 8F, effective 8/1/2026).' },
       { q: 'Does Trillium cover ABA for adults?', a: 'Its benefit plan lists RB-BHT for "Children, Adolescents and Adults," reflecting the 2021 State Plan Amendment that extended NC RB-BHT coverage past age 21.' },
@@ -569,6 +1331,109 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Vaya Health — prior authorization page', url: 'https://providers.vayahealth.com/authorization-information/prior-authorization/' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the NC Medicaid rule: CCP 8F carries no upper age bound (the 8/1/2026 rewrite removed "under 21 years of age" from the eligibility provision), under-21 members carry the EPSDT special provision, and beneficiaries under three may start on a provisional diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the NC Medicaid rule: no expiry on the ASD diagnosis itself, but a provisional under-3 diagnosis must become non-provisional within six months, an adaptive behavior assessment must be under 3 years old, and diagnostic documentation must be verified and on file before services start.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the NC Medicaid rule: a non-provisional ASD diagnosis comes from a Licensed Psychologist, a supervised Licensed Psychological Associate, or a physician (MD or DO); a Licensed School Psychologist evaluation may be used where the required testing is included; a provisional under-3 diagnosis may also come from a trained master’s-level licensed clinician within scope.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the NC Medicaid rule: the ASD diagnosis must use BOSA, Tele-ASD-Peds, ADOS-2, or CARS2-ST/CARS2-HF; screeners, educational determinations and informal impressions cannot start services. The packet also needs a skills assessment (VB-MAPP, ABLLS-R or ESDM Curriculum Checklist), an FBA where challenging behaviors are targeted, and an adaptive behavior assessment within 3 years (VABS-3, ABAS-3 or DP-4).',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+      referral: {
+        value: 'Follows the NC Medicaid rule (MD/DO/Licensed Psychologist service order, assessment-based, dated on or before the start, valid one year), with Vaya-specific passthrough thresholds that decide whether a full service authorization request is needed: 97151 up to 32 units per six months passes through on notification alone, and above that needs a complete SAR carrying the service order, treatment plan and MD/DO/psychologist-validated ASD diagnosis. 97152, 97153, 97154, 97156 and 97157 always need a SAR with FBA, treatment plan and service order on both initial and concurrent requests.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+      telehealth: {
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the NC Medicaid rule (10% LQASP observation floor; 10–20% LQASP-to-paraprofessional ratio above 200 paraprofessional hours per 180 days). Vaya adds an authorization threshold on top: 97155 protocol modification by a BCBA-LP passes through on notification alone up to a ratio of one hour per ten hours of direct intervention (97153/97154); above that ratio it needs a full SAR for medical-necessity review.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Follows the NC Medicaid rule: 97153 or 97154 may be billed concurrently with 97155 when a paraprofessional delivers the direct service under an eligible provider’s observation, but a single rendering provider may not bill 97153/97154 and 97155 simultaneously. 97151, 97152, 97156 and 97157 allow no concurrent billing, and non-RB-BHT services may not be billed for the same clock time.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Follows the NC Medicaid rule — no per-day unit ceiling, with limits set per authorization period. Vaya’s own thresholds are the practical ones at intake: 97151 up to 32 units per six months and 97155 up to a 1-hour-per-10-hours ratio against direct intervention pass through on notification, and anything above either needs a full SAR.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'Follows the NC Medicaid rule: the staff member who delivered the service signs the note with credentials (professional) or job title (paraprofessional), and an LQASP or C-QP is not required to countersign a note written by non-LQASP/C-QP staff. A full note is required per contact per date of service with the elements listed in 8F subsection 5.5.1, and the treatment plan is signed and dated by the LQASP and the consenting party before services begin.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'Follows the NC Medicaid rule: clinic, home, school and community settings are all payable in any combination, individually justified and documented in the treatment plan, with the goal of advancing toward natural settings. IDEA-duplicative school services are excluded, and telehealth or telephonic claims carry the provider’s usual place-of-service code.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the NC Medicaid rule: a professional CMS-1500/837P claim through the plan, with Attachment B fixing which provider type may render each code; behavior technicians must hold RBT or ABAT certification within 120 calendar days of hire or of the agency’s first Medicaid enrollment, and all LQASPs and C-QPs must enroll as in-state NC providers as of August 2, 2026.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Vaya Health cover ABA therapy?', a: 'Yes — as a Tailored Plan, Vaya administers RB-BHT under CCP 8F, with service authorization requests reviewed by its UM team ((800) 893-6246 ext. 1513, UM@vayahealth.com).' },
       { q: 'Does every Vaya ABA request need a full SAR?', a: 'No — 97151 assessment requests up to 32 units per 6 months and 97155 up to a 1-hour-per-10-hours ratio against direct intervention pass through on notification alone. Above either threshold, a complete SAR (service order, treatment plan, validated diagnosis) is required.' },
@@ -623,6 +1488,108 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Partners — ALL-codes authorization provider alert', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the NC Medicaid rule: CCP 8F carries no upper age bound (the 8/1/2026 rewrite removed "under 21 years of age" from the eligibility provision), under-21 members carry the EPSDT special provision, and beneficiaries under three may start on a provisional diagnosis.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the NC Medicaid rule: no expiry on the ASD diagnosis itself, but a provisional under-3 diagnosis must become non-provisional within six months, an adaptive behavior assessment must be under 3 years old, and diagnostic documentation must be verified and on file before services start.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the NC Medicaid rule: a non-provisional ASD diagnosis comes from a Licensed Psychologist, a supervised Licensed Psychological Associate, or a physician (MD or DO); a Licensed School Psychologist evaluation may be used where the required testing is included; a provisional under-3 diagnosis may also come from a trained master’s-level licensed clinician within scope.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the NC Medicaid rule: the ASD diagnosis must use BOSA, Tele-ASD-Peds, ADOS-2, or CARS2-ST/CARS2-HF; screeners, educational determinations and informal impressions cannot start services. The packet also needs a skills assessment (VB-MAPP, ABLLS-R or ESDM Curriculum Checklist), an FBA where challenging behaviors are targeted, and an adaptive behavior assessment within 3 years (VABS-3, ABAS-3 or DP-4).',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      referral: {
+        value: 'Follows the NC Medicaid rule: a service order signed and dated by a Licensed MD, DO or Licensed Psychologist, in place on or before the first date of service, based on a behavioral/adaptive/functional assessment and treatment plan, valid one year and re-ordered annually. 97151 and 97152 need no service order for prior approval; 97153–97157 do.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      telehealth: {
+        value: 'Follows the NC Medicaid rule (Attachment A, eff. 8/1/2026): GT telehealth is billable for 97151 with clinical justification and for 97155 up to 50% of total 97155 billing per beneficiary per 180 days; telehealth is removed entirely for 97152, 97153 and 97154; 97156 and 97157 remain telehealth eligible and are the only KX telephonic services, on a documented caregiver health or access barrier.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the NC Medicaid rule: at least 10% of paraprofessional-delivered services must involve LQASP observation and direction, and above 200 paraprofessional hours per 180 days the LQASP-to-paraprofessional ratio must sit between 10% and 20%, documented in the treatment plan with deviations clinically justified. Incidental supervision is not billable.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Follows the NC Medicaid rule: 97153 or 97154 may be billed concurrently with 97155 when a paraprofessional delivers the direct service under an eligible provider’s observation, but a single rendering provider may not bill 97153/97154 and 97155 simultaneously. 97151, 97152, 97156 and 97157 allow no concurrent billing, and non-RB-BHT services may not be billed for the same clock time.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Follows the NC Medicaid rule — no per-day unit ceiling, limits set per authorization period. Partners’ own model is unusually permissive on codes: since October 2023 one authorization on the base code covers every RB-BHT code and modifier combination, telehealth included, submitted through ProAuth with the base code as Primary Procedure Code on the Prescreen. The flexibility is paired with post-payment review — every billed unit must trace to the approved treatment plan or face recoupment.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      noteSignature: {
+        value: 'Follows the NC Medicaid rule: the staff member who delivered the service signs the note with credentials (professional) or job title (paraprofessional), and an LQASP or C-QP is not required to countersign a note written by non-LQASP/C-QP staff. A full note is required per contact per date of service with the elements listed in 8F subsection 5.5.1, and the treatment plan is signed and dated by the LQASP and the consenting party before services begin.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      placeOfService: {
+        value: 'Follows the NC Medicaid rule: clinic, home, school and community settings are all payable in any combination, individually justified and documented in the treatment plan, with the goal of advancing toward natural settings. IDEA-duplicative school services are excluded, and telehealth or telephonic claims carry the provider’s usual place-of-service code.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the NC Medicaid rule on rendering-provider eligibility, the professional claim and the 120-day RBT/ABAT certification clock. Partners issues authorizations as "ALL codes" on the base code, so the claim’s code and modifier can flex within the approved treatment plan without a new request — but billing outside that plan is recouped.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+          { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Partners Health Management cover ABA therapy?', a: 'Yes — as a Tailored Plan it adopts CCP 8F for RB-BHT medical-necessity decisions, with prior authorization required per the state baseline.' },
       { q: 'What is the ALL-codes authorization?', a: 'Since October 2023, one Partners authorization on the base code covers all RB-BHT codes and modifiers — no code-by-code requests. Billing must still match the approved treatment plan or risk recoupment.' },
@@ -707,7 +1674,113 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
       { title: 'Autism Speaks — North Carolina state-regulated coverage', url: 'https://www.autismspeaks.org/north-carolina-state-regulated-insurance-coverage' },
       { title: 'North Carolina Behavior Analyst Licensure Board', url: 'https://ncbehavioranalystboard.org/' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Aetna’s national ABA policies set no coverage age cap. The ABA medical necessity guide describes typical rather than limiting parameters: comprehensive ABA at 10–25 hours a week is typical for ages 0–7 over 1–2 years, while focused ABA at 1–20 hours a week is listed for all ages over 1–4 years. Where the member’s benefit plan or a state mandate carries an age term, that governs. North Carolina’s mandate permits coverage to be limited to individuals 18 or younger and capped at $40,000 a year (CPI-indexed from 2017) on fully insured plans — quantitative treatment limits of doubtful enforceability against large-group plans under MHPAEA. The mandate does not apply to non-grandfathered individual and small-group plans, and self-funded ERISA plans are exempt by preemption.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
+        ],
+        verifyVia: 'Live benefits verification on the member ID — establish fully insured vs. self-funded ERISA, then the plan’s own age and benefit terms.',
+      },
+      dxRecency: {
+        value: 'Aetna puts no expiry on the ASD diagnosis itself, but it does run a 12-month clock on the functional evidence: medical necessity requires demonstration of functional impairment on a standardized scale of functioning in the past 12 months, at least one standard deviation below the population mean, or a significant risk of harm to self or others. Progress is then re-evaluated every six months.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'A DSM-5 diagnosis of Autism Spectrum Disorder (ICD-10 F84.0, F84.3–F84.9) obtained by an appropriate provider — the medical necessity guide names a licensed psychologist or psychiatrist, a physician, or another health care professional qualified to diagnose mental health conditions within their scope of practice. CPB 0648 separately lists the professionals appropriate to an ASD evaluation: board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'CPB 0648 names the diagnostic instruments behind an ASD diagnosis: ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale. The ABA medical necessity guide then requires a standardized measure of functioning administered within the past 12 months — it gives the Vineland Adaptive Behavior Scales 3, the Adaptive Behavior Assessment Scale, VB-MAPP and ABLLS as examples — with impairment at least one standard deviation below the population mean or representing a significant risk of harm.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      referral: {
+        value: 'Aetna’s national ABA policies require no physician referral, order or prescription — the only prescription requirement in the medical necessity guide sits in its Maryland exhibit under COMAR 31.10.39, which does not reach NC. What Aetna requires nationally is precertification: its participating-provider behavioral health precertification list names all ten ABA codes — 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T — and ABA precertification runs on form GR-69017-4 through Availity or the number on the member ID card. For a fully insured North Carolina plan the state mandate adds an ordering requirement the carrier policies do not: adaptive behavior treatment must be ordered by a licensed physician or licensed psychologist. The mandate does not reach non-grandfathered individual and small-group plans, and self-funded ERISA plans sit outside state insurance law entirely — establish plan funding type before relying on it.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
+        ],
+      },
+      telehealth: {
+        value: 'Not addressed. Neither CPB 0554, CPB 0648 nor the ABA medical necessity guide sets telehealth rules or place-of-service codes for ABA; the behavioral health provider manual covers telemedicine only as a member-facing Teladoc-style offering that self-insured plan sponsors may opt out of.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+        verifyVia: 'Availity, or the precertification line on the member ID card — ask which ABA codes Aetna will pay via telehealth on this specific plan, and with which POS code and modifier.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope, unless state mandates, plan documents or contracts require otherwise. Where a mandate, plan document or contract does allow authorization for services not directly provided by such a person, there must be supervision and direction of the unlicensed or non-certified provider in line with practice standards. Aetna publishes no numeric supervision ratio.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not addressed in Aetna’s published ABA policies — CPB 0554, CPB 0648 and the ABA medical necessity guide are silent on billing 97153 and 97155 for the same clock time.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+        verifyVia: 'Aetna provider services / the participating-provider agreement, or a written coding determination from Aetna Behavioral Health (BACABACases@Aetna.com).',
+      },
+      dailyLimits: {
+        value: 'Aetna publishes no per-day or per-week unit ceiling for ABA. Authorized hours are set from documented symptom severity using the medical necessity guide’s severity assessment, against typical intensities of 10–25 hours a week for comprehensive and 1–20 hours a week for focused programmes — typical, not cap. Progress is evaluated every six months and coverage ends on the guide’s improvement thresholds. North Carolina’s mandate permits coverage to be limited to individuals 18 or younger and capped at $40,000 a year (CPI-indexed from 2017) on fully insured plans — quantitative treatment limits of doubtful enforceability against large-group plans under MHPAEA. The mandate does not apply to non-grandfathered individual and small-group plans, and self-funded ERISA plans are exempt by preemption.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not addressed. Aetna’s published ABA policies set treatment-plan content requirements — defined target behaviors, baseline measures, quantifiable progress criteria, generalization strategies, transition and titration planning — but do not specify who must sign a session note or by when.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+        verifyVia: 'The participating-provider agreement and the Aetna Behavioral Health Provider Manual section on documentation and record retention.',
+      },
+      placeOfService: {
+        value: 'Outpatient ABA is setting-agnostic in Aetna’s guide, which notes only that where ABA is delivered in an inpatient, residential or partial hospitalization setting the medical necessity criteria for that level of care apply and no separate ABA authorization is needed. The guide expects collaboration and coordination with existing providers and the school district as applicable, and a treatment plan that tapers higher intensities toward supports from other sources such as school. Aetna’s statement that it will not deny coverage solely because services are in a child’s educational setting is a Maryland provision, not national, and Aetna is not required to provide services under an IEP or an IDEA obligation of a public school.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Services must be provided directly or billed by the appropriately licensed provider: licensed behavior analysts in states with licensure laws, board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope — unless state mandates, plan documents or contracts require otherwise.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Aetna cover ABA therapy in North Carolina?', a: 'Yes — under the carrier\'s national policy for ASD, layered on North Carolina\'s mandate (N.C.G.S. § 58-3-192) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the North Carolina autism mandate require?', a: 'North Carolina’s mandate (effective July 2016) requires covered health benefit plans to cover “adaptive behavior treatment” — the statutory term; ABA itself isn’t named, but board certified behavior analysts are among the eight authorized provider categories, and treatment must be ordered by a licensed physician or licensed psychologist. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
@@ -793,6 +1866,101 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — North Carolina state-regulated coverage', url: 'https://www.autismspeaks.org/north-carolina-state-regulated-insurance-coverage' },
       { title: 'North Carolina Behavior Analyst Licensure Board', url: 'https://ncbehavioranalystboard.org/' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'EN0499 sets no age cap on ABA — its glossary, following CASP 2024, states that access to focused intervention "should not be restricted by age, cognitive level, diagnosis, or co-occurring conditions." Age terms come from the member’s benefit plan document, which supersedes the coverage policy, and from any controlling state mandate. North Carolina’s mandate permits coverage to be limited to individuals 18 or younger and capped at $40,000 a year (CPI-indexed from 2017) on fully insured plans — quantitative treatment limits of doubtful enforceability against large-group plans under MHPAEA. The mandate does not apply to non-grandfathered individual and small-group plans, and self-funded ERISA plans are exempt by preemption.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
+        ],
+        verifyVia: 'Live benefits verification, or the Evernorth Autism Care Coordinator team on 877.279.7603 — establish fully insured vs. self-funded ERISA first.',
+      },
+      dxRecency: {
+        value: 'EN0499 puts no expiry on the ASD diagnosis, but it requires the name, credentials and licensure type of the diagnosing clinician and the date on which the diagnosis was most recently made — and a diagnosis termed provisional, proposed, potential, at risk of or rule out is not a confirmed diagnosis, nor is IDEA educational identification. The recency clocks sit on the data instead: the standardized assessment instrument must have been administered within 60 days prior to the start of treatment, quantitative baseline data collected within 60 days prior to start, current data within 60 days of the authorization request, a standardized instrument completed no more than one year prior for continued treatment, and a fresh standardized assessment after any break in treatment greater than 60 calendar days.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'The ASD diagnosis (ICD-10 F84.0–F84.9 except F84.2, Rett syndrome) must be made under DSM-5-TR criteria by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice. The ABA assessment itself is performed by a Board Certified Behavior Analyst, a Licensed Behavior Analyst, or a mental health clinician licensed to practice independently who has documented training in ABA.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'EN0499 mandates no single named instrument. It requires a reliable, valid and standardized assessment instrument measuring the DSM-5-TR ASD domains — social communication and social interaction, and restricted, repetitive patterns of behavior, interests or activities — completed in its entirety and as designed, by someone trained to administer and interpret it, with reliability and validity established for the population tested, in the most current edition rather than an obsolete one (the policy’s own example: Vineland-3, not Vineland-II). The report must carry the date of administration, the respondent or participant name, the form type where applicable, and standardized scores and score tables or scoring grids.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      referral: {
+        value: 'No referral, order or prescription is required under EN0499. Cigna’s notable front-door change is on authorization: per the Evernorth autism resource guide, prior authorization is no longer required for assessment codes 97151, 97152 or 0362T with a diagnosis of autism, as long as the provider is independently licensed or a BCBA and the member’s policy covers ABA — submit the claims and they are evaluated for payment. Treatment authorization requires the completed assessment and treatment plan attached to the Applied Behavior Analysis Prior Authorization Form. For a fully insured North Carolina plan the state mandate adds an ordering requirement the carrier policies do not: adaptive behavior treatment must be ordered by a licensed physician or licensed psychologist. The mandate does not reach non-grandfathered individual and small-group plans, and self-funded ERISA plans sit outside state insurance law entirely — establish plan funding type before relying on it.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
+        ],
+      },
+      telehealth: {
+        value: 'All ABA CPT codes are covered telehealth services per the Evernorth autism resource guide, and EN0499 allows delivery in person, via telehealth, or as a hybrid — the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The requirement that the ABA provider remain in line of sight and close proximity to the individual expressly does not apply to telehealth services. Where treatment is delivered in settings with additional behavioral expectations, telehealth included, the plan must document that the service still meets the definition of direct treatment and direct engagement.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Case supervision is performed by a BCBA, a Licensed Behavior Analyst, or a mental health professional licensed to practice independently with documented training in ABA. Direct case supervision — occurring concurrently with direct treatment, with the BCBA face-to-face with the individual and with either the RBT or the BCaBA — plus indirect case supervision runs at the generally accepted standard of care of one to two hours per ten hours of direct treatment. When direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided. The name and credentials of the person providing supervision must be documented, and supervisory services must coincide with the AMA CPT code descriptions.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Only one provider can bill for a unit of time, with one exception: CPT codes 97153, 97154 and 97155 during direct supervision, when the BCBA or qualified health care professional directs the technician and both are face-to-face with the patient at the same time. Separately, ABA treatment is not covered or reimbursable when delivered to the same individual at the same time as any other treatment modality — the policy’s own examples are ABA and speech therapy, or ABA and occupational therapy.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Cigna publishes no per-day unit ceiling. All ABA CPT codes bill in 15-minute increments, and all ABA services must be billed with 97151–97158, 0362T and 0373T only. The published limits are structural rather than daily: planned treatment intensity must reflect the severity of the impairments, the goals of treatment and the response to treatment across all settings, and case supervision sits at one to two hours per ten hours of direct treatment. 0362T and 0373T are each reported on a single technician’s face-to-face time, not the combined time of multiple technicians.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'A separate written record is expected for each individual receiving ABA, corresponding with each service billed under its CPT code, carrying at least: the start date and time and end date and time for each service, the location of service delivery, the focus of service, a detailed description of the intervention conducted during the time of service, the individuals present, the specific service delivered (direct service, supervision, stakeholder training), and the name, credential where applicable, and signature of the ABA provider who rendered the service.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'Treatment goals must be defined and measured across all settings and environments where treatment will occur — home, clinic, school, community — and quantitative data must be obtained and reported separately by location for each behavior and skill. Services considered primarily educational or vocational in nature, or related to academic or work performance, are not covered or reimbursable. Where services are delivered in environments that carry additional or alternative behavioral expectations (academic setting, vocational placement, telehealth), the plan must document that the service still meets the direct-treatment definition and is not replacing activities that belong to that setting.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Evernorth does not credential non-licensed or non-certified staff — their services must be billed under the supervising provider. On a CMS-1500 the rendering provider prints their name in box 31 and only a BCBA or other licensed provider is listed in box 33; electronic claims go to Evernorth payer ID 62308. Per the autism resource guide’s code table, 97152, 97153 and 97154 may be provided by a BCaBA or technician but billed only by a BCBA-D, BCBA or licensed mental health provider, while 97151, 97155, 97156, 97157, 97158, 0362T and 0373T are both provided and billed by a BCBA-D, BCBA or licensed mental health provider.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Cigna cover ABA therapy in North Carolina?', a: 'Yes — under the carrier\'s national policy for ASD, layered on North Carolina\'s mandate (N.C.G.S. § 58-3-192) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the North Carolina autism mandate require?', a: 'North Carolina’s mandate (effective July 2016) requires covered health benefit plans to cover “adaptive behavior treatment” — the statutory term; ABA itself isn’t named, but board certified behavior analysts are among the eight authorized provider categories, and treatment must be ordered by a licensed physician or licensed psychologist. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
@@ -874,6 +2042,100 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — North Carolina state-regulated coverage', url: 'https://www.autismspeaks.org/north-carolina-state-regulated-insurance-coverage' },
       { title: 'North Carolina Behavior Analyst Licensure Board', url: 'https://ncbehavioranalystboard.org/' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Optum’s ABA Supplemental Clinical Criteria carry no age criterion — coverage turns on the member-specific benefit plan, which supersedes the guideline, and on any federal or state regulatory requirement that supersedes the benefits. North Carolina’s mandate permits coverage to be limited to individuals 18 or younger and capped at $40,000 a year (CPI-indexed from 2017) on fully insured plans — quantitative treatment limits of doubtful enforceability against large-group plans under MHPAEA. The mandate does not apply to non-grandfathered individual and small-group plans, and self-funded ERISA plans are exempt by preemption.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
+        ],
+        verifyVia: 'Provider Express benefits check under a One Healthcare ID, or the behavioral health number on the member ID card — establish fully insured vs. self-funded ERISA first.',
+      },
+      dxRecency: {
+        value: 'The SCC set no expiry on the ASD diagnosis itself; what they require is that the DSM-5-TR diagnosis and severity level be confirmed and documented by the diagnosing clinician using validated tools. The clocks run on review instead: where there has been inadequate or no demonstrable progress with targeted symptoms or behaviors within a 6-month period, or goals have not been achieved within the estimated timeframes, the reasons must be assessed and interventions modified; and continued-service review specifically addresses utilization of prior-authorization-period hours below 80% over a 2-week period, which requires documented barriers.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such a diagnosis according to the DSM-5-TR criteria.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'The SCC give a three-tier, explicitly non-exhaustive list and require the diagnosing clinician to confirm and document the DSM-5 diagnosis and severity level using at least one clinically validated tool. First-level screening tools: Autism Behavior Checklist, CHAT / M-CHAT, CSBS-DP-IT Checklist, Autism Screening Questionnaire, Autism Quotient, Childhood Autism Screening Test. Second-level screening tools: CARS and CARS-2, RITA-T, STAT. Formal diagnostic tools used as part of a comprehensive diagnostic evaluation: ADI-R, ADOS and ADOS-2, and DISCO. Treatment intensity must then be set from a baseline measured with at least one validated tool from a named list including ATEC, VB-MAPP, ABLLS and ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, Vineland and CFQL-2.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      referral: {
+        value: 'The SCC require no separate physician referral or order; what they require is prior authorization for ABA, unless otherwise specified or mandated by contract or law. In practice UnitedHealthcare administers this as a two-step Optum flow on Provider Express — an authorization for the assessment, then a second for treatment — with continued-service reviews on the authorization cycle. For a fully insured North Carolina plan the state mandate adds an ordering requirement the carrier policies do not: adaptive behavior treatment must be ordered by a licensed physician or licensed psychologist. The mandate does not reach non-grandfathered individual and small-group plans, and self-funded ERISA plans sit outside state insurance law entirely — establish plan funding type before relying on it.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
+        ],
+      },
+      telehealth: {
+        value: 'Not addressed. The ABA Supplemental Clinical Criteria set no telehealth rules, place-of-service codes or modality limits for ABA; telehealth terms for a commercial member come from the plan’s own telehealth policy rather than from this guideline.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Provider Express (Clinical Resources → ABA Information) or the behavioral health number on the member ID card — ask which ABA codes are payable by telehealth on this plan and with which POS code.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Consistent with CASP standards of care, direct case supervision is required at one to two hours for every ten hours of direct treatment per week. Technicians must be under the applicable supervision of a BCBA or a licensed behavioral health clinician and should be Registered Behavior Technicians or another appropriately certified behavior technician as allowable by state mandate. Optum adds that it is not recommended that parents serve in an RBT role, and that a BCBA acting in a supervisory role for a parent serving as RBT for their own child would violate the ethics code with a duty to self-report.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not addressed. The ABA Supplemental Clinical Criteria are a medical-necessity document and say nothing about billing 97153 and 97155 for the same clock time; direct case supervision is defined as occurring concurrently with direct treatment, but the reimbursement consequence is not stated there.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum Provider Express National Network Manual and the participating-provider agreement, or a written coding determination from Optum.',
+      },
+      dailyLimits: {
+        value: 'The SCC set no numeric hour cap — the number of service hours requested must be justified by the member’s documented clinical need according to level of impairment, symptom severity, treatment history and response, at the least restrictive and most clinically appropriate level. The operative review trigger runs the other way: utilization below 80% of prior-authorization-period hours over a two-week period is specifically addressed at continued-service review and requires documentation of barriers and how they will be addressed.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not addressed. The ABA Supplemental Clinical Criteria specify what must be documented for coverage — progress by targeted symptom and behavior, standardized and norm-referenced measures, caregiver involvement, barriers — but not who must sign a session note or within what time.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum Provider Express National Network Manual (documentation standards) and the participating-provider agreement.',
+      },
+      placeOfService: {
+        value: 'ABA must be provided at the least restrictive and most clinically appropriate level, with generalization and maintenance of skills outside the treatment environment into natural settings such as home and community forming part of the continued-service test. Not covered: services that are not ABA therapy, such as a 1:1 aide delivered simultaneously during classroom instruction, or services covered under IDEA. School-based ABA does allow coordination of services and covers teacher training, meetings with school personnel, and observations in the school setting, and the treatment plan is expected to coordinate with the school and any IFSP or IEP.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Once an ASD diagnosis is confirmed, a credentialed ABA provider is identified for the member: a master’s- or doctoral-level Board-Certified Behavior Analyst, or a licensed behavioral health clinician who has attested to sufficient expertise and been credentialed to provide ABA. A BCaBA or non-licensed individual works under the direct supervision of a BCBA or licensed behavioral health clinician who takes responsibility for the individual’s care, assisting in assessment or implementing a treatment plan developed by that BCBA or clinician.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in North Carolina?', a: 'Yes — under the carrier\'s national policy for ASD, layered on North Carolina\'s mandate (N.C.G.S. § 58-3-192) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the North Carolina autism mandate require?', a: 'North Carolina’s mandate (effective July 2016) requires covered health benefit plans to cover “adaptive behavior treatment” — the statutory term; ABA itself isn’t named, but board certified behavior analysts are among the eight authorized provider categories, and treatment must be ordered by a licensed physician or licensed psychologist. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },

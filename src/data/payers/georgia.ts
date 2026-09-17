@@ -9,6 +9,50 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes \u2014 documented DSM-5 ASD diagnosis (EPSDT ABS benefit)',
     payer: 'Georgia Medicaid',
     state: 'GA', kind: 'state-medicaid',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Under 21. The posted ASD manual states it plainly under General Eligibility: “Autism Spectrum Services are for individuals under the age of 21.” The current DCH Telehealth Guidance (version date 10/1/2025) confirms the same footing from a document that is not stale — ASD assessment and treatment are “provided to Medicaid beneficiaries in accordance with the Early and Periodic Screening, Diagnostic and Treatment (EPSDT) Benefit and according to medical necessity.” Two further eligibility conditions sit alongside the age bound: “children must be able to participate in sessions,” and caregivers “must be able to participate in ABS therapy and have the ability to implement ABS techniques in the home environment.”',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }, { title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'The posted manual sets one recency rule, and it is about the assessment rather than the diagnosis: “Medicaid will accept for submission the findings from an assessment that was not approved/covered by Medicaid… as long as the assessment was conducted/dated no more than six (6) months prior to the treatment PA request submission.” On the diagnosis itself the manual says only that it “should be made and confirmed in early childhood.” The five-year evaluation window Georgia families actually meet is a CMO operationalisation, not a posted state rule — CareSource requires a diagnostic re-evaluation when “the initial diagnosis is at least 5 years old with no evidence of ongoing assessment and treatment,” and Peach State requires the CDE to have been “completed within the last five years” at treatment initiation. Sourcing caveat: the ASD manual publicly posted on medicaid.georgia.gov is the January 2018 version and is known to be stale — its Appendix A still prices the retired 0359T–0374T code set — while the current quarterly manuals and live fee schedule sit inside GAMMIS (mmis.georgia.gov), which refuses automated clients outright.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }, { title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }, { title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+        verifyVia:
+          'The current ASD manual inside GAMMIS (mmis.georgia.gov) for whether DCH has since adopted the five-year window itself; in the meantime route by the member’s CMO policy.',
+      },
+      diagnosingProviders: {
+        value:
+          'Two requirements stack. Credential: “a documented diagnosis of ASD must be established by a licensed physician or psychologist, or other licensed professional as designated by the Medical Composite Board in order to perform a behavioral assessment and develop a resulting Plan of Care.” Experience: “the diagnosis must be made by a practitioner with one year of experience in serving individuals with an autism diagnosis who is also enabled by the OCGA practice acts to diagnose behavioral health/intellectual/developmental conditions” — a one-year ASD-experience test on the diagnostician that intake should actually check, not assume. The enrolled QHCP then re-validates at assessment: “based on the assessment, the QHCP validates the individual’s diagnosis of ASD and identifies the severity level… according to the DSM-5 manual,” and if the diagnosis is not validated the QHCP refers the member elsewhere. Sourcing caveat: the ASD manual publicly posted on medicaid.georgia.gov is the January 2018 version and is known to be stale — its Appendix A still prices the retired 0359T–0374T code set — while the current quarterly manuals and live fee schedule sit inside GAMMIS (mmis.georgia.gov), which refuses automated clients outright.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+      diagnosticTools: {
+        value:
+          'The posted manual asks for one tool, not two: “diagnosis should be made and confirmed in early childhood using one of the following tools: Autism Diagnostic Observation Schedule (ADOS), Autism Diagnostic Interview (ADI), the Diagnostic Interview for Social, Communication Disorders (DISCO), and/or other known evidence based tools.” For the behavioral assessment it adds that “the QHCP must use valid and reliable evaluation tools that conform to industry standards (such as the ADOS).” Three conditions must be ruled out as causal: primary hearing deficits, primary speech disorder, and heavy metal poisoning. Treat the one-tool floor as a floor only — the two-instrument requirement families actually face (one clinician-administered tool plus one caregiver tool) comes from the CMOs, and school psychoeducational assessments are not acceptable as a diagnostic evaluation on any of them. Sourcing caveat: the ASD manual publicly posted on medicaid.georgia.gov is the January 2018 version and is known to be stale — its Appendix A still prices the retired 0359T–0374T code set — while the current quarterly manuals and live fee schedule sit inside GAMMIS (mmis.georgia.gov), which refuses automated clients outright.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }, { title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }, { title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }],
+        verifyVia:
+          'The current ASD manual inside GAMMIS for the live instrument list; Peach State GA.CP.BH.504 and CareSource MCD-MM-0212 publish the operative two-tool requirement openly.',
+      },
+      referral: {
+        value:
+          'Two separate gates, and only one of them is what intake usually means by “referral.” Clinically, ASD services “must be recommended by a licensed physician or other licensed practitioner of the healing arts acting within their scope of practice under state law” per 42 CFR 440.130(c), and “all ABS PAs must be requested by the enrolled QHCP” — a licensed physician, psychologist, BCBA-D or BCBA; BCaBAs and RBTs cannot serve as the QHCP. Administratively, the ordering, prescribing or referring practitioner’s NPI must appear on the claim — on the CMS-1500 “enter qualifiers to indicate if the claim has an ordering, referring, or prescribing provider to the left of the dotted line in box 17 (Ordering = DK; Referring = DN or Supervising = DQ)” — and that practitioner must be enrolled in Georgia Medicaid, or the claim denies. The treatment PA package also carries the IFSP/IEP where applicable.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+      telehealth: {
+        value:
+          'Georgia publishes a real telehealth benefit for ABS, and the best current source for it is not the ASD manual — it is the DCH Part II Telehealth Guidance (version date 10/1/2025), which carries its own ASD section. “Practitioners of ASD services can use telehealth to assess, diagnose and provide therapies to patients,” provided they hold a current Georgia medical or psychology licence or a valid ABA certification; Georgia Medicaid enrols BCBAs as QHCPs for this purpose. The guidance publishes a current Category I code table for telehealth ABS — 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T, each in 15-minute units with the GT modifier and the U1–U5 practitioner-level modifier (U1 physician/psychiatrist, U2 psychologist or BCBA-D, U3 BCBA, U4 BCaBA or master’s-level behavior analyst, U5 RBT). On the claim, “the GT modifier is required as applicable, and/or the use of either POS 02 or POS 10,” where POS 02 is telehealth outside the patient’s home and POS 10 is telehealth in the patient’s home; CPT modifier 93 may be appended for audio-only services where appropriate. Prior authorization applies to telehealth ABS exactly as it does in person. Worth noting for the code-set question generally: this DCH document carries the Category I 97151–97158 set, while the posted January 2018 ASD manual still prices 0359T–0374T.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' }],
+        verifyVia:
+          'Whether Georgia still limits telehealth billing to a rendering provider located in Georgia or within 50 miles of the state line — CareSource MCD-MM-0212 states that rule and attributes it to this guidance, but the 10/1/2025 version does not contain it. Confirm in GAMMIS (mmis.georgia.gov) or with DCH before relying on either reading.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -140,6 +184,8 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Ga. Comp. R. & Regs. 75-5-.01 (licensure by certification)', url: 'https://www.law.cornell.edu/regulations/georgia/Ga-Comp-R-Regs-R-75-5-.01' },
       { title: 'GA licensure application deadlines (secondary source)', url: 'https://www.appliedbehavioranalysisedu.org/georgia/' },
       { title: 'BACB RBT Handbook', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' },
+      { title: 'Georgia Medicaid \u2014 Georgia Families Latest News (updated 4/23/2026)', url: 'https://medicaid.georgia.gov/programs/all-programs/georgia-families/georgia-families-latest-news' },
     ],
     faq: [
       { q: 'Does Georgia Medicaid cover ABA therapy?', a: 'Yes — for members under age 21 with a documented DSM-5 ASD diagnosis, under EPSDT, effective since January 2018. All services require prior authorization.' },
@@ -157,6 +203,56 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes \u2014 ASD diagnosis from a licensed, qualified professional (CG-BEH-02)',
     payer: 'Anthem BCBS Georgia',
     state: 'GA', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Anthem’s commercial ABA provider resource guide publishes no age criterion — it covers credentialing, coding, place of service, documentation and telehealth, not eligibility age. The age term that bites in Georgia comes from Ava’s Law, which requires state-regulated individual and group plans to cover ASD treatment for individuals 20 years of age or under. Two carve-outs and one federal override matter: employers with 10 or fewer employees are exempt, self-funded ERISA plans are preempted, and federal mental-health parity generally makes the mandate’s age and dollar caps hard to enforce against covered large-group plans — so an age-based decline on a large-group member is an escalation, not an answer.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }, { title: 'Ava\'s Law \u2014 O.C.G.A. \u00a7 33-24-59.10', url: 'https://law.justia.com/codes/georgia/title-33/chapter-24/article-1/section-33-24-59-10/' }],
+        verifyVia:
+          'Plan funding type and employer size first, then a live benefits verification; clinical guideline CG-BEH-02 in the Anthem provider portal for any age criterion the guideline itself carries.',
+      },
+      dxRecency: {
+        value:
+          'Anthem’s ABA provider resource guide sets a treatment-plan clock rather than a diagnosis clock: “documentation must show that the treatment plan was reviewed and/or updated at a minimum of every six months. Providers should review their guidelines if treatment plans are required more frequently.” It publishes no recency window on the ASD diagnostic evaluation itself, and no re-diagnosis interval.',
+        status: 'unverified',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
+        verifyVia:
+          'Anthem clinical guideline CG-BEH-02 in the Anthem provider portal, and Anthem provider services — the public resource guide does not carry the medical-necessity criteria text.',
+      },
+      diagnosingProviders: {
+        value:
+          'The ABA provider resource guide lists who may RENDER ABA, not who may diagnose: “approved service providers include psychiatrists (MDs), psychologists (PhDs), licensed clinical social workers (LPCs), licensed marriage and family therapists (LMFTs) with special training and/or experience in applied behavior analysis, Board Certified Behavior Analysts (BCBA/BCBA-D), providers practicing under the direction and supervision of the BCBA, and other mental health service providers licensed or authorized by the state in which they practice and recognized by the Anthem affiliated health plan to be eligible for reimbursement.” The diagnosing-provider requirement lives in clinical guideline CG-BEH-02 rather than in this document. Georgia adds a licensure layer either way: HB 412 (2022) created O.C.G.A. Title 43, Chapter 7A, so the supervising analyst must hold a Georgia Behavior Analyst Licensing Board licence.',
+        status: 'unverified',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
+        verifyVia:
+          'Anthem clinical guideline CG-BEH-02 in the Anthem provider portal for the credentials Anthem requires of the diagnosing professional.',
+      },
+      diagnosticTools: {
+        value:
+          'Anthem names no required instrument. Its resource guide defines applied behavior analysis as including “a detailed behavioral history, patient observation, administration of standardized and nonstandardized tests and structured guardian/caregiver interview to identify and describe deficient adaptive or maladaptive behaviors,” and behavioral follow-up assessments as using “structured observation and/or standardized and nonstandardized tests to determine levels of adaptive behavior” across cooperation, motivation, visual understanding, receptive and expressive language, imitation, requests, labeling, play and leisure, and social interactions. Which instruments satisfy that is not published.',
+        status: 'unverified',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
+        verifyVia:
+          'Anthem clinical guideline CG-BEH-02 for any required or preferred instrument list, and Anthem provider services.',
+      },
+      referral: {
+        value:
+          'No referral precondition is published for ABA. The resource guide treats “physician orders” and “referrals” as elements that must be present in the medical record when they exist, not as an entry gate, and Anthem gates ABA through prior authorization instead — assessment and treatment reviewed against CG-BEH-02, with the initial behavior-identification assessment capped at 20 combined hours. Whether the member’s specific plan requires a PCP referral is a benefit-design question.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }, { title: 'Ava\'s Law \u2014 O.C.G.A. \u00a7 33-24-59.10', url: 'https://law.justia.com/codes/georgia/title-33/chapter-24/article-1/section-33-24-59-10/' }],
+        verifyVia:
+          'The member’s benefit document and Anthem provider services — ask whether a PCP referral is required in addition to the prior authorization.',
+      },
+      telehealth: {
+        value:
+          'Anthem publishes the place-of-service half outright but makes the code list plan- and state-specific. Telehealth POS codes for ABA are “10 = Telehealth (member located in home while receiving services)” and “02 = Telehealth (member located outside of home while receiving services),” all “subject to member’s coverage and reviews by the plan.” For which codes actually pay, the guide redirects: “please visit our Virtual Visits reimbursement policy that outlines our standard rules. Allowed codes may vary. Refer to the Allowed virtual services in addition to CPT Appendix P to obtain codes that are eligible for reimbursement in your state.” So the POS mechanics are settled and the payable code set is not.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
+        verifyVia:
+          'Anthem’s Virtual Visits reimbursement policy and the Georgia “Allowed virtual services” list, plus the member’s benefit document, before scheduling remote ABA.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -281,6 +377,46 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How CareSource administers ABA for Georgia Medicaid members — policy MCD-MM-0212 aligned to the DCH ASD manual, in-house medical review, MUE daily-unit limits, and a 2026 reimbursement change.',
     state: 'GA', kind: 'medicaid-mco', parent: 'Georgia Medicaid',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Under 21, with a participation condition attached: “member is under the age of 21 and must be able to participate in sessions.” CareSource adds that parents and caregivers “must be able to participate in ABA therapy and have the ability to implement ABA techniques in the home environment. If unwilling or unable, consideration will be given to other modalities of treatment” — so caregiver availability is an eligibility question at intake, not just a clinical preference.',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+      dxRecency: {
+        value:
+          'No fixed expiry, but three named triggers force a diagnostic re-evaluation reconfirming the diagnosis — “the diagnosis of ASD is provisional,” “no formal neuropsychological evaluation was completed,” or “the initial diagnosis is at least 5 years old with no evidence of ongoing assessment and treatment” — and that re-evaluation “must include, at a minimum, 1 clinician observational assessment (school psychoeducation assessments are not acceptable).” On the assessment side the clock is tight: the behavioral assessment PA “may be requested in 3-month increments and completed one time during the 6-month treatment authorization period no more than 2 months prior to the effective date of the next treatment authorization,” with comprehensive assessments generally not to exceed 8 hours every 6 months unless additional justification is provided. Evaluations must be “completed prior to requesting prior authorizations for behavioral assessment or treatment services.”',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }],
+      },
+      diagnosingProviders: {
+        value:
+          'The DCH credential list, restated: documentation must be established by “a licensed physician or psychologist” or “other licensed professional as designated by Medical Composite Board.” CareSource adds a report-level identity requirement — the initial evaluation results must carry the “evaluator’s name, signature, and credentials” — and a shape requirement: evaluations “should be comprehensive with multiple informants, covering multiple domains.” Primary hearing deficits, speech disorder and heavy metal poisoning “must be ruled out as causal reasons for behavior.”',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+      diagnosticTools: {
+        value:
+          'Two tools, one from each side: “completion of 1 acceptable evidence-based tool and 1 caregiver tool (a list can be located in the Georgia Autism Spectrum Disorder Services Policies and Procedures Manual).” The evaluation report must be submitted in report format “with a summary of each individual evaluation instrument, developmental history, and present concerns,” and must include the date completed, a “minimum of 2 assessment tools, including 1 clinician tool and 1 caregiver tool with a summary of each individual assessment,” any tests administered with scores, and the evaluator’s name, signature and credentials. A diagnostic re-evaluation needs at minimum one clinician observational assessment; school psychoeducational assessments are not acceptable.',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }],
+      },
+      referral: {
+        value:
+          'The state structure, administered in-house. “PA must be requested by the enrolled QHCP,” and the behavioral assessment “is conducted by an independent practitioner who also develops” the plan — with prior authorization required separately for the behavioral assessment and for treatment. The clinical recommendation requirement underneath is the Georgia Medicaid one: ASD services must be recommended by a licensed physician or other licensed practitioner of the healing arts acting within their scope of practice under state law, per 42 CFR 440.130(c), and the ordering/prescribing/referring practitioner’s NPI must be on the claim and enrolled in Georgia Medicaid. CareSource reviews against the DCH ASD manual plus MCG criteria and requires signed treatment documentation before claims submission.',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }, { title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+      telehealth: {
+        value:
+          'Allowed, with the state’s billing rules and a provider-judgement duty on top. “The provision of ABA services is allowed via telehealth per GA DCH. Part II Policies and Procedures for Autism Spectrum Disorder Services publishes applicable codes, modifiers and allowable provider types. Additionally, Part II Policies and Procedures for Telehealth Guidance provides information for telehealth billing requirements, which is only billable if the provider is in GA or within 50 miles of the GA border when services are rendered.” CareSource then puts the modality decision on the clinician: decisions must be “consistent with best, currently available evidence and clinical consensus,” weighing assessed needs, strengths, preferences and available resources, with the same professional ethics as in-person care and explicit attention to interstate licensure, state regulatory issues, caregiver discomfort with technology, technology limits and cultural acceptance; providers must have protocols for clinical appropriateness and confirm their own competence in the modality.',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }, { title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' }],
+        verifyVia:
+          'The 50-mile rule specifically: CareSource attributes it to the DCH Telehealth Guidance, but the version dated 10/1/2025 does not contain it. Confirm with CareSource GA provider services, or against the current guidance inside GAMMIS, before relying on a border-adjacent rendering location.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -366,6 +502,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'CareSource — GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' },
       { title: 'GA DCH — Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' },
+      { title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' },
     ],
     faq: [
       { q: 'Does CareSource Georgia cover ABA therapy?', a: 'Yes — CareSource administers the Georgia Medicaid ABA benefit under policy MCD-MM-0212, aligned to the DCH ASD manual, with in-house prior authorization and medical review. Members must be under 21 with an ASD diagnosis.' },
@@ -388,6 +525,46 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Peach State Health Plan administers ABA for Georgia Medicaid — policy GA.CP.BH.504 aligned to the DCH ASD manual, hour parameters, the 80%-attendance rule, and 0373T requirements.',
     state: 'GA', kind: 'medicaid-mco', parent: 'Georgia Medicaid',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Under 21 — GA.CP.BH.504 makes it the first medical-necessity criterion: “member/enrollee is under the age of 21 years.” Two participation conditions sit alongside it: the member must exhibit behaviors presenting “clinically significant health or safety risk to self or others” or “significantly interfering with basic self-care, communication, or social skills,” and “member/enrollee and caregivers can participate in adaptive behavioral services (ABS) and can implement ABS techniques in the home environment as instructed by the behavior analyst.”',
+        status: 'verified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Five years, stated outright — and the only Georgia plan that writes the renewal trigger as cleanly. At treatment initiation, “the CDE has been completed within the last five years.” For treatment continuation, a “diagnostic re-evaluation to re-confirm diagnosis” is required when any of the following apply: “provisional diagnosis of ASD”; “no formal psychological or neuropsychological evaluation was completed”; or “more than five years have passed since the initial diagnosis and there is no evidence of ongoing assessment and treatment.” Separately, the behavioral assessment or reassessment “must be completed at least every six months or no more than 2 months prior to the start of the initial treatment” authorization, and reauthorization needs “results of a recent behavior assessment (within two months).”',
+        status: 'verified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'A licensed clinician, with the evaluation signed and attributable: the member must have “a documented diagnosis of autism spectrum disorder (ASD) established by a licensed physician, psychologist, or other qualified licensed professional,” and the CDE report must document the “evaluator’s name, legible signature, and credentials” alongside each test administered “with scores and date originally completed.” The hard exclusion intake should screen for first: “school psychoeducational assessments are not acceptable for a diagnostic evaluation.” The CDE must also document direct observation and a parent/caregiver interview, and physical health concerns — medical concerns, speech deficits, hearing deficits, heavy metal poisoning — must have been “evaluated and ruled out as causal reasons for behavior.”',
+        status: 'verified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'A minimum of two, one from each named list — the most explicit instrument requirement published by any Georgia payer. “A minimum of two assessment tools (one primary clinician tool and one caregiver tool).” Primary clinician tool, one of: ADOS-2; GARS-3; CARS2 ST/HF; STAT; Communication and Symbolic Behavior Scales (CSBS); TELE-ASD-PEDS; Naturalistic Observational Diagnostic Assessment (NODA); DISCO; RITA-T; Autism Detection in Early Childhood (ADEC); EarliPoint; Canvas DX. Caregiver tool, one of: ADI-R; DISCO; CARS Parent Questionnaire (CARS QPC); GARS-3; Social Communication Questionnaire (SCQ); M-CHAT; SRS-2; Autism Spectrum Rating Scale (ASRS); Autism Behavior Checklist (ABC); Toddler Autism Symptom Inventory (TASI); BASC; PDD-BI; PEDS:DM; ASQ-3; ASQ:SE2; Conners Behavior Rating Scale (CBRS); Child Development Inventory (CDI); CSBS DP Infant-Toddler Checklist. Each requires a summary of the individual assessment, the score and the original completion date.',
+        status: 'verified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+      },
+      referral: {
+        value:
+          'A physician recommendation, and it is a listed medical-necessity criterion rather than paperwork: “requested services have been recommended by a licensed physician or other qualified licensed practitioner of the healing arts acting within their scope of practice under state law” — the 42 CFR 440.130(c) formula. Assessment and treatment are authorized separately: “requests for behavioral assessments and treatment services are completed separately and authorized independently.” The treatment PA package adds the Letter of Medical Necessity and the Medicaid Cover Page, and the Georgia rule that the PA be requested by the enrolled QHCP and that the ordering/referring practitioner’s NPI appear on the claim applies underneath.',
+        status: 'verified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+      telehealth: {
+        value:
+          'GA.CP.BH.504 acknowledges telehealth as a modality — services “may be provided in various settings (e.g., home, clinic, school, community) and modalities (e.g., in-person, telehealth)” — but publishes no rule of its own: no code list, no modifier, no place-of-service guidance and no limit. The operative floor is the DCH Part II Telehealth Guidance (version date 10/1/2025), which does carry an ASD section: ABS codes 97151–97158, 0362T and 0373T are billable by telehealth in 15-minute units with the GT modifier and the U1–U5 practitioner-level modifier, on POS 02 (member outside the home) or POS 10 (member at home), with prior authorization unchanged.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' }, { title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+        verifyVia:
+          'Peach State / Centene provider services for any plan-level telehealth restriction on ABS, since GA.CP.BH.504 is silent where its other criteria are explicit.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -465,6 +642,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Peach State — GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' },
       { title: 'GA DCH — Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' },
+      { title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' },
     ],
     faq: [
       { q: 'Does Peach State Health Plan cover ABA therapy?', a: 'Yes — Peach State administers the Georgia Medicaid ABA benefit under policy GA.CP.BH.504, with prior-authorization criteria based on the DCH ASD manual, for members under 21 with ASD.' },
@@ -487,6 +665,52 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Amerigroup administers ABA for Georgia Medicaid — the CG-BEH-02 adaptive behavioral treatment guideline aligned to the DCH ASD manual, with prior authorization and medical-necessity review.',
     state: 'GA', kind: 'medicaid-mco', parent: 'Georgia Medicaid',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Georgia Medicaid rule: Adaptive Behavior Services are an EPSDT benefit and “Autism Spectrum Services are for individuals under the age of 21.” Amerigroup’s UM Guideline CG-BEH-02 publishes no age criterion of its own — it is a medical-necessity guideline keyed to whether “a state mandate requires or a benefit plan explicitly provides coverage for ABT,” not an eligibility document.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }, { title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
+        verifyVia:
+          'Note the vintage: the posted CG-BEH-02 is dated June 2018 (GAPEC-2437-18) and Amerigroup GA is operating under a DCH contract extension through 6/30/2027 — confirm the current guideline on the Amerigroup/Wellpoint provider portal.',
+      },
+      dxRecency: {
+        value:
+          'Not published. CG-BEH-02 requires a diagnosis of ASD and measurable goals “based on standardized assessments,” with “baseline measurements, progress to date and anticipated timeline for achievement based on both the initial assessment and subsequent interim assessments over the duration of the intervention” — but it names no recency window on the diagnostic evaluation and no re-diagnosis trigger. The Georgia floor is the DCH rule that an outside assessment is accepted for a treatment PA only if “conducted/dated no more than six (6) months prior to the treatment PA request submission.”',
+        status: 'unverified',
+        cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+        verifyVia:
+          'Amerigroup/Wellpoint Georgia provider services for the current guideline; the CMOs that do publish a window (CareSource MCD-MM-0212 and Peach State GA.CP.BH.504) both use five years from the initial diagnosis as the re-evaluation trigger.',
+      },
+      diagnosingProviders: {
+        value:
+          'Scope-of-practice based and deliberately broad: “a diagnosis of ASD has been made by a licensed medical professional or other qualified health care professional as is consistent with state licensing requirements.” The guideline separately requires documentation “that ABT services will be delivered by an appropriate provider who is licensed or certified according to applicable state laws and benefit plan requirements.” The Georgia floor is narrower and governs for Medicaid members: the diagnosis must be established by a licensed physician or psychologist, or another licensed professional designated by the Medical Composite Board, and made by a practitioner with one year of experience serving individuals with an autism diagnosis.',
+        status: 'verified',
+        cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+      diagnosticTools: {
+        value:
+          'CG-BEH-02 names no instrument. It requires that “assessments of motor, language, social, and adaptive functions have been completed” and that treatment-plan goals be “in objective and measurable terms based on standardized assessments,” and defines assessment instruments generically as “specialized and standardized diagnostic test used to evaluate an individual’s performance.” Which instruments qualify is left open.',
+        status: 'unverified',
+        cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
+        verifyVia:
+          'Amerigroup/Wellpoint Georgia provider services and the current GA DCH ASD manual inside GAMMIS; Peach State GA.CP.BH.504 publishes the operative Georgia two-tool list (one primary clinician tool plus one caregiver tool) openly.',
+      },
+      referral: {
+        value:
+          'CG-BEH-02 is a medical-necessity guideline and states no referral gate, so the Georgia Medicaid structure governs: ASD services must be recommended by a licensed physician or other licensed practitioner of the healing arts acting within their scope of practice under state law per 42 CFR 440.130(c); all ABS prior authorizations must be requested by the enrolled QHCP (a licensed physician, psychologist, BCBA-D or BCBA — never a BCaBA or RBT); and the ordering, prescribing or referring practitioner’s NPI must appear on the CMS-1500 in box 17 with the DK, DN or DQ qualifier and be enrolled in Georgia Medicaid, or the claim denies. Assessment and treatment are authorized separately in six-month increments.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }, { title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
+      },
+      telehealth: {
+        value:
+          'CG-BEH-02 contains no telehealth provision, so the Georgia Medicaid floor governs: under the DCH Part II Telehealth Guidance (version date 10/1/2025), “practitioners of ASD services can use telehealth to assess, diagnose and provide therapies to patients,” and the guidance publishes the billable ABS telehealth codes — 97151–97158, 0362T and 0373T in 15-minute units with the GT modifier plus the U1–U5 practitioner-level modifier, on POS 02 (member outside the home) or POS 10 (member at home). Prior authorization applies to telehealth ABS exactly as in person.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' }, { title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
+        verifyVia:
+          'Amerigroup/Wellpoint Georgia provider services for any plan-level restriction the posted 2018 guideline would not show.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -549,6 +773,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Amerigroup — Adaptive Behavioral Treatment for ASD (CG-BEH-02, GA Medicaid)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' },
       { title: 'GA DCH — Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' },
+      { title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' },
     ],
     faq: [
       { q: 'Does Amerigroup Georgia cover ABA therapy?', a: 'Yes — Amerigroup administers the Georgia Medicaid ABA benefit under its CG-BEH-02 adaptive behavioral treatment guideline, aligned to the DCH ASD manual, with prior authorization and medical-necessity review.' },
@@ -565,6 +790,49 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
     payer: 'Aetna in Georgia',
     state: 'GA', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Aetna publishes none. The ABA Medical Necessity Guide gives a “typical age range” of 0–7 years for comprehensive ABA and “all ages” for focused ABA — planning guidance, not a benefit boundary — and CPB 0554/0648 set no age criterion. The age term in Georgia comes from Ava’s Law, which reaches individuals 20 years of age or under on state-regulated plans, with employers of 10 or fewer employees exempt and self-funded ERISA plans preempted. Federal parity generally makes that age cap hard to enforce against covered large-group plans, so treat an age-based decline on a large-group member as an escalation rather than an answer.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Georgia Code \u00a7 33-24-59.10 (Ava\'s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' }],
+        verifyVia:
+          'Plan funding type and employer size, then a live benefits verification — the mandate, not the carrier policy, is what carries the age term.',
+      },
+      dxRecency: {
+        value:
+          'Aetna sets no expiry on the ASD diagnosis itself, but it puts a 12-month clock on the functional evidence: “there is demonstration of functional impairment on a standardized scale of functioning in the past 12 months… the impairment must be at least one standard deviation below the population mean OR represent a significant risk of harm to self or others.” That is the recency rule intake must schedule around — a current standardized functional score, not a fresh diagnostic report. Reauthorization commonly runs on a roughly six-month cadence.',
+        status: 'verified',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Broad and scope-tied: the ASD diagnosis must be “obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice).” CPB 0648 names who Aetna expects to be involved in an ASD evaluation — “board certified behavioral analyst; developmental pediatrician; neurologist; occupational therapist; physical therapist; primary care provider; psychiatrist; psychologist; or speech-language pathologist and audiologist” — evaluated by “the appropriate certified/licensed health care professional.” The diagnosis must be DSM-5 ASD (ICD-10 F84.0, F84.3–F84.9); ABA for other indications is considered experimental, investigational or unproven. Georgia adds a licensure layer on the treating side: since HB 412 (2022), behavior analysts must hold a Georgia Behavior Analyst Licensing Board licence.',
+        status: 'verified',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+      },
+      diagnosticTools: {
+        value:
+          'Two layers, and intake needs both. For the diagnosis, CPB 0648 names the instruments Aetna expects alongside clinical assessment: “Autism Diagnostic Interview-Revised (ADI-R), Autism Diagnostic Observation Schedule-2nd edition (ADOS-2), Childhood Autism Rating Scale 2nd edition (CARS-2) and Asperger Syndrome Diagnostic Scale.” For medical necessity, the ABA Medical Necessity Guide requires a standardized scale of functioning administered in the past 12 months — “for instance, the Vineland Adaptive Behavior Scales 3 (VABS-3), the Adaptive Behavior Assessment Scale (ABAS), VB-MAPP or ABLLS” — scoring at least one standard deviation below the population mean, or documenting a significant risk of harm to self or others.',
+        status: 'verified',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+      },
+      referral: {
+        value:
+          'Aetna gates ABA with precertification rather than a referral: form GR-69017-4, via Availity or phone, for both the assessment and treatment. Neither CPB 0554, CPB 0648 nor the ABA Medical Necessity Guide publishes a referral or physician-order requirement — the Guide mentions “involvement of, or referrals to, appropriate health care, community or supplemental resources” as a quality element, not an entry condition. Whether the member’s plan requires a PCP referral is a benefit-design question.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        verifyVia:
+          'The member’s benefit document and Aetna precertification at the number on the ID card — ask whether a PCP referral is required in addition to precertification.',
+      },
+      telehealth: {
+        value:
+          'Not published. Aetna’s ABA materials — CPB 0554, CPB 0648 and the ABA Medical Necessity Guide — say nothing about telehealth delivery of ABA: no code list, no place-of-service codes, no modifiers and no limits.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna’s telemedicine policy and provider services at the number on the member’s ID card — confirm which ABA codes pay by telehealth on that specific Georgia plan before scheduling remote sessions.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -694,6 +962,48 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
     payer: 'Cigna / Evernorth in Georgia',
     state: 'GA', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EN0499 publishes no age limit — coverage turns on a confirmed DSM-5-TR ASD diagnosis and medical necessity, not on age. The age term in Georgia comes from Ava’s Law, which reaches individuals 20 years of age or under on state-regulated plans, with employers of 10 or fewer employees exempt and self-funded ERISA plans preempted; federal parity generally makes that cap hard to enforce against covered large-group plans.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Georgia Code \u00a7 33-24-59.10 (Ava\'s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' }],
+        verifyVia:
+          'Plan funding type and employer size, then a live benefits verification — EN0499 itself will not answer an age question.',
+      },
+      dxRecency: {
+        value:
+          'EN0499 sets no maximum age on the diagnosis, but it requires the date to be on the record and puts the currency burden on the instruments. Required with the diagnosis: “the name, credentials, and type of licensure of the individual who made the diagnosis” and “the date on which the diagnosis was most recently made.” For the assessment instrument, “the instrument used represents the most current version, and does not represent obsolete editions of the assessment (e.g., must be the Vineland-3 vs. Vineland-II)” and it must assess “the individual’s specific and current abilities and skills,” with the date of administration and the respondent named. A diagnosis termed “provisional,” “proposed,” “potential,” “at risk of” or “rule out” is not a confirmed diagnosis.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Scope-of-practice based, and strict about what does not count. The individual must have “a confirmed diagnosis of autism spectrum disorder (ASD) (ICD-10-CM Diagnosis Codes F84.0 – F84.9, with the exception of F84.2, Rett syndrome) based on the criteria in the… DSM-5-TR by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice.” Two disqualifiers intake should screen for: “educational identification or meeting educational eligibility for services related to autism through the [Individuals] with Disabilities Education Act may not meet criteria as a formal diagnosis of ASD,” and a provisional or rule-out diagnosis is not confirmed. The ABA assessment itself must be performed by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health clinician with documented training in ABA — and in Georgia that analyst must also hold a Georgia Behavior Analyst Licensing Board licence under HB 412.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'EN0499 names no required instrument list — it sets instrument criteria instead, which is a harder bar to meet by accident. The assessment must include “administration of a reliable, valid, and standardized assessment instrument that measures the individual’s functioning in the domains included in the diagnostic criteria for ASD in the DSM-5-TR… social communication and social interaction; and restricted, repetitive patterns of behavior, interests, or activities,” and the instrument “must be completed in its entirety and as designed,” have established reliability and validity “for use with members of the population tested (e.g., age, language preference),” be administered and interpreted by someone trained to do so, be the most current version, assess current abilities, and carry the date of administration, the respondent’s name and the form type.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral requirement is published, and Cigna’s front door is unusually open: assessment codes 97151, 97152 and 0362T need no prior authorization under EN0499, so the assessment can start on the diagnosis alone. The rigour arrives at the treatment step, which requires the completed assessment plus a treatment plan submitted with Cigna’s ABA prior-authorization form. Whether a specific plan layers a PCP referral on top is a benefit-design question.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'A live benefits verification and Evernorth Provider Services at 800.926.2273 — confirm whether the plan requires a referral in addition to the treatment PA.',
+      },
+      telehealth: {
+        value:
+          'Open, and stated at both the policy and the guide level. EN0499: “ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities,” with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements — and the line-of-sight/close-proximity documentation rule expressly “does not apply to telehealth services, when applicable.” The Evernorth autism resource guide is blunter: “all ABA CPT codes are covered telehealth services,” subject to EN0499. Services delivered via telehealth must still meet the direct treatment / direct engagement definition and be documented as such.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -823,6 +1133,52 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
     payer: 'UnitedHealthcare / Optum in Georgia',
     state: 'GA', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Optum’s ABA Supplemental Clinical Criteria publish no age limit — coverage turns on a valid ASD diagnosis and medical necessity. The age term in Georgia comes from Ava’s Law (individuals 20 years of age or under on state-regulated plans, with ≤10-employee groups exempt and self-funded ERISA plans preempted), and there is no Georgia entry in Optum’s ABA State Mandates criteria to add anything on top. Federal parity generally makes the mandate’s age cap hard to enforce against covered large-group plans.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum \u2014 ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Georgia Code \u00a7 33-24-59.10 (Ava\'s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' }],
+        verifyVia:
+          'Plan funding type and employer size, then a live benefits verification — the mandate, not the carrier criteria, is what carries the age term.',
+      },
+      dxRecency: {
+        value:
+          'Not published. The Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis confirmed with at least one clinically validated tool, but set no maximum age on that diagnosis and no re-diagnosis interval. What Optum does clock is the review cycle — continued-service reviews every 4–6 months, with an operational flag when utilization falls below 80% of authorized hours — and the documentation standard that assessment instruments be norm-referenced against age-matched peers and used to “assess developmental gains as a result of interventions,” which implies current rather than historical scores without naming a window.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum Behavioral Health provider services and Provider Express — ask whether an evaluation older than a given date triggers re-evaluation before an ABA authorization.',
+      },
+      diagnosingProviders: {
+        value:
+          'State-licensed and scope-qualified: “a valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR.” The diagnosing clinician — not the ABA provider — confirms and documents both the diagnosis and the severity level. On the treating side Optum requires a master’s- or doctoral-level BCBA, a credentialed licensed behavioral health clinician with attested ABA expertise, or a BCaBA or non-licensed individual under the direct supervision of one of those; in Georgia the analyst must additionally hold a Georgia Behavior Analyst Licensing Board licence under HB 412.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Optum publishes the fullest instrument taxonomy of the national carriers, in two stages. For the diagnosis, “the DSM-5 diagnosis and severity level are confirmed and documented by the diagnosing clinician using at least one clinically validated tool (not an all-inclusive list),” across first-level screening tools (ABC, CHAT/M-CHAT, CSBS-DP-IT-Checklist, ASQ, AQ, CAST), second-level screening tools (CARS/CARS-2, RITA-T, STAT) and formal diagnostic tools (ADI-R, ADOS/ADOS-2, DISCO). For treatment intensity, the plan must be set from baseline measurement “with the use of at least one of the following validated measurement tools”: ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, Vineland (VABS) or CFQL-2 — with the caveat that “measurement tools should be individualized and will not be the same for all individuals or programs.” The ABA provider separately completes a standard or functional behavioral assessment, caregiver interviews, direct observation, record review, a baseline skills assessment and norm-referenced instruments against age-matched peers.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral requirement is published; the gate is authorization. “Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law),” run as Optum’s two-step structure on Provider Express — assessment authorized first, then treatment — with continued-service reviews every 4–6 months. Whether a specific plan also requires a PCP referral is a benefit-design question.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'A live benefits verification plus Provider Express — confirm whether the plan layers a referral requirement on top of the two-step authorization.',
+      },
+      telehealth: {
+        value:
+          'Not published as a coded benefit. The Supplemental Clinical Criteria treat telehealth as a best-practice reference rather than a rule — pointing providers to the “Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition” for “designing, implementing, and operating ABA services delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)” and noting that “the telehealth options presented are not intended to supplant in-person service; rather, they are intended to supplement the traditional in-person service delivery model.” No code list, place-of-service code or unit limit for telehealth appears in the criteria, and Optum’s commercial ABA reimbursement policy is silent on telehealth entirely. Optum publishes no Georgia entry in its ABA State Mandates document, so nothing state-specific applies on top.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum \u2014 ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Optum Behavioral Health provider services and the member’s benefit document — confirm which ABA codes pay by telehealth, and under which place-of-service code, before scheduling remote sessions.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -931,6 +1287,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — Georgia state-regulated coverage', url: 'https://www.autismspeaks.org/georgia-state-regulated-insurance-coverage' },
       { title: 'Georgia Association for Behavior Analysis — licensure (HB 412)', url: 'https://www.georgia-aba.org/licensure' },
       { title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'Optum \u2014 ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Georgia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Georgia\'s mandate (O.C.G.A. § 33-24-59.10 (Ava’s Law)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },

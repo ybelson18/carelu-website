@@ -112,6 +112,84 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'BACB RBT Handbook', url: 'https://assets.bacb.com/wp-content/uploads/2022/01/RBTHandbook_230622-a.pdf' },
       { title: 'BACB — RBT Requirements During the 2026 Transition (upd. 08/2025)', url: 'https://www.bacb.com/wp-content/uploads/2025/07/RBT-2026-Requirements_250723-a.pdf' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Direction of a BCaBA, RBT or BT with protocol modification is performed by a psychologist, BCBA-D or BCBA and \u201cmust be performed on an ongoing basis, equal to at least 10 percent of the amount of hours that the BCaBA, RBT, or BT is providing direct ABA services to the participant, or group of participants.\u201d COMAR 10.09.28.04 adds that at least 25 percent of that direction be performed in person, and remote direction requires approval from MDH or the BHASO. For 0362T and 0373T the psychologist/BCBA-D/BCBA must be onsite \u2014 defined on the fee schedule as \u201cimmediately available and interruptible to provide assistance and direction.\u201d Every rendering individual, technicians included, must also be enrolled with Maryland Medicaid through ePREP.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }, { title: 'COMAR 10.09.28.04 \u2014 Covered Services (direction of a technician)', url: 'http://mdrules.elaws.us/comar/10.09.28.04' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not resolved for ABA-to-ABA pairs. The ABA Provider Manual sets a 10 percent direction floor and requires that direction be delivered while the technician is treating, but neither it nor COMAR 10.09.28.04 states in terms that 97155 and 97153 may be billed for the same clock time. What Maryland did publish is the other kind of concurrency: PT 42-26 loosened the combination-of-services rules effective January 1, 2026 so that ABA may be billed on the same date as other behavioral health services except 96156, 96158, 96159 and ECT, with Carelon auto-reprocessing previously denied combination claims. The manual separately bars \u201cservices that duplicate a service that a participant is receiving under another medical care program.\u201d',
+        status: 'unverified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }, { title: 'PT 42-26 \u2014 ABA combination-of-service update + H2012 discontinuation', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT42-26_Updates_to_ABA_Combination_of_Service_Rules__and_Discontinuation_of_H2012.pdf' }],
+        verifyVia:
+          'Carelon Behavioral Health of Maryland, ABA line (800) 888-1965 (Option 1 then Option 4) \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and whether the answer changed with PT 42-26.',
+      },
+      dailyLimits: {
+        value:
+          'Maryland publishes an explicit per-day unit ceiling on every ABA code, in the fee schedule at the back of the provider manual (15-minute units): 97151, 97152, 0362T and 97153 at 32 units per day; 97155 and 0373T at 24; 97154 and 97156/97156-U2 at 16; 97157 and 97158 at 10. Group codes carry their own size limits \u2014 97154 and 97158 are limited to 2\u20138 ABA participants, 97157 to 2\u20138 families. The reassessment is separately capped: a maximum of 12 units (three hours) authorized per treatment request, with more available if the standard 12 are used before the end of the authorization for clinical need.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
+      },
+      noteSignature: {
+        value:
+          'The manual lists what each service note must contain and closes it with the signature rule: \u201ca legible signature, along with the printed or typed name of the individual providing care, with the appropriate title.\u201d The rest of the required record is consent to treatment from the participant or parent/guardian; the location, date, start time and end time of the service; a brief description of the service with reference to the treatment plan; a description of the participant\'s behaviors or symptoms in measurable terms; and a description of the parent or caregiver\'s participation including their name, relationship, date and time \u2014 or documented consent to be absent. No co-signature requirement and no signing deadline are stated, and services \u201crendered but not documented in accordance with COMAR 10.09.28.04\u201d may not be billed.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }, { title: 'COMAR 10.09.28.04 \u2014 Covered Services (direction of a technician)', url: 'http://mdrules.elaws.us/comar/10.09.28.04' }],
+      },
+      placeOfService: {
+        value:
+          'Home and community first. Under COMAR 10.09.28.05C \u201cABA services shall be delivered in a home or community setting, including a clinic, when medically necessary,\u201d and a clinic-based request must carry an individualized rationale, a plan for transitioning care into the home/community, the objectives targeted in each setting, a description of caregiver involvement, and the anticipated schedule of hours across settings. School is narrower still: it \u201cis not the standard model of the Maryland Medicaid ABA benefit,\u201d is short-term and must be clinically justified, an RBT/BT \u201cmay not serve as a 1:1 educational aide,\u201d and the plan needs an observation narrative, a fading plan, evidence of no duplication and a copy of the IEP. After age 6 participants should be in school with an IEP. Not payable anywhere: services in a 24-hour, 365-day residential program funded with federal, State or local government funds; vocationally- or recreationally-based services; respite; and travel to and from the site of service.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'The Program reimburses only an ABA group or an individual ABA provider \u2014 psychologist, BCBA-D or BCBA. \u201cBCaBAs, RBTs and BTs rendering ABA services cannot bill directly to the Maryland Medical Assistance Program and receive reimbursement,\u201d so technician-delivered 97153 goes out under the enrolled group or supervising analyst. Claims bill on the CMS-1500 or the 837P and go to the BHASO, not to the participant\'s HealthChoice MCO. Every rendering individual still enrolls with Maryland Medicaid separately through ePREP, including not-yet-certified BTs on specialty code 325.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }, { title: 'COMAR 10.09.28.02 \u2014 Provider Qualifications and Conditions for Participation', url: 'https://www.law.cornell.edu/regulations/maryland/COMAR-10-09-28-02' }],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Under 21. The manual states that since January 1, 2017 MDH covers medically necessary ABA \u201cfor Medicaid enrolled participants under the age of 21,\u201d and that \u201cABA services are only available under the Early Periodic Screening, Diagnosis, and Treatment (EPSDT) program,\u201d which itself runs to under 21. There is no lower age bound and no hour, dollar or lifetime cap on the benefit. One age-linked expectation rather than a limit: after 6 years old, participants should be in school with an IEP.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
+      },
+      dxRecency: {
+        value:
+          'No fixed expiry date on the Comprehensive Diagnostic Evaluation \u2014 but there is a conditional re-confirmation. The manual defines a Clinical Confirmation Form as \u201ca form to be completed by a QHCP to confirm a participant continues to meet the criteria for Autism Spectrum Disorder,\u201d and notes that \u201cthe need for the form is dependent on age of participant at time of ASD diagnosis and amount of time since that diagnosis was given.\u201d So capture the diagnosis date and the child\'s age at diagnosis at intake, not just the diagnosis: those two facts decide whether Carelon will ask for a CCF before authorizing.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'A closed list of seven. The ASD diagnosis must be made by a qualified health care professional (QHCP) \u201cwith training and experience to diagnose ASD\u201d: a developmental pediatrician, a pediatrician, a pediatric neurologist, a child psychiatrist, a clinical psychologist, a neuropsychologist, or a nurse practitioner. The ABA assessment that follows is a separate role and a separate credential \u2014 only a licensed psychologist, BCBA-D or BCBA may complete it and write the treatment plan.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Maryland names no specific instrument. The manual requires the QHCP to diagnose \u201cthrough the use of a comprehensive diagnostic evaluation (CDE) and with the help of validated instruments\u201d without listing which, and then specifies the CDE by its components instead: a direct observation of the participant outlining behaviors consistent with DSM-5 criteria; interviews with the parent or caregiver; documentation of developmental history, psychosocial history and current functioning across major domains of development; and a statement identifying the presenting diagnosis (F84.0, F84.5, F84.8 or F84.9). Build intake around those four components rather than around a named tool.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
+      },
+      referral: {
+        value:
+          'Required, and it is part of the CDE rather than a separate note. The QHCP\'s comprehensive diagnostic evaluation must result \u201cin a referral for ABA therapy services,\u201d and the BHASO \u201cwill only authorize ABA services if a QHCP completes a CDE and prescribes medically necessary ABA services.\u201d Access to the benefit additionally requires that the participant be under 21, reside in a home/community setting and carry a confirmed ASD diagnosis. Every ABA service is prior-authorized by Carelon \u2014 assessment included \u2014 and authorizations run a maximum of 180 days.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
+      },
+      telehealth: {
+        value:
+          'A short list, and no longer a full-time option. Only three services may be rendered by two-way audio-visual telehealth: direct supervision of a BCaBA/RBT/BT (97155), parent training (97156 and 97156-U2) and group parent training (97157). Direct 97153 treatment is not on the telehealth list at all, and \u201cservices rendered by mail or telephone\u201d are expressly non-billable, so audio-only is out. Bill with the GT modifier and Place of Service 11, and attach the Telehealth Readiness Checklist to the treatment plan \u2014 a required element for any 97155, 97156 or 97157 telehealth request since October 16, 2023. Effective April 1, 2026, PT 60-26 ends 100 percent telehealth delivery for those three codes: at least 25 percent must be rendered in person, with up to 75 percent by telehealth. Telehealth that does not meet COMAR 10.09.49 may not be billed.',
+        status: 'verified',
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }, { title: 'PT 60-26 \u2014 ABA Transmittal No. 9: Updates to ABA Telehealth (eff. 4/1/2026)', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT60-26_Updates_to_ABA_Telehealth.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does Maryland Medicaid cover ABA therapy?', a: 'Yes — for children under 21 with a confirmed ASD diagnosis, under the EPSDT benefit (COMAR 10.09.28). Every ABA service requires prior authorization from Carelon Behavioral Health, the state\'s BHASO, with authorizations running up to 180 days.' },
       { q: 'Which Maryland Medicaid MCO should we contact for ABA?', a: 'None of them. ABA is carved out of all nine HealthChoice MCOs and paid fee-for-service through Carelon. Authorizations go through ProviderConnect, claims through Availity — the MCO on the family\'s card never touches ABA.' },
@@ -199,7 +277,98 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Md. Insurance Article § 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' },
       { title: 'Optum BH803ABA State Mandates — COMAR 31.10.39.03 criteria (corroborating text)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'MDH Board of Professional Counselors & Therapists — Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' },
+      { title: 'MDH HealthChoice \u2014 Behavioral Health Coverage (carve-out)', url: 'https://health.maryland.gov/mmcp/healthchoice/Pages/BehavioralHealthCoverage.aspx' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Practitioners delivering ABA under CPB 0554 need BACB national certification or state behavior-analyst licensure, with unlicensed staff working under supervision per practice standards. In Maryland that licensure floor is concrete: the Licensed Behavior Analyst credential from the Board of Professional Counselors and Therapists has been required to practice behavior analysis since January 2015, and the mandate\'s COMAR criteria likewise expect licensed delivery. Aetna publishes no numeric supervision ratio for ABA.',
+        status: 'verified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'MDH Board of Professional Counselors & Therapists \u2014 Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither CPB 0554 nor CPB 0648 states whether 97155 and 97153 may be billed for the same clock time; Aetna handles code-pair questions through claim-editing and reimbursement policy rather than through the clinical policy bulletin.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        verifyVia:
+          'Availity Essentials for the plan\'s reimbursement and claim-editing policies, or the provider-services number on the member\'s card. Ask specifically about 97153 billed alongside 97155.',
+      },
+      billAsProvider: {
+        value:
+          'Not published for ABA. CPB 0554 sets who may deliver the service (BACB-certified or state-licensed behavior analysts, with unlicensed staff supervised) but does not state whose NPI carries a technician-delivered 97153 claim, and no Maryland-specific Aetna ABA form or supplement exists.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        verifyVia:
+          'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required degree-level modifiers before the first claim. Note the guide\'s standing Maryland caution: confirm the correct Maryland precertification submission path rather than assuming the national form.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. CPB 0554 lists the covered ABA codes but sets no per-day unit ceiling, and Aetna publishes no ABA-specific MUE table. The operative ceiling is the precertification itself, which requires requested hours to be listed code by code \u2014 so the authorization, not a policy, is what bounds the day. CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year as clinical context rather than as a limit.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        verifyVia:
+          'The authorization letter itself, plus Availity Essentials for the plan\'s claim-editing and reimbursement policies. Ask whether CMS MUE limits are applied to ABA codes on this plan.',
+      },
+      noteSignature: {
+        value:
+          'Not published. CPB 0554 and CPB 0648 set coverage criteria and precertification content; neither states what a session note must contain, who signs it, or by when.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        verifyVia:
+          'Aetna provider services or Availity \u2014 ask for the documentation standard applied at audit, and keep to the precertification form\'s own data elements in the meantime.',
+      },
+      placeOfService: {
+        value:
+          'Not published as a payable-settings list. What CPB 0554 does make a submission requirement is adjacent and useful: the precertification form asks for concurrent services \u2014 PT, OT, speech and school services \u2014 plus how care is coordinated across them, so the school picture is data Aetna collects even though it publishes no school-versus-home rule.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        verifyVia:
+          'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA and whether school-based delivery is excluded.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Two answers, and plan funding type picks between them. The carrier\'s national ABA policy states no age limit. Maryland\'s habilitative-services mandate does: for Maryland-regulated insurers, nonprofit health service plans and HMOs, habilitative services must be covered \u201cuntil at least the end of the month the enrollee turns 19,\u201d and COMAR 31.10.39.03 pins its no-denial hour floors to age bands \u2014 up to 25 hours/week for ages 18 months through 5 years and up to 10 hours/week for ages 6 through 18, with more when medically necessary. Self-funded ERISA plans are exempt from all of it, so establish funding type before quoting either bound.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Md. Insurance Article \u00a7 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' }, { title: 'Optum BH803ABA \u2014 ABA State Mandates supplemental criteria (Maryland entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Aetna publishes no recency rule for the ASD diagnostic evaluation. The only currency requirement that binds a fully-insured Maryland plan sits on the prescription rather than the diagnosis: COMAR 31.10.39.03 requires annual review by the prescribing PCP or specialty physician. Capture the evaluation date anyway \u2014 the precertification package asks for it.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Md. Insurance Article \u00a7 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' }],
+        verifyVia:
+          'The precertification call or Availity, when submitting form GR-69017-4 \u2014 ask whether an evaluation of this age will be accepted for this plan.',
+      },
+      diagnosingProviders: {
+        value:
+          'The diagnosis must come from a provider qualified to diagnose within their scope \u2014 a licensed psychologist, psychiatrist or physician. Aetna\'s precertification form (GR-69017-4, effective 1/1/2026) asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials, so the diagnosing clinician\'s name and credential are submission data, not background.',
+        status: 'verified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+      },
+      diagnosticTools: {
+        value:
+          'No instrument is named. CPB 0554 does not require or reference a specific diagnostic tool, and the precertification form asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials rather than for an instrument and score. Where a Maryland-regulated plan applies the mandate, COMAR 31.10.39.03 asks for a comprehensive evaluation without naming instruments either.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Optum BH803ABA \u2014 ABA State Mandates supplemental criteria (Maryland entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Aetna precertification (Availity or the number on the card) \u2014 ask whether a specific instrument is expected for this plan before scheduling testing.',
+      },
+      referral: {
+        value:
+          'On a fully-insured Maryland plan, yes \u2014 and it is a prescription, not a note. COMAR 31.10.39.03 conditions the mandated benefit on a comprehensive evaluation, a prescription with treatment goals from the PCP or a specialty physician, and annual review by the prescriber. Capture the prescriber and the prescription date at intake, and diary the annual renewal: a lapsed prescription is a coverage problem, not a paperwork one. Self-funded ERISA plans are outside the mandate, and for those the carrier\'s own authorization requirements are the only gate.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Md. Insurance Article \u00a7 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' }, { title: 'Optum BH803ABA \u2014 ABA State Mandates supplemental criteria (Maryland entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Aetna covers telehealth for 97151, 97153, 97155, 97156 and 97157 \u2014 97152 is excluded \u2014 billed with GT, 95 or FR modifiers per its telemedicine payment policy. Treat the answer as perishable: Aetna announced it would end ABA telehealth coverage in late 2023 and rescinded the change within weeks, so confirm the current position on every benefits check rather than reusing last quarter\'s answer. Note that this is the carrier rule; Maryland\'s Medicaid telehealth floor (25 percent in person on 97155/97156/97157) is a different program and does not apply to a commercial Aetna plan.',
+        status: 'verified',
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+      },
+    },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Maryland?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Maryland\'s habilitative-services mandate (Md. Ins. § 15-835 + COMAR 31.10.39.03) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Maryland mandate require for ABA?', a: 'For fully-insured plans: coverage of habilitative services through at least the month the enrollee turns 19, no denial of ABA solely on prescribed hours up to 25 hrs/week (ages 18 months–5) or 10 hrs/week (ages 6–18), no experimental/investigational denials, and no dollar cap — entered via a comprehensive evaluation plus a physician prescription reviewed annually.' },
@@ -285,6 +454,88 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Optum BH803ABA State Mandates — COMAR 31.10.39.03 criteria (corroborating text)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'MDH Board of Professional Counselors & Therapists — Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Assessment and case supervision must come from a BCBA, a licensed behavior analyst, or an independently licensed clinician with documented ABA training, with direct supervision at the standard 1\u20132 hours per 10 hours of direct treatment. Evernorth does not credential non-licensed staff. In Maryland the supervising analyst must additionally hold the state Licensed Behavior Analyst credential, required to practice behavior analysis since January 2015.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'MDH Board of Professional Counselors & Therapists \u2014 Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' }],
+      },
+      concurrentBilling: {
+        value:
+          'Restrictive, and the restriction is about other therapies as much as about ABA codes. EN0499 does not cover ABA delivered at the same time as another therapy (speech, OT) to the same child, and only one provider may bill a unit of time, with the standard supervision exceptions. Where a family is transitioning between ABA agencies, overlapping authorization periods require documented coordination between the agencies \u2014 so the outgoing provider\'s details belong on the intake form.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'Every session note needs the date, start and end times, location, focus, a detailed description of the intervention, the persons present, the service type, and the rendering provider\'s name, credential and signature. No countersignature requirement and no signing deadline are published.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Evernorth does not credential non-licensed staff, so RBT-delivered services bill under the supervising provider. The treatment plan must name a credentialed supervisor.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Not published as a per-day unit ceiling. EN0499 bounds the day from a different direction: ABA is not covered when delivered at the same time as another therapy to the same child, and only one provider can bill a unit of time, with the standard supervision exceptions. Requested intensity is set in the treatment plan and authorized on the ABA PA form rather than against a published cap.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia:
+          'The treatment authorization itself, and Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask whether any per-day MUE is applied to ABA codes on this plan.',
+      },
+      placeOfService: {
+        value:
+          'Not published as a payable-settings list. Two sourced facts bear on setting nonetheless: the treatment plan must carry dated baseline data per setting, so settings are declared and measured rather than assumed; and every session note must record the location. Whether a given setting is payable is a plan-benefit question.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia:
+          'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA, and whether school-based delivery is excluded before you write school goals.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Two answers, and plan funding type picks between them. The carrier\'s national ABA policy states no age limit. Maryland\'s habilitative-services mandate does: for Maryland-regulated insurers, nonprofit health service plans and HMOs, habilitative services must be covered \u201cuntil at least the end of the month the enrollee turns 19,\u201d and COMAR 31.10.39.03 pins its no-denial hour floors to age bands \u2014 up to 25 hours/week for ages 18 months through 5 years and up to 10 hours/week for ages 6 through 18, with more when medically necessary. Self-funded ERISA plans are exempt from all of it, so establish funding type before quoting either bound.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Md. Insurance Article \u00a7 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' }, { title: 'Optum BH803ABA \u2014 ABA State Mandates supplemental criteria (Maryland entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Cigna\'s recency rule attaches to the standardized assessment rather than to the diagnosis itself, and it is tight. Initiation requires a standardized, validated instrument in its current edition administered within 60 days before treatment start. Continued treatment needs an updated plan with current data no more than 60 days old, a repeat standardized assessment within a year, and a re-assessment after any break in service longer than 60 days. If the family\'s most recent testing is older than 60 days, plan to administer during your assessment window \u2014 which Cigna lets you open without prior authorization.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'EN0499 as quoted in this guide sets the credential bar for who performs the ABA assessment and supervises the case \u2014 an independently licensed provider or a BCBA \u2014 rather than naming who may make the ASD diagnosis. The diagnosis itself must be a DSM-5-TR autism spectrum diagnosis, with Rett syndrome (F84.2) excluded.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Behavioral Health provider services (the behavioral health number on the member\'s card) \u2014 ask which diagnosing credentials EN0499 accepts before you rely on a diagnosis from a non-doctoral clinician.',
+      },
+      diagnosticTools: {
+        value:
+          'A standardized, validated instrument in its current edition \u2014 the policy gives Vineland-3 as the example rather than a closed list \u2014 administered within 60 days before treatment start, with the deficits it measures mapped to DSM-5-TR ASD domains and carried through into the treatment plan\'s goals. Continued treatment requires a repeat standardized assessment within a year.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      referral: {
+        value:
+          'On a fully-insured Maryland plan, yes \u2014 and it is a prescription, not a note. COMAR 31.10.39.03 conditions the mandated benefit on a comprehensive evaluation, a prescription with treatment goals from the PCP or a specialty physician, and annual review by the prescriber. Capture the prescriber and the prescription date at intake, and diary the annual renewal: a lapsed prescription is a coverage problem, not a paperwork one. Self-funded ERISA plans are outside the mandate, and for those the carrier\'s own authorization requirements are the only gate.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Md. Insurance Article \u00a7 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' }, { title: 'Optum BH803ABA \u2014 ABA State Mandates supplemental criteria (Maryland entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      telehealth: {
+        value:
+          'The most permissive position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model \u2014 in person, telehealth or hybrid \u2014 chosen on the individual\'s needs. Maryland adds nothing here for a commercial plan; the 25 percent in-person floor in PT 60-26 is a Medicaid rule and does not reach a Cigna commercial member.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does Cigna cover ABA therapy in Maryland?', a: 'Yes — under the carrier\'s national policy for ASD (EN0499, with no PA on assessment codes), layered on Maryland\'s habilitative-services mandate for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Maryland mandate require for ABA?', a: 'For fully-insured plans: coverage of habilitative services through at least the month the enrollee turns 19, no denial of ABA solely on prescribed hours up to 25 hrs/week (ages 18 months–5) or 10 hrs/week (ages 6–18), no experimental/investigational denials, and no dollar cap — entered via a comprehensive evaluation plus a physician prescription reviewed annually.' },
@@ -378,7 +629,93 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Md. Insurance Article § 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' },
       { title: 'MDH HealthChoice — Behavioral Health Coverage (carve-out)', url: 'https://health.maryland.gov/mmcp/healthchoice/Pages/BehavioralHealthCoverage.aspx' },
       { title: 'MDH Board of Professional Counselors & Therapists — Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' },
+      { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+      { title: 'MDH HealthChoice MCO Comparison Chart (UHC Community Plan roster entry)', url: 'https://health.maryland.gov/mmcp/healthchoice/Documents/hc-mco-comparison-chart.pdf' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Optum\'s Supplemental Clinical Criteria set supervision at 1\u20132 hours per 10 hours of direct treatment, with a floor of at least one hour of 97155 per case per month. In Maryland the supervising analyst must additionally hold the state Licensed Behavior Analyst credential, required to practice behavior analysis since January 2015.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'MDH Board of Professional Counselors & Therapists \u2014 Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' }],
+      },
+      concurrentBilling: {
+        value:
+          'Permitted in three named pairs: supervision alongside direct care (97153 + 97155), group oversight (97154 + 97155), and parent training alongside direct care (97153 + 97156). Not covered at all: team meetings without the member present, 1:1 classroom aides, and services owed under IDEA.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Optum does not authorize against a per-day unit ceiling; it authorizes in four code clusters \u2014 assessment (97151, 97152), direct care (97153, 97154), multi-staff (0362T, 0373T) and QHP services (97155\u201397158) \u2014 and units flex within a cluster without a new authorization. The number that actually bites runs the other way: utilization below 80 percent of authorized hours over a two-week window draws scrutiny at review.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'The authorization letter itself on Provider Express, and Optum provider services \u2014 ask whether any per-day MUE applies to this plan on top of the cluster structure.',
+      },
+      placeOfService: {
+        value:
+          'Optum\'s exclusions are the operative setting rule: team meetings without the member, 1:1 classroom aides, and any service owed under IDEA are not covered, which makes the school and IEP picture a coverage question rather than a background one. Optum\'s Maryland State Mandates entry goes further in the member\'s favour for fully-insured plans \u2014 it reproduces COMAR\'s allowance of school as a service location, while keeping IDEA/IEP obligations outside the benefit.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum BH803ABA \u2014 ABA State Mandates supplemental criteria (Maryland entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'Not published in the Supplemental Clinical Criteria. What Optum specifies is the review packet rather than the session note: continued-service reviews every 4\u20136 months want progress documented per targeted behavior using the same measurement methods as baseline, mastered-program rates, change scores and updated standardized adaptive measures. Who signs an individual session note, and by when, is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum provider services, or your Provider Express network manager \u2014 ask for the documentation standard applied at audit.',
+      },
+      billAsProvider: {
+        value:
+          'Not published in the Supplemental Clinical Criteria. Optum authorizes by code cluster and names a QHP services cluster (97155\u201397158) distinct from the direct-care cluster (97153, 97154), which implies a credential split on the rendering line but does not state whose NPI carries a technician-delivered 97153 claim or which degree-level modifiers apply.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum provider services or the authorization letter on Provider Express \u2014 confirm the rendering-versus-billing NPI convention and any required modifiers before the first claim.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Two answers, and plan funding type picks between them. The carrier\'s national ABA policy states no age limit. Maryland\'s habilitative-services mandate does: for Maryland-regulated insurers, nonprofit health service plans and HMOs, habilitative services must be covered \u201cuntil at least the end of the month the enrollee turns 19,\u201d and COMAR 31.10.39.03 pins its no-denial hour floors to age bands \u2014 up to 25 hours/week for ages 18 months through 5 years and up to 10 hours/week for ages 6 through 18, with more when medically necessary. Self-funded ERISA plans are exempt from all of it, so establish funding type before quoting either bound.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Md. Insurance Article \u00a7 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' }, { title: 'Optum BH803ABA \u2014 ABA State Mandates supplemental criteria (Maryland entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Optum publishes no recency rule for the ASD diagnosis in its Supplemental Clinical Criteria as cited here; what it does set is a review cadence downstream \u2014 continued-service reviews every 4\u20136 months requiring updated standardized adaptive measures and progress measured the same way as baseline.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum provider services or the assessment-authorization request on Provider Express \u2014 ask whether an evaluation of this age will be accepted before scheduling.',
+      },
+      diagnosingProviders: {
+        value:
+          'A DSM-5-TR autism spectrum diagnosis from a state-licensed physician, psychologist, or other qualified clinician. Optum asks for the diagnosing clinician and the instrument at the assessment-authorization step, so both are intake fields.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'The diagnosis must be confirmed with at least one clinically validated tool. Optum names first-level instruments \u2014 the ADI-R, the ADOS-2 and the DISCO \u2014 and accepts second-level tools including the CARS-2, the RITA-T and the STAT. Capture which instrument was used, by whom and when; \u201cdiagnosed by Dr. X\u201d without a named tool is the most common reason an Optum assessment request stalls.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      referral: {
+        value:
+          'On a fully-insured Maryland plan, yes \u2014 and it is a prescription, not a note. COMAR 31.10.39.03 conditions the mandated benefit on a comprehensive evaluation, a prescription with treatment goals from the PCP or a specialty physician, and annual review by the prescriber. Capture the prescriber and the prescription date at intake, and diary the annual renewal: a lapsed prescription is a coverage problem, not a paperwork one. Self-funded ERISA plans are outside the mandate, and for those the carrier\'s own authorization requirements are the only gate.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Md. Insurance Article \u00a7 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' }, { title: 'Optum BH803ABA \u2014 ABA State Mandates supplemental criteria (Maryland entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Gated on the provider, not just the code. Tele-supervision and virtual family training require the provider to be an approved Optum virtual-visits provider with a completed attestation on Provider Express, and the authorization itself must note virtual delivery. Optum frames telehealth as a supplement to in-person care rather than a replacement for it, so a request built mostly on remote hours should expect pushback.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' }],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Maryland?', a: 'Yes — under Optum\'s national two-step authorization policy for ASD, and for fully-insured Maryland plans Optum\'s own State Mandates document applies the COMAR 31.10.39.03 criteria, including the 25 and 10 hour/week no-denial floors. Self-funded employer plans follow the standard national policy instead.' },
       { q: 'What does the Maryland mandate require for ABA?', a: 'For fully-insured plans: habilitative-services coverage through at least the month the enrollee turns 19, no denial of ABA solely on prescribed hours up to 25 hrs/week (ages 18 months–5) or 10 hrs/week (ages 6–18), no experimental/investigational denials, and no dollar cap — entered via a comprehensive evaluation plus a physician prescription reviewed annually. Optum reproduces these criteria in its own published document.' },

@@ -112,7 +112,110 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'MAD ABA Agency Manual Instructions (Part 6, Staff Documents)', url: 'https://www.hsd.state.nm.us/wp-content/uploads/files/Providers/New%20Mexico%20Administrative%20Code%20Program%20Rules%20and%20Billing/Billing%20Instructions/Applied-Behavior-Analysis-Agency-Manual-Instructions.pdf' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts (NM absent; checked July 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: 'BCBSNM Turquoise Care BH Provider Training (roster enrollment process)', url: 'https://www.bcbsnm.com/docs/provider/nm/education/training/tc-bh-provider-training.pdf' },
+      { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'No upper age limit. NMAC 8.321.2.13 says it outright: "There is no age requirement to receive ABA services and ABA is a covered benefit for medicaid enrolled adults." Recipients under 21 receive ABA as part of EPSDT (42 CFR § 441.57), and MAD Supplement 24-13 runs an explicit adult benefit across all three stages. At the bottom end the diagnosed pathway opens at 12 months and the at-risk pathway is bounded at 12–36 months of age.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
+      dxRecency: {
+        value: 'New Mexico is not a strict-diagnosis state, so the recency rule attaches to the referral rather than to a required diagnosis. NMAC 8.321.2.13 lets a recipient be referred for stage two and three services on a presumptive diagnosis of ASD by a licensed practitioner whose scope of practice allows them to render it, and "This diagnosis must have been received within three years of referral to stage two or three services." Where the recipient already carries an ASD diagnosis, diagnostic re-evaluation is not necessary — but an Integrated Service Plan and a medical-necessity determination for ABA are still required. Per the guide’s reading of Supplement 24-13, adults need ASD confirmation by a Grace Exception Practitioner within the last 3 years. The at-risk pathway needs no diagnosis at all.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Confirmation of the presence of — or risk for — ASD normally comes from an approved Autism Evaluation Provider (AEP) through a comprehensive diagnostic evaluation; a targeted evaluation is used when a fully diagnosed recipient presents with behaviors changed from the last CDE, and an ASD risk evaluation when the at-risk criteria in Subsection C are met. To avoid delaying stage two and three, a recipient may instead be referred with a presumptive ASD diagnosis from any licensed practitioner whose scope of practice allows them to render an ASD diagnosis, received within three years of the referral.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'NMAC 8.321.2.13 names no required diagnostic instrument. The diagnosis is made against the latest DSM or ICD by the AEP, and the at-risk criteria require developmental differences and delays "as measured by standardized assessments" without naming which. Instrument-level requirements, if MAD publishes any, sit in the Behavioral Health Policy and Billing Manual and Supplement 24-13 rather than in the rule.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual / Supplement 24-13 via the HCA ABA provider information page — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      referral: {
+        value: 'Yes, and it is the structural gate in New Mexico. Stage one is an evaluation by an approved Autism Evaluation Provider, who "must" develop an Integrated Service Plan (ISP) together with a referral to an approved ABA provider agency. The ISP and the CDE or targeted evaluation must accompany every stage-three prior authorization request, alongside the ABA treatment plan. The alternative front door, built into the rule to avoid delay, is a referral on a presumptive ASD diagnosis from a licensed practitioner within scope, received within three years of referral.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+        ],
+      },
+      telehealth: {
+        value: 'NMAC 8.321.2.13 contains no telehealth or telemedicine provision for ABA, and the shared Turquoise Care Behavioral Health Level of Care Guidelines set none for ABA Stage 3 either — so no statewide per-code telehealth rule could be verified for the ABA benefit.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual (ABA billing instructions) and the NM Medicaid telehealth policy — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'All stage-three services require clinical management, and where a behavior analyst assistant (BCaBA) or behavior technician implements the treatment plan, that person requires case supervision from their BA or supervising BAA. NMAC turns the ratio into an authorization trigger: the prior authorization request must state the hours of case supervision requested per week if more than two hours of supervision per 10 hours of intervention is sought, and likewise for clinical management above two hours per 10. Per the guide’s reading of Supplement 24-13 the billable floor runs the other way too — at least four 15-minute units (one hour) of 97155, rendered by the BA, Mentored BA or supervising BCaBA with the recipient present, for every eighty units (20 hours) of combined 97153/97154/97156, roughly a 5% direct-observation floor, plus one to two units of T1026 UD clinical management per eighty units of stage-three service. Supervision required only to maintain BACB or BICC certification is explicitly not reimbursable by MAD.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not resolved in the rule text. NMAC 8.321.2.13 publishes no same-clock-time billing rule for ABA, and it defers billing instructions to the MAD Behavioral Health Policy and Billing Manual. What is clear is that the model assumes concurrent delivery: the 97155 observation floor is expressed as units rendered with the recipient present against units of 97153/97154/97156, which is supervision alongside direct service. Whether both are payable for the same clock minutes still needs the billing manual.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual, ABA billing instructions — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      dailyLimits: {
+        value: 'MAD publishes no per-day unit ceiling for ABA. The limits that bite are authorization-gated intensity thresholds, and one of them inverts the usual logic: per the guide’s reading of Supplement 24-13 (3.17.1(A)), comprehensive treatment rendered at LESS than 20 hours a week on average requires prior authorization from the MCO or the third-party assessor — scrutiny lands on under-dosed programmes rather than high-hour ones. Contemplated bands are 30–40 hours a week for comprehensive, 10–25 for focused, and 10–40 for adult comprehensive services. Requests above two hours of case supervision, or two hours of clinical management, per 10 hours of stage-three intervention also require PA, and the PA request must document hours allocated to other services in the ISP so the UR contractor can judge whether the requested intensity is feasible.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'NMAC assigns responsibility but not signature mechanics: the supervising behavior analyst is responsible for the recipient’s assessment, the selection and measurement of goals, and treatment plan formulation and documentation, and the rule then defers to the MAD Behavioral Health Policy and Billing Manual for documentation detail. Who must sign a session note, and within what window, is not stated in the rule.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual (ABA documentation requirements) — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      placeOfService: {
+        value: 'NMAC sets the boundaries by exclusion and by setting. Not covered: activities that take place in school settings and have the potential to supplant educational services. Residential and institutional settings are handled explicitly — where a recipient is in a residential facility that is not itself an enrolled ABA provider, the facility must locate a MAD-enrolled stage two and three ABA provider and agree terms allowing that provider to render services on site. Treatment foster care is not treated as a residential facility, so ABA may be delivered outside the TFC agency; a recipient in a residential treatment centre, accredited residential treatment centre or group home may receive ABA to the extent the residential provider can deliver it. The shared Turquoise Care Level of Care Guidelines add that out-of-home placement is otherwise an exclusion, apart from time-limited ABA authorized for transition back to a community provider.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Reimbursement for ABA stage two and three services is made to the MAD-enrolled ABA provider, never to a residential facility hosting the service. Practitioners enrol by type: behavior analysts (BCBA or BCBA-D, or an ABPP behavior-and-cognitive-psychology psychologist tested in the ABA component) as Provider Type 445, Specialty 099 on the MAD-877 attestation, and technicians as Provider Type 430, Specialty 098 on the MAD-878 — with any change in certification status reported immediately to the agency, the MAD ABA Manager and each contracted MCO. Every provider and practitioner must successfully complete a New Mexico criminal background registry check before rendering. Under Letter of Direction #53 the Turquoise Care MCOs, and their sub-vendors, must pay no less than the Medicaid fee-for-service ABA fee schedule.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'MAD-877 BCBA and BCBA-D Attestation (Provider Type 445, Specialty 099)', url: 'https://www.hca.nm.gov/wp-content/uploads/MAD-877-BCBA-and-BCBA-D-Attestation.03.2024.pdf' },
+          { title: 'MAD-878 RBT or BCAT Attestation (Provider Type 430, Specialty 098)', url: 'https://www.hca.nm.gov/wp-content/uploads/MAD-878-RBT-or-BCAT-Attestation.03.2024.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does New Mexico Medicaid cover ABA therapy?', a: 'Yes — for recipients 12 months and older with an ASD diagnosis, for young children with a documented risk for developing ASD (no final diagnosis required), and for adults with no upper age limit. Coverage runs through the four Turquoise Care MCOs or FFS with the state\'s Third-Party Assessor.' },
       { q: 'Does the ABA assessment need prior authorization in New Mexico?', a: 'No — 97151, 97152, and 0362T are marked "Prior Auth: NO" on the state fee schedule. PA applies essentially only to treatment: 97153 requires it, and comprehensive programs averaging under 20 hours/week need PA regardless.' },
@@ -179,7 +282,131 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'BCBSNM ABA Clinical Service Request Form', url: 'https://www.bcbsnm.com/docs/provider/nm/education/forms/aba-clinical-service-request.pdf' },
       { title: 'BCBSNM CPCP011 Applied Behavioral Analysis coding policy (2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+      { title: 'MAD Supplement 24-13 — ABA Guidance (adult benefit)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+      { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the New Mexico Medicaid rule: NMAC 8.321.2.13 imposes no upper age limit and covers Medicaid-enrolled adults, with under-21s served through EPSDT and the at-risk pathway bounded at 12–36 months. One drafting trap: the shared Turquoise Care Level of Care Guidelines (July 2024) describe ABA for members 12 months up to 21 years, because the adult expansion arrived later in NMAC 8.321.2.13 (12/10/2024) and Supplement 24-13 — cite those, not the LOC document, on an adult request.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the New Mexico Medicaid rule: a presumptive ASD diagnosis from a licensed practitioner within scope must have been received within three years of the referral to stage two or three; a recipient who already carries an ASD diagnosis needs no re-evaluation but does need an ISP and a medical-necessity determination; and the at-risk pathway requires no diagnosis at all.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the New Mexico Medicaid rule, which names none: NMAC 8.321.2.13 requires the diagnosis be made against the latest DSM or ICD and the at-risk criteria be measured by standardized assessments, without naming instruments. No plan-specific instrument list was found for this MCO either.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual / Supplement 24-13 — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      referral: {
+        value: 'Follows the New Mexico Medicaid rule for the clinical gate — Autism Evaluation Provider evaluation, ISP, and referral to an approved ABA provider agency. BCBSNM’s own layer is a lead-time rule on the treatment request: the ABA Clinical Service Request Form (initial and concurrent versions) must arrive within the 30 days before, and at least 2 weeks before, the requested treatment start date. One caution when using the form: its printed phone and fax numbers and its 36-month diagnostic-recency language come from the commercial and FEP context — for Turquoise Care members the state criteria (three-year recency per NMAC) govern, so confirm current Medicaid routing in Availity.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'BCBSNM ABA Clinical Service Request Form', url: 'https://www.bcbsnm.com/docs/provider/nm/education/forms/aba-clinical-service-request.pdf' },
+        ],
+      },
+      telehealth: {
+        value: 'No verified rule. NMAC 8.321.2.13 carries no telehealth provision for ABA and the shared Turquoise Care Level of Care Guidelines set none for ABA Stage 3, and no plan-specific ABA telehealth policy was found for this MCO.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'The plan’s provider portal or behavioral health UM line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the New Mexico Medicaid ratios (PA above two hours of case supervision or clinical management per 10 hours of intervention; the Supplement 24-13 97155 observation floor). CPCP011 adds the payment-side view, citing CASP 2024: 10–20% of direct hours in case supervision activities combining direct and indirect supervision, with direct supervision authorizable at a minimum of one hour per week when fewer than 10 hours of direct services are authorized — and indirect supervision treated as bundled practice expense, documented in the treatment plan but not separately reimbursable. BCBSNM’s line-staff requirements for 1:1 technicians are 18 or older, high-school diploma or GED, background check, 40 hours of ASD and evidence-based-practice training, and BCBA oversight of at least 5% of direct hours.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'BCBSNM CPCP011 Applied Behavioral Analysis coding policy (eff. 3/20/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'BCBSNM’s ABA coding policy CPCP011 answers this where the state rule does not: ABA services are not reimbursable for more than one BCBA or qualified healthcare professional providing the same or similar services on the same dates of service — and the policy is explicit that this "does not refer to the technician(s) or direct service provider simultaneously rendering service with the BCBA or qualified healthcare professional." Billable supervision of a patient must be face-to-face and involves only one technician; there is no CPT code for indirect (patient not present) supervision or week-to-week treatment planning, which AMA treats as bundled practice expense. Co-treatment with a distinct service such as speech or occupational therapy is allowed where clinically indicated, documented in the treatment plan and billed with the appropriate modifier.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'BCBSNM CPCP011 Applied Behavioral Analysis coding policy (eff. 3/20/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value: 'CPCP011 supplies the ceilings the state rule omits. Providers are referred to the current CMS MUE table for the maximum units per member per date of service, with service units also limited by the authorization period, and any units beyond industry-standard coding guidelines must be justified in documentation. Named limits: treatment plans and evaluations inclusive of administration, scoring, interpretation and report write-up that exceed eight hours (32 units of 97151) may not be eligible for reimbursement; parent education is authorized at one hour per week for the authorization period, typically 26 weeks for a total of 26 hours, with more requiring supporting clinical documentation; group codes 97154 and 97158 require no fewer than 2 and no more than 8 members. Timed codes follow the 8-minute rule, and a direct treatment service performed for less than 8 minutes as the only modality that day is not reportable.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'BCBSNM CPCP011 Applied Behavioral Analysis coding policy (eff. 3/20/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'CPCP011 sets a documentation bar stricter than most: substantiating documentation includes a parent or caregiver signature for each rendered service, carrying the service and code provided, the rendering provider’s name and signature, certification and credentials, the place of service, the date of service and the beginning and end times of the service; plus a written account, summary or note of the service rendered; and data points, which may be required immediately after the service and for audit. Session notes should reflect that both parties were present for the entire duration of the encounter where services are rendered under direct personal supervision. All treatment time, including beginning and ending time, must be recorded in the record with the note describing the specific procedure.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'BCBSNM CPCP011 Applied Behavioral Analysis coding policy (eff. 3/20/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'Follows the New Mexico Medicaid rule on covered settings, with a BCBSNM claim-edit overlay: CPCP011 treats POS 10, 11 and 12 as the conventional settings, and programmes or services rendered in any other place of service — even by a licensed provider — need supporting documentation on file in the member record, including a rationale and description for the non-conventional POS code, available on request. The member handbook excludes ABA delivered for educational, vocational, respite or custodial purposes, which mirrors the state rule’s school-supplanting exclusion.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'BCBSNM CPCP011 Applied Behavioral Analysis coding policy (eff. 3/20/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the New Mexico Medicaid enrolment rules, with CPCP011 governing who may appear on the claim. ABA is not reimbursable unless provided by a professional certified by the BACB as a behavior analyst, or licensed in their state as a Licensed Behavior Analyst or Licensed Psychologist. The provider who renders treatment week to week is the rendering provider and should bill; a provider who is not rendering protocol modification, parent education, assessment or report writing should not bill for services they did not personally provide. An unlicensed, non-network-credentialed or otherwise non-qualified provider cannot provide services and bill through another person’s NPI. A single modifier — HM, HN or HO — indicates the rendering provider’s level of education, training and certification when 97153 is submitted.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'BCBSNM CPCP011 Applied Behavioral Analysis coding policy (eff. 3/20/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does BCBS of New Mexico cover ABA under Medicaid?', a: 'Yes — as a Turquoise Care MCO it administers the state ABA benefit on the shared Level of Care Guidelines, which defer to NMAC 8.321.2. The state front door applies: no PA on the assessment, treatment requested via BCBSNM\'s ABA Clinical Service Request Form.' },
       { q: 'When do I submit the BCBSNM ABA request form?', a: 'Within the 30 days before — and at least 2 weeks before — the requested treatment start date, via Availity or fax. Build that lead time into scheduling conversations with families.' },
@@ -189,6 +416,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
 
   'presbyterian-health-plan-new-mexico': {
     slug: 'presbyterian-health-plan-new-mexico',
+    assessmentPA: 'No separate Presbyterian rule published — the state baseline governs, and the New Mexico fee schedule marks 97151, 97152 and 0362T "Prior Auth: NO". Verify current requirements in myPRES if in doubt',
     cardDesc: 'State criteria with its own Stage 3 review forms; Medicaid BH fax (505) 843-3019 — not Magellan.',
     treatmentPA: 'Stage 3 ABA Clinical Review Form to Presbyterian Turquoise Care BH — fax (505) 843-3019 or the online Turquoise Care portal (state 97153-only PA baseline)',
     dxRequired: 'State rule — ASD dx within 3 years, or the documented at-risk-for-ASD pathway (NMAC 8.321.2.13)',
@@ -241,7 +469,126 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Presbyterian Provider Prior Authorization Guide (06.01.2026)', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220' },
       { title: 'MAD Supplement 24-13 — ABA Guidance (state criteria)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+      { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+      { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the New Mexico Medicaid rule: NMAC 8.321.2.13 imposes no upper age limit and covers Medicaid-enrolled adults, with under-21s served through EPSDT and the at-risk pathway bounded at 12–36 months. One drafting trap: the shared Turquoise Care Level of Care Guidelines (July 2024) describe ABA for members 12 months up to 21 years, because the adult expansion arrived later in NMAC 8.321.2.13 (12/10/2024) and Supplement 24-13 — cite those, not the LOC document, on an adult request.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the New Mexico Medicaid rule: a presumptive ASD diagnosis from a licensed practitioner within scope must have been received within three years of the referral to stage two or three; a recipient who already carries an ASD diagnosis needs no re-evaluation but does need an ISP and a medical-necessity determination; and the at-risk pathway requires no diagnosis at all.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the New Mexico Medicaid rule, which names none: NMAC 8.321.2.13 requires the diagnosis be made against the latest DSM or ICD and the at-risk criteria be measured by standardized assessments, without naming instruments. No plan-specific instrument list was found for this MCO either.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual / Supplement 24-13 — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      referral: {
+        value: 'Follows the New Mexico Medicaid rule — Autism Evaluation Provider evaluation, ISP, and referral to an approved ABA provider agency — with Presbyterian’s own paperwork on top: stage-three treatment requests go on Presbyterian’s "Applied Behavior Analysis (ABA) Clinical Review Form: Stage 3" (with a separate ABA Specialty Care Clinical Review Form), faxed to (505) 843-3019 or filed through the Turquoise Care online submission channel. The routing trap matters more than the form: Magellan handles Presbyterian’s Medicare and commercial behavioral health only, never Turquoise Care Medicaid, which is managed in-house.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'Presbyterian Health Plan — Authorizations for Providers (ABA Stage 3 + Specialty Care forms)', url: 'https://www.phs.org/providers/authorizations' },
+        ],
+      },
+      telehealth: {
+        value: 'No verified rule. NMAC 8.321.2.13 carries no telehealth provision for ABA and the shared Turquoise Care Level of Care Guidelines set none for ABA Stage 3, and no plan-specific ABA telehealth policy was found for this MCO.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'The plan’s provider portal or behavioral health UM line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the New Mexico Medicaid rule: every stage-three service requires clinical management, a BCaBA or technician implementing the plan requires case supervision from their BA or supervising BAA, and prior authorization is triggered where more than two hours of case supervision, or two hours of clinical management, per 10 hours of intervention is requested. Certification-maintenance supervision is not MAD-reimbursable.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not resolved. NMAC publishes no same-clock-time billing rule for ABA and defers to the MAD Behavioral Health Policy and Billing Manual; no plan-specific concurrent-billing rule was found for this MCO.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'The plan’s provider portal or claims line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      dailyLimits: {
+        value: 'Follows the New Mexico Medicaid rule: no per-day unit ceiling, with authorization-gated intensity thresholds instead — including the inverted quirk that comprehensive treatment averaging under 20 hours a week requires prior authorization — and PA on supervision or clinical management above two hours per 10 hours of stage-three service. No plan-specific hour caps were found for this MCO.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not resolved at the state level: NMAC makes the supervising behavior analyst responsible for treatment plan formulation and documentation but defers session-note mechanics to the MAD Behavioral Health Policy and Billing Manual, and no plan-specific documentation standard was found for this MCO.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual (ABA documentation requirements) — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      placeOfService: {
+        value: 'Follows the New Mexico Medicaid rule: school-setting activities with the potential to supplant educational services are excluded; a residential facility that is not itself an ABA provider must contract a MAD-enrolled ABA provider to render on site; treatment foster care is not treated as out-of-home placement; and out-of-home placement is otherwise an exclusion under the shared Turquoise Care Level of Care Guidelines apart from time-limited transition services.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the New Mexico Medicaid rule: reimbursement goes to the MAD-enrolled ABA provider, behavior analysts enrol as Provider Type 445 / Specialty 099 and technicians as Provider Type 430 / Specialty 098 on the MAD-877 and MAD-878 attestations, and every practitioner must clear a New Mexico criminal background registry check before rendering. Letter of Direction #53 makes the state fee-for-service ABA fee schedule the contractual minimum this MCO and its sub-vendors must pay.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Presbyterian Health Plan cover ABA under Turquoise Care?', a: 'Yes — on the state\'s ABA criteria and stage model. Treatment requests use Presbyterian\'s own Stage 3 ABA Clinical Review Form, faxed to (505) 843-3019 or submitted through the Turquoise Care online channel.' },
       { q: 'Do I send Presbyterian Medicaid ABA authorizations to Magellan?', a: 'No — Magellan handles Presbyterian\'s Medicare and commercial behavioral health only. Turquoise Care (Medicaid) BH is in-house: use the Medicaid fax (505) 843-3019 or the Turquoise Care portal.' },
@@ -251,6 +598,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
 
   'molina-healthcare-new-mexico': {
     slug: 'molina-healthcare-new-mexico',
+    assessmentPA: 'Not published — Molina has no New Mexico ABA code-level PA list; the state baseline (97151/97152/0362T marked "Prior Auth: NO") should govern via the shared Turquoise Care Level of Care Guidelines. Run a code-level check in Availity Essentials and keep the answer in writing',
+    treatmentPA: 'Not published at code level — the state baseline puts PA on 97153; Molina mandates electronic PA submission through Availity Essentials as its primary channel',
     family: 'molina',
     cardDesc: 'New to NM 7/2024; PA via Availity Essentials; no published ABA policy — verify in portal.',
     dxRequired: 'State rule — ASD dx within 3 years, or the documented at-risk-for-ASD pathway (NMAC 8.321.2.13)',
@@ -304,7 +653,126 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Molina NM Medicaid Authorizations page', url: 'https://www.molinahealthcare.com/providers/nm/medicaid/resource/priorauth.aspx' },
       { title: 'MAD Supplement 24-13 — ABA Guidance (state criteria)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+      { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+      { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the New Mexico Medicaid rule: NMAC 8.321.2.13 imposes no upper age limit and covers Medicaid-enrolled adults, with under-21s served through EPSDT and the at-risk pathway bounded at 12–36 months. One drafting trap: the shared Turquoise Care Level of Care Guidelines (July 2024) describe ABA for members 12 months up to 21 years, because the adult expansion arrived later in NMAC 8.321.2.13 (12/10/2024) and Supplement 24-13 — cite those, not the LOC document, on an adult request.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the New Mexico Medicaid rule: a presumptive ASD diagnosis from a licensed practitioner within scope must have been received within three years of the referral to stage two or three; a recipient who already carries an ASD diagnosis needs no re-evaluation but does need an ISP and a medical-necessity determination; and the at-risk pathway requires no diagnosis at all.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the New Mexico Medicaid rule, which names none: NMAC 8.321.2.13 requires the diagnosis be made against the latest DSM or ICD and the at-risk criteria be measured by standardized assessments, without naming instruments. No plan-specific instrument list was found for this MCO either.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual / Supplement 24-13 — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      referral: {
+        value: 'Follows the New Mexico Medicaid rule — Autism Evaluation Provider evaluation, ISP and referral to an approved ABA provider agency, with the ISP and evaluation accompanying the stage-three PA request. Molina publishes no New Mexico-specific ABA clinical policy, PA form or code-level PA list, and its provider manual requires electronic prior authorization submission through Availity Essentials as the mandated primary channel — run a code-level PA check there for each new case and keep the answer in writing.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'Molina Healthcare of New Mexico Provider Manual (Medicaid 2025)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/communications/MCAIDNM-Provider-Manual-2025-EN-508.pdf' },
+        ],
+      },
+      telehealth: {
+        value: 'No verified rule. NMAC 8.321.2.13 carries no telehealth provision for ABA and the shared Turquoise Care Level of Care Guidelines set none for ABA Stage 3, and no plan-specific ABA telehealth policy was found for this MCO.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'The plan’s provider portal or behavioral health UM line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the New Mexico Medicaid rule: every stage-three service requires clinical management, a BCaBA or technician implementing the plan requires case supervision from their BA or supervising BAA, and prior authorization is triggered where more than two hours of case supervision, or two hours of clinical management, per 10 hours of intervention is requested. Certification-maintenance supervision is not MAD-reimbursable.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not resolved. NMAC publishes no same-clock-time billing rule for ABA and defers to the MAD Behavioral Health Policy and Billing Manual; no plan-specific concurrent-billing rule was found for this MCO.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'The plan’s provider portal or claims line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      dailyLimits: {
+        value: 'Follows the New Mexico Medicaid rule: no per-day unit ceiling, with authorization-gated intensity thresholds instead — including the inverted quirk that comprehensive treatment averaging under 20 hours a week requires prior authorization — and PA on supervision or clinical management above two hours per 10 hours of stage-three service. No plan-specific hour caps were found for this MCO.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not resolved at the state level: NMAC makes the supervising behavior analyst responsible for treatment plan formulation and documentation but defers session-note mechanics to the MAD Behavioral Health Policy and Billing Manual, and no plan-specific documentation standard was found for this MCO.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual (ABA documentation requirements) — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      placeOfService: {
+        value: 'Follows the New Mexico Medicaid rule: school-setting activities with the potential to supplant educational services are excluded; a residential facility that is not itself an ABA provider must contract a MAD-enrolled ABA provider to render on site; treatment foster care is not treated as out-of-home placement; and out-of-home placement is otherwise an exclusion under the shared Turquoise Care Level of Care Guidelines apart from time-limited transition services.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the New Mexico Medicaid rule: reimbursement goes to the MAD-enrolled ABA provider, behavior analysts enrol as Provider Type 445 / Specialty 099 and technicians as Provider Type 430 / Specialty 098 on the MAD-877 and MAD-878 attestations, and every practitioner must clear a New Mexico criminal background registry check before rendering. Letter of Direction #53 makes the state fee-for-service ABA fee schedule the contractual minimum this MCO and its sub-vendors must pay.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Molina Healthcare of New Mexico cover ABA?', a: 'Yes — as a Turquoise Care MCO it administers the state ABA benefit under the shared Level of Care Guidelines and NMAC criteria. Molina has published no NM-specific ABA policy, so verify code-level PA requirements in Availity Essentials.' },
       { q: 'How do I submit an ABA prior authorization to Molina NM?', a: 'Electronically through Availity Essentials — Molina\'s mandated primary submission channel. Since no ABA-specific PA list is published, confirm which codes require authorization in the portal and keep the answer on file.' },
@@ -369,7 +837,128 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'NM Turquoise Care ABA Network Quick Reference Guide (BH0000747_12162024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf' },
       { title: 'MAD Supplement 24-13 — ABA Guidance (state criteria)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+      { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+      { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Follows the New Mexico Medicaid rule: NMAC 8.321.2.13 imposes no upper age limit and covers Medicaid-enrolled adults, with under-21s served through EPSDT and the at-risk pathway bounded at 12–36 months. One drafting trap: the shared Turquoise Care Level of Care Guidelines (July 2024) describe ABA for members 12 months up to 21 years, because the adult expansion arrived later in NMAC 8.321.2.13 (12/10/2024) and Supplement 24-13 — cite those, not the LOC document, on an adult request.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      dxRecency: {
+        value: 'Follows the New Mexico Medicaid rule: a presumptive ASD diagnosis from a licensed practitioner within scope must have been received within three years of the referral to stage two or three; a recipient who already carries an ASD diagnosis needs no re-evaluation but does need an ISP and a medical-necessity determination; and the at-risk pathway requires no diagnosis at all.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'Follows the New Mexico Medicaid rule: an approved Autism Evaluation Provider confirms the presence of or risk for ASD through a comprehensive diagnostic, targeted or ASD risk evaluation, or the recipient is referred on a presumptive diagnosis from any licensed practitioner whose scope of practice allows an ASD diagnosis, received within three years of referral.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'Follows the New Mexico Medicaid rule, which names none: NMAC 8.321.2.13 requires the diagnosis be made against the latest DSM or ICD and the at-risk criteria be measured by standardized assessments, without naming instruments. No plan-specific instrument list was found for this MCO either.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual / Supplement 24-13 — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      referral: {
+        value: 'Follows the New Mexico Medicaid rule for the clinical gate (Autism Evaluation Provider evaluation, ISP, referral to an approved ABA provider agency). The authorization surface is the narrowest in the state: per the plan’s Turquoise Care ABA Quick Reference Guide, "All autism services do not require prior authorization with the exception of 97153 & 0373T" — so 97151, 97155 and 97156 proceed without authorization, and the only PA workflow to build is the treatment request, filed on the New Mexico Uniform Prior Authorization Form through the Provider Express Auth tab (One Healthcare ID) or by fax to 1-888-541-6691.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'NM Turquoise Care ABA Network Quick Reference Guide (BH0000747_12162024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf' },
+        ],
+      },
+      telehealth: {
+        value: 'No verified rule. NMAC 8.321.2.13 carries no telehealth provision for ABA and the shared Turquoise Care Level of Care Guidelines set none for ABA Stage 3, and no plan-specific ABA telehealth policy was found for this MCO.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'The plan’s provider portal or behavioral health UM line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Follows the New Mexico Medicaid rule: every stage-three service requires clinical management, a BCaBA or technician implementing the plan requires case supervision from their BA or supervising BAA, and prior authorization is triggered where more than two hours of case supervision, or two hours of clinical management, per 10 hours of intervention is requested. Certification-maintenance supervision is not MAD-reimbursable.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not resolved. NMAC publishes no same-clock-time billing rule for ABA and defers to the MAD Behavioral Health Policy and Billing Manual; no plan-specific concurrent-billing rule was found for this MCO.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'The plan’s provider portal or claims line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      dailyLimits: {
+        value: 'Follows the New Mexico Medicaid rule: no per-day unit ceiling, with authorization-gated intensity thresholds instead — including the inverted quirk that comprehensive treatment averaging under 20 hours a week requires prior authorization — and PA on supervision or clinical management above two hours per 10 hours of stage-three service. No plan-specific hour caps were found for this MCO.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not resolved at the state level: NMAC makes the supervising behavior analyst responsible for treatment plan formulation and documentation but defers session-note mechanics to the MAD Behavioral Health Policy and Billing Manual, and no plan-specific documentation standard was found for this MCO.',
+        status: 'unverified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+        verifyVia: 'MAD Behavioral Health Policy and Billing Manual (ABA documentation requirements) — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
+      },
+      placeOfService: {
+        value: 'Follows the New Mexico Medicaid rule: school-setting activities with the potential to supplant educational services are excluded; a residential facility that is not itself an ABA provider must contract a MAD-enrolled ABA provider to render on site; treatment foster care is not treated as out-of-home placement; and out-of-home placement is otherwise an exclusion under the shared Turquoise Care Level of Care Guidelines apart from time-limited transition services.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Follows the New Mexico Medicaid enrolment rules (Provider Type 445/099 for behavior analysts, 430/098 for technicians, MAD attestations and the criminal background registry check) with Optum’s claim plumbing on top: all autism provider services are billed on a Form CMS-1500, electronically to payer ID 87726 (ERA payer ID 86047) via uhcprovider.com, or on paper to Optum, PO Box 31348, Salt Lake City, UT 84131-0348. Submission must occur within 6 months of the date of service. Letter of Direction #53 still makes the state fee-for-service ABA fee schedule the contractual minimum.',
+        status: 'verified',
+        cites: [
+          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'NM Turquoise Care ABA Network Quick Reference Guide (BH0000747_12162024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf' },
+          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of New Mexico cover ABA?', a: 'Yes — as a Turquoise Care MCO since July 1, 2024, with ABA administered by Optum through a dedicated New Mexico program on Provider Express, on the state\'s clinical criteria.' },
       { q: 'Which ABA codes need prior authorization with UHC in New Mexico?', a: 'Only 97153 and 0373T. Per the plan\'s Quick Reference Guide, all other autism services — including the 97151 assessment, 97155, and 97156 — require no prior authorization.' },
@@ -457,7 +1046,113 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'NMSA § 59A-46-50 — HMO parallel section (Justia)', url: 'https://law.justia.com/codes/new-mexico/chapter-59a/article-46/section-59a-46-50/' },
       { title: 'Autism Speaks — New Mexico state-regulated coverage', url: 'https://www.autismspeaks.org/new-mexico-state-regulated-insurance-coverage' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Aetna’s national ABA policies set no coverage age cap. The ABA medical necessity guide describes typical rather than limiting parameters: comprehensive ABA at 10–25 hours a week is typical for ages 0–7 over 1–2 years, while focused ABA at 1–20 hours a week is listed for all ages over 1–4 years. Where the member’s benefit plan or a state mandate carries an age term, that governs. New Mexico is one of the stronger mandate states: since 2019’s HB 322 coverage "shall not be denied to an insured on the basis of the insured’s age" and benefits "shall not be subject to annual or lifetime dollar limits" on fully insured plans. Self-funded ERISA plans and limited-benefit policies are exempt, so plan funding type decides whether the no-age-limit rule binds.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'NMSA § 59A-22-49 — autism coverage (FindLaw, current through 2024)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' },
+        ],
+        verifyVia: 'Live benefits verification on the member ID — establish fully insured vs. self-funded ERISA, then the plan’s own age and benefit terms.',
+      },
+      dxRecency: {
+        value: 'Aetna puts no expiry on the ASD diagnosis itself, but it does run a 12-month clock on the functional evidence: medical necessity requires demonstration of functional impairment on a standardized scale of functioning in the past 12 months, at least one standard deviation below the population mean, or a significant risk of harm to self or others. Progress is then re-evaluated every six months.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'A DSM-5 diagnosis of Autism Spectrum Disorder (ICD-10 F84.0, F84.3–F84.9) obtained by an appropriate provider — the medical necessity guide names a licensed psychologist or psychiatrist, a physician, or another health care professional qualified to diagnose mental health conditions within their scope of practice. CPB 0648 separately lists the professionals appropriate to an ASD evaluation: board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist and audiologist.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'CPB 0648 names the diagnostic instruments behind an ASD diagnosis: ADI-R, ADOS-2, CARS-2 and the Asperger Syndrome Diagnostic Scale. The ABA medical necessity guide then requires a standardized measure of functioning administered within the past 12 months — it gives the Vineland Adaptive Behavior Scales 3, the Adaptive Behavior Assessment Scale, VB-MAPP and ABLLS as examples — with impairment at least one standard deviation below the population mean or representing a significant risk of harm.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      referral: {
+        value: 'Aetna’s national ABA policies require no physician referral, order or prescription — the only prescription requirement in the medical necessity guide sits in its Maryland exhibit under COMAR 31.10.39, which does not reach NM. What Aetna requires nationally is precertification: its participating-provider behavioral health precertification list names all ten ABA codes — 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T — and ABA precertification runs on form GR-69017-4 through Availity or the number on the member ID card. For a fully insured New Mexico plan the state mandate adds an ordering requirement the carrier policies do not: NMSA 1978 § 59A-22-49 keys coverage to a physician-prescribed treatment plan, so line up the prescriber early. Self-funded ERISA plans and limited-benefit policies sit outside the statute.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+          { title: 'NMSA § 59A-22-49 — autism coverage (FindLaw, current through 2024)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' },
+        ],
+      },
+      telehealth: {
+        value: 'Not addressed. Neither CPB 0554, CPB 0648 nor the ABA medical necessity guide sets telehealth rules or place-of-service codes for ABA; the behavioral health provider manual covers telemedicine only as a member-facing Teladoc-style offering that self-insured plan sponsors may opt out of.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+        verifyVia: 'Availity, or the precertification line on the member ID card — ask which ABA codes Aetna will pay via telehealth on this specific plan, and with which POS code and modifier.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope, unless state mandates, plan documents or contracts require otherwise. Where a mandate, plan document or contract does allow authorization for services not directly provided by such a person, there must be supervision and direction of the unlicensed or non-certified provider in line with practice standards. Aetna publishes no numeric supervision ratio.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not addressed in Aetna’s published ABA policies — CPB 0554, CPB 0648 and the ABA medical necessity guide are silent on billing 97153 and 97155 for the same clock time.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+        verifyVia: 'Aetna provider services / the participating-provider agreement, or a written coding determination from Aetna Behavioral Health (BACABACases@Aetna.com).',
+      },
+      dailyLimits: {
+        value: 'Aetna publishes no per-day or per-week unit ceiling for ABA. Authorized hours are set from documented symptom severity using the medical necessity guide’s severity assessment, against typical intensities of 10–25 hours a week for comprehensive and 1–20 hours a week for focused programmes — typical, not cap. Progress is evaluated every six months and coverage ends on the guide’s improvement thresholds. New Mexico is one of the stronger mandate states: since 2019’s HB 322 coverage "shall not be denied to an insured on the basis of the insured’s age" and benefits "shall not be subject to annual or lifetime dollar limits" on fully insured plans. Self-funded ERISA plans and limited-benefit policies are exempt, so plan funding type decides whether the no-age-limit rule binds.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'NMSA § 59A-22-49 — autism coverage (FindLaw, current through 2024)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not addressed. Aetna’s published ABA policies set treatment-plan content requirements — defined target behaviors, baseline measures, quantifiable progress criteria, generalization strategies, transition and titration planning — but do not specify who must sign a session note or by when.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+        verifyVia: 'The participating-provider agreement and the Aetna Behavioral Health Provider Manual section on documentation and record retention.',
+      },
+      placeOfService: {
+        value: 'Outpatient ABA is setting-agnostic in Aetna’s guide, which notes only that where ABA is delivered in an inpatient, residential or partial hospitalization setting the medical necessity criteria for that level of care apply and no separate ABA authorization is needed. The guide expects collaboration and coordination with existing providers and the school district as applicable, and a treatment plan that tapers higher intensities toward supports from other sources such as school. Aetna’s statement that it will not deny coverage solely because services are in a child’s educational setting is a Maryland provision, not national, and Aetna is not required to provide services under an IEP or an IDEA obligation of a public school.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Services must be provided directly or billed by the appropriately licensed provider: licensed behavior analysts in states with licensure laws, board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope — unless state mandates, plan documents or contracts require otherwise.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Aetna cover ABA therapy in New Mexico?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New Mexico\'s mandate (NMSA § 59A-22-49) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the New Mexico autism mandate require?', a: 'Coverage of ASD screening and treatment — including ABA — per a physician-prescribed plan, with no age-based denial and no annual or lifetime dollar limits since 2019\'s HB 322 repealed the old caps. Self-funded ERISA and limited-benefit plans are exempt.' },
@@ -545,6 +1240,101 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — New Mexico state-regulated coverage', url: 'https://www.autismspeaks.org/new-mexico-state-regulated-insurance-coverage' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'EN0499 sets no age cap on ABA — its glossary, following CASP 2024, states that access to focused intervention "should not be restricted by age, cognitive level, diagnosis, or co-occurring conditions." Age terms come from the member’s benefit plan document, which supersedes the coverage policy, and from any controlling state mandate. New Mexico is one of the stronger mandate states: since 2019’s HB 322 coverage "shall not be denied to an insured on the basis of the insured’s age" and benefits "shall not be subject to annual or lifetime dollar limits" on fully insured plans. Self-funded ERISA plans and limited-benefit policies are exempt, so plan funding type decides whether the no-age-limit rule binds.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'NMSA § 59A-22-49 — autism coverage (FindLaw, current through 2024)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' },
+        ],
+        verifyVia: 'Live benefits verification, or the Evernorth Autism Care Coordinator team on 877.279.7603 — establish fully insured vs. self-funded ERISA first.',
+      },
+      dxRecency: {
+        value: 'EN0499 puts no expiry on the ASD diagnosis, but it requires the name, credentials and licensure type of the diagnosing clinician and the date on which the diagnosis was most recently made — and a diagnosis termed provisional, proposed, potential, at risk of or rule out is not a confirmed diagnosis, nor is IDEA educational identification. The recency clocks sit on the data instead: the standardized assessment instrument must have been administered within 60 days prior to the start of treatment, quantitative baseline data collected within 60 days prior to start, current data within 60 days of the authorization request, a standardized instrument completed no more than one year prior for continued treatment, and a fresh standardized assessment after any break in treatment greater than 60 calendar days.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'The ASD diagnosis (ICD-10 F84.0–F84.9 except F84.2, Rett syndrome) must be made under DSM-5-TR criteria by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice. The ABA assessment itself is performed by a Board Certified Behavior Analyst, a Licensed Behavior Analyst, or a mental health clinician licensed to practice independently who has documented training in ABA.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'EN0499 mandates no single named instrument. It requires a reliable, valid and standardized assessment instrument measuring the DSM-5-TR ASD domains — social communication and social interaction, and restricted, repetitive patterns of behavior, interests or activities — completed in its entirety and as designed, by someone trained to administer and interpret it, with reliability and validity established for the population tested, in the most current edition rather than an obsolete one (the policy’s own example: Vineland-3, not Vineland-II). The report must carry the date of administration, the respondent or participant name, the form type where applicable, and standardized scores and score tables or scoring grids.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      referral: {
+        value: 'No referral, order or prescription is required under EN0499. Cigna’s notable front-door change is on authorization: per the Evernorth autism resource guide, prior authorization is no longer required for assessment codes 97151, 97152 or 0362T with a diagnosis of autism, as long as the provider is independently licensed or a BCBA and the member’s policy covers ABA — submit the claims and they are evaluated for payment. Treatment authorization requires the completed assessment and treatment plan attached to the Applied Behavior Analysis Prior Authorization Form. For a fully insured New Mexico plan the state mandate adds an ordering requirement the carrier policies do not: NMSA 1978 § 59A-22-49 keys coverage to a physician-prescribed treatment plan, so line up the prescriber early. Self-funded ERISA plans and limited-benefit policies sit outside the statute.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'NMSA § 59A-22-49 — autism coverage (FindLaw, current through 2024)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' },
+        ],
+      },
+      telehealth: {
+        value: 'All ABA CPT codes are covered telehealth services per the Evernorth autism resource guide, and EN0499 allows delivery in person, via telehealth, or as a hybrid — the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The requirement that the ABA provider remain in line of sight and close proximity to the individual expressly does not apply to telehealth services. Where treatment is delivered in settings with additional behavioral expectations, telehealth included, the plan must document that the service still meets the definition of direct treatment and direct engagement.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Case supervision is performed by a BCBA, a Licensed Behavior Analyst, or a mental health professional licensed to practice independently with documented training in ABA. Direct case supervision — occurring concurrently with direct treatment, with the BCBA face-to-face with the individual and with either the RBT or the BCaBA — plus indirect case supervision runs at the generally accepted standard of care of one to two hours per ten hours of direct treatment. When direct treatment is 10 hours per week or less, a minimum of one to two hours per week of direct case supervision is provided. The name and credentials of the person providing supervision must be documented, and supervisory services must coincide with the AMA CPT code descriptions.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Only one provider can bill for a unit of time, with one exception: CPT codes 97153, 97154 and 97155 during direct supervision, when the BCBA or qualified health care professional directs the technician and both are face-to-face with the patient at the same time. Separately, ABA treatment is not covered or reimbursable when delivered to the same individual at the same time as any other treatment modality — the policy’s own examples are ABA and speech therapy, or ABA and occupational therapy.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Cigna publishes no per-day unit ceiling. All ABA CPT codes bill in 15-minute increments, and all ABA services must be billed with 97151–97158, 0362T and 0373T only. The published limits are structural rather than daily: planned treatment intensity must reflect the severity of the impairments, the goals of treatment and the response to treatment across all settings, and case supervision sits at one to two hours per ten hours of direct treatment. 0362T and 0373T are each reported on a single technician’s face-to-face time, not the combined time of multiple technicians.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'A separate written record is expected for each individual receiving ABA, corresponding with each service billed under its CPT code, carrying at least: the start date and time and end date and time for each service, the location of service delivery, the focus of service, a detailed description of the intervention conducted during the time of service, the individuals present, the specific service delivered (direct service, supervision, stakeholder training), and the name, credential where applicable, and signature of the ABA provider who rendered the service.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'Treatment goals must be defined and measured across all settings and environments where treatment will occur — home, clinic, school, community — and quantitative data must be obtained and reported separately by location for each behavior and skill. Services considered primarily educational or vocational in nature, or related to academic or work performance, are not covered or reimbursable. Where services are delivered in environments that carry additional or alternative behavioral expectations (academic setting, vocational placement, telehealth), the plan must document that the service still meets the direct-treatment definition and is not replacing activities that belong to that setting.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Evernorth does not credential non-licensed or non-certified staff — their services must be billed under the supervising provider. On a CMS-1500 the rendering provider prints their name in box 31 and only a BCBA or other licensed provider is listed in box 33; electronic claims go to Evernorth payer ID 62308. Per the autism resource guide’s code table, 97152, 97153 and 97154 may be provided by a BCaBA or technician but billed only by a BCBA-D, BCBA or licensed mental health provider, while 97151, 97155, 97156, 97157, 97158, 0362T and 0373T are both provided and billed by a BCBA-D, BCBA or licensed mental health provider.',
+        status: 'verified',
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Cigna cover ABA therapy in New Mexico?', a: 'Yes — under national policy EN0499 for ASD, layered on New Mexico\'s mandate (NMSA § 59A-22-49) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does the Cigna assessment need prior authorization in New Mexico?', a: 'No — EN0499 requires no PA on assessment codes 97151, 97152, and 0362T, and we confirmed the current policy contains no New Mexico carve-out (unlike Virginia). PA lands at the treatment step.' },
@@ -632,6 +1422,100 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — New Mexico state-regulated coverage', url: 'https://www.autismspeaks.org/new-mexico-state-regulated-insurance-coverage' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
     ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Optum’s ABA Supplemental Clinical Criteria carry no age criterion — coverage turns on the member-specific benefit plan, which supersedes the guideline, and on any federal or state regulatory requirement that supersedes the benefits. New Mexico is one of the stronger mandate states: since 2019’s HB 322 coverage "shall not be denied to an insured on the basis of the insured’s age" and benefits "shall not be subject to annual or lifetime dollar limits" on fully insured plans. Self-funded ERISA plans and limited-benefit policies are exempt, so plan funding type decides whether the no-age-limit rule binds.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'NMSA § 59A-22-49 — autism coverage (FindLaw, current through 2024)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' },
+        ],
+        verifyVia: 'Provider Express benefits check under a One Healthcare ID, or the behavioral health number on the member ID card — establish fully insured vs. self-funded ERISA first.',
+      },
+      dxRecency: {
+        value: 'The SCC set no expiry on the ASD diagnosis itself; what they require is that the DSM-5-TR diagnosis and severity level be confirmed and documented by the diagnosing clinician using validated tools. The clocks run on review instead: where there has been inadequate or no demonstrable progress with targeted symptoms or behaviors within a 6-month period, or goals have not been achieved within the estimated timeframes, the reasons must be assessed and interventions modified; and continued-service review specifically addresses utilization of prior-authorization-period hours below 80% over a 2-week period, which requires documented barriers.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value: 'A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such a diagnosis according to the DSM-5-TR criteria.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'The SCC give a three-tier, explicitly non-exhaustive list and require the diagnosing clinician to confirm and document the DSM-5 diagnosis and severity level using at least one clinically validated tool. First-level screening tools: Autism Behavior Checklist, CHAT / M-CHAT, CSBS-DP-IT Checklist, Autism Screening Questionnaire, Autism Quotient, Childhood Autism Screening Test. Second-level screening tools: CARS and CARS-2, RITA-T, STAT. Formal diagnostic tools used as part of a comprehensive diagnostic evaluation: ADI-R, ADOS and ADOS-2, and DISCO. Treatment intensity must then be set from a baseline measured with at least one validated tool from a named list including ATEC, VB-MAPP, ABLLS and ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, Vineland and CFQL-2.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      referral: {
+        value: 'The SCC require no separate physician referral or order; what they require is prior authorization for ABA, unless otherwise specified or mandated by contract or law. In practice UnitedHealthcare administers this as a two-step Optum flow on Provider Express — an authorization for the assessment, then a second for treatment — with continued-service reviews on the authorization cycle. For a fully insured New Mexico plan the state mandate adds an ordering requirement the carrier policies do not: NMSA 1978 § 59A-22-49 keys coverage to a physician-prescribed treatment plan, so line up the prescriber early. Self-funded ERISA plans and limited-benefit policies sit outside the statute.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'NMSA § 59A-22-49 — autism coverage (FindLaw, current through 2024)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' },
+        ],
+      },
+      telehealth: {
+        value: 'Not addressed. The ABA Supplemental Clinical Criteria set no telehealth rules, place-of-service codes or modality limits for ABA; telehealth terms for a commercial member come from the plan’s own telehealth policy rather than from this guideline.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Provider Express (Clinical Resources → ABA Information) or the behavioral health number on the member ID card — ask which ABA codes are payable by telehealth on this plan and with which POS code.',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Consistent with CASP standards of care, direct case supervision is required at one to two hours for every ten hours of direct treatment per week. Technicians must be under the applicable supervision of a BCBA or a licensed behavioral health clinician and should be Registered Behavior Technicians or another appropriately certified behavior technician as allowable by state mandate. Optum adds that it is not recommended that parents serve in an RBT role, and that a BCBA acting in a supervisory role for a parent serving as RBT for their own child would violate the ethics code with a duty to self-report.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not addressed. The ABA Supplemental Clinical Criteria are a medical-necessity document and say nothing about billing 97153 and 97155 for the same clock time; direct case supervision is defined as occurring concurrently with direct treatment, but the reimbursement consequence is not stated there.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum Provider Express National Network Manual and the participating-provider agreement, or a written coding determination from Optum.',
+      },
+      dailyLimits: {
+        value: 'The SCC set no numeric hour cap — the number of service hours requested must be justified by the member’s documented clinical need according to level of impairment, symptom severity, treatment history and response, at the least restrictive and most clinically appropriate level. The operative review trigger runs the other way: utilization below 80% of prior-authorization-period hours over a two-week period is specifically addressed at continued-service review and requires documentation of barriers and how they will be addressed.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not addressed. The ABA Supplemental Clinical Criteria specify what must be documented for coverage — progress by targeted symptom and behavior, standardized and norm-referenced measures, caregiver involvement, barriers — but not who must sign a session note or within what time.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum Provider Express National Network Manual (documentation standards) and the participating-provider agreement.',
+      },
+      placeOfService: {
+        value: 'ABA must be provided at the least restrictive and most clinically appropriate level, with generalization and maintenance of skills outside the treatment environment into natural settings such as home and community forming part of the continued-service test. Not covered: services that are not ABA therapy, such as a 1:1 aide delivered simultaneously during classroom instruction, or services covered under IDEA. School-based ABA does allow coordination of services and covers teacher training, meetings with school personnel, and observations in the school setting, and the treatment plan is expected to coordinate with the school and any IFSP or IEP.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'Once an ASD diagnosis is confirmed, a credentialed ABA provider is identified for the member: a master’s- or doctoral-level Board-Certified Behavior Analyst, or a licensed behavioral health clinician who has attested to sufficient expertise and been credentialed to provide ABA. A BCaBA or non-licensed individual works under the direct supervision of a BCBA or licensed behavioral health clinician who takes responsibility for the individual’s care, assisting in assessment or implementing a treatment plan developed by that BCBA or clinician.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in New Mexico?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New Mexico\'s mandate (NMSA § 59A-22-49) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Optum have New Mexico-specific commercial ABA criteria?', a: 'No — we checked the current ABA State Mandates supplemental criteria in full and New Mexico is not listed. The standard national two-step authorization applies to commercial members. Optum\'s NM-specific machinery lives on the Medicaid side, in the Turquoise Care ABA Program.' },

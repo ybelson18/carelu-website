@@ -110,7 +110,110 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMHP — Texas Medicaid Provider Fingerprinting Requirement FAQ (D00412)', url: 'https://www.tmhp.com/sites/default/files/file-library/topics/provider-enrollment/texas-medicaid-provider-fingerprinting-requirement-FAQ.pdf' },
       { title: 'TDLR — How to Apply for a Behavior Analyst License', url: 'https://www.tdlr.texas.gov/bhv/bhvapply.htm' },
       { title: 'Tex. Occ. Code § 506.254 — Licensed Assistant Behavior Analyst', url: 'https://texas.public.law/statutes/tex._occ._code_section_506.254' },
+      { title: 'HHSC — Managed Care Service Areas: MCOs Serving Clients (rev. Jan 2026)', url: 'https://hhs.texas.gov/sites/default/files/documents/services/health/medicaid-chip/programs/managed-care-service-areas-map.pdf' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'The TMPPM sets no numeric ratio of its own: LBAs must directly supervise LaBAs and behavior technicians in accordance with Texas state licensure, which makes the certifying body\'s floor operative — for RBT-credentialed staff, the BACB minimum of supervision on at least 5% of service hours each calendar month with two face-to-face contacts. Only direct supervision, where the LBA directly observes the LaBA or BT providing services with the child, is reimbursable, under 97155; indirect supervision (caseload review, data discussion) is unpaid time.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Prohibited: Texas Medicaid will not reimburse multiple ABA providers during one ABA session with the child when more than one ABA provider is present. The one exception is when the family and the child are receiving separate services and the child is not present in the family session. Providers may request total authorized hours under either 97153 or 97155 and bill the code matching the service actually delivered, but not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Direct treatment is limited to 8 hours (32 units) per day, inclusive of 97153, 97154, 97155 and 97158. The 97151 evaluation and each re-evaluation are limited to 6 hours (24 units). Group treatment requires at least 2 and no more than 8 children. Authorization runs as two consecutive 90-day periods, then recertifications in increments of up to 180 days.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Rendering ABA providers must sign each entry with full signature and credentials, and additional supervisory signatures must be made in accordance with state licensure requirements. Treatment notes for 97153/97154 carry the child\'s name, date of service, start and stop times, treatment goals addressed, progress and a summary of activities and interventions; 97155/97158 notes add protocol-modification decision points and progress assessments. The 97151 evaluation and the post-90-day progress summary each require a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Home, clinic, office and community settings are payable, and ABA may be delivered across settings. Schools are permitted for coordination of care — school personnel of the same discipline participating to coordinate care are not treated as duplicates, and interdisciplinary team meetings bill under 99366 with an ABA PA on file — but services delivered by a behavior technician in the school setting as a shadow, an aide, or to provide general support are excluded. BT and LaBA direct treatment must be in person in any setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll; their services are billed under the supervising LBA\'s NPI with the credential modifier identifying the rendering staff level — HO for the LBA, HN for the LaBA, HM for the behavior technician. 97151 takes the HO modifier only; 97155, 97156 and 97158 take HO or HN; 97153 takes no required credential modifier. The 97155 supervision claim likewise goes out under the LBA\'s NPI.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Birth through 20 years of age on the date of service; clients become ineligible for CCP services the day of their 21st birthday. CHIP is excluded from the ABA benefit entirely.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'The ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification. Past 3 years the TMPPM requires a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria before the PA can proceed.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'A developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). The diagnosis must be documented with DSM criteria and a symptom severity level.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'A reliable, valid, standardized diagnostic assessment tool or combination of tools — the TMPPM names the Autism Diagnostic Observation Schedule, the ADI-R and the Childhood Autism Rating Scale as examples. Screening tools alone (STAT, M-CHAT-R) cannot replace a validated diagnostic instrument.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      referral: {
+        value:
+          'Two signed referrals. For the evaluation: a signed, dated referral from the prescribing provider, signed within 60 calendar days prior to or on the anticipated evaluation date. For treatment: a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with properly delegated authority) outlining the frequency and duration of treatment, with a signature current to the service dates — on or before the service start date and no older than three months. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day treatment extension; the initial 180-day treatment plan still needs it.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Synchronous audio-visual only, modifier 95, and only on 97151, 97155, 97156, 97158 and 99366. One-on-one services delivered directly to the child by a behavior technician or LaBA must be delivered in person — the TMPPM prohibits telehealth for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Texas Medicaid cover ABA therapy?', a: 'Yes — since February 1, 2022, as the Autism Services benefit under THSteps-CCP (EPSDT), for members from birth through age 20 with an ASD diagnosis. Everything requires prior authorization, from the evaluation forward. CHIP is excluded.' },
       { q: 'How recent does the autism diagnosis need to be?', a: 'The diagnosis — with DSM criteria and a symptom severity level — must be made or reconfirmed within the 3 years before the PA request. Older diagnoses need reconfirmation before the evaluation PA can be approved.' },
@@ -177,7 +280,123 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
       { title: 'Superior — Removal of PA Requirement for Certain Procedures (eff. 1/1/2026)', url: 'https://www.superiorhealthplan.com/newsroom/eff-01012026-removal-of-pa-req-for-certain-procedures-12012025.html' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Superior HealthPlan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit on TMPPM criteria, with prior authorization required on every ABA code, evaluation included, through Superior\'s provider portal.' },
       { q: 'Is Superior\'s ABA policy different from the state\'s?', a: 'No — Superior explicitly points providers to the TMPPM for diagnosis and clinical criteria and mirrors the state PA code list. What\'s Superior-specific is the portal, the PA-list mechanics, and the STAR Health foster-care line.' },
@@ -238,7 +457,123 @@ export const texasPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid. TCHP adds a continuity rule of its own: the LBA must have provided direct services within the previous 180 days for certain continuity requirements.',
+        status: 'verified',
+        cites: [
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. TCHP adds that the evaluation referral must document the child\'s age, the year of the initial ASD diagnosis, comorbidities and trauma history, and DSM symptom severity; electronic signatures are accepted.',
+        status: 'verified',
+        cites: [
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Texas Children\'s Health Plan cover ABA?', a: 'Yes — for STAR and STAR Kids members under the state Autism Services benefit, governed by TCHP\'s Guideline #11281 v3, which restates the TMPPM criteria. CHIP members are excluded.' },
       { q: 'Is TCHP\'s ABA guideline stricter than the state\'s?', a: 'No — it\'s a formatted restatement of TMPPM requirements (same diagnoser list, 3-year recency, credential roles) with TCHP\'s UM submission process added. Plan against the state baseline and TCHP\'s channels.' },
@@ -301,7 +636,123 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
       { title: 'Wellpoint TX — Prior Authorization Requirements', url: 'https://www.wellpoint.com/tx/provider/state-federal/resources/prior-authorization-requirements' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. Wellpoint restates the same caps in its own behavioral-health provider document and adds that partial units are not payable.',
+        status: 'verified',
+        cites: [
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. Wellpoint carries the same HO/HN/HM modifier table and states there is no separate reimbursement for treatment planning or report writing outside 97151.',
+        status: 'verified',
+        cites: [
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Wellpoint Texas cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit on TMPPM criteria, restated in its behavioral-health provider document: PA on evaluation and treatment, ages 0–20, credential modifiers, 8-hour daily cap.' },
       { q: 'Do I have to use Wellpoint\'s own PA form?', a: 'No — Wellpoint accepts either its Treatment Plan Request Form for Autism Spectrum Disorders or the state CCP Prior Authorization Request Form, plus the signed physician referral.' },
@@ -366,7 +817,123 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'UHC Community Plan of Texas — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-prior-auth.html' },
       { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. Authorization for these claims routes through the plan\'s designated behavioral health network (Optum) at 888-887-9003, not UHC\'s medical PA pipeline.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'UHC Community Plan of Texas — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-prior-auth.html' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. Optum administers the authorization but adds no Texas overlay — its ABA State Mandates supplemental criteria contain no Texas entry.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. Optum administers the authorization but adds no Texas overlay — its ABA State Mandates supplemental criteria contain no Texas entry.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Optum administers the authorization but adds no Texas overlay — its ABA State Mandates supplemental criteria contain no Texas entry.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. Optum administers the authorization but adds no Texas overlay — its ABA State Mandates supplemental criteria contain no Texas entry.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Optum administers the authorization but adds no Texas overlay — its ABA State Mandates supplemental criteria contain no Texas entry.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. Optum administers the authorization but adds no Texas overlay — its ABA State Mandates supplemental criteria contain no Texas entry.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Texas cover ABA?', a: 'Yes — the state Autism Services benefit on TMPPM criteria. Authorization runs through UHC\'s designated behavioral health network (Optum), not the medical PA pipeline.' },
       { q: 'Why aren\'t ABA codes on UHC\'s Texas PA list?', a: 'Because behavioral health is carved out to Optum\'s BH network — the medical PA list doesn\'t govern ABA. PA is still required; it just routes through the BH pipeline at 888-887-9003.' },
@@ -432,7 +999,132 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
       { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
       { title: 'Aetna Better Health of Texas — plan site', url: 'https://www.aetnabetterhealth.com/texas/index.html' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. Aetna Better Health publishes no retrievable Texas ABA or reimbursement policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. Aetna Better Health publishes no retrievable Texas ABA policy of its own, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
+      },
+    },
     faq: [
       { q: 'Does Aetna Better Health of Texas cover ABA?', a: 'Yes — as a Texas Medicaid MCO it delivers the statewide THSteps-CCP Autism Services benefit under TMPPM criteria: PA on evaluation and treatment, ages 0–20, 3-year dx recency. CHIP members are excluded.' },
       { q: 'Does Aetna Better Health have its own Texas ABA policy?', a: 'None that we could find publicly — and its provider documents block automated retrieval. Texas MCOs must apply TMPPM criteria, so plan clinically against the state baseline and confirm submission mechanics with the plan directly.' },
@@ -497,7 +1189,132 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
       { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (access-restricted)', url: 'https://www.molinamarketplace.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. One Molina-specific rule is confirmed from its PA guidance: out-of-network requests require authorization regardless of the service, which matters while credentialing is in flight.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. No distinct Molina Texas ABA criteria surfaced, but its own PA documents could not be read, so plan-level deviation could not be ruled out.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
+        ],
+        verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
+      },
+    },
     faq: [
       { q: 'Does Molina Healthcare of Texas cover ABA?', a: 'Yes — the statewide THSteps-CCP Autism Services benefit on TMPPM criteria, with PA on evaluation and treatment. Pediatric ABA members sit on Molina STAR; STAR+PLUS is the adult program and CHIP is excluded.' },
       { q: 'Does Molina have its own Texas ABA criteria?', a: 'We found no evidence of distinct criteria — Texas MCOs must apply the TMPPM. Plan clinically to the state baseline, and confirm code-level PA handling in Molina\'s PA Code Matrix / Look-Up Tool since its PA guide PDFs are not reliably accessible online.' },
@@ -559,7 +1376,123 @@ export const texasPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Community First\'s own guidelines restate the state rule: concurrent billing is prohibited unless the family service is delivered without the child present. The page also bars separate pre- or post-evaluation billing beyond 97151.',
+        status: 'verified',
+        cites: [
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Community First publishes the state caps directly: direct treatment is limited to 8 hours / 32 units per day combined across 97153, 97154, 97155 and 97158, and 97151 is capped at 24 units per period and is not reimbursable unless the evaluation was submitted for authorization.',
+        status: 'verified',
+        cites: [
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. Community First publishes the crosswalk explicitly: HO = LBA, HN = LaBA, HM = behavior technician.',
+        status: 'verified',
+        cites: [
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Ages 0 through 20, per Community First\'s own published Autism Services Billing Guidelines, matching the statewide THSteps-CCP rule.',
+        status: 'verified',
+        cites: [
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. Community First separately states that an F84.0 diagnosis is mandatory.',
+        status: 'verified',
+        cites: [
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Community First Health Plans cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit in the Bexar service area, on TMPPM criteria: F84.0 diagnosis, ages 0–20, PA on evaluation and all treatment codes, 8-hour daily cap.' },
       { q: 'Does the ABA evaluation need prior authorization at Community First?', a: 'Yes — the plan\'s billing guidelines state 97151 is not reimbursable unless the evaluation was submitted for authorization, capped at 24 units per period.' },
@@ -622,7 +1555,123 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
       { title: 'Driscoll Health Plan — For Providers', url: 'https://driscollhealthplan.com/for-providers/' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Driscoll takes the statewide Texas Authorization Referral Form (TARF) rather than a proprietary form, submitted through the DHP portal or fax 1-866-741-5650.',
+        status: 'verified',
+        cites: [
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Driscoll Health Plan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit across its South Texas service areas, on TMPPM criteria, with PA required (Autism/ABA Services are listed on the plan\'s PA portal).' },
       { q: 'What form does Driscoll use for ABA authorizations?', a: 'The statewide Texas Authorization Referral Form (TARF), submitted via the DHP portal or fax to 1-866-741-5650 — no proprietary plan form.' },
@@ -699,7 +1748,123 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Community Health Choice — STAR+PLUS Program Provider Quick Reference Guide', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2024/09/STARPLUS-Quick-Reference-Guide.pdf' },
       { title: 'Community Health Choice — HHS Provider Manual (STAR/CHIP/CHIP Perinatal/STAR+PLUS)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2025/10/HHS-Provider-Manual.pdf' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver. CHC adds its own: 90-day extension and 180-day recertification requests each require an attendance log for the child and the parent/caregiver plus a progress summary signed by the BCBA (LBA) and by the parent, and members/caregivers are expected to attend at least 85% of scheduled sessions — below that the ABA therapist must document why and what corrective measures were taken.',
+        status: 'verified',
+        cites: [
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting. CHC also excludes ABA delivered as school-setting shadowing, para-professional or companion services, and goals limited to academic content or performative social norms not tied to health or safety. Its guideline separately names DIR/Floortime, TEACCH and RDI as non-ABA interventions it will not authorize under this benefit.',
+        status: 'verified',
+        cites: [
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. CHC maps its credentialing terms onto the state\'s: BCBA = LBA, BCaBA = LaBA, and behavior technicians must hold RBT, BCAT or ABAT certification.',
+        status: 'verified',
+        cites: [
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. CHC\'s own guideline carries the same 3-year rule.',
+        status: 'verified',
+        cites: [
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule, restated in Community Health Choice\'s own ABA Medical Review Guideline (adopted 6/2026), which names the TMPPM Children\'s Services Handbook §2 as its governing authority and carries the same diagnoser list.',
+        status: 'verified',
+        cites: [
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Community Health Choice cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit under CHC\'s own ABA Medical Review Guideline (adopted June 2026), which restates TMPPM criteria for STAR members in Harris and Jefferson counties. CHIP is excluded.' },
       { q: 'What\'s different about CHC\'s ABA policy?', a: 'CHC layers its own UM machinery on the TMPPM baseline: named frequency tiers, an 85%-attendance requirement on extension and recertification requests, and an explicit list of excluded non-ABA interventions (DIR/Floortime, TEACCH, RDI).' },
@@ -766,7 +1931,123 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
       { title: 'BCBSTX — Texas Medicaid STAR, CHIP, and STAR Kids Provider Manual (PDF)', url: 'https://www.bcbstx.com/content/dam/hcsc/docs/provider/tx/provider-medicaid/education/2067877-758408-0324-TX-Medicaid-STAR-CHIP-STARKids-Provider-Manual-Handbook.pdf' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid rule, and BCBSTX states it on its own PA code grid: 97151 and 97153-97158 are each listed as Applied Behavioral Health allowable only for members 20 years of age or younger.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Blue Cross Blue Shield of Texas Medicaid cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit for STAR and STAR Kids members in the Travis service area, on TMPPM criteria. BCBSTX publishes no distinct clinical policy; its own PA code grid confirms PA is required on the core ABA codes.' },
       { q: 'Is ABA carved out to a behavioral health vendor at BCBSTX Medicaid?', a: 'Not currently — BCBSTX carved Medicaid BH out to Magellan as recently as mid-2023, but announced "insourcing" of Medicaid behavioral health in May 2024. Current PA documents route ABA to BCBSTX\'s own fax and portal, not Magellan.' },
@@ -832,7 +2113,123 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Cook Children\'s Health Plan — Prior Authorization Search & Submission', url: 'https://www.cookchp.org/providers/prior-authorization-search/' },
       { title: 'Cook Children\'s Health Plan — Comprehensive Care Program Prior Authorization Request Form (PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-manual/comprehensive-care-program-prior-authorization-request-form-2024.pdf' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Cook Children\'s training restates the state caps and adds code-level detail: direct treatment is capped at 8 hours/day combined across 97153, 97154, 97155 and 97158; 97151 caps at 6 hours / 24 units with a 30-day authorization window; and 99366 is reimbursable only against an F84.0 diagnosis, twice per year, requiring at least three licensed professionals (one the LBA) meeting for a minimum of 30 minutes.',
+        status: 'verified',
+        cites: [
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. Cook Children\'s training spells the modifier rules out: 97151 takes the HO modifier only; 97155, 97156 and 97158 require HO or HN; 97153 and 97154 take no required modifier (HO/HN/HM are informational); 99366 takes no modifier.',
+        status: 'verified',
+        cites: [
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Cook Children\'s own ABA training restates the state rule: telehealth (modifier 95) is allowed for 97151, 97155, 97156, 97158 and 99366, and its materials specifically note that LaBAs and RBTs may not deliver any service remotely.',
+        status: 'verified',
+        cites: [
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025, PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Cook Children\'s Health Plan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit across STAR and STAR Kids in its six-county North Texas service area, on TMPPM criteria, with a dedicated 123-page ABA provider training restating the requirements in detail.' },
       { q: 'Does STAR Kids have different ABA rules than STAR at Cook Children\'s?', a: 'We found no distinguishing STAR Kids ABA process in the plan\'s own materials — the ABA policy applies uniformly across Medicaid, CHIP, and STAR Kids.' },
@@ -898,7 +2295,123 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Parkland Community Health Plan — Behavioral Health Services Transition Announcement', url: 'https://parklandhealthplan.com/living-well/blog/articles/pchp-benefits-update-changes-to-behavioral-health-services/' },
       { title: 'Parkland Community Health Plan — Behavioral Health network page', url: 'https://providers.parklandhealthplan.com/our-network/behavioral-health/' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Ages 0-20 for STAR members, per PCHP\'s own member-facing ABA benefit page; CHIP is excluded, matching the statewide rule.',
+        status: 'verified',
+        cites: [
+          { title: 'Parkland Community Health Plan — ABA benefit overview (member-facing)', url: 'https://parklandhealthplan.com/living-well/blog/articles/aba' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule; PCHP\'s own member-facing benefit page names a developmental pediatrician, neurologist, psychiatrist or licensed psychologist.',
+        status: 'verified',
+        cites: [
+          { title: 'Parkland Community Health Plan — ABA benefit overview (member-facing)', url: 'https://parklandhealthplan.com/living-well/blog/articles/aba' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Parkland Community Health Plan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit for STAR members ages 0-20 with an ASD diagnosis, on TMPPM criteria. CHIP members are excluded.' },
       { q: 'Is behavioral health still carved out to Carelon at PCHP?', a: 'No — PCHP transitioned behavioral health administration from Carelon to direct in-house administration effective September 1, 2025. Providers had to re-contract directly with PCHP.' },
@@ -965,7 +2478,126 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'El Paso Health — Comprehensive Diagnostic Evaluation for Autism Services (memo, 5/15/2026, PDF)', url: 'https://www.elpasohealth.com/pdf/EPH-PR-Comprehensive%20Diagnostic%20Evaluation%20for%20Autism%20Services.pdf' },
       { title: 'El Paso Health — STAR/CHIP/STAR+PLUS Quick Reference Guide (PDF)', url: 'https://www.elpasohealth.com/pdf/EPH-STARCHIPSTARPLUS%20Quick%20Reference%20Guide.pdf' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'El Paso Health — Prior Authorization (provider page)', url: 'https://elpasohealth.com/providers/prior-authorization.html' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. El Paso Health\'s checklist confirms the 6-hour / 24-unit 97151 cap (HO modifier only) and applies it again to the re-evaluation that supports a 180-day recertification.',
+        status: 'verified',
+        cites: [
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver. El Paso Health adds attendance logs for both the child and the parent/caregiver with every extension and recertification, plus an LBA progress summary; falling below 85% attendance requires the LBA to document why and what corrective steps were taken.',
+        status: 'verified',
+        cites: [
+          { title: 'El Paso Health — Documentation Required for ABA Authorizations (memo, 5/15/2026, PDF)', url: 'https://www.elpasohealth.com/pdf/EPH%20-%20Documententaton%20for%20ABA%20Authorization%20_.pdf' },
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise).',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Stricter than the state floor in practice: El Paso Health\'s 5/15/2026 memo requires the ASD diagnostic evaluation to use a validated standardized tool — it names ADOS, ADI-R and CARS — and states that screening tools such as the M-CHAT-R/F cannot substitute. DSM criteria, severity level, and documented comorbid conditions and trauma history are also required.',
+        status: 'verified',
+        cites: [
+          { title: 'El Paso Health — Comprehensive Diagnostic Evaluation for Autism Services (memo, 5/15/2026, PDF)', url: 'https://www.elpasohealth.com/pdf/EPH-PR-Comprehensive%20Diagnostic%20Evaluation%20for%20Autism%20Services.pdf' },
+          { title: 'El Paso Health — Documentation Required for ABA Authorizations (memo, 5/15/2026, PDF)', url: 'https://www.elpasohealth.com/pdf/EPH%20-%20Documententaton%20for%20ABA%20Authorization%20_.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. El Paso Health adds that the resulting evaluation authorization is valid for 60 days from the requested evaluation date.',
+        status: 'verified',
+        cites: [
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does El Paso Health cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit across STAR, CHIP, and STAR+PLUS in El Paso and Hudspeth counties, detailed in the plan\'s own ABA Request Checklist and 2026 documentation memos.' },
       { q: 'Is El Paso Health the only Medicaid MCO in El Paso?', a: 'It\'s the market\'s founding plan, but not the only one — Molina and Superior also participate in STAR and/or CHIP there per HHSC service-area sources. Confirm the member\'s assigned MCO before assuming El Paso Health.' },
@@ -1031,7 +2663,135 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'FirstCare — 2026 STAR and CHIP Provider Manual (PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf' },
       { title: 'FirstCare — STAR Medicaid (plan status)', url: 'https://www.firstcare.com/en/Individuals-and-Families/STAR-CHIP/STAR-Medicaid' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. FirstCare\'s own Medical Coverage Policy #206 defers Medicaid decisions to the TMPPM explicitly, and its Medicaid PA code list, not that commercial policy, is the operative gate.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. FirstCare\'s own Medical Coverage Policy #206 defers Medicaid decisions to the TMPPM explicitly, and its Medicaid PA code list, not that commercial policy, is the operative gate.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). FirstCare\'s own Medical Coverage Policy #206 defers Medicaid decisions to the TMPPM explicitly, and its Medicaid PA code list, not that commercial policy, is the operative gate.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. FirstCare\'s own Medical Coverage Policy #206 defers Medicaid decisions to the TMPPM explicitly, and its Medicaid PA code list, not that commercial policy, is the operative gate.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. FirstCare\'s own Medical Coverage Policy #206 defers Medicaid decisions to the TMPPM explicitly, and its Medicaid PA code list, not that commercial policy, is the operative gate.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. FirstCare\'s own Medical Coverage Policy #206 defers Medicaid decisions to the TMPPM explicitly, and its Medicaid PA code list, not that commercial policy, is the operative gate.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does FirstCare Health Plans cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit for STAR members in Lubbock and MRSA West, on TMPPM criteria. FirstCare\'s own Medicaid PA code list confirms PA is required on 97151, 97153-97156, 97158, and 99366.' },
       { q: 'Is FirstCare still accepting new Texas Medicaid members?', a: 'FirstCare\'s own site states its plans end August 31, 2026, subject to regulatory approval — confirm current enrollment and transition status directly with FirstCare or HHSC before building a long-term care plan around this payer.' },
@@ -1118,7 +2878,135 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
       { title: 'RightCare — 2026 Provider Manual', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/provider-manual.pdf' },
       { title: 'RightCare — Medicaid (STAR) Network Flyer', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Providers/Network/2025/MD-RightCare.pdf' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days. No RightCare-specific authorization-period length could be confirmed beyond the TMPPM baseline.',
+        status: 'verified',
+        cites: [
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or an interdisciplinary diagnostic team (a physician, PA or NP in consultation with qualified child specialists with autism expertise). Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service. Medical Coverage Policy 206 states it directly: for Medicaid plans, confirm coverage as outlined in the TMPPM, and use Policy 206\'s own criteria only where the TMPPM is silent. The plan exits Texas Medicaid 8/31/2026.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'RightCare — Texas Medicaid/CHIP Prior Authorization Codes List (eff. 7/1/2026)', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/forms/medicaid/RightCare_Authorization_List.pdf' },
+          { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Is RightCare/Baylor Scott & White still a Texas Medicaid option?', a: 'Only through August 31, 2026 — the plan is exiting Texas Medicaid managed care (regulatory approval pending), per TMHP\'s July 2026 announcement. Claims for dates of service on or after September 1, 2026 will be rejected; providers have until 8/31/2028 to submit claims for earlier dates of service.' },
       { q: 'Does RightCare cover ABA therapy?', a: 'Yes, while active — PA-required codes 97151, 97153, 97154, 97155, 97156, 97158, and 99366, matching the statewide TMHP code set, with criteria deferring to the TMPPM. Prior-authorization processes remain unaffected during the wind-down.' },
@@ -1208,7 +3096,124 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Dell Children\'s Health Plan — Manuals & Forms', url: 'https://dellchildrenshealthplan.com/for-providers/manuals-forms/' },
       { title: 'Dell Children\'s Health Plan — Value-Added Services', url: 'https://dellchildrenshealthplan.com/for-members/value-added-services/' },
       { title: 'Dell Children\'s Health Plan — STAR Member Handbook (May 2023)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2023/05/STAR-Handbook-ENG-052023_web.pdf' },
+      { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the manual sets no numeric ratio of its own, requiring LBAs to directly supervise LaBAs and behavior technicians in accordance with Texas licensure and deferring to the certifying body\'s minimums — for RBT-credentialed staff the BACB floor of supervision on at least 5% of service hours each month with two face-to-face contacts. Only direct supervision, where the LBA observes the LaBA or BT with the child, is reimbursable (under 97155); indirect supervision is unpaid.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+          { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: concurrent billing is prohibited — Texas Medicaid will not reimburse multiple ABA providers during one session with the child when more than one provider is present. The single exception is when the family and the child receive separate services and the child is not present in the family session. Total authorized hours may be requested under either 97153 or 97155 and billed as the code matching the service actually delivered — not both for the same clock time with the child present.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: direct treatment is capped at 8 hours (32 units) per day combined across 97153, 97154, 97155 and 97158; 97151 is capped at 6 hours (24 units) per evaluation and per re-evaluation; group treatment runs 2 to 8 children. Authorization periods are two consecutive 90-day terms then recertifications of up to 180 days.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: rendering ABA providers must sign each entry with full signature and credentials, with additional supervisory signatures per state licensure. Treatment notes carry the child\'s name, date of service, start and stop times, goals addressed, progress and a summary of interventions; 97155/97158 notes add protocol-modification decision points. The 97151 evaluation and the 90-day progress summary each need a dated signature from the LBA and from the parent or caregiver.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: home, clinic, office and community settings are payable. In schools, services delivered by a behavior technician as a shadow, an aide, or as general support are excluded; school personnel participating to coordinate care are not counted as duplicate providers, and interdisciplinary team meetings bill under 99366 against an ABA PA. BT and LaBA direct treatment must be in person in every setting.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: only the LBA enrolls in Texas Medicaid and bills. LaBAs and behavior technicians may not enroll — their services go out under the supervising LBA\'s NPI with the credential modifier identifying who rendered (HO = LBA, HN = LaBA, HM = behavior technician; 97151 takes HO only, 97155/97156/97158 take HO or HN). The LBA must directly employ or contract with every LaBA and BT on the team. Behavioral health, including ABA prior authorization, is delegated to Magellan Healthcare (1-800-424-1764) rather than administered by the plan, so authorizations use Magellan\'s forms and portal even though the claim still follows the state\'s enrolled-LBA structure.',
+        status: 'verified',
+        cites: [
+          { title: 'Dell Children\'s Health Plan — Behavioral Health (member page)', url: 'https://dellchildrenshealthplan.com/manage-your-health/behavioral-health/' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: birth through 20 years of age on the date of service, with eligibility ending the day of the 21st birthday. CHIP members are excluded from the ABA benefit.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: the ASD diagnosis must be made or reconfirmed within 3 years of initiation or recertification; past 3 years a comprehensive re-evaluation of ASD symptom severity levels per DSM criteria is required first.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'The plan states it on its own member-facing behavioral-health page: ABA requires prior ASD diagnostic testing by a developmental pediatrician, a neurologist, a psychiatrist, a licensed psychologist, or an autism diagnosis team — the same set the TMPPM names.',
+        status: 'verified',
+        cites: [
+          { title: 'Dell Children\'s Health Plan — Behavioral Health (member page)', url: 'https://dellchildrenshealthplan.com/manage-your-health/behavioral-health/' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a reliable, valid, standardized diagnostic assessment tool or combination of tools — the manual names the ADOS, ADI-R and CARS as examples. Screening instruments alone (STAT, M-CHAT-R) do not substitute.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+          { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Follows the Texas Medicaid (TMPPM) rule: synchronous audio-visual only, modifier 95, on 97151, 97155, 97156, 97158 and 99366. One-on-one direct treatment delivered to the child by a behavior technician or LaBA must be in person — telehealth is prohibited for BT/LaBA-delivered direct service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Is Dell Children\'s Health Plan a new Texas Medicaid plan?', a: 'No — despite sometimes being described as newly launched, the plan\'s own provider manual confirms it has administered CHIP since 2000 and STAR/CHIP Perinatal in the Travis service area since March 1, 2012.' },
       { q: 'Does Dell Children\'s Health Plan cover ABA therapy?', a: 'Yes for STAR members — explicitly listed as a covered behavioral-health benefit, with prior authorization required on assessment and treatment codes. CHIP-specific (non-STAR) coverage of ABA is not explicitly confirmed in the plan\'s own materials — verify directly for CHIP-only members.' },
@@ -1296,6 +3301,126 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Tex. Ins. Code § 1355.003 (exceptions)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.003' },
       { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'CPB 0554 does not set supervision ratios for behavior technicians. In Texas the binding floor is licensure: the LBA and LaBA credentials under Occupations Code Chapter 506 (TDLR), with technicians working under an LBA or LaBA\'s authority and direction and statutorily exempt from licensure themselves.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
+        ],
+        verifyVia: 'Aetna provider relations and the participating-provider agreement — CPB 0554 carries no supervision standard.',
+      },
+      concurrentBilling: {
+        value:
+          'Not addressed in CPB 0554 or CPB 0648. Concurrent-billing edits for Aetna commercial claims live in its reimbursement and code-editing policies rather than the clinical bulletins.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+        verifyVia: 'Aetna\'s commercial reimbursement/code-editing policies via Availity, or provider relations.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling is published. CPB 0554 sets none, and Texas\'s mandate caps dollars rather than units — no cap under age 10, $36,000/year for ABA at 10 and over on plans the statute reaches, with self-funded ERISA, ERS and UT/A&M plans outside it.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+        ],
+        verifyVia: 'A live benefits verification — annual maximums and any plan-level visit or hour limits are plan-specific.',
+      },
+      noteSignature: {
+        value:
+          'Not addressed in CPB 0554 or CPB 0648.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+        verifyVia: 'Aetna provider relations or the participating-provider agreement — the clinical bulletins carry no documentation or signature standard.',
+      },
+      placeOfService: {
+        value:
+          'CPB 0554 describes ABA as evaluating observable behavior within relevant settings including the home, school and community, but sets no place-of-service restriction. CPB 0648 notes many Aetna plans exclude coverage of educational services and may exclude developmental or intelligence testing in educational settings — so the school boundary is a benefit-exclusion question, not a clinical one.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+        verifyVia: 'A live benefits verification — the educational-services exclusion is written into the plan document, not the clinical policy.',
+      },
+      billAsProvider: {
+        value:
+          'Not addressed in Aetna\'s clinical bulletins. In Texas the licensure structure is the constraint: only Licensed Behavior Analysts and Licensed Assistant Behavior Analysts may practise (Occupations Code Ch. 506, TDLR), with technicians exempt while working under an LBA or LaBA\'s authority and direction.',
+        status: 'unverified',
+        cites: [
+          { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+        verifyVia: 'Aetna provider relations and the participating-provider agreement — rendering-versus-supervising NPI rules are contractual, not in CPB 0554.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'No age limit in Aetna\'s own policy. What binds in Texas is the mandate: Tex. Ins. Code § 1355.015 runs coverage from the date of diagnosis but only if the ASD diagnosis was in place before the child\'s 10th birthday, with no upper age cutoff once eligible — and no dollar cap under 10, with a $36,000/year ABA cap at 10 and over that federal parity arguably limits for large-group plans. Self-funded ERISA plans, ERS and the UT/A&M system plans sit outside the statute.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+        verifyVia: 'A live benefits verification — market segment and plan funding type decide whether the mandate applies at all.',
+      },
+      dxRecency: {
+        value:
+          'Neither CPB 0554 nor CPB 0648 states a recency window on the ASD diagnosis, and the Texas mandate sets none — it gates on the diagnosis having been made before the 10th birthday, not on how old it is. Reauthorization cadence, commonly about 6 months, is where currency is actually tested.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+        ],
+        verifyVia: 'Aetna precertification (form GR-69017-4) via Availity, and the plan document for any plan-specific evaluation-currency rule.',
+      },
+      diagnosingProviders: {
+        value:
+          'CPB 0648 requires the evaluation to be performed by the appropriate certified or licensed health care professional and names board certified behavior analyst, developmental pediatrician, neurologist, occupational therapist, physical therapist, primary care provider, psychiatrist, psychologist, and speech-language pathologist/audiologist. It does not say whether one provider may diagnose alone or whether a multidisciplinary assessment is required.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'CPB 0648 names the instruments it considers medically necessary components of testing for the diagnosis of pervasive developmental disorders: the ADI-R, the ADOS-2, the CARS-2 and the Asperger Syndrome Diagnostic Scale. The policy does not state whether all four or only a subset are required.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+      },
+      referral: {
+        value:
+          'Aetna\'s policies do not impose a referral or physician-order requirement of their own; what they require is precertification on form GR-69017-4 for both assessment and treatment. The Texas mandate adds no order requirement either. Referral requirements, where they exist, come from the plan\'s own network rules (for example HMO products).',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+        ],
+        verifyVia: 'The member\'s plan document and a live benefits verification — HMO products may carry their own referral rules.',
+      },
+      telehealth: {
+        value:
+          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA. Treat modality as a plan and network question, not a policy answer.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+        ],
+        verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
+      },
+    },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Texas?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Texas\'s mandate (Tex. Ins. Code § 1355.015) for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Texas autism mandate require?', a: 'For covered group plans: treatment coverage from the date of diagnosis, provided the ASD diagnosis was made before the child\'s 10th birthday (coverage continues once eligible), with no dollar cap under 10 and a $36,000/year ABA cap at 10+ that federal parity arguably limits for large-group plans. Screening is covered at 18 and 24 months.' },
@@ -1384,7 +3509,111 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Tex. Ins. Code § 1355.002 (applicability)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.002' },
       { title: 'Tex. Ins. Code § 1355.003 (exceptions)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.003' },
       { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
+      { title: 'Molina — Cigna Transition Provider Notice (TX Medicaid sale)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/comm/Cigna-Transition-Provider-Notice-Final.pdf' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Case supervision is performed by a BCBA, LBA, or a mental health professional licensed to practise independently with documented ABA training. Direct case supervision (the BCBA face-to-face with the individual and the RBT or BCaBA delivering treatment) plus indirect case supervision runs at the accepted standard of one to two hours per ten hours of direct treatment; where direct treatment is 10 hours a week or less, a minimum of one to two hours a week of direct case supervision is provided. The name and credentials of the supervisor must be documented.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'EN0499 does not bless a 97153-plus-97155 same-clock-time pairing explicitly — it defines concurrent billing as multiple providers billing for the same patient at the same time, regardless of funding source, and it flatly excludes ABA delivered to the same individual at the same time as any other treatment modality (ABA and speech therapy, or ABA and occupational therapy). ABA delivered by multiple provider organizations in the same authorization period is not medically necessary unless additional documented conditions are met.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value:
+          'No per-day or per-week unit ceiling is published. EN0499 defines treatment intensity as the number of direct ABA treatment hours per week (excluding case supervision and caregiver training), individually determined from assessment data, and expressly says the recommended intensity must be set on medical necessity independent of the individual\'s outside schedule or previous utilization. The Texas mandate caps dollars rather than units: no cap under age 10, $36,000/year for ABA at 10 and over on plans the statute reaches.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Each session record must carry the start date and time, the end date and time, the location of service delivery, the focus of service, a detailed description of the intervention conducted, the individuals present, the specific service delivered (direct service, supervision, stakeholder training), and the name, credential where applicable, and signature of the ABA provider who rendered the service.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Goals must be defined across every setting where treatment will occur — home, clinic, school, community — and EN0499 names residential facilities, childcare facilities, homes, schools, transportation, community settings, clinics, vocational or educational classes, and recreational and social environments as sites where ABA may be delivered when medically necessary. The hard boundary is purpose: services primarily educational or vocational in nature, or related to academic or work performance, are not covered, and ABA may not replace or replicate activities that are the responsibility of the setting — classroom aide, 1:1 teacher, tutor, vocational coach, respite.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'EN0499 governs who may render and supervise — BCBA, LBA, or independently licensed mental health clinician with documented ABA training for QHP-level codes, technicians for technician-level codes — but publishes no rendering-versus-supervising NPI rule. Claim-level attribution is a reimbursement-policy and contract question.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+        verifyVia: 'Cigna/Evernorth provider services and the participating-provider agreement — EN0499 is a coverage policy and carries no claim-attribution rule.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EN0499 sets no age limit — its gate is a confirmed ASD diagnosis, not an age. In Texas the legal floor is the mandate: Tex. Ins. Code § 1355.015 runs coverage from the date of diagnosis provided the ASD diagnosis predates the 10th birthday, with no upper age cutoff once eligible — and self-funded ERISA, ERS and UT/A&M system plans sit outside it.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'EN0499 sets no recency window on the ASD diagnosis itself, but it does require the date on which the diagnosis was most recently made to be supplied, and it requires the standardized ABA assessment instrument to have been administered within the 60 days before treatment starts.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'A confirmed ASD diagnosis (ICD-10-CM F84.0-F84.9, excluding F84.2 Rett syndrome) made against DSM-5-TR criteria by a health care professional who is licensed to practise independently and whose licensure board considers diagnostics within their scope of practice. The name, credentials and type of licensure of the diagnosing clinician, and the date the diagnosis was most recently made, must both be provided.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'A reliable, valid and standardized assessment instrument measuring the DSM-5-TR ASD domains — social communication and social interaction, and restricted, repetitive patterns of behavior. EN0499 does not name a fixed list but sets conditions: completed in its entirety and as designed, reliability and validity established for the population tested, administered by someone trained to administer and interpret it, the most current version (Vineland-3, not Vineland-II), and reported with the date of administration, the respondent, and the form type.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'EN0499 imposes no referral or physician order. The gate is the confirmed independent-licensure diagnosis plus a full ABA assessment performed by a BCBA, LBA, or independently licensed mental health clinician with documented ABA training. Where the assessment was performed by someone other than the requesting provider, documented collaboration with that professional and confirmation that the results reflect current functioning are required.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The line-of-sight and close-proximity requirement it places on direct treatment expressly does not apply to telehealth services.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does Cigna cover ABA therapy in Texas?', a: 'Yes — under national policy EN0499 (which has no Texas carve-out), layered on Texas\'s mandate (Tex. Ins. Code § 1355.015) for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Texas autism mandate require?', a: 'For covered group plans: treatment coverage from the date of diagnosis, provided the ASD diagnosis was made before the child\'s 10th birthday (coverage continues once eligible), with no dollar cap under 10 and a $36,000/year ABA cap at 10+ that federal parity arguably limits for large-group plans.' },
@@ -1472,6 +3701,112 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Tex. Ins. Code § 1355.003 (exceptions)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.003' },
       { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
     ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'Consistent with CASP standards of care, direct case supervision is required at 1 to 2 hours for every 10 hours of direct treatment per week. Technicians must work under the applicable supervision of a BCBA or licensed behavioral health clinician and should be RBTs or another appropriately certified behavior technician as allowable by state mandate; a BCaBA or non-licensed individual works under the direct supervision of a BCBA or licensed behavioral health clinician who takes responsibility for the individual\'s care. Where an individual displays significant challenging behaviors, a higher staff-to-patient ratio and on-site direction by the supervisor may be needed. Optum states it is not appropriate for a parent to serve in the RBT role for their own child, and that a BCBA supervising such a parent would violate the ethics code.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Not addressed in Optum\'s supplemental clinical criteria, which govern medical necessity rather than claim editing.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum/UnitedHealthcare reimbursement policy via Provider Express, or the participating-provider agreement.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling is published. Optum frames total intensity as direct plus indirect services (caregiver training and supervision included), increased or decreased on the individual\'s response to treatment, with comprehensive programs typically early in development and focused intervention aimed at dangerous or maladaptive behavior. The Texas mandate caps dollars rather than units: no cap under age 10, $36,000/year for ABA at 10 and over on plans the statute reaches.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'Optum\'s criteria specify the content that must be documented — goals and objectives, baseline behaviors, frequency, intensity, duration and progress-measurement method for each intervention, the percentage of planned sessions attended, and progress against standardized norm-referenced adaptive measures — but do not state who must sign a session note or when.',
+        status: 'unverified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum provider services via Provider Express — the supplemental clinical criteria carry no signature standard.',
+      },
+      placeOfService: {
+        value:
+          'ABA must be provided at the least restrictive, most clinically appropriate level. The school boundary is explicit: ABA is not covered for services that are not ABA therapy, such as a 1:1 aide delivered simultaneously during classroom instruction, or for services covered under IDEA — but school ABA does cover coordination of services, including teacher training, meetings with school personnel, and observations in the school setting. The treatment plan must be coordinated with the school and any applicable IFSP or IEP.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Optum\'s criteria define who may render — a master\'s- or doctoral-level BCBA, a licensed behavioral health clinician attested and credentialed to provide ABA, or a BCaBA or non-licensed technician under the direct supervision of one of those — but publish no rendering-versus-supervising NPI rule.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+        verifyVia: 'Optum provider services via Provider Express and the participating-provider agreement — claim-attribution rules are contractual.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Optum\'s criteria set no age bound — the gate is a valid ASD diagnosis, and its state-mandate supplement has no Texas entry. In Texas the legal floor is the mandate: Tex. Ins. Code § 1355.015 runs coverage from the date of diagnosis provided the ASD diagnosis predates the 10th birthday, with no upper age cutoff once eligible — and self-funded ERISA, ERS and UT/A&M system plans sit outside it.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Optum\'s criteria set no recency window on the ASD diagnosis. What is tested for currency is the treatment side: continued-service reviews run every 4 to 6 months against updated standardized, norm-referenced adaptive measures.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'A valid ASD diagnosis (or other applicable diagnosis required by governing law) issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make that diagnosis under DSM-5-TR criteria. The DSM-5 diagnosis and severity level must be confirmed and documented by the diagnosing clinician.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'The diagnosis and severity level must be confirmed with at least one clinically validated tool. Optum groups them: first-level screeners (ABC, CHAT/M-CHAT, CSBS-DP-IT, ASQ, AQ, CAST), second-level screeners and diagnostic aids (CARS/CARS-2, RITA-T, STAT), and formal diagnostic tools used in a comprehensive diagnostic evaluation (ADI-R, ADOS/ADOS-2, DISCO). Treatment intensity must separately be set from at least one validated measurement tool — ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, Vineland (VABS) or CFQL-2 — plus norm-referenced instruments comparing the individual to age-matched neurotypical peers.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Optum imposes no referral or physician order. Prior authorization is the gate — a two-step process on Provider Express, assessment first and then treatment — unless otherwise specified or mandated by contract or law.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Optum\'s criteria treat telehealth as an available modality, citing practice parameters for telehealth implementation of ABA and noting that ABA can be delivered by telehealth across a broad range of clinical settings (home, clinic, school) — but the telehealth options are intended to supplement rather than supplant in-person service, not to replace it.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+    },
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Texas?', a: 'Yes — under Optum\'s national clinical criteria for ASD, layered on Texas\'s mandate (Tex. Ins. Code § 1355.015) for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Texas autism mandate require?', a: 'For covered group plans: treatment coverage from the date of diagnosis, provided the ASD diagnosis was made before the child\'s 10th birthday (coverage continues once eligible), with no dollar cap under 10 and a $36,000/year ABA cap at 10+ that federal parity arguably limits for large-group plans.' },

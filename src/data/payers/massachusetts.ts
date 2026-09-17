@@ -9,6 +9,48 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via a comprehensive DSM-aligned assessment by a qualified licensed diagnostician; from 1/1/2026 also sole-diagnosis Down syndrome (genetic-testing confirmed)',
     payer: 'MassHealth (Massachusetts Medicaid)',
     state: 'MA', kind: 'state-medicaid',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EPSDT sets the bound, and nothing else does. ABA is covered for MassHealth Standard and CommonHealth members under 21, and for Family Assistance members under 19 — with no lower age bound and no dollar, visit or unit-of-service cap underneath it. For the youngest referrals the binding rule is non-duplication rather than age: ABA cannot duplicate services the child already receives through Early Intervention. From 1/1/2026 the second diagnostic pathway (sole-diagnosis Down syndrome) rides the same age structure.',
+        status: 'verified',
+        cites: [{ title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' }, { title: 'The Arc of Massachusetts — ABA for Down syndrome expansion (eff. 1/1/2026)', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the Massachusetts Standard ABA PA Form nor the Carelon/MBHP performance specification sets a maximum age for the diagnostic evaluation — the form asks for the current ICD-10 diagnosis and, on a "Request for initial evaluation," a copy of the comprehensive assessment, but names no recency window. What the form does date is utilization, not diagnosis: the continued-services page makes the BCBA attest whether at least 75% of the previously authorized direct-service hours were used.',
+        status: 'unverified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'MassHealth\'s own ABA Provider FAQ on mass.gov (403 to automated clients — human retrieval), and the behavioral-health administrator behind the member\'s plan.',
+      },
+      diagnosingProviders: {
+        value:
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00.',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No instrument is mandated. The standard form requires a comprehensive assessment "which aligns with DSM criteria across ASD core deficits" without naming ADOS-2, ADI-R, CARS-2 or any other tool, and the performance specification names no diagnostic battery either; the Down syndrome pathway replaces the instrument question entirely with genetic testing. Massachusetts puts its measurement requirement downstream of intake instead — in progress documentation and medical-necessity review, not in the diagnostic gate.',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral and no physician order is a condition of authorization. The Massachusetts Standard ABA PA Form has no referral field and is completed by the rendering or supervising BCBA/LABA, and the performance specification\'s referral language is about timeliness rather than permission: "Fourteen calendar days from referral is the Medicaid standard of timely provision for services established in accordance with 42 CFR 441.56(e)," with a waitlist duty (and an obligation to hand caregivers other regional providers\' contact information) where the provider cannot start inside it. What the state does require is PCP evidence in the chart rather than at the door: the complete medical record must hold "Referral and assessment documentation" and "Documentation confirming physical examinations by a PCP," and the continued-services pages ask for a dated primary-care care-coordination entry.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Permitted at the family\'s request, with no code list and no POS rule. The ABA provider "may deliver services and consultation via a Health Insurance Portability and Accessibility Act (HIPAA)-compliant telehealth platform at the parent/caregiver\'s request and if the service can be effectively delivered via telehealth as part of the intervention when appropriate," with the rationale documented and the documentation reflecting "clinical considerations for appropriateness across any service components being delivered via telehealth." Two guardrails ride along: telehealth "must not replace in-person availability," and the member or family "may rescind consent for telehealth at any time without risk of interruption of services." No per-code restriction, modifier or place-of-service code is published.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Which CPT codes and place-of-service codes the member\'s BH administrator actually pays for telehealth — the performance specification sets the clinical conditions, not the billing.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -153,6 +195,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: '262 CMR 8.04 — Standards of Conduct for LABAs/LAABAs (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/262-CMR-8-04' },
       { title: '262 CMR 10.03 — Applied Behavior Analyst Licensure (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/massachusetts/262-CMR-10-03' },
       { title: '42 CFR 455.436 — Federal database checks (Cornell LII)', url: 'https://www.law.cornell.edu/cfr/text/42/455.436' },
+      { title: 'The Arc of Massachusetts — ABA for Down syndrome expansion (eff. 1/1/2026)', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' },
+      { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
+      { title: 'Point32Health — Tufts Health Public Plans Provider Manual, Behavioral Health chapter (2026)', url: 'https://www.point32health.org/documents/thpp-08-bh-pm' },
     ],
     faq: [
       { q: 'Does MassHealth cover ABA therapy?', a: 'Yes — for members under 21 (under 19 on Family Assistance) through EPSDT, with no annual or lifetime dollar or unit caps. Prior authorization is required for all ABA services, submitted to the behavioral-health administrator behind the member\'s plan.' },
@@ -168,8 +213,51 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     assessmentPA: 'Required — Massachusetts Standard ABA PA Form process; submissions via Carelon\'s ProviderConnect portal',
     treatmentPA: 'Required — 6-month authorization periods, per the state standard-form process',
     dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
+    family: 'carelon',
     payer: 'Massachusetts Behavioral Health Partnership (MBHP)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EPSDT sets the bound, and nothing else does. ABA is covered for MassHealth Standard and CommonHealth members under 21, and for Family Assistance members under 19 — with no lower age bound and no dollar, visit or unit-of-service cap underneath it. For the youngest referrals the binding rule is non-duplication rather than age: ABA cannot duplicate services the child already receives through Early Intervention. From 1/1/2026 the second diagnostic pathway (sole-diagnosis Down syndrome) rides the same age structure. MBHP applies this baseline unchanged — it is the state program\'s own vendor.',
+        status: 'verified',
+        cites: [{ title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the Massachusetts Standard ABA PA Form nor the Carelon/MBHP performance specification sets a maximum age for the diagnostic evaluation — the form asks for the current ICD-10 diagnosis and, on a "Request for initial evaluation," a copy of the comprehensive assessment, but names no recency window. What the form does date is utilization, not diagnosis: the continued-services page makes the BCBA attest whether at least 75% of the previously authorized direct-service hours were used.',
+        status: 'unverified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Carelon/MBHP provider relations via ProviderConnect; MassHealth\'s ABA Provider FAQ on mass.gov is 403 to automated clients and needs human retrieval.',
+      },
+      diagnosingProviders: {
+        value:
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00.',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No instrument is mandated. The standard form requires a comprehensive assessment "which aligns with DSM criteria across ASD core deficits" without naming ADOS-2, ADI-R, CARS-2 or any other tool, and the performance specification names no diagnostic battery either; the Down syndrome pathway replaces the instrument question entirely with genetic testing. Massachusetts puts its measurement requirement downstream of intake instead — in progress documentation and medical-necessity review, not in the diagnostic gate.',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral and no physician order is a condition of authorization. The Massachusetts Standard ABA PA Form has no referral field and is completed by the rendering or supervising BCBA/LABA, and the performance specification\'s referral language is about timeliness rather than permission: "Fourteen calendar days from referral is the Medicaid standard of timely provision for services established in accordance with 42 CFR 441.56(e)," with a waitlist duty (and an obligation to hand caregivers other regional providers\' contact information) where the provider cannot start inside it. What the state does require is PCP evidence in the chart rather than at the door: the complete medical record must hold "Referral and assessment documentation" and "Documentation confirming physical examinations by a PCP," and the continued-services pages ask for a dated primary-care care-coordination entry.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Permitted at the family\'s request, with no code list and no POS rule. The ABA provider "may deliver services and consultation via a Health Insurance Portability and Accessibility Act (HIPAA)-compliant telehealth platform at the parent/caregiver\'s request and if the service can be effectively delivered via telehealth as part of the intervention when appropriate," with the rationale documented and the documentation reflecting "clinical considerations for appropriateness across any service components being delivered via telehealth." Two guardrails ride along: telehealth "must not replace in-person availability," and the member or family "may rescind consent for telehealth at any time without risk of interruption of services." No per-code restriction, modifier or place-of-service code is published. This is MBHP\'s own specification — the document every other Massachusetts plan is measured against.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Which CPT codes and place-of-service codes the member\'s BH administrator actually pays for telehealth — the performance specification sets the clinical conditions, not the billing.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -264,6 +352,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
       { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
       { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
+      { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
+      { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' },
     ],
     faq: [
       { q: 'Who does MBHP cover for ABA?', a: 'MassHealth members on the PCC Plan and the Primary Care ACOs, plus Health New England\'s BeHealthy Partnership — everyone whose plan doesn\'t bring its own BH administrator. It applies the state-baseline criteria and the Massachusetts Standard ABA PA Form.' },
@@ -280,6 +370,48 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; the plan\'s form also carries the 1/1/2026 Down syndrome pathway',
     payer: 'WellSense Health Plan',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EPSDT sets the bound, and nothing else does. ABA is covered for MassHealth Standard and CommonHealth members under 21, and for Family Assistance members under 19 — with no lower age bound and no dollar, visit or unit-of-service cap underneath it. For the youngest referrals the binding rule is non-duplication rather than age: ABA cannot duplicate services the child already receives through Early Intervention. From 1/1/2026 the second diagnostic pathway (sole-diagnosis Down syndrome) rides the same age structure.',
+        status: 'verified',
+        cites: [{ title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the Massachusetts Standard ABA PA Form nor the Carelon/MBHP performance specification sets a maximum age for the diagnostic evaluation — the form asks for the current ICD-10 diagnosis and, on a "Request for initial evaluation," a copy of the comprehensive assessment, but names no recency window. What the form does date is utilization, not diagnosis: the continued-services page makes the BCBA attest whether at least 75% of the previously authorized direct-service hours were used. WellSense hosts the current version of that form and has published no recency rule of its own since insourcing behavioral health on 1/1/2026.',
+        status: 'unverified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+        verifyVia:
+          'WellSense provider services / its reimbursement and medical policies in PolicyTech.',
+      },
+      diagnosingProviders: {
+        value:
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. WellSense hosts this form, so these are the plan\'s own stated requirements, not an inherited reading.',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No instrument is mandated. The standard form requires a comprehensive assessment "which aligns with DSM criteria across ASD core deficits" without naming ADOS-2, ADI-R, CARS-2 or any other tool, and the performance specification names no diagnostic battery either; the Down syndrome pathway replaces the instrument question entirely with genetic testing. Massachusetts puts its measurement requirement downstream of intake instead — in progress documentation and medical-necessity review, not in the diagnostic gate.',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral and no physician order is a condition of authorization. The Massachusetts Standard ABA PA Form has no referral field and is completed by the rendering or supervising BCBA/LABA, and the performance specification\'s referral language is about timeliness rather than permission: "Fourteen calendar days from referral is the Medicaid standard of timely provision for services established in accordance with 42 CFR 441.56(e)," with a waitlist duty (and an obligation to hand caregivers other regional providers\' contact information) where the provider cannot start inside it. What the state does require is PCP evidence in the chart rather than at the door: the complete medical record must hold "Referral and assessment documentation" and "Documentation confirming physical examinations by a PCP," and the continued-services pages ask for a dated primary-care care-coordination entry. WellSense\'s hosted form adds the setting grid instead of a referral: location per day is recorded as H (home), O (office) or C (community).',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Permitted at the family\'s request, with no code list and no POS rule. The ABA provider "may deliver services and consultation via a Health Insurance Portability and Accessibility Act (HIPAA)-compliant telehealth platform at the parent/caregiver\'s request and if the service can be effectively delivered via telehealth as part of the intervention when appropriate," with the rationale documented and the documentation reflecting "clinical considerations for appropriateness across any service components being delivered via telehealth." Two guardrails ride along: telehealth "must not replace in-person availability," and the member or family "may rescind consent for telehealth at any time without risk of interruption of services." No per-code restriction, modifier or place-of-service code is published. WellSense publishes no deviation from this MassHealth-wide position, and had not republished the specification under its own name as of this review.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'WellSense provider services — confirm the in-house BH team applies the MBHP telehealth conditions verbatim.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -365,6 +497,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
       { title: 'WellSense Health Plan \u2014 Massachusetts Provider Manual (eff. Jan. 1, 2026)', url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/MA_Provider_Manual.pdf' },
+      { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
+      { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' },
     ],
     faq: [
       { q: 'Does WellSense cover ABA therapy?', a: 'Yes — across the WellSense Essential MCO and its eight MassHealth ACPPs, on the state-baseline benefit: EPSDT under 21, no caps, PA on all services via the Massachusetts Standard ABA PA Form. Behavioral health, including ABA, has been administered in-house by WellSense since January 1, 2026 (previously Carelon).' },
@@ -379,8 +513,57 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     assessmentPA: 'Required — via Point32Health UM on the plan\'s own updated ABA PA form (not the MA standard form)',
     treatmentPA: 'Required — Point32Health\'s own ABA PA form, submitted electronically with the form uploaded, or fax 888-977-0776',
     dxRequired: 'Yes — ASD; covers sole-diagnosis Down syndrome effective 1/1/2026 (incl. Tufts Health Together)',
+    family: 'point32',
     payer: 'Tufts Health Together (Point32Health)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EPSDT sets the bound, and nothing else does. ABA is covered for MassHealth Standard and CommonHealth members under 21, and for Family Assistance members under 19 — with no lower age bound and no dollar, visit or unit-of-service cap underneath it. For the youngest referrals the binding rule is non-duplication rather than age: ABA cannot duplicate services the child already receives through Early Intervention. From 1/1/2026 the second diagnostic pathway (sole-diagnosis Down syndrome) rides the same age structure. Confirm the member is on one of the two surviving ACPPs — the Together MCO product was discontinued 1/1/2026.',
+        status: 'verified',
+        cites: [{ title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Point32Health\'s October 2025 ABA update moved review onto InterQual criteria with SmartSheets from 1/1/2026 and moved Together members onto Point32Health\'s own ABA PA form, and neither document states how recent the diagnostic evaluation must be. The MassHealth-wide position is the same — no recency window is published on the state standard form either.',
+        status: 'unverified',
+        cites: [{ title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }, { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+        verifyVia:
+          'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
+      },
+      diagnosingProviders: {
+        value:
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. That is the MassHealth-wide standard form, which Tufts Health Together does not use — Point32Health\'s own ABA PA form governs here and does not republish the diagnostician list.',
+        status: 'unverified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }],
+        verifyVia:
+          'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
+      },
+      diagnosticTools: {
+        value:
+          'No instrument is mandated. The standard form requires a comprehensive assessment "which aligns with DSM criteria across ASD core deficits" without naming ADOS-2, ADI-R, CARS-2 or any other tool, and the performance specification names no diagnostic battery either; the Down syndrome pathway replaces the instrument question entirely with genetic testing. Massachusetts puts its measurement requirement downstream of intake instead — in progress documentation and medical-necessity review, not in the diagnostic gate. Point32Health publishes no ABA diagnostic-instrument requirement of its own; from 1/1/2026 its ABA reviews run on InterQual criteria and SmartSheets.',
+        status: 'unverified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }],
+        verifyVia:
+          'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
+      },
+      referral: {
+        value:
+          'No referral and no physician order is a condition of authorization. The Massachusetts Standard ABA PA Form has no referral field and is completed by the rendering or supervising BCBA/LABA, and the performance specification\'s referral language is about timeliness rather than permission: "Fourteen calendar days from referral is the Medicaid standard of timely provision for services established in accordance with 42 CFR 441.56(e)," with a waitlist duty (and an obligation to hand caregivers other regional providers\' contact information) where the provider cannot start inside it. What the state does require is PCP evidence in the chart rather than at the door: the complete medical record must hold "Referral and assessment documentation" and "Documentation confirming physical examinations by a PCP," and the continued-services pages ask for a dated primary-care care-coordination entry. None of that is republished on Point32Health\'s own ABA PA form, which is the form this plan actually takes.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }],
+        verifyVia:
+          'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
+      },
+      telehealth: {
+        value:
+          'Permitted at the family\'s request, with no code list and no POS rule. The ABA provider "may deliver services and consultation via a Health Insurance Portability and Accessibility Act (HIPAA)-compliant telehealth platform at the parent/caregiver\'s request and if the service can be effectively delivered via telehealth as part of the intervention when appropriate," with the rationale documented and the documentation reflecting "clinical considerations for appropriateness across any service components being delivered via telehealth." Two guardrails ride along: telehealth "must not replace in-person availability," and the member or family "may rescind consent for telehealth at any time without risk of interruption of services." No per-code restriction, modifier or place-of-service code is published. Point32Health publishes no telehealth position for Together ABA, and the performance specification is MBHP\'s, not Point32\'s.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -462,6 +645,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
       { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
+      { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
+      { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' },
+      { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
     ],
     faq: [
       { q: 'Is the Tufts Health Together MCO still active?', a: 'No — MassHealth discontinued the Tufts Health Together MCO product effective January 1, 2026 (All Provider Bulletin 410). Only the two ACPPs, with Cambridge Health Alliance and with UMass Memorial Health, remain active.' },
@@ -479,6 +665,50 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
     payer: 'Fallon Health (MassHealth ACPPs)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EPSDT sets the bound, and nothing else does. ABA is covered for MassHealth Standard and CommonHealth members under 21, and for Family Assistance members under 19 — with no lower age bound and no dollar, visit or unit-of-service cap underneath it. For the youngest referrals the binding rule is non-duplication rather than age: ABA cannot duplicate services the child already receives through Early Intervention. From 1/1/2026 the second diagnostic pathway (sole-diagnosis Down syndrome) rides the same age structure.',
+        status: 'verified',
+        cites: [{ title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the Massachusetts Standard ABA PA Form nor the Carelon/MBHP performance specification sets a maximum age for the diagnostic evaluation — the form asks for the current ICD-10 diagnosis and, on a "Request for initial evaluation," a copy of the comprehensive assessment, but names no recency window. What the form does date is utilization, not diagnosis: the continued-services page makes the BCBA attest whether at least 75% of the previously authorized direct-service hours were used.',
+        status: 'unverified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Carelon Behavioral Health provider relations for the Fallon line of business — confirm the MBHP performance specification is applied verbatim.',
+      },
+      diagnosingProviders: {
+        value:
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. Fallon takes the Massachusetts Standard ABA PA Form through Carelon, so these are the operative requirements; no Fallon-specific diagnostic criteria are published.',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No instrument is mandated. The standard form requires a comprehensive assessment "which aligns with DSM criteria across ASD core deficits" without naming ADOS-2, ADI-R, CARS-2 or any other tool, and the performance specification names no diagnostic battery either; the Down syndrome pathway replaces the instrument question entirely with genetic testing. Massachusetts puts its measurement requirement downstream of intake instead — in progress documentation and medical-necessity review, not in the diagnostic gate.',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral and no physician order is a condition of authorization. The Massachusetts Standard ABA PA Form has no referral field and is completed by the rendering or supervising BCBA/LABA, and the performance specification\'s referral language is about timeliness rather than permission: "Fourteen calendar days from referral is the Medicaid standard of timely provision for services established in accordance with 42 CFR 441.56(e)," with a waitlist duty (and an obligation to hand caregivers other regional providers\' contact information) where the provider cannot start inside it. What the state does require is PCP evidence in the chart rather than at the door: the complete medical record must hold "Referral and assessment documentation" and "Documentation confirming physical examinations by a PCP," and the continued-services pages ask for a dated primary-care care-coordination entry.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+        verifyVia:
+          'Carelon Behavioral Health provider relations for the Fallon line of business — confirm the MBHP performance specification is applied verbatim.',
+      },
+      telehealth: {
+        value:
+          'Permitted at the family\'s request, with no code list and no POS rule. The ABA provider "may deliver services and consultation via a Health Insurance Portability and Accessibility Act (HIPAA)-compliant telehealth platform at the parent/caregiver\'s request and if the service can be effectively delivered via telehealth as part of the intervention when appropriate," with the rationale documented and the documentation reflecting "clinical considerations for appropriateness across any service components being delivered via telehealth." Two guardrails ride along: telehealth "must not replace in-person availability," and the member or family "may rescind consent for telehealth at any time without risk of interruption of services." No per-code restriction, modifier or place-of-service code is published. The specification published at providers.masspartnership.com is MBHP\'s; Carelon has published no separate Fallon ABA specification that could be located.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Carelon Behavioral Health provider relations for the Fallon line of business — confirm the MBHP performance specification is applied verbatim.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -553,6 +783,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
       { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
       { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
+      { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' },
+      { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
     ],
     faq: [
       { q: 'Does Fallon Health cover ABA?', a: 'Yes — its MassHealth ACPPs carry the state-baseline EPSDT benefit, with behavioral health (including ABA authorization) administered by Carelon on the Massachusetts Standard ABA PA Form in 6-month periods.' },
@@ -568,6 +800,54 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
     payer: 'Health New England — BeHealthy Partnership',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EPSDT sets the bound, and nothing else does. ABA is covered for MassHealth Standard and CommonHealth members under 21, and for Family Assistance members under 19 — with no lower age bound and no dollar, visit or unit-of-service cap underneath it. For the youngest referrals the binding rule is non-duplication rather than age: ABA cannot duplicate services the child already receives through Early Intervention. From 1/1/2026 the second diagnostic pathway (sole-diagnosis Down syndrome) rides the same age structure.',
+        status: 'verified',
+        cites: [{ title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the Massachusetts Standard ABA PA Form nor the Carelon/MBHP performance specification sets a maximum age for the diagnostic evaluation — the form asks for the current ICD-10 diagnosis and, on a "Request for initial evaluation," a copy of the comprehensive assessment, but names no recency window. What the form does date is utilization, not diagnosis: the continued-services page makes the BCBA attest whether at least 75% of the previously authorized direct-service hours were used.',
+        status: 'unverified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Carelon/MBHP provider relations via ProviderConnect; MassHealth\'s ABA Provider FAQ on mass.gov is 403 to automated clients and needs human retrieval.',
+      },
+      diagnosingProviders: {
+        value:
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. BeHealthy Partnership members route to MBHP, so the Massachusetts standard form is the operative paperwork; no HNE-specific diagnostic criteria exist.',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Confirm the member\'s plan still routes to MBHP at intake — the MassHealth BH-administrator map has changed twice since 2025.',
+      },
+      diagnosticTools: {
+        value:
+          'No instrument is mandated. The standard form requires a comprehensive assessment "which aligns with DSM criteria across ASD core deficits" without naming ADOS-2, ADI-R, CARS-2 or any other tool, and the performance specification names no diagnostic battery either; the Down syndrome pathway replaces the instrument question entirely with genetic testing. Massachusetts puts its measurement requirement downstream of intake instead — in progress documentation and medical-necessity review, not in the diagnostic gate.',
+        status: 'verified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Confirm the member\'s plan still routes to MBHP at intake — the MassHealth BH-administrator map has changed twice since 2025.',
+      },
+      referral: {
+        value:
+          'No referral and no physician order is a condition of authorization. The Massachusetts Standard ABA PA Form has no referral field and is completed by the rendering or supervising BCBA/LABA, and the performance specification\'s referral language is about timeliness rather than permission: "Fourteen calendar days from referral is the Medicaid standard of timely provision for services established in accordance with 42 CFR 441.56(e)," with a waitlist duty (and an obligation to hand caregivers other regional providers\' contact information) where the provider cannot start inside it. What the state does require is PCP evidence in the chart rather than at the door: the complete medical record must hold "Referral and assessment documentation" and "Documentation confirming physical examinations by a PCP," and the continued-services pages ask for a dated primary-care care-coordination entry.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+        verifyVia:
+          'Confirm the member\'s plan still routes to MBHP at intake — the MassHealth BH-administrator map has changed twice since 2025.',
+      },
+      telehealth: {
+        value:
+          'Permitted at the family\'s request, with no code list and no POS rule. The ABA provider "may deliver services and consultation via a Health Insurance Portability and Accessibility Act (HIPAA)-compliant telehealth platform at the parent/caregiver\'s request and if the service can be effectively delivered via telehealth as part of the intervention when appropriate," with the rationale documented and the documentation reflecting "clinical considerations for appropriateness across any service components being delivered via telehealth." Two guardrails ride along: telehealth "must not replace in-person availability," and the member or family "may rescind consent for telehealth at any time without risk of interruption of services." No per-code restriction, modifier or place-of-service code is published.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Confirm the member\'s plan still routes to MBHP at intake — the MassHealth BH-administrator map has changed twice since 2025.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -649,6 +929,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MBHP provider portal — ProviderConnect', url: 'https://providers.masspartnership.com/provider/GettingStarted.html' },
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
       { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
+      { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' },
+      { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
     ],
     faq: [
       { q: 'Does HNE\'s BeHealthy Partnership cover ABA?', a: 'Yes — the state-baseline MassHealth EPSDT benefit, with behavioral health administered by MBHP (Carelon): standard PA form, 6-month authorizations, no published caps.' },
@@ -664,6 +946,54 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
     payer: 'Mass General Brigham Health Plan (MassHealth ACPP)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EPSDT sets the bound, and nothing else does. ABA is covered for MassHealth Standard and CommonHealth members under 21, and for Family Assistance members under 19 — with no lower age bound and no dollar, visit or unit-of-service cap underneath it. For the youngest referrals the binding rule is non-duplication rather than age: ABA cannot duplicate services the child already receives through Early Intervention. From 1/1/2026 the second diagnostic pathway (sole-diagnosis Down syndrome) rides the same age structure. One plan-specific overlay is not an age rule but reads like one at intake: Optum\'s Massachusetts Medicaid entry (effective 10/1/2021) says ABA "should not exceed 30 hours per week" for Early Intervention members, so establish EI enrollment alongside age.',
+        status: 'verified',
+        cites: [{ title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Not published. Neither the Massachusetts Standard ABA PA Form nor the Carelon/MBHP performance specification sets a maximum age for the diagnostic evaluation — the form asks for the current ICD-10 diagnosis and, on a "Request for initial evaluation," a copy of the comprehensive assessment, but names no recency window. What the form does date is utilization, not diagnosis: the continued-services page makes the BCBA attest whether at least 75% of the previously authorized direct-service hours were used.',
+        status: 'unverified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business — Optum\'s published ABA criteria are commercial documents, and the plan does not republish the MassHealth standard-form requirements.',
+      },
+      diagnosingProviders: {
+        value:
+          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. Optum\'s own criteria are broader in wording — a diagnosis "issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR" — but that is its commercial Supplemental Clinical Criteria, and Optum\'s Massachusetts state-mandate entries are scoped to the EI hour cap and the 1/1/2026 Down syndrome expansion, neither of which is a diagnostician list for this MassHealth product.',
+        status: 'unverified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business — Optum\'s published ABA criteria are commercial documents, and the plan does not republish the MassHealth standard-form requirements.',
+      },
+      diagnosticTools: {
+        value:
+          'No instrument is mandated. The standard form requires a comprehensive assessment "which aligns with DSM criteria across ASD core deficits" without naming ADOS-2, ADI-R, CARS-2 or any other tool, and the performance specification names no diagnostic battery either; the Down syndrome pathway replaces the instrument question entirely with genetic testing. Massachusetts puts its measurement requirement downstream of intake instead — in progress documentation and medical-necessity review, not in the diagnostic gate. Optum\'s commercial criteria do name formal diagnostic tools (ADI-R, ADOS/ADOS-2, DISCO), but that list belongs to its commercial ABA criteria and should not be assumed onto this MassHealth product.',
+        status: 'unverified',
+        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business — Optum\'s published ABA criteria are commercial documents, and the plan does not republish the MassHealth standard-form requirements.',
+      },
+      referral: {
+        value:
+          'No referral and no physician order is a condition of authorization. The Massachusetts Standard ABA PA Form has no referral field and is completed by the rendering or supervising BCBA/LABA, and the performance specification\'s referral language is about timeliness rather than permission: "Fourteen calendar days from referral is the Medicaid standard of timely provision for services established in accordance with 42 CFR 441.56(e)," with a waitlist duty (and an obligation to hand caregivers other regional providers\' contact information) where the provider cannot start inside it. What the state does require is PCP evidence in the chart rather than at the door: the complete medical record must hold "Referral and assessment documentation" and "Documentation confirming physical examinations by a PCP," and the continued-services pages ask for a dated primary-care care-coordination entry.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }],
+        verifyVia:
+          'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business — Optum\'s published ABA criteria are commercial documents, and the plan does not republish the MassHealth standard-form requirements.',
+      },
+      telehealth: {
+        value:
+          'Permitted at the family\'s request, with no code list and no POS rule. The ABA provider "may deliver services and consultation via a Health Insurance Portability and Accessibility Act (HIPAA)-compliant telehealth platform at the parent/caregiver\'s request and if the service can be effectively delivered via telehealth as part of the intervention when appropriate," with the rationale documented and the documentation reflecting "clinical considerations for appropriateness across any service components being delivered via telehealth." Two guardrails ride along: telehealth "must not replace in-person availability," and the member or family "may rescind consent for telehealth at any time without risk of interruption of services." No per-code restriction, modifier or place-of-service code is published. Whether Optum applies the MBHP conditions on this line is not published.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business — Optum\'s published ABA criteria are commercial documents, and the plan does not republish the MassHealth standard-form requirements.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -740,6 +1070,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
       { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
       { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
+      { title: 'AIRC — MassHealth ABA Coverage factsheet', url: 'https://massairc.org/factsheets/masshealth-aba-coverage/' },
+      { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
     ],
     faq: [
       { q: 'Does Mass General Brigham Health Plan cover ABA?', a: 'Yes — the MassHealth EPSDT benefit, administered through Optum Behavioral Health under Optum\'s ABA criteria plus its Massachusetts state-mandate supplement. PA is required for assessment and treatment.' },
@@ -757,6 +1089,50 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only (F84.0–F84.9) under CPB 0554; fully-insured MA plans must also cover sole-diagnosis Down syndrome from 1/1/2026 (Ch. 388)',
     payer: 'Aetna in Massachusetts',
     state: 'MA', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Aetna sets no upper age limit in its national medical-necessity criteria. The ABA Medical Necessity Guide gives age only as clinical shape, not as a gate: comprehensive ABA carries a "typical age range" of 0-7 years at 10-25 hours a week for 1-2 years, while focused ABA is listed for "All ages" at 1-20 hours a week. The binding age question is the legal layer underneath: ARICA bars fully-insured Massachusetts plans from imposing any age limit on ASD diagnosis and treatment, so on a fully-insured card there is no upper bound at all; a self-funded ERISA plan answers to its own plan document. Establish funding type before quoting an age answer.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' }],
+        verifyVia:
+          'The member\'s benefit document and Aetna precertification — funding type decides whether the state mandate or the plan document sets the age boundary.',
+      },
+      dxRecency: {
+        value:
+          'Twelve months, and it attaches to the functional measure rather than to the diagnosis. Aetna\'s medical-necessity criteria require that "There is demonstration of functional impairment on a standardized scale of functioning in the past 12 months," with the impairment at least one standard deviation below the population mean or representing a significant risk of harm to self or others. The ASD diagnosis itself carries no stated shelf life — so a family with an older diagnostic report is not blocked, but a stale adaptive score is.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'A scope-of-practice test rather than a specialty list. Aetna requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9) obtained by an appropriate provider," and defines that as a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." Note the code range: F84.2 (Rett syndrome) sits outside the listed set, and ABA for diagnoses other than ASD is treated as experimental.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Aetna names adaptive-functioning instruments, not autism diagnostic instruments. The medical-necessity criteria require demonstrated functional impairment "on a standardized scale of functioning in the past 12 months. For instance, the Vineland Adaptive Behavior Scales 3 (VABS-3), the Adaptive Behavior Assessment Scale (ABAS), VB-MAPP or ABLLS," and quality-of-care elements add "Repeated measurement with standardized measures to assess progress." No ADOS-2 or ADI-R requirement appears anywhere — the instrument Aetna asks for is the one that sizes the hours, and the level-of-impairment calculation is what justifies the number requested.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      referral: {
+        value:
+          'Not published. Aetna\'s ABA Medical Necessity Guide and its ABA clinical policy bulletin set a diagnosis requirement, a precertification requirement and a provider-licensure requirement, but state no referral or physician order as a condition of coverage. The gate that does exist is precertification itself — required for both the assessment and treatment.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'Aetna precertification/provider services at the number on the member\'s ID card, and the member\'s benefit document — ask whether the plan layers a referral requirement on behavioral health.',
+      },
+      telehealth: {
+        value:
+          'Not published. Aetna\'s ABA materials set medical-necessity criteria and precertification requirements for 97151-97158, 0362T and 0373T but say nothing about remote delivery, telehealth modifiers or place-of-service codes. ARICA bars fully-insured Massachusetts plans from imposing limits on ABA that are less favorable than those on physical conditions, which is a benefit-design argument rather than a published telehealth rule.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' }],
+        verifyVia:
+          'Aetna provider services and the member\'s benefit document — confirm which ABA codes pay by telehealth and with which POS code before scheduling remote supervision or caregiver training.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -873,6 +1249,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'The Arc of Massachusetts — Down syndrome ABA expansion', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' },
       { title: '262 CMR 10.00 — LABA/LAABA licensure requirements (mass.gov)', url: 'https://www.mass.gov/regulations/262-CMR-1000-requirements-for-licensure-as-an-applied-behavior-analyst-and-assistant-applied-behavior-analyst' },
       { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna CPB state deviations page', url: 'https://www.aetna.com/health-care-professionals/cpb-state-deviations.html' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Massachusetts?', a: 'Yes — under the carrier\'s national policy for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -891,6 +1268,48 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499; fully-insured MA plans must also cover sole-diagnosis Down syndrome from 1/1/2026 (Ch. 388)',
     payer: 'Cigna / Evernorth in Massachusetts',
     state: 'MA', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EN0499 sets no age limit. The policy\'s medical-necessity criteria turn on diagnosis, assessment and treatment-plan content rather than on age, and its own definitions note only that assessment instruments must have established reliability and validity "for use with members of the population tested (e.g., age, language preference, etc.)." The binding age question is the legal layer underneath: ARICA bars fully-insured Massachusetts plans from imposing any age limit on ASD diagnosis and treatment, so on a fully-insured card there is no upper bound at all; a self-funded ERISA plan answers to its own plan document.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' }],
+        verifyVia:
+          'The member\'s benefit document and Evernorth Provider Services at 800.926.2273 — funding type decides whether the state mandate or the plan document sets the age boundary.',
+      },
+      dxRecency: {
+        value:
+          'Evernorth dates the diagnosis without expiring it, and expires the assessment instead. The diagnosis package must carry "The name, credentials, and type of licensure of the individual who made the diagnosis" and "The date on which the diagnosis was most recently made" — but no maximum age for that date. Where recency does bite is the continued-treatment request: improvement must be demonstrated "with the use of a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request," against data collected within the previous six months of treatment.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'An independent-practice test, with two explicit disqualifiers. The diagnosis must be made "based on the criteria in the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR) by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." What does not count: "educational identification or meeting educational eligibility for services related to autism through the [Individuals] with Disabilities Education Act may not meet criteria as a formal diagnosis of ASD," and a diagnosis termed "provisional," "proposed," "potential," "at risk of" or "rule out" is not confirmed. F84.2 (Rett syndrome) is excluded from the covered code range.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No named instrument, but a strict standard for whichever one is used. The comprehensive ABA assessment must include "Administration of a reliable, valid, and standardized assessment instrument that measures the individual\'s functioning in the domains included in the diagnostic criteria for ASD in the DSM-5-TR" — social communication and social interaction, and restricted, repetitive patterns of behavior. The instrument must be completed in its entirety and as designed, be reliable and valid for the population tested, be administered and interpreted by someone trained to do so, be the most current version ("must be the Vineland-3 vs. Vineland-II"), assess current abilities, and record the date of administration, the respondent and the form type. Where someone other than the requesting provider administered it, the request must show documented collaboration with that professional and that the results correspond with the requesting provider\'s own direct observation.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      referral: {
+        value:
+          'Not published as a requirement. EN0499 gates coverage on a confirmed DSM-5-TR diagnosis, a qualifying assessment and a compliant treatment plan, and Evernorth\'s front door is famously open on the assessment side — no prior authorization on 97151, 97152 or 0362T. Neither document states a referral or physician order as a condition.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 and the member\'s benefit document — referral rules, where they exist, are a plan-design feature rather than a policy feature.',
+      },
+      telehealth: {
+        value:
+          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -1022,6 +1441,52 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.); MA commercial members also covered for sole-diagnosis Down syndrome eff. 1/1/2026 (Optum state-mandate supplement)',
     payer: 'UnitedHealthcare / Optum in Massachusetts',
     state: 'MA', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Optum\'s Supplemental Clinical Criteria set no age limit for ABA — coverage turns on a valid ASD diagnosis, a credentialed provider and demonstrated medical necessity, with age entering only through norm-referenced instruments that compare functioning "to age-matched neurotypical peers." The binding age question is the legal layer underneath: ARICA bars fully-insured Massachusetts plans from imposing any age limit on ASD diagnosis and treatment, so on a fully-insured card there is no upper bound at all; a self-funded ERISA plan answers to its own plan document. Optum\'s own Massachusetts entries are not age rules: the Medicaid Early Intervention entry caps EI members at 30 hours per week, and the 1/1/2026 commercial entry adds Down syndrome coverage.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' }],
+        verifyVia:
+          'The member\'s benefit document and Optum via Provider Express — funding type decides whether the state mandate or the plan document sets the age boundary.',
+      },
+      dxRecency: {
+        value:
+          'Not published. Optum\'s ABA criteria require a valid DSM-5-TR diagnosis confirmed with at least one clinically validated tool but set no maximum age for the diagnostic evaluation. The recency Optum does police is progress rather than diagnosis: continued coverage looks for demonstrable progress within a 6-month window and for updated standardized adaptive measures with change scores.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum via Provider Express, or the Care Advocate handling the authorization — ask whether the plan applies a diagnostic-evaluation recency window at intake.',
+      },
+      diagnosingProviders: {
+        value:
+          'A licensure test with a diagnostic-competence qualifier: "A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level. Once the diagnosis is confirmed, the ABA provider identified for the member must be a master\'s- or doctoral-level BCBA, a licensed behavioral health clinician who has attested to sufficient expertise and been credentialed for ABA, or a BCaBA or non-licensed individual working under direct supervision.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Optum publishes the most explicit instrument list of any national carrier, and splits it three ways. The DSM-5 diagnosis and severity level must be confirmed "using at least one clinically validated tool (not an all-inclusive list)": first-level screeners (ABC, CHAT/M-CHAT, CSBS-DP-IT-Checklist, ASQ, AQ, CAST), second-level screeners (CARS/CARS-2, RITA-T, STAT), and formal diagnostic tools used as part of a comprehensive diagnostic evaluation — the Autism Diagnostic Interview-Revised (ADI), the Autism Diagnostic Observation Schedule (ADOS/ADOS-2), and the Diagnostic Interview for Social and Communication Disorders (DISCO). Separately, treatment intensity must be chosen against baseline measurement using at least one of ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, VABS or CFQL-2, individualized to the client rather than applied uniformly.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      referral: {
+        value:
+          'Not published as a coverage condition. Optum gates ABA on prior authorization — "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)" — delivered as a two-step assessment-then-treatment workflow on Provider Express, with a valid diagnosis rather than a referral as the clinical trigger. What the criteria do require is coordination: documentation of communication with day care, preschool, school, early intervention and allied health providers to avoid duplication.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum via Provider Express and the member\'s benefit document — referral requirements, where they exist, are a plan-design feature.',
+      },
+      telehealth: {
+        value:
+          'Optum endorses telehealth without publishing a code list. Its ABA criteria point providers to the "Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition" as the best-practice reference, describe telehealth guidelines as a resource "for designing, implementing, and operating ABA services delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)," and set the boundary plainly: "The telehealth options presented are not intended to supplant in-person service; rather, they are intended to supplement the traditional in-person service delivery model." Which codes pay remotely, and with which place-of-service code, is not stated in the clinical criteria — and daily progress notes must record the place of service regardless.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'The Optum Care Advocate at authorization and Provider Express — Optum runs a virtual-visits attestation on some lines of business, so confirm approval status and the billing POS before scheduling remote 97155 or 97156.',
+      },
+    },
     deliveryRules: {
       supervision: {
         value:
@@ -1144,6 +1609,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'The Arc of Massachusetts — Down syndrome ABA expansion', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' },
       { title: '262 CMR 10.00 — LABA/LAABA licensure requirements (mass.gov)', url: 'https://www.mass.gov/regulations/262-CMR-1000-requirements-for-licensure-as-an-applied-behavior-analyst-and-assistant-applied-behavior-analyst' },
       { title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Massachusetts?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },

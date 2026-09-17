@@ -9,6 +9,86 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     dxRequired: 'No — ASD or a developmental or intellectual disability qualifies, when the ABA assessment establishes treatment need',
     payer: 'Nebraska Medicaid (Heritage Health)',
     state: 'NE', kind: 'state-medicaid',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Nebraska sets a percentage, a monthly floor, a caseload cap and a corrective-action duty. "Direct supervision by observation of the technician must occur no less than 10% of direct service hours (97153/97154/97155) provided in a week. Supervision must be documented in progress notes. Failure to meet 10% of direct service hours must be documented, including the reason that the supervision did not take place and a corrective action plan." Note the base: the 10% is measured against 97153, 97154 and 97155 hours together, weekly — not against 97153 alone. Layered on top: "The supervisor must provide direct supervision by observation of the technician or LaBA in person for at least one hour per month," and "The treating LBA or psychologist must provide at least one hour of in-person, direct services to the individual receiving services at least monthly." An LBA "may not supervise more than 24 technicians." LaBA work runs under an LBA; RBT work under an LBA or a psychologist with ABA training; provisionally licensed psychologists under a licensed psychologist with ABA training.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not stated in billing terms, though the definitions read as if it happens. The telehealth rule allows 97155 by audiovisual telehealth only where "The individual is receiving 97153 services concurrently," and the supervision percentage is measured against "direct service hours (97153/97154/97155)" as a single weekly pool — both of which presume the analyst and the technician on the clock at the same time. But neither MSD says in terms that both codes may be billed for the same clock time. What Nebraska does prohibit by name is a different concurrency: "Services delivered concurrently (at the same time) as another treatment modality (i.e. ST, OT, PT)," and "Services delivered by 2 LBAs unless non-duplicative and clinically appropriate."',
+        status: 'unverified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+        verifyVia:
+          'The member\'s Heritage Health MCO — Nebraska Total Care, Molina, or UnitedHealthcare Community Plan (Optum). Ask specifically whether 97155 pays alongside 97153 for the same clock time.',
+      },
+      dailyLimits: {
+        value:
+          'Per day and per week, not per code. "Direct ABA service hours provided to the individual may not exceed 6 hours in a single day or a total of 20 hours per week," with "Additional daily or weekly treatment hours … requested in certain clinical circumstances for which clinical justification must be submitted for prior authorization and be approved." Two more numbers are published as staffing ratios rather than ceilings: 97151, 97153 and 97155 run 1:1, 97154 runs one technician to 2-5 children, 97158 one licensed clinician to 2-5, and 97156 one clinician to one family. Read the weekly figure alongside its neighbors rather than alone, because three different documents carry three different weekly numbers for three different things: the treatment MSD\'s 20 hours per week is the Medicaid rule; Neb. Rev. Stat. § 44-7,106 caps behavioral health treatment including ABA at 25 hours per week for state-regulated commercial plans, a different program entirely; and DHHS\'s public "Applied Behavior Analysis Facts" summary page still describes the policy as allowing up to 30 hours per week. Quote the one that matches the member\'s coverage, and do not treat the other two as contradicting it. No per-code MUE table is published.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }, { title: 'DHHS "Applied Behavior Analysis Facts" page', url: 'https://dhhs.ne.gov/Pages/Applied-Behavior-Analysis.aspx' }],
+      },
+      noteSignature: {
+        value:
+          'Nebraska says what a progress note must contain, sets the deadline by reference, and never names a session-note signer. Progress notes "must be completed within the time frame specified in the program\'s policies and procedures" and must substantiate each service through narrative description, "Include an accurate start and end time for the service," tie the service to plan goals and priorities, document participation and revision of goals, and record the individual\'s response "in the individual\'s own words if possible, if age and developmentally appropriate." Signatures attach to the other documents: the treatment plan must "Be approved and signed by the licensed clinician or supervisor if provisionally licensed" and carry the individual\'s or guardian\'s signature (a parent or guardian where the individual is under 19); the ABA assessment report "must be signed by the licensed clinicians who participated in the development of the report, including the supervising practitioner, when applicable"; and the discharge summary must "contain the signature of the supervising clinician and date of signature." Supervision itself must be documented in progress notes.',
+        status: 'verified',
+        cites: [{ title: 'Medicaid Requirements for Substance Use Disorder and Applied Behavior Analysis Services (umbrella staffing document)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Medicaid%20Requirements%20for%20Substance%20Use%20Disorder%20and%20Applied%20Behavior%20Analysis%20Services.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Community, home, office or clinic — and school is not yours to bill. The treatment MSD lists the allowable settings as "Community, Home, Office or Clinic," then carves the school out entirely: "ABA services are covered as part of the Medicaid school-based services program, and are the responsibility of the school as outlined in Nebraska Administrative Code Title 471, Chapter 25 and the Medicaid State Plan. Independent providers may not bill Medicaid directly for services provided at a school." The assessment MSD keeps School on its settings list under the same carve-out. Where ABA does run in an educational setting, "A school plan is required for all educational settings, to include both public and private schools" (not daycare or after-school), it must be included in the student\'s IEP, it must focus on reducing behaviors that impede academic engagement rather than on general skill acquisition, and it must be time-limited with a transition plan shifting instructional control to school staff. Excluded outright: "Services delivered in the school setting as a shadow, or an aide, or to provide general support to the child or youth," and training for school personnel. Group homes are not addressed.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Nebraska controls this through code-level provider eligibility rather than a modifier set. Licensed clinicians who may bill 97151 — and who render 97155, 97156 and 97158 — are a psychiatrist, physician, psychologist or provisionally licensed psychologist, each with training in ABA, or a Licensed Behavior Analyst. Technicians who may bill 97152, 97153 and 97154 under a licensed clinician\'s supervision are a Licensed assistant Behavior Analyst or a Registered Behavior Technician. Since January 1, 2025 every BCBA must be licensed as an LBA and every BCaBA as a LaBA, so the state license rather than the BACB certificate is what makes the claim payable, and RBT is enrolled as its own Medicaid provider type (85) on the fee schedule. Which NPI carries the claim line is not stated.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }],
+        verifyVia:
+          'The member\'s Heritage Health MCO for the rendering-provider field on ABA claims — the service definitions specify who may render each code, not which NPI goes in which claim field.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'The service definitions put it in one line: "Age: 0-20" — the ABA treatment definition and the Behavior Identification Assessment definition carry the identical admission bound, which is the EPSDT under-21 benefit expressed as an age range. One carve-out runs straight past it: individuals receiving waiver services from the Division of Developmental Disabilities "may receive Applied Behavior Analysis Assessments (HCPCS codes 97151 and 97152), regardless of age," and for waiver recipients only the ABA assessment "may be recommended and used for non-ABA related purposes."',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Twelve months, measured on the Initial Diagnostic Interview rather than on the autism diagnosis. An "Initial Diagnostic Interview (IDI) must be completed, if one has not been completed within the previous 12 months of admission to the service," and it "must establish the need for an Applied Behavior Analysis Behavior Identification Assessment (ABA assessment) and outline the needed services and resources for the individual to make progress toward desired behavior changes." The refresh rule is narrower than a re-diagnosis: where the clinical presentation has changed significantly inside those twelve months, "a licensed clinician who is able to diagnose and treat major mental illness within their professional competencies, must review the IDI to determine if the diagnosis and treatment, recovery, and rehabilitation plan are still applicable," and any new information is documented as an IDI addendum reflecting current functional status. So an older autism report does not block a family — a stale IDI does.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'The IDI definition names the list, and it is a mental-health list rather than a developmental-pediatrics one. The IDI is performed by "A licensed practitioner who is able to diagnose and treat major mental illness within his/her scope of practice": Physician, Physician Assistant, APRN/NP, Psychologist, or LIMHP. It must carry a DSM (current version) diagnosis with recommendations for active treatment interventions, a comprehensive mental status exam, history and symptomatology consistent with DSM criteria, psychiatric treatment history, risk assessment, medical history and current medications. Nebraska\'s qualifying diagnosis is also wider than autism: ASD or a developmental or intellectual disability admits, when the ABA assessment establishes the need — so intake should not screen out a family for lacking an autism label.',
+        status: 'verified',
+        cites: [{ title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No ASD diagnostic instrument is required — neither ADOS-2 nor ADI-R appears anywhere in the Nebraska definitions. The instruments Nebraska names are functional, and they sit inside the ABA assessment and the treatment plan rather than behind the diagnosis. The ABA assessment must include "Skills-based assessments" and "Standardized/norm-referenced or criterion-referenced assessments," plus preference assessments to identify reinforcers and risk assessments where behaviors are challenging, and its report must explain "data collection methodology including use of validated rating scales and tools." The treatment plan must carry "baseline and ongoing measurement of skills, when applicable, using norm-referenced / standardized assessment tools, for example Vineland, VB-MAPP, ABLLS" — and continued stay names Vineland-3, VB-MAPP and ABLLS as the preferred tools for demonstrating progress.',
+        status: 'verified',
+        cites: [{ title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+      },
+      referral: {
+        value:
+          'No physician referral and no order is a condition of the benefit. The gate is the IDI plus the ABA assessment: the IDI "must establish the need" for the ABA Behavior Identification Assessment, the assessment "must be completed prior to the initiation of ABA treatment interventions," and both plus the Individualized Treatment, Rehabilitation, and Recovery Plan are submitted with the initial prior-authorization request to the member\'s Heritage Health MCO. What the MSD does require in the other direction is outbound referral: the ABA provider "must consult with, or refer, the individual to other health care providers for suspected or diagnosed comorbid medical, psychiatric, and psychological needs as needed." Plan-level policies can and do add a recommendation requirement on top — check the MCO.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Three codes, and the conditions are spelled out per code. 97155 with protocol modification "may be completed via audiovisual telehealth" only if "The individual is receiving 97153 services concurrently," the environment has been assessed as safe, caregivers have technology and a secure internet connection, the technology lets the supervisor see the session and give real-time feedback, the behavior "is not so severe as to need more than 1:1 support," technology-related distractions are planned for, and documentation justifies telehealth as "necessary and formative for the ABA treatment, and not solely for the convenience of the provider or the caregiver." 97156 carries the same list with active caregiver participation in place of the concurrent 97153. On the assessment side, 97151 may be delivered by audiovisual telehealth if caregivers are on-site and the child has "the basic prerequisite skills needed to attend the telehealth evaluation, such as the ability to sit independently at a computer or tablet for 8-10 minutes." Flatly excluded: "Other ABA treatment services (CPT 97153, 97154, 97158) cannot be provided via telehealth," and 97152 "cannot be completed via telehealth." The billing allowances themselves live on the Medicaid Mental Health and Substance Use fee schedule, where ABA telehealth rides modifier 95 with POS 02/10.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'Provider Bulletin 25-14 — ABA Rates (July 1, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Nebraska Medicaid',
     h1: 'Nebraska Medicaid (Heritage Health) ABA coverage: the intake guide.',
     metaTitle: 'Nebraska Medicaid (Heritage Health) ABA Coverage, Rates & Prior Auth Guide | Carelu',
@@ -120,6 +200,8 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'NE DHHS Licensure — Behavior Analyst (Behavior Analyst Practice Act; 172 NAC 10 draft)', url: 'https://dhhs.ne.gov/licensure/Pages/Behavior-Analyst.aspx' },
       { title: 'Nebraska Total Care — Contracting and Credentialing (Verisys CVO eff. 1/1/2025)', url: 'https://www.nebraskatotalcare.com/providers/credentialing.html' },
       { title: 'Optum — NE Heritage Health Medicaid Autism/ABA Program provider training (NE_4556)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/NE_4556_ABA-HeritageTrain.pdf' },
+      { title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' },
+      { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
     ],
     faq: [
       { q: 'Does Nebraska Medicaid cover ABA therapy?', a: 'Yes — for members under 21 through EPSDT, administered entirely by the three Heritage Health MCOs under the state\'s ABA Medicaid Service Definitions (effective February 2025). Prior authorization runs through the member\'s MCO.' },
@@ -135,8 +217,91 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     cardDesc: 'Closest to the state baseline; OTR-based PA, documentation-heavy NE.CP.BH.105 policy.',
     treatmentPA: 'Required — Outpatient Treatment Request (OTR) via the provider portal or fax 866-593-1955, with hours per code, titration/discharge plan, crisis plan, and coordination-of-care attempts',
     dxRequired: 'ASD per DSM-5-TR "or an appropriate diagnosis as otherwise specified according to state-defined ABA criteria" — mirrors the state\'s non-ASD pathway',
+    assessmentPA: 'Not published — NE.CP.BH.105 specifies what the behavior identification assessment package must contain (IDI + FBA with direct assessment and data analysis) but never states whether the assessment CPT codes themselves need PA; verify in the portal or with the plan before booking',
     payer: 'Nebraska Total Care (Centene)',
     state: 'NE', kind: 'medicaid-mco', parent: 'Nebraska Medicaid (Heritage Health)',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Nebraska Medicaid rule: direct supervision by observation of the technician at no less than 10% of weekly direct service hours (97153/97154/97155), documented in progress notes with a corrective action plan when missed; at least one hour a month of in-person observation of each technician or LaBA; at least one hour a month of in-person direct service by the treating LBA or psychologist; and no more than 24 technicians per LBA. NE.CP.BH.105 adds an expectation rather than a number — "A comprehensive infrastructure for case supervision by a behavior analyst of all assessments and treatment" — and publishes no ratio of its own.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not stated in billing terms, though the definitions read as if it happens. The telehealth rule allows 97155 by audiovisual telehealth only where "The individual is receiving 97153 services concurrently," and the supervision percentage is measured against "direct service hours (97153/97154/97155)" as a single weekly pool — both of which presume the analyst and the technician on the clock at the same time. But neither MSD says in terms that both codes may be billed for the same clock time. What Nebraska does prohibit by name is a different concurrency: "Services delivered concurrently (at the same time) as another treatment modality (i.e. ST, OT, PT)," and "Services delivered by 2 LBAs unless non-duplicative and clinically appropriate." Nebraska Total Care republishes no concurrency edit; NE.CP.BH.105 points providers to the ABA Coding Coalition and CMS for unit questions instead.',
+        status: 'unverified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }],
+        verifyVia:
+          'Nebraska Total Care provider services / the secure provider portal at provider.nebraskatotalcare.com.',
+      },
+      dailyLimits: {
+        value:
+          'Two answers stacked. The state sets the clinical ceiling: direct ABA "may not exceed 6 hours in a single day or a total of 20 hours per week," with more available on prior authorization and clinical justification. Nebraska Total Care answers the per-code question by pointing outward rather than publishing a table: "Providers should reference the most recent version of ABA Coding Coalition for information on Medically Unlikely Edits (MUEs), and related processes for code usage and descriptors. The Centers for Medicare & Medicaid Services guidelines should be used to determine the maximum units of service a provider can report under most circumstances during a single date of service." One hard plan number does exist, for group work: "The minimum number of participants in group adaptive treatment is two and the maximum amount is eight."',
+        status: 'verified',
+        cites: [{ title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'Nebraska Total Care is the one Heritage Health plan that names a session-note signer, and it is the person who delivered the service: every note must carry the "Rendering clinician/technician\'s name, credentials, and dated signature." The surrounding checklist is unusually granular — provider organization name at the top of each page, member name on every page, DOB or unique identifier, date of rendered service, date of note creation if different, "Time service was initiated (time in) and the time the service ended (time out)," "Pauses in services indicating the time the service was paused and the time it resumed," location of services, type/code of service, who else was present and their relationship, and a session summary. An addendum needs a clear reference to the note it supplements, the date completed, and a "Signature with credentials." One deadline is stated outright: "Completion of the treatment record prior to submission of a claim."',
+        status: 'verified',
+        cites: [{ title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Community, home, office or clinic — and school is not yours to bill. The treatment MSD lists the allowable settings as "Community, Home, Office or Clinic," then carves the school out entirely: "ABA services are covered as part of the Medicaid school-based services program, and are the responsibility of the school as outlined in Nebraska Administrative Code Title 471, Chapter 25 and the Medicaid State Plan. Independent providers may not bill Medicaid directly for services provided at a school." The assessment MSD keeps School on its settings list under the same carve-out. Where ABA does run in an educational setting, "A school plan is required for all educational settings, to include both public and private schools" (not daycare or after-school), it must be included in the student\'s IEP, it must focus on reducing behaviors that impede academic engagement rather than on general skill acquisition, and it must be time-limited with a transition plan shifting instructional control to school staff. Excluded outright: "Services delivered in the school setting as a shadow, or an aide, or to provide general support to the child or youth," and training for school personnel. Group homes are not addressed. Nebraska Total Care publishes no Nebraska-specific ABA policy that deviates from this, and its own material was checked for one. Its own note checklist requires the "Location of services" on every session note, so the setting is an audited field here rather than a background fact.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Nebraska controls this through code-level provider eligibility rather than a modifier set. Licensed clinicians who may bill 97151 — and who render 97155, 97156 and 97158 — are a psychiatrist, physician, psychologist or provisionally licensed psychologist, each with training in ABA, or a Licensed Behavior Analyst. Technicians who may bill 97152, 97153 and 97154 under a licensed clinician\'s supervision are a Licensed assistant Behavior Analyst or a Registered Behavior Technician. Since January 1, 2025 every BCBA must be licensed as an LBA and every BCaBA as a LaBA, so the state license rather than the BACB certificate is what makes the claim payable, and RBT is enrolled as its own Medicaid provider type (85) on the fee schedule. Which NPI carries the claim line is not stated. NE.CP.BH.105 requires the rendering clinician or technician to be named with credentials on every note, but says nothing about which NPI carries the claim.',
+        status: 'unverified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }],
+        verifyVia:
+          'Nebraska Total Care provider services / the secure provider portal at provider.nebraskatotalcare.com.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Nebraska Medicaid rule: admission is "Age: 0-20" under both ABA service definitions, with DD-waiver recipients able to receive the ABA assessment codes (97151/97152) regardless of age. NE.CP.BH.105 is a documentation policy and states no age criterion of its own, and its footer is explicit that for Medicaid members "when state Medicaid coverage provisions conflict with the coverage provisions in this clinical policy, state Medicaid coverage provisions take precedence."',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }],
+      },
+      dxRecency: {
+        value:
+          'Follows the Nebraska Medicaid rule: an Initial Diagnostic Interview completed within the previous 12 months, with an IDI addendum where the clinical presentation has changed. Nebraska Total Care operationalizes rather than relaxes it — NE.CP.BH.105 requires the behavior identification assessment package to contain both the "Initial Diagnostic Interview (IDI)" and a "Functional Behavioral Assessment (FBA), including both of the following assessment techniques: Direct assessment; Data analysis."',
+        status: 'verified',
+        cites: [{ title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Two layers, and the plan\'s is the stricter one. The state routes the diagnosis through the IDI, performed by "A licensed practitioner who is able to diagnose and treat major mental illness within his/her scope of practice" — Physician, Physician Assistant, APRN/NP, Psychologist or LIMHP. NE.CP.BH.105 then requires "Confirmed autism spectrum disorder (ASD) diagnosis according to the Diagnostic and Statistical Manual of Mental Disorders (DSM-5 TR) criteria or an appropriate diagnosis as otherwise specified according to state-defined ABA criteria" — wording that deliberately preserves Nebraska\'s non-ASD pathway — plus a recommendation from a practitioner "qualified to diagnose ASD and recommend ABA."',
+        status: 'verified',
+        cites: [{ title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' }, { title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No ASD diagnostic instrument is required. What NE.CP.BH.105 requires instead is a battery inside the assessment: the IDI and an FBA with direct assessment and data analysis, plus "Administration of assessments, including but not limited to the following: Preference assessments; Standardized testing; Criterion-referenced testing; Functional Analysis." Behind it the state definitions ask for skills-based and standardized/norm-referenced or criterion-referenced assessments, with Vineland, VB-MAPP and ABLLS named for baseline and progress measurement.',
+        status: 'verified',
+        cites: [{ title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+      },
+      referral: {
+        value:
+          'This is where Nebraska Total Care adds a gate the state does not have. NE.CP.BH.105 requires every ABA request to contain a "Recommendation for treatment with ABA by a physician, psychologist, social worker, or another appropriately licensed health care practitioner working within their scope of practice and who is qualified to diagnose ASD and recommend ABA." The state MSDs require no referral or order at all — their gate is the IDI plus the ABA assessment — so collect the recommendation for this plan specifically, not as a statewide habit.',
+        status: 'verified',
+        cites: [{ title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the Nebraska Medicaid rule: audiovisual telehealth for 97155 (only while the individual is receiving 97153 concurrently), 97156, and the 97151 assessment, each under the conditions the service definitions spell out; 97152, 97153, 97154 and 97158 cannot be delivered by telehealth. NE.CP.BH.105 states no telehealth position of its own.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }],
+        verifyVia:
+          'Nebraska Total Care provider services / the secure provider portal at provider.nebraskatotalcare.com.',
+      },
+    },
     pill: 'Payer Guide · Nebraska Total Care',
     h1: 'Nebraska Total Care ABA coverage (Heritage Health MCO).',
     metaTitle: 'Nebraska Total Care (Heritage Health MCO) ABA Coverage & Prior Auth | Carelu',
@@ -185,6 +350,9 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'NE.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/policies/clinical-policies/NE.CP.BH.105_Applied_Behavioral_Analysis_Documentation_Requirements_07022024_508.pdf' },
       { title: 'Nebraska Total Care — behavioral health forms', url: 'https://www.nebraskatotalcare.com/providers/resources/behavioral-health-forms.html' },
       { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' },
+      { title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' },
+      { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' },
+      { title: 'Health Plan Advisory 25-08 — ABA Rates (to Heritage Health MCOs)', url: 'https://dhhs.ne.gov/Guidance%20Docs/Health%20Plan%20Advisory%2025-08%20-%20Applied%20Behavior%20Analysis%20Rates.pdf' },
     ],
     faq: [
       { q: 'Does Nebraska Total Care cover ABA therapy?', a: 'Yes — it administers the Nebraska Medicaid ABA benefit under the state Medicaid Service Definitions, with its NE.CP.BH.105 documentation policy layered on top. Its own policy says state provisions take precedence in any conflict.' },
@@ -197,8 +365,95 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     slug: 'molina-healthcare-nebraska',
     family: 'molina',
     cardDesc: 'Newest MCO (2024); state-baseline rules, Availity intake, quarterly PA-list churn.',
+    assessmentPA: 'Not published for Nebraska — no Molina statement exists on whether the ABA assessment codes need PA; requirements live in the quarterly PA code-change lists and the PA look-up tool (Availity). Verify before booking; the state MSD requires the ABA assessment before treatment either way',
+    treatmentPA: 'Required — ABA treatment runs on prior authorization under the state MSD (ABA assessment + treatment plan filed with the initial request); Molina publishes no ABA-specific form, so submit via Availity Essentials (fax (833) 832-1015, phone (844) 782-2678) and re-check the current-quarter PA code list',
+    dxRequired: 'State MSD rules govern — ASD or a developmental or intellectual disability qualifies, with an IDI within the previous 12 months establishing the need; Molina publishes no Nebraska-specific diagnosis criteria',
     payer: 'Molina Healthcare of Nebraska',
     state: 'NE', kind: 'medicaid-mco', parent: 'Nebraska Medicaid (Heritage Health)',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Nebraska Medicaid rule: direct supervision by observation of the technician at no less than 10% of weekly direct service hours (97153/97154/97155), documented in progress notes with a corrective action plan when missed; at least one hour a month of in-person observation of each technician or LaBA; at least one hour a month of in-person direct service by the treating LBA or psychologist; and no more than 24 technicians per LBA. Molina runs ABA utilization management in-house with Nebraska-licensed LBA care review clinicians, but publishes no supervision standard of its own.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not stated in billing terms, though the definitions read as if it happens. The telehealth rule allows 97155 by audiovisual telehealth only where "The individual is receiving 97153 services concurrently," and the supervision percentage is measured against "direct service hours (97153/97154/97155)" as a single weekly pool — both of which presume the analyst and the technician on the clock at the same time. But neither MSD says in terms that both codes may be billed for the same clock time. What Nebraska does prohibit by name is a different concurrency: "Services delivered concurrently (at the same time) as another treatment modality (i.e. ST, OT, PT)," and "Services delivered by 2 LBAs unless non-duplicative and clinically appropriate." Molina publishes nothing ABA-specific for Nebraska, so the state position is the only one on the record.',
+        status: 'unverified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+        verifyVia:
+          'Molina Nebraska via Availity Essentials or the PA look-up tool, and the current-quarter PA code-change PDF — Molina\'s PA code lists change quarterly, so re-check per cohort rather than per year.',
+      },
+      dailyLimits: {
+        value:
+          'Follows the Nebraska Medicaid rule: direct ABA "may not exceed 6 hours in a single day or a total of 20 hours per week," with additional hours available on prior authorization and clinical justification; group work runs one technician to 2-5 children on 97154 and one licensed clinician to 2-5 on 97158. No per-code MUE table is published by the state, and Molina publishes none either — what Molina does publish is quarterly PA code-change PDFs, so unit handling is a quarterly re-check rather than a fixed table.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+        verifyVia:
+          'Molina Nebraska via Availity Essentials or the PA look-up tool, and the current-quarter PA code-change PDF — Molina\'s PA code lists change quarterly, so re-check per cohort rather than per year.',
+      },
+      noteSignature: {
+        value:
+          'Nebraska says what a progress note must contain, sets the deadline by reference, and never names a session-note signer. Progress notes "must be completed within the time frame specified in the program\'s policies and procedures" and must substantiate each service through narrative description, "Include an accurate start and end time for the service," tie the service to plan goals and priorities, document participation and revision of goals, and record the individual\'s response "in the individual\'s own words if possible, if age and developmentally appropriate." Signatures attach to the other documents: the treatment plan must "Be approved and signed by the licensed clinician or supervisor if provisionally licensed" and carry the individual\'s or guardian\'s signature (a parent or guardian where the individual is under 19); the ABA assessment report "must be signed by the licensed clinicians who participated in the development of the report, including the supervising practitioner, when applicable"; and the discharge summary must "contain the signature of the supervising clinician and date of signature." Supervision itself must be documented in progress notes. Molina publishes no ABA-specific documentation policy for Nebraska.',
+        status: 'verified',
+        cites: [{ title: 'Medicaid Requirements for Substance Use Disorder and Applied Behavior Analysis Services (umbrella staffing document)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Medicaid%20Requirements%20for%20Substance%20Use%20Disorder%20and%20Applied%20Behavior%20Analysis%20Services.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Community, home, office or clinic — and school is not yours to bill. The treatment MSD lists the allowable settings as "Community, Home, Office or Clinic," then carves the school out entirely: "ABA services are covered as part of the Medicaid school-based services program, and are the responsibility of the school as outlined in Nebraska Administrative Code Title 471, Chapter 25 and the Medicaid State Plan. Independent providers may not bill Medicaid directly for services provided at a school." The assessment MSD keeps School on its settings list under the same carve-out. Where ABA does run in an educational setting, "A school plan is required for all educational settings, to include both public and private schools" (not daycare or after-school), it must be included in the student\'s IEP, it must focus on reducing behaviors that impede academic engagement rather than on general skill acquisition, and it must be time-limited with a transition plan shifting instructional control to school staff. Excluded outright: "Services delivered in the school setting as a shadow, or an aide, or to provide general support to the child or youth," and training for school personnel. Group homes are not addressed. Molina publishes no deviation from this.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+      },
+      billAsProvider: {
+        value:
+          'Nebraska controls this through code-level provider eligibility rather than a modifier set. Licensed clinicians who may bill 97151 — and who render 97155, 97156 and 97158 — are a psychiatrist, physician, psychologist or provisionally licensed psychologist, each with training in ABA, or a Licensed Behavior Analyst. Technicians who may bill 97152, 97153 and 97154 under a licensed clinician\'s supervision are a Licensed assistant Behavior Analyst or a Registered Behavior Technician. Since January 1, 2025 every BCBA must be licensed as an LBA and every BCaBA as a LaBA, so the state license rather than the BACB certificate is what makes the claim payable, and RBT is enrolled as its own Medicaid provider type (85) on the fee schedule. Which NPI carries the claim line is not stated. Molina publishes no Nebraska ABA billing policy.',
+        status: 'unverified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+        verifyVia:
+          'Molina Nebraska via Availity Essentials or the PA look-up tool, and the current-quarter PA code-change PDF — Molina\'s PA code lists change quarterly, so re-check per cohort rather than per year.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Follows the Nebraska Medicaid rule: admission is "Age: 0-20" under both ABA service definitions, with DD-waiver recipients able to receive the ABA assessment codes (97151/97152) regardless of age. Molina publishes no Nebraska-specific ABA clinical policy — its Nebraska Medicaid prior-authorization page sets only the machinery (Availity Essentials, fax (833) 832-1015, phone (844) 782-2678, a Behavioral Health Certification of Need form, and quarterly PA code-change PDFs), with no ABA criteria, caps or code rules on it.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+      },
+      dxRecency: {
+        value:
+          'Follows the Nebraska Medicaid rule: an Initial Diagnostic Interview completed within the previous 12 months of admission must establish the need for the ABA assessment, with an IDI addendum where the clinical presentation has changed significantly inside that window. Molina publishes no Nebraska-specific ABA clinical policy — its Nebraska Medicaid prior-authorization page sets only the machinery (Availity Essentials, fax (833) 832-1015, phone (844) 782-2678, a Behavioral Health Certification of Need form, and quarterly PA code-change PDFs), with no ABA criteria, caps or code rules on it.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Nebraska Medicaid rule: the IDI is performed by "A licensed practitioner who is able to diagnose and treat major mental illness within his/her scope of practice" — Physician, Physician Assistant, APRN/NP, Psychologist or LIMHP — and the qualifying diagnosis is ASD or a developmental or intellectual disability. Molina publishes no Nebraska-specific ABA clinical policy — its Nebraska Medicaid prior-authorization page sets only the machinery (Availity Essentials, fax (833) 832-1015, phone (844) 782-2678, a Behavioral Health Certification of Need form, and quarterly PA code-change PDFs), with no ABA criteria, caps or code rules on it.',
+        status: 'verified',
+        cites: [{ title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Nebraska Medicaid rule: no ASD diagnostic instrument is required; the ABA assessment must include skills-based and standardized/norm-referenced or criterion-referenced assessments, and the treatment plan must carry baseline and ongoing measurement "using norm-referenced / standardized assessment tools, for example Vineland, VB-MAPP, ABLLS." Molina publishes no Nebraska-specific ABA clinical policy — its Nebraska Medicaid prior-authorization page sets only the machinery (Availity Essentials, fax (833) 832-1015, phone (844) 782-2678, a Behavioral Health Certification of Need form, and quarterly PA code-change PDFs), with no ABA criteria, caps or code rules on it.',
+        status: 'verified',
+        cites: [{ title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+      },
+      referral: {
+        value:
+          'Follows the Nebraska Medicaid rule: no referral or physician order is a condition of the benefit — the gate is the IDI establishing need plus the ABA assessment, filed with the treatment plan on the initial PA request. Molina publishes no Nebraska-specific ABA clinical policy — its Nebraska Medicaid prior-authorization page sets only the machinery (Availity Essentials, fax (833) 832-1015, phone (844) 782-2678, a Behavioral Health Certification of Need form, and quarterly PA code-change PDFs), with no ABA criteria, caps or code rules on it.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+      },
+      telehealth: {
+        value:
+          'Follows the Nebraska Medicaid rule: audiovisual telehealth is available for 97155 (only while 97153 runs concurrently), 97156 and the 97151 assessment under the conditions the service definitions spell out, while 97152, 97153, 97154 and 97158 cannot be delivered remotely. Molina publishes no Nebraska-specific ABA clinical policy — its Nebraska Medicaid prior-authorization page sets only the machinery (Availity Essentials, fax (833) 832-1015, phone (844) 782-2678, a Behavioral Health Certification of Need form, and quarterly PA code-change PDFs), with no ABA criteria, caps or code rules on it.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' }],
+        verifyVia:
+          'Molina Nebraska via Availity Essentials or the PA look-up tool, and the current-quarter PA code-change PDF — Molina\'s PA code lists change quarterly, so re-check per cohort rather than per year.',
+      },
+    },
     pill: 'Payer Guide · Molina Healthcare (NE)',
     h1: 'Molina Healthcare of Nebraska ABA coverage (Heritage Health MCO).',
     metaTitle: 'Molina Healthcare of Nebraska (Heritage Health) ABA Coverage & Prior Auth | Carelu',
@@ -246,6 +501,10 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Molina NE Medicaid — prior authorization page', url: 'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx' },
       { title: 'Healthcare Dive — Nebraska Medicaid managed care awards (1/1/2024)', url: 'https://www.healthcaredive.com/news/Nebraska-Medicaid-managed-care/632712/' },
       { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' },
+      { title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' },
+      { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' },
+      { title: 'Medicaid Requirements for Substance Use Disorder and Applied Behavior Analysis Services (umbrella staffing document)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Medicaid%20Requirements%20for%20Substance%20Use%20Disorder%20and%20Applied%20Behavior%20Analysis%20Services.pdf' },
+      { title: 'Health Plan Advisory 25-08 — ABA Rates (to Heritage Health MCOs)', url: 'https://dhhs.ne.gov/Guidance%20Docs/Health%20Plan%20Advisory%2025-08%20-%20Applied%20Behavior%20Analysis%20Rates.pdf' },
     ],
     faq: [
       { q: 'Does Molina Healthcare of Nebraska cover ABA therapy?', a: 'Yes — as a Heritage Health MCO it administers the Nebraska Medicaid ABA benefit under the state Medicaid Service Definitions. Molina publishes no Nebraska-specific ABA clinical policy, so the state rules plus corporate BH criteria govern.' },
@@ -263,6 +522,92 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     dxRequired: 'State MSD rules govern — ASD or a developmental/intellectual disability qualifies; attach the diagnosing provider\'s evaluation to the request',
     payer: 'UnitedHealthcare Community Plan of Nebraska',
     state: 'NE', kind: 'medicaid-mco', parent: 'Nebraska Medicaid (Heritage Health)',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Follows the Nebraska Medicaid rule: direct supervision by observation of the technician at no less than 10% of weekly direct service hours (97153/97154/97155), at least one hour a month of in-person observation of each technician or LaBA, at least one hour a month of in-person direct service by the treating LBA or psychologist, and no more than 24 technicians per LBA. Optum layers staff-level network rules on top rather than a competing ratio: supervising BCBAs must hold BACB supervisory certification, technicians need RBT (or equivalent national) certification with "appropriate training and supervision by BCBAs or licensed clinician," a BCBA or licensed clinician must provide program oversight and "performs skills assessments and provides direct supervision of behavior technician in joint sessions," and groups carry $1M/$3M professional liability cover.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE Heritage Health Medicaid Autism/ABA Program provider training (NE_4556)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/NE_4556_ABA-HeritageTrain.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not stated in billing terms, though the definitions read as if it happens. The telehealth rule allows 97155 by audiovisual telehealth only where "The individual is receiving 97153 services concurrently," and the supervision percentage is measured against "direct service hours (97153/97154/97155)" as a single weekly pool — both of which presume the analyst and the technician on the clock at the same time. But neither MSD says in terms that both codes may be billed for the same clock time. What Nebraska does prohibit by name is a different concurrency: "Services delivered concurrently (at the same time) as another treatment modality (i.e. ST, OT, PT)," and "Services delivered by 2 LBAs unless non-duplicative and clinically appropriate." Optum publishes no Nebraska-specific concurrency edit.',
+        status: 'unverified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+        verifyVia:
+          'The Optum Care Advocate / the NE Heritage Health Medicaid Autism-ABA Program page on Provider Express.',
+      },
+      dailyLimits: {
+        value:
+          'Follows the Nebraska Medicaid rule: direct ABA "may not exceed 6 hours in a single day or a total of 20 hours per week," with more available on prior authorization and clinical justification; group work runs one technician to 2-5 children on 97154 and one licensed clinician to 2-5 on 97158. Optum publishes no Nebraska per-day unit table — and its commercial ABA reimbursement policy\'s per-day maximums are a different product and should not be assumed onto this plan. What binds in practice here is the authorization: medical necessity applies at initial and concurrent review, and additional units need their own PA.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }],
+        verifyVia:
+          'The Optum Care Advocate / the NE Heritage Health Medicaid Autism-ABA Program page on Provider Express.',
+      },
+      noteSignature: {
+        value:
+          'Nebraska says what a progress note must contain, sets the deadline by reference, and never names a session-note signer. Progress notes "must be completed within the time frame specified in the program\'s policies and procedures" and must substantiate each service through narrative description, "Include an accurate start and end time for the service," tie the service to plan goals and priorities, document participation and revision of goals, and record the individual\'s response "in the individual\'s own words if possible, if age and developmentally appropriate." Signatures attach to the other documents: the treatment plan must "Be approved and signed by the licensed clinician or supervisor if provisionally licensed" and carry the individual\'s or guardian\'s signature (a parent or guardian where the individual is under 19); the ABA assessment report "must be signed by the licensed clinicians who participated in the development of the report, including the supervising practitioner, when applicable"; and the discharge summary must "contain the signature of the supervising clinician and date of signature." Supervision itself must be documented in progress notes. Optum\'s Nebraska program material adds documentation expectations for the request packet — baseline and mastery criteria, transition and discharge plans, parent goals, supervision hours, coordination of care — but names no session-note signer or signing deadline.',
+        status: 'verified',
+        cites: [{ title: 'Medicaid Requirements for Substance Use Disorder and Applied Behavior Analysis Services (umbrella staffing document)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Medicaid%20Requirements%20for%20Substance%20Use%20Disorder%20and%20Applied%20Behavior%20Analysis%20Services.pdf' }, { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Community, home, office or clinic — and school is not yours to bill. The treatment MSD lists the allowable settings as "Community, Home, Office or Clinic," then carves the school out entirely: "ABA services are covered as part of the Medicaid school-based services program, and are the responsibility of the school as outlined in Nebraska Administrative Code Title 471, Chapter 25 and the Medicaid State Plan. Independent providers may not bill Medicaid directly for services provided at a school." The assessment MSD keeps School on its settings list under the same carve-out. Where ABA does run in an educational setting, "A school plan is required for all educational settings, to include both public and private schools" (not daycare or after-school), it must be included in the student\'s IEP, it must focus on reducing behaviors that impede academic engagement rather than on general skill acquisition, and it must be time-limited with a transition plan shifting instructional control to school staff. Excluded outright: "Services delivered in the school setting as a shadow, or an aide, or to provide general support to the child or youth," and training for school personnel. Group homes are not addressed. Optum publishes no Nebraska-specific deviation; its Nebraska treatment requests do probe school hours, which is a scheduling question rather than a billable-setting one given the 471 NAC 25 carve-out.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Nebraska controls this through code-level provider eligibility rather than a modifier set. Licensed clinicians who may bill 97151 — and who render 97155, 97156 and 97158 — are a psychiatrist, physician, psychologist or provisionally licensed psychologist, each with training in ABA, or a Licensed Behavior Analyst. Technicians who may bill 97152, 97153 and 97154 under a licensed clinician\'s supervision are a Licensed assistant Behavior Analyst or a Registered Behavior Technician. Since January 1, 2025 every BCBA must be licensed as an LBA and every BCaBA as a LaBA, so the state license rather than the BACB certificate is what makes the claim payable, and RBT is enrolled as its own Medicaid provider type (85) on the fee schedule. Which NPI carries the claim line is not stated. Optum credentials the group and its staff through its own network process, and claims run on payer ID 87726 with 180-day timely filing, but which NPI carries technician-delivered 97153 is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }],
+        verifyVia:
+          'The Optum Care Advocate / the NE Heritage Health Medicaid Autism-ABA Program page on Provider Express.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Two documents, two numbers, and they are worth quoting separately rather than averaging. The state service definitions set admission at "Age: 0-20" (with DD-waiver recipients able to receive 97151/97152 regardless of age). Optum\'s own Nebraska Heritage Health program training states member eligibility as "Be younger than age 20" and "Be covered under Nebraska Heritage Health." The one-year gap is unresolved in the published material — for a 20-year-old member, confirm with the Care Advocate before scheduling rather than assuming either document wins.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE Heritage Health Medicaid Autism/ABA Program provider training (NE_4556)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/NE_4556_ABA-HeritageTrain.pdf' }],
+        verifyVia:
+          'The Optum Care Advocate / the NE Heritage Health Medicaid Autism-ABA Program page on Provider Express.',
+      },
+      dxRecency: {
+        value:
+          'Follows the Nebraska Medicaid rule: an Initial Diagnostic Interview within the previous 12 months must establish the need for the ABA assessment, with an addendum where the presentation has changed. Optum turns that into an attachment requirement: the written assessment request goes in with "the diagnostic evaluation, IDI, or FBA" attached, and treatment requests must carry the evaluation from the diagnosing provider.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'Follows the Nebraska Medicaid rule: the IDI is performed by "A licensed practitioner who is able to diagnose and treat major mental illness within his/her scope of practice" — Physician, Physician Assistant, APRN/NP, Psychologist or LIMHP — with ASD or a developmental or intellectual disability as the qualifying diagnosis. Optum does not publish a Nebraska diagnostician list of its own; what it requires is the evaluation from the diagnosing provider in the request packet.',
+        status: 'verified',
+        cites: [{ title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' }, { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Follows the Nebraska Medicaid rule: no ASD diagnostic instrument is mandated, and the instruments Nebraska names (Vineland, VB-MAPP, ABLLS) sit in the treatment plan and continued-stay review rather than behind the diagnosis. Optum\'s Nebraska program asks for the FBA or diagnostic evaluation in the packet and for a treatment plan with baseline and mastery criteria, but names no instrument.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'NE Heritage Health Medicaid Autism/ABA Program provider training (NE_4556)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/NE_4556_ABA-HeritageTrain.pdf' }],
+      },
+      referral: {
+        value:
+          'No referral or order is required by the state — the gate is the IDI plus the ABA assessment. Optum replaces it with an authorization gate that is stricter than the state\'s: "All Autism Services require Prior Authorization," including the initial assessment and its write-up time, requested in writing on the treatment request form marked as an assessment request with the diagnostic evaluation, IDI or FBA attached. Treatment is a second, separate authorization — families cannot start treatment on the assessment authorization alone.',
+        status: 'verified',
+        cites: [{ title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' }, { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }],
+      },
+      telehealth: {
+        value:
+          'Follows the Nebraska Medicaid rule: audiovisual telehealth is available for 97155 (only while 97153 runs concurrently), 97156 and the 97151 assessment under the conditions the service definitions spell out; 97152, 97153, 97154 and 97158 cannot be delivered remotely. Optum\'s Nebraska Heritage Health program material publishes no telehealth section of its own, and Optum\'s virtual-visits attestation requirement is documented on other lines of business rather than this one — do not assume it applies here without asking.',
+        status: 'verified',
+        cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }],
+        verifyVia:
+          'The Optum Care Advocate / the NE Heritage Health Medicaid Autism-ABA Program page on Provider Express.',
+      },
+    },
     pill: 'Payer Guide · UHC Community Plan (NE)',
     h1: 'UnitedHealthcare Community Plan of Nebraska ABA coverage (Heritage Health MCO).',
     metaTitle: 'UHC Community Plan Nebraska (Heritage Health) ABA Coverage & Prior Auth | Carelu',
@@ -314,6 +659,10 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'NE Heritage Health Medicaid Autism/ABA Program provider training (NE_4556)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/NE_4556_ABA-HeritageTrain.pdf' },
       { title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' },
       { title: 'Health Plan Advisory 25-08 — ABA Rates (to Heritage Health MCOs)', url: 'https://dhhs.ne.gov/Guidance%20Docs/Health%20Plan%20Advisory%2025-08%20-%20Applied%20Behavior%20Analysis%20Rates.pdf' },
+      { title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' },
+      { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' },
+      { title: 'Medicaid Requirements for Substance Use Disorder and Applied Behavior Analysis Services (umbrella staffing document)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Medicaid%20Requirements%20for%20Substance%20Use%20Disorder%20and%20Applied%20Behavior%20Analysis%20Services.pdf' },
+      { title: 'ProPublica — UnitedHealth limiting ABA access in Medicaid', url: 'https://www.propublica.org/article/unitedhealthcare-insurance-autism-denials-applied-behavior-analysis-medicaid' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Nebraska cover ABA?', a: 'Yes — it administers the Heritage Health ABA benefit under the state Medicaid Service Definitions, with the autism network managed by Optum Behavioral Health since 2017. All autism services, the assessment included, require prior authorization.' },
@@ -331,6 +680,93 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
     payer: 'Aetna in Nebraska',
     state: 'NE', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Aetna sets a duty, not a number. Where a state mandate, plan document or contract allows services from someone neither state-licensed nor BACB-certified, "there must be supervision and direction of the unlicensed or non-certified providers in line with practice standards." The ABA Medical Necessity Guide publishes no supervision percentage, ratio or caseload cap — the operative standard is professional practice plus whatever the contract adds.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither the ABA Medical Necessity Guide nor Aetna\'s clinical policy bulletin on ABA addresses whether 97153 and 97155 may be billed for the same clock time; Aetna carries the concurrency question in its claim editing rather than in a public policy.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna precertification/provider services at the number on the member\'s ID card, and the plan\'s own reimbursement schedule — ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. Aetna\'s ABA documents set medical-necessity criteria and precertification requirements for 97151-97158, 0362T and 0373T, but no per-day unit ceiling and no statement of which MUE table applies.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+      },
+      noteSignature: {
+        value:
+          'Not published in Aetna\'s ABA materials — no rule on who signs a session note or within what window.',
+        status: 'unverified',
+        verifyVia:
+          'The Aetna provider manual and your participation agreement\'s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'Aetna does not publish a POS code list for ABA. The one place-of-service boundary it does state is the schools carve-out: pursuant to applicable law Aetna "is not required [to] provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act." That is a limit on paying for what the IEP owes, not a blanket ban on the school setting — and it yields to a stronger state mandate. Where ABA is payable in a school, in the community or in a group home is a benefit-document question on Aetna plans. In Nebraska the layer underneath is § 44-7,106 for state-regulated plans, and the plan document for a self-funded one — note that the state\'s own Medicaid rule sends school-based ABA to the Medicaid school-based services program (471 NAC 25) rather than to independent providers, which is a Medicaid rule and not a commercial one.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
+        verifyVia:
+          'The member\'s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+      },
+      billAsProvider: {
+        value:
+          'The claim carries the analyst, not the technician. "Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise." The escape clause matters: a state mandate or your contract can move the line, so confirm before enrolling technicians. Nebraska is a licensure state — LBA for BCBAs, LaBA for BCaBAs — so the licensed analyst is who the clause points at here.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Aetna sets no upper age limit in its national medical-necessity criteria. The ABA Medical Necessity Guide gives age only as clinical shape, not as a gate: comprehensive ABA carries a "typical age range" of 0-7 years at 10-25 hours a week for 1-2 years, while focused ABA is listed for "All ages" at 1-20 hours a week. The binding age question is the legal layer underneath: Nebraska\'s mandate (Neb. Rev. Stat. § 44-7,106) reaches individuals under 21 on state-regulated plans and caps behavioral health treatment including ABA at 25 hours per week to age 21; non-grandfathered individual and small-group ACA plans are exempt, and a self-funded ERISA plan answers to its own plan document. Establish funding type before quoting an age answer.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
+        verifyVia:
+          'The member\'s benefit document and Aetna precertification — funding type decides whether the state mandate or the plan document sets the age boundary.',
+      },
+      dxRecency: {
+        value:
+          'Twelve months, and it attaches to the functional measure rather than to the diagnosis. Aetna\'s medical-necessity criteria require that "There is demonstration of functional impairment on a standardized scale of functioning in the past 12 months," with the impairment at least one standard deviation below the population mean or representing a significant risk of harm to self or others. The ASD diagnosis itself carries no stated shelf life — so a family with an older diagnostic report is not blocked, but a stale adaptive score is.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'A scope-of-practice test rather than a specialty list. Aetna requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9) obtained by an appropriate provider," and defines that as a "licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice." Note the code range: F84.2 (Rett syndrome) sits outside the listed set, and ABA for diagnoses other than ASD is treated as experimental.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Aetna names adaptive-functioning instruments, not autism diagnostic instruments. The medical-necessity criteria require demonstrated functional impairment "on a standardized scale of functioning in the past 12 months. For instance, the Vineland Adaptive Behavior Scales 3 (VABS-3), the Adaptive Behavior Assessment Scale (ABAS), VB-MAPP or ABLLS," and quality-of-care elements add "Repeated measurement with standardized measures to assess progress." No ADOS-2 or ADI-R requirement appears anywhere — the instrument Aetna asks for is the one that sizes the hours, and the level-of-impairment calculation is what justifies the number requested.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      referral: {
+        value:
+          'Not published. Aetna\'s ABA Medical Necessity Guide and its ABA clinical policy bulletin set a diagnosis requirement, a precertification requirement and a provider-licensure requirement, but state no referral or physician order as a condition of coverage. The gate that does exist is precertification itself — required for both the assessment and treatment.',
+        status: 'unverified',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'Aetna precertification/provider services at the number on the member\'s ID card, and the member\'s benefit document — ask whether the plan layers a referral requirement on behavioral health.',
+      },
+      telehealth: {
+        value:
+          'Not published. Aetna\'s ABA materials set medical-necessity criteria and precertification requirements for 97151-97158, 0362T and 0373T but say nothing about remote delivery, telehealth modifiers or place-of-service codes. One Nebraska-specific point does exist, and it sits in the statute rather than the carrier policy: § 44-7,106 requires that ABA be "provided or supervised by a nationally certified behavior analyst or licensed psychologist" and says so expressly of care delivered "in person or by telehealth," so remote delivery is contemplated by the mandate for state-regulated plans even where the carrier publishes no code list.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
+        verifyVia:
+          'Aetna provider services and the member\'s benefit document — confirm which ABA codes pay by telehealth and with which POS code before scheduling remote supervision or caregiver training.',
+      },
+    },
     pill: 'Payer Guide · Aetna · Nebraska',
     h1: 'Aetna ABA coverage in Nebraska: the intake guide.',
     metaTitle: 'Aetna ABA Coverage in Nebraska: Prior Auth & Mandate Guide | Carelu',
@@ -398,6 +834,8 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
       { title: 'NE DHHS — Behavior Analyst licensure page', url: 'https://dhhs.ne.gov/licensure/Pages/Behavior-Analyst.aspx' },
+      { title: 'Provider Bulletin 25-14 — ABA Rates (July 1, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf' },
+      { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Nebraska?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Nebraska\'s mandate (Neb. Rev. Stat. § 44-7,106) for state-regulated plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -415,6 +853,93 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
     payer: 'Cigna / Evernorth in Nebraska',
     state: 'NE', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Not published as a ratio. The Evernorth autism resource guide governs credentialing and billing rather than supervision intensity, and Evernorth publishes no percentage floor or caseload cap for technician supervision.',
+        status: 'unverified',
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273, and the Intensive Behavioral Interventions coverage policy (EN0499).',
+      },
+      concurrentBilling: {
+        value:
+          'Yes — and Evernorth writes it as an explicit carve-out from its general rule: "Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Both must be with the patient; analyst time away from the patient is not inside the exception.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Not published. The resource guide sets the code set (97151-97158, 0362T, 0373T only, all in 15-minute increments) but no per-day unit ceiling and no statement of which MUE table Evernorth applies.',
+        status: 'unverified',
+        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 and your fee schedule.',
+      },
+      noteSignature: {
+        value:
+          'Not published as a signature rule. EN0499 does make one documentation point that turns on signatures: the requirement to have the treatment plan / plan of care signed "does not apply to telehealth services, when applicable." Who signs a session note, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia:
+          'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+      },
+      placeOfService: {
+        value:
+          'Only the telehealth half is published: "all ABA CPT codes are covered telehealth services," subject to the Intensive Behavioral Interventions coverage policy (EN0499). The guide states no school, community or group-home rule. In Nebraska the layer underneath is § 44-7,106 for state-regulated plans, and the plan document for a self-funded one — note that the state\'s own Medicaid rule sends school-based ABA to the Medicaid school-based services program (471 NAC 25) rather than to independent providers, which is a Medicaid rule and not a commercial one.',
+        status: 'unverified',
+        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\'s benefit document.',
+      },
+      billAsProvider: {
+        value:
+          'Under the supervising provider, because the technician cannot be credentialed: "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." Practically, the BCBA\'s credential is what the claim rides on for technician-delivered 97153. Nebraska adds a licensure floor on top: since 1/1/2025 the supervising analyst must hold the state LBA licence, not just BACB certification.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'EN0499 sets no age limit. The policy\'s medical-necessity criteria turn on diagnosis, assessment and treatment-plan content rather than on age, and its own definitions note only that assessment instruments must have established reliability and validity "for use with members of the population tested (e.g., age, language preference, etc.)." The binding age question is the legal layer underneath: Nebraska\'s mandate (Neb. Rev. Stat. § 44-7,106) reaches individuals under 21 on state-regulated plans and caps behavioral health treatment including ABA at 25 hours per week to age 21; non-grandfathered individual and small-group ACA plans are exempt, and a self-funded ERISA plan answers to its own plan document.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
+        verifyVia:
+          'The member\'s benefit document and Evernorth Provider Services at 800.926.2273 — funding type decides whether the state mandate or the plan document sets the age boundary.',
+      },
+      dxRecency: {
+        value:
+          'Evernorth dates the diagnosis without expiring it, and expires the assessment instead. The diagnosis package must carry "The name, credentials, and type of licensure of the individual who made the diagnosis" and "The date on which the diagnosis was most recently made" — but no maximum age for that date. Where recency does bite is the continued-treatment request: improvement must be demonstrated "with the use of a reliable, valid, and standardized assessment instrument completed no more than one year prior to the start date of the continued treatment request," against data collected within the previous six months of treatment.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          'An independent-practice test, with two explicit disqualifiers. The diagnosis must be made "based on the criteria in the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR) by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice." What does not count: "educational identification or meeting educational eligibility for services related to autism through the [Individuals] with Disabilities Education Act may not meet criteria as a formal diagnosis of ASD," and a diagnosis termed "provisional," "proposed," "potential," "at risk of" or "rule out" is not confirmed. F84.2 (Rett syndrome) is excluded from the covered code range.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'No named instrument, but a strict standard for whichever one is used. The comprehensive ABA assessment must include "Administration of a reliable, valid, and standardized assessment instrument that measures the individual\'s functioning in the domains included in the diagnostic criteria for ASD in the DSM-5-TR" — social communication and social interaction, and restricted, repetitive patterns of behavior. The instrument must be completed in its entirety and as designed, be reliable and valid for the population tested, be administered and interpreted by someone trained to do so, be the most current version ("must be the Vineland-3 vs. Vineland-II"), assess current abilities, and record the date of administration, the respondent and the form type. Where someone other than the requesting provider administered it, the request must show documented collaboration with that professional and that the results correspond with the requesting provider\'s own direct observation.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      referral: {
+        value:
+          'Not published as a requirement. EN0499 gates coverage on a confirmed DSM-5-TR diagnosis, a qualifying assessment and a compliant treatment plan, and Evernorth\'s front door is famously open on the assessment side — no prior authorization on 97151, 97152 or 0362T. Neither document states a referral or physician order as a condition.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 and the member\'s benefit document — referral rules, where they exist, are a plan-design feature rather than a policy feature.',
+      },
+      telehealth: {
+        value:
+          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. One Nebraska-specific point does exist, and it sits in the statute rather than the carrier policy: § 44-7,106 requires that ABA be "provided or supervised by a nationally certified behavior analyst or licensed psychologist" and says so expressly of care delivered "in person or by telehealth," so remote delivery is contemplated by the mandate for state-regulated plans even where the carrier publishes no code list.',
+        status: 'verified',
+        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
+      },
+    },
     pill: 'Payer Guide · Cigna · Nebraska',
     h1: 'Cigna / Evernorth ABA coverage in Nebraska: the intake guide.',
     metaTitle: 'Cigna ABA Coverage in Nebraska: Prior Auth & Mandate Guide | Carelu',
@@ -482,6 +1007,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
       { title: 'NE DHHS — Behavior Analyst licensure page', url: 'https://dhhs.ne.gov/licensure/Pages/Behavior-Analyst.aspx' },
+      { title: 'Provider Bulletin 25-14 — ABA Rates (July 1, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf' },
     ],
     faq: [
       { q: 'Does Cigna cover ABA therapy in Nebraska?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Nebraska\'s mandate (Neb. Rev. Stat. § 44-7,106) for state-regulated plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -499,6 +1025,94 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
     payer: 'UnitedHealthcare / Optum in Nebraska',
     state: 'NE', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Optum\'s commercial reimbursement policy publishes no supervision percentage or caseload cap — it refers providers to the ABA Coding Coalition for supervision requirements. What it does police is the boundary: "CPT codes 97153 and 97155 may not be billed for technician training," including training a technician new to the organization on a client\'s programming or on reassessment-driven goal changes. And 97155 "should be reported only for services where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient" — treatment planning is an indirect service and not separately reimbursable.',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Yes, with a single-provider exclusion. "Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently." So the concurrency has to be two people — technician on 97153, analyst on 97155 directing them with the patient present. Separately, 97155 and 97156 may both pay on the same date of service only if the services are separate, distinct and clearly documented; "a single provider can\'t bill for both simultaneously (e.g., in the same 15-minute block)."',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Optum publishes its own per-day table on top of CMS MUEs — maximum frequency per day: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs). MUEs otherwise apply per CMS guidance, and billing above 32 units/day of 97153 "may be subject to non-reimbursement or recovery." Time is counted on the CMS 15-minute rule (1 unit at ≥ 8 minutes, 2 at ≥ 23, and so on).',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No signature rule is published, but the documentation burden is explicit where money turns on it: services billed on the same date must be "separate, distinct, and clearly documented in the progress notes," and if documentation does not clearly separate them the claim may be denied. Who signs, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        verifyVia:
+          'The UnitedHealthcare/Optum provider manual and your participation agreement\'s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'The commercial ABA reimbursement policy sets no place-of-service rule, and Optum\'s published ABA State Mandates document carries no Nebraska entry at all — so there is no carrier document answering where Nebraska commercial ABA is payable. Daily progress notes must record the place of service regardless. In Nebraska the layer underneath is § 44-7,106 for state-regulated plans, and the plan document for a self-funded one — note that the state\'s own Medicaid rule sends school-based ABA to the Medicaid school-based services program (471 NAC 25) rather than to independent providers, which is a Medicaid rule and not a commercial one.',
+        status: 'unverified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'UnitedHealthcare provider services and the member\'s benefit document.',
+      },
+      billAsProvider: {
+        value:
+          'One provider-level modifier per line, matching whoever actually rendered the service: HM = Registered Behavior Technician (less than bachelor\'s level), HN = BCaBA (bachelor\'s level), HO = BCBA or master\'s-level licensed clinician, HP = BCBA-D or doctoral-level licensed clinician. A billable ABA-supervisor service is billed with the applicable CPT code plus HO. Stacking level modifiers is a denial risk: "Billing multiple provider-level modifiers (HN, HM, HO, HP) on the same service line same service and same DOS is not appropriate and may result in claim denial." Indirect work has no code of its own — it is bundled into the direct-service code.',
+        status: 'verified',
+        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Optum\'s Supplemental Clinical Criteria set no age limit for ABA — coverage turns on a valid ASD diagnosis, a credentialed provider and demonstrated medical necessity, with age entering only through norm-referenced instruments that compare functioning "to age-matched neurotypical peers." The binding age question is the legal layer underneath: Nebraska\'s mandate (Neb. Rev. Stat. § 44-7,106) reaches individuals under 21 on state-regulated plans and caps behavioral health treatment including ABA at 25 hours per week to age 21; non-grandfathered individual and small-group ACA plans are exempt, and a self-funded ERISA plan answers to its own plan document. Optum\'s ABA State Mandates supplement carries no Nebraska entry, so nothing carrier-side modifies the age question here.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
+        verifyVia:
+          'The member\'s benefit document and Optum via Provider Express — funding type decides whether the state mandate or the plan document sets the age boundary.',
+      },
+      dxRecency: {
+        value:
+          'Not published. Optum\'s ABA criteria require a valid DSM-5-TR diagnosis confirmed with at least one clinically validated tool but set no maximum age for the diagnostic evaluation. The recency Optum does police is progress rather than diagnosis: continued coverage looks for demonstrable progress within a 6-month window and for updated standardized adaptive measures with change scores.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum via Provider Express, or the Care Advocate handling the authorization — ask whether the plan applies a diagnostic-evaluation recency window at intake.',
+      },
+      diagnosingProviders: {
+        value:
+          'A licensure test with a diagnostic-competence qualifier: "A valid diagnosis of ASD (or other applicable diagnosis as required by governing laws) must be issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis according to the diagnostic criteria based on the DSM-5-TR." The diagnosing clinician must also confirm and document the severity level. Once the diagnosis is confirmed, the ABA provider identified for the member must be a master\'s- or doctoral-level BCBA, a licensed behavioral health clinician who has attested to sufficient expertise and been credentialed for ABA, or a BCaBA or non-licensed individual working under direct supervision.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Optum publishes the most explicit instrument list of any national carrier, and splits it three ways. The DSM-5 diagnosis and severity level must be confirmed "using at least one clinically validated tool (not an all-inclusive list)": first-level screeners (ABC, CHAT/M-CHAT, CSBS-DP-IT-Checklist, ASQ, AQ, CAST), second-level screeners (CARS/CARS-2, RITA-T, STAT), and formal diagnostic tools used as part of a comprehensive diagnostic evaluation — the Autism Diagnostic Interview-Revised (ADI), the Autism Diagnostic Observation Schedule (ADOS/ADOS-2), and the Diagnostic Interview for Social and Communication Disorders (DISCO). Separately, treatment intensity must be chosen against baseline measurement using at least one of ATEC, VB-MAPP, ABLLS/ABLLS-R, AFLS, PEAK, SSIS, RBS-R, SRS, VABS or CFQL-2, individualized to the client rather than applied uniformly.',
+        status: 'verified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      referral: {
+        value:
+          'Not published as a coverage condition. Optum gates ABA on prior authorization — "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)" — delivered as a two-step assessment-then-treatment workflow on Provider Express, with a valid diagnosis rather than a referral as the clinical trigger. What the criteria do require is coordination: documentation of communication with day care, preschool, school, early intervention and allied health providers to avoid duplication.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        verifyVia:
+          'Optum via Provider Express and the member\'s benefit document — referral requirements, where they exist, are a plan-design feature.',
+      },
+      telehealth: {
+        value:
+          'Optum endorses telehealth without publishing a code list. Its ABA criteria point providers to the "Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition" as the best-practice reference, describe telehealth guidelines as a resource "for designing, implementing, and operating ABA services delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)," and set the boundary plainly: "The telehealth options presented are not intended to supplant in-person service; rather, they are intended to supplement the traditional in-person service delivery model." Which codes pay remotely, and with which place-of-service code, is not stated in the clinical criteria — and daily progress notes must record the place of service regardless. One Nebraska-specific point does exist, and it sits in the statute rather than the carrier policy: § 44-7,106 requires that ABA be "provided or supervised by a nationally certified behavior analyst or licensed psychologist" and says so expressly of care delivered "in person or by telehealth," so remote delivery is contemplated by the mandate for state-regulated plans even where the carrier publishes no code list.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
+        verifyVia:
+          'The Optum Care Advocate at authorization and Provider Express — Optum runs a virtual-visits attestation on some lines of business, so confirm approval status and the billing POS before scheduling remote 97155 or 97156.',
+      },
+    },
     pill: 'Payer Guide · UnitedHealthcare · Nebraska',
     h1: 'UnitedHealthcare / Optum ABA coverage in Nebraska: the intake guide.',
     metaTitle: 'UnitedHealthcare ABA Coverage in Nebraska: Prior Auth & Mandate Guide | Carelu',
@@ -567,6 +1181,9 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
       { title: 'NE DHHS — Behavior Analyst licensure page', url: 'https://dhhs.ne.gov/licensure/Pages/Behavior-Analyst.aspx' },
+      { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'Provider Bulletin 25-14 — ABA Rates (July 1, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf' },
+      { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Nebraska?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Nebraska\'s mandate (Neb. Rev. Stat. § 44-7,106) for state-regulated plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
