@@ -50,6 +50,9 @@ const FAMILY_LABELS: Record<string, string> = {
   caresource: 'CareSource', centene: 'Centene / Ambetter', cigna: 'Cigna',
   humana: 'Humana', mdwise: 'MDwise', molina: 'Molina',
   unitedhealthcare: 'UnitedHealthcare / Optum',
+  carelon: 'Carelon Behavioral Health', magellan: 'Magellan Health',
+  tricare: 'TRICARE / military health', kaiser: 'Kaiser Permanente',
+  point32: 'Point32Health (Harvard Pilgrim / Tufts)',
 };
 const providerKeyOf = (p: { family?: string; payer: string }) => p.family ?? p.payer;
 const PROVIDERS = Array.from(

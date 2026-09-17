@@ -72,6 +72,11 @@ function PayerGuide({ config }: { config: PayerConfig }) {
       if (!allSources.some((x) => x.url === c.url)) allSources.push(c);
     }
   }
+  for (const r of Object.values(config.deliveryRules ?? {})) {
+    for (const c of r?.cites ?? []) {
+      if (!allSources.some((x) => x.url === c.url)) allSources.push(c);
+    }
+  }
   const srcNum = (url: string) => allSources.findIndex((x) => x.url === url) + 1;
   const CiteSup = ({ cites }: { cites?: PayerSource[] }) => {
     if (!cites || cites.length === 0) return null;
@@ -269,6 +274,56 @@ function PayerGuide({ config }: { config: PayerConfig }) {
                   </div>
                 );
               })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Delivery & billing rules — the operational layer under coverage */}
+      {config.deliveryRules && Object.values(config.deliveryRules).some(Boolean) && (
+        <section style={{ paddingTop: 'clamp(36px, 5vw, 56px)' }}>
+          <div style={MEASURE}>
+            <h2 className="rv" style={{
+              fontFamily: 'var(--font-display)', fontSize: 'clamp(23px, 2.6vw, 31px)',
+              fontWeight: 400, color: INK, lineHeight: 1.2, letterSpacing: '-0.014em', margin: '0 0 10px',
+            }}>Delivery &amp; billing rules</h2>
+            <p className="rv" style={{ fontSize: 14.5, color: 'rgba(43,42,38,0.68)', lineHeight: 1.7, margin: '0 0 16px' }}>
+              Coverage decides whether {config.payer} pays. These decide whether the claim survives: how sessions
+              must be staffed and supervised, what may be billed concurrently, the per-day ceilings, who signs the
+              note, where the service is payable, and whose NPI the claim goes out under.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {([
+                ['Supervision', config.deliveryRules.supervision],
+                ['Concurrent billing (97153 + 97155)', config.deliveryRules.concurrentBilling],
+                ['Daily limits / MUEs', config.deliveryRules.dailyLimits],
+                ['Session-note signature', config.deliveryRules.noteSignature],
+                ['Place of service', config.deliveryRules.placeOfService],
+                ['Bill as provider', config.deliveryRules.billAsProvider],
+              ] as const).filter(([, r]) => r).map(([label, r]) => (
+                <div key={label} className="rv" style={{
+                  background: '#fff', borderRadius: 14, padding: 'clamp(14px, 2vw, 20px)',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03)',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 9, flexWrap: 'wrap', marginBottom: 4 }}>
+                    <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: GREEN }}>{label}</span>
+                    {r!.status !== 'verified' && (
+                      <span style={{
+                        fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase',
+                        color: 'rgba(43,42,38,0.5)', background: HAIR, borderRadius: 20, padding: '2px 8px',
+                      }}>{r!.status === 'plan-dependent' ? 'Plan-dependent' : 'Unverified'}</span>
+                    )}
+                  </div>
+                  <p style={{ fontSize: 14.5, color: 'rgba(43,42,38,0.75)', lineHeight: 1.62, margin: 0 }}>
+                    {r!.value}<CiteSup cites={r!.cites} />
+                  </p>
+                  {r!.verifyVia && (
+                    <p style={{ fontSize: 13, color: 'rgba(43,42,38,0.55)', lineHeight: 1.55, margin: '6px 0 0' }}>
+                      Confirm via: {r!.verifyVia}
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

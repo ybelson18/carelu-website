@@ -16,6 +16,31 @@ export interface PayerSection {
   cites?: PayerSource[];   // sources for THIS section, rendered inline under it
 }
 export interface PayerFaq { q: string; a: string }
+
+/* ---------------------------------------------------------------
+   DELIVERY & BILLING RULES — the operational layer beneath coverage.
+   Coverage answers "will they pay"; these answer "how must the
+   service be delivered, staffed, documented and billed for the claim
+   to survive". Every field is optional and VERIFIED-ONLY: publish a
+   value only when a fetched primary source confirms it, otherwise
+   omit the field or carry status 'unverified' with a verifyVia note.
+   Filled progressively by the monthly refresh from docs/payer-worklist.json.
+   --------------------------------------------------------------- */
+export type RuleStatus = 'verified' | 'plan-dependent' | 'unverified';
+export interface PayerRuleFact {
+  value: string;              // the rule in plain language, or a short 'unverified' note
+  status: RuleStatus;
+  cites?: PayerSource[];      // primary sources for THIS rule
+  verifyVia?: string;         // where to confirm when status isn't 'verified'
+}
+export interface PayerDeliveryRules {
+  supervision?: PayerRuleFact;       // supervision ratios/floors the payer imposes on techs
+  concurrentBilling?: PayerRuleFact; // may 97153 and 97155 be billed for the same clock time?
+  dailyLimits?: PayerRuleFact;       // MUE / per-day unit ceilings this payer enforces
+  noteSignature?: PayerRuleFact;     // who must sign session notes, and when
+  placeOfService?: PayerRuleFact;    // school / community / group home / home — where ABA is payable
+  billAsProvider?: PayerRuleFact;    // whose NPI the claim goes out under (rendering vs supervising)
+}
 export type PayerKind = 'state-medicaid' | 'medicaid-mco' | 'commercial';
 export interface PayerConfig {
   slug: string;
@@ -40,6 +65,8 @@ export interface PayerConfig {
   assessmentPA?: string;   // does the ASSESSMENT (not just treatment) need prior auth?
   treatmentPA?: string;    // does treatment need prior auth?
   dxRequired?: string;     // is an autism diagnosis required (and how strict)?
+  // Operational layer: how the service must be staffed, documented and billed.
+  deliveryRules?: PayerDeliveryRules;
 }
 
 export const PAYER_REVIEWED = 'September 2026';

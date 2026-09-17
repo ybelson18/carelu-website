@@ -145,7 +145,7 @@ export const growthResources: Record<string, ResourceConfig> = {
       },
       {
         q: 'Why do we get plenty of leads but few new clients?',
-        a: 'Almost always one of four leaks: inquiries that were never answered (especially after hours), families who waited days for insurance verification, packets that were started and abandoned, or a wait to start that no one managed. Measure the drop between each stage and fix the largest fall first.',
+        a: 'Almost always one of four leaks: inquiries that were never answered (especially after hours), families who waited days for insurance verification, packets that were started and abandoned, or a wait to start that no one managed. Measure the drop between each stage and fix the largest fall first. There is a fifth cause — the wrong families arriving in the first place — but it is usually not the biggest one, and it has a specific signature: you call within minutes and still hear back from very few of them, and very few of the ones who do respond are in your area, on a payer you take, or in your age band. That pattern points at channel targeting, not at intake. Without it, assume the leak is operational.',
       },
     ],
     compareTitle: 'The operational layer, by hand and with Carelu',
@@ -199,6 +199,7 @@ export const growthResources: Record<string, ResourceConfig> = {
           'A search lead decided to contact you. A Meta lead was persuaded to, in about eight seconds, while doing something else. That difference does not make the lead worthless, but it does mean the interest is on loan and it is already evaporating when the form submits.',
           'Practically, this shows up in three ways. Meta leads answer the phone at a lower rate than search leads. A larger share are outside your service area or on a payer you do not take, because they were not filtering for you the way a searcher was. And a much larger share have no diagnosis yet, because you reached them earlier in the journey — which is an opportunity, not a defect, as long as you have somewhere to send them.',
           'The failure mode is a practice that runs Meta, judges it on the same yardstick as search, concludes the leads are garbage, and turns it off. Usually the leads were fine and the follow-up was six hours late.',
+          'There is a test that separates the two, and it is worth running before touching the ad account. Call within minutes for a couple of weeks. If families answer and most of them qualify, the targeting is fine and the old follow-up was the problem. Only when both halves fail — almost nobody responds to a five-minute call, and almost none of the few who do are in your area, on your payers, or in your age band — is the channel genuinely bringing the wrong families, and then the fix is geography, creative and audience rather than anything downstream.',
         ],
       },
       {
@@ -1076,6 +1077,15 @@ export const growthResources: Record<string, ResourceConfig> = {
         ],
       },
       {
+        h2: 'Telling a lead-quality problem from an intake problem',
+        body: [
+          'Every practice with weak conversion eventually argues about this, and the argument is settled by two numbers rather than by opinion.',
+          'Bad qualification — the wrong families arriving at all — is real, and it comes from the channel: geography set wider than you can serve, keywords that attract the curious rather than the ready, creative that speaks to no one in particular. But it is usually not the biggest thing wrong, and diagnosing it when the truth is a slow phone call sends a practice off to rebuild ad campaigns while the actual leak keeps running.',
+          'It has a distinctive signature. You call within minutes of the inquiry, and still very few families respond at all — and of the ones who do, very few turn out to be in your service area, on a payer you take, or in your age band. Both halves have to be true. If families answer when you call promptly, the channel is doing its job. If they qualify once you reach them, the channel is doing its job. Either one on its own points back at operations.',
+          'When the signature is genuinely there, the fix is in the channel and nowhere else: tighten geography to the area you can actually serve, cut the search terms that bring browsers, rebuild lookalikes from families who started care rather than from everyone who filled a form, and say the payers and ages you take out loud in the creative so families self-select before they ever contact you.',
+        ],
+      },
+      {
         h2: 'Connect the ad channels or you are optimizing blind',
         body: [
           'If your ad platforms only know about form submissions, they will optimize toward people who submit forms. Feeding the later outcomes back — qualified, intake completed, started care — retrains delivery toward families who become clients, and it is the highest-leverage change most ABA advertisers have never made.',
@@ -1117,6 +1127,10 @@ export const growthResources: Record<string, ResourceConfig> = {
       {
         q: 'What should we measure first?',
         a: 'Answer rate and median time to first human contact, segmented by hour of day. They are the cheapest to fix, they multiply every other stage, and in most practices the first honest look at them settles the debate about where the problem is.',
+      },
+      {
+        q: 'Is our problem lead quality or our intake?',
+        a: 'Run one test: call within minutes for two weeks. If families answer and most of them qualify, the channel is fine and the problem is downstream. It is genuinely a lead-quality problem only when both halves fail — very few respond even to an immediate call, and very few of those who do are in your service area, on a payer you take, or in your age band. That is the less common case, and the fix for it lives in channel targeting rather than in intake.',
       },
       {
         q: 'How do I track which ad channel produced a client?',
