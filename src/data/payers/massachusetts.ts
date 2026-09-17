@@ -9,6 +9,50 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via a comprehensive DSM-aligned assessment by a qualified licensed diagnostician; from 1/1/2026 also sole-diagnosis Down syndrome (genetic-testing confirmed)',
     payer: 'MassHealth (Massachusetts Medicaid)',
     state: 'MA', kind: 'state-medicaid',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Massachusetts publishes a supervision band, and it is the field with live money attached. LABA supervision must be delivered to Behavior Technician-level staff \u201cduring direct service with the Member, as clinically indicated but no less than 10 percent of direct service hours and should not exceed 25 percent of direct hours without documented clinical rationale.\u201d For members engaged in 10 hours or less of direct treatment per month, the LABA must deliver a minimum of one hour of direct supervision per month. The Behavior Technician works under the direct supervision of a LABA licensed per 262 CMR 10.00 \u2014 a BCBA certificate alone does not qualify \u2014 and the provider agency must ensure LABAs supervise all BTs and that every staff member has had a background record check. Falling below the band is not theoretical: the CY2024 encounter audit recouped against a 1:10 floor, so staff and schedule to at least one supervision hour per ten direct hours.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not resolved in the published Massachusetts documents. The performance specification does carry one concurrency prohibition, but it is about siblings, not codes: in group caregiver training, \u201cproviders may not bill concurrently for services delivered to multiple children from the same family. When a parent/caregiver has more than one child receiving services, only one child\u2019s session may be billed at a time.\u201d The spec requires LABA supervision to be delivered during the BT\u2019s direct service with the member, and MassHealth\u2019s CY2024 audit measured 97155 hours against 97153 hours \u2014 but neither document states in terms that both codes may be billed for the same clock time.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'The behavioral-health administrator behind the member\u2019s plan \u2014 Carelon/MBHP via ProviderConnect, WellSense\u2019s in-house BH team, Point32Health for Tufts, or Optum for Mass General Brigham. Ask whether 97155 pays alongside 97153 for the same clock time.',
+      },
+      dailyLimits: {
+        value:
+          'Massachusetts is a no-cap state that nonetheless has one published per-day number. There are no annual, lifetime or unit-of-service ceilings on the EPSDT benefit, and 101 CMR 358.03 is a rate regulation, not a limit regulation \u2014 it fixes per-15-minute rates and states they are \u201cfull compensation\u201d including \u201cnecessary administration and professional supervision associated with patient care.\u201d The only per-day cap in the performance specification is for group instruction, which \u201cmay occur up to 4.5 hours a day as clinically indicated, in groups of 2-8 Members.\u201d No per-code MUE regime is published, so what bites in practice is medical-necessity review and the supervision-ratio audit, not a unit edit.',
+        status: 'verified',
+        cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }, { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'Both clinicians document, and the spec says what the note must contain rather than who countersigns it. \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d and session notes must include how treatment time was utilized, the treatment interventions utilized, and the member\u2019s response to treatment. The complete record must also hold referral and assessment documentation, treatment plans and progress reports, \u201cevidence of supervision and training, including policies, procedures, and implementation,\u201d the IEP and IFSP where applicable, and documentation confirming PCP physical examinations. No co-signature requirement and no signing deadline are stated.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Home and community, with school carved out. ABA \u201cis delivered by a contracted and credentialed provider in a variety of settings within a Member\u2019s home and community,\u201d and \u201cservices provided in a school setting are distinct and separate from those covered by the health plan and are typically covered by the educational system\u2019s special education resources as part of the Individualized Education Program (IEP) pursuant to Public Law 94-142.\u201d Providers \u201cmust not direct, limit, or discourage access to other medically necessary or school-based services.\u201d Transition planning contemplates moving a member \u201cfrom a center based setting to home/community settings,\u201d so centers are in scope. Group homes are not addressed.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Group-home delivery is addressed by none of the published documents \u2014 confirm with the member\u2019s BH administrator.',
+      },
+      billAsProvider: {
+        value:
+          'Not published. Neither 101 CMR 358 nor the ABA performance specification names whose NPI carries the claim for technician-delivered 97153, and the rate regulation is explicitly single-tier \u2014 one rate per code, no credential-level modifiers \u2014 so there is no modifier to signal the renderer.',
+        status: 'unverified',
+        cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }],
+        verifyVia:
+          'The member\u2019s BH administrator and your contract; the rate regulation settles price, not claim identity.',
+      },
+    },
     pill: 'Payer Guide · MassHealth',
     h1: 'MassHealth (Massachusetts Medicaid) ABA coverage: the intake guide.',
     metaTitle: 'MassHealth ABA Coverage, Rates & Prior Authorization Guide | Carelu',
@@ -126,6 +170,50 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
     payer: 'Massachusetts Behavioral Health Partnership (MBHP)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    deliveryRules: {
+      supervision: {
+        value:
+          'MBHP is the author of the rule everyone else in Massachusetts is measured against. LABA supervision must be delivered to Behavior Technician-level staff \u201cduring direct service with the Member, as clinically indicated but no less than 10 percent of direct service hours and should not exceed 25 percent of direct hours without documented clinical rationale.\u201d For members engaged in 10 hours or less of direct treatment per month, the LABA must deliver a minimum of one hour of direct supervision per month. The Behavior Technician works under the direct supervision of a LABA licensed per 262 CMR 10.00 \u2014 a BCBA certificate alone does not qualify \u2014 and the provider agency must ensure LABAs supervise all BTs and that every staff member has had a background record check.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not resolved in the published Massachusetts documents. The performance specification does carry one concurrency prohibition, but it is about siblings, not codes: in group caregiver training, \u201cproviders may not bill concurrently for services delivered to multiple children from the same family. When a parent/caregiver has more than one child receiving services, only one child\u2019s session may be billed at a time.\u201d The spec requires LABA supervision to be delivered during the BT\u2019s direct service with the member, and MassHealth\u2019s CY2024 audit measured 97155 hours against 97153 hours \u2014 but neither document states in terms that both codes may be billed for the same clock time.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Carelon/MBHP provider relations via ProviderConnect.',
+      },
+      dailyLimits: {
+        value:
+          'Massachusetts is a no-cap state that nonetheless has one published per-day number. There are no annual, lifetime or unit-of-service ceilings on the EPSDT benefit, and 101 CMR 358.03 is a rate regulation, not a limit regulation \u2014 it fixes per-15-minute rates and states they are \u201cfull compensation\u201d including \u201cnecessary administration and professional supervision associated with patient care.\u201d The only per-day cap in the performance specification is for group instruction, which \u201cmay occur up to 4.5 hours a day as clinically indicated, in groups of 2-8 Members.\u201d No per-code MUE regime is published, so what bites in practice is medical-necessity review and the supervision-ratio audit, not a unit edit.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }, { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }],
+      },
+      noteSignature: {
+        value:
+          'Both clinicians document, and the spec says what the note must contain rather than who countersigns it. \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d and session notes must include how treatment time was utilized, the treatment interventions utilized, and the member\u2019s response to treatment. The complete record must also hold referral and assessment documentation, treatment plans and progress reports, \u201cevidence of supervision and training, including policies, procedures, and implementation,\u201d the IEP and IFSP where applicable, and documentation confirming PCP physical examinations. No co-signature requirement and no signing deadline are stated.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Home and community, with school carved out. ABA \u201cis delivered by a contracted and credentialed provider in a variety of settings within a Member\u2019s home and community,\u201d and \u201cservices provided in a school setting are distinct and separate from those covered by the health plan and are typically covered by the educational system\u2019s special education resources as part of the Individualized Education Program (IEP) pursuant to Public Law 94-142.\u201d Providers \u201cmust not direct, limit, or discourage access to other medically necessary or school-based services.\u201d Transition planning contemplates moving a member \u201cfrom a center based setting to home/community settings,\u201d so centers are in scope. Group homes are not addressed.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Group homes are not addressed in the specification \u2014 confirm with MBHP before scheduling.',
+      },
+      billAsProvider: {
+        value:
+          'Not published. Neither 101 CMR 358 nor the ABA performance specification names whose NPI carries the claim for technician-delivered 97153, and the rate regulation is explicitly single-tier \u2014 one rate per code, no credential-level modifiers \u2014 so there is no modifier to signal the renderer.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Carelon/MBHP provider relations; the performance specification governs service delivery, not claim identity.',
+      },
+    },
     pill: 'Payer Guide · MBHP (Carelon)',
     h1: 'MBHP ABA coverage (MassHealth behavioral-health administrator).',
     metaTitle: 'MBHP (MassHealth) ABA Coverage & Prior Authorization | Carelu',
@@ -174,6 +262,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Carelon Behavioral Health — Massachusetts forms & guides', url: 'https://www.carelonbehavioralhealth.com/providers/forms-and-guides/ma' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
+      { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
+      { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
     ],
     faq: [
       { q: 'Who does MBHP cover for ABA?', a: 'MassHealth members on the PCC Plan and the Primary Care ACOs, plus Health New England\'s BeHealthy Partnership — everyone whose plan doesn\'t bring its own BH administrator. It applies the state-baseline criteria and the Massachusetts Standard ABA PA Form.' },
@@ -190,6 +280,39 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; the plan\'s form also carries the 1/1/2026 Down syndrome pathway',
     payer: 'WellSense Health Plan',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    deliveryRules: {
+      supervision: {
+        value:
+          'WellSense brought behavioral health in-house effective January 1, 2026, and has not republished a public ABA supervision standard for its MassHealth products. The MassHealth-wide floor \u2014 no less than 10% of direct service hours of LABA supervision, not above 25% without documented clinical rationale \u2014 is what the state audited CY2024 encounters against, including WellSense\u2019s.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'WellSense\u2019s own ABA medical policy and its reimbursement policies in PolicyTech \u2014 the plan\u2019s medical-policy notices direct providers to \u201creview the Plan\u2019s reimbursement policies for Plan billing guidelines.\u201d',
+      },
+      concurrentBilling: {
+        value:
+          'Not published for WellSense\u2019s MassHealth products.',
+        status: 'unverified',
+        verifyVia:
+          'WellSense provider services / PolicyTech reimbursement policies. Note that WellSense\u2019s posted ABA medical policy covers the MA Clarity (ConnectorCare) product, not the MassHealth line.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. The WellSense Massachusetts provider manual (effective January 1, 2026) requires prior authorization on the ABA Prior Auth form for both initial and continued services \u2014 for autism and, separately, for Down syndrome \u2014 with criteria drawn from internal medical policy for Medicaid and InterQual for MA Clarity, but sets no per-day unit ceiling.',
+        status: 'unverified',
+        cites: [{ title: 'WellSense Health Plan \u2014 Massachusetts Provider Manual (eff. Jan. 1, 2026)', url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/MA_Provider_Manual.pdf' }],
+        verifyVia:
+          'WellSense reimbursement policies in PolicyTech.',
+      },
+      placeOfService: {
+        value:
+          'Home and community, with school carved out. ABA \u201cis delivered by a contracted and credentialed provider in a variety of settings within a Member\u2019s home and community,\u201d and \u201cservices provided in a school setting are distinct and separate from those covered by the health plan and are typically covered by the educational system\u2019s special education resources as part of the Individualized Education Program (IEP) pursuant to Public Law 94-142.\u201d Providers \u201cmust not direct, limit, or discourage access to other medically necessary or school-based services.\u201d Transition planning contemplates moving a member \u201cfrom a center based setting to home/community settings,\u201d so centers are in scope. Group homes are not addressed. WellSense publishes no deviation from this MassHealth-wide position.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'WellSense provider services.',
+      },
+    },
     pill: 'Payer Guide · WellSense',
     h1: 'WellSense Health Plan ABA coverage (MassHealth MCO + ACPPs).',
     metaTitle: 'WellSense Health Plan (MassHealth) ABA Coverage & Prior Auth | Carelu',
@@ -240,6 +363,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'WellSense ABA PA Form (MassHealth, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
       { title: 'WellSense Prior Authorization Matrix (eff. 7/1/2026)', url: 'https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
+      { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
+      { title: 'WellSense Health Plan \u2014 Massachusetts Provider Manual (eff. Jan. 1, 2026)', url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/MA_Provider_Manual.pdf' },
     ],
     faq: [
       { q: 'Does WellSense cover ABA therapy?', a: 'Yes — across the WellSense Essential MCO and its eight MassHealth ACPPs, on the state-baseline benefit: EPSDT under 21, no caps, PA on all services via the Massachusetts Standard ABA PA Form. Behavioral health, including ABA, has been administered in-house by WellSense since January 1, 2026 (previously Carelon).' },
@@ -256,6 +381,32 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD; covers sole-diagnosis Down syndrome effective 1/1/2026 (incl. Tufts Health Together)',
     payer: 'Tufts Health Together (Point32Health)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Point32Health runs Tufts Health Public Plans behavioral-health review in-house and has not published an ABA supervision ratio for the Together product. Point32Health\u2019s October 2025 update moved commercial and Tufts Health Direct ABA review onto InterQual criteria from January 1, 2026, and Together members use Point32Health\u2019s own ABA prior-authorization form rather than the Massachusetts standard form \u2014 but neither document states a supervision percentage. The MassHealth-wide 10\u201325% band remains the state-level floor the CY2024 audit was run against.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Point32Health provider services / the Tufts Health Public Plans provider manual; note the Together MCO was slated for discontinuation effective January 1, 2026, so confirm the member\u2019s current product first.',
+      },
+      dailyLimits: {
+        value:
+          'Massachusetts is a no-cap state that nonetheless has one published per-day number. There are no annual, lifetime or unit-of-service ceilings on the EPSDT benefit, and 101 CMR 358.03 is a rate regulation, not a limit regulation \u2014 it fixes per-15-minute rates and states they are \u201cfull compensation\u201d including \u201cnecessary administration and professional supervision associated with patient care.\u201d The only per-day cap in the performance specification is for group instruction, which \u201cmay occur up to 4.5 hours a day as clinically indicated, in groups of 2-8 Members.\u201d No per-code MUE regime is published, so what bites in practice is medical-necessity review and the supervision-ratio audit, not a unit edit. No Together-specific per-day edit is published.',
+        status: 'unverified',
+        cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }],
+        verifyVia:
+          'Point32Health provider services.',
+      },
+      placeOfService: {
+        value:
+          'Home and community, with school carved out. ABA \u201cis delivered by a contracted and credentialed provider in a variety of settings within a Member\u2019s home and community,\u201d and \u201cservices provided in a school setting are distinct and separate from those covered by the health plan and are typically covered by the educational system\u2019s special education resources as part of the Individualized Education Program (IEP) pursuant to Public Law 94-142.\u201d Providers \u201cmust not direct, limit, or discourage access to other medically necessary or school-based services.\u201d Transition planning contemplates moving a member \u201cfrom a center based setting to home/community settings,\u201d so centers are in scope. Group homes are not addressed. No Together-specific deviation is published.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Point32Health provider services.',
+      },
+    },
     pill: 'Payer Guide · Tufts Health Together',
     h1: 'Tufts Health Together ABA coverage (ACPPs only, since the 1/1/2026 MCO discontinuation).',
     metaTitle: 'Tufts Health Together (MassHealth) ABA Coverage & Prior Auth | Carelu',
@@ -309,6 +460,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
       { title: 'Tufts Health Together ABA Medical Necessity Guideline (PDF)', url: 'https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/11/ABA-THP-Together.MNG_.pdf' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
+      { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
+      { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
     ],
     faq: [
       { q: 'Is the Tufts Health Together MCO still active?', a: 'No — MassHealth discontinued the Tufts Health Together MCO product effective January 1, 2026 (All Provider Bulletin 410). Only the two ACPPs, with Cambridge Health Alliance and with UMass Memorial Health, remain active.' },
@@ -326,6 +479,32 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
     payer: 'Fallon Health (MassHealth ACPPs)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Fallon\u2019s MassHealth ACPPs route ABA to Carelon, and the MassHealth-wide supervision band is the floor the state audited against: no less than 10% of Behavior Technician direct service hours in LABA supervision, not above 25% without documented clinical rationale, minimum one hour per month for members at 10 or fewer direct hours per month. The specification published at providers.masspartnership.com is MBHP\u2019s; Carelon has not published a separate Fallon-specific ABA specification that could be located.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Carelon Behavioral Health provider relations for the Fallon line of business \u2014 confirm whether the MBHP performance specification is applied verbatim.',
+      },
+      dailyLimits: {
+        value:
+          'Massachusetts is a no-cap state that nonetheless has one published per-day number. There are no annual, lifetime or unit-of-service ceilings on the EPSDT benefit, and 101 CMR 358.03 is a rate regulation, not a limit regulation \u2014 it fixes per-15-minute rates and states they are \u201cfull compensation\u201d including \u201cnecessary administration and professional supervision associated with patient care.\u201d The only per-day cap in the performance specification is for group instruction, which \u201cmay occur up to 4.5 hours a day as clinically indicated, in groups of 2-8 Members.\u201d No per-code MUE regime is published, so what bites in practice is medical-necessity review and the supervision-ratio audit, not a unit edit.',
+        status: 'unverified',
+        cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }],
+        verifyVia:
+          'Carelon provider relations for Fallon; the rate regulation is statewide, the claim edits are not.',
+      },
+      placeOfService: {
+        value:
+          'Home and community, with school carved out. ABA \u201cis delivered by a contracted and credentialed provider in a variety of settings within a Member\u2019s home and community,\u201d and \u201cservices provided in a school setting are distinct and separate from those covered by the health plan and are typically covered by the educational system\u2019s special education resources as part of the Individualized Education Program (IEP) pursuant to Public Law 94-142.\u201d Providers \u201cmust not direct, limit, or discourage access to other medically necessary or school-based services.\u201d Transition planning contemplates moving a member \u201cfrom a center based setting to home/community settings,\u201d so centers are in scope. Group homes are not addressed. No Fallon-specific deviation was located.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Carelon provider relations for the Fallon line of business.',
+      },
+    },
     pill: 'Payer Guide · Fallon Health',
     h1: 'Fallon Health ABA coverage (MassHealth ACPPs).',
     metaTitle: 'Fallon Health (MassHealth) ABA Coverage & Prior Auth | Carelu',
@@ -372,6 +551,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
+      { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
+      { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
     ],
     faq: [
       { q: 'Does Fallon Health cover ABA?', a: 'Yes — its MassHealth ACPPs carry the state-baseline EPSDT benefit, with behavioral health (including ABA authorization) administered by Carelon on the Massachusetts Standard ABA PA Form in 6-month periods.' },
@@ -387,6 +568,40 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
     payer: 'Health New England — BeHealthy Partnership',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    deliveryRules: {
+      supervision: {
+        value:
+          'BeHealthy Partnership members route their ABA to MBHP, so the Carelon/MBHP performance specification is the operative rule. LABA supervision must be delivered to Behavior Technician-level staff \u201cduring direct service with the Member, as clinically indicated but no less than 10 percent of direct service hours and should not exceed 25 percent of direct hours without documented clinical rationale.\u201d For members engaged in 10 hours or less of direct treatment per month, the LABA must deliver a minimum of one hour of direct supervision per month. The Behavior Technician works under the direct supervision of a LABA licensed per 262 CMR 10.00 \u2014 a BCBA certificate alone does not qualify \u2014 and the provider agency must ensure LABAs supervise all BTs and that every staff member has had a background record check.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Confirm the member\u2019s plan still routes to MBHP at intake \u2014 the MassHealth BH-administrator map has changed twice since 2025.',
+      },
+      concurrentBilling: {
+        value:
+          'Not resolved in the published Massachusetts documents. The performance specification does carry one concurrency prohibition, but it is about siblings, not codes: in group caregiver training, \u201cproviders may not bill concurrently for services delivered to multiple children from the same family. When a parent/caregiver has more than one child receiving services, only one child\u2019s session may be billed at a time.\u201d The spec requires LABA supervision to be delivered during the BT\u2019s direct service with the member, and MassHealth\u2019s CY2024 audit measured 97155 hours against 97153 hours \u2014 but neither document states in terms that both codes may be billed for the same clock time.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Carelon/MBHP provider relations via ProviderConnect.',
+      },
+      noteSignature: {
+        value:
+          'Both clinicians document, and the spec says what the note must contain rather than who countersigns it. \u201cThe LABA and BT document each contact in a progress report or notes in the ABA provider\u2019s file for the Member,\u201d and session notes must include how treatment time was utilized, the treatment interventions utilized, and the member\u2019s response to treatment. The complete record must also hold referral and assessment documentation, treatment plans and progress reports, \u201cevidence of supervision and training, including policies, procedures, and implementation,\u201d the IEP and IFSP where applicable, and documentation confirming PCP physical examinations. No co-signature requirement and no signing deadline are stated.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Confirm MBHP routing for the specific member.',
+      },
+      placeOfService: {
+        value:
+          'Home and community, with school carved out. ABA \u201cis delivered by a contracted and credentialed provider in a variety of settings within a Member\u2019s home and community,\u201d and \u201cservices provided in a school setting are distinct and separate from those covered by the health plan and are typically covered by the educational system\u2019s special education resources as part of the Individualized Education Program (IEP) pursuant to Public Law 94-142.\u201d Providers \u201cmust not direct, limit, or discourage access to other medically necessary or school-based services.\u201d Transition planning contemplates moving a member \u201cfrom a center based setting to home/community settings,\u201d so centers are in scope. Group homes are not addressed.',
+        status: 'verified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Confirm MBHP routing for the specific member.',
+      },
+    },
     pill: 'Payer Guide · HNE BeHealthy',
     h1: 'Health New England BeHealthy Partnership ABA coverage (MassHealth ACPP).',
     metaTitle: 'HNE BeHealthy Partnership (MassHealth) ABA Coverage & Prior Auth | Carelu',
@@ -433,6 +648,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'MBHP provider portal — ProviderConnect', url: 'https://providers.masspartnership.com/provider/GettingStarted.html' },
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
+      { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
     ],
     faq: [
       { q: 'Does HNE\'s BeHealthy Partnership cover ABA?', a: 'Yes — the state-baseline MassHealth EPSDT benefit, with behavioral health administered by MBHP (Carelon): standard PA form, 6-month authorizations, no published caps.' },
@@ -448,6 +664,32 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD via comprehensive DSM-aligned assessment; from 1/1/2026 also sole-diagnosis Down syndrome (state baseline)',
     payer: 'Mass General Brigham Health Plan (MassHealth ACPP)',
     state: 'MA', kind: 'medicaid-mco', parent: 'MassHealth',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Mass General Brigham Health Plan routes ABA to Optum, but Optum\u2019s published ABA reimbursement policy is a commercial document and its ABA State Mandates entry for Massachusetts is scoped to Medicaid Early Intervention members \u2014 for whom it requires \u201csupervision by a Board-Certified Behavior Analyst (BCBA) to a paraprofessional \u2026 at the 1:10 ratio (one hour of supervision to ten hours of direct service),\u201d with services not to exceed 30 hours per week. Neither document states the supervision standard Optum applies to the MassHealth ACPP line, where the MassHealth-wide 10\u201325% band is the state floor.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Optum Care Advocate / Provider Express for the Mass General Brigham Health Plan line of business.',
+      },
+      dailyLimits: {
+        value:
+          'Massachusetts is a no-cap state that nonetheless has one published per-day number. There are no annual, lifetime or unit-of-service ceilings on the EPSDT benefit, and 101 CMR 358.03 is a rate regulation, not a limit regulation \u2014 it fixes per-15-minute rates and states they are \u201cfull compensation\u201d including \u201cnecessary administration and professional supervision associated with patient care.\u201d The only per-day cap in the performance specification is for group instruction, which \u201cmay occur up to 4.5 hours a day as clinically indicated, in groups of 2-8 Members.\u201d No per-code MUE regime is published, so what bites in practice is medical-necessity review and the supervision-ratio audit, not a unit edit. Optum\u2019s own per-day table (97153 32 units, 97155 24 units and so on) belongs to its commercial ABA reimbursement policy and should not be assumed onto this MassHealth product.',
+        status: 'unverified',
+        cites: [{ title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' }],
+        verifyVia:
+          'Optum provider services for the MGB Health Plan line.',
+      },
+      placeOfService: {
+        value:
+          'Home and community, with school carved out. ABA \u201cis delivered by a contracted and credentialed provider in a variety of settings within a Member\u2019s home and community,\u201d and \u201cservices provided in a school setting are distinct and separate from those covered by the health plan and are typically covered by the educational system\u2019s special education resources as part of the Individualized Education Program (IEP) pursuant to Public Law 94-142.\u201d Providers \u201cmust not direct, limit, or discourage access to other medically necessary or school-based services.\u201d Transition planning contemplates moving a member \u201cfrom a center based setting to home/community settings,\u201d so centers are in scope. Group homes are not addressed. No MGB-specific deviation is published.',
+        status: 'unverified',
+        cites: [{ title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' }],
+        verifyVia:
+          'Optum Care Advocate for the MGB Health Plan line.',
+      },
+    },
     pill: 'Payer Guide · MGB Health Plan',
     h1: 'Mass General Brigham Health Plan ABA coverage (MassHealth ACPP).',
     metaTitle: 'Mass General Brigham Health Plan (MassHealth) ABA Coverage & Prior Auth | Carelu',
@@ -496,6 +738,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
+      { title: 'Carelon/MBHP Performance Specifications \u2014 Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
+      { title: '101 CMR 358.03 Rate Provisions (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/101-CMR-358-03' },
     ],
     faq: [
       { q: 'Does Mass General Brigham Health Plan cover ABA?', a: 'Yes — the MassHealth EPSDT benefit, administered through Optum Behavioral Health under Optum\'s ABA criteria plus its Massachusetts state-mandate supplement. PA is required for assessment and treatment.' },
@@ -513,6 +757,49 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only (F84.0–F84.9) under CPB 0554; fully-insured MA plans must also cover sole-diagnosis Down syndrome from 1/1/2026 (Ch. 388)',
     payer: 'Aetna in Massachusetts',
     state: 'MA', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Aetna sets a duty, not a number. Where a state mandate, plan document or contract allows services from someone neither state-licensed nor BACB-certified, \u201cthere must be supervision and direction of the unlicensed or non-certified providers in line with practice standards.\u201d The ABA Medical Necessity Guide publishes no supervision percentage, ratio or caseload cap \u2014 the operative standard is professional practice plus whatever the contract adds.',
+        status: 'verified',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither the ABA Medical Necessity Guide nor Aetna\u2019s clinical policy bulletin on ABA addresses whether 97153 and 97155 may be billed for the same clock time; Aetna carries the concurrency question in its claim editing rather than in a public policy.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna precertification/provider services at the number on the member\u2019s ID card, and the plan\u2019s own reimbursement schedule \u2014 ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. Aetna\u2019s ABA documents set medical-necessity criteria and precertification requirements for 97151\u201397158, 0362T and 0373T, but no per-day unit ceiling and no statement of which MUE table applies.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+      },
+      noteSignature: {
+        value:
+          'Not published in Aetna\u2019s ABA materials \u2014 no rule on who signs a session note or within what window.',
+        status: 'unverified',
+        verifyVia:
+          'The Aetna provider manual and your participation agreement\u2019s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'Aetna does not publish a POS code list for ABA. The one place-of-service boundary it does state is the schools carve-out: pursuant to applicable law Aetna \u201cis not required [to] provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act.\u201d That is a limit on paying for what the IEP owes, not a blanket ban on the school setting \u2014 and it yields to a stronger state mandate. Where ABA is payable in a school, in the community or in a group home is a benefit-document question on Aetna plans. In Massachusetts the schools carve-out sits alongside ARICA, which governs fully insured plans \u2014 so read the state mandate first on a fully insured member and the plan document first on a self-funded one.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'The member\u2019s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+      },
+      billAsProvider: {
+        value:
+          'The claim carries the analyst, not the technician. \u201cServices must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise.\u201d The escape clause matters: a state mandate or your contract can move the line, so confirm before enrolling technicians.',
+        status: 'verified',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Aetna · Massachusetts',
     h1: 'Aetna ABA coverage in Massachusetts: the intake guide.',
     metaTitle: 'Aetna ABA Coverage in Massachusetts: Prior Auth & ARICA Guide | Carelu',
@@ -585,6 +872,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Session Law — Acts of 2010, Chapter 207 (malegislature.gov)', url: 'https://malegislature.gov/Laws/SessionLaws/Acts/2010/Chapter207' },
       { title: 'The Arc of Massachusetts — Down syndrome ABA expansion', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' },
       { title: '262 CMR 10.00 — LABA/LAABA licensure requirements (mass.gov)', url: 'https://www.mass.gov/regulations/262-CMR-1000-requirements-for-licensure-as-an-applied-behavior-analyst-and-assistant-applied-behavior-analyst' },
+      { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Massachusetts?', a: 'Yes — under the carrier\'s national policy for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -603,6 +891,50 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499; fully-insured MA plans must also cover sole-diagnosis Down syndrome from 1/1/2026 (Ch. 388)',
     payer: 'Cigna / Evernorth in Massachusetts',
     state: 'MA', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Not published as a ratio. The Evernorth autism resource guide governs credentialing and billing rather than supervision intensity, and Evernorth publishes no percentage floor or caseload cap for technician supervision.',
+        status: 'unverified',
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273, and the Intensive Behavioral Interventions coverage policy (EN0499).',
+      },
+      concurrentBilling: {
+        value:
+          'Yes \u2014 and Evernorth writes it as an explicit carve-out from its general rule: \u201cOnly one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).\u201d Both must be with the patient; analyst time away from the patient is not inside the exception.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Not published. The resource guide sets the code set (97151\u201397158, 0362T, 0373T only, all in 15-minute increments) but no per-day unit ceiling and no statement of which MUE table Evernorth applies.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273.',
+      },
+      noteSignature: {
+        value:
+          'Not published in the autism resource guide \u2014 no rule on who signs a session note or when.',
+        status: 'unverified',
+        verifyVia:
+          'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+      },
+      placeOfService: {
+        value:
+          'Only the telehealth half is published: \u201call ABA CPT codes are covered telehealth services,\u201d subject to the Intensive Behavioral Interventions coverage policy (EN0499). The guide states no school, community or group-home rule.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\u2019s benefit document.',
+      },
+      billAsProvider: {
+        value:
+          'Under the supervising provider, because the technician cannot be credentialed: \u201cEvernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.\u201d Practically, the BCBA\u2019s credential is what the claim rides on for technician-delivered 97153.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Cigna · Massachusetts',
     h1: 'Cigna / Evernorth ABA coverage in Massachusetts: the intake guide.',
     metaTitle: 'Cigna ABA Coverage in Massachusetts: Prior Auth & ARICA Guide | Carelu',
@@ -690,6 +1022,48 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.); MA commercial members also covered for sole-diagnosis Down syndrome eff. 1/1/2026 (Optum state-mandate supplement)',
     payer: 'UnitedHealthcare / Optum in Massachusetts',
     state: 'MA', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Optum\u2019s commercial reimbursement policy publishes no supervision percentage or caseload cap \u2014 it refers providers to the ABA Coding Coalition for supervision requirements. What it does police is the boundary: \u201cCPT codes 97153 and 97155 may not be billed for technician training,\u201d including training a technician new to the organization on a client\u2019s programming or on reassessment-driven goal changes. And 97155 \u201cshould be reported only for services where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient\u201d \u2014 treatment planning is an indirect service and not separately reimbursable.',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Yes, with a single-provider exclusion. \u201cCan I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.\u201d So the concurrency has to be two people \u2014 technician on 97153, analyst on 97155 directing them with the patient present. Separately, 97155 and 97156 may both pay on the same date of service only if the services are separate, distinct and clearly documented; \u201ca single provider can\u2019t bill for both simultaneously (e.g., in the same 15-minute block).\u201d',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Optum publishes its own per-day table on top of CMS MUEs \u2014 maximum frequency per day: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs). MUEs otherwise apply per CMS guidance, and billing above 32 units/day of 97153 \u201cmay be subject to non-reimbursement or recovery.\u201d Time is counted on the CMS 15-minute rule (1 unit at \u2265 8 minutes, 2 at \u2265 23, and so on).',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No signature rule is published, but the documentation burden is explicit where money turns on it: services billed on the same date must be \u201cseparate, distinct, and clearly documented in the progress notes,\u201d and if documentation does not clearly separate them the claim may be denied. Who signs, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        verifyVia:
+          'The UnitedHealthcare/Optum provider manual and your participation agreement\u2019s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'The commercial ABA reimbursement policy sets no place-of-service rule. Optum\u2019s published ABA State Mandates document does carry Massachusetts entries, but they are scoped \u2014 one to Medicaid Early Intervention members (\u2264 30 hours per week, 1:10 BCBA supervision), one to the commercial Down syndrome coverage effective January 1, 2026 \u2014 and neither is a place-of-service rule.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'UnitedHealthcare provider services and the member\u2019s benefit document.',
+      },
+      billAsProvider: {
+        value:
+          'One provider-level modifier per line, matching whoever actually rendered the service: HM = Registered Behavior Technician (less than bachelor\u2019s level), HN = BCaBA (bachelor\u2019s level), HO = BCBA or master\u2019s-level licensed clinician, HP = BCBA-D or doctoral-level licensed clinician. A billable ABA-supervisor service is billed with the applicable CPT code plus HO. Stacking level modifiers is a denial risk: \u201cBilling multiple provider-level modifiers (HN, HM, HO, HP) on the same service line same service and same DOS is not appropriate and may result in claim denial.\u201d Indirect work has no code of its own \u2014 it is bundled into the direct-service code.',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+    },
     pill: 'Payer Guide · UnitedHealthcare · Massachusetts',
     h1: 'UnitedHealthcare / Optum ABA coverage in Massachusetts: the intake guide.',
     metaTitle: 'UnitedHealthcare ABA Coverage in Massachusetts: Prior Auth & ARICA Guide | Carelu',
@@ -769,6 +1143,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Session Law — Acts of 2010, Chapter 207 (malegislature.gov)', url: 'https://malegislature.gov/Laws/SessionLaws/Acts/2010/Chapter207' },
       { title: 'The Arc of Massachusetts — Down syndrome ABA expansion', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' },
       { title: '262 CMR 10.00 — LABA/LAABA licensure requirements (mass.gov)', url: 'https://www.mass.gov/regulations/262-CMR-1000-requirements-for-licensure-as-an-applied-behavior-analyst-and-assistant-applied-behavior-analyst' },
+      { title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Massachusetts?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },

@@ -51,22 +51,6 @@ const FINDINGS: Finding[] = [
     bar: 35,
   },
   {
-    stat: '0',
-    statSuffix: ' / 114',
-    title: 'providers let a family book an appointment during first contact.',
-    body: 'Not a single provider in the fleet offered calendar booking inside the first conversation. Every family who wants to move forward is asked to wait for a callback — and every wait is a chance to keep shopping. It\'s the single most striking gap in the dataset.',
-    n: 'n = 114 active ABA provider configurations',
-    bar: 2,
-  },
-  {
-    stat: '40',
-    statSuffix: '%',
-    title: 'of captured "leads" are actually job seekers.',
-    body: 'Four in ten people who reach out through provider websites aren\'t families seeking care — they\'re RBTs and behavior techs looking for work. Practices that don\'t triage this burn intake hours on the wrong queue (and quietly sit on a hiring channel they\'re not using).',
-    n: 'n = 12,600 classified inquiries',
-    bar: 40,
-  },
-  {
     stat: '46',
     statSuffix: '%',
     title: 'of families report Medicaid as their payer.',
@@ -81,18 +65,6 @@ const FINDINGS: Finding[] = [
     body: 'More than a fifth of inquiries arrive pre-diagnosis. Most practices turn these families away with "come back when you have the report" — losing them permanently. The providers who guide them to diagnostic partners own the relationship when the diagnosis lands.',
     n: 'n = 29,021 captured family leads; diagnosis status disclosed in conversation',
     bar: 22,
-  },
-  {
-    stat: '2',
-    statSuffix: '%',
-    title: 'of providers re-engage families who go quiet.',
-    body: 'Only 2% of providers had any automated re-engagement running. Combined with the after-hours gap, the picture is stark: families are lost not to competitors\' brilliance but to silence. Meanwhile 71% of providers run an identical, default first message — word for word the same greeting as the practice down the street.',
-    n: 'n = 112–114 active provider configurations',
-    bar: 2,
-    compare: [
-      { label: 'Providers with re-engagement on', value: 2, accent: true },
-      { label: 'Providers running the identical default greeting', value: 71 },
-    ],
   },
   {
     stat: '7',
@@ -124,7 +96,7 @@ function useReportJsonLd() {
       url: 'https://carelu.com/research/the-intake-gap',
       datePublished: '2026-07-19',
       description:
-        'Original research on ABA intake: 185,054 family conversations across 120 ABA provider organizations in 48 states, aggregated and de-identified. Key findings: 48% of conversations start after hours, 40% of leads are job seekers, 46% Medicaid payer mix, and 0 of 114 providers offer in-conversation booking.',
+        'Original research on ABA intake: 185,054 family conversations across 120 ABA provider organizations in 48 states, aggregated and de-identified. Key findings: 48% of conversations start after hours, 46% Medicaid payer mix, 22% of families reach out before a diagnosis, and +35% median same-store growth in family demand year over year.',
       author: { '@type': 'Organization', name: 'Carelu Research', url: 'https://carelu.com/' },
       publisher: { '@id': 'https://carelu.com/#organization' },
     });
@@ -150,7 +122,7 @@ export default function IntakeGapReport() {
   useSeo({
     title: 'The Intake Gap — ABA Intake Data Report | Carelu Research',
     description:
-      'Original research from 185,054 family conversations across 120 ABA providers in 48 states: 48% of conversations start after hours, 40% of leads are job seekers, 46% are Medicaid, and 0 of 114 providers offer in-conversation booking.',
+      'Original research from 185,054 family conversations across 120 ABA providers in 48 states: 48% of conversations start after hours, 46% are Medicaid, 22% reach out before a diagnosis, and demand is growing 35% year over year.',
     canonical: '/research/the-intake-gap',
   });
   useReportJsonLd();
@@ -372,8 +344,8 @@ export default function IntakeGapReport() {
               color: INK, lineHeight: 1.35, letterSpacing: '-0.01em', margin: 0,
             }}>
               Demand is growing 35% a year, but the machinery to receive it hasn't been built:
-              nearly half of families arrive when no one answers, none can book an appointment
-              when they do get through, and almost no one follows up when they go quiet.
+              nearly half of families arrive when no one answers, more than a fifth are still
+              waiting on a diagnosis, and half the funnel is Medicaid.
               The growth most providers are buying with marketing is already sitting,
               unanswered, inside their own funnel.
             </p>

@@ -9,6 +9,51 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional; a comprehensive diagnostic evaluation is not required',
     payer: 'NJ FamilyCare (New Jersey Medicaid)',
     state: 'NJ', kind: 'state-medicaid',
+    deliveryRules: {
+      supervision: {
+        value:
+          'New Jersey names the supervisory relationship but publishes no percentage or caseload cap. An RBT \u2014 high school diploma or GED, the 40-hour training, a passed competency exam \u2014 \u201cmust practice under the close, ongoing supervision of a BCBA-D, BCBA or BCaBA\u201d; a BCaBA \u201cmay only practice under the supervision of a BCBA or BCBA-D\u201d and may in turn supervise an RBT. The economic definition of supervision is billing-side: supervisory time counts only as 97155, and only while the technician and the patient are both present. The state\u2019s Medicaid rules add no supervision ratio of their own, so the BACB floor and your MCO contract are what bind.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Whether your MCO layers a ratio on top \u2014 the state newsletter does not.',
+      },
+      concurrentBilling: {
+        value:
+          'New Jersey says yes, in writing, and draws the line precisely. \u201cIf the QHP is overseeing the activities of the technician, the time of direct supervision by the QHP shall be concurrently billable using code 97155.\u201d But \u201cbilling for 97155 is limited to time where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient. Billing for supervision where the technician is not present is not allowed.\u201d Two other concurrency rules ride along: 97156 may be billed while the RBT delivers direct treatment to the child \u201cin a separate location\u201d; and for 0373T \u201cproviders may not bill for the QHP time concurrently\u201d and billing is limited to a single technician\u2019s face-to-face time, never the combined time of multiple technicians (three technicians for two hours bills eight units, not twenty-four).',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'Not addressed by the state. The founding newsletter sets codes, rates, unit guidance, provider specialties and place of service but carries no session-note signature rule and no timeframe.',
+        status: 'unverified',
+        verifyVia:
+          'The member\u2019s MCO provider manual; DMAHS\u2019s dedicated Autism Line for ABA and DIR services (609-588-8522 / MAHS.ASDinquiries@dhs.nj.gov) is the state-side route.',
+      },
+      placeOfService: {
+        value:
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither.',
+        status: 'plan-dependent',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Confirm school-setting delivery with the specific MCO before building a school-based program \u2014 the 2020 state prohibition and the 2026 Optum entry cannot both be operative.',
+      },
+      billAsProvider: {
+        value:
+          'New Jersey controls this through allowable provider specialties per code rather than a modifier set. 97152 and 97153 may be rendered by an RBT or BCaBA; 97151, 97155, 97157 and 97158 by a BCBA or BCBA-D; 97156 by a BCBA-D, BCBA or BCaBA; 97154 by either tier; 0362T and 0373T by a BCBA-D or BCBA \u201cwith 2 or more RBT or BCaBAs.\u201d On the fee-for-service side the enrolled entity is the \u201cApplied Behavior Analysis Treatment Provider,\u201d which attests on an agency Experience Attestation to the qualifications of each named BCBA-D, BCBA, BCaBA, RBT and BT it employs \u2014 technicians are listed under the agency\u2019s enrollment, not enrolled as billing providers in their own right.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'NJMMIS \u2014 ABA Treatment Provider FFS enrollment packet (Gainwell)', url: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf' }],
+        verifyVia:
+          'Each MCO\u2019s claim-submission requirements for rendering-provider identification \u2014 the state documents specify who may render, not which NPI goes in which claim field.',
+      },
+    },
     pill: 'Payer Guide · NJ FamilyCare',
     h1: 'NJ FamilyCare (New Jersey Medicaid) ABA coverage: the intake guide.',
     metaTitle: 'NJ FamilyCare ABA Coverage, Rates & Prior Authorization Guide | Carelu',
@@ -135,6 +180,39 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) with a diagnosis script from a qualified healthcare professional',
     payer: 'Horizon NJ Health',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
+    deliveryRules: {
+      concurrentBilling: {
+        value:
+          'New Jersey says yes, in writing, and draws the line precisely. \u201cIf the QHP is overseeing the activities of the technician, the time of direct supervision by the QHP shall be concurrently billable using code 97155.\u201d But \u201cbilling for 97155 is limited to time where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient. Billing for supervision where the technician is not present is not allowed.\u201d Two other concurrency rules ride along: 97156 may be billed while the RBT delivers direct treatment to the child \u201cin a separate location\u201d; and for 0373T \u201cproviders may not bill for the QHP time concurrently\u201d and billing is limited to a single technician\u2019s face-to-face time, never the combined time of multiple technicians (three technicians for two hours bills eight units, not twenty-four). This is NJ FamilyCare state policy and the operative floor for Horizon NJ Health; no plan-specific deviation was found in Horizon NJ Health\u2019s published material.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Horizon NJ Health provider services, to confirm the plan has not layered its own concurrency edit on top.',
+      },
+      dailyLimits: {
+        value:
+          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Horizon NJ Health publishes no daily table of its own, so the state guide is what to plan against.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Horizon NJ Health\u2019s provider manual / claim-edit list.',
+      },
+      noteSignature: {
+        value:
+          'Neither the state nor Horizon NJ Health publishes a session-note signature rule for ABA \u2014 no named signer and no timeframe.',
+        status: 'unverified',
+        verifyVia:
+          'Horizon NJ Health\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
+      },
+      placeOfService: {
+        value:
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. Neither position is republished by Horizon NJ Health, so resolve it with the plan before scheduling school-based sessions.',
+        status: 'plan-dependent',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Horizon NJ Health provider services.',
+      },
+    },
     pill: 'Payer Guide · Horizon NJ Health',
     h1: 'Horizon NJ Health ABA coverage (NJ FamilyCare MCO).',
     metaTitle: 'Horizon NJ Health ABA Coverage & Prior Authorization Guide | Carelu',
@@ -194,6 +272,8 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Horizon to Stop Using H0032 for ABA Services (eff. 7/15/2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/horizon-to-stop-using-h0032-for-aba-services' },
       { title: 'Horizon BCBSNJ reimbursement policy — ABA in Treatment of ASD', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
       { title: 'DMAHS BH Integration Points of Contact V3.1', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
+      { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+      { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
     ],
     faq: [
       { q: 'Does Horizon NJ Health cover ABA therapy?', a: 'Yes — it administers the NJ FamilyCare ABA benefit under EPSDT, with its own medical policy and MCG-based review layered on the state code set. Both assessment and treatment require prior authorization via NaviNet.' },
@@ -211,6 +291,39 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
     payer: 'Aetna Better Health of New Jersey',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
+    deliveryRules: {
+      concurrentBilling: {
+        value:
+          'New Jersey says yes, in writing, and draws the line precisely. \u201cIf the QHP is overseeing the activities of the technician, the time of direct supervision by the QHP shall be concurrently billable using code 97155.\u201d But \u201cbilling for 97155 is limited to time where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient. Billing for supervision where the technician is not present is not allowed.\u201d Two other concurrency rules ride along: 97156 may be billed while the RBT delivers direct treatment to the child \u201cin a separate location\u201d; and for 0373T \u201cproviders may not bill for the QHP time concurrently\u201d and billing is limited to a single technician\u2019s face-to-face time, never the combined time of multiple technicians (three technicians for two hours bills eight units, not twenty-four). This is NJ FamilyCare state policy and the operative floor for Aetna Better Health of New Jersey; no plan-specific deviation was found in Aetna Better Health of New Jersey\u2019s published material.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Aetna Better Health of New Jersey provider services, to confirm the plan has not layered its own concurrency edit on top.',
+      },
+      dailyLimits: {
+        value:
+          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Aetna Better Health of New Jersey publishes no daily table of its own, so the state guide is what to plan against.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Aetna Better Health of New Jersey\u2019s provider manual / claim-edit list.',
+      },
+      noteSignature: {
+        value:
+          'Neither the state nor Aetna Better Health of New Jersey publishes a session-note signature rule for ABA \u2014 no named signer and no timeframe.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna Better Health of New Jersey\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
+      },
+      placeOfService: {
+        value:
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. Neither position is republished by Aetna Better Health of New Jersey, so resolve it with the plan before scheduling school-based sessions.',
+        status: 'plan-dependent',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Aetna Better Health of New Jersey provider services.',
+      },
+    },
     pill: 'Payer Guide · Aetna Better Health (NJ)',
     h1: 'Aetna Better Health of New Jersey ABA coverage (NJ FamilyCare MCO).',
     metaTitle: 'Aetna Better Health of New Jersey ABA Coverage & Prior Auth | Carelu',
@@ -259,6 +372,8 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Aetna Better Health NJ — ABA Program rates (eff. 4/1/2020)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/pdf/Applied%20behavioral%20analysis%20program.pdf' },
       { title: 'DMAHS BH Integration Points of Contact V3.1 — Aetna ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
       { title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' },
+      { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+      { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
     ],
     faq: [
       { q: 'Does Aetna Better Health of New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit closest to the state baseline of all five MCOs, with a published rate sheet and unit limits copied from the DMAHS schedule. PA is required, via Availity or the BH prior auth form.' },
@@ -276,6 +391,39 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
     payer: 'Fidelis Care New Jersey (formerly WellCare)',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
+    deliveryRules: {
+      concurrentBilling: {
+        value:
+          'New Jersey says yes, in writing, and draws the line precisely. \u201cIf the QHP is overseeing the activities of the technician, the time of direct supervision by the QHP shall be concurrently billable using code 97155.\u201d But \u201cbilling for 97155 is limited to time where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient. Billing for supervision where the technician is not present is not allowed.\u201d Two other concurrency rules ride along: 97156 may be billed while the RBT delivers direct treatment to the child \u201cin a separate location\u201d; and for 0373T \u201cproviders may not bill for the QHP time concurrently\u201d and billing is limited to a single technician\u2019s face-to-face time, never the combined time of multiple technicians (three technicians for two hours bills eight units, not twenty-four). This is NJ FamilyCare state policy and the operative floor for Fidelis Care New Jersey; no plan-specific deviation was found in Fidelis Care New Jersey\u2019s published material.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Fidelis Care New Jersey provider services, to confirm the plan has not layered its own concurrency edit on top.',
+      },
+      dailyLimits: {
+        value:
+          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Fidelis Care New Jersey publishes no daily table of its own, so the state guide is what to plan against.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Fidelis Care New Jersey\u2019s provider manual / claim-edit list.',
+      },
+      noteSignature: {
+        value:
+          'Neither the state nor Fidelis Care New Jersey publishes a session-note signature rule for ABA \u2014 no named signer and no timeframe.',
+        status: 'unverified',
+        verifyVia:
+          'Fidelis Care New Jersey\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
+      },
+      placeOfService: {
+        value:
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. Neither position is republished by Fidelis Care New Jersey, so resolve it with the plan before scheduling school-based sessions.',
+        status: 'plan-dependent',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Fidelis Care New Jersey provider services.',
+      },
+    },
     pill: 'Payer Guide · Fidelis Care (NJ)',
     h1: 'Fidelis Care New Jersey ABA coverage (NJ FamilyCare MCO).',
     metaTitle: 'Fidelis Care New Jersey (NJ FamilyCare) ABA Coverage & Prior Auth | Carelu',
@@ -323,6 +471,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'DMAHS BH Integration Points of Contact V3.1 — Fidelis ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
       { title: 'Fidelis Care NJ — Authorizations', url: 'https://www.fideliscarenj.com/providers/medicaid/authorizations.html' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+      { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
     ],
     faq: [
       { q: 'Does Fidelis Care New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan). No plan-specific ABA policy is published, so the state baseline is the rulebook to plan against.' },
@@ -340,6 +489,53 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) by a physician or psychologist; a comprehensive diagnostic evaluation is NOT required (BH803ABASTM12026)',
     payer: 'UnitedHealthcare Community Plan (NJ FamilyCare)',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Optum runs looser than the state on paper: its NJ FamilyCare ABA provider orientation asks only that behavior technicians be high school graduates who \u201creceive appropriate training and supervision by BCBAs,\u201d with the BCBA performing skills assessments and providing \u201cdirect supervision of BCaBAs/Behavior Technicians in joint sessions.\u201d No percentage floor or caseload cap is published. Because state FFS policy names the RBT as the technician provider for 97152/97153, hire to the RBT standard \u2014 it satisfies both.',
+        status: 'verified',
+        cites: [{ title: 'Optum/UHC Community Plan \u2014 NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'New Jersey says yes, in writing, and draws the line precisely. \u201cIf the QHP is overseeing the activities of the technician, the time of direct supervision by the QHP shall be concurrently billable using code 97155.\u201d But \u201cbilling for 97155 is limited to time where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient. Billing for supervision where the technician is not present is not allowed.\u201d Two other concurrency rules ride along: 97156 may be billed while the RBT delivers direct treatment to the child \u201cin a separate location\u201d; and for 0373T \u201cproviders may not bill for the QHP time concurrently\u201d and billing is limited to a single technician\u2019s face-to-face time, never the combined time of multiple technicians (three technicians for two hours bills eight units, not twenty-four). This is NJ FamilyCare state policy and the operative floor for UnitedHealthcare Community Plan; no plan-specific deviation was found in UnitedHealthcare Community Plan\u2019s published material.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'UnitedHealthcare Community Plan provider services, to confirm the plan has not layered its own concurrency edit on top.',
+      },
+      dailyLimits: {
+        value:
+          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. UnitedHealthcare Community Plan publishes no daily table of its own, so the state guide is what to plan against.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'UnitedHealthcare Community Plan\u2019s provider manual / claim-edit list.',
+      },
+      noteSignature: {
+        value:
+          'Neither the state nor UnitedHealthcare Community Plan publishes a session-note signature rule for ABA \u2014 no named signer and no timeframe.',
+        status: 'unverified',
+        verifyVia:
+          'UnitedHealthcare Community Plan\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
+      },
+      placeOfService: {
+        value:
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. Optum adds one concrete billing instruction for the virtual half: ABA supervision and caregiver training delivered by telehealth are billed with the same code you would use in person \u2014 97155 or 97156 \u2014 plus place-of-service 02, and the practice must first be an approved Optum virtual-visits provider (attestation on Provider Express) and must flag virtual delivery to the Care Advocate at authorization.',
+        status: 'plan-dependent',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Optum/UHC Community Plan \u2014 NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+        verifyVia:
+          'Optum Care Advocate, for whether school-setting delivery is authorized on a given member.',
+      },
+      billAsProvider: {
+        value:
+          'Optum requires an NPI and taxonomy codes on every claim submitted for reimbursement. Which NPI carries technician-delivered 97153 \u2014 agency, supervising analyst, or rendering technician \u2014 is not stated in the NJ FamilyCare orientation; the state\u2019s own rule is that RBTs and BCaBAs are listed under the enrolled ABA Treatment Provider\u2019s agency enrollment rather than enrolled as billing providers.',
+        status: 'unverified',
+        cites: [{ title: 'Optum/UHC Community Plan \u2014 NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }, { title: 'NJMMIS \u2014 ABA Treatment Provider FFS enrollment packet (Gainwell)', url: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf' }],
+        verifyVia:
+          'Optum/UnitedHealthcare Community Plan provider services for the rendering-provider field on NJ FamilyCare ABA claims.',
+      },
+    },
     pill: 'Payer Guide · UHC Community Plan (NJ)',
     h1: 'UnitedHealthcare Community Plan of New Jersey ABA coverage (NJ FamilyCare MCO).',
     metaTitle: 'UHC Community Plan New Jersey (NJ FamilyCare) ABA Coverage & Prior Auth | Carelu',
@@ -386,6 +582,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'DMAHS BH Integration Points of Contact V3.1 — UHC/Optum ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
+      { title: 'Optum/UHC Community Plan \u2014 NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
+      { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+      { title: 'NJMMIS \u2014 ABA Treatment Provider FFS enrollment packet (Gainwell)', url: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of New Jersey cover ABA?', a: 'Yes — the NJ FamilyCare ABA benefit, administered by Optum Behavioral Health under Optum\'s criteria plus a dedicated NJ Medicaid entry (revised November 2025). Requests go through Provider Express\'s NJ ABA path.' },
@@ -403,6 +602,39 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
     payer: 'Wellpoint New Jersey (formerly Amerigroup)',
     state: 'NJ', kind: 'medicaid-mco', parent: 'NJ FamilyCare',
+    deliveryRules: {
+      concurrentBilling: {
+        value:
+          'New Jersey says yes, in writing, and draws the line precisely. \u201cIf the QHP is overseeing the activities of the technician, the time of direct supervision by the QHP shall be concurrently billable using code 97155.\u201d But \u201cbilling for 97155 is limited to time where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient. Billing for supervision where the technician is not present is not allowed.\u201d Two other concurrency rules ride along: 97156 may be billed while the RBT delivers direct treatment to the child \u201cin a separate location\u201d; and for 0373T \u201cproviders may not bill for the QHP time concurrently\u201d and billing is limited to a single technician\u2019s face-to-face time, never the combined time of multiple technicians (three technicians for two hours bills eight units, not twenty-four). This is NJ FamilyCare state policy and the operative floor for Wellpoint New Jersey; no plan-specific deviation was found in Wellpoint New Jersey\u2019s published material.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Wellpoint New Jersey provider services, to confirm the plan has not layered its own concurrency edit on top.',
+      },
+      dailyLimits: {
+        value:
+          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Wellpoint New Jersey publishes no daily table of its own, so the state guide is what to plan against.',
+        status: 'verified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Wellpoint New Jersey\u2019s provider manual / claim-edit list.',
+      },
+      noteSignature: {
+        value:
+          'Neither the state nor Wellpoint New Jersey publishes a session-note signature rule for ABA \u2014 no named signer and no timeframe.',
+        status: 'unverified',
+        verifyVia:
+          'Wellpoint New Jersey\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
+      },
+      placeOfService: {
+        value:
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. Neither position is republished by Wellpoint New Jersey, so resolve it with the plan before scheduling school-based sessions.',
+        status: 'plan-dependent',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'Wellpoint New Jersey provider services.',
+      },
+    },
     pill: 'Payer Guide · Wellpoint (NJ)',
     h1: 'Wellpoint New Jersey ABA coverage (NJ FamilyCare MCO).',
     metaTitle: 'Wellpoint New Jersey (NJ FamilyCare) ABA Coverage & Prior Auth | Carelu',
@@ -449,6 +681,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'DMAHS BH Integration Points of Contact V3.1 — Wellpoint ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+      { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
     ],
     faq: [
       { q: 'Does Wellpoint New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit on the state baseline (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan), with authorization via Availity or (800) 454-3730. No plan-specific ABA criteria are published.' },
@@ -466,6 +699,49 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
     payer: 'Aetna in New Jersey',
     state: 'NJ', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Aetna sets a duty, not a number. Where a state mandate, plan document or contract allows services from someone neither state-licensed nor BACB-certified, \u201cthere must be supervision and direction of the unlicensed or non-certified providers in line with practice standards.\u201d The ABA Medical Necessity Guide publishes no supervision percentage, ratio or caseload cap \u2014 the operative standard is professional practice plus whatever the contract adds.',
+        status: 'verified',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither the ABA Medical Necessity Guide nor Aetna\u2019s clinical policy bulletin on ABA addresses whether 97153 and 97155 may be billed for the same clock time; Aetna carries the concurrency question in its claim editing rather than in a public policy.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna precertification/provider services at the number on the member\u2019s ID card, and the plan\u2019s own reimbursement schedule \u2014 ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. Aetna\u2019s ABA documents set medical-necessity criteria and precertification requirements for 97151\u201397158, 0362T and 0373T, but no per-day unit ceiling and no statement of which MUE table applies.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+      },
+      noteSignature: {
+        value:
+          'Not published in Aetna\u2019s ABA materials \u2014 no rule on who signs a session note or within what window.',
+        status: 'unverified',
+        verifyVia:
+          'The Aetna provider manual and your participation agreement\u2019s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'Aetna does not publish a POS code list for ABA. The one place-of-service boundary it does state is the schools carve-out: pursuant to applicable law Aetna \u201cis not required [to] provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act.\u201d That is a limit on paying for what the IEP owes, not a blanket ban on the school setting \u2014 and it yields to a stronger state mandate. Where ABA is payable in a school, in the community or in a group home is a benefit-document question on Aetna plans. New Jersey adds a wrinkle worth checking separately: state Medicaid policy on school-setting ABA has moved since 2020, and a fully insured NJ commercial plan is bound by the state mandate rather than by Aetna\u2019s national default.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'The member\u2019s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+      },
+      billAsProvider: {
+        value:
+          'The claim carries the analyst, not the technician. \u201cServices must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise.\u201d The escape clause matters: a state mandate or your contract can move the line, so confirm before enrolling technicians.',
+        status: 'verified',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Aetna · New Jersey',
     h1: 'Aetna ABA coverage in New Jersey: the intake guide.',
     metaTitle: 'Aetna ABA Coverage in New Jersey: Prior Auth & Mandate Guide | Carelu',
@@ -532,6 +808,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
       { title: 'Autism NJ — Amendments to Insurance Mandate Expand Coverage', url: 'https://autismnj.org/news/amendments-to-insurance-mandate-expand-coverage/' },
       { title: 'NJ Board of Applied Behavior Analyst Examiners — FAQ', url: 'https://www.njconsumeraffairs.gov/abae/Pages/FAQ.aspx' },
+      { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -549,6 +826,50 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
     payer: 'Cigna / Evernorth in New Jersey',
     state: 'NJ', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Not published as a ratio. The Evernorth autism resource guide governs credentialing and billing rather than supervision intensity, and Evernorth publishes no percentage floor or caseload cap for technician supervision.',
+        status: 'unverified',
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273, and the Intensive Behavioral Interventions coverage policy (EN0499).',
+      },
+      concurrentBilling: {
+        value:
+          'Yes \u2014 and Evernorth writes it as an explicit carve-out from its general rule: \u201cOnly one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).\u201d Both must be with the patient; analyst time away from the patient is not inside the exception.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Not published. The resource guide sets the code set (97151\u201397158, 0362T, 0373T only, all in 15-minute increments) but no per-day unit ceiling and no statement of which MUE table Evernorth applies.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273.',
+      },
+      noteSignature: {
+        value:
+          'Not published in the autism resource guide \u2014 no rule on who signs a session note or when.',
+        status: 'unverified',
+        verifyVia:
+          'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+      },
+      placeOfService: {
+        value:
+          'Only the telehealth half is published: \u201call ABA CPT codes are covered telehealth services,\u201d subject to the Intensive Behavioral Interventions coverage policy (EN0499). The guide states no school, community or group-home rule.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\u2019s benefit document.',
+      },
+      billAsProvider: {
+        value:
+          'Under the supervising provider, because the technician cannot be credentialed: \u201cEvernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.\u201d Practically, the BCBA\u2019s credential is what the claim rides on for technician-delivered 97153.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Cigna · New Jersey',
     h1: 'Cigna / Evernorth ABA coverage in New Jersey: the intake guide.',
     metaTitle: 'Cigna ABA Coverage in New Jersey: Prior Auth & Mandate Guide | Carelu',
@@ -635,6 +956,48 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
     payer: 'UnitedHealthcare / Optum in New Jersey',
     state: 'NJ', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Optum\u2019s commercial reimbursement policy publishes no supervision percentage or caseload cap \u2014 it refers providers to the ABA Coding Coalition for supervision requirements. What it does police is the boundary: \u201cCPT codes 97153 and 97155 may not be billed for technician training,\u201d including training a technician new to the organization on a client\u2019s programming or on reassessment-driven goal changes. And 97155 \u201cshould be reported only for services where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient\u201d \u2014 treatment planning is an indirect service and not separately reimbursable.',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Yes, with a single-provider exclusion. \u201cCan I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.\u201d So the concurrency has to be two people \u2014 technician on 97153, analyst on 97155 directing them with the patient present. Separately, 97155 and 97156 may both pay on the same date of service only if the services are separate, distinct and clearly documented; \u201ca single provider can\u2019t bill for both simultaneously (e.g., in the same 15-minute block).\u201d',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Optum publishes its own per-day table on top of CMS MUEs \u2014 maximum frequency per day: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs). MUEs otherwise apply per CMS guidance, and billing above 32 units/day of 97153 \u201cmay be subject to non-reimbursement or recovery.\u201d Time is counted on the CMS 15-minute rule (1 unit at \u2265 8 minutes, 2 at \u2265 23, and so on).',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No signature rule is published, but the documentation burden is explicit where money turns on it: services billed on the same date must be \u201cseparate, distinct, and clearly documented in the progress notes,\u201d and if documentation does not clearly separate them the claim may be denied. Who signs, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        verifyVia:
+          'The UnitedHealthcare/Optum provider manual and your participation agreement\u2019s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'The commercial reimbursement policy sets no place-of-service rule. Optum\u2019s published ABA State Mandates document does carry a New Jersey entry, but it is scoped to NJ Medicaid \u2014 \u201cservices may be provided in the school setting as long as services are not provided during normal school hours\u201d \u2014 and should not be read onto a commercial member without confirming.',
+        status: 'unverified',
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        verifyVia:
+          'UnitedHealthcare provider services and the member\u2019s benefit document; ask explicitly whether the NJ Medicaid school-hours rule is mirrored on the commercial product.',
+      },
+      billAsProvider: {
+        value:
+          'One provider-level modifier per line, matching whoever actually rendered the service: HM = Registered Behavior Technician (less than bachelor\u2019s level), HN = BCaBA (bachelor\u2019s level), HO = BCBA or master\u2019s-level licensed clinician, HP = BCBA-D or doctoral-level licensed clinician. A billable ABA-supervisor service is billed with the applicable CPT code plus HO. Stacking level modifiers is a denial risk: \u201cBilling multiple provider-level modifiers (HN, HM, HO, HP) on the same service line same service and same DOS is not appropriate and may result in claim denial.\u201d Indirect work has no code of its own \u2014 it is bundled into the direct-service code.',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+    },
     pill: 'Payer Guide · UnitedHealthcare · New Jersey',
     h1: 'UnitedHealthcare / Optum ABA coverage in New Jersey: the intake guide.',
     metaTitle: 'UnitedHealthcare ABA Coverage in New Jersey: Prior Auth & Mandate Guide | Carelu',
@@ -709,6 +1072,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
       { title: 'Autism NJ — Amendments to Insurance Mandate Expand Coverage', url: 'https://autismnj.org/news/amendments-to-insurance-mandate-expand-coverage/' },
       { title: 'NJ Board of Applied Behavior Analyst Examiners — FAQ', url: 'https://www.njconsumeraffairs.gov/abae/Pages/FAQ.aspx' },
+      { title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national policy for ASD (Optum\'s two-step Provider Express authorization), layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },

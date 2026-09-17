@@ -89,7 +89,7 @@ export const growthResources: Record<string, ResourceConfig> = {
         h2: 'Channel 5 — The families you already have',
         body: [
           'The cheapest growth in most practices is sitting in a spreadsheet. Families who inquired and were never reached. Families told to call back when they have a diagnosis. Families who stalled halfway through a packet. Families on a waitlist who assume they have been forgotten. Discharged clients whose needs changed. Siblings.',
-          'Almost nobody works this list, because nobody owns it: in our published research across 120 provider organizations, only 2% ran any automated re-engagement at all. It is also the fastest thing on this page to act on — a structured pass over the last twelve months of dead leads reliably surfaces families who are still looking, at no media cost whatsoever.',
+          'This list is usually worth more than a quarter of ad spend, and almost nobody works it, because nobody owns it. It is also the fastest thing on this page to act on — a structured pass over the last twelve months of dead leads reliably surfaces families who are still looking, at no media cost whatsoever.',
         ],
       },
       {
@@ -119,7 +119,6 @@ export const growthResources: Record<string, ResourceConfig> = {
         body: [
           'Growth conversations go in circles when nobody has numbers. Four numbers, reviewed monthly, will end most of the arguing: inquiries by channel, share answered within five minutes, share that completed intake, and share that started care — plus cost per started client, not cost per lead, for anything you pay for.',
           'Cost per lead is the metric that makes bad channels look good. A channel producing cheap leads that never start is more expensive than a channel producing costly leads that do.',
-          'One more thing worth checking, because the research found it nearly universal: of 114 provider organizations studied, none offered a family the ability to book an appointment inside the conversation itself. Every one of them asked the parent to wait for a callback to schedule. If you can close that gap, you are competing against a field that has not.',
         ],
       },
     ],
@@ -343,7 +342,7 @@ export const growthResources: Record<string, ResourceConfig> = {
         body: [
           'ABA search is polluted with traffic that will never become a client, and an unmanaged account spends a serious share of budget on it. Build the negative list before you launch and revisit search terms weekly for the first two months.',
           'The recurring offenders: employment and training searches ("rbt certification," "bcba salary," "aba jobs," "rbt training"), academic and definitional searches ("what is applied behavior analysis," "aba vs speech therapy," "aba criticism"), searches for other meanings of the acronym entirely, insurance-only searches with no service intent, and out-of-area cities that share a name with somewhere you serve.',
-          'Employment traffic is the big one, and it is bigger than most teams believe. Our published research across 120 provider organizations found that 40% of captured website leads were job seekers rather than families. A practice that is also hiring should run recruitment as a separate campaign, not let applicants eat a clinical acquisition budget.',
+          'Employment traffic is the big one, and it is bigger than most teams believe — in many practices a large share of what arrives through the website is not a family at all, but an RBT or behavior tech looking for work. A practice that is also hiring should run recruitment as a separate campaign with its own budget and its own queue, not let applicants eat a clinical acquisition budget and clinical intake hours.',
         ],
       },
       {
@@ -973,8 +972,8 @@ export const growthResources: Record<string, ResourceConfig> = {
     intro: [
       'A parent contacts five ABA practices in one evening. Four send the same automated line: thank you for your inquiry, we appreciate you reaching out, someone will be in touch shortly. The fifth sends a message that names their son, mentions the county they live in, notes the plan they said they had, and asks one specific question.',
       'It is not a close call. The fifth practice gets the reply, and frequently gets the child — not because their care is better, but because they were the only one who appeared to have read what the parent wrote.',
-      'The sameness is measurable. In our own research across 112–114 active ABA provider configurations, 71% were running an identical, default first message — word for word the same greeting as the practice down the street. When most of a market opens with the same sentence, writing one real sentence is a competitive advantage available to anyone.',
-      'Templated acknowledgements are not worthless; they beat silence. But they occupy the moment of highest intent with a message that communicates nothing, and they are the easiest thing in a practice to fix. The bar is also lower than it looks: in our published research across 120 provider organizations, only 2% ran any automated re-engagement at all.',
+      'The sameness is not an accident. Most practices never changed the default greeting that shipped with whatever tool sends it, which means a parent contacting several providers in one evening frequently receives near-identical words from all of them. When most of a market opens with the same sentence, writing one real sentence is a competitive advantage available to anyone.',
+      'Templated acknowledgements are not worthless; they beat silence. But they occupy the moment of highest intent with a message that communicates nothing, and they are the easiest thing in a practice to fix.',
     ],
     sections: [
       {

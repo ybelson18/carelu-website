@@ -9,6 +9,49 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes \u2014 documented DSM-5 ASD diagnosis (EPSDT ABS benefit)',
     payer: 'Georgia Medicaid',
     state: 'GA', kind: 'state-medicaid',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Georgia runs a caseload cap, not a percentage floor. Under the DCH manual a physician, psychiatrist, BCBA-D or BCBA \u2014 the enrolled Qualified Health Care Provider (QHCP) \u2014 may supervise up to six certified BCaBAs and RBTs at any point in time, and the attestation appendix caps a licensed non-BCBA supervisor (a physician, say) at three practitioners. \u201cSupervision\u201d is defined as direct clinical review for training or teaching and does NOT require the supervisor to be present at the work site. Both supervisor and supervisee must keep a contemporaneous record of the date, duration, type and a brief summary of each supervision session, producible on audit; discrepancies make the associated claims subject to recoupment. A BCaBA must be supervised by a BCBA/BCBA-D but may supervise RBTs; an RBT can never be the QHCP. Every supervised direct-care professional must attest to one year of ASD experience, and the Attestation must be resubmitted within two weeks of any staffing change.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not answered by the publicly posted manual. The January 2018 Part II ASD manual on medicaid.georgia.gov predates the Category I adaptive-behavior code set \u2014 its Appendix A still prices 0359T\u20130374T \u2014 and it contains no concurrent-services or same-clock-time provision for 97153 with 97155. Current quarterly manuals and the live fee schedule sit inside GAMMIS, which blocks automated retrieval.',
+        status: 'unverified',
+        verifyVia:
+          'GAMMIS (mmis.georgia.gov) provider manual + fee schedule for the current ASD policy, or the member\u2019s CMO policy \u2014 CareSource MCD-MM-0212 and Peach State GA.CP.BH.504 are the ones published openly.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling is published in the posted manual. DCH sets utilization by prior approval and the Chapter 903 service limitations rather than a per-code MUE table, and the manual\u2019s only quantitative guidance is that therapy \u201ccan range from 10-30 hours per week, or more if medically necessary.\u201d Whether Georgia applies the Medicaid NCCI MUE table, the Practitioner MUE table, or its own fee-schedule limits is not stated in the posted document.',
+        status: 'unverified',
+        cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+        verifyVia:
+          'GAMMIS fee schedule and current ASD manual; for a managed-care member, the CMO\u2019s claim-edit policy (Peach State publishes 6 hrs/day \u00b7 30 hrs/week; Amerigroup publishes weekly ceilings).',
+      },
+      noteSignature: {
+        value:
+          'The person who wrote the note signs it \u2014 the manual imposes no supervising-analyst co-signature. Records must contain \u201cprogress notes that are legible, detailed, complete, signed and dated,\u201d and every signature must be \u201clegible, original and belong to the person creating the signature\u201d; if illegible the name must also be printed. All signatures must be dated the actual date signed, rubber-stamp signatures are not accepted, and electronic signatures are accepted only in the circumstances set out in Part I \u00a7 106. Records must be documented in \u2018real time\u2019 and not back-dated; corrections take a single strike-through plus the corrector\u2019s initials and date, never whiteout.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+      placeOfService: {
+        value:
+          'Georgia prices by setting rather than restricting it: every ABS line carries a service-location modifier \u2014 U6 in-clinic, U7 out-of-clinic (paid at a materially higher rate), GT telemedicine \u2014 alongside the practitioner-level modifier. The posted manual sets no school, community or group-home rule of its own; the school-setting requirements an intake team will actually meet are in the CMO policies (Peach State requires a separate school plan for every educational setting).',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+        verifyVia:
+          'For school and group-home delivery specifically: the member\u2019s CMO policy, and the current ASD manual inside GAMMIS.',
+      },
+      billAsProvider: {
+        value:
+          'The claim goes out under the enrolled QHCP and/or the facility. BCaBAs and RBTs \u201care not enrolled directly by the Division as providers because they are not independent practitioners\u201d \u2014 their services are claimed under the enrolled provider identification number of the supervising QHCP and/or the facility, and if the payee is a facility the QHCP must attest under the facility Medicaid ID and list all supervisees. Practitioner level rides as a modifier: U1 physician/psychiatrist, U2 psychologist or BCBA-D, U3 BCBA, U4 BCaBA or master\u2019s-level analyst with a year of ASD experience, U5 RBT with a year of ASD experience \u2014 plus the setting modifier (U6/U7/GT). Separately, the ordering/prescribing/referring practitioner\u2019s NPI must appear on the claim (CMS-1500 box 17, qualifier DK ordering, DN referring, DQ supervising) and that practitioner must be Georgia-Medicaid-enrolled or the claim is denied.',
+        status: 'verified',
+        cites: [{ title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+    },
     pill: 'Payer Guide · Georgia Medicaid',
     h1: 'Georgia Medicaid ABA coverage: the intake guide.',
     metaTitle: 'Georgia Medicaid ABA Coverage & Prior Auth: Intake Guide | Carelu',
@@ -114,6 +157,48 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes \u2014 ASD diagnosis from a licensed, qualified professional (CG-BEH-02)',
     payer: 'Anthem BCBS Georgia',
     state: 'GA', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Anthem\u2019s commercial ABA guide \u2014 which names Georgia (Blue Cross Blue Shield Healthcare Plan of Georgia, Inc.) on its cover \u2014 defines supervision through what is billable rather than through a ratio: \u201cA QHP can only bill for 97155 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician.\u201d Approved ABA renderers include BCBA/BCBA-D and \u201cproviders practicing under the direction and supervision of the BCBA.\u201d No percentage floor or caseload cap is published.',
+        status: 'verified',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Yes, on Anthem\u2019s own terms: where the technician and the QHP are both face-to-face with the patient at the same time and the QHP is directing the technician, \u201ccodes 97153 and 97155 can be billed together.\u201d The permission is conditional on that simultaneous face-to-face direction \u2014 97155 for analyst work away from the patient is outside it.',
+        status: 'verified',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Anthem publishes no Anthem-specific per-day ceiling and defers to CMS. \u201cABA codes may have associated MUE limits\u201d; Anthem administers NCCI edits under its Code and Clinical Editing Guidelines reimbursement policy, and \u201cNCCI edits are revised to align with CMS MUE updates once published.\u201d The guide points providers to CMS for the current MUE list \u2014 so the operative regime is the CMS table Anthem\u2019s editor loads, not a published Anthem number.',
+        status: 'verified',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
+        verifyVia:
+          'Which CMS MUE table (Practitioner vs. Medicaid NCCI) Anthem\u2019s editor applies to a given Georgia product \u2014 confirm with Anthem provider services before modelling units.',
+      },
+      noteSignature: {
+        value:
+          'Anthem signs by author identification and puts a clock on it. Each entry in the medical record must include author identification of the physician or other QHP \u2014 \u201ca handwritten signature, unique electronic identifier, or initials and rendering provider credentials\u201d \u2014 entered at the time of service or shortly thereafter and \u201cnot exceed[ing] 30 days,\u201d with the signature date within 30 days of the date of service. All documentation must be legible to someone other than the writer and must support the services billed on each unique date. For timed ABA codes the record must carry total treatment time in minutes plus start and stop times.',
+        status: 'verified',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Anthem publishes the POS code list for ABA outright: 12 home, 11 office/clinic, 99 community, 03 school, 10 telehealth with the member at home, 02 telehealth with the member outside the home \u2014 all \u201csubject to member\u2019s coverage and reviews by the plan.\u201d School and community are therefore codeable places of service, not excluded ones; group home is not listed.',
+        status: 'verified',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
+        verifyVia:
+          'Whether POS 03 school is payable on a specific Georgia member\u2019s benefit \u2014 the code list is explicitly subject to plan review.',
+      },
+      billAsProvider: {
+        value:
+          'The supervising analyst goes in box 31. \u201cABA therapy performed by therapy assistants, behavioral technicians, or paraprofessionals must show the supervising BCBA or other QHP in box 31 of the CMS claim form.\u201d Credential level rides as a modifier: HM for less than bachelor\u2019s level, HN bachelor\u2019s level, HO master\u2019s level.',
+        status: 'verified',
+        cites: [{ title: 'Anthem BCBS \u2014 ABA Provider Resource Guide (Commercial; incl. Georgia)', url: 'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Anthem BCBS Georgia',
     h1: 'Anthem BCBS Georgia ABA coverage (+ Ava\'s Law).',
     metaTitle: 'Anthem BCBS Georgia ABA Coverage & Ava\'s Law: Intake Guide | Carelu',
@@ -196,6 +281,50 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How CareSource administers ABA for Georgia Medicaid members — policy MCD-MM-0212 aligned to the DCH ASD manual, in-house medical review, MUE daily-unit limits, and a 2026 reimbursement change.',
     state: 'GA', kind: 'medicaid-mco', parent: 'Georgia Medicaid',
+    deliveryRules: {
+      supervision: {
+        value:
+          'CareSource restates the DCH structure and adds a reimbursement consequence. The QHCP must supervise non-enrolled practitioners under the enrolled provider identification number of the QHCP and/or facility, performed in accordance with BACB supervision guidelines \u2014 and \u201csupervision is not separately reimbursable as it is buil[t] into the direct service code rates.\u201d Who may supervise whom: a licensed physician, licensed psychologist, BCBA-D or BCBA may supervise BCaBAs and RBTs; a BCaBA must be supervised by a physician, psychologist or BCBA/BCBA-D but may supervise RBTs. Supervision records must capture the duration and type of each session plus a brief summary of pertinent activity, kept by both supervisor and supervisee for audit; discrepancies make the associated claims subject to recoupment. Family training must be delivered by the BCBA or BCaBA \u2014 an RBT may assist during a family-training session but may not conduct the training or supervise interventions.',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+      concurrentBilling: {
+        value:
+          'CareSource publishes the limit, not the permission. \u201cTime reported and billed MUST be face-to-face time with the patient,\u201d and \u201cQHCP billing of protocol modification is not appropriate in instances when documentation supports only supervision or services being performed at a time when the member is not present.\u201d So 97155 billed for supervision with the member absent is a recoupment target. The policy does not state affirmatively whether 97153 and 97155 may be billed for the same clock time when analyst, technician and member are all face-to-face.',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }],
+        verifyVia:
+          'CareSource Provider Services for the same-clock-time question \u2014 the policy answers only the negative case.',
+      },
+      dailyLimits: {
+        value:
+          'No per-day unit ceiling is published. MM-0212 leaves intensity to medical necessity, noting only that \u201cmedical[ly] necessary will determine approved hours per week (eg, typically 10-30 hours)\u201d commensurate with the deficits identified in the behavior assessment.',
+        status: 'unverified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }],
+        verifyVia:
+          'CareSource GA provider services / the Georgia fee schedule inside GAMMIS.',
+      },
+      noteSignature: {
+        value:
+          'CareSource adds a parent signature and makes it a claims precondition \u2014 this is the rule most likely to cost a Georgia clinic money. The member\u2019s treatment record (plans of care, treatment plans, behavior support plans, functional assessments, daily services notes and progress notes) \u201cmust be completed by the provider or practitioner, signed by the parent or legal guardian (if minor age) or by the member if applicable and submitted to CareSource prior to claims submission. Claims will not be accepted without accompanying signed treatment documentation.\u201d On top of that, progress notes must be legible, detailed, complete, signed and dated; signatures must be original and belong to the person who created them and be dated the actual date signed; rubber stamps are not acceptable and electronic signatures only in certain circumstances; records must be real-time, never back-dated, with corrections by single strike-through plus initials and date.',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }],
+      },
+      placeOfService: {
+        value:
+          'MM-0212 describes ABA as delivered \u201cin centers or at home\u201d and permits telehealth delivery per GA DCH Part II policy, with the provider responsible for judging clinical appropriateness, risk and provider competence for the modality. It sets no separate school or group-home rule of its own.',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }],
+        verifyVia:
+          'For school-based delivery under a CareSource member: CareSource GA provider services, since the policy is silent where Peach State\u2019s is explicit.',
+      },
+      billAsProvider: {
+        value:
+          'Under the QHCP and/or the facility. CareSource repeats the state rule that the QHCP must supervise non-enrolled practitioners \u201cunder the enrolled provider identification number of the QHCP and/or facility\u201d \u2014 so RBT- and BCaBA-delivered time is claimed on the supervising enrolled provider\u2019s number, not the technician\u2019s.',
+        status: 'verified',
+        cites: [{ title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+      },
+    },
     intro: [
       'CareSource is one of the Georgia Medicaid care management organizations (CMOs) that administers the ABA benefit. Its ABA policy (MCD-MM-0212) is aligned to the Georgia DCH Part II ASD manual, but CareSource layers its own utilization-management process on top — so if a family carries CareSource, this is the guide that governs their authorization.',
     ],
@@ -259,6 +388,50 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Peach State Health Plan administers ABA for Georgia Medicaid — policy GA.CP.BH.504 aligned to the DCH ASD manual, hour parameters, the 80%-attendance rule, and 0373T requirements.',
     state: 'GA', kind: 'medicaid-mco', parent: 'Georgia Medicaid',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Peach State is the Georgia plan that publishes a hard supervision floor: \u201cAdaptive Behavior Treatment with Protocol Modification occurs for at least two hours per week or 10% of the direct service hours provided, whichever is greater.\u201d For a 30-hour week that is three hours of 97155, not two. Separately, any request using 0373T \u201cmust include a BCBA who is onsite and immediately available to join the session.\u201d',
+        status: 'verified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not stated. GA.CP.BH.504 reproduces the AMA descriptor for 97155 \u2014 \u201cwhich may include simultaneous direction of technician, face-to-face with one patient\u201d \u2014 but sets no same-clock-time billing rule of its own for 97153 alongside 97155.',
+        status: 'unverified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+        verifyVia:
+          'Peach State / Centene provider services, and the Georgia fee schedule inside GAMMIS.',
+      },
+      dailyLimits: {
+        value:
+          'Peach State works in hours per day and per week rather than a per-code MUE table. Treatment hours must \u201cnot exceed six hours per day up to a total of 30 hours per week,\u201d unless clinical documentation justifies more (high-intensity, high-frequency behaviors or significant skill deficits). The treatment plan must also reflect the child\u2019s school attendance \u2014 the policy names \u201cless than 20 hours per week if attending school full-time\u201d as the benchmark \u2014 and must build in rest, nutrition breaks and peer-interaction time.',
+        status: 'verified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'Not addressed for session notes. The policy does require the diagnostic evaluation to carry the \u201cevaluator\u2019s name, legible signature, and credentials,\u201d but says nothing about who signs each treatment session note or when.',
+        status: 'unverified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+        verifyVia:
+          'Peach State provider manual / provider services; Georgia DCH\u2019s documentation standard (writer signs and dates, real time, no back-dating) is the applicable floor.',
+      },
+      placeOfService: {
+        value:
+          'School delivery is allowed but gated by a separate school plan \u2014 the most operationally demanding place-of-service rule in Georgia. \u201cA school plan is required for all educational settings to include home school, public and private schools (with exception only for daycare or after-school settings).\u201d In school, the plan of care must define the behaviors targeted for reduction specific to that setting, list behavior-reduction goals and include line graphs meeting the ASD policy graph rules; skill-acquisition goals \u201cshould not be implemented in this setting.\u201d Training school personnel is not reimbursable. Reauthorization data must be collected across all treatment settings \u2014 home, school, clinic, community. And ABA delivered \u201cin lieu of school, respite care, or other community-based settings of care\u201d is a discharge criterion, not a covered service.',
+        status: 'verified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'Peach State\u2019s ASD policy sets no separate rule, so the Georgia DCH floor governs: BCaBAs and RBTs are not independently enrolled, and their time is claimed under the supervising QHCP\u2019s and/or the facility\u2019s enrolled provider number with the U1\u2013U5 practitioner-level modifier and the U6/U7/GT setting modifier.',
+        status: 'verified',
+        cites: [{ title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }, { title: 'GA DCH \u2014 Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' }],
+        verifyVia:
+          'Confirm the modifier set against the current Georgia fee schedule in GAMMIS before a first submission.',
+      },
+    },
     intro: [
       'Peach State Health Plan is a Georgia Medicaid CMO that administers the ABA benefit under clinical policy GA.CP.BH.504, with prior-authorization criteria explicitly based on the DCH Part II ASD manual. For families carrying Peach State, this is the plan-level layer on top of the state rules.',
     ],
@@ -314,6 +487,38 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Amerigroup administers ABA for Georgia Medicaid — the CG-BEH-02 adaptive behavioral treatment guideline aligned to the DCH ASD manual, with prior authorization and medical-necessity review.',
     state: 'GA', kind: 'medicaid-mco', parent: 'Georgia Medicaid',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Amerigroup publishes a supervision ceiling rather than a floor: \u201cUp to two (2) hours of protocol modification will be covered for every ten (10) hours of direct ABT therapy. Any greater frequency of protocol modification will require written documentation demonstrating the need for additional protocol modification.\u201d In practice that is a 20% cap on 97155 against 97153 before extra justification is required. Note the vintage \u2014 UM Guideline CG-BEH-02 carries a current effective date of 9/27/2017 and a last review date of 8/3/2017.',
+        status: 'verified',
+        cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
+        verifyVia:
+          'Confirm CG-BEH-02 is still the operative Georgia guideline \u2014 Amerigroup GA is operating under a DCH contract extension through 6/30/2027 and the posted guideline is dated 2017.',
+      },
+      concurrentBilling: {
+        value:
+          'Not addressed. CG-BEH-02 is a medical-necessity guideline, not a reimbursement policy, and contains no same-clock-time rule for 97153 with 97155.',
+        status: 'unverified',
+        cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
+        verifyVia:
+          'Amerigroup/Wellpoint Georgia provider services, and the Georgia fee schedule inside GAMMIS.',
+      },
+      dailyLimits: {
+        value:
+          'Amerigroup gates by the week, not the day. \u201cThe total hours of ABT requested should be comprised of fewer than 40 hours per week\u201d \u2014 more than 40 requires documentation of why, because \u201cABT services for more than 40 hours per week have not been shown to be more effective.\u201d Group adaptive behavior treatment and social-skills group hours count inside that 40. Exposure adaptive behavior treatment and exposure treatment with protocol modification (0362T/0373T) \u201cshould be comprised of fewer than 10 hours per week.\u201d No per-code per-day unit ceiling is published.',
+        status: 'verified',
+        cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
+      },
+      noteSignature: {
+        value:
+          'Not addressed. The guideline sets documentation expectations for authorization (clinical summaries justifying hours per behavioral target, progress measured against baseline) but no session-note signature rule.',
+        status: 'unverified',
+        cites: [{ title: 'Amerigroup GA Medicaid UM Guideline CG-BEH-02 (Adaptive Behavioral Treatment for ASD)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' }],
+        verifyVia:
+          'Amerigroup GA provider manual; Georgia DCH\u2019s standard \u2014 the writer signs and dates, real time, no back-dating \u2014 is the applicable floor.',
+      },
+    },
     intro: [
       'Amerigroup is a Georgia Medicaid CMO that administers ABA under its Adaptive Behavioral Treatment for ASD guideline (CG-BEH-02), aligned to the Georgia DCH ASD manual. Its published guideline has an older revision date, so verifying the current version on the Amerigroup provider portal is especially important here.',
     ],
@@ -360,6 +565,49 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
     payer: 'Aetna in Georgia',
     state: 'GA', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Aetna sets a duty, not a number. Where a state mandate, plan document or contract allows services from someone neither state-licensed nor BACB-certified, \u201cthere must be supervision and direction of the unlicensed or non-certified providers in line with practice standards.\u201d The ABA Medical Necessity Guide publishes no supervision percentage, ratio or caseload cap \u2014 the operative standard is professional practice plus whatever the contract adds.',
+        status: 'verified',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. Neither the ABA Medical Necessity Guide nor Aetna\u2019s clinical policy bulletin on ABA addresses whether 97153 and 97155 may be billed for the same clock time; Aetna carries the concurrency question in its claim editing rather than in a public policy.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna precertification/provider services at the number on the member\u2019s ID card, and the plan\u2019s own reimbursement schedule \u2014 ask specifically whether 97155 pays alongside 97153 when analyst, technician and member are all face-to-face.',
+      },
+      dailyLimits: {
+        value:
+          'Not published. Aetna\u2019s ABA documents set medical-necessity criteria and precertification requirements for 97151\u201397158, 0362T and 0373T, but no per-day unit ceiling and no statement of which MUE table applies.',
+        status: 'unverified',
+        verifyVia:
+          'Aetna provider services; confirm before promising a family more than four hours a day of 97153.',
+      },
+      noteSignature: {
+        value:
+          'Not published in Aetna\u2019s ABA materials \u2014 no rule on who signs a session note or within what window.',
+        status: 'unverified',
+        verifyVia:
+          'The Aetna provider manual and your participation agreement\u2019s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'Aetna does not publish a POS code list for ABA. The one place-of-service boundary it does state is the schools carve-out: pursuant to applicable law Aetna \u201cis not required [to] provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act.\u201d That is a limit on paying for what the IEP owes, not a blanket ban on the school setting \u2014 and it yields to a stronger state mandate. Where ABA is payable in a school, in the community or in a group home is a benefit-document question on Aetna plans.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        verifyVia:
+          'The member\u2019s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+      },
+      billAsProvider: {
+        value:
+          'The claim carries the analyst, not the technician. \u201cServices must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise.\u201d The escape clause matters: a state mandate or your contract can move the line, so confirm before enrolling technicians.',
+        status: 'verified',
+        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Aetna · Georgia',
     h1: 'Aetna ABA coverage in Georgia: the intake guide.',
     metaTitle: 'Aetna ABA Coverage in Georgia: Prior Auth & Mandate Guide | Carelu',
@@ -428,6 +676,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia Code § 33-24-59.10 (Ava\'s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' },
       { title: 'Autism Speaks — Georgia state-regulated coverage', url: 'https://www.autismspeaks.org/georgia-state-regulated-insurance-coverage' },
       { title: 'Georgia Association for Behavior Analysis — licensure (HB 412)', url: 'https://www.georgia-aba.org/licensure' },
+      { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Georgia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Georgia\'s mandate (O.C.G.A. § 33-24-59.10 (Ava’s Law)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -445,6 +694,50 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes \u2014 ASD only; Rett syndrome (F84.2) excluded under EN0499',
     payer: 'Cigna / Evernorth in Georgia',
     state: 'GA', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Not published as a ratio. The Evernorth autism resource guide governs credentialing and billing rather than supervision intensity, and Evernorth publishes no percentage floor or caseload cap for technician supervision.',
+        status: 'unverified',
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273, and the Intensive Behavioral Interventions coverage policy (EN0499).',
+      },
+      concurrentBilling: {
+        value:
+          'Yes \u2014 and Evernorth writes it as an explicit carve-out from its general rule: \u201cOnly one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).\u201d Both must be with the patient; analyst time away from the patient is not inside the exception.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Not published. The resource guide sets the code set (97151\u201397158, 0362T, 0373T only, all in 15-minute increments) but no per-day unit ceiling and no statement of which MUE table Evernorth applies.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273.',
+      },
+      noteSignature: {
+        value:
+          'Not published in the autism resource guide \u2014 no rule on who signs a session note or when.',
+        status: 'unverified',
+        verifyVia:
+          'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
+      },
+      placeOfService: {
+        value:
+          'Only the telehealth half is published: \u201call ABA CPT codes are covered telehealth services,\u201d subject to the Intensive Behavioral Interventions coverage policy (EN0499). The guide states no school, community or group-home rule.',
+        status: 'unverified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        verifyVia:
+          'Evernorth Provider Services at 800.926.2273 for school and community settings, plus the member\u2019s benefit document.',
+      },
+      billAsProvider: {
+        value:
+          'Under the supervising provider, because the technician cannot be credentialed: \u201cEvernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider.\u201d Practically, the BCBA\u2019s credential is what the claim rides on for technician-delivered 97153.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+    },
     pill: 'Payer Guide · Cigna · Georgia',
     h1: 'Cigna / Evernorth ABA coverage in Georgia: the intake guide.',
     metaTitle: 'Cigna ABA Coverage in Georgia: Prior Auth & Mandate Guide | Carelu',
@@ -530,6 +823,47 @@ export const georgiaPayers: Record<string, PayerConfig> = {
     dxRequired: 'Yes \u2014 DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
     payer: 'UnitedHealthcare / Optum in Georgia',
     state: 'GA', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'Optum\u2019s commercial reimbursement policy publishes no supervision percentage or caseload cap \u2014 it refers providers to the ABA Coding Coalition for supervision requirements. What it does police is the boundary: \u201cCPT codes 97153 and 97155 may not be billed for technician training,\u201d including training a technician new to the organization on a client\u2019s programming or on reassessment-driven goal changes. And 97155 \u201cshould be reported only for services where the QHP is either engaged directly with the patient or is directing a technician in implementing a modified protocol with the patient\u201d \u2014 treatment planning is an indirect service and not separately reimbursable.',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Yes, with a single-provider exclusion. \u201cCan I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.\u201d So the concurrency has to be two people \u2014 technician on 97153, analyst on 97155 directing them with the patient present. Separately, 97155 and 97156 may both pay on the same date of service only if the services are separate, distinct and clearly documented; \u201ca single provider can\u2019t bill for both simultaneously (e.g., in the same 15-minute block).\u201d',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Optum publishes its own per-day table on top of CMS MUEs \u2014 maximum frequency per day: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs). MUEs otherwise apply per CMS guidance, and billing above 32 units/day of 97153 \u201cmay be subject to non-reimbursement or recovery.\u201d Time is counted on the CMS 15-minute rule (1 unit at \u2265 8 minutes, 2 at \u2265 23, and so on).',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+      noteSignature: {
+        value:
+          'No signature rule is published, but the documentation burden is explicit where money turns on it: services billed on the same date must be \u201cseparate, distinct, and clearly documented in the progress notes,\u201d and if documentation does not clearly separate them the claim may be denied. Who signs, and within what window, is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        verifyVia:
+          'The UnitedHealthcare/Optum provider manual and your participation agreement\u2019s documentation clause.',
+      },
+      placeOfService: {
+        value:
+          'Not addressed in the commercial ABA reimbursement policy \u2014 it sets codes, modifiers, units and concurrency but no place-of-service rule.',
+        status: 'unverified',
+        verifyVia:
+          'UnitedHealthcare/Optum provider services and the member\u2019s benefit document; Optum\u2019s published ABA State Mandates document carries no Georgia entry, so nothing state-specific applies on top.',
+      },
+      billAsProvider: {
+        value:
+          'One provider-level modifier per line, matching whoever actually rendered the service: HM = Registered Behavior Technician (less than bachelor\u2019s level), HN = BCaBA (bachelor\u2019s level), HO = BCBA or master\u2019s-level licensed clinician, HP = BCBA-D or doctoral-level licensed clinician. A billable ABA-supervisor service is billed with the applicable CPT code plus HO. Stacking level modifiers is a denial risk: \u201cBilling multiple provider-level modifiers (HN, HM, HO, HP) on the same service line same service and same DOS is not appropriate and may result in claim denial.\u201d Indirect work has no code of its own \u2014 it is bundled into the direct-service code.',
+        status: 'verified',
+        cites: [{ title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+      },
+    },
     pill: 'Payer Guide · UnitedHealthcare · Georgia',
     h1: 'UnitedHealthcare / Optum ABA coverage in Georgia: the intake guide.',
     metaTitle: 'UnitedHealthcare ABA Coverage in Georgia: Prior Auth & Mandate Guide | Carelu',
@@ -596,6 +930,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia Code § 33-24-59.10 (Ava\'s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' },
       { title: 'Autism Speaks — Georgia state-regulated coverage', url: 'https://www.autismspeaks.org/georgia-state-regulated-insurance-coverage' },
       { title: 'Georgia Association for Behavior Analysis — licensure (HB 412)', url: 'https://www.georgia-aba.org/licensure' },
+      { title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Georgia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Georgia\'s mandate (O.C.G.A. § 33-24-59.10 (Ava’s Law)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
