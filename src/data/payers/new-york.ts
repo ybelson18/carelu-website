@@ -565,7 +565,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
   'aetna-new-york': {
     slug: 'aetna-new-york',
     family: 'aetna',
-    cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the NY autism mandate: 680 hrs/yr, no age limit, LBA-only.',
+    cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the NY autism mandate: no ABA-only visit caps, no age limit, LBA-only.',
     assessmentPA: 'Required — precertification (form GR-69017-4), per Aetna\'s national CPB 0554 policy',
     treatmentPA: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
     dxRequired: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
@@ -575,15 +575,15 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     h1: 'Aetna ABA coverage in New York: the intake guide.',
     metaTitle: 'Aetna ABA Coverage in New York: Prior Auth & Mandate Guide | Carelu',
     metaDescription:
-      'How Aetna covers ABA for New York families — the national clinical policy, prior authorization, the NY autism mandate (no age limit, 680 hours/year, exemptions), NYSED LBA licensure, and what intake should verify.',
+      'How Aetna covers ABA for New York families — the national clinical policy, prior authorization, the NY autism mandate (no age limit, no ABA-only visit caps, exemptions), NYSED LBA licensure, and what intake should verify.',
     intro: [
-      'For an intake team in New York, an Aetna card means three layers at once: the carrier\'s national clinical policy, New York\'s autism insurance mandate (Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee)), and the plan\'s funding type deciding which of the two actually binds. This guide stacks them in order — with the two New York-specific facts that surprise out-of-state operators: the mandate caps ABA in hours (680 per year), not dollars, and only NYSED-licensed behavior analysts can deliver mandated ABA — a BCBA alone is not enough.',
+      'For an intake team in New York, an Aetna card means three layers at once: the carrier\'s national clinical policy, New York\'s autism insurance mandate (Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee)), and the plan\'s funding type deciding which of the two actually binds. This guide stacks them in order — with the two New York-specific facts that surprise out-of-state operators: the mandate bars ABA-only visit caps outright (the old 680-hour ceiling was repealed in 2020), and only NYSED-licensed behavior analysts can deliver mandated ABA — a BCBA alone is not enough.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — for ASD, per the national Aetna policy' },
       { label: 'State mandate', value: 'NY Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee) — eff. Nov 1, 2012' },
       { label: 'Mandate age', value: 'No age limit in the mandate or DFS Circular Letter 6 (2014)' },
-      { label: 'Mandate cap', value: '680 hours of ABA per policy/calendar year — an hours cap, not a dollar cap' },
+      { label: 'Mandate cap', value: 'None permitted — the statute bars visit limits applied solely to ASD treatment (the 680-hour cap was repealed eff. 1/1/2020)' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (federal preemption)' },
       { label: 'Licensure', value: 'NYSED Licensed Behavior Analyst (LBA) — BCBA alone insufficient' },
     ],
@@ -599,18 +599,19 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'The New York mandate: 680 hours, no age limit, LBA-delivered',
+        h2: 'The New York mandate: no ABA-only caps, no age limit, LBA-delivered',
         body: [
-          'New York\'s autism mandate — enacted via S.5845 (2011), effective for policies issued or renewed on or after November 1, 2012, and implemented through DFS Insurance Circular Letter No. 6 (2014) — requires every state-regulated policy providing physician/medical coverage (individual, group, Article 43/HMO, student plans, municipal cooperatives) to cover screening, diagnosis, and treatment of ASD, including ABA. Three features define it. No age limit: unlike Medicaid\'s under-21 rule, neither the statute nor CL 6 sets one, so adult ABA cases are mandate-covered on fully-insured plans. An hours cap, not dollars: ABA may be limited to 680 hours per policy or calendar year per covered individual — the old $45,000 figure still cited in blogs is not in the current guidance, so track authorization requests against an hours budget (680 hours ≈ 13 hrs/week year-round; comprehensive-intensity programs can exhaust it mid-year). And a credential gate: since October 11, 2014, mandated ABA must be provided or supervised by NYSED-licensed LBAs or CBAAs — BACB certification alone doesn\'t satisfy it. Self-funded ERISA plans sit outside the mandate by preemption; MHPAEA parity applies to ABA as a behavioral health benefit either way. (Bills to add DIR/Floortime to the mandate while keeping the 680-hour max have been introduced — 2023 A7913, 2025 S5107 — but their enactment status is unverified.)',
+          'New York\'s autism mandate — enacted via S.5845 (2011), effective for policies issued or renewed on or after November 1, 2012, and implemented through DFS Insurance Circular Letter No. 6 (2014) — requires every state-regulated policy providing physician/medical coverage (individual, group, Article 43/HMO, student plans, municipal cooperatives) to cover screening, diagnosis, and treatment of ASD, including ABA. Three features define it. No age limit: unlike Medicaid\'s under-21 rule, neither the statute nor CL 6 sets one, so adult ABA cases are mandate-covered on fully-insured plans. No ABA-only limits: the 680-hour annual ceiling was struck from the statute effective January 1, 2020, and the current text instead bars a policy from containing “any limitations on visits that are solely applied to the treatment of autism spectrum disorder.” Cost-sharing still applies, but only on the same terms as other benefits. Any ABA-specific hour or visit ceiling on a fully-insured New York plan is a parity red flag to escalate — not an hours budget to plan around. (The 680-hour figure still circulates widely, including in DFS Circular Letter No. 6 (2014), which predates the repeal.) And a credential gate: since October 11, 2014, mandated ABA must be provided or supervised by NYSED-licensed LBAs or CBAAs — BACB certification alone doesn\'t satisfy it. Self-funded ERISA plans sit outside the mandate by preemption; MHPAEA parity applies to ABA as a behavioral health benefit either way. (Bills to reinstate an hours ceiling have been introduced in consecutive sessions and none has passed; treat the repeal as current law until one does.)',
         ],
         cites: [
           { title: 'DFS Insurance Circular Letter No. 6 (2014) — Standards for Insurance Coverage for ABA', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
+          { title: 'NY Insurance Law § 3216(i)(25) — current text (no ABA-only visit limits)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3216' },
         ],
       },
       {
         h2: 'No New York-specific Aetna policy — and no Aetna Medicaid ABA plan here',
         body: [
-          'We checked: Aetna publishes no New York-specific ABA policy, form, or supplement — the national CPBs, national precert forms, and the state mandate are the whole picture, with the 680-hour cap and LBA rule reaching Aetna\'s fully-insured NY plans through the Insurance Law rather than any Aetna document. One adjacent trap: Aetna Better Health appears in New York\'s Medicaid directory only as a Partial LTC (MLTC) plan — it is not a mainstream children\'s Medicaid plan, so unlike most states there is no Aetna Medicaid ABA line in New York. A family with an Aetna card in NY is a commercial family.',
+          'We checked: Aetna publishes no New York-specific ABA policy, form, or supplement — the national CPBs, national precert forms, and the state mandate are the whole picture, with the no-ABA-only-limits rule and the LBA credential gate reaching Aetna\'s fully-insured NY plans through the Insurance Law rather than any Aetna document. One adjacent trap: Aetna Better Health appears in New York\'s Medicaid directory only as a Partial LTC (MLTC) plan — it is not a mainstream children\'s Medicaid plan, so unlike most states there is no Aetna Medicaid ABA line in New York. A family with an Aetna card in NY is a commercial family.',
         ],
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
@@ -629,7 +630,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
-      { title: 'Hours used this year', desc: 'The 680-hour annual cap is an hours budget — capture ABA hours already used under the policy year before promising intensity.' },
+      { title: 'Any ABA-specific visit or hour cap on the plan', desc: 'Fully-insured NY plans may not limit visits solely for ASD — if a plan quotes an ABA-only ceiling, capture it verbatim and escalate it as a parity issue.' },
       { title: 'Member ID + card photo', desc: 'Enough to run a live benefits verification — the only reliable answer on limits and cost-sharing.' },
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Supervising LBA', desc: 'Mandated ABA must be LBA/CBAA-provided or supervised — confirm the NYSED license, not just BCBA status.' },
@@ -640,10 +641,11 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
       { title: 'NYSED — Article 167 (Ed. Law §§ 8800–8808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' },
       { title: 'eMedNY — Managed Care Information plan directory (v2026-2)', url: 'https://www.emedny.org/providermanuals/allproviders/pdfs/information_for_all_providers_managed_care_information.pdf' },
+      { title: 'NY Insurance Law § 3216(i)(25) — current text (no ABA-only visit limits)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3216' },
     ],
     faq: [
-      { q: 'Does Aetna cover ABA therapy in New York?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New York\'s autism mandate for fully-insured plans: no age limit, up to 680 ABA hours per year, LBA-delivered. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
-      { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; ABA may be capped at 680 hours per policy/calendar year (an hours cap — the widely cited $45,000 dollar figure is not in the current DFS guidance), and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
+      { q: 'Does Aetna cover ABA therapy in New York?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
+      { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
       { q: 'What does Aetna pay for ABA in New York?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the NY Medicaid fee schedule ($19.26/unit for most codes; $14.45 for 97153) and treat rate-setting as part of contracting.' },
     ],
   },
@@ -651,7 +653,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
   'cigna-new-york': {
     slug: 'cigna-new-york',
     family: 'cigna',
-    cardDesc: 'EN0499 + autism resource guide + the NY mandate: 680 hrs/yr, no age limit, LBA-only.',
+    cardDesc: 'EN0499 + autism resource guide + the NY mandate: no ABA-only visit caps, no age limit, LBA-only.',
     assessmentPA: 'Not required for assessment codes 97151, 97152, 0362T (per national policy EN0499)',
     treatmentPA: 'Required — assessment + treatment plan with the ABA PA form (EN0499)',
     dxRequired: 'Yes — ASD only; Rett syndrome (F84.2) excluded under EN0499',
@@ -661,15 +663,15 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     h1: 'Cigna / Evernorth ABA coverage in New York: the intake guide.',
     metaTitle: 'Cigna ABA Coverage in New York: Prior Auth & Mandate Guide | Carelu',
     metaDescription:
-      'How Cigna / Evernorth covers ABA for New York families — the national clinical policy, prior authorization, the NY autism mandate (no age limit, 680 hours/year, exemptions), NYSED LBA licensure, and what intake should verify.',
+      'How Cigna / Evernorth covers ABA for New York families — the national clinical policy, prior authorization, the NY autism mandate (no age limit, no ABA-only visit caps, exemptions), NYSED LBA licensure, and what intake should verify.',
     intro: [
-      'For an intake team in New York, a Cigna card means three layers at once: the carrier\'s national clinical policy, New York\'s autism insurance mandate (Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee)), and the plan\'s funding type deciding which of the two actually binds. This guide stacks them in order — with the two New York-specific facts that surprise out-of-state operators: the mandate caps ABA in hours (680 per year), not dollars, and only NYSED-licensed behavior analysts can deliver mandated ABA — a BCBA alone is not enough.',
+      'For an intake team in New York, a Cigna card means three layers at once: the carrier\'s national clinical policy, New York\'s autism insurance mandate (Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee)), and the plan\'s funding type deciding which of the two actually binds. This guide stacks them in order — with the two New York-specific facts that surprise out-of-state operators: the mandate bars ABA-only visit caps outright (the old 680-hour ceiling was repealed in 2020), and only NYSED-licensed behavior analysts can deliver mandated ABA — a BCBA alone is not enough.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — for ASD, per the national Cigna policy' },
       { label: 'State mandate', value: 'NY Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee) — eff. Nov 1, 2012' },
       { label: 'Mandate age', value: 'No age limit in the mandate or DFS Circular Letter 6 (2014)' },
-      { label: 'Mandate cap', value: '680 hours of ABA per policy/calendar year — an hours cap, not a dollar cap' },
+      { label: 'Mandate cap', value: 'None permitted — the statute bars visit limits applied solely to ASD treatment (the 680-hour cap was repealed eff. 1/1/2020)' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (federal preemption)' },
       { label: 'Licensure', value: 'NYSED Licensed Behavior Analyst (LBA) — BCBA alone insufficient' },
     ],
@@ -685,12 +687,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'The New York mandate: 680 hours, no age limit, LBA-delivered',
+        h2: 'The New York mandate: no ABA-only caps, no age limit, LBA-delivered',
         body: [
-          'New York\'s autism mandate — enacted via S.5845 (2011), effective for policies issued or renewed on or after November 1, 2012, and implemented through DFS Insurance Circular Letter No. 6 (2014) — requires every state-regulated policy providing physician/medical coverage (individual, group, Article 43/HMO, student plans, municipal cooperatives) to cover screening, diagnosis, and treatment of ASD, including ABA. Three features define it. No age limit: unlike Medicaid\'s under-21 rule, neither the statute nor CL 6 sets one, so adult ABA cases are mandate-covered on fully-insured plans. An hours cap, not dollars: ABA may be limited to 680 hours per policy or calendar year per covered individual — the old $45,000 figure still cited in blogs is not in the current guidance, so track authorization requests against an hours budget (680 hours ≈ 13 hrs/week year-round; comprehensive-intensity programs can exhaust it mid-year). And a credential gate: since October 11, 2014, mandated ABA must be provided or supervised by NYSED-licensed LBAs or CBAAs — BACB certification alone doesn\'t satisfy it. Self-funded ERISA plans sit outside the mandate by preemption; MHPAEA parity applies to ABA as a behavioral health benefit either way. One Cigna-specific friction point: EN0499 excludes Rett syndrome (F84.2), a diagnosis NY Medicaid covers — a Rett family with a Cigna card should be routed through benefits verification and the plan document, not assumed covered.',
+          'New York\'s autism mandate — enacted via S.5845 (2011), effective for policies issued or renewed on or after November 1, 2012, and implemented through DFS Insurance Circular Letter No. 6 (2014) — requires every state-regulated policy providing physician/medical coverage (individual, group, Article 43/HMO, student plans, municipal cooperatives) to cover screening, diagnosis, and treatment of ASD, including ABA. Three features define it. No age limit: unlike Medicaid\'s under-21 rule, neither the statute nor CL 6 sets one, so adult ABA cases are mandate-covered on fully-insured plans. No ABA-only limits: the 680-hour annual ceiling was struck from the statute effective January 1, 2020, and the current text instead bars a policy from containing “any limitations on visits that are solely applied to the treatment of autism spectrum disorder.” Cost-sharing still applies, but only on the same terms as other benefits. Any ABA-specific hour or visit ceiling on a fully-insured New York plan is a parity red flag to escalate — not an hours budget to plan around. (The 680-hour figure still circulates widely, including in DFS Circular Letter No. 6 (2014), which predates the repeal.) And a credential gate: since October 11, 2014, mandated ABA must be provided or supervised by NYSED-licensed LBAs or CBAAs — BACB certification alone doesn\'t satisfy it. Self-funded ERISA plans sit outside the mandate by preemption; MHPAEA parity applies to ABA as a behavioral health benefit either way. One Cigna-specific friction point: EN0499 excludes Rett syndrome (F84.2), a diagnosis NY Medicaid covers — a Rett family with a Cigna card should be routed through benefits verification and the plan document, not assumed covered.',
         ],
         cites: [
           { title: 'DFS Insurance Circular Letter No. 6 (2014) — Standards for Insurance Coverage for ABA', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
+          { title: 'NY Insurance Law § 3216(i)(25) — current text (no ABA-only visit limits)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3216' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
@@ -706,7 +709,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
-      { title: 'Hours used this year', desc: 'The 680-hour annual cap is an hours budget — capture ABA hours already used under the policy year before promising intensity.' },
+      { title: 'Any ABA-specific visit or hour cap on the plan', desc: 'Fully-insured NY plans may not limit visits solely for ASD — if a plan quotes an ABA-only ceiling, capture it verbatim and escalate it as a parity issue.' },
       { title: 'Member ID + card photo', desc: 'Enough to run a live benefits verification — the only reliable answer on limits and cost-sharing.' },
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date — flag Rett (F84.2), which EN0499 excludes.' },
       { title: 'Supervising LBA', desc: 'Mandated ABA must be LBA/CBAA-provided or supervised — confirm the NYSED license, not just BCBA status.' },
@@ -716,10 +719,11 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
       { title: 'NYSED — Article 167 (Ed. Law §§ 8800–8808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' },
+      { title: 'NY Insurance Law § 3216(i)(25) — current text (no ABA-only visit limits)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3216' },
     ],
     faq: [
-      { q: 'Does Cigna cover ABA therapy in New York?', a: 'Yes — under national policy EN0499 (which applies fully in New York, with no state carve-out), layered on New York\'s autism mandate for fully-insured plans: no age limit, up to 680 ABA hours per year, LBA-delivered. Self-funded plans are exempt from the mandate, so verify plan funding type first.' },
-      { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; ABA may be capped at 680 hours per policy/calendar year (an hours cap — the widely cited $45,000 dollar figure is not in the current DFS guidance), and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
+      { q: 'Does Cigna cover ABA therapy in New York?', a: 'Yes — under national policy EN0499 (which applies fully in New York, with no state carve-out), layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded plans are exempt from the mandate, so verify plan funding type first.' },
+      { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
       { q: 'Does the ABA assessment need prior authorization with Cigna in New York?', a: 'No — per EN0499, assessment codes 97151, 97152, and 0362T need no prior authorization. Treatment does, with the completed assessment and treatment plan on Cigna\'s ABA PA form.' },
     ],
   },
@@ -727,7 +731,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
   'unitedhealthcare-new-york': {
     slug: 'unitedhealthcare-new-york',
     family: 'unitedhealthcare',
-    cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the NY mandate: 680 hrs/yr, no age limit, LBA-only.',
+    cardDesc: 'Optum Supplemental Clinical Criteria (BH803ABASCC) + the NY mandate: no ABA-only visit caps, no age limit, LBA-only.',
     assessmentPA: 'Required — step 1 of Optum\'s two-step authorization (assessment auth via Provider Express)',
     treatmentPA: 'Required — step 2 (treatment auth); reviews every 4–6 months',
     dxRequired: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
@@ -739,13 +743,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How UnitedHealthcare / Optum covers ABA for New York families — the national clinical policy, two-step prior authorization, the NY autism mandate (no age limit, 680 hours/year), NYSED LBA licensure, and the Medicaid line to check for.',
     intro: [
-      'For an intake team in New York, a UnitedHealthcare card means three layers at once: the carrier\'s national clinical policy, New York\'s autism insurance mandate (Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee)), and the plan\'s funding type deciding which of the two actually binds. This guide stacks them in order — with the two New York-specific facts that surprise out-of-state operators: the mandate caps ABA in hours (680 per year), not dollars, and only NYSED-licensed behavior analysts can deliver mandated ABA — a BCBA alone is not enough.',
+      'For an intake team in New York, a UnitedHealthcare card means three layers at once: the carrier\'s national clinical policy, New York\'s autism insurance mandate (Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee)), and the plan\'s funding type deciding which of the two actually binds. This guide stacks them in order — with the two New York-specific facts that surprise out-of-state operators: the mandate bars ABA-only visit caps outright (the old 680-hour ceiling was repealed in 2020), and only NYSED-licensed behavior analysts can deliver mandated ABA — a BCBA alone is not enough.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — for ASD, per the national UnitedHealthcare policy' },
       { label: 'State mandate', value: 'NY Ins. Law §§ 3216(i)(25), 3221(l)(17), 4303(ee) — eff. Nov 1, 2012' },
       { label: 'Mandate age', value: 'No age limit in the mandate or DFS Circular Letter 6 (2014)' },
-      { label: 'Mandate cap', value: '680 hours of ABA per policy/calendar year — an hours cap, not a dollar cap' },
+      { label: 'Mandate cap', value: 'None permitted — the statute bars visit limits applied solely to ASD treatment (the 680-hour cap was repealed eff. 1/1/2020)' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (federal preemption)' },
       { label: 'Licensure', value: 'NYSED Licensed Behavior Analyst (LBA) — BCBA alone insufficient' },
     ],
@@ -761,12 +765,13 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'The New York mandate: 680 hours, no age limit, LBA-delivered',
+        h2: 'The New York mandate: no ABA-only caps, no age limit, LBA-delivered',
         body: [
-          'New York\'s autism mandate — enacted via S.5845 (2011), effective for policies issued or renewed on or after November 1, 2012, and implemented through DFS Insurance Circular Letter No. 6 (2014) — requires every state-regulated policy providing physician/medical coverage (individual, group, Article 43/HMO, student plans, municipal cooperatives) to cover screening, diagnosis, and treatment of ASD, including ABA. Three features define it. No age limit: unlike Medicaid\'s under-21 rule, neither the statute nor CL 6 sets one, so adult ABA cases are mandate-covered on fully-insured plans. An hours cap, not dollars: ABA may be limited to 680 hours per policy or calendar year per covered individual — the old $45,000 figure still cited in blogs is not in the current guidance, so track authorization requests against an hours budget (680 hours ≈ 13 hrs/week year-round; comprehensive-intensity programs can exhaust it mid-year). And a credential gate: since October 11, 2014, mandated ABA must be provided or supervised by NYSED-licensed LBAs or CBAAs — BACB certification alone doesn\'t satisfy it. Self-funded ERISA plans sit outside the mandate by preemption; MHPAEA parity applies to ABA as a behavioral health benefit either way.',
+          'New York\'s autism mandate — enacted via S.5845 (2011), effective for policies issued or renewed on or after November 1, 2012, and implemented through DFS Insurance Circular Letter No. 6 (2014) — requires every state-regulated policy providing physician/medical coverage (individual, group, Article 43/HMO, student plans, municipal cooperatives) to cover screening, diagnosis, and treatment of ASD, including ABA. Three features define it. No age limit: unlike Medicaid\'s under-21 rule, neither the statute nor CL 6 sets one, so adult ABA cases are mandate-covered on fully-insured plans. No ABA-only limits: the 680-hour annual ceiling was struck from the statute effective January 1, 2020, and the current text instead bars a policy from containing “any limitations on visits that are solely applied to the treatment of autism spectrum disorder.” Cost-sharing still applies, but only on the same terms as other benefits. Any ABA-specific hour or visit ceiling on a fully-insured New York plan is a parity red flag to escalate — not an hours budget to plan around. (The 680-hour figure still circulates widely, including in DFS Circular Letter No. 6 (2014), which predates the repeal.) And a credential gate: since October 11, 2014, mandated ABA must be provided or supervised by NYSED-licensed LBAs or CBAAs — BACB certification alone doesn\'t satisfy it. Self-funded ERISA plans sit outside the mandate by preemption; MHPAEA parity applies to ABA as a behavioral health benefit either way.',
         ],
         cites: [
           { title: 'DFS Insurance Circular Letter No. 6 (2014) — Standards for Insurance Coverage for ABA', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
+          { title: 'NY Insurance Law § 3216(i)(25) — current text (no ABA-only visit limits)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3216' },
         ],
       },
       {
@@ -791,7 +796,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
       { title: 'Line of business', desc: 'Commercial vs. UnitedHealthcare Community Plan of New York (Medicaid) — different rules, different guide.' },
-      { title: 'Hours used this year', desc: 'The 680-hour annual cap is an hours budget — capture ABA hours already used under the policy year before promising intensity.' },
+      { title: 'Any ABA-specific visit or hour cap on the plan', desc: 'Fully-insured NY plans may not limit visits solely for ASD — if a plan quotes an ABA-only ceiling, capture it verbatim and escalate it as a parity issue.' },
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.), diagnosing provider and credentials, evaluation date.' },
       { title: 'Supervising LBA', desc: 'Mandated ABA must be LBA/CBAA-provided or supervised — confirm the NYSED license, not just BCBA status.' },
     ],
@@ -800,10 +805,11 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
       { title: 'NYSED — Article 167 (Ed. Law §§ 8800–8808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' },
+      { title: 'NY Insurance Law § 3216(i)(25) — current text (no ABA-only visit limits)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3216' },
     ],
     faq: [
-      { q: 'Does UnitedHealthcare cover ABA therapy in New York?', a: 'Yes — under the carrier\'s national policy for ASD via Optum\'s two-step authorization, layered on New York\'s autism mandate for fully-insured plans: no age limit, up to 680 ABA hours per year, LBA-delivered. Self-funded plans are exempt from the mandate, so verify plan funding type first.' },
-      { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; ABA may be capped at 680 hours per policy/calendar year (an hours cap — the widely cited $45,000 dollar figure is not in the current DFS guidance), and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
+      { q: 'Does UnitedHealthcare cover ABA therapy in New York?', a: 'Yes — under the carrier\'s national policy for ASD via Optum\'s two-step authorization, layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded plans are exempt from the mandate, so verify plan funding type first.' },
+      { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
       { q: 'What does UnitedHealthcare pay for ABA in New York?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the NY Medicaid fee schedule ($19.26/unit for most codes; $14.45 for 97153) and treat rate-setting as part of contracting.' },
     ],
   },
@@ -1217,6 +1223,171 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment require prior authorization at Highmark WNY?', a: 'Yes — a standalone Autism Spectrum Disorder Testing authorization form gates the diagnostic workup and explicitly asks whether the request is meant to access ABA services, submitted via Availity Essentials or fax before services are rendered.' },
       { q: 'Who manages behavioral health for Highmark Western New York Medicaid?', a: 'Wellpoint Partnership Plan, LLC (formerly Amerigroup Partnership Plan) has managed the plan\'s Medicaid Managed Care, HARP, and CHPlus behavioral health since 2016, per the Provider Manual — though the same manual also references Carelon Behavioral Health in a vendor-disclosure footer without clarifying scope. Confirm with Provider Services which applies to your case.' },
       { q: 'Is Highmark Western New York available outside Western NY?', a: 'No — the Medicaid Managed Care/HARP/CHPlus product is limited to eight Western New York counties (Allegany, Cattaraugus, Chautauqua, Erie, Genesee, Niagara, Orleans, Wyoming), despite the plan\'s legal name including "Northeastern New York."' },
+    ],
+  },
+
+  'anthem-bcbs-new-york': {
+    slug: 'anthem-bcbs-new-york',
+    payer: 'Anthem BCBS New York (formerly Empire)',
+    state: 'NY', kind: 'commercial',
+    family: 'anthem',
+    cardDesc: 'The 680-hour cap was repealed in 2020; Empire is now Anthem; 28-county service area.',
+    assessmentPA: 'Yes — 97151, 97152 and 0362T are authorized per authorization period, with an assessment-only pathway on Anthem\'s ASD form',
+    treatmentPA: 'Yes — 97153, 97154, 97155, 97158 and 0373T are authorized per week',
+    dxRequired: 'Yes — and the ABA must be prescribed or ordered by a licensed physician or licensed psychologist; an LBA may not diagnose or self-refer',
+    pill: 'Payer Guide · Anthem BCBS · New York',
+    h1: 'Anthem BCBS New York ABA coverage: the intake guide.',
+    metaTitle: 'Anthem BCBS New York (Empire) ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How Anthem Blue Cross and Blue Shield covers ABA in New York: why the 680-hour cap no longer exists, the Empire rebrand, the 28-county service area, NYSED behavior-analyst licensure, and what intake must verify.',
+    intro: [
+      'Two things about Anthem in New York are still widely repeated and both are wrong. The first is that the plan is called Empire — Empire BlueCross BlueShield was rebranded Anthem effective January 1, 2024, and the underwriting entities were legally renamed Anthem HealthChoice Assurance, Inc. and Anthem HealthChoice HMO, Inc. Member ID numbers and provider contracts did not change. The second is the 680-hour annual ABA ceiling, which almost every ABA resource on the internet still quotes. It was real, it was in the insurance statute rather than a regulation, and it was repealed by the 2019 budget act effective January 1, 2020.',
+      'That repeal changes how you argue a case. There is no statutory hour budget to run out of any more. Any hour limit a New York family actually hits on a fully insured Anthem plan is a medical-necessity determination, which means it goes through Article 49 utilization review and external appeal — not a number you have to accept. Self-funded ERISA plans sit outside the state mandate entirely and answer to federal parity, so plan funding type remains the first fact benefits verification establishes.',
+    ],
+    atGlance: [
+      { label: 'Brand', value: 'Empire BCBS became Anthem BCBS effective January 1, 2024 — same member IDs' },
+      { label: 'Service area', value: '28 New York counties (17 southeastern + 11 northeastern)' },
+      { label: 'State mandate', value: 'NY Ins. Law §§ 3216(i)(25) individual, 3221(l)(17) group, 4303(ee) Article 43/HMO' },
+      { label: '680-hour cap', value: 'REPEALED — struck by Ch. 57 of the Laws of 2019, effective 1/1/2020' },
+      { label: 'Age / dollar limits', value: 'None in the current statute' },
+      { label: 'Criteria applied', value: 'MCG B-806-T — replaced CG-BEH-02 for ABA on June 1, 2024' },
+      { label: 'Submit via', value: 'Availity Essentials (preferred) or fax 866-582-2287, on the ASD Treatment Plan Request Form' },
+      { label: 'Licensure', value: 'NYSED Licensed Behavior Analyst (LBA) or CBAA — BACB certification alone is not a NY license' },
+    ],
+    sections: [
+      {
+        h2: 'The 680-hour cap is gone. Stop quoting it.',
+        cites: [
+          { title: 'NY S.1507-C (Ch. 57 of the Laws of 2019), Part BB, Subpart A', url: 'https://www.nysenate.gov/legislation/bills/2019/S1507/amendment/C' },
+          { title: 'NY Insurance Law § 3216 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-32/3216/' },
+          { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
+        ],
+        body: [
+          'New York\'s autism mandate did once carry an explicit ABA ceiling. DFS described it plainly in 2014: the mandate "includes coverage for 680 hours of applied behavior analysis (\'ABA\') treatment per policy or calendar year per covered individual diagnosed with ASD." That sentence lived in the statute itself, in §§ 3216(i)(25)(B), 3221(l)(17)(B) and 4303(ee)(2) — not in a regulation, and not in 11 NYCRR Part 440, which was a short-lived emergency regulation about licensure standards that expired on October 11, 2014.',
+          'The 2019 budget act (S.1507-C / A.2007-C, Part BB, Subpart A, enacted as Chapter 57 of the Laws of 2019) struck the sentence from all three sections. In New York bill drafting, square brackets mark language being deleted, and the bill shows the cap bracketed out. The act took effect on the first of January following enactment and applied to all policies and contracts issued, renewed, modified, altered or amended on or after that date — January 1, 2020. Grep the current statute for "six hundred eighty" and it is not there.',
+          'What replaced it cuts the other way. The current text says a policy "shall not contain any limitations on visits that are solely applied to the treatment of autism spectrum disorder," forbids financial requirements or treatment limitations on ASD benefits more restrictive than those applied to substantially all medical and surgical benefits, and requires coverage consistent at minimum with federal MHPAEA. Bills to put the 680 hours back have been introduced in four consecutive sessions — the current one, A3896, sat in Assembly committee as of January 2026 — and none has passed. One caveat worth carrying: DFS Circular Letter No. 6 (2014) is still live and still authoritative on the licensure point, but its background recital of 680 hours is outdated. Cite it for licensure, never for hours.',
+        ],
+      },
+      {
+        h2: 'Empire is Anthem — and only in 28 counties',
+        cites: [
+          { title: 'Anthem New York Provider Manual (effective July 1, 2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/manuals/PM_NY_000016.pdf' },
+          { title: 'Anthem — FAQs: our upcoming rebrand to Anthem (Empire, November 2023)', url: 'https://providers.anthem.com/docs/gpp/NYE_FAQs.pdf' },
+        ],
+        body: [
+          'Anthem\'s own provider FAQ told New York providers that most communications would move to the Anthem brand beginning January 1, 2024, that members would get a new ID card with the Anthem logo but the member ID number would not change, and that existing agreements and contracts with Empire were unaffected. So an Empire card in a family\'s folder is an Anthem card; do not treat it as a different payer or re-verify it as one.',
+          'Geography is the fact that actually saves intake time. Anthem\'s New York provider manual names its service area as 28 counties: Albany, Bronx, Clinton, Columbia, Delaware, Dutchess, Essex, Fulton, Greene, Montgomery, Kings, Nassau, New York, Orange, Putnam, Queens, Rensselaer, Richmond, Rockland, Saratoga, Schenectady, Schoharie, Suffolk, Sullivan, Ulster, Warren, Washington and Westchester. Seventeen southeastern counties carry the trade name "Anthem Blue Cross and Blue Shield"; eleven northeastern counties carry "Anthem Blue Cross" — so the exact brand wording on the card is itself a geography tell. If a family lives outside those 28 counties, their Blue plan is somebody else — Excellus, Highmark, MVP, CDPHP or Independent Health — and this guide does not govern them.',
+        ],
+      },
+      {
+        h2: 'What the mandate actually requires',
+        cites: [
+          { title: 'NY Insurance Law § 3216 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-32/3216/' },
+          { title: 'NY Insurance Law § 3221 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-32/3221/' },
+          { title: 'NY Insurance Law § 4303 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-43/4303/' },
+        ],
+        list: [
+          { title: 'Three sections, three markets', desc: '§ 3216(i)(25) binds individual accident and health policies; § 3221(l)(17) binds group or blanket policies; § 4303(ee) binds Article 43 corporations and HMOs. Between them they cover essentially every state-regulated New York plan.' },
+          { title: 'No age limit, no dollar cap, no hour cap', desc: 'The current text carries none of the three. The original 2011 law had a $45,000 annual ABA cap; that gave way to the 680 hours, which is itself now repealed.' },
+          { title: 'A physician or psychologist must prescribe or order it', desc: 'Covered treatment is that "prescribed or ordered for an individual diagnosed with autism spectrum disorder by a licensed physician or a licensed psychologist." This is not optional paperwork — it is the definition of what the plan owes.' },
+          { title: 'Utilization review survives', desc: 'The statute expressly preserves utilization review and external appeals under Article 49, plus case management and other managed-care provisions. That is the arena an hour dispute now plays out in.' },
+          { title: 'The IEP carve-out', desc: 'Coverage may be denied on the basis that the treatment is being provided under an IEP under Article 89 of the Education Law — but services provided on a supplemental basis outside an educational setting stay covered when prescribed. Document the school-day boundary carefully.' },
+        ],
+      },
+      {
+        h2: 'Licensure: New York does not accept a BCBA alone',
+        cites: [
+          { title: 'NYSED Office of the Professions — Licensed Behavior Analysts FAQ', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/frequently-asked-questions' },
+          { title: 'NYSED — LBA/CBAA assessment and treatment plans', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/professional-practice/assessment-and-treatment-plans' },
+          { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
+        ],
+        body: [
+          'New York licenses two credentials through the State Education Department: Licensed Behavior Analyst (LBA) and Certified Behavior Analyst Assistant (CBAA), the latter working under LBA supervision. NYSED is explicit that BACB certification "may be included in advertising in New York State" but "may not be used as a license to practice in New York State," and the grandparenting pathway closed in January 2016. DFS ties this straight to reimbursement: a person providing ABA must be an LBA, or a CBAA supervised by an LBA, for their services to be eligible for health insurance coverage.',
+          'The scope limits matter just as much at intake. An LBA or CBAA may not diagnose the condition ABA is being provided for, and may not prescribe or order ABA for a particular individual. NYSED tells LBAs to verify a client\'s ASD diagnosis before providing services, precisely because the diagnosis and the order have to come from someone else. Practically: no New York case should open without both the diagnostic report and a physician\'s or psychologist\'s order in hand — and the mandate requires the same thing, so the payer and the licensure board are asking for the identical document.',
+        ],
+      },
+      {
+        h2: 'Submitting the authorization',
+        cites: [
+          { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+          { title: 'Anthem — MCG care guidelines 27th edition update (New York, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/new-york/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+          { title: 'Anthem New York — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/new-york/articles/streamlined-aba-claim-process-starts-january-1-2026-27878' },
+        ],
+        body: [
+          'Anthem reviews ABA itself — there is no delegated behavioral health vendor in the New York commercial path we could find, and Carelon Medical Benefits Management\'s New York programme is cardiology, genetic testing, radiology, musculoskeletal, surgical and radiation therapy, not ABA. The instrument is Anthem\'s Treatment Plan Request Form for Autism Spectrum Disorders, a commercial form explicitly covering New York. Requests go through Availity as the preferred channel, with fax 866-582-2287 as the alternative, and must include BCBA (or other qualified healthcare professional) information plus the form itself.',
+          'The form tells you how the authorization is shaped. You mark the request comprehensive or focused. 97151, 97152, 0362T, 97156 and 97157 are authorized per authorization period; 97153, 97154, 97155, 97158 and 0373T are authorized per week — and 0362T and 0373T each require clinical justification. There is an assessment-only pathway for 97151, 97152 and 0362T, or where the member has new coverage, requiring a diagnostic evaluation by a doctorate-level clinician or allowable qualified healthcare provider showing DSM-5-TR criteria and naming the standardized tools used (the form offers ADI-R, ADOS-2 and CARS-2 as examples). The treatment plan should be dated within 30 days of the start date.',
+          'Two more things to know. The criteria set changed: effective June 1, 2024 Anthem moved ABA reviews from CG-BEH-02 and MCG W0153 to MCG B-806-T, and MCG guidelines are proprietary and unpublished — so the form, not a public policy document, is your best guide to what a complete request looks like. And from January 1, 2026, Anthem reimburses ABA on weekly approved units rather than total authorized units, with units above the approved weekly limit ineligible and adjusted, which is the same per-week structure the form already reflects.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Plan funding type, first', desc: 'Fully insured New York plan (the mandate and its no-cap rules apply) vs. self-funded ERISA (preempted; federal parity and the plan document govern). Nothing else on this page is reliable until you know which.' },
+      { title: 'County of residence', desc: 'Anthem New York serves 28 counties. Outside them, an "Anthem" or "Blue Cross" answer means a different carrier — confirm before building the file.' },
+      { title: 'The prescribing physician or psychologist', desc: 'Both the mandate and NYSED\'s scope rules require the ABA to be prescribed or ordered by a licensed physician or licensed psychologist. Your LBA cannot supply it.' },
+      { title: 'Full diagnostic evaluation, not a diagnosis letter', desc: 'Anthem\'s ASD form wants a doctorate-level evaluation showing DSM-5-TR criteria and the standardized tools used. Ask for the whole report at first contact.' },
+      { title: 'NYSED license numbers', desc: 'LBA for the supervising analyst, CBAA for assistants. A BCBA credential alone will not support coverage in New York.' },
+      { title: 'School hours and IEP services', desc: 'The mandate lets a plan deny treatment provided under an IEP while preserving supplemental services outside the educational setting. Capture the school schedule and IEP services so the request draws that line explicitly.' },
+    ],
+    sources: [
+      { title: 'NY S.1507-C (Ch. 57 of the Laws of 2019), Part BB, Subpart A', url: 'https://www.nysenate.gov/legislation/bills/2019/S1507/amendment/C' },
+      { title: 'NY Insurance Law § 3216 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-32/3216/' },
+      { title: 'NY Insurance Law § 3221 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-32/3221/' },
+      { title: 'NY Insurance Law § 4303 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-43/4303/' },
+      { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
+      { title: 'NYSED Office of the Professions — Licensed Behavior Analysts FAQ', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/frequently-asked-questions' },
+      { title: 'NYSED — LBA/CBAA assessment and treatment plans', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/professional-practice/assessment-and-treatment-plans' },
+      { title: 'Anthem New York Provider Manual (effective July 1, 2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/manuals/PM_NY_000016.pdf' },
+      { title: 'Anthem — FAQs: our upcoming rebrand to Anthem (Empire, November 2023)', url: 'https://providers.anthem.com/docs/gpp/NYE_FAQs.pdf' },
+      { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+      { title: 'Anthem ABA Provider Resource Guide — New York and 10 other states (June 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/aba-provider-resource-guide-abc-ny.pdf' },
+      { title: 'Anthem — MCG care guidelines 27th edition update (New York, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/new-york/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+      { title: 'Anthem New York — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/new-york/articles/streamlined-aba-claim-process-starts-january-1-2026-27878' },
+    ],
+    deliveryRules: {
+      concurrentBilling: {
+        value: 'A physician or other QHP billing 97155 can add 97153 only if both the technician and the QHP are face-to-face with the patient at the same time and the QHP is directing the technician. Supervised or directed services billed alongside a QHP-performed procedure are also subject to Anthem\'s Incident To Services and Billing reimbursement policy.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — New York and 10 other states (June 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/aba-provider-resource-guide-abc-ny.pdf' }],
+      },
+      dailyLimits: {
+        value: 'No per-day unit ceiling is published. The authorization itself is shaped per code: 97151, 97152, 0362T, 97156 and 97157 are authorized per authorization period, while 97153, 97154, 97155, 97158 and 0373T are authorized per week — and from January 1, 2026 weekly units above the approved limit are ineligible for reimbursement. ABA codes may separately carry CMS MUE limits, administered as NCCI edits under Anthem\'s Code and Clinical Editing Guidelines policy.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+          { title: 'Anthem New York — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/new-york/articles/streamlined-aba-claim-process-starts-january-1-2026-27878' },
+        ],
+      },
+      noteSignature: {
+        value: 'Each medical-record entry must carry author identification — handwritten signature, unique electronic identifier, or initials — plus rendering provider credentials. Entries are expected at the time of service or shortly thereafter and should not exceed 30 days, with a signature date within 30 days of the date of service. Timed codes require total treatment minutes plus start and stop times. Treatment plans must show review or update at least every 6 months, and the plan submitted with a request should be dated within 30 days of the start date.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — New York and 10 other states (June 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/aba-provider-resource-guide-abc-ny.pdf' },
+          { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'POS codes Anthem names for ABA: 12 home, 11 office/clinic, 99 community, 03 school, 10 telehealth with the member at home, 02 telehealth with the member elsewhere — each subject to the member\'s coverage and plan review. Note the New York mandate separately permits a plan to deny treatment delivered under an IEP while covering supplemental services outside the educational setting, so school-based ABA needs that distinction documented.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — New York and 10 other states (June 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/aba-provider-resource-guide-abc-ny.pdf' },
+          { title: 'NY Insurance Law § 3216 (current)', url: 'https://law.justia.com/codes/new-york/isc/article-32/3216/' },
+        ],
+      },
+      billAsProvider: {
+        value: 'ABA delivered by therapy assistants, behavior technicians or paraprofessionals must show the supervising BCBA or other QHP in box 31 of the CMS-1500, with degree-level modifiers HM, HN and HO identifying the rendering staff level. In New York, DFS additionally requires that the person providing ABA be a NYSED-Licensed Behavior Analyst, or a CBAA supervised by one, for the services to be eligible for insurance coverage.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — New York and 10 other states (June 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/aba-provider-resource-guide-abc-ny.pdf' },
+          { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' },
+        ],
+      },
+    },
+    faq: [
+      { q: 'Is ABA still capped at 680 hours a year in New York?', a: 'No. The 680-hour ceiling was written into NY Insurance Law §§ 3216(i)(25), 3221(l)(17) and 4303(ee), and Chapter 57 of the Laws of 2019 struck it from all three, effective for policies issued, renewed, modified, altered or amended on or after January 1, 2020. The current statute carries no hour cap, no dollar cap and no age limit, and forbids visit limits applied solely to autism. Bills to reinstate the 680 hours have been introduced repeatedly and none has passed.' },
+      { q: 'Is Empire BlueCross BlueShield the same as Anthem in New York?', a: 'Yes. Empire was rebranded Anthem effective January 1, 2024 and the underwriting entities were renamed Anthem HealthChoice Assurance, Inc. and Anthem HealthChoice HMO, Inc. Member ID numbers did not change and existing provider agreements were unaffected.' },
+      { q: 'Does Anthem cover all of New York State?', a: 'No — 28 counties, split between 17 southeastern counties trading as "Anthem Blue Cross and Blue Shield" and 11 northeastern counties trading as "Anthem Blue Cross." Elsewhere in the state the Blue plan is Excellus, Highmark, MVP, CDPHP or Independent Health.' },
+      { q: 'Can a BCBA deliver covered ABA in New York?', a: 'Not on BACB certification alone. New York requires a NYSED Licensed Behavior Analyst, or a Certified Behavior Analyst Assistant supervised by one, and DFS has said that is what makes the services eligible for insurance coverage. NYSED also bars LBAs and CBAAs from diagnosing or from prescribing or ordering ABA — that has to come from a licensed physician or psychologist.' },
+      { q: 'Which criteria does Anthem apply to ABA in New York?', a: 'MCG B-806-T. Anthem notified commercial providers that effective June 1, 2024 it would transition from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and not published, so build the request around Anthem\'s Treatment Plan Request Form for Autism Spectrum Disorders.' },
     ],
   },
 };

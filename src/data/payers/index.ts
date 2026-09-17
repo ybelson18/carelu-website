@@ -1,6 +1,8 @@
 export * from './types.js';
 import type { PayerConfig } from './types.js';
 import { nationalPayers } from './national.js';
+import { nationalBhPayers } from './national-bh.js';
+import { militaryPayers } from './military.js';
 import { georgiaPayers } from './georgia.js';
 import { northCarolinaPayers } from './north-carolina.js';
 import { indianaPayers } from './indiana.js';
@@ -23,6 +25,8 @@ import { utahPayers } from './utah.js';
 
 export const payers: Record<string, PayerConfig> = {
   ...nationalPayers,
+  ...nationalBhPayers,
+  ...militaryPayers,
   ...georgiaPayers,
   ...northCarolinaPayers,
   ...indianaPayers,

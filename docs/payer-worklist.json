@@ -1,0 +1,1236 @@
+{
+  "$comment": [
+    "RESEARCH WORKLIST for the payer directory \u2014 WHO to cover and WHAT to ask, never the answers.",
+    "Answers come only from primary sources fetched during the monthly refresh, cited inline, per the",
+    "VERIFIED-ONLY rule in docs/monthly-refresh.md. Nothing here is copied from any third party's material.",
+    "Origin: a coverage gap analysis run 2026-09-17 against src/data/payers/*.ts. Commercial coverage at",
+    "that point was four carrier families (Aetna, Cigna, UnitedHealthcare, Anthem GA) across 19 states;",
+    "these are the payers that actually appear on ABA leads in those same states and had no guide."
+  ],
+  "created": "2026-09-17",
+  "ruleFields": [
+    {
+      "id": "supervision",
+      "label": "Supervision",
+      "question": "What supervision does this payer require over technicians delivering 97153 \u2014 a percentage floor, a ratio cap, direct vs. asynchronous, and who may supervise?",
+      "sourceHint": "State Medicaid provider/billing manual; payer ABA clinical policy; provider agreement."
+    },
+    {
+      "id": "concurrentBilling",
+      "label": "Concurrent billing (97153 + 97155)",
+      "question": "May 97153 and 97155 be billed for the same clock time for the same member, and under what conditions (direction-of-technician vs. direct treatment)?",
+      "sourceHint": "Payer ABA reimbursement policy; state manual concurrent-services section; NCCI/CMS edits."
+    },
+    {
+      "id": "dailyLimits",
+      "label": "Daily limits / MUEs",
+      "question": "What per-day unit ceilings does this payer enforce per ABA code, and does it follow Medicaid or Medicare MUE tables or publish its own limits?",
+      "sourceHint": "CMS MUE tables (Medicaid vs. Practitioner); payer reimbursement policy; state fee schedule."
+    },
+    {
+      "id": "noteSignature",
+      "label": "Session-note signature",
+      "question": "Who must sign each session note (rendering technician, supervising BCBA, both), and within what timeframe?",
+      "sourceHint": "State manual documentation standards; payer audit/documentation policy."
+    },
+    {
+      "id": "placeOfService",
+      "label": "Place of service",
+      "question": "Is ABA payable in school, in the community, and in a group home \u2014 and with which POS codes or restrictions?",
+      "sourceHint": "State manual place-of-service section; payer policy; POS code table."
+    },
+    {
+      "id": "billAsProvider",
+      "label": "Bill as provider",
+      "question": "Whose NPI must the claim carry \u2014 rendering technician, supervising analyst, or the group/agency \u2014 and what modifiers ride along?",
+      "sourceHint": "State manual billing section; payer claims/billing guide; enrollment rules."
+    }
+  ],
+  "ruleFieldBacklog": {
+    "target": "Every guide in src/data/payers/*.ts carries a deliveryRules block for as many of the six fields as primary sources support.",
+    "order": "State Medicaid guides first (their manuals answer all six in one document and MCOs inherit the floor), then Medicaid MCOs where the plan deviates from the state rule, then commercial.",
+    "cadence": "Fill the six fields for at least two state programs and their MCOs each refresh; omit a field rather than guess.",
+    "progress": [
+      {
+        "slug": "georgia-medicaid",
+        "state": "GA",
+        "kind": "state-medicaid",
+        "verified": [
+          "supervision",
+          "noteSignature",
+          "placeOfService",
+          "billAsProvider"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "concurrentBilling",
+          "dailyLimits"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "anthem-bcbs-georgia",
+        "state": "GA",
+        "kind": "commercial",
+        "verified": [
+          "supervision",
+          "concurrentBilling",
+          "dailyLimits",
+          "noteSignature",
+          "placeOfService",
+          "billAsProvider"
+        ],
+        "planDependent": [],
+        "unverified": [],
+        "omitted": []
+      },
+      {
+        "slug": "caresource-georgia",
+        "state": "GA",
+        "kind": "medicaid-mco",
+        "verified": [
+          "supervision",
+          "concurrentBilling",
+          "noteSignature",
+          "placeOfService",
+          "billAsProvider"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "dailyLimits"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "peach-state-georgia",
+        "state": "GA",
+        "kind": "medicaid-mco",
+        "verified": [
+          "supervision",
+          "dailyLimits",
+          "placeOfService",
+          "billAsProvider"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "concurrentBilling",
+          "noteSignature"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "amerigroup-georgia",
+        "state": "GA",
+        "kind": "medicaid-mco",
+        "verified": [
+          "supervision",
+          "dailyLimits"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "concurrentBilling",
+          "noteSignature"
+        ],
+        "omitted": [
+          "placeOfService",
+          "billAsProvider"
+        ]
+      },
+      {
+        "slug": "aetna-georgia",
+        "state": "GA",
+        "kind": "commercial",
+        "verified": [
+          "supervision",
+          "billAsProvider"
+        ],
+        "planDependent": [
+          "placeOfService"
+        ],
+        "unverified": [
+          "concurrentBilling",
+          "dailyLimits",
+          "noteSignature"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "cigna-georgia",
+        "state": "GA",
+        "kind": "commercial",
+        "verified": [
+          "concurrentBilling",
+          "billAsProvider"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "supervision",
+          "dailyLimits",
+          "noteSignature",
+          "placeOfService"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "unitedhealthcare-georgia",
+        "state": "GA",
+        "kind": "commercial",
+        "verified": [
+          "supervision",
+          "concurrentBilling",
+          "dailyLimits",
+          "billAsProvider"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "noteSignature",
+          "placeOfService"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "new-jersey-medicaid",
+        "state": "NJ",
+        "kind": "state-medicaid",
+        "verified": [
+          "supervision",
+          "concurrentBilling",
+          "dailyLimits",
+          "billAsProvider"
+        ],
+        "planDependent": [
+          "placeOfService"
+        ],
+        "unverified": [
+          "noteSignature"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "horizon-nj-health",
+        "state": "NJ",
+        "kind": "medicaid-mco",
+        "verified": [
+          "concurrentBilling",
+          "dailyLimits"
+        ],
+        "planDependent": [
+          "placeOfService"
+        ],
+        "unverified": [
+          "noteSignature"
+        ],
+        "omitted": [
+          "supervision",
+          "billAsProvider"
+        ]
+      },
+      {
+        "slug": "aetna-better-health-new-jersey",
+        "state": "NJ",
+        "kind": "medicaid-mco",
+        "verified": [
+          "concurrentBilling",
+          "dailyLimits"
+        ],
+        "planDependent": [
+          "placeOfService"
+        ],
+        "unverified": [
+          "noteSignature"
+        ],
+        "omitted": [
+          "supervision",
+          "billAsProvider"
+        ]
+      },
+      {
+        "slug": "fidelis-care-new-jersey",
+        "state": "NJ",
+        "kind": "medicaid-mco",
+        "verified": [
+          "concurrentBilling",
+          "dailyLimits"
+        ],
+        "planDependent": [
+          "placeOfService"
+        ],
+        "unverified": [
+          "noteSignature"
+        ],
+        "omitted": [
+          "supervision",
+          "billAsProvider"
+        ]
+      },
+      {
+        "slug": "unitedhealthcare-community-plan-new-jersey",
+        "state": "NJ",
+        "kind": "medicaid-mco",
+        "verified": [
+          "supervision",
+          "concurrentBilling",
+          "dailyLimits"
+        ],
+        "planDependent": [
+          "placeOfService"
+        ],
+        "unverified": [
+          "noteSignature",
+          "billAsProvider"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "wellpoint-new-jersey",
+        "state": "NJ",
+        "kind": "medicaid-mco",
+        "verified": [
+          "concurrentBilling",
+          "dailyLimits"
+        ],
+        "planDependent": [
+          "placeOfService"
+        ],
+        "unverified": [
+          "noteSignature"
+        ],
+        "omitted": [
+          "supervision",
+          "billAsProvider"
+        ]
+      },
+      {
+        "slug": "aetna-new-jersey",
+        "state": "NJ",
+        "kind": "commercial",
+        "verified": [
+          "supervision",
+          "billAsProvider"
+        ],
+        "planDependent": [
+          "placeOfService"
+        ],
+        "unverified": [
+          "concurrentBilling",
+          "dailyLimits",
+          "noteSignature"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "cigna-new-jersey",
+        "state": "NJ",
+        "kind": "commercial",
+        "verified": [
+          "concurrentBilling",
+          "billAsProvider"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "supervision",
+          "dailyLimits",
+          "noteSignature",
+          "placeOfService"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "unitedhealthcare-new-jersey",
+        "state": "NJ",
+        "kind": "commercial",
+        "verified": [
+          "supervision",
+          "concurrentBilling",
+          "dailyLimits",
+          "billAsProvider"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "noteSignature",
+          "placeOfService"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "masshealth-massachusetts-medicaid",
+        "state": "MA",
+        "kind": "state-medicaid",
+        "verified": [
+          "supervision",
+          "dailyLimits",
+          "noteSignature",
+          "placeOfService"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "concurrentBilling",
+          "billAsProvider"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "mbhp-massachusetts",
+        "state": "MA",
+        "kind": "medicaid-mco",
+        "verified": [
+          "supervision",
+          "dailyLimits",
+          "noteSignature",
+          "placeOfService"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "concurrentBilling",
+          "billAsProvider"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "wellsense-massachusetts",
+        "state": "MA",
+        "kind": "medicaid-mco",
+        "verified": [],
+        "planDependent": [],
+        "unverified": [
+          "supervision",
+          "concurrentBilling",
+          "dailyLimits",
+          "placeOfService"
+        ],
+        "omitted": [
+          "noteSignature",
+          "billAsProvider"
+        ]
+      },
+      {
+        "slug": "tufts-health-together",
+        "state": "MA",
+        "kind": "medicaid-mco",
+        "verified": [],
+        "planDependent": [],
+        "unverified": [
+          "supervision",
+          "dailyLimits",
+          "placeOfService"
+        ],
+        "omitted": [
+          "concurrentBilling",
+          "noteSignature",
+          "billAsProvider"
+        ]
+      },
+      {
+        "slug": "fallon-health-massachusetts",
+        "state": "MA",
+        "kind": "medicaid-mco",
+        "verified": [],
+        "planDependent": [],
+        "unverified": [
+          "supervision",
+          "dailyLimits",
+          "placeOfService"
+        ],
+        "omitted": [
+          "concurrentBilling",
+          "noteSignature",
+          "billAsProvider"
+        ]
+      },
+      {
+        "slug": "health-new-england-massachusetts",
+        "state": "MA",
+        "kind": "medicaid-mco",
+        "verified": [
+          "supervision",
+          "noteSignature",
+          "placeOfService"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "concurrentBilling"
+        ],
+        "omitted": [
+          "dailyLimits",
+          "billAsProvider"
+        ]
+      },
+      {
+        "slug": "mass-general-brigham-health-plan",
+        "state": "MA",
+        "kind": "medicaid-mco",
+        "verified": [],
+        "planDependent": [],
+        "unverified": [
+          "supervision",
+          "dailyLimits",
+          "placeOfService"
+        ],
+        "omitted": [
+          "concurrentBilling",
+          "noteSignature",
+          "billAsProvider"
+        ]
+      },
+      {
+        "slug": "aetna-massachusetts",
+        "state": "MA",
+        "kind": "commercial",
+        "verified": [
+          "supervision",
+          "billAsProvider"
+        ],
+        "planDependent": [
+          "placeOfService"
+        ],
+        "unverified": [
+          "concurrentBilling",
+          "dailyLimits",
+          "noteSignature"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "cigna-massachusetts",
+        "state": "MA",
+        "kind": "commercial",
+        "verified": [
+          "concurrentBilling",
+          "billAsProvider"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "supervision",
+          "dailyLimits",
+          "noteSignature",
+          "placeOfService"
+        ],
+        "omitted": []
+      },
+      {
+        "slug": "unitedhealthcare-massachusetts",
+        "state": "MA",
+        "kind": "commercial",
+        "verified": [
+          "supervision",
+          "concurrentBilling",
+          "dailyLimits",
+          "billAsProvider"
+        ],
+        "planDependent": [],
+        "unverified": [
+          "noteSignature",
+          "placeOfService"
+        ],
+        "omitted": []
+      }
+    ],
+    "progressNote": "deliveryRules pass run 2026-09-17 across GA, NJ and MA. 'verified' = a fetched primary source states the rule; 'plan-dependent' = the rule genuinely varies by plan or the published sources conflict; 'unverified' = the field carries a note plus a verifyVia naming the portal, phone line or document that would settle it; 'omitted' = no source and no useful verifyVia. Blocked or unreachable sources this pass: GAMMIS (mmis.georgia.gov) refuses connections, so Georgia's current quarterly ASD manual and live fee schedule could not be read \u2014 the posted January 2018 Part II manual is what Georgia's entries rest on and it predates the 97151-97158 code set. mass.gov returns 403 to automated fetches, so the MassHealth ABA Provider FAQ was not read. The NJ DMAHS ABA newsletter was retrievable only by direct download from web.archive.org. horizonnjhealth.com and aetnabetterhealth.com return HTML stubs or 403 to automated fetches, so no Horizon NJ Health or Aetna Better Health of NJ ABA document could be read."
+  },
+  "newPayers": [
+    {
+      "slug": "carelon-behavioral-health",
+      "payer": "Carelon Behavioral Health (formerly Beacon)",
+      "state": "US",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "carelon",
+      "note": "Administers ABA for EmblemHealth/GHI, The Empire Plan and Taft-Hartley funds; the carve-out administrator is who intake actually calls.",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "magellan-health",
+      "payer": "Magellan Health",
+      "state": "US",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "magellan",
+      "note": "National BH carve-out administrator for many employer and state plans.",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "compsych",
+      "payer": "ComPsych",
+      "state": "US",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "note": "BH administrator/EAP layered over employer plans.",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "tricare-east-humana-military",
+      "payer": "TRICARE East (Humana Military)",
+      "state": "US",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "tricare",
+      "note": "ABA runs through the Autism Care Demonstration, not ordinary TRICARE benefits.",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "tricare-west-triwest",
+      "payer": "TRICARE West (TriWest)",
+      "state": "US",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "tricare",
+      "note": "Autism Care Demonstration; TriWest took the West region contract.",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "champva",
+      "payer": "CHAMPVA",
+      "state": "US",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "johns-hopkins-usfhp",
+      "payer": "Johns Hopkins US Family Health Plan",
+      "state": "MD",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "tricare",
+      "note": "TRICARE Prime designated-provider plan (MD/DC/DE + parts of PA/VA/WV).",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "martins-point-usfhp",
+      "payer": "Martin's Point US Family Health Plan",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "tricare",
+      "note": "TRICARE Prime designated-provider plan (ME/NH/VT/NY/PA/OH).",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "anthem-bcbs-colorado",
+      "payer": "Anthem BCBS Colorado",
+      "state": "CO",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "anthem",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "anthem-bcbs-indiana",
+      "payer": "Anthem BCBS Indiana",
+      "state": "IN",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "anthem",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "anthem-bcbs-missouri",
+      "payer": "Anthem BCBS Missouri",
+      "state": "MO",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "anthem",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "anthem-bcbs-new-york",
+      "payer": "Anthem BCBS New York (formerly Empire)",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "anthem",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "anthem-bcbs-ohio",
+      "payer": "Anthem BCBS Ohio",
+      "state": "OH",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "anthem",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "anthem-bcbs-virginia",
+      "payer": "Anthem BCBS Virginia",
+      "state": "VA",
+      "kind": "commercial",
+      "priority": 1,
+      "status": "shipped",
+      "family": "anthem",
+      "shippedAt": "2026-09-17"
+    },
+    {
+      "slug": "bcbs-massachusetts",
+      "payer": "Blue Cross Blue Shield of Massachusetts",
+      "state": "MA",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "bcbs"
+    },
+    {
+      "slug": "horizon-bcbs-new-jersey",
+      "payer": "Horizon BCBS New Jersey",
+      "state": "NJ",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "bcbs"
+    },
+    {
+      "slug": "florida-blue",
+      "payer": "Florida Blue (Lucet)",
+      "state": "FL",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "bcbs",
+      "note": "ABA administered through Lucet (formerly New Directions)."
+    },
+    {
+      "slug": "highmark-bcbs",
+      "payer": "Highmark BCBS",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "bcbs",
+      "note": "Western/Northeastern NY plus DE and parts of VA."
+    },
+    {
+      "slug": "excellus-bcbs-commercial",
+      "payer": "Excellus BCBS (commercial)",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "bcbs",
+      "note": "Distinct from the existing Excellus Medicaid MCO guide."
+    },
+    {
+      "slug": "carefirst-bcbs",
+      "payer": "CareFirst BCBS",
+      "state": "MD",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "bcbs",
+      "note": "MD/DC/Northern VA."
+    },
+    {
+      "slug": "medical-mutual-ohio",
+      "payer": "Medical Mutual of Ohio",
+      "state": "OH",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open"
+    },
+    {
+      "slug": "kaiser-permanente-georgia",
+      "payer": "Kaiser Permanente Georgia",
+      "state": "GA",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "kaiser"
+    },
+    {
+      "slug": "kaiser-permanente-mid-atlantic",
+      "payer": "Kaiser Permanente Mid-Atlantic",
+      "state": "MD",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "kaiser",
+      "note": "MD/VA/DC."
+    },
+    {
+      "slug": "harvard-pilgrim",
+      "payer": "Harvard Pilgrim Health Care",
+      "state": "MA",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "point32",
+      "note": "Point32Health; MA/CT/ME/NH."
+    },
+    {
+      "slug": "tufts-health-plan-commercial",
+      "payer": "Tufts Health Plan (commercial)",
+      "state": "MA",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "point32",
+      "note": "Distinct from Tufts Health Together (MassHealth ACPP)."
+    },
+    {
+      "slug": "sentara-health-plans",
+      "payer": "Sentara Health Plans",
+      "state": "VA",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "Commercial line; the VA Medicaid plan already has a guide."
+    },
+    {
+      "slug": "amerihealth-new-jersey",
+      "payer": "AmeriHealth New Jersey",
+      "state": "NJ",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open"
+    },
+    {
+      "slug": "select-health",
+      "payer": "Select Health",
+      "state": "UT",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "UT/CO/ID/NV."
+    },
+    {
+      "slug": "medica",
+      "payer": "Medica (formerly WellFirst)",
+      "state": "KS",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "IA/KS/MN; frequently self-funded."
+    },
+    {
+      "slug": "paramount-health",
+      "payer": "Paramount Health Care",
+      "state": "OH",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "OH/MI."
+    },
+    {
+      "slug": "php-northern-indiana",
+      "payer": "Physicians Health Plan of Northern Indiana",
+      "state": "IN",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open"
+    },
+    {
+      "slug": "iu-health-plan",
+      "payer": "Indiana University Health Plans",
+      "state": "IN",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open"
+    },
+    {
+      "slug": "encore-health-network",
+      "payer": "Encore Health Network",
+      "state": "IN",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "PPO network layered under self-funded plans."
+    },
+    {
+      "slug": "curative-health",
+      "payer": "Curative Health",
+      "state": "FL",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "DC/FL/GA."
+    },
+    {
+      "slug": "ambetter-sunshine-health",
+      "payer": "Ambetter from Sunshine Health",
+      "state": "FL",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "centene"
+    },
+    {
+      "slug": "ambetter-peach-state",
+      "payer": "Ambetter from Peach State Health Plan",
+      "state": "GA",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "centene"
+    },
+    {
+      "slug": "ambetter-indiana",
+      "payer": "Ambetter of Indiana",
+      "state": "IN",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "centene"
+    },
+    {
+      "slug": "ambetter-home-state",
+      "payer": "Ambetter from Home State Health",
+      "state": "MO",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "centene"
+    },
+    {
+      "slug": "ambetter-wellcare-new-jersey",
+      "payer": "Ambetter WellCare New Jersey",
+      "state": "NJ",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "centene"
+    },
+    {
+      "slug": "ambetter-buckeye",
+      "payer": "Ambetter from Buckeye Health Plan",
+      "state": "OH",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "centene"
+    },
+    {
+      "slug": "magnacare",
+      "payer": "MagnaCare",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "Network rented by self-funded and Taft-Hartley plans."
+    },
+    {
+      "slug": "nyce",
+      "payer": "NYCE (New York City Employees)",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "Self-funded municipal plan."
+    },
+    {
+      "slug": "1199seiu",
+      "payer": "1199SEIU Benefit Funds",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "Self-funded Taft-Hartley; NY + NJ."
+    },
+    {
+      "slug": "mvp-health-care-commercial",
+      "payer": "MVP Health Care (commercial)",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "Distinct from the MVP Medicaid guide."
+    },
+    {
+      "slug": "cdphp-commercial",
+      "payer": "CDPHP (commercial)",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "Distinct from the CDPHP Medicaid guide."
+    },
+    {
+      "slug": "metroplus-commercial",
+      "payer": "MetroPlusHealth (commercial)",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open"
+    },
+    {
+      "slug": "healthfirst-commercial",
+      "payer": "Healthfirst (commercial)",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open"
+    },
+    {
+      "slug": "fidelis-care-commercial",
+      "payer": "Fidelis Care (commercial/marketplace)",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "family": "centene"
+    },
+    {
+      "slug": "northwell-direct",
+      "payer": "Northwell Direct",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 2,
+      "status": "open",
+      "note": "Direct-to-employer self-funded network."
+    },
+    {
+      "slug": "missouri-dmh-dd-waiver",
+      "payer": "Missouri DMH Developmental Disabilities Waiver",
+      "state": "MO",
+      "kind": "state-medicaid",
+      "priority": 2,
+      "status": "open",
+      "note": "Waiver-funded ABA outside MO HealthNet state plan; confirm kind/parent during research."
+    },
+    {
+      "slug": "virginia-dd-waiver",
+      "payer": "Virginia DD Waiver",
+      "state": "VA",
+      "kind": "state-medicaid",
+      "priority": 2,
+      "status": "open",
+      "note": "Waiver-funded behavioral supports alongside DMAS state plan."
+    },
+    {
+      "slug": "indiana-cshcs",
+      "payer": "Indiana Children's Special Health Care Services",
+      "state": "IN",
+      "kind": "state-medicaid",
+      "priority": 2,
+      "status": "open",
+      "note": "Confirm whether ABA is in scope before writing."
+    },
+    {
+      "slug": "molina-complete-care-virginia",
+      "payer": "Molina Complete Care Virginia",
+      "state": "VA",
+      "kind": "medicaid-mco",
+      "priority": 2,
+      "status": "open",
+      "family": "molina"
+    },
+    {
+      "slug": "affinity-by-molina",
+      "payer": "Affinity by Molina",
+      "state": "NY",
+      "kind": "medicaid-mco",
+      "priority": 2,
+      "status": "open",
+      "family": "molina"
+    },
+    {
+      "slug": "amida-care",
+      "payer": "Amida Care",
+      "state": "NY",
+      "kind": "medicaid-mco",
+      "priority": 2,
+      "status": "open",
+      "family": "carelon",
+      "note": "NY Medicaid HIV SNP administered by Carelon."
+    },
+    {
+      "slug": "vns-health",
+      "payer": "VNS Health",
+      "state": "NY",
+      "kind": "medicaid-mco",
+      "priority": 2,
+      "status": "open",
+      "family": "carelon",
+      "note": "NY Medicaid HIV SNP administered by Carelon."
+    },
+    {
+      "slug": "caresource-marketplace-georgia",
+      "payer": "CareSource Marketplace Georgia",
+      "state": "GA",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open",
+      "family": "caresource"
+    },
+    {
+      "slug": "caresource-marketplace-indiana",
+      "payer": "CareSource Marketplace Indiana",
+      "state": "IN",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open",
+      "family": "caresource"
+    },
+    {
+      "slug": "caresource-marketplace-ohio",
+      "payer": "CareSource Marketplace Ohio",
+      "state": "OH",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open",
+      "family": "caresource"
+    },
+    {
+      "slug": "molina-marketplace-ohio",
+      "payer": "Molina Marketplace Ohio",
+      "state": "OH",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open",
+      "family": "molina"
+    },
+    {
+      "slug": "nys-medical-indemnity-fund",
+      "payer": "NYS Medical Indemnity Fund",
+      "state": "NY",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open"
+    },
+    {
+      "slug": "johns-hopkins-ehp",
+      "payer": "Johns Hopkins Employer Health Programs",
+      "state": "MD",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open"
+    },
+    {
+      "slug": "wellsense-clarity-massachusetts",
+      "payer": "WellSense Clarity",
+      "state": "MA",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open"
+    },
+    {
+      "slug": "community-health-direct",
+      "payer": "Community Health Direct",
+      "state": "US",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open"
+    },
+    {
+      "slug": "alliant-health-georgia",
+      "payer": "Alliant Health Plans of Georgia",
+      "state": "GA",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open"
+    },
+    {
+      "slug": "prominence-health-plan",
+      "payer": "Prominence Health Plan",
+      "state": "US",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open"
+    },
+    {
+      "slug": "health-partners",
+      "payer": "Health Partners",
+      "state": "US",
+      "kind": "commercial",
+      "priority": 3,
+      "status": "open"
+    }
+  ],
+  "enhanceExisting": [
+    {
+      "slug": "unitedhealthcare-optum",
+      "status": "open",
+      "priority": 1,
+      "task": "Widen the guide to name the plans that ride on this policy \u2014 Oscar, Oxford, All Savers, UMR, Surest, GEHA, Choice Plus \u2014 so a family reading their card finds the right guide."
+    }
+  ],
+  "verifyClaims": [
+    {
+      "id": "VC-001",
+      "priority": 1,
+      "status": "open",
+      "slug": "anthem-bcbs-georgia",
+      "claim": "The guide presents CG-BEH-02 (Adaptive Behavioral Treatment) as Anthem's live ABA medical-necessity criteria.",
+      "challenge": "Research on 2026-09-17 found Anthem commercial transitioned ABA reviews from CG-BEH-02 and MCG W0153 to MCG B-806-T for dates of service on or after 2024-06-01, evidenced by a signed Anthem regional-officer letter (Colorado version) and doc code MULTI-BCBS-CM-047274-23 in five other states. NOT independently re-verified \u2014 anthem.com and providernews.anthem.com are JS-rendered and were unreachable at verification time.",
+      "resolve": "Fetch the transition notice via browser or text proxy and Anthem's guideline index; if confirmed, correct anthem-bcbs-georgia and any vob/ layer referencing CG-BEH-02 for ABA.",
+      "alsoAffects": [
+        "src/data/payers/vob/georgia.ts",
+        "src/data/payers/vob/ohio.ts",
+        "src/data/payers/vob/carveouts.ts"
+      ]
+    },
+    {
+      "id": "VC-002",
+      "priority": 1,
+      "status": "open",
+      "slug": "anthem-bcbs-georgia",
+      "claim": "Cites the October 2024 multi-state ABA Provider Resource Guide.",
+      "challenge": "A June 2025 edition (MULTI-BCBS-CM-084583-25-CPN83931) appears to supersede it, covering CT/GA/IN/KY/ME/MO/NV/NH/NY/OH/VA. Colorado is excluded and has its own state guide (COBCBS-CM-084607-25).",
+      "resolve": "Confirm the June 2025 edition and reprint the citation."
+    },
+    {
+      "id": "VC-003",
+      "priority": 2,
+      "status": "open",
+      "slug": "georgia-medicaid",
+      "claim": "States Georgia reimburses 97151-97158 in 15-minute units with U1-U5 practitioner modifiers.",
+      "challenge": "The publicly posted Part II ASD manual (Jan 2018) contains ZERO occurrences of 97151-97158 and 147 of the retired Category III set (0359T-0374T), priced in 90- and 30-minute units. The modern code set is almost certainly what Georgia actually pays, but the claim is currently unsourced because the live fee schedule sits inside GAMMIS. Two further claims ('8 hours per 6-month period' assessment cap; 'telehealth within 50 miles of the border') also appear nowhere in the posted manual.",
+      "resolve": "Blocked on DR-001. Do not 'correct' the guide to the legacy codes \u2014 the posted manual is the stale artifact, not the guide."
+    }
+  ],
+  "documentRequests": [
+    {
+      "id": "DR-001",
+      "priority": 1,
+      "for": "GAMMIS current ASD manual + live fee schedule",
+      "why": "Gates georgia-medicaid concurrentBilling, dailyLimits and the whole code-set question (VC-003).",
+      "url": "https://mmis.georgia.gov",
+      "blocker": "Connection refused to all automated clients."
+    },
+    {
+      "id": "DR-002",
+      "priority": 2,
+      "for": "MassHealth ABA Provider FAQ",
+      "why": "Would settle MassHealth concurrentBilling and billAsProvider.",
+      "url": "https://www.mass.gov/doc/applied-behavioral-analysis-provider-frequently-asked-questions/download",
+      "blocker": "mass.gov returns 403 to all automated clients. Note: likely a Mar-2020 telehealth FAQ that may not answer these fields."
+    },
+    {
+      "id": "DR-003",
+      "priority": 2,
+      "for": "Johns Hopkins USFHP ACD-ABA deck + provider manual",
+      "why": "Gates johns-hopkins-usfhp supervision and noteSignature.",
+      "url": "https://www.hopkinsmedicine.org/-/media/johns-hopkins-health-plans/documents/usfhp/acd-aba-presentation-usfhp.pdf",
+      "blocker": "Cloudflare 403 on PDFs; HTML pages fetch fine."
+    },
+    {
+      "id": "DR-004",
+      "priority": 3,
+      "for": "Horizon NJ Health ABA overview / provider policy",
+      "why": "All Horizon NJ delivery rules currently rest on the NJ state floor.",
+      "url": "https://www.horizonnjhealth.com",
+      "blocker": "Returns a ~930-byte stub for the ABA PDF and provider page."
+    }
+  ],
+  "hygiene": [
+    {
+      "id": "HY-001",
+      "priority": 3,
+      "status": "open",
+      "issue": "72 section-level cite URLs across the directory do not appear in their guide's top-level `sources` array (audit run 2026-09-17, 193 guides).",
+      "impact": "Cosmetic only \u2014 PayerPage appends orphan cites to the numbered source list at render time, so readers still see every source. The `sources` array is simply not a complete bibliography.",
+      "resolve": "Append each missing URL to its guide's `sources`. Mechanical; do it a few states per refresh. Heaviest: AZ, KS, NE, NC, VA."
+    }
+  ]
+}

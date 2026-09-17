@@ -43,6 +43,65 @@ urgent).
 3. Spot-verify 2-3 high-impact cited sources per state against the guides' claims, INCLUDING
 vob-layer facts (payer IDs, code grids, rate tables, stcMaps).
 
+## PHASE 1.5 — WORK THE WORKLIST
+
+`docs/payer-worklist.json` is the standing backlog: which payers still have no guide, and
+which guides still lack `deliveryRules`. It holds **names and questions only — never answers**.
+Everything you publish from it must come from a primary source you fetched this month.
+
+3a. NEW GUIDES — take the lowest-priority-number `status: 'open'` entries (priority 1 first)
+and add **at least three** guides per refresh. Research each against primary sources: the
+carrier's own ABA clinical/medical policy, its provider manual and reimbursement policies, the
+state autism mandate for its state, and the state licensure board. Write them into the state
+file the `state` field names (`national.ts` for `US`), matching the shape and depth of the
+existing per-state commercial guides. Register the slug in `src/data/payers/index.ts` if the
+state file is new, and append it to `public/sitemap.xml`. Then set that entry's `status` to
+`'shipped'` with `shippedAt`. A payer you researched but could NOT source → `status: 'blocked'`
+with a `blockedReason`, plus a document request per step 5c.
+
+3b. DELIVERY RULES — the six fields in the worklist's `ruleFields` (supervision, concurrent
+billing of 97153+97155, daily limits/MUEs, session-note signature, place of service, bill-as
+provider). Fill them for at least two state Medicaid programs and their MCOs each refresh,
+following `ruleFieldBacklog.order`. The state's own provider/billing manual usually answers all
+six in one document; MCOs inherit the state floor unless their own policy deviates, and for
+commercial plans these often live in a reimbursement policy rather than the clinical policy.
+Per field: a plain-language `value`, `status`, and `cites` to the primary source. A rule you
+cannot source is either OMITTED or carried as `status: 'unverified'` with a `verifyVia` note —
+never inferred from another payer, and never carried over from one plan to another.
+
+3c. CHALLENGED CLAIMS — `verifyClaims` in the worklist lists facts already published in a
+guide that later research called into question but could not re-verify at the time. Each names
+the claim, the challenge, and how to settle it. Work the priority-1 entries FIRST, before adding
+any new guide: a wrong fact on a live page costs more than a missing page. Settle one by
+fetching the named document, then either correct the guide (and note it in the changelog as a
+'correction') or record why the existing claim stands, and set `status` to `'resolved'` with
+`resolvedAt` and a one-line `resolution`. Never resolve one by reasoning alone.
+
+3d. DOCUMENT REQUESTS — `documentRequests` mirrors what PHASE 0 processes: these are the
+sources that blocked a fact this cycle. Open a real request in `carelu-sources/requests.json`
+for any that does not already have one (step 5c), and cross-reference the REQ id back here.
+
+## SOURCE ACCESS — what blocks automated fetching (learned 2026-09-17)
+
+Several primary sources cannot be read the obvious way. Reach for the documented workaround
+instead of silently dropping the fact or, worse, publishing an unverified one.
+
+| Source | Behaviour | Workaround |
+|---|---|---|
+| `mmis.georgia.gov` (GAMMIS) | Connection refused outright — not even a 403 | None found. Human retrieval via carelu.com/sources. Gates GA's current ASD manual + fee schedule. |
+| `mass.gov` | 403 to WebFetch and curl alike | Human retrieval. |
+| `magellanprovider.com` | Cloudflare interstitial on every path; curl 403 with any header set | Chrome browser tool, then extract PDFs in-page. |
+| `manuals.health.mil` | F5 bot wall + cert-chain failure | None found — quote a contractor's or DHA's restatement of the manual, never the manual itself. |
+| `tricare.mil`, `martinspoint.org`, `tricare.triwest.com` | Block direct automated fetches | Text-extraction proxy or browser; pages load fine for a human. |
+| `hopkinsmedicine.org` PDFs | Cloudflare 403 (HTML pages are fine) | Human retrieval. |
+| `horizonnjhealth.com`, `aetnabetterhealth.com` | ~930-byte stub / 403 on ABA PDFs | Human retrieval. |
+| `providernews.anthem.com` article pages | JS SPA — HTTP 200 with an empty body | Use `files.providernews.anthem.com` PDFs instead. **A 200 here is not a success** — check the body. |
+| `web.archive.org` | WebFetch refuses this host entirely | `curl` works. |
+| `federalregister.gov` | 302s to an unblock interstitial | Use the JSON API (`/api/v1/documents.json`) for docket sweeps; `govinfo.gov` for document text. |
+
+Two habits this table encodes: an HTTP 200 is not proof you got the document (check the body
+length and content), and a source you could not read is a document request, never a guess.
+
 ## PHASE 2 — APPLY (verified changes only)
 
 4. Edit guide + vob files for every change verified at a primary source. NEVER write a change
@@ -50,7 +109,15 @@ you could not verify; unverifiable → soften or "verify with the payer", never 
 5. Conventions: explicit `.js` extensions on all relative imports (breaks the Vercel functions
 otherwise); `\'` escaped apostrophes; every factual paragraph keeps cites.
 
-5b. CHANGELOG: append ONE PayerChangeEntry to `src/data/payers/changelog.ts` (type
+5a. DELIVERY RULES ARE PART OF THE SWEEP. Wherever a guide already carries `deliveryRules`,
+re-verify it like any other fact — supervision floors, concurrent-billing rules and MUE ceilings
+move with state manual revisions and the annual CPT/MUE cycle. Two standing checks each year:
+the CMS MUE tables (Medicaid and Practitioner are different tables, and payers pick one) in
+January, and each state manual's documentation and place-of-service sections whenever that
+manual is reissued.
+
+5b. CHANGELOG: append ONE PayerChangeEntry (guides added from the worklist go in as
+'guides-added'; delivery-rule fills as 'policy-update') to `src/data/payers/changelog.ts` (type
 'policy-update' or 'guides-added'; details rows incl. inbox-fulfilled items; totals = current
 counts). Zero changes → still append the "All sources re-verified; no policy changes."
 heartbeat.
@@ -91,7 +158,10 @@ NEW in carelu-website: copy it in and register it in the LeadTrap `index.ts` mer
 iowa/oklahoma/hawaii, added directly in the product repo) must survive untouched, including
 their `index.ts` entries. Never delete or overwrite a file that has no carelu-website
 counterpart. If `types.ts` differs beyond the known ` | Carelu` delta, do NOT overwrite it —
-describe the difference in the PR body instead. Ideally port LeadTrap-only guides BACK into
+describe the difference in the PR body instead. ONE-TIME (first sync after 2026-09-17): the
+`deliveryRules` types — `RuleStatus`, `PayerRuleFact`, `PayerDeliveryRules` and the
+`deliveryRules?` field on `PayerConfig` — are NEW in carelu-website and must be ported into
+LeadTrap's `types.ts`, or every guide carrying the field will fail LeadTrap's typecheck. Ideally port LeadTrap-only guides BACK into
 carelu-website in a later phase — for now just note them in the PR body.
 
 9d. Format changed files with the LeadTrap repo's own prettier config, commit, push the
@@ -107,7 +177,8 @@ not be blocked by the sync.
 
 10. FINAL MESSAGE: REFRESH REPORT — A. INBOX PROCESSED; B. APPLIED (slug, old→new, source);
 C. WATCHLIST STATUS; D. UNTOUCHED/UNVERIFIABLE; E. OPEN DOCUMENT REQUESTS; F. SHIPPED
-(commits); G. LEADTRAP SYNC (PR link, or the issue that prevented it).
+(commits); G. LEADTRAP SYNC (PR link, or the issue that prevented it); H. WORKLIST — guides
+shipped and delivery-rule fields filled this month, plus how many entries remain open.
 
 11. Slack (POST `{"text": "..."}` plain text to
 https://hooks.slack.com/triggers/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):

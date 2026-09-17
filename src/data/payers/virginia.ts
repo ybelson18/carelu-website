@@ -689,4 +689,157 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What does UnitedHealthcare pay for ABA in Virginia?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Virginia Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
     ],
   },
+
+  'anthem-bcbs-virginia': {
+    slug: 'anthem-bcbs-virginia',
+    payer: 'Anthem BCBS Virginia',
+    state: 'VA', kind: 'commercial',
+    family: 'anthem',
+    cardDesc: 'Every ABA code is on the precert list; criteria differ HMO vs PPO; $35K ABA cap still in statute.',
+    assessmentPA: 'Yes — 97151 is its own row on both Virginia precert lists, so the assessment is separately authorized',
+    treatmentPA: 'Yes — 97153-97158, 0362T and 0373T all listed; responsible party Anthem',
+    dxRequired: 'Yes — and Virginia requires an independent prescriber: a licensed physician or psychologist, independent of the ABA provider',
+    pill: 'Payer Guide · Anthem BCBS · Virginia',
+    h1: 'Anthem BCBS Virginia ABA coverage: the intake guide.',
+    metaTitle: 'Anthem BCBS Virginia ABA Coverage & Prior Auth: Intake Guide | Carelu',
+    metaDescription:
+      'How Anthem Blue Cross and Blue Shield covers ABA in Virginia: every ABA code on the precert list, different criteria for HMO/EPO vs PPO, the § 38.2-3418.17 mandate and its $35,000 ABA cap, Board of Medicine licensure, and the Northern Virginia service-area gap.',
+    intro: [
+      'Virginia is the most legible of Anthem\'s commercial states for an ABA intake team, because Anthem publishes the code-level answer. Its two Virginia precertification lists — one for HMO and EPO, one for PPO, both updated September 1, 2026 — name 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T as individual rows, each with Anthem as the responsible party. That means the assessment is separately authorized, and it means nothing is routed to a delegated vendor.',
+      'It also means the product type on the card changes the rulebook. On the HMO/EPO list the criteria column for every ABA row reads "Anthem Applied Behavioral Analysis"; on the PPO list it reads "MCG Guidelines." The force of the requirement differs too: HMO services "require prior approval and will not be eligible for reimbursement if rendered without the appropriate prior authorization," while on EPO and PPO prior approval is "highly recommended" and skipping it triggers a pre-payment claim review that may end in denial. Establish product and funding type before anything else — self-funded ERISA plans are outside Virginia\'s mandate and answer to federal parity instead.',
+    ],
+    atGlance: [
+      { label: 'Who reviews ABA', value: 'Anthem — responsible party on every ABA row of both Virginia lists' },
+      { label: 'Criteria', value: 'HMO/EPO: "Anthem Applied Behavioral Analysis" · PPO: MCG Guidelines' },
+      { label: 'Assessment', value: '97151 is separately listed — authorize it in its own right' },
+      { label: 'State mandate', value: 'Va. Code § 38.2-3418.17' },
+      { label: 'Mandate age', value: 'Any age since January 1, 2020 — the old age-2 floor and age ceiling are both gone' },
+      { label: 'ABA cap', value: '$35,000/yr annual maximum still in the statute; no visit limits' },
+      { label: 'Review ceiling', value: 'Insurer may review the treatment plan not more than once every 12 months' },
+      { label: 'Licensure', value: 'BCBA licensed by the Virginia Board of Medicine — both, not either' },
+    ],
+    sections: [
+      {
+        h2: 'The precert lists: what is on them, and how HMO differs from PPO',
+        cites: [
+          { title: 'Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
+          { title: 'Virginia Local Precertification/Prior Authorization List — PPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-S2374-DISTRO-VA-PA-PPO-List.pdf' },
+        ],
+        body: [
+          'Both Virginia lists carry a responsible-party column, and for all ten ABA codes it reads Anthem. Carelon Medical Benefits Management appears throughout both documents — it owns imaging, genetic testing, musculoskeletal, oncology and the rehabilitative-therapy codes such as 97140, 97150 and 97161 — but never an ABA code. Carelon Behavioral Health does not appear in either list at all. Send an ABA request to providerportal.com and it lands with a vendor that does not handle it.',
+          'The criteria split is the detail most guides miss. Every ABA row on the HMO/EPO list points to a criteria set Anthem calls "Anthem Applied Behavioral Analysis." Every ABA row on the PPO list points to "MCG Guidelines" instead — consistent with Anthem\'s move to MCG B-806-T for ABA reviews in June 2024. Neither criteria set is published, so what you can control is the completeness of the submission.',
+          'Submission mechanics, from the lists themselves: request prior authorization through Availity, and for mental health and substance use disorder prior authorizations call 800-755-0851, staffed 24/7. For non-urgent requests, submit all required clinical information 14 calendar days before the proposed service where possible. The ordering or rendering provider is responsible for completing the prior-authorization process. Since September 1, 2025 Availity Essentials has been Anthem\'s stated preferred channel for behavioral health authorizations.',
+        ],
+      },
+      {
+        h2: 'The Virginia mandate: any age, a $35,000 ABA cap, no small-employer escape',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+        body: [
+          'Virginia\'s mandate binds insurers issuing expense-incurred hospital, medical and surgical or major medical policies, corporations issuing subscription contracts, and HMOs, and it extends to state employee coverage and to local-government, teacher and retiree coverage. Since January 1, 2020 it applies to individuals "of any age" — note that the change removed not just the upper age limit but the old age-2 floor as well, so a very young child is squarely inside the mandate.',
+          'The cap is still there. Subsection K reads: "Coverage for applied behavior analysis under this section will be subject to an annual maximum benefit of $35,000, unless the insurer, corporation, or health maintenance organization elects to provide coverage in a greater amount." Separately, the statute says coverage "will not be subject to any visit limits." The $35,000 figure is a quantitative treatment limit on a mental-health benefit, which makes its enforceability against a large-group plan a live parity question rather than a settled fact — a plan applying it hard is worth escalating, not accepting on sight.',
+          'What Virginia does not have is a small-employer carve-out. The current text contains no employee-count threshold anywhere; the opposite is true, since subsection G expressly extended the mandate to the individual and small group markets for policies delivered, issued for delivery, reissued or extended on or after January 1, 2021. The real exclusions are narrow: short-term travel, accident-only, limited or specified-disease policies; short-term non-renewable policies of not more than six months; and Medicare-eligible policies. There is also a one-year actuarial waiver an insurer may claim, with the Commissioner of Insurance\'s approval, if behavioral-health-treatment costs exceeded one percent of premiums over the experience period. Self-funded ERISA plans are outside the statute by omission — it reaches insurers, subscription-contract corporations and HMOs, not employers who fund their own benefits.',
+        ],
+      },
+      {
+        h2: 'Three gates Virginia writes into the benefit itself',
+        cites: [
+          { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+        list: [
+          { title: 'An independent prescriber', desc: 'Covered ABA is "applied behavior analysis when provided or supervised by a board certified behavior analyst who shall be licensed by the Board of Medicine. The prescribing practitioner shall be independent of the provider of applied behavior analysis." A referral written by a clinician inside your own practice can fail this test — capture who ordered it, and their relationship to you.' },
+          { title: 'A physician- or psychologist-authored treatment plan', desc: 'The statute defines the treatment plan as one developed by a licensed physician or licensed psychologist following a comprehensive evaluation or reevaluation performed consistently with the most recent clinical report or recommendation of the AAP or AACAP. Treatment must likewise be prescribed or ordered by a licensed physician or psychologist who determines the care medically necessary.' },
+          { title: 'A 12-month review ceiling', desc: 'The insurer may review the treatment plan "not more than once every 12 months unless the insurer … and the individual\'s licensed physician or licensed psychologist agree that a more frequent review is necessary," and the cost of any such review is covered under the policy. Virginia\'s ceiling is twice as generous as Missouri\'s six months — worth knowing when an Anthem reviewer asks for an off-cycle update on a fully insured plan.' },
+        ],
+      },
+      {
+        h2: 'Licensure: BCBA and Board of Medicine, not either/or',
+        cites: [
+          { title: 'Va. Code § 54.1-2957.16 — licensure of behavior analysts', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+          { title: 'Virginia Board of Medicine — Behavior Analyst', url: 'https://www.dhp.virginia.gov/Boards/Medicine/AbouttheBoard/RegulatedProfessions/BehaviorAnalyst/' },
+        ],
+        body: [
+          'Virginia makes it unlawful to practise as, or hold oneself out as, a behavior analyst or assistant behavior analyst without a licence from the Board of Medicine, which issues the titles Licensed Behavior Analyst and Licensed Assistant Behavior Analyst. Licensure is layered on top of national certification: the application requires documentation of current BACB certification as a Board Certified Behavior Analyst (or Board Certified Assistant Behavior Analyst), and an assistant must document supervision by a licensed behavior analyst under the Board\'s requirements. The regulations sit at 18VAC85-150, under the authority of §§ 54.1-2400 and 54.1-2957.16.',
+          'This is where Anthem\'s own multi-state guidance can mislead. Its ABA provider resource guide lists a broad set of approved service providers — psychiatrists, psychologists, LCSWs, LPCs, LMFTs with ABA training, BCBAs, people working under BCBA direction, and "other mental health service providers licensed or authorized by the state in which they practice." In Virginia the insurance statute narrows that considerably: covered ABA must be provided or supervised by a board certified behavior analyst licensed by the Board of Medicine. Credential to the statute, not to the guide.',
+        ],
+      },
+      {
+        h2: 'The Northern Virginia gap, and the January 2026 weekly-unit change',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Anthem Virginia — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/virginia/articles/streamlined-aba-claim-process-starts-january-1-2026-27882' },
+        ],
+        body: [
+          'Anthem\'s Virginia entity is Anthem Health Plans of Virginia, Inc., and its own boilerplate is precise about geography: Anthem and its affiliate HealthKeepers, Inc. "serve all of Virginia except for the City of Fairfax, the Town of Vienna, and the area east of State Route 123." Anthem\'s commercial prior-authorization page puts it more colloquially — Virginia "excluding the Northern Virginia suburbs of Washington, D.C." So a family in Fairfax City, Vienna, or east of Route 123 who says they have "Anthem" or "Blue Cross" needs a second question about which Blue plan, because it is not this one and none of the rules on this page govern them.',
+          'The other current change: effective January 1, 2026, Anthem reimburses ABA on weekly approved units rather than total authorized units. Claims should reflect units rendered within each week up to the weekly medically necessary limit as approved by prior approval, and units above it are ineligible for reimbursement and get adjusted. The affected code set is all ten. Together with the 14-calendar-day lead time on non-urgent requests, that makes a realistic weekly schedule an intake question with direct billing consequences.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Product type and funding type', desc: 'HMO, EPO or PPO changes both the criteria set and whether precert is mandatory or merely "highly recommended" with pre-payment review. Fully insured vs self-funded ERISA changes whether the mandate applies at all.' },
+      { title: 'City and whether east of Route 123', desc: 'Anthem Virginia does not serve the City of Fairfax, the Town of Vienna, or the area east of State Route 123. Ask early; it saves a wasted file.' },
+      { title: 'The independent prescriber', desc: 'Virginia requires the prescribing practitioner to be independent of the ABA provider. Record the ordering physician or psychologist and confirm they are not part of your organization.' },
+      { title: 'A physician- or psychologist-authored treatment plan', desc: 'The statute defines the treatment plan as one developed by a licensed physician or psychologist following an AAP- or AACAP-consistent comprehensive evaluation. Ask for the evaluation, not just the diagnosis line.' },
+      { title: 'Board of Medicine licence numbers', desc: 'Covered ABA needs a BCBA who is also licensed by the Virginia Board of Medicine. Capture the licence number, not only the BACB certificant ID.' },
+      { title: 'Realistic weekly schedule and a 14-day lead time', desc: 'Weekly approved units since January 2026, and Anthem asks for non-urgent clinical information 14 calendar days before the proposed service. Build both into the intake timeline.' },
+    ],
+    sources: [
+      { title: 'Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
+      { title: 'Virginia Local Precertification/Prior Authorization List — PPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-S2374-DISTRO-VA-PA-PPO-List.pdf' },
+      { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+      { title: 'Va. Code § 54.1-2957.16 — licensure of behavior analysts', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+      { title: 'Virginia Board of Medicine — Behavior Analyst', url: 'https://www.dhp.virginia.gov/Boards/Medicine/AbouttheBoard/RegulatedProfessions/BehaviorAnalyst/' },
+      { title: '18VAC85-150-10 — behavior analyst regulations, definitions', url: 'https://law.lis.virginia.gov/admincode/title18/agency85/chapter150/section10/' },
+      { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+      { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+      { title: 'Anthem — MCG care guidelines 27th edition update (Virginia, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/virginia/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+      { title: 'Anthem Virginia — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/virginia/articles/streamlined-aba-claim-process-starts-january-1-2026-27882' },
+      { title: 'Anthem Virginia — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/virginia/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27236' },
+    ],
+    deliveryRules: {
+      concurrentBilling: {
+        value: 'A physician or other QHP billing 97155 can add 97153 only if both the technician and the QHP are face-to-face with the patient at the same time and the QHP is directing the technician. Supervised or directed services billed alongside a QHP-performed procedure are also subject to Anthem\'s Incident To Services and Billing reimbursement policy.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      dailyLimits: {
+        value: 'No per-day unit ceiling is published for Virginia. Every ABA code carries its own precertification row, and from January 1, 2026 reimbursement runs on weekly approved units — units rendered above the approved weekly limit are ineligible and adjusted. ABA codes may separately carry CMS MUE limits, administered as NCCI edits under Anthem\'s Code and Clinical Editing Guidelines reimbursement policy.',
+        status: 'verified',
+        cites: [
+          { title: 'Virginia Local Precertification/Prior Authorization List — PPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-S2374-DISTRO-VA-PA-PPO-List.pdf' },
+          { title: 'Anthem Virginia — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/virginia/articles/streamlined-aba-claim-process-starts-january-1-2026-27882' },
+        ],
+      },
+      noteSignature: {
+        value: 'Each medical-record entry must carry author identification — handwritten signature, unique electronic identifier, or initials — plus rendering provider credentials. Entries are expected at the time of service or shortly thereafter and should not exceed 30 days, with a signature date within 30 days of the date of service. Timed codes require total treatment minutes plus start and stop times. Treatment plans must show review or update at least every 6 months; separately, Virginia law caps insurer-initiated plan review at once every 12 months absent agreement with the treating physician or psychologist.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+      },
+      placeOfService: {
+        value: 'POS codes Anthem names for ABA: 12 home, 11 office/clinic, 99 community, 03 school, 10 telehealth with the member at home, 02 telehealth with the member elsewhere — each subject to the member\'s coverage and plan review.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      billAsProvider: {
+        value: 'ABA delivered by therapy assistants, behavior technicians or paraprofessionals must show the supervising BCBA or other QHP in box 31 of the CMS-1500, with degree-level modifiers HM, HN and HO identifying the rendering staff level. In Virginia the supervising analyst must additionally be a board certified behavior analyst licensed by the Virginia Board of Medicine, and the prescribing practitioner must be independent of the ABA provider.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Va. Code § 38.2-3418.17 (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+        ],
+      },
+    },
+    faq: [
+      { q: 'Does Anthem BCBS Virginia require prior authorization for ABA?', a: 'Yes, and for every code. Anthem\'s Virginia HMO/EPO and PPO precertification lists name 97151 through 97158 plus 0362T and 0373T as individual rows with Anthem as the responsible party. On HMO, services without prior authorization are not eligible for reimbursement; on EPO and PPO, prior approval is "highly recommended" and skipping it triggers a pre-payment claim review that may end in denial.' },
+      { q: 'Is the 97151 assessment separately authorized in Virginia?', a: 'Yes. It appears as its own row on both Virginia lists rather than being folded into a treatment authorization, so request it in its own right.' },
+      { q: 'Is there still a $35,000 ABA cap in Virginia?', a: 'The statute still carries it: Va. Code § 38.2-3418.17(K) subjects ABA to an annual maximum benefit of $35,000 unless the insurer elects to provide more, while separately barring visit limits. As a quantitative treatment limit on a mental-health benefit, its enforceability against a large-group plan is a parity question worth raising rather than conceding.' },
+      { q: 'What age does the Virginia autism mandate cover?', a: 'Any age, for policies delivered, issued for delivery, reissued or extended on or after January 1, 2020. The amendment removed the old lower bound of age two as well as the upper limit.' },
+      { q: 'Does Anthem cover all of Virginia?', a: 'No. Anthem and its affiliate HealthKeepers, Inc. serve all of Virginia except the City of Fairfax, the Town of Vienna, and the area east of State Route 123. A family in that Northern Virginia sliver holding a Blue card is on a different plan.' },
+      { q: 'Who is allowed to deliver covered ABA in Virginia?', a: 'A board certified behavior analyst who is also licensed by the Virginia Board of Medicine, or someone under that person\'s supervision — and the practitioner prescribing the ABA must be independent of the ABA provider. Anthem\'s multi-state ABA guide lists a broader set of approved providers; in Virginia the statute is the narrower and controlling standard.' },
+    ],
+  },
 };

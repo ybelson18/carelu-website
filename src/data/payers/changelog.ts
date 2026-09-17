@@ -17,6 +17,52 @@ export interface PayerChangeEntry {
 
 export const PAYER_CHANGELOG: PayerChangeEntry[] = [
   {
+    date: '2026-09-17',
+    type: 'guides-added',
+    summary:
+      'Commercial expansion + a new operational data layer. Until now the directory\'s commercial side covered four carrier families (Aetna, Cigna, UnitedHealthcare, and Anthem in Georgia only) across 19 states, while the payers that actually appear on ABA leads in those same states — the behavioral-health carve-out administrators, the military plans, and the state Blues — had no guide at all. Fourteen new guides close the highest-priority part of that gap: six Anthem BCBS commercial guides (CO, IN, MO, NY, OH, VA), three national behavioral-health administrators (Carelon, Magellan, ComPsych) that sit between a family\'s card and the ABA authorization, and five military plans (TRICARE East/West, CHAMPVA, and the Johns Hopkins and Martin\'s Point US Family Health Plans) where ABA runs through the Autism Care Demonstration rather than an ordinary benefit. Directory: 179 → 193 guides, 15 carrier families. Also new: a `deliveryRules` field on every guide — supervision, concurrent billing of 97153+97155, per-day MUE ceilings, session-note signature, place of service, and bill-as provider — the operational layer that decides whether a claim survives, as distinct from whether the payer covers ABA at all. Forty-one guides carry it so far (GA, NJ and MA state programs plus their MCOs, and every new guide that could source it); the field is verified-only, so a rule we could not source is either omitted or shown as unverified with the portal or phone line that would settle it. TWO CORRECTIONS to live pages came out of the research. New York\'s 680-hour annual ABA cap — the headline fact on the Aetna, Cigna and UnitedHealthcare New York guides — was repealed effective January 1, 2020; the current statute instead bars any policy from containing limitations on visits applied solely to ASD treatment. Verified directly against the live text of Ins. Law §§ 3216(i)(25) and 3221(l)(17), neither of which contains the figure. All three guides now state the rule correctly and cite the statute rather than the 2014 DFS circular that predates the repeal. Separately, research indicates Anthem moved commercial ABA reviews off CG-BEH-02 to MCG B-806-T effective 6/1/2024, which would make the Georgia Anthem guide out of date — that claim could NOT be re-verified (anthem.com is JS-rendered and unreachable to our fetchers), so it was logged as a challenged claim for next cycle rather than applied. A new standing backlog at docs/payer-worklist.json carries 53 remaining payers, the six delivery-rule questions, three challenged claims and four document requests; docs/monthly-refresh.md now works that backlog every cycle and documents the eleven hosts that block automated fetching.',
+    guides: [
+      'anthem-bcbs-colorado', 'anthem-bcbs-indiana', 'anthem-bcbs-missouri',
+      'anthem-bcbs-new-york', 'anthem-bcbs-ohio', 'anthem-bcbs-virginia',
+      'carelon-behavioral-health', 'magellan-health', 'compsych',
+      'tricare-east-humana-military', 'tricare-west-triwest', 'champva',
+      'johns-hopkins-usfhp', 'martins-point-usfhp',
+      'aetna-new-york', 'cigna-new-york', 'unitedhealthcare-new-york',
+      'georgia-medicaid', 'new-jersey-medicaid', 'masshealth-massachusetts-medicaid',
+    ],
+    details: [
+      {
+        slug: 'aetna-new-york, cigna-new-york, unitedhealthcare-new-york',
+        field: 'cardDesc, metaDescription, intro, atGlance, sections, collect, faq, sources',
+        change:
+          'CORRECTION — the 680-hour annual ABA cap was removed from NY Insurance Law effective 1/1/2020 and is no longer law. The live text of \u00a7 3216(i)(25)(B) contains no such figure and instead provides that a policy "shall not contain any limitations on visits that are solely applied to the treatment of autism spectrum disorder"; \u00a7 3221(l)(17) carries the same clause. All three guides previously presented 680 hours as a live cap in their card description, meta description, intro, at-a-glance row, section heading, intake-collection list and FAQ. They now state that no ABA-only visit limit is permitted, flag any such limit as a parity issue to escalate, note that the figure still circulates (including in DFS Circular Letter No. 6 (2014), which predates the repeal), and cite the statute itself.',
+        sourceUrl: 'https://www.nysenate.gov/legislation/laws/ISC/3216',
+      },
+      {
+        slug: 'carelon-behavioral-health, magellan-health, compsych',
+        field: 'new guides',
+        change:
+          'Behavioral-health carve-out administrators, which are not insurers and are where ABA authorizations actually land for many commercial cards. Carelon: national ABA authorization form eff. 1/1/2026 (32-unit 97151 cap; 1 hour of supervision per 5-10 hours of direct treatment), and the nine Anthem/Wellpoint state supplements its handbook actually lists — a national "Carelon runs Anthem" claim was NOT supportable and is not made. Magellan: the public, dated Care Guidelines ABA criteria (eff. 11/8/2025) and the Jan-2026 commercial provider orientation. ComPsych publishes no ABA policy, manual, form or criteria reachable without a login, so its guide is deliberately short and covers identification and routing instead.',
+        sourceUrl: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-authorization-request-form.pdf',
+      },
+      {
+        slug: 'tricare-east-humana-military, tricare-west-triwest, champva, johns-hopkins-usfhp, martins-point-usfhp',
+        field: 'new guides',
+        change:
+          'ABA under TRICARE runs through the Autism Care Demonstration, authorized through 12/31/2028 (verified against the Federal Register docket — the 2022-08-04 five-year extension is the newest such notice). Guides cover the diagnosis and referral chain, the outcome-measure regime that most often stalls authorizations (PDDBI and PSI-4-SF/SIPA every 6 months, Vineland-3 and SRS-2 annually, measures required before a treatment authorization issues), provider tiers, the non-delegable monthly 97155 rule, cost-shares, and the East/West split (contracts began 1/1/2025; resolve region by ZIP, not by a printed state list). CHAMPVA is a VA program, not TRICARE, and is documented as the genuinely limited benefit it is. Both USFHP plans administer ACD benefits themselves and their members get no Autism Services Navigator, so the outcome-measure deadlines fall on the plan and the provider.',
+        sourceUrl: 'https://www.tricare.mil/Plans/SpecialPrograms/ACD',
+      },
+      {
+        slug: 'georgia-medicaid, new-jersey-medicaid, masshealth-massachusetts-medicaid + their MCOs and commercial plans (27 guides)',
+        field: 'deliveryRules',
+        change:
+          'First fill of the new operational layer: 71 fields verified, 9 plan-dependent, 59 unverified-with-a-verifyVia, 23 omitted. Georgia supervision runs as a caseload cap (six BCaBAs/RBTs per QHCP, three under a licensed non-BCBA) rather than a percentage floor, and technician services claim under the supervising QHCP\'s enrolled ID with U1-U5 practitioner and U6/U7/GT setting modifiers. New Jersey place-of-service is published as plan-dependent because two live primary sources contradict each other on school-based ABA — the 2020 DMAHS newsletter forbids it, Optum\'s July-2026 state-mandate document permits it outside school hours — so both are cited and the reader is told to settle it with the MCO in writing.',
+        sourceUrl: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download',
+      },
+    ],
+    totals: { guides: 193, states: 19 },
+  },
+  {
     date: '2026-09-01',
     type: 'policy-update',
     summary:

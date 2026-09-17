@@ -361,4 +361,172 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'What does UnitedHealthcare pay for ABA in Missouri?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the MO HealthNet fee schedule, and treat rate-setting as part of contracting.' },
     ],
   },
+
+  'anthem-bcbs-missouri': {
+    slug: 'anthem-bcbs-missouri',
+    payer: 'Anthem BCBS Missouri',
+    state: 'MO', kind: 'commercial',
+    family: 'anthem',
+    cardDesc: 'Inflation-indexed ABA cap ($57,311 for 2025); Anthem reviews in-house; 6-month statutory review ceiling.',
+    assessmentPA: 'Yes — and Anthem\'s ASD form has an assessment-only pathway for 97151/97152/0362T, authorized per authorization period',
+    treatmentPA: 'Yes — responsible party Anthem; since March 1, 2026 the authorization carries weekly approved units',
+    dxRequired: 'Yes — and the ABA must sit in a treatment plan tied to a chapter 337 licensed behavior analyst',
+    pill: 'Payer Guide · Anthem BCBS · Missouri',
+    h1: 'Anthem BCBS Missouri ABA coverage: the intake guide.',
+    metaTitle: 'Anthem BCBS Missouri ABA Coverage & Prior Auth: Intake Guide | Carelu',
+    metaDescription:
+      'How Anthem Blue Cross and Blue Shield covers ABA in Missouri: who reviews the authorization, the inflation-indexed RSMo § 376.1224 ABA cap, the six-month statutory review ceiling, the March 2026 weekly-unit change, and what intake must verify.',
+    intro: [
+      'Missouri is the state where the number on the statute is not the number that applies. RSMo § 376.1224 sets an ABA maximum benefit of $40,000 per calendar year for individuals through age 18 — and then requires that figure to be adjusted for inflation, with the Department of Commerce and Insurance publishing the current value annually. The most recent value DCI has published is $57,311 for 2025. Quoting $40,000 to a family, or repeating the $41,263 figure that still sits on DCI\'s own FAQ page, understates the benefit by a third.',
+      'Anthem in Missouri is RightCHOICE Managed Care, Inc. (RIT), Healthy Alliance Life Insurance Company (HALIC) and HMO Missouri, Inc., and its service area excludes 30 counties in the Kansas City area. Anthem\'s own boilerplate carries the warning intake needs: RIT and certain affiliates "only provide administrative services for self-funded plans and do not underwrite benefits." An Anthem-branded Missouri card can therefore be a self-funded plan on which the state mandate — cap, indexing, review ceiling and all — simply does not apply.',
+    ],
+    atGlance: [
+      { label: 'Who reviews ABA', value: 'Anthem — responsible party on its own Missouri precert list' },
+      { label: 'Criteria applied', value: 'MCG B-806-T — replaced CG-BEH-02 for ABA on June 1, 2024' },
+      { label: 'Submit via', value: 'Availity Essentials (preferred) or fax 866-582-2287, on the ASD Treatment Plan Request Form' },
+      { label: 'State mandate', value: 'RSMo § 376.1224 (current version applies to plans on/after 1/1/2020)' },
+      { label: 'ABA cap', value: '$40,000/yr statutory base, inflation-indexed — $57,311 published for 2025' },
+      { label: 'Cap applies to', value: 'ABA only, through age 18; other autism treatment has no dollar or age limit' },
+      { label: 'Review ceiling', value: 'Carrier may review the treatment plan no more than once every 6 months' },
+      { label: 'Authorization unit', value: 'Weekly approved units, effective March 1, 2026' },
+      { label: 'Licensure', value: 'Licensed Behavior Analyst / LaBA under chapter 337 — required by the mandate itself' },
+    ],
+    sections: [
+      {
+        h2: 'The cap that moves: what to actually quote a family',
+        cites: [
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+          { title: 'Missouri DCI — ABA mandated coverage limits by year', url: 'https://insurance.mo.gov/autism-and-related-insurance-resources/autism-report-aba-limits' },
+        ],
+        body: [
+          'The statute reads: "Coverage provided under this section for applied behavior analysis shall be subject to a maximum benefit of forty thousand dollars per calendar year for individuals through eighteen years of age. Such maximum benefit limit may be exceeded, upon prior approval by the health benefit plan, if the provision of applied behavior analysis services beyond the maximum limit is medically necessary for such individual."',
+          'Two things soften that. First, it is exceedable — prior approval plus medical necessity, which means a well-documented request above the cap is a legitimate ask rather than a lost cause. Second, it is indexed: the carrier must adjust the limit for CPI at least triennially, while DCI calculates the current value every year and publishes it. DCI\'s published table runs $40,000 (2011) to $57,311 (2025). As of this writing DCI has not published a 2026 value, so $57,311 is the most recent authoritative figure — and because the carrier\'s own obligation is only triennial, the number a specific Anthem plan applies may lag DCI\'s. Verify the plan\'s current maximum on the benefits check rather than assuming either figure.',
+          'Note what the cap does not touch. The statute says any coverage required under the section other than ABA "shall not be subject to the age and dollar limitations described in this subsection" — so psychiatric, psychological, therapeutic and pharmacy care for autism carry no dollar cap and no age cut-off. And the statute forbids visit limits outright, except that the ABA maximum benefit still applies.',
+        ],
+      },
+      {
+        h2: 'Who reviews the authorization',
+        cites: [
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+          { title: 'Anthem Missouri — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/missouri/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27237' },
+        ],
+        body: [
+          'Missouri shares one commercial precertification list with Indiana, Kentucky, Ohio and Wisconsin. Under behavioral health services it lists, for MO Blues products, all facility-based care, inpatient admissions, intensive outpatient therapy, partial hospitalization, residential care, ECT, transcranial magnetic stimulation, applied behavioral analysis and intensive in-home behavioral health services — with the responsible party given as Anthem. The same list carries a separate "Treatment for autism spectrum disorder — Anthem" row, and repeats ABA under CDHP products.',
+          'So ABA prior authorization in Missouri is an Anthem review, not a delegated vendor review. The Carelon names that appear elsewhere on that list are Carelon Medical Benefits Management (imaging, musculoskeletal, oncology, genetics) and CarelonRx — neither handles ABA. Carelon Behavioral Health is Anthem Missouri\'s behavioral health network and credentialing organization and is described by Anthem as an independent company providing utilization management services on the plan\'s behalf, but its own Missouri quick-reference guide sends providers back to anthem.com and the number on the member\'s ID card for precertification rather than to a separate portal.',
+          'Since September 1, 2025 Anthem\'s preferred submission channel for behavioral health authorizations is Availity Essentials — log in, select Authorizations and Referrals, then the Patient Registration tab. One scope caveat worth reading before you rely on any of this: the precertification list states it applies to local fully insured members and to self-insured (ASO) members only where the group purchased the medical-management program, and that if the program has not been purchased, preapproval is not required and clinical review will not be performed.',
+        ],
+      },
+      {
+        h2: 'The criteria Anthem actually applies — and the form it wants',
+        cites: [
+          { title: 'Anthem — MCG care guidelines 27th edition update (Missouri, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/missouri/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+          { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+        ],
+        body: [
+          'If you have an older playbook that says Anthem reviews ABA under clinical guideline CG-BEH-02, retire it. Anthem told commercial providers that "effective June 1, 2024, Anthem will transition from CG-BEH-02 (Adaptive Behavioral Treatment) and MCG W0153 (Behavioral Health Care Applied Behavioral Analysis), to MCG B-806-T Behavioral Health Care Applied Behavioral Analysis (Original MCG Guideline), for medical necessity/clinical appropriateness reviews." MCG guidelines are licensed and proprietary, so B-806-T is not published on the open web — which makes the submission form the most useful public artefact you have.',
+          'That form is Anthem\'s Treatment Plan Request Form for Autism Spectrum Disorders, a commercial form covering Missouri among ten states. It asks you to mark the request as comprehensive or focused ABA, requires BCBA (or other qualified healthcare professional) information, and goes through Availity as the preferred channel with fax 866-582-2287 as the alternative. Two details shape the file: the treatment plan should be dated within 30 days of the start date, and for an initial assessment-only request covering 97151, 97152 and 0362T — or where the member has new insurance coverage — you must include a diagnostic evaluation by a doctorate-level clinician or an allowable qualified healthcare provider per state regulations, showing how the patient meets DSM-5-TR criteria and naming the standardized tools used (the form gives ADI-R, ADOS-2 and CARS-2 as examples).',
+          'The form also tells you how the authorization is shaped: 97151, 97152, 0362T, 97156 and 97157 are authorized per authorization period, while 97153, 97154, 97155, 97158 and 0373T are authorized per week. That per-week structure is the same one the March 2026 claim change enforces.',
+        ],
+      },
+      {
+        h2: 'Two Missouri rules that work in your favour',
+        cites: [
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+          { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+        ],
+        list: [
+          { title: 'A six-month ceiling on plan review', desc: 'Outside inpatient services, the statute gives the carrier the right to review the treatment plan "not more than once every six months" unless the carrier and the treating physician or psychologist agree more frequent review is necessary — and the cost of obtaining any review or treatment plan is borne by the plan, not the provider. If an Anthem Missouri authorization is being re-reviewed more often than that on a fully insured plan, that is a cite-able objection.' },
+          { title: 'Line therapists are reimbursable', desc: 'The statute directs reimbursement to the autism service provider or to the entity or group the supervising board-certified behavior analyst works for, and expressly includes line-therapist services delivered under that supervision when they are in the treatment plan and medically necessary.' },
+          { title: 'National Accounts can opt out of ABA precert', desc: 'On Anthem National Accounts business, "precertification for ABA is recommended and applies unless the group specifically opts out of clinical review for this benefit. Retrospective review is allowed." A national-account family may need no precert at all — worth one phone call before you build a file.' },
+        ],
+      },
+      {
+        h2: 'Weekly approved units, effective March 1, 2026',
+        cites: [
+          { title: 'Anthem Missouri — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/missouri/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
+        ],
+        body: [
+          'From March 1, 2026, Anthem reimburses ABA in Missouri on weekly approved units rather than total authorized units. Claims should reflect the units rendered within each week up to the approved weekly limit; units above it are ineligible for reimbursement and get adjusted. Existing requests and claims, including those with date ranges running past the effective date, are unaffected.',
+          'The affected code set is the full one — 97151, 97152, 0362T, 97153, 97154, 97155, 97156, 97157, 97158 and 0373T, all per 15 minutes. The operational consequence is that the weekly schedule you request has to be the schedule you can staff and the family can keep; a heavy catch-up week after a staffing gap no longer pays.',
+        ],
+      },
+      {
+        h2: 'Licensure is written into the mandate',
+        cites: [
+          { title: 'RSMo § 337.300 — behavior analyst definitions', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.300' },
+          { title: 'Missouri Behavior Analyst Advisory Board', url: 'https://pr.mo.gov/ba.asp' },
+        ],
+        body: [
+          'Missouri is unusual in tying the insurance mandate directly to the state license. An "autism service provider" under § 376.1224 is either a person or entity licensed or certified by the state of Missouri, or a person "licensed under chapter 337 as a board-certified behavior analyst by the behavior analyst certification board or licensed under chapter 337 as an assistant board-certified behavior analyst." National BACB certification is the gateway to the license, but it is the chapter 337 license the mandate names.',
+          'Chapter 337 defines four tiers — licensed behavior analyst (LBA), licensed assistant behavior analyst (LaBA), plus provisional and temporary versions of each — administered by the Behavior Analyst Advisory Board within the State Committee of Psychologists, under the Division of Professional Registration. Credential every supervising analyst against that license before you submit a Missouri claim, not after.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Plan funding type, first', desc: 'Fully insured Missouri plan (mandate applies), a self-insured governmental, MEWA or school-district plan (the statute reaches these too, for plans established or renewed on or after 1/1/2020), or a private self-funded ERISA plan (preempted). An Anthem Missouri card can be any of these — RIT administers self-funded plans without underwriting them.' },
+      { title: 'Whether the family lives in the Kansas City carve-out', desc: 'Anthem\'s Missouri service area excludes 30 counties in the Kansas City area. Confirm the member\'s plan really is Anthem Missouri before you build the file against these rules.' },
+      { title: 'The plan\'s current ABA maximum', desc: 'Statutory base $40,000; DCI published $57,311 for 2025; the carrier is only required to re-index at least triennially, so ask benefits verification for the figure the plan is actually applying this year — and note that the cap is exceedable with prior approval when medically necessary.' },
+      { title: 'Child\'s age relative to 19', desc: 'The ABA dollar cap applies through age 18. Non-ABA autism treatment has no age limit at all, which matters for how you frame coverage for an older client.' },
+      { title: 'Chapter 337 license numbers', desc: 'The mandate names the Missouri LBA/LaBA license, not BACB certification alone. Capture license numbers for the supervising analyst and any assistant on the case.' },
+      { title: 'Realistic weekly schedule', desc: 'Weekly approved units since March 2026 turn the family\'s sustainable weekly availability into a billing constraint.' },
+      { title: 'A doctorate-level diagnostic evaluation', desc: 'For an assessment-only request (97151/97152/0362T), or where the member has new coverage, Anthem\'s form requires a diagnostic evaluation by a doctorate-level clinician or allowable QHCP showing DSM-5-TR criteria and naming the standardized tools used. Ask for the full report, not the one-line diagnosis letter.' },
+    ],
+    sources: [
+      { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+      { title: 'Missouri DCI — ABA mandated coverage limits by year', url: 'https://insurance.mo.gov/autism-and-related-insurance-resources/autism-report-aba-limits' },
+      { title: 'RSMo § 337.300 — behavior analyst definitions', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.300' },
+      { title: 'Missouri Behavior Analyst Advisory Board', url: 'https://pr.mo.gov/ba.asp' },
+      { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+      { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+      { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+      { title: 'Anthem Missouri — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/missouri/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
+      { title: 'Anthem Missouri — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/missouri/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27237' },
+      { title: 'Anthem — MCG care guidelines 27th edition update (Missouri, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/missouri/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+      { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+    ],
+    deliveryRules: {
+      concurrentBilling: {
+        value: 'A physician or other QHP billing 97155 can add 97153 only if both the technician and the QHP are face-to-face with the patient at the same time and the QHP is directing the technician. Supervised or directed services billed alongside a QHP-performed procedure are also subject to Anthem\'s Incident To Services and Billing reimbursement policy.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      dailyLimits: {
+        value: 'Anthem publishes no Missouri-specific per-day unit ceiling. ABA codes may carry CMS MUE limits, which Anthem administers as NCCI edits under its Code and Clinical Editing Guidelines reimbursement policy and realigns when CMS updates them. The ceiling that actually bites is the weekly approved units on the authorization (effective March 1, 2026).',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Anthem Missouri — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/missouri/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
+        ],
+      },
+      noteSignature: {
+        value: 'Each medical-record entry must carry author identification — handwritten signature, unique electronic identifier, or initials — plus rendering provider credentials. Entries are expected at the time of service or shortly thereafter and should not exceed 30 days, with a signature date within 30 days of the date of service. Timed codes require total treatment minutes plus start and stop times in the record. Treatment plans must show review or update at least every 6 months — and on fully insured Missouri plans the carrier may not compel that review more than every 6 months.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
+      },
+      placeOfService: {
+        value: 'POS codes Anthem names for ABA: 12 home, 11 office/clinic, 99 community, 03 school, 10 telehealth with the member at home, 02 telehealth with the member elsewhere — each subject to the member\'s coverage and plan review.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      billAsProvider: {
+        value: 'ABA delivered by therapy assistants, behavior technicians or paraprofessionals must show the supervising BCBA or other QHP in box 31 of the CMS-1500. Degree-level modifiers HM, HN and HO identify the rendering staff level. Missouri\'s mandate separately directs reimbursement to the autism service provider or to the entity the supervising board-certified behavior analyst works for, and expressly covers line-therapist services under that supervision.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
+      },
+    },
+    faq: [
+      { q: 'Does Anthem BCBS Missouri cover ABA therapy?', a: 'Yes. RSMo § 376.1224 requires health benefit plans delivered, issued, continued or renewed in Missouri on or after January 1, 2020 to cover diagnosis and treatment of autism spectrum disorders including ABA, and Anthem precertifies ABA as a behavioral health service with itself as the reviewing party. Private self-funded ERISA plans are preempted from the mandate.' },
+      { q: 'What is the Missouri ABA dollar cap right now?', a: 'The statute sets $40,000 per calendar year through age 18, but requires inflation indexing. The Department of Commerce and Insurance publishes the adjusted value annually; its most recent published figure is $57,311 for 2025. The carrier is only obliged to re-index at least every three years, so confirm the number the specific plan applies — and remember the cap can be exceeded with prior approval when more ABA is medically necessary.' },
+      { q: 'How often can Anthem re-review a Missouri ABA treatment plan?', a: 'Outside inpatient services, no more than once every six months, unless the carrier and the treating physician or psychologist agree that more frequent review is necessary. The statute also puts the cost of obtaining any review or treatment plan on the plan.' },
+      { q: 'Does ABA prior authorization in Missouri go to Carelon?', a: 'No. Anthem\'s own five-state precertification list names Anthem as the responsible party for ABA. Carelon Medical Benefits Management handles imaging, musculoskeletal, oncology and genetics on that list, and Carelon Behavioral Health serves as the behavioral health network and credentialing organization — its Missouri quick-reference guide points providers back to anthem.com and the member ID card for precertification.' },
+      { q: 'Which medical-necessity criteria does Anthem use for ABA in Missouri?', a: 'MCG B-806-T (Behavioral Health Care Applied Behavioral Analysis). Anthem told commercial providers it would transition from CG-BEH-02 and MCG W0153 to B-806-T effective June 1, 2024. MCG guidelines are proprietary and not published publicly, so build the request around Anthem\'s Treatment Plan Request Form for Autism Spectrum Disorders instead.' },
+      { q: 'Does the Missouri mandate exempt small employers?', a: 'No. There is no small-group exemption in the current statute. The exclusions are supplemental and limited policy types — accident-only, specified disease, Medicare supplement, long-term care, short-term major medical of six months or less — plus MO HealthNet, and private self-funded plans to the extent federal law preempts them.' },
+    ],
+  },
 };

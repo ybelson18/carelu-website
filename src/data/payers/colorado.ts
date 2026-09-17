@@ -373,4 +373,157 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'What does UnitedHealthcare pay for ABA in Colorado?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Health First Colorado fee schedule, and treat rate-setting as part of contracting.' },
     ],
   },
+
+  'anthem-bcbs-colorado': {
+    slug: 'anthem-bcbs-colorado',
+    payer: 'Anthem BCBS Colorado',
+    state: 'CO', kind: 'commercial',
+    family: 'anthem',
+    cardDesc: 'Anthem reviews ABA in-house (not Carelon); weekly approved units since 3/1/2026; no mandate caps.',
+    assessmentPA: 'Yes — 97151 sits inside the authorized ABA set; the request goes to Anthem behavioral health via Availity Essentials',
+    treatmentPA: 'Yes — and since March 1, 2026 the authorization is denominated in weekly approved units',
+    dxRequired: 'Yes — and Colorado requires the treatment itself to be prescribed or ordered by a licensed physician or licensed psychologist',
+    pill: 'Payer Guide · Anthem BCBS · Colorado',
+    h1: 'Anthem BCBS Colorado ABA coverage: the intake guide.',
+    metaTitle: 'Anthem BCBS Colorado ABA Coverage & Prior Auth: Intake Guide | Carelu',
+    metaDescription:
+      'How Anthem Blue Cross and Blue Shield covers ABA in Colorado: who actually reviews the authorization, the March 2026 weekly-unit change, Colorado\'s uncapped autism mandate under C.R.S. § 10-16-104(1.4), the 2028 behavior-analyst license, and what intake must verify.',
+    intro: [
+      'Anthem in Colorado is Rocky Mountain Hospital and Medical Service, Inc., with HMO products underwritten by HMO Colorado, Inc. Three things make Colorado different from the rest of Anthem\'s footprint, and all three are worth knowing before the first authorization goes out: Anthem publishes a Colorado-specific ABA provider resource guide rather than folding the state into its multi-state one; Colorado\'s autism mandate lost its dollar caps years ago and never had a small-group carve-out; and since March 1, 2026 Anthem authorizes ABA in weekly approved units, so a claim that exceeds the weekly number gets adjusted even when the total authorization still has room.',
+      'As always, plan funding type is the first fact to establish. Colorado\'s mandate binds health benefit plans issued or renewed in the state; self-funded ERISA plans are outside state insurance law entirely and answer to federal parity instead. Anthem\'s own Colorado precertification list says as much in its scope note — it applies to local fully-insured members and only to those self-insured (ASO) members whose group purchased the medical-management program.',
+    ],
+    atGlance: [
+      { label: 'Who reviews ABA', value: 'Anthem — behavioral health, 800-424-4014 (not Carelon)' },
+      { label: 'Criteria applied', value: 'MCG B-806-T — replaced CG-BEH-02 for ABA on June 1, 2024' },
+      { label: 'Submit via', value: 'Availity Essentials → Authorizations and Referrals' },
+      { label: 'Authorization unit', value: 'Weekly approved units, effective March 1, 2026' },
+      { label: 'State mandate', value: 'C.R.S. § 10-16-104(1.4) (SB 09-244)' },
+      { label: 'Mandate caps', value: 'None — the dollar-cap language was struck effective 1/1/2017' },
+      { label: 'Exempt from mandate', value: 'Short-term limited duration; individual grandfathered; self-funded ERISA' },
+      { label: 'Who may order ABA', value: 'A licensed physician or licensed psychologist must prescribe or order it' },
+      { label: 'Licensure', value: 'No Colorado license yet — board created 2026, practice license required 7/1/2028' },
+    ],
+    sections: [
+      {
+        h2: 'Who actually reviews the authorization — and the Carelon trap',
+        cites: [
+          { title: 'Anthem Colorado Precertification/Prior Authorization List (updated 07/10/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/CO_PA_List.pdf' },
+          { title: 'Anthem Colorado — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/colorado/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27237' },
+        ],
+        body: [
+          'Anthem\'s Colorado precertification list carries an explicit "Responsible party" column, and it spells out how to read it: if Anthem is listed, Anthem reviews; if Carelon Medical Benefits Management is listed, Carelon reviews; if CarelonRx is listed, CarelonRx reviews. The behavioral health row reads "Behavioral Health Services — Inpatient and Outpatient," responsible party Anthem, with the criteria column pointing to a phone number: Behavioral Health at 800-424-4014. The general care-provider precertification line on the same document is 800-832-7850.',
+          'That matters because the Colorado list is full of Carelon references, and they are the wrong Carelon. Carelon Medical Benefits Management runs Anthem\'s imaging, genetic testing, cardiology, musculoskeletal, sleep, oncology and rehabilitative-therapy programs — it owns 97150 (group therapeutic procedures) and the PT/OT/speech codes, but not ABA. Carelon Behavioral Health is a different Elevance company; nothing in the current Colorado commercial precertification list assigns it ABA utilization review. Route an ABA request to providerportal.com and it goes to a vendor that does not handle it.',
+          'Since September 1, 2025 Anthem has asked that behavioral health authorizations be submitted through Availity Essentials — log in, select Authorizations and Referrals, then the Patient Registration tab. Treat that as the front door and the 800-424-4014 line as the escalation path.',
+        ],
+      },
+      {
+        h2: 'CG-BEH-02 is no longer the criteria set — MCG B-806-T is',
+        cites: [
+          { title: 'Anthem Colorado — MCG Care Guidelines 27th edition update (Feb 1, 2024)', url: 'https://files.providernews.elevancehealth.com/3731/COBCBS-CM-047275-23-MCG-Care-Gdlns-27th-Ed-6.1.24-Updte-BH_FINALv2.pdf' },
+        ],
+        body: [
+          'Plenty of ABA billing playbooks still say Anthem reviews ABA under clinical guideline CG-BEH-02, "Adaptive Behavioral Treatment." For Colorado commercial that stopped being true in 2024. A signed Anthem letter to Colorado providers, dated February 1, 2024 and flagged as a material adverse change, states that beginning with dates of service on or after June 1, 2024, Anthem and its subsidiary HMO Colorado, Inc. would transition from CG-BEH-02 and MCG W0153 to MCG B-806-T, Behavioral Health Care Applied Behavioral Analysis (Original MCG Guideline), for medical necessity and clinical appropriateness reviews.',
+          'The practical consequence is that there is no public criteria document to write your treatment plan against. MCG guidelines are licensed and proprietary; Anthem does not publish them. So the leverage moves to the things Anthem does publish — the Colorado ABA provider resource guide below, the documentation standards, and a clean, data-anchored treatment plan. If a denial letter still cites CG-BEH-02, that is worth flagging on appeal.',
+        ],
+      },
+      {
+        h2: 'Weekly approved units: the March 2026 change that breaks old billing habits',
+        cites: [
+          { title: 'Anthem Colorado — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/colorado/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
+        ],
+        body: [
+          'Effective March 1, 2026, Anthem reimburses ABA in Colorado based on weekly approved units rather than total authorized units. Anthem\'s own framing of the consequence is blunt: claims should reflect the units rendered within each week, up to the weekly medically necessary limit as approved by prior approval, and claims submitted with units exceeding the weekly limit will be considered ineligible for reimbursement and will be adjusted accordingly.',
+          'Practically, this ends the common pattern of banking unused hours and running a heavy make-up week after a vacation or a staffing gap. It also changes what intake needs to capture: a family\'s realistic, sustainable weekly availability is now a billing input, not just a scheduling nicety. The change applies across the whole ABA code set — 97151, 97152, 0362T, 97153, 97154, 97155, 97156, 97157, 97158 and 0373T.',
+        ],
+      },
+      {
+        h2: 'The Colorado mandate: no caps, no small-group carve-out',
+        cites: [
+          { title: 'C.R.S. § 10-16-104 (Justia)', url: 'https://law.justia.com/codes/colorado/title-10/article-16/part-1/section-10-16-104/' },
+        ],
+        body: [
+          'Colorado\'s mandate — C.R.S. § 10-16-104(1.4), added by SB 09-244 — requires all health benefit plans issued or renewed in the state to cover the assessment, diagnosis and treatment of autism spectrum disorders, and it names applied behavior analysis explicitly in the definition of covered treatment. It is one of the stronger mandates in this directory for three reasons.',
+          'First, the caps are gone. The pre-2017 text tied coverage to a rule from the commissioner requiring services actuarially equivalent to the old dollar limit; SB 15-015 struck that language effective January 1, 2017. What replaced it is a parity clause: coverage may not be subject to dollar limits, deductibles or coinsurance less favorable to the insured than those applying to physical illness generally. Second, there is no small-employer exemption anywhere in subsection (1.4) — the only carve-outs written into the definition of "health benefit plan" for this subsection are short-term limited-duration policies and individual grandfathered plans. Third, the statute forbids plans from excluding ASD or imposing additional authorization requirements that operate to exclude coverage.',
+          'The limit on all of this is the familiar one: self-funded ERISA plans are preempted from state insurance law, so a Colorado family on a self-funded employer plan gets whatever the plan document and federal parity give them, not the mandate. Establish funding type before you quote anything from this section.',
+        ],
+      },
+      {
+        h2: 'Two Colorado requirements that gate the file',
+        cites: [
+          { title: 'C.R.S. § 10-16-104 (Justia)', url: 'https://law.justia.com/codes/colorado/title-10/article-16/part-1/section-10-16-104/' },
+          { title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
+        ],
+        list: [
+          { title: 'A physician or psychologist must order it', desc: 'The statute says treatment for autism spectrum disorders shall be prescribed or ordered by a licensed physician or licensed psychologist. A BCBA\'s recommendation alone does not satisfy it — capture the ordering clinician at intake, not at appeal.' },
+          { title: 'The treatment plan is tied to the medical home', desc: 'Colorado requires the treatment plan to be developed in accordance with the patient-centered medical home as defined in C.R.S. § 25.5-1-103(5.5). Anthem\'s Colorado ABA guide reproduces this requirement and footnotes the statute, so it is a plan-document expectation, not just a statutory curiosity.' },
+          { title: 'Who counts as an autism services provider', desc: 'The statute lists six qualification pathways, from a doctoral-level clinician licensed by the Colorado medical board down to a BACB Registered Behavior Technician working under the supervision of one of the higher tiers. The ladder is broader than "BCBA only," which matters when you are staffing a case.' },
+        ],
+      },
+      {
+        h2: 'Licensure: national certification now, a Colorado license in 2028',
+        cites: [
+          { title: 'Colorado HB26-1425 — Applied Behavior Analysis Services (Became Law)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+          { title: 'Colorado DORA — Behavior Analyst program page', url: 'https://dpo.colorado.gov/BehaviorAnalyst' },
+        ],
+        body: [
+          'Colorado has historically not licensed behavior analysts, leaning instead on the statutory "autism services provider" ladder and BACB certification. That changed in 2026: HB26-1425 became law and creates the Colorado Behavior Analyst Licensing Board under the Division of Professions and Occupations at DORA, with authority to license behavior analysts and assistant behavior analysts. The operative date is not now — on and after July 1, 2028, practising or offering applied behavior analysis without a board-issued license is prohibited, and doing so is a class 2 misdemeanor.',
+          'As of this writing the board seats are still listed as vacant on the DORA program page and no license is being issued, so today\'s credentialing conversation with Anthem still runs on national certification plus the statutory ladder. The planning consequence is real, though: every analyst you expect to still be supervising Colorado cases in mid-2028 needs a licensure path, and the regulation carries a sunset review scheduled for September 1, 2031.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Plan funding type, first', desc: 'Fully insured Colorado plan (mandate applies) vs. self-funded ERISA (preempted, federal parity only). Anthem\'s Colorado precert list applies to local fully-insured members and only to ASO members whose group purchased the medical-management program — so funding type also decides whether the precert rules on this page apply at all.' },
+      { title: 'The ordering physician or psychologist', desc: 'Colorado requires ABA to be prescribed or ordered by a licensed physician or licensed psychologist. Get the name, credential and order date up front; it is the cheapest fix at intake and the most expensive one at appeal.' },
+      { title: 'Diagnosis report and evaluation date', desc: 'DSM-5 ASD diagnosis, the diagnosing provider and their credentials, and the instruments used.' },
+      { title: 'Realistic weekly availability', desc: 'Weekly approved units mean the schedule the family can actually keep is a billing constraint. Over-request and you bank hours you cannot bill; under-request and you cannot flex.' },
+      { title: 'Supervising BCBA identity and NPI', desc: 'Technician-delivered sessions must carry the supervising BCBA or other qualified healthcare professional in box 31 of the CMS-1500 — decide who that is before the first session, not at the first claim rejection.' },
+    ],
+    sources: [
+      { title: 'Anthem Colorado Precertification/Prior Authorization List (updated 07/10/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/CO_PA_List.pdf' },
+      { title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
+      { title: 'Anthem Colorado — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/colorado/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
+      { title: 'Anthem Colorado — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/colorado/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27237' },
+      { title: 'C.R.S. § 10-16-104 (Justia)', url: 'https://law.justia.com/codes/colorado/title-10/article-16/part-1/section-10-16-104/' },
+      { title: 'Colorado HB26-1425 — Applied Behavior Analysis Services (Became Law)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+      { title: 'Colorado DORA — Behavior Analyst program page', url: 'https://dpo.colorado.gov/BehaviorAnalyst' },
+      { title: 'Anthem Colorado — MCG Care Guidelines 27th edition update (Feb 1, 2024)', url: 'https://files.providernews.elevancehealth.com/3731/COBCBS-CM-047275-23-MCG-Care-Gdlns-27th-Ed-6.1.24-Updte-BH_FINALv2.pdf' },
+    ],
+    deliveryRules: {
+      concurrentBilling: {
+        value: 'Allowed only in the narrow case: a physician or other QHP billing 97155 can add 97153 only if both the technician and the QHP are face-to-face with the patient at the same time and the QHP is directing the technician.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' }],
+      },
+      dailyLimits: {
+        value: 'No Anthem-specific daily unit ceiling is published for Colorado. ABA codes may carry CMS MUE limits, which Anthem administers as NCCI edits under its Code and Clinical Editing Guidelines reimbursement policy and refreshes when CMS publishes. The binding practical ceiling is instead the weekly approved units on the authorization (effective March 1, 2026).',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
+          { title: 'Anthem Colorado — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/colorado/articles/streamlined-aba-claim-process-starts-march-1-2026-27885' },
+        ],
+      },
+      noteSignature: {
+        value: 'Each entry must carry author identification — handwritten signature, unique electronic identifier, or initials — plus rendering provider credentials. Entries should be made at the time of service or shortly thereafter and should not exceed 30 days, with a signature date within 30 days of the date of service. Timed codes need total treatment minutes plus start and stop times in the record. Treatment plans must show review or update at least every 6 months.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' }],
+      },
+      placeOfService: {
+        value: 'POS codes Anthem names for ABA in Colorado: 12 home, 11 office/clinic, 99 community, 03 school, 10 telehealth with the member at home, 02 telehealth with the member elsewhere — each subject to the member\'s coverage and plan review.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' }],
+      },
+      billAsProvider: {
+        value: 'ABA performed by therapy assistants, behavior technicians or paraprofessionals must show the supervising BCBA or other qualified healthcare professional in box 31 of the CMS-1500. Degree-level modifiers HM (less than bachelor\'s), HN (bachelor\'s) and HO (master\'s) identify the rendering staff level.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' }],
+      },
+    },
+    faq: [
+      { q: 'Does Anthem BCBS Colorado cover ABA therapy?', a: 'Yes. Colorado\'s mandate (C.R.S. § 10-16-104(1.4)) names applied behavior analysis as covered treatment for autism spectrum disorders in all health benefit plans issued or renewed in the state, and Anthem precertifies ABA as a behavioral health service. Self-funded ERISA plans sit outside the mandate, so confirm funding type first.' },
+      { q: 'Does ABA prior authorization go to Anthem or to Carelon in Colorado?', a: 'To Anthem. Anthem\'s Colorado precertification list names Anthem as the responsible party for behavioral health services and points to its Behavioral Health line, 800-424-4014; submit through Availity Essentials. The Carelon names that appear throughout that list are Carelon Medical Benefits Management (imaging, genetics, cardiology, MSK, rehab therapy) and CarelonRx — neither handles ABA.' },
+      { q: 'What changed for Anthem Colorado ABA claims in March 2026?', a: 'From March 1, 2026 reimbursement is based on weekly approved units rather than total authorized units. Units rendered above the approved weekly limit are ineligible for reimbursement and get adjusted, so banking hours across weeks no longer works.' },
+      { q: 'Is there a dollar cap on ABA under Colorado\'s autism mandate?', a: 'No. The cap language was struck effective January 1, 2017, and the statute now requires that coverage not be subject to dollar limits, deductibles or coinsurance less favorable than those applied to physical illness generally. There is also no small-employer exemption in the autism subsection.' },
+      { q: 'Does Colorado license behavior analysts?', a: 'Not yet, but it will. HB26-1425 became law in 2026 and creates the Colorado Behavior Analyst Licensing Board; on and after July 1, 2028 practising applied behavior analysis without a board-issued license is prohibited. Until then the statutory "autism services provider" ladder, built on BACB certification, is the operative standard.' },
+    ],
+  },
 };

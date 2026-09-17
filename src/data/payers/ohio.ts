@@ -752,4 +752,162 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'What does UnitedHealthcare pay for ABA in Ohio?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Ohio Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
     ],
   },
+
+  'anthem-bcbs-ohio': {
+    slug: 'anthem-bcbs-ohio',
+    payer: 'Anthem BCBS Ohio',
+    state: 'OH', kind: 'commercial',
+    family: 'anthem',
+    cardDesc: '20 hrs/week is a floor, not a cap; individual and small-group plans are carved out; COBA required.',
+    assessmentPA: 'Yes — ABA is precertified as a category; Anthem\'s Ohio list names no individual CPT codes, so request assessment and treatment together',
+    treatmentPA: 'Yes — responsible party Anthem; weekly approved units since January 1, 2026',
+    dxRequired: 'Yes — and the statute requires the services to be prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or a pediatric CNS/CNP',
+    pill: 'Payer Guide · Anthem BCBS · Ohio',
+    h1: 'Anthem BCBS Ohio ABA coverage: the intake guide.',
+    metaTitle: 'Anthem BCBS Ohio ABA Coverage & Prior Auth: Intake Guide | Carelu',
+    metaDescription:
+      'How Anthem Blue Cross and Blue Shield covers ABA in Ohio: why R.C. 3923.84\'s 20 hours a week is a floor not a cap, the individual and small-group carve-out, COBA licensure, the annual review ceiling, and the January 2026 weekly-unit change.',
+    intro: [
+      'Ohio\'s autism mandate is usually described backwards. R.C. 3923.84 does not cap ABA at 20 hours a week — it requires at least that much for an insured under age fourteen, and the same section says explicitly that it "shall not be construed as limiting benefits that are otherwise available to an insured under a policy." Ohio sets floors, not ceilings, and a clinic quoting "Ohio\'s 20-hour cap" to a family is giving away hours it is entitled to ask for.',
+      'The harder Ohio fact is who the mandate does not reach. The statute carves out non-grandfathered individual and small group plans entirely, alongside Medicare supplement, accident-only, specified-disease, hospital indemnity, disability income, long-term care and other limited-benefit policies. For a family on a marketplace or small-employer plan the ABA benefit rides on the ACA essential-health-benefits benchmark rather than on 3923.84 — and self-funded ERISA plans sit outside state insurance law altogether, answering to federal parity. Which bucket the plan falls in is the first thing benefits verification has to settle.',
+    ],
+    atGlance: [
+      { label: 'Who reviews ABA', value: 'Anthem — responsible party on its own Ohio precert list' },
+      { label: 'Submit via', value: 'Availity Essentials → Authorizations and Referrals (preferred since 9/1/2025)' },
+      { label: 'State mandate', value: 'R.C. 3923.84 (and R.C. 1751.84 for health insuring corporations)' },
+      { label: 'The 20 hours', value: 'A FLOOR for insureds under 14 — not a cap; benefits above it are not limited' },
+      { label: 'Carved out', value: 'Non-grandfathered individual and small group plans; limited-benefit policies' },
+      { label: 'Prior auth', value: 'Written into the mandate itself — coverage is contingent on it' },
+      { label: 'Review ceiling', value: 'Insurer may review the treatment plan annually' },
+      { label: 'Licensure', value: 'Certified Ohio Behavior Analyst (COBA), State Board of Psychology' },
+    ],
+    sections: [
+      {
+        h2: 'Floors, not caps — and who is left out',
+        cites: [
+          { title: 'Ohio Rev. Code § 3923.84 — coverage for autism spectrum disorder', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.84' },
+          { title: 'Ohio Rev. Code § 1751.84 — health insuring corporations', url: 'https://codes.ohio.gov/ohio-revised-code/section-1751.84' },
+        ],
+        body: [
+          'R.C. 3923.84 requires each individual and group sickness and accident policy delivered, issued for delivery or renewed in Ohio to cover the screening, diagnosis and treatment of autism spectrum disorder. R.C. 1751.84 is its twin for health insuring corporations, with identical substance. What the statute then sets out are minimums for an insured under the age of fourteen: twenty visits per year each for speech and language therapy and occupational therapy performed by a licensed therapist; twenty hours per week of clinical therapeutic intervention provided by or under the supervision of an appropriately licensed, certified or registered professional under a health treatment plan; and thirty outpatient mental or behavioral health visits per year for consultation, assessment, treatment-plan development or oversight by a licensed psychologist, a licensed physician including a psychiatrist, or a clinical nurse specialist or certified nurse practitioner.',
+          'Two clauses stop those numbers becoming ceilings. Subsection (C)(1) says the section "shall not be construed as limiting benefits that are otherwise available to an insured under a policy." Subsection (A) says coverage is not subject to dollar limits, deductibles or coinsurance less favourable to the insured than those applying to substantially all medical and surgical benefits under the policy. So the 20 hours is the statutory floor for the under-14 cohort, and the actual authorization is a medical-necessity conversation that can and often should go higher.',
+          'The exclusion sentence is the one to read out loud at intake: nothing in the section applies "to nongrandfathered plans in the individual and small group markets or to medicare supplement, accident-only, specified disease, hospital indemnity, disability income, long-term care, or other limited benefit hospital insurance policies." That is a large slice of the Ohio market. Those plans may still cover ABA — through the ACA essential-health-benefits benchmark or plan design — but not because 3923.84 says so, and the mandate arguments on this page will not move them.',
+        ],
+      },
+      {
+        h2: 'Prior authorization is in the statute, and so is the review ceiling',
+        cites: [
+          { title: 'Ohio Rev. Code § 3923.84 — coverage for autism spectrum disorder', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.84' },
+        ],
+        body: [
+          'Unusually, Ohio writes prior authorization into the mandate rather than leaving it to the carrier. Subsection (C)(2) says a policy "shall stipulate that coverage provided under this section be contingent upon both of the following: (a) The covered individual receiving prior authorization for the services in question; (b) The services in question being prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or a clinical nurse specialist or certified nurse practitioner specializing in pediatric health." The nurse-practitioner and clinical-nurse-specialist pathway is new — Senate Bill 196 added it effective March 20, 2025, which widens the pool of clinicians who can legitimately order ABA in Ohio.',
+          'The counterweight is subsection (D): outside inpatient services, an insurer "may review the treatment plan annually, unless the insurer and the insured\'s treating physician, clinical nurse specialist, certified nurse practitioner, or psychologist agree that a more frequent review is necessary," and the insurer covers the cost of obtaining any review or treatment plan. Annual is a generous statutory ceiling by the standards of this directory — Virginia\'s is 12 months, Missouri\'s is six. On a fully insured Ohio plan, an Anthem reviewer asking for an off-cycle treatment-plan update is asking for something the statute does not entitle them to without your agreement.',
+        ],
+      },
+      {
+        h2: 'Who reviews the authorization at Anthem',
+        cites: [
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+          { title: 'Anthem Ohio — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/ohio/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27235' },
+          { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+        ],
+        body: [
+          'Anthem\'s Ohio commercial entity is Community Insurance Company, and Ohio shares one precertification list with Indiana, Kentucky, Missouri and Wisconsin. Under behavioral health services that list includes, for OH, IN and KY Blues products, applied behavioral analysis among the services requiring preapproval — with the responsible party given as Anthem. A separate row reads "Treatment for autism spectrum disorder — Anthem." Since September 1, 2025 the preferred channel has been Availity Essentials: log in, select Authorizations and Referrals, then the Patient Registration tab.',
+          'Two Carelon names cause confusion in Ohio and neither should send an ABA request anywhere new. Carelon Medical Benefits Management handles imaging, bariatrics, cardiovascular, genetic testing, musculoskeletal, oncology, sleep, radiation therapy and rehabilitative services — its published numbers are for those programmes, not ABA. And Anthem\'s March 2025 notice about delegating work to Carelon Health, Inc. is explicitly about care management, meaning case management and disease management: the notice itself says all contracts, policies and procedures remain unchanged, and that existing phone numbers, emails, websites and portals will not change. It says nothing about prior authorization, utilization management or ABA. Carelon Behavioral Health is separately a utilization-management vendor acting on the health plan\'s behalf in Ohio and took assignment of Ohio behavioral health provider contracts in 2023 — but from the clinic\'s side, the January 2026 precertification list names Anthem and the submission channel is Anthem\'s Availity.',
+          'One nuance that can save a whole workup: on Anthem National Accounts business, "precertification for ABA is recommended and applies unless the group specifically opts out of clinical review for this benefit. Retrospective review is allowed." Customized precertification approaches for individual employer groups are described as common in National Accounts. If the card says National Accounts, make the call before you build the file.',
+        ],
+      },
+      {
+        h2: 'COBA: Ohio\'s own credential, and where Anthem\'s guide is too loose',
+        cites: [
+          { title: 'Ohio Rev. Code § 4783.02 — practice of applied behavior analysis', url: 'https://codes.ohio.gov/ohio-revised-code/section-4783.02' },
+          { title: 'Ohio Rev. Code § 4783.04 — certificate application', url: 'https://codes.ohio.gov/ohio-revised-code/section-4783.04' },
+          { title: 'Ohio Board of Psychology — Certified Ohio Behavior Analyst applicants', url: 'https://psychology.ohio.gov/licensing-and-renewal/getting-licensed-sa/certified-ohio-behavior-analyst' },
+        ],
+        body: [
+          'Ohio does not license "behavior analysts" — it certifies Certified Ohio Behavior Analysts through the State Board of Psychology. Applicants must demonstrate current BACB certification as a board certified behavior analyst, or completion of equivalent requirements plus a psychometrically valid examination from a nationally accredited credentialing organization. R.C. 4783.02 makes it unlawful to engage in the practice of applied behavior analysis in Ohio without that certificate, or to hold yourself out as a COBA without it.',
+          'The exemptions define the technician tier. The chapter does not apply to "an individual practicing applied behavior analysis who is supervised by a certified Ohio behavior analyst and acting under the authority and direction of that certified Ohio behavior analyst," nor to "the delivery of interventions by a direct care provider or family member to implement components of an applied behavior analysis treatment plan." Ohio, in other words, does not separately license RBT-level staff; they work under the COBA\'s authority. Chapter 4732 psychologists and Chapter 4757 counselors, social workers and marriage and family therapists are also exempt within their training.',
+          'The mismatch to watch: Anthem\'s multi-state ABA provider resource guide lists approved service providers broadly — psychiatrists, psychologists, LCSWs, LPCs, LMFTs with ABA training, BCBAs, people working under BCBA direction, and other state-licensed mental health providers. Ohio\'s insurance statute is narrower, requiring ABA to be provided by or under the supervision of a certified Ohio behavior analyst, a Chapter 4732 psychologist, or a Chapter 4757 counselor, social worker or marriage and family therapist. In Ohio a BCBA needs the COBA; credential to the statute.',
+        ],
+      },
+      {
+        h2: 'Weekly approved units from January 1, 2026',
+        cites: [
+          { title: 'Anthem Ohio — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/ohio/articles/streamlined-aba-claim-process-starts-january-1-2026-27879' },
+          { title: 'Anthem — MCG care guidelines 27th edition update (Ohio, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/ohio/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+        ],
+        body: [
+          'Effective January 1, 2026, Anthem reimburses ABA in Ohio on weekly approved units rather than total authorized units. Claims should reflect units rendered within each week up to the weekly medically necessary limit approved by prior approval; units above it are ineligible for reimbursement and will be adjusted. The affected codes are the full set — 97151, 97152, 0362T, 97153, 97154, 97155, 97156, 97157, 97158 and 0373T, each per 15 minutes. That article is the closest thing to a code-level public statement of what Anthem Ohio commercial authorizes, since the precertification list itself names ABA only as a category.',
+          'Alongside it, note the criteria change. Anthem told Ohio commercial providers that effective June 1, 2024 it would transition from CG-BEH-02 (Adaptive Behavioral Treatment) and MCG W0153 to MCG B-806-T, Behavioral Health Care Applied Behavioral Analysis, for medical necessity and clinical appropriateness reviews. If your templates or a denial letter still reference CG-BEH-02, they are out of date. MCG guidelines are proprietary and unpublished, so leverage comes from a complete, data-anchored treatment plan rather than from quoting criteria back.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Market segment, first', desc: 'Non-grandfathered individual and small group plans are carved out of R.C. 3923.84 entirely, and self-funded ERISA plans are outside state law. Large-group fully insured is where the mandate actually bites — establish which before you cite any of it.' },
+      { title: 'Child\'s age relative to 14', desc: 'The statutory service floors — 20 hours a week of clinical therapeutic intervention, 20 speech and 20 OT visits, 30 outpatient behavioral health visits — apply to an insured under the age of fourteen. Above 14 the mandate\'s floors drop away, though the parity and non-limiting clauses remain.' },
+      { title: 'The ordering clinician', desc: 'Ohio requires the services to be prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or a clinical nurse specialist or certified nurse practitioner specializing in pediatric health. The nurse pathway was added in March 2025 and widens your options — capture who wrote the order and their credential.' },
+      { title: 'COBA certificate numbers', desc: 'Covered ABA must be provided by or under the supervision of a Certified Ohio Behavior Analyst (or a Chapter 4732 psychologist or Chapter 4757 clinician). A BACB certificant without the COBA cannot practise in Ohio.' },
+      { title: 'Realistic weekly schedule', desc: 'Weekly approved units since January 2026 make the family\'s sustainable weekly availability a billing constraint, not just a scheduling one.' },
+      { title: 'Whether the plan is a National Account', desc: 'On National Accounts, ABA precertification applies unless the group opted out of clinical review, and retrospective review is allowed. One call can change how much front-loading the case needs.' },
+    ],
+    sources: [
+      { title: 'Ohio Rev. Code § 3923.84 — coverage for autism spectrum disorder', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.84' },
+      { title: 'Ohio Rev. Code § 1751.84 — health insuring corporations', url: 'https://codes.ohio.gov/ohio-revised-code/section-1751.84' },
+      { title: 'Ohio Rev. Code § 4783.02 — practice of applied behavior analysis', url: 'https://codes.ohio.gov/ohio-revised-code/section-4783.02' },
+      { title: 'Ohio Rev. Code § 4783.04 — certificate application', url: 'https://codes.ohio.gov/ohio-revised-code/section-4783.04' },
+      { title: 'Ohio Board of Psychology — Certified Ohio Behavior Analyst applicants', url: 'https://psychology.ohio.gov/licensing-and-renewal/getting-licensed-sa/certified-ohio-behavior-analyst' },
+      { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+      { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+      { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+      { title: 'Anthem Ohio — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/ohio/articles/streamlined-aba-claim-process-starts-january-1-2026-27879' },
+      { title: 'Anthem Ohio — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/ohio/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27235' },
+      { title: 'Anthem — MCG care guidelines 27th edition update (Ohio, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/ohio/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+      { title: 'Anthem Ohio — delegation of care management to Carelon Health, Inc. (March 2025)', url: 'https://providernews.anthem.com/ohio/articles/anthem-will-delegate-care-management-to-carelon-health-inc-24327' },
+    ],
+    deliveryRules: {
+      concurrentBilling: {
+        value: 'A physician or other QHP billing 97155 can add 97153 only if both the technician and the QHP are face-to-face with the patient at the same time and the QHP is directing the technician. Supervised or directed services billed alongside a QHP-performed procedure are also subject to Anthem\'s Incident To Services and Billing reimbursement policy.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      dailyLimits: {
+        value: 'Anthem publishes no Ohio-specific per-day unit ceiling. From January 1, 2026 the binding limit is the weekly approved units on the authorization — units above the approved weekly figure are ineligible for reimbursement and adjusted. ABA codes may separately carry CMS MUE limits, administered as NCCI edits under Anthem\'s Code and Clinical Editing Guidelines reimbursement policy. Note that the state mandate\'s 20 hours per week for insureds under 14 is a statutory floor, not a ceiling.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem Ohio — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/ohio/articles/streamlined-aba-claim-process-starts-january-1-2026-27879' },
+          { title: 'Ohio Rev. Code § 3923.84 — coverage for autism spectrum disorder', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.84' },
+        ],
+      },
+      noteSignature: {
+        value: 'Each medical-record entry must carry author identification — handwritten signature, unique electronic identifier, or initials — plus rendering provider credentials. Entries are expected at the time of service or shortly thereafter and should not exceed 30 days, with a signature date within 30 days of the date of service. Timed codes require total treatment minutes plus start and stop times. Treatment plans must show review or update at least every 6 months; separately, Ohio law lets the insurer review the treatment plan annually, and no more often without the treating clinician\'s agreement.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Ohio Rev. Code § 3923.84 — coverage for autism spectrum disorder', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.84' },
+        ],
+      },
+      placeOfService: {
+        value: 'POS codes Anthem names for ABA: 12 home, 11 office/clinic, 99 community, 03 school, 10 telehealth with the member at home, 02 telehealth with the member elsewhere — each subject to the member\'s coverage and plan review.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      billAsProvider: {
+        value: 'ABA delivered by therapy assistants, behavior technicians or paraprofessionals must show the supervising BCBA or other QHP in box 31 of the CMS-1500, with degree-level modifiers HM, HN and HO identifying the rendering staff level. In Ohio the supervising clinician must be a Certified Ohio Behavior Analyst, a Chapter 4732 psychologist, or a Chapter 4757 counselor, social worker or marriage and family therapist; technician-level staff are exempt from certification only while acting under a COBA\'s authority and direction.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Ohio Rev. Code § 3923.84 — coverage for autism spectrum disorder', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.84' },
+          { title: 'Ohio Rev. Code § 4783.02 — practice of applied behavior analysis', url: 'https://codes.ohio.gov/ohio-revised-code/section-4783.02' },
+        ],
+      },
+    },
+    faq: [
+      { q: 'Does Ohio cap ABA at 20 hours a week?', a: 'No — that is the most common misreading of R.C. 3923.84. Twenty hours a week of clinical therapeutic intervention is the minimum the statute requires for an insured under age fourteen, and the same section says it "shall not be construed as limiting benefits that are otherwise available to an insured under a policy." Ask for what is medically necessary; the 20 hours is the floor you can insist on, not the ceiling you must accept.' },
+      { q: 'Which Ohio plans are exempt from the autism mandate?', a: 'Non-grandfathered plans in the individual and small group markets are carved out by name, along with Medicare supplement, accident-only, specified disease, hospital indemnity, disability income, long-term care and other limited-benefit policies. Self-funded ERISA plans sit outside state insurance law entirely. Those members may still have an ABA benefit, but not because of R.C. 3923.84.' },
+      { q: 'Who can order ABA in Ohio?', a: 'The statute makes coverage contingent on the services being prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or — since Senate Bill 196 took effect on March 20, 2025 — a clinical nurse specialist or certified nurse practitioner specializing in pediatric health. Prior authorization is likewise written into the mandate as a condition of coverage.' },
+      { q: 'Does a BCBA need an Ohio credential?', a: 'Yes. Ohio requires a Certified Ohio Behavior Analyst certificate from the State Board of Psychology to practise applied behavior analysis, and the COBA application itself requires current BACB certification. Staff working under a COBA\'s authority and direction, and family members implementing a plan, are exempt from certification — Ohio does not separately license technicians.' },
+      { q: 'How often can Anthem re-review an Ohio ABA treatment plan?', a: 'Outside inpatient services the statute lets the insurer review the treatment plan annually, unless the insurer and the treating physician, clinical nurse specialist, certified nurse practitioner or psychologist agree more frequent review is necessary — and the insurer covers the cost of obtaining the review or plan.' },
+      { q: 'Which criteria does Anthem apply to ABA in Ohio?', a: 'MCG B-806-T. Anthem notified Ohio commercial providers that effective June 1, 2024 it would move from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and unpublished, so a denial letter still citing CG-BEH-02 is working from a retired document.' },
+    ],
+  },
 };

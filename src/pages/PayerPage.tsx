@@ -300,7 +300,15 @@ function PayerGuide({ config }: { config: PayerConfig }) {
                 ['Session-note signature', config.deliveryRules.noteSignature],
                 ['Place of service', config.deliveryRules.placeOfService],
                 ['Bill as provider', config.deliveryRules.billAsProvider],
-              ] as const).filter(([, r]) => r).map(([label, r]) => (
+              ] as const)
+                .filter(([, r]) => r)
+                // Lead with what we could verify; the "we checked and they don't publish
+                // it — here's who to ask" rows are useful, but they belong underneath.
+                .sort(([, a], [, b]) => {
+                  const rank = (st?: string) => (st === 'verified' ? 0 : st === 'plan-dependent' ? 1 : 2);
+                  return rank(a!.status) - rank(b!.status);
+                })
+                .map(([label, r]) => (
                 <div key={label} className="rv" style={{
                   background: '#fff', borderRadius: 14, padding: 'clamp(14px, 2vw, 20px)',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03)',

@@ -675,4 +675,157 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'What does UnitedHealthcare pay for ABA in Indiana?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Indiana Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
     ],
   },
+
+  'anthem-bcbs-indiana': {
+    slug: 'anthem-bcbs-indiana',
+    payer: 'Anthem BCBS Indiana',
+    state: 'IN', kind: 'commercial',
+    family: 'anthem',
+    cardDesc: 'No dollar, age, visit or hour cap in the mandate; Indiana now licenses LBAs; Anthem reviews in-house.',
+    assessmentPA: 'Yes — ABA is precertified as a category; Anthem\'s Indiana list names no individual CPT codes, so request assessment and treatment together',
+    treatmentPA: 'Yes — responsible party Anthem; the authorization now carries weekly approved units',
+    dxRequired: 'Yes — and the treatment must be prescribed by the insured\'s treating physician under a treatment plan',
+    pill: 'Payer Guide · Anthem BCBS · Indiana',
+    h1: 'Anthem BCBS Indiana ABA coverage: the intake guide.',
+    metaTitle: 'Anthem BCBS Indiana ABA Coverage & Prior Auth: Intake Guide | Carelu',
+    metaDescription:
+      'How Anthem Blue Cross and Blue Shield covers ABA in Indiana: the uncapped IC 27-8-14.2 mandate, the new Licensed Behavior Analyst credential, who reviews prior authorization, and the weekly-unit claim change.',
+    intro: [
+      'Indiana passed the first autism insurance mandate in the country in 2001, and it remains one of the least restrictive. Read all five sections of IC 27-8-14.2 and the words "age," "hours," "visits" and any dollar figure simply do not appear in connection with the autism benefit. Group accident and sickness policies must cover treatment of autism spectrum disorder prescribed by the insured\'s treating physician under a treatment plan, and the only limit language in the chapter is a parity clause: coverage "may not be subject to dollar limits, deductibles, or coinsurance provisions that are less favorable to an insured than" those applying to physical illness generally.',
+      'Two things have changed recently enough that most ABA playbooks are wrong about them. Indiana now licenses behavior analysts — LBA and LABA applications went live in May 2025, and practising ABA without the licence is prohibited. And Anthem no longer reviews ABA under clinical guideline CG-BEH-02; it moved to MCG B-806-T in June 2024. Neither change is reflected in most of what is written about Indiana ABA coverage online.',
+    ],
+    atGlance: [
+      { label: 'Who reviews ABA', value: 'Anthem — responsible party on its own Indiana precert list' },
+      { label: 'Criteria applied', value: 'MCG B-806-T — replaced CG-BEH-02 for ABA on June 1, 2024' },
+      { label: 'Submit via', value: 'Availity Essentials → Authorizations and Referrals' },
+      { label: 'State mandate', value: 'IC 27-8-14.2 (group must cover; individual must offer) + IC 27-13-7-14.7 for HMOs' },
+      { label: 'Mandate caps', value: 'None — no dollar, age, visit or hour limit anywhere in the chapter' },
+      { label: 'Exempt from mandate', value: 'Individual policies (offer-only); short-term, student and limited-benefit plans; self-funded ERISA' },
+      { label: 'Licensure', value: 'Indiana LBA / LABA — applications live since May 13, 2025; practice without one is prohibited' },
+      { label: 'Authorization unit', value: 'Weekly approved units (Anthem\'s Indiana notice is headlined March 1, 2026)' },
+    ],
+    sections: [
+      {
+        h2: 'A mandate that caps nothing',
+        cites: [
+          { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-4/' },
+          { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-5/' },
+          { title: 'Ind. Code § 27-13-7-14.7 — HMO coverage', url: 'https://law.justia.com/codes/indiana/title-27/article-13/chapter-7/section-27-13-7-14-7/' },
+        ],
+        body: [
+          'Section 4 is the operative one: "An accident and sickness insurance policy that is issued on a group basis must provide coverage for the treatment of an autism spectrum disorder of an insured. Coverage provided under this section is limited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan." Section 5 requires insurers issuing individual policies only to offer the coverage, not to include it — a real distinction when a family bought their own plan. IC 27-13-7-14.7 mirrors both rules for HMOs, and its parity clause adds copayments to the list.',
+          'The chapter defines autism spectrum disorder as "a neurological condition, including Asperger\'s syndrome and autism, as defined in the Diagnostic and Statistical Manual of Mental Disorders" — and despite the chapter still being captioned "Insurance Coverage for Pervasive Developmental Disorders," the operative term throughout is autism spectrum disorder. Both the group and individual sections also forbid an insurer from denying, refusing to issue, refusing to renew or otherwise restricting coverage solely because the individual is diagnosed with an autism spectrum disorder.',
+          'The statute names no credential of its own. Its only gate on who delivers the service is that the treatment be "prescribed by the insured\'s treating physician in accordance with a treatment plan" — so the credentialing requirements come from the carrier and from Indiana\'s separate licensure chapter, not from the insurance mandate. The exclusions list at IC 27-8-14.2-1(b) is the usual set: accident-only, credit, dental, vision, Medicare supplement, long-term care, disability income, specified-disease, short-term plans, indemnity and gap products, and student health plans. There is no small-group carve-out. Self-funded ERISA plans are simply outside the chapter, which binds insurers issuing policies, so those members rely on the plan document and federal parity.',
+        ],
+      },
+      {
+        h2: 'Who reviews the authorization',
+        cites: [
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+          { title: 'Anthem Indiana — Carelon Behavioral Health assignment mailing was sent in error to non-Ohio providers (June 2023)', url: 'https://providernews.anthem.com/indiana/articles/important-information-regarding-the-recent-carelon-behaviora-1-13957' },
+        ],
+        body: [
+          'Anthem\'s Indiana commercial entity is Anthem Insurance Companies, Inc., and Indiana shares one precertification list with Kentucky, Missouri, Ohio and Wisconsin. That list includes applied behavioral analysis in the behavioral health services requiring preapproval for OH, IN and KY Blues products, with the responsible party given as Anthem, and carries a separate "Treatment for autism spectrum disorder — Anthem" row. Submission runs through Availity Essentials.',
+          'Indiana is the clearest of the six states on the Carelon question, because Anthem answered it directly. When a 2023 mailing went out about a contract assignment to Carelon Behavioral Health, Inc. in Ohio, Anthem told Indiana providers: "If you are not an Ohio contracted provider, please be aware this letter was sent to you in error and may be disregarded." Carelon Behavioral Health appears nowhere in the Indiana commercial precertification list. The Carelon names that do appear are Carelon Medical Benefits Management — advanced imaging, bariatrics, cardiovascular, genetic testing, musculoskeletal, oncology and related programmes — and CarelonRx for pharmacy. Neither touches ABA, and their published phone numbers are for those programmes, not for an ABA request.',
+          'One scope caveat before you rely on any of this: the precertification list states it applies to local fully insured members and to self-insured (ASO) members only where the group purchased the medical-management program, and that if the program has not been purchased, preapproval is not required and clinical review will not be performed. On Anthem National Accounts business the rule is softer still — precertification for ABA "is recommended and applies unless the group specifically opts out of clinical review for this benefit," and retrospective review is allowed.',
+        ],
+      },
+      {
+        h2: 'Indiana licenses behavior analysts now',
+        cites: [
+          { title: 'Indiana PLA — Behavior Analyst', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
+          { title: 'Ind. Code § 25-8.5-3-1 — licensure requirements', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-1/' },
+          { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+        ],
+        body: [
+          'Any guide still saying Indiana has no behavior-analyst licensure is out of date. The Indiana Professional Licensing Agency runs a Behavior Analyst Licensing Board issuing Licensed Behavior Analyst and Licensed Assistant Behavior Analyst credentials, and its own site records the milestone: applications went live on May 13, 2025. The statute (IC 25-8.5) was enacted in 2021 and the administrative rules at 844 IAC 21 followed, so 2025 is when the credential actually became obtainable.',
+          'Licensure is built on national certification. IC 25-8.5-3-1 requires an applicant to furnish evidence of certification as a board certified behavior analyst by the BACB or another committee-approved entity, plus a national criminal history background check. IC 25-8.5-3-6 then makes it unlawful to profess to be a licensed behavior analyst, to use the initials LBA or LABA, or to practise applied behavior analysis, without a licence — with carve-outs for licensed health care professionals acting within their own scope, for students and trainees, for limited out-of-state practice, and for "an applied behavior analysis direct contact technician" or a family member implementing a plan in the family home who acts "under the extended authority and direction of a behavior analyst or assistant behavior analyst licensed under this chapter."',
+          'Two practical notes. Indiana does not license RBTs — PLA directs RBT applicants to the BACB — so technicians work under the exception, not a state credential. And LBA/LABA licences expire December 31 of odd-numbered years on a two-year cycle, with continuing education that includes a trauma-informed-care unit. Build the renewal date into your credentialing calendar rather than discovering it at a recredentialing cycle.',
+        ],
+      },
+      {
+        h2: 'CG-BEH-02 is retired; MCG B-806-T governs',
+        cites: [
+          { title: 'Anthem — MCG care guidelines 27th edition update (Indiana, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/indiana/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+        ],
+        body: [
+          'Anthem told Indiana commercial providers that "effective June 1, 2024, Anthem will transition from CG-BEH-02 (Adaptive Behavioral Treatment) and MCG W0153 (Behavioral Health Care Applied Behavioral Analysis), to MCG B-806-T Behavioral Health Care Applied Behavioral Analysis (Original MCG Guideline), for medical necessity/clinical appropriateness reviews." The notice was published as a change to prior authorization requirements.',
+          'So the criteria document most ABA resources still name for Anthem no longer drives the review. MCG guidelines are licensed and proprietary and Anthem does not publish them, which means the usable public artefacts are Anthem\'s ABA provider resource guide — billing, coding and documentation only, with no prior-authorization section — and the completeness of your own treatment plan. If a denial letter cites CG-BEH-02, that is a point worth raising on appeal.',
+        ],
+      },
+      {
+        h2: 'Weekly approved units — check which date applies to you',
+        cites: [
+          { title: 'Anthem Indiana — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/indiana/articles/streamlined-aba-claim-process-starts-march-1-2026-28211' },
+        ],
+        body: [
+          'Anthem has moved ABA reimbursement onto weekly approved units rather than total authorized units. Claims should reflect the units rendered within each week, up to the weekly medically necessary limit as approved by prior approval; claims submitted with units exceeding the weekly limit are ineligible for reimbursement and get adjusted. Existing requests and claims, including those with date ranges running past the effective date, are unaffected. The affected codes are 97151, 97152, 0362T, 97153, 97154, 97155, 97156, 97157, 97158 and 0373T, each per 15 minutes.',
+          'One thing to verify rather than assume: Anthem\'s Indiana notice is headlined "Streamlined ABA claim process starts March 1, 2026" while its body text says "effective January 1, 2026." The inconsistency is in Anthem\'s own published article. Confirm with Anthem which date applies to your authorizations before you rebuild a billing calendar around either one.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Group or individual policy, and funding type', desc: 'Group plans must cover ABA; individual-policy insurers only have to offer it, so an individual plan may lawfully lack the benefit. Self-funded ERISA plans are outside the mandate entirely. This fork decides the whole conversation.' },
+      { title: 'The treating physician\'s prescription', desc: 'Indiana\'s mandate limits coverage to treatment "prescribed by the insured\'s treating physician in accordance with a treatment plan." Capture the prescribing physician and the plan they signed off on.' },
+      { title: 'Diagnosis report and evaluation date', desc: 'DSM-based ASD diagnosis, the diagnosing clinician and credentials, and the instruments used.' },
+      { title: 'Indiana LBA/LABA licence numbers', desc: 'Licensure has been obtainable since May 2025 and practising ABA without it is prohibited. Capture licence numbers and the December-of-odd-years expiry for every analyst on the case; technicians work under the statutory exception rather than a state credential.' },
+      { title: 'Realistic weekly schedule', desc: 'Weekly approved units make the family\'s sustainable weekly availability a billing constraint. Ask what they can actually keep, not what they hope for.' },
+      { title: 'Whether the plan is a National Account', desc: 'On National Accounts, ABA precertification applies unless the group opted out of clinical review, and retrospective review is allowed — one call can change how the case is worked up.' },
+    ],
+    sources: [
+      { title: 'Ind. Code § 27-8-14.2-3 — definition of autism spectrum disorder', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-3/' },
+      { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-4/' },
+      { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-5/' },
+      { title: 'Ind. Code § 27-13-7-14.7 — HMO coverage', url: 'https://law.justia.com/codes/indiana/title-27/article-13/chapter-7/section-27-13-7-14-7/' },
+      { title: 'Ind. Code § 25-8.5-3-1 — licensure requirements', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-1/' },
+      { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Behavior Analyst', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
+      { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+      { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+      { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+      { title: 'Anthem — MCG care guidelines 27th edition update (Indiana, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/indiana/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+      { title: 'Anthem Indiana — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/indiana/articles/streamlined-aba-claim-process-starts-march-1-2026-28211' },
+      { title: 'Anthem Indiana — Carelon Behavioral Health assignment mailing was sent in error to non-Ohio providers (June 2023)', url: 'https://providernews.anthem.com/indiana/articles/important-information-regarding-the-recent-carelon-behaviora-1-13957' },
+    ],
+    deliveryRules: {
+      concurrentBilling: {
+        value: 'A physician or other QHP billing 97155 can add 97153 only if both the technician and the QHP are face-to-face with the patient at the same time and the QHP is directing the technician. Supervised or directed services billed alongside a QHP-performed procedure are also subject to Anthem\'s Incident To Services and Billing reimbursement policy.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      dailyLimits: {
+        value: 'Anthem publishes no Indiana-specific per-day unit ceiling, and Indiana\'s mandate imposes no hour or visit limit of its own. ABA codes may carry CMS MUE limits, which Anthem administers as NCCI edits under its Code and Clinical Editing Guidelines reimbursement policy. The operative ceiling is the weekly approved units on the authorization.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Anthem Indiana — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/indiana/articles/streamlined-aba-claim-process-starts-march-1-2026-28211' },
+        ],
+      },
+      noteSignature: {
+        value: 'Each medical-record entry must carry author identification — handwritten signature, unique electronic identifier, or initials — plus rendering provider credentials. Entries are expected at the time of service or shortly thereafter and should not exceed 30 days, with a signature date within 30 days of the date of service. Timed codes require total treatment minutes plus start and stop times in the record. Treatment plans must show review or update at least every 6 months.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      placeOfService: {
+        value: 'POS codes Anthem names for ABA: 12 home, 11 office/clinic, 99 community, 03 school, 10 telehealth with the member at home, 02 telehealth with the member elsewhere — each subject to the member\'s coverage and plan review.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      billAsProvider: {
+        value: 'ABA delivered by therapy assistants, behavior technicians or paraprofessionals must show the supervising BCBA or other QHP in box 31 of the CMS-1500, with degree-level modifiers HM, HN and HO identifying the rendering staff level. In Indiana the supervising analyst must hold the state LBA (or LABA) licence; direct-contact technicians are exempt from licensure only while acting under the extended authority and direction of a licensed behavior analyst or assistant behavior analyst.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+        ],
+      },
+    },
+    faq: [
+      { q: 'Does Indiana\'s autism mandate cap ABA?', a: 'No. Reading the whole of IC 27-8-14.2 turns up no dollar cap, no age limit and no visit or hour limit for the autism benefit. The only limit language is a parity clause requiring that dollar limits, deductibles and coinsurance be no less favourable than those applying to physical illness generally. The HMO parallel at IC 27-13-7-14.7 adds copayments to that list.' },
+      { q: 'Does the Indiana mandate apply to an individual policy?', a: 'Only as an offer. Group accident and sickness policies must provide the coverage; insurers issuing individual policies must offer to provide it, which means an individual plan may lawfully not include it. Ask whether the policy is group or individual before promising anything.' },
+      { q: 'Does ABA prior authorization in Indiana go to Carelon?', a: 'No. Anthem\'s five-state precertification list names Anthem as the responsible party for ABA, and Carelon Behavioral Health does not appear in it at all — Anthem even told Indiana providers that a 2023 Carelon Behavioral Health assignment letter was an Ohio matter sent to them in error. Carelon Medical Benefits Management, which does appear, handles imaging, genetics, musculoskeletal and oncology programmes, not ABA.' },
+      { q: 'Does Indiana license behavior analysts?', a: 'Yes, since 2025. The Indiana Professional Licensing Agency\'s Behavior Analyst Licensing Board issues Licensed Behavior Analyst and Licensed Assistant Behavior Analyst credentials, applications went live on May 13, 2025, and practising applied behavior analysis without a licence is prohibited. Licensure requires current BACB certification plus a national background check. Indiana does not license RBTs — technicians work under a statutory exception while directed by a licensed analyst.' },
+      { q: 'Which criteria does Anthem use for ABA in Indiana?', a: 'MCG B-806-T. Anthem notified Indiana commercial providers that effective June 1, 2024 it would transition from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and unpublished.' },
+    ],
+  },
 };
