@@ -402,7 +402,7 @@ function ResourceArticle({ config }: { config: ResourceConfig }) {
               gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
             }}>
               {config.related.map((r: ResourceRelated) => (
-                <a key={r.slug} href={`/resources/${r.slug}`} className="rv" style={{
+                <a key={r.slug} href={r.slug.startsWith('/') ? r.slug : `/resources/${r.slug}`} className="rv" style={{
                   display: 'block', textDecoration: 'none',
                   background: '#fff', borderRadius: 16,
                   padding: 'clamp(18px, 2.4vw, 22px)',

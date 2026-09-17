@@ -36,6 +36,7 @@ export const growthResources: Record<string, ResourceConfig> = {
     intro: [
       'Growing an ABA practice is two separate problems that get talked about as one. The first is getting families to raise their hand. The second is not losing them between the hand-raise and the first session. Almost everything written about ABA growth is about the first problem, and almost all the lost revenue is in the second.',
       'That matters because the two problems have wildly different costs. Doubling your inquiry volume means doubling ad spend, or years of referral relationship-building. Doubling the share of inquiries that turn into started clients usually means fixing four or five specific operational failures — and it costs nothing in media.',
+      'The market is not the constraint. In our published research, the median provider in a 37-provider same-store cohort saw family demand grow 35% year over year across 13 months of monthly counts. Families are finding ABA providers. What happens after they do is where practices diverge.',
       'This is the whole playbook: the five channels that actually produce ABA families, what each is good at, the structural catch inside each one, and the shared operational layer that decides whether any of them pay off.',
     ],
     sections: [
@@ -73,6 +74,7 @@ export const growthResources: Record<string, ResourceConfig> = {
         h2: 'Channel 3 — SEO and AI answers: slow, compounding, increasingly conversational',
         body: [
           'Search is where families go when they are ready to compare, and it keeps producing after you stop paying. The work is unglamorous: a genuinely useful page per location, per payer, and per stage of the journey, plus a Google Business Profile that is actually maintained.',
+          'Reviews belong in this channel and deserve more attention than they get. They move the map results, they are what a parent actually reads when comparing you with two other clinics, and they are one of the few quality signals an AI assistant can read about you. The practice in your market with sixty reviews is rarely better than you; it asked.',
           'What has changed is that a growing share of these questions never reach a results page at all. Parents ask an assistant "who does ABA in my county and takes my plan," and get a synthesized answer. Pages that answer one question completely, in plain language, with the specifics an assistant can quote, are the ones that get surfaced. Pages written to hit a keyword density are not.',
         ],
       },
@@ -160,6 +162,7 @@ export const growthResources: Record<string, ResourceConfig> = {
       { step: 'Measurement', manual: 'Lead counts in a spreadsheet, no channel truth', carelu: 'Answer rate, speed, conversion and cost per started client by channel' },
     ],
     related: [
+      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
       { slug: 'google-ads-for-aba', label: 'Google Ads for ABA', blurb: 'The highest-intent lead in the category, and why the auction is not where you win it.' },
       { slug: 'meta-ads-for-aba', label: 'Meta ads for ABA', blurb: 'Reaching parents before they search, and converting borrowed intent before it cools.' },
       { slug: 'seo-for-aba-practices', label: 'SEO and AI search', blurb: 'The pages that rank, and what changes when a parent asks an assistant instead.' },
@@ -287,6 +290,10 @@ export const growthResources: Record<string, ResourceConfig> = {
       { step: 'Reporting', manual: 'Cost per lead only', carelu: 'Cost per started client by campaign, with later events fed back to Meta' },
     ],
     related: [
+      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
+      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
+      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
+      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
       { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'All five channels and the operational layer they share.' },
       { slug: 'google-ads-for-aba', label: 'Google Ads for ABA', blurb: 'The other paid channel, and why it behaves nothing like this one.' },
       { slug: 'aba-evaluation-referrals', label: 'Families without a diagnosis', blurb: 'What to do with the largest segment Meta will send you.' },
@@ -325,7 +332,7 @@ export const growthResources: Record<string, ResourceConfig> = {
         ],
         list: [
           { title: 'Core service terms', desc: '"aba therapy near me," "autism therapy [city]," "applied behavior analysis [county]." Phrase and exact match. This is the money, and it deserves its own budget rather than sharing with experiments.' },
-          { title: 'Payer-qualified terms', desc: '"aba therapy that takes medicaid," "[plan name] autism coverage." Lower volume, far higher conversion, and it pre-filters the objection that kills most ABA inquiries.' },
+          { title: 'Payer-qualified terms', desc: '"aba therapy that takes medicaid," "[plan name] autism coverage." Lower volume, far higher conversion, and it pre-filters the objection that kills most ABA inquiries. Worth more budget than most accounts give it: in our research, 46% of families reported Medicaid as their payer, so this is the median family rather than a niche.' },
           { title: 'Diagnosis-stage terms', desc: '"autism evaluation near me," "how to get my child tested." High volume, no diagnosis yet. Only run these if you have a real evaluation path or in-house testing — otherwise you are paying to say no.' },
           { title: 'Branded', desc: 'Cheap, high-converting, and worth owning so a competitor does not sit above your own name. Keep it in a separate campaign or it will flatter every other metric you look at.' },
           { title: 'Location separation', desc: 'One campaign per clinic or service radius when the economics differ by site. Averaged geography hides the location that is quietly losing money.' },
@@ -410,6 +417,8 @@ export const growthResources: Record<string, ResourceConfig> = {
       { step: 'Follow-up', manual: 'One voicemail, then the lead goes cold', carelu: 'Multi-touch sequence across text and phone until they respond or opt out' },
     ],
     related: [
+      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
+      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
       { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'Where paid search fits among the five channels.' },
       { slug: 'meta-ads-for-aba', label: 'Meta ads for ABA', blurb: 'The volume channel, and why it needs a different response plan.' },
       { slug: 'after-hours-intake-coverage', label: 'After-hours coverage', blurb: 'Half your paid traffic arrives when the office is closed.' },
@@ -449,7 +458,7 @@ export const growthResources: Record<string, ResourceConfig> = {
         h2: 'The pages worth building',
         body: [
           'A small number of genuinely useful pages beats a large number of thin ones, and thin location pages are the most common self-inflicted wound in this category. A page per city that differs only by a find-and-replace does not rank and does not convert.',
-          'Build a real page per location: the actual address, the counties and ZIPs you serve, the ages you take, the payers accepted there, the current wait, the people who work there, and directions a parent would actually use. Build a page per payer for the plans that dominate your market, stating plainly what that plan requires — diagnosis, referral, prior authorization — because the parent is trying to find out whether they can afford you. And build a handful of stage-of-journey explainers for the worried-but-early searches, written to help rather than to convert.',
+          'Build a real page per location: the actual address, the counties and ZIPs you serve, the ages you take, the payers accepted there, the current wait, the people who work there, and directions a parent would actually use. Build a page per payer for the plans that dominate your market — in our research 46% of families reported Medicaid, so these are not niche pages — stating plainly what that plan requires: diagnosis, referral, prior authorization. That is what the parent is trying to find out. And build a handful of stage-of-journey explainers for the worried-but-early searches, written to help rather than to convert.',
           'The test for any page: would a parent who found this by accident be glad they did? If not, no amount of structure will save it.',
         ],
       },
@@ -463,8 +472,33 @@ export const growthResources: Record<string, ResourceConfig> = {
       {
         h2: 'Reviews are the ranking factor you can actually influence',
         body: [
-          'Reviews move local rankings and they move parents, who read them more carefully in this category than in almost any other. The obstacle is that asking is awkward and nobody owns it.',
-          'Make it a step in the process rather than a favor: a specific moment, a specific person who asks, a link sent by text. Ask families at a natural high point, not at intake. Respond to every review, including the difficult ones, in language that never confirms or denies that someone is a client — a public reply that acknowledges a specific child’s care is a privacy problem, however kindly meant.',
+          'Of everything on this page, reviews are where a practice can move fastest and where most leave the most on the table. Everything else here is a project. Reviews are a habit, and the habit pays three times over.',
+          'They move local rankings, which decides whether you appear in the map results at all. They move parents, who read reviews more carefully in this category than in almost any other — they are choosing who will spend twenty hours a week with their child, and they cannot evaluate your clinical model, so they read what other parents said instead. And they increasingly move the AI answers, because public review volume, recency and substance are close to the only third-party quality signal an assistant can actually read about a local provider.',
+          'Three properties matter, roughly in this order. Recency, because a wall of five-star reviews from three years ago reads as a practice that used to be good. Volume relative to the other practices in your city, because parents compare. And specificity — a review that names a therapist and describes a change in a child is worth ten that say "great place."',
+          'The gap in ABA is enormous, and it is not a quality gap. Most clinics have a handful of reviews. The practice in your market with sixty is not sixty times better than you. They asked, and you did not.',
+        ],
+      },
+      {
+        h2: 'The only reason you do not have more reviews is that nobody asks',
+        body: [
+          'Every practice knows it should collect reviews. The reason it does not happen is always the same: asking feels awkward, no one owns it, and the moment passes. The fix is to stop treating it as a favor someone remembers and make it a step in a process, with a trigger, an owner, and a script.',
+        ],
+        rules: [
+          { when: 'Choosing the moment', then: 'Ask after a visible win — a first progress report, a goal met, a parent who says something warm in a session. Never at intake, when the family has received nothing yet, and never in the same breath as a billing conversation.' },
+          { when: 'Choosing who asks', then: 'The person with the relationship: the BCBA or the coordinator the family already trusts. An ask from a name they recognize converts several times better than one from the practice in the abstract.' },
+          { when: 'Making it one tap', then: 'A text with a direct link straight to the review form. An email telling a parent to search for you on Google loses most of them between the intent and the typing.' },
+          { when: 'Following up', then: 'Ask once, then send one reminder a few days later. The reminder collects roughly as many reviews as the original ask, and almost nobody sends it.' },
+          { when: 'Who to ask', then: 'Everyone. Do not screen families first, route happy ones to the public profile and unhappy ones to a private form — review gating violates platform policies, risks the profile, and the negative reviews you avoid are worth reading anyway.' },
+          { when: 'What never to offer', then: 'Anything of value in exchange. In healthcare an incentive for a review is not merely a platform violation, and a gift card is not worth the exposure.' },
+          { when: 'Responding', then: 'Reply to every review, including the difficult ones, in language that never confirms or denies that someone is a client. A public reply acknowledging a specific child’s care is a privacy problem however kindly it is meant. Thank, offer a private channel, and stop.' },
+        ],
+      },
+      {
+        h2: 'Make the ask automatic',
+        body: [
+          'A timed, repeatable, slightly awkward message is exactly the kind of work that should not depend on anyone remembering, which is why this is worth putting into a system rather than onto a person.',
+          'Carelu can run the ask for you: a review request sent by text at the moment you choose in the family’s journey, from the same place that runs the rest of your follow-ups, with the link in the message and one reminder if there is no response. The same conversation history that makes those follow-ups sound human is what lets the ask reference the child by name and land as a message from your practice rather than a broadcast.',
+          'The practices that end up with sixty reviews are not the ones that tried harder. They are the ones for whom asking stopped being a decision.',
         ],
       },
       {
@@ -504,6 +538,22 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'Answer real questions completely and plainly on pages dedicated to them, state the specifics as facts (counties served, payers accepted, ages, waits), keep your name, address and phone consistent everywhere, use FAQ and organization structured data, and make sure you appear in the payer directories and local listings assistants already treat as reliable.',
       },
       {
+        q: 'How do I get more Google reviews for my ABA clinic?',
+        a: 'Make the ask a step in a process rather than a favor someone remembers: trigger it after a visible win such as a first progress report or a goal met, have the person the family already trusts send it, put a direct link in a text rather than asking them to search, and send one reminder a few days later. Ask every family, not just the happy ones, and automate the trigger so it stops depending on anyone remembering.',
+      },
+      {
+        q: 'Should we only ask happy families for reviews?',
+        a: 'No. Screening families and routing only the happy ones to your public profile is review gating — it violates platform policies and puts the profile at risk. Ask everyone at the same point in the journey. Steady, recent reviews from real families outperform a curated handful, and the critical ones tell you something worth knowing.',
+      },
+      {
+        q: 'How should we respond to a negative review?',
+        a: 'Reply publicly, promptly, and without confirming or denying that the person is a client — acknowledging a specific child\'s care in a public reply is a privacy problem however kindly meant. Thank them, state generally how you handle concerns, and offer a direct phone number or email to continue privately.',
+      },
+      {
+        q: 'Do reviews affect whether AI assistants recommend us?',
+        a: 'They help. Public review volume, recency and substance are among the few third-party quality signals an assistant can read about a local provider, so they feed the answer alongside your own pages, your listings and the directories you appear in.',
+      },
+      {
         q: 'Are location pages worth building?',
         a: 'Real ones, yes. Templated pages that differ only by city name tend not to rank and do not convert. A location page should carry the address, service area, payers, ages, wait time and staff for that site — facts a parent could not get from any other page.',
       },
@@ -520,7 +570,7 @@ export const growthResources: Record<string, ResourceConfig> = {
       { step: '"Do you take my plan?"', manual: 'Callback promised after someone checks', carelu: 'Answered in the conversation, with eligibility verified up front' },
       { step: '"Do you serve my town?"', manual: 'Depends who answers and what they remember', carelu: 'Service area resolved by county and ZIP, consistently' },
       { step: 'Weekend web form', manual: 'Read Monday morning', carelu: 'Answered in seconds and intake started' },
-      { step: 'Review requests', manual: 'Asked occasionally, by whoever remembers', carelu: 'Triggered as a step in the process, by text' },
+      { step: 'Review requests', manual: 'Asked occasionally, by whoever remembers, if at all', carelu: 'Sent by text at the moment you choose, with a reminder — and a reply to every review' },
     ],
     related: [
       { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'Where organic search fits among the five channels.' },
@@ -529,7 +579,7 @@ export const growthResources: Record<string, ResourceConfig> = {
       { slug: 'aba-pediatrician-referrals', label: 'Pediatrician referrals', blurb: 'The other channel that compounds, and costs nothing per lead.' },
     ],
     ctaHeadline: 'Ranking is the easy part.',
-    ctaSub: 'Carelu answers the calls, chats and forms your search work earns — instantly, at every hour — confirms area and coverage, and starts intake before the parent opens the next tab.',
+    ctaSub: 'Carelu answers the calls, chats and forms your search work earns — instantly, at every hour — confirms area and coverage, starts intake before the parent opens the next tab, and asks every family for the review that brings the next one.',
   },
 
   /* ============================================================
@@ -923,6 +973,7 @@ export const growthResources: Record<string, ResourceConfig> = {
     intro: [
       'A parent contacts five ABA practices in one evening. Four send the same automated line: thank you for your inquiry, we appreciate you reaching out, someone will be in touch shortly. The fifth sends a message that names their son, mentions the county they live in, notes the plan they said they had, and asks one specific question.',
       'It is not a close call. The fifth practice gets the reply, and frequently gets the child — not because their care is better, but because they were the only one who appeared to have read what the parent wrote.',
+      'The sameness is measurable. In our own research across 112–114 active ABA provider configurations, 71% were running an identical, default first message — word for word the same greeting as the practice down the street. When most of a market opens with the same sentence, writing one real sentence is a competitive advantage available to anyone.',
       'Templated acknowledgements are not worthless; they beat silence. But they occupy the moment of highest intent with a message that communicates nothing, and they are the easiest thing in a practice to fix. The bar is also lower than it looks: in our published research across 120 provider organizations, only 2% ran any automated re-engagement at all.',
     ],
     sections: [
@@ -1023,6 +1074,7 @@ export const growthResources: Record<string, ResourceConfig> = {
       { step: 'Compliance', manual: 'Consent tracked informally, opt-outs missed', carelu: 'Consent and opt-out enforced across every channel, with an audit trail' },
     ],
     related: [
+      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
       { slug: 'aba-intake-drop-off', label: 'Where families disappear', blurb: 'The four leaks follow-up is meant to plug.' },
       { slug: 'aba-evaluation-referrals', label: 'Families without a diagnosis', blurb: 'The cohort that needs the longest sequence.' },
       { slug: 'aba-waitlist-management', label: 'Waitlist management', blurb: 'Keeping start-ready families warm for months.' },
@@ -1097,6 +1149,13 @@ export const growthResources: Record<string, ResourceConfig> = {
         body: [
           'Write your own numbers in a row and multiply them. Answer 70% of inquiries, qualify 80% of those, complete packets with 75%, and start 80% of the remainder, and you are admitting about a third of the families who wanted you.',
           'Now raise each of those to 95% and the same inquiry volume produces more than double the admissions, with no additional marketing spend. This is why intake, not lead generation, is usually the cheapest growth lever available — and why the multiplication is worth doing on a whiteboard in front of the whole team once a quarter.',
+        ],
+      },
+      {
+        h2: 'The systems being connected is itself a signal',
+        body: [
+          'One finding from our own fleet is worth stating carefully, because it is the strongest association in the dataset and the easiest to over-read. Across 117 ABA providers over 13 months, those whose intake fed their CRM grew about 6.5% per month, against 0.9% for those whose intake did not — roughly a sevenfold difference.',
+          'That is observational, and correlation is not causation: practices organized enough to connect their systems tend to do many other things well, and the connection is probably as much a symptom of discipline as a cause of growth. It is still the clearest line in the data, and the mechanism is not mysterious. When intake, phones and ads all write to the same record, every number on this page can actually be computed — and a practice that can see its funnel fixes it.',
         ],
       },
       {
@@ -1178,7 +1237,7 @@ export const growthResources: Record<string, ResourceConfig> = {
     intro: [
       'Across 120 ABA and behavioral-health providers and roughly 185,000 family conversations, 48% of family contacts arrived outside business hours. Not a rounding error, and not an edge case. Half the demand.',
       'That number has an obvious explanation. A parent of a child who needs ABA is not free at eleven on a Tuesday morning. They are free after bedtime, on a lunch break, on Sunday afternoon — and that is when they finally do the thing they have been putting off for weeks.',
-      'Which means the most consequential question in ABA intake is not what your team says on a call. It is what happens when nobody is there.',
+      'Which means the most consequential question in ABA intake is not what your team says on a call. It is what happens when nobody is there — and the answer matters more each year, because in the same research the median provider in a same-store cohort saw demand grow 35% year over year. A fixed-size gap in coverage loses a growing number of families.',
     ],
     sections: [
       {

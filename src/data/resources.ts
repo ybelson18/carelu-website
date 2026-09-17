@@ -36,7 +36,12 @@ export interface ResourceCompareRow { step: string; manual: string; carelu: stri
 /* A link to another /resources page, rendered as a "Keep reading" card grid.
    This is what ties a topic cluster together — every page in a cluster should
    point at its pillar and at 2-4 siblings. */
-export interface ResourceRelated { slug: string; label: string; blurb: string }
+export interface ResourceRelated {
+  // A /resources slug, or an absolute site path ('/research/the-intake-gap').
+  slug: string;
+  label: string;
+  blurb: string;
+}
 export interface ResourceConfig {
   slug: string;
   pill: string;
