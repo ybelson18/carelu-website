@@ -4,8 +4,8 @@ import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
 import { Nav } from './Landing';
-import { resources } from '../data/resources';
-import type { ResourceConfig, ResourceDownload, ResourceRule, ResourceTable } from '../data/resources';
+import { allResources } from '../data/allResources';
+import type { ResourceConfig, ResourceDownload, ResourceRelated, ResourceRule, ResourceTable } from '../data/resources';
 import SiteFooter from '../components/SiteFooter';
 
 /* ================================================================
@@ -389,6 +389,41 @@ function ResourceArticle({ config }: { config: ResourceConfig }) {
         </section>
       )}
 
+      {/* Keep reading — cluster links */}
+      {config.related && config.related.length > 0 && (
+        <section style={{ paddingTop: 'clamp(48px, 7vw, 84px)' }}>
+          <div style={MEASURE}>
+            <h2 className="rv" style={{
+              fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 2.7vw, 33px)',
+              fontWeight: 400, color: INK, lineHeight: 1.18, letterSpacing: '-0.015em', margin: '0 0 18px',
+            }}>Keep reading</h2>
+            <div style={{
+              display: 'grid', gap: 12,
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            }}>
+              {config.related.map((r: ResourceRelated) => (
+                <a key={r.slug} href={`/resources/${r.slug}`} className="rv" style={{
+                  display: 'block', textDecoration: 'none',
+                  background: '#fff', borderRadius: 16,
+                  padding: 'clamp(18px, 2.4vw, 22px)',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03)',
+                  transition: 'transform 0.2s, box-shadow 0.2s',
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.07)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03)'; }}
+                >
+                  <span style={{
+                    display: 'block', fontSize: 15.5, fontWeight: 700, color: INK,
+                    margin: '0 0 6px', letterSpacing: '-0.005em',
+                  }}>{r.label}</span>
+                  <span style={{ display: 'block', fontSize: 14, color: 'rgba(43,42,38,0.62)', lineHeight: 1.6 }}>{r.blurb}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Closing CTA */}
       <section style={{ padding: 'clamp(56px, 8vw, 100px) 0 clamp(80px, 10vw, 130px)', textAlign: 'center' }}>
         <div style={W}>
@@ -427,7 +462,7 @@ function ResourceArticle({ config }: { config: ResourceConfig }) {
 
 export default function ResourcePage() {
   const { slug } = useParams<{ slug: string }>();
-  const config = slug ? resources[slug] : undefined;
+  const config = slug ? allResources[slug] : undefined;
   if (!config) return <Navigate to="/carelu" replace />;
   return <ResourceArticle config={config} />;
 }

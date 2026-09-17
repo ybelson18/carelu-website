@@ -33,6 +33,10 @@ export interface ResourceTable {
 /* Templated "show this document when…" rules. */
 export interface ResourceRule { when: string; then: string }
 export interface ResourceCompareRow { step: string; manual: string; carelu: string }
+/* A link to another /resources page, rendered as a "Keep reading" card grid.
+   This is what ties a topic cluster together — every page in a cluster should
+   point at its pillar and at 2-4 siblings. */
+export interface ResourceRelated { slug: string; label: string; blurb: string }
 export interface ResourceConfig {
   slug: string;
   pill: string;
@@ -47,6 +51,8 @@ export interface ResourceConfig {
   compareTitle?: string;
   compareIntro?: string;
   compare?: ResourceCompareRow[];
+  // Optional cluster links, rendered as "Keep reading" cards before the CTA.
+  related?: ResourceRelated[];
   ctaHeadline: string;
   ctaSub: string;
 }
@@ -118,6 +124,12 @@ export const resources: Record<string, ResourceConfig> = {
         q: 'Should we verify insurance before or after a spot opens?',
         a: 'Before — the day they join the list. Verification at opening adds weeks of delay to every start and lets ineligible families age on the list.',
       },
+    ],
+    related: [
+      { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'Five channels, and the operational layer they all depend on.' },
+      { slug: 'aba-follow-up-sequences', label: 'Follow-up that reads human', blurb: 'What to say to a family who has been waiting for months.' },
+      { slug: 'aba-evaluation-referrals', label: 'Families without a diagnosis', blurb: 'The longest wait of all, and how to own it.' },
+      { slug: 'aba-intake-metrics', label: 'The numbers to watch', blurb: 'Measuring readiness, speed and conversion.' },
     ],
     ctaHeadline: 'Your waitlist, working itself.',
     ctaSub: 'Carelu keeps every waitlisted family verified, documented, and warm — automatically. See it live on your own intake.',
@@ -472,6 +484,12 @@ export const resources: Record<string, ResourceConfig> = {
         a: 'Recency windows vary from six months to five years depending on state and plan, and they are the most-missed rule in ABA intake. Store the date of every clinical document, not just the file, and treat one that has aged past the payer\'s window as missing.',
       },
     ],
+    related: [
+      { slug: 'aba-records-request', label: 'Records requests that come back', blurb: 'Releases, recipients, and the details that decide.' },
+      { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'Where intake sits in the growth equation.' },
+      { slug: 'aba-evaluation-referrals', label: 'Families without a diagnosis', blurb: 'When the diagnostic report does not exist yet.' },
+      { slug: 'aba-intake-metrics', label: 'The numbers to watch', blurb: 'Eight metrics that locate the leak.' },
+    ],
     ctaHeadline: 'Intake that runs itself.',
     ctaSub: 'Carelu answers every family instantly, verifies insurance, collects the documents, and books the assessment — end to end.',
   },
@@ -540,6 +558,12 @@ export const resources: Record<string, ResourceConfig> = {
         q: 'Can I use this template as-is?',
         a: 'Yes — it\'s free to use and adapt. Have your compliance or legal reviewer confirm the consent language matches your state and payer requirements.',
       },
+    ],
+    related: [
+      { slug: 'aba-follow-up-sequences', label: 'Follow-up that reads human', blurb: 'Chasing a half-finished packet without sounding like a robot.' },
+      { slug: 'aba-records-request', label: 'Records requests that come back', blurb: 'The release that belongs in the packet.' },
+      { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'Why paperwork is a growth constraint.' },
+      { slug: 'after-hours-intake-coverage', label: 'After-hours coverage', blurb: 'Most packets get opened at night.' },
     ],
     ctaHeadline: 'Forms that fill themselves.',
     ctaSub: 'Carelu collects the whole packet conversationally — phone, chat, or text — and never asks a family the same question twice.',
@@ -613,6 +637,12 @@ export const resources: Record<string, ResourceConfig> = {
         q: 'How do I measure my own drop-off?',
         a: 'Count four numbers each month: inquiries, verified families, completed packets, and first sessions. The step with the biggest percentage fall is your leak — fix that one first.',
       },
+    ],
+    related: [
+      { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'The five channels feeding the funnel that is leaking.' },
+      { slug: 'after-hours-intake-coverage', label: 'After-hours coverage', blurb: 'Leak 1, in detail: 48% of contacts arrive out of hours.' },
+      { slug: 'aba-follow-up-sequences', label: 'Follow-up that reads human', blurb: 'Leak 3, in detail: the packet that stalled.' },
+      { slug: 'aba-intake-metrics', label: 'The numbers to watch', blurb: 'Put a number on each of the four leaks.' },
     ],
     ctaHeadline: 'Stop the leaks.',
     ctaSub: 'Carelu answers instantly, verifies fast, chases every document, and keeps every family warm — so the families who found you actually start with you.',
