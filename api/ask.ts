@@ -78,6 +78,10 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
     // The structured layers. School/IEP, place of service, supervision, telehealth,
     // referral and diagnosis rules live here, not in the prose sections, so without
     // them the chat could not answer "what code does an IEP fall under?".
+    // The three headline facts, each retrievable (and sweepable across states) on its own.
+    ...(p.assessmentPA ? [ruleChunk('assessmentPA', 'Prior authorization for the ABA assessment (97151/97152): required or not', p.assessmentPA)] : []),
+    ...(p.treatmentPA ? [ruleChunk('treatmentPA', 'Prior authorization for ABA treatment (97153 and up): required or not, how to submit', p.treatmentPA)] : []),
+    ...(p.dxRequired ? [ruleChunk('dxRequired', 'Is an autism (ASD) diagnosis required for ABA coverage', p.dxRequired)] : []),
     ...Object.entries(p.deliveryRules ?? {}).map(([k, f]) => ruleChunk(k, DELIVERY_TITLES[k] ?? k, f)),
     ...Object.entries(p.intakeGates ?? {}).map(([k, f]) => ruleChunk(k, GATE_TITLES[k] ?? k, f)),
     ...(p.faq.length > 0 ? [{
@@ -155,10 +159,11 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
 // Retrieved sections below then add the detail for the payers a question names.
 const DIRECTORY = Object.values(payers)
   .map((p) => {
+    // At-a-glance lines only (~54K tokens). The long assessment/treatment PA and
+    // diagnosis facts used to ride along too (~101K tokens, $0.50 per cache write);
+    // they now come in as retrieved chunks, and swept across every state when a
+    // question asks for a comparison. Same answers on a side-by-side test.
     const lines = p.atGlance.map((f) => `- ${f.label}: ${f.value}`);
-    if (p.assessmentPA) lines.push(`- Assessment prior auth: ${fact(p.assessmentPA)}`);
-    if (p.treatmentPA) lines.push(`- Treatment prior auth: ${fact(p.treatmentPA)}`);
-    if (p.dxRequired) lines.push(`- Autism diagnosis required: ${fact(p.dxRequired)}`);
     return `## ${p.payer}${p.state ? ` (${p.state})` : ''} — /payers/${p.slug}\n${lines.join('\n')}`;
   })
   .join('\n\n');
@@ -205,6 +210,9 @@ const SYNONYMS: Record<string, string[]> = {
    sections scored highest. Those questions get the rule from each state's
    Medicaid program plus the national commercial/military guides, whole. */
 const RULE_TOPICS: [string, RegExp][] = [
+  ['assessmentPA', /(assessment|97151|97152|\beval\w*).*(prior auth|\bpa\b|precert|authoriz)|(prior auth|\bpa\b|precert|authoriz)\w*.*(assessment|97151|97152|\beval)/],
+  ['dxRequired', /(require|need)\w*.*(autism|asd) diagnos|(autism|asd) diagnos\w*.*(required|requirement|needed|necessary)|without (an? )?(autism |asd )?diagnos|(don.?t|do not|doesn.?t|does not) (require|need) (an? )?(autism |asd )?diagnos/],
+  ['treatmentPA', /(treatment|97153|therapy).*(prior auth|\bpa\b|precert|authoriz)|(prior auth|\bpa\b|precert)\w*.*(treatment|97153|therapy)|which (payers|insurers|plans|states).*(prior auth|precert)/],
   ['dxRecency', /(how (old|recent)|expire|expir|valid|current|years? old|re-?eval\w*|outdated|too old).*(diagnos|eval)|(diagnos|eval)\w*.*(how (old|recent)|expire|expir|valid for|years? old|outdated|too old|recency)/],
   ['ageLimit', /age (limit|cap|cutoff|range)|maximum age|max age|up to age|until age|minimum age|adults?\b|over (18|21)/],
   ['diagnosingProviders', /who (can|may|is allowed to) (diagnose|make the diagnosis)|diagnosing (provider|clinician)s?|(pediatrician|psychologist).*(diagnose|diagnosis)/],
@@ -370,7 +378,7 @@ export async function POST(request: Request): Promise<Response> {
     thinking: { type: 'adaptive' },
     output_config: { effort: 'low' },
     // The directory is identical on every call, so cache it: later questions
-    // read it at a tenth of the input price instead of paying for ~60K tokens.
+    // read it at a tenth of the input price instead of paying for ~54K tokens.
     system: [
       { type: 'text', text: SYSTEM },
       { type: 'text', text: `<directory>\n${DIRECTORY}\n</directory>`, cache_control: { type: 'ephemeral' } },
@@ -398,7 +406,10 @@ export async function POST(request: Request): Promise<Response> {
             controller.enqueue(encoder.encode("\n\nSorry, I can't answer that one. Try rephrasing, or browse the payer guides below."));
           } catch { /* stream already closed */ }
         }
-        waitUntil(record(ip, email, last.content, costOf(msg.usage)).catch((err) => console.error('ask: record failed', err)));
+        const cost = costOf(msg.usage);
+        // One line per answer in the Vercel logs: `vercel logs -q "ask usage"`.
+        console.log('ask usage', JSON.stringify({ cost: Math.round(cost * 10000) / 10000, ...msg.usage }));
+        waitUntil(record(ip, email, last.content, cost).catch((err) => console.error('ask: record failed', err)));
       });
     },
     cancel() {
