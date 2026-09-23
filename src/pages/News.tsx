@@ -3,22 +3,32 @@ import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
 import { Nav } from './Landing';
 import SiteFooter from '../components/SiteFooter';
-import { sortedNews, NEWS_TYPE_LABEL } from '../data/news';
+import { sortedNews, NEWS_TYPE_LABEL, type NewsItem } from '../data/news';
 
 /* ================================================================
    CARELU — NEWS (/news)
-   Coverage of Carelu. Content lives in src/data/news.ts; adding an
-   article is a one-object edit there. Renders an on-brand press-kit
-   state while the list is empty so the footer link is never a
-   dead end.
+   Coverage of Carelu, laid out like a newspaper front page: a
+   masthead, the newest piece as the lead story (with its headline
+   number beside it), and everything older as ruled briefs below.
+   Content lives in src/data/news.ts; adding an article is a
+   one-object edit there. Renders a press note while the list is
+   empty so the footer link is never a dead end.
    ================================================================ */
 
 const INK = '#1A1A1A';
 const BONE = '#FAF8F3';
 const GREEN = '#3f7a34';
+const MUTED = 'rgba(43,42,38,0.62)';
+const FAINT = 'rgba(43,42,38,0.42)';
+const RULE = 'rgba(26,26,26,0.14)';
 const PRESS_EMAIL = 'press@carelu.com';
 
-const W: React.CSSProperties = { maxWidth: 900, margin: '0 auto', padding: '0 clamp(20px, 4.5vw, 40px)' };
+const W: React.CSSProperties = { maxWidth: 1120, margin: '0 auto', padding: '0 clamp(20px, 4.5vw, 40px)' };
+const SERIF = 'var(--font-display)';
+
+const KICKER: React.CSSProperties = {
+  fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: GREEN,
+};
 
 function formatDate(iso: string) {
   // Parse as UTC — `new Date('2026-08-14')` is UTC midnight, which renders as
@@ -29,8 +39,128 @@ function formatDate(iso: string) {
     : d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 }
 
-function hostOf(url: string) {
-  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; }
+function Byline({ n }: { n: NewsItem }) {
+  return (
+    <div style={{ fontSize: 13, color: FAINT, lineHeight: 1.6 }}>
+      {n.author && <span style={{ color: MUTED, fontWeight: 600 }}>By {n.author}</span>}
+      {n.author && <span aria-hidden> · </span>}
+      <span style={{ fontStyle: 'italic', fontFamily: SERIF, fontSize: 15 }}>{n.outlet}</span>
+      <span aria-hidden> · </span>
+      <time dateTime={n.date}>{formatDate(n.date)}</time>
+    </div>
+  );
+}
+
+function ReadLink({ n }: { n: NewsItem }) {
+  const verb = n.type === 'podcast' ? 'Listen' : n.type === 'video' ? 'Watch' : 'Read';
+  return (
+    <span className="news-read" style={{
+      display: 'inline-flex', alignItems: 'center', gap: 7,
+      fontSize: 13, fontWeight: 600, color: INK, letterSpacing: '0.02em',
+    }}>
+      {verb} in {n.outlet}
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <path d="M7 17L17 7M9 7h8v8" />
+      </svg>
+    </span>
+  );
+}
+
+function Kicker({ n }: { n: NewsItem }) {
+  return (
+    <div style={{ ...KICKER, marginBottom: 14 }}>
+      {n.outlet}
+      {n.type && n.type !== 'article' && (
+        <span style={{ color: FAINT }}> · {NEWS_TYPE_LABEL[n.type]}</span>
+      )}
+    </div>
+  );
+}
+
+function LeadStory({ n }: { n: NewsItem }) {
+  return (
+    <a href={n.url} target="_blank" rel="noreferrer" className="news-story news-lead rv" style={{ display: 'grid', textDecoration: 'none', color: 'inherit' }}>
+      <div>
+        <Kicker n={n} />
+        <h2 className="news-hed" style={{
+          fontFamily: SERIF, fontWeight: 500, color: INK,
+          fontSize: 'clamp(32px, 4.4vw, 54px)', lineHeight: 1.06, letterSpacing: '-0.018em', margin: 0,
+        }}>
+          {n.title}
+        </h2>
+        {n.excerpt && (
+          <p style={{
+            fontFamily: SERIF, fontStyle: 'italic', fontSize: 'clamp(19px, 1.9vw, 23px)',
+            color: 'rgba(43,42,38,0.78)', lineHeight: 1.45, margin: '20px 0 0', maxWidth: 640,
+          }}>
+            {n.excerpt}
+          </p>
+        )}
+        <div style={{ marginTop: 22 }}><Byline n={n} /></div>
+        <div style={{ marginTop: 22 }}><ReadLink n={n} /></div>
+      </div>
+
+      {n.stat && (
+        <aside className="news-lead-stat" aria-label="From the article">
+          <div style={{ ...KICKER, color: FAINT, marginBottom: 14 }}>From the article</div>
+          <div style={{
+            fontFamily: SERIF, fontWeight: 400, color: INK,
+            fontSize: 'clamp(64px, 7.5vw, 104px)', lineHeight: 0.95, letterSpacing: '-0.03em',
+          }}>
+            {n.stat.value}
+          </div>
+          <p style={{ fontFamily: SERIF, fontSize: 20, color: MUTED, lineHeight: 1.35, margin: '14px 0 0' }}>
+            {n.stat.label}
+          </p>
+        </aside>
+      )}
+    </a>
+  );
+}
+
+function Brief({ n }: { n: NewsItem }) {
+  return (
+    <a href={n.url} target="_blank" rel="noreferrer" className="news-story news-brief rv" style={{ display: 'grid', textDecoration: 'none', color: 'inherit' }}>
+      <div>
+        <Kicker n={n} />
+        <time dateTime={n.date} style={{ fontSize: 13, color: FAINT }}>{formatDate(n.date)}</time>
+        {n.stat && (
+          <div style={{ marginTop: 22 }}>
+            <div style={{ fontFamily: SERIF, fontSize: 44, lineHeight: 1, color: INK, letterSpacing: '-0.02em' }}>{n.stat.value}</div>
+            <div style={{ fontSize: 13, color: MUTED, lineHeight: 1.5, marginTop: 8, maxWidth: 220 }}>{n.stat.label}</div>
+          </div>
+        )}
+      </div>
+      <div>
+        <h3 className="news-hed" style={{
+          fontFamily: SERIF, fontWeight: 500, color: INK,
+          fontSize: 'clamp(24px, 2.6vw, 32px)', lineHeight: 1.14, letterSpacing: '-0.012em', margin: 0,
+        }}>
+          {n.title}
+        </h3>
+        {n.excerpt && (
+          <p style={{ fontFamily: SERIF, fontSize: 19, color: 'rgba(43,42,38,0.74)', lineHeight: 1.5, margin: '14px 0 0' }}>
+            {n.excerpt}
+          </p>
+        )}
+        <div style={{ marginTop: 16 }}><Byline n={n} /></div>
+        <div style={{ marginTop: 16 }}><ReadLink n={n} /></div>
+      </div>
+    </a>
+  );
+}
+
+function PressNote() {
+  return (
+    <div className="news-press rv" style={{ display: 'grid', borderTop: `3px double ${INK}`, paddingTop: 28 }}>
+      <div style={{ ...KICKER, color: INK }}>For the press</div>
+      <p style={{ fontFamily: SERIF, fontSize: 20, color: 'rgba(43,42,38,0.78)', lineHeight: 1.5, margin: 0 }}>
+        Writing about intake, access to care, or AI in behavioral health? We&apos;re happy to share
+        what the data from tens of thousands of family intakes shows. Reach us at{' '}
+        <a href={`mailto:${PRESS_EMAIL}`} style={{ color: INK, fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 3 }}>{PRESS_EMAIL}</a>.
+      </p>
+    </div>
+  );
 }
 
 export default function News() {
@@ -43,136 +173,79 @@ export default function News() {
   });
 
   const items = sortedNews();
+  const [lead, ...rest] = items;
+  const today = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
     <div className="session-light" style={{ background: BONE, color: '#2B2A26', minHeight: '100vh' }}>
+      <style>{`
+        .news-lead { grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+        .news-lead-stat { border-left: 1px solid ${RULE}; padding-left: 40px; }
+        .news-brief { grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr); gap: 48px; }
+        .news-press { grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr); gap: 48px; }
+        .news-story .news-hed { transition: color 0.2s; }
+        .news-story:hover .news-hed { color: ${GREEN}; }
+        .news-story .news-read { border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+        .news-story:hover .news-read { border-color: currentColor; }
+        @media (max-width: 800px) {
+          .news-lead, .news-brief, .news-press { grid-template-columns: 1fr; gap: 24px; }
+          .news-lead-stat { border-left: 0; padding-left: 0; border-top: 1px solid ${RULE}; padding-top: 24px; }
+          .news-masthead-meta { justify-content: center !important; }
+          .news-masthead-meta > :last-child { display: none; }
+        }
+      `}</style>
       <DemoModalHost />
       <Nav base="/carelu" />
 
-      <section style={{ paddingTop: 'clamp(150px, 18vw, 210px)', paddingBottom: 'clamp(28px, 4vw, 46px)', textAlign: 'center' }}>
+      {/* Masthead */}
+      <header style={{ paddingTop: 'clamp(120px, 14vw, 170px)' }}>
         <div style={W}>
-          <div className="rv">
-            <span style={{
-              display: 'inline-block', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase',
-              color: INK, background: '#fff', padding: '10px 20px', borderRadius: 100,
-              border: '1px solid rgba(0,0,0,0.06)', boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)',
-            }}>News</span>
+          <div className="news-masthead-meta rv" style={{
+            display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16,
+            fontSize: 12, color: MUTED, paddingBottom: 12, borderBottom: `1px solid ${INK}`,
+          }}>
+            <span style={{ fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' }}>Carelu Press</span>
+            <span>{today}</span>
           </div>
           <h1 className="rv-scale d1" style={{
-            fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 4.8vw, 64px)', fontWeight: 400,
-            color: INK, lineHeight: 1.08, letterSpacing: '-0.02em', margin: '26px auto 0', maxWidth: 760,
+            fontFamily: SERIF, fontWeight: 500, color: INK, textAlign: 'center',
+            fontSize: 'clamp(52px, 9vw, 112px)', lineHeight: 1, letterSpacing: '-0.025em',
+            margin: 0, padding: 'clamp(22px, 3vw, 34px) 0',
           }}>
-            Carelu in the press.
+            In the News
           </h1>
-          <p className="rv d2" style={{
-            fontSize: 'clamp(15px, 1.5vw, 18px)', color: 'rgba(43,42,38,0.68)',
-            lineHeight: 1.65, maxWidth: 560, margin: '22px auto 0',
+          <div className="rv d2" style={{
+            borderTop: `3px double ${INK}`, borderBottom: `1px solid ${INK}`,
+            padding: '11px 0', textAlign: 'center',
+            fontFamily: SERIF, fontStyle: 'italic', fontSize: 'clamp(15px, 1.5vw, 18px)', color: MUTED,
           }}>
-            Where our work — and the families and providers behind it — has been written about.
-          </p>
-        </div>
-      </section>
-
-      <section style={{ paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
-        <div style={W}>
-          {items.length === 0 ? (
-            <div className="rv" style={{
-              background: '#fff', borderRadius: 20, padding: 'clamp(28px, 4vw, 44px)', textAlign: 'center',
-              boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)',
-            }}>
-              <h2 style={{
-                fontFamily: 'var(--font-display)', fontSize: 'clamp(21px, 2.4vw, 27px)', fontWeight: 400,
-                color: INK, margin: '0 0 10px', letterSpacing: '-0.01em',
-              }}>
-                Working on a story?
-              </h2>
-              <p style={{ fontSize: 15, color: 'rgba(43,42,38,0.66)', lineHeight: 1.7, margin: '0 auto', maxWidth: 480 }}>
-                We're happy to talk about intake, what the data says about how families
-                fall through the cracks, and what providers are doing about it. Reach us at{' '}
-                <a href={`mailto:${PRESS_EMAIL}`} style={{ color: '#2e5a26', fontWeight: 600 }}>{PRESS_EMAIL}</a>.
-              </p>
-            </div>
-          ) : (
-            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 14 }}>
-              {items.map((n) => (
-                <li key={n.url}>
-                  <a
-                    href={n.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rv"
-                    style={{
-                      display: 'block', background: '#fff', borderRadius: 18,
-                      padding: 'clamp(20px, 2.6vw, 28px)', textDecoration: 'none',
-                      boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)',
-                      transition: 'transform 0.2s, box-shadow 0.25s',
-                    }}
-                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(0,0,0,0.09)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)'; }}
-                  >
-                    <div style={{
-                      display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap',
-                      fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
-                      color: GREEN, marginBottom: 10,
-                    }}>
-                      <span>{n.outlet}</span>
-                      <span aria-hidden style={{ color: 'rgba(43,42,38,0.25)' }}>·</span>
-                      <time dateTime={n.date} style={{ color: 'rgba(43,42,38,0.45)', letterSpacing: '0.08em' }}>
-                        {formatDate(n.date)}
-                      </time>
-                      {n.type && n.type !== 'article' && (
-                        <span style={{
-                          color: 'rgba(43,42,38,0.55)', background: 'rgba(63,122,52,0.08)',
-                          borderRadius: 100, padding: '3px 9px', letterSpacing: '0.08em',
-                        }}>{NEWS_TYPE_LABEL[n.type]}</span>
-                      )}
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 14 }}>
-                      <h2 style={{
-                        fontFamily: 'var(--font-display)', fontSize: 'clamp(19px, 2.1vw, 25px)', fontWeight: 400,
-                        color: INK, margin: 0, letterSpacing: '-0.01em', lineHeight: 1.25,
-                      }}>
-                        {n.title}
-                      </h2>
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 6 }} aria-hidden>
-                        <path d="M7 17L17 7M9 7h8v8" />
-                      </svg>
-                    </div>
-
-                    {n.excerpt && (
-                      <p style={{ fontSize: 14.5, color: 'rgba(43,42,38,0.62)', lineHeight: 1.65, margin: '10px 0 0' }}>
-                        {n.excerpt}
-                      </p>
-                    )}
-
-                    <div style={{ fontSize: 12.5, color: 'rgba(43,42,38,0.4)', marginTop: 12 }}>
-                      {hostOf(n.url)}
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </section>
-
-      {items.length > 0 && (
-        <section style={{ paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
-          <div style={W}>
-            <div className="rv" style={{
-              background: 'rgba(63,122,52,0.05)', border: '1px dashed rgba(63,122,52,0.35)',
-              borderRadius: 16, padding: 'clamp(18px, 2.4vw, 26px)',
-            }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: INK, marginBottom: 6 }}>Press inquiries</div>
-              <p style={{ fontSize: 13.5, color: 'rgba(43,42,38,0.65)', lineHeight: 1.6, margin: 0 }}>
-                Writing about intake, access to care, or AI in behavioral health? Reach us at{' '}
-                <a href={`mailto:${PRESS_EMAIL}`} style={{ color: '#2e5a26', fontWeight: 600 }}>{PRESS_EMAIL}</a>.
-              </p>
-            </div>
+            What&apos;s been written about Carelu, and about the families still waiting for care.
           </div>
-        </section>
-      )}
+        </div>
+      </header>
+
+      <main style={{ paddingTop: 'clamp(40px, 5vw, 64px)', paddingBottom: 'clamp(56px, 7vw, 96px)' }}>
+        <div style={W}>
+          {lead ? (
+            <>
+              <LeadStory n={lead} />
+              {rest.map((n) => (
+                <div key={n.url} style={{ borderTop: `1px solid ${RULE}`, marginTop: 'clamp(40px, 5vw, 60px)', paddingTop: 'clamp(32px, 4vw, 44px)' }}>
+                  <Brief n={n} />
+                </div>
+              ))}
+            </>
+          ) : (
+            <p className="rv" style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: 22, color: MUTED, textAlign: 'center', margin: 0 }}>
+              Coverage will appear here.
+            </p>
+          )}
+
+          <div style={{ marginTop: 'clamp(56px, 7vw, 88px)' }}>
+            <PressNote />
+          </div>
+        </div>
+      </main>
 
       <section style={{ paddingBottom: 'clamp(80px, 10vw, 130px)', textAlign: 'center' }}>
         <div style={W}>
