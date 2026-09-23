@@ -33,8 +33,10 @@ export interface NewsItem {
   excerpt?: string;
   /** Byline, e.g. 'Jack Silverstein'. */
   author?: string;
-  /** Headline number from the piece, shown beside the story when it leads the page. */
+  /** Headline number from the piece, set large on the story's cover tile. */
   stat?: { value: string; label: string };
+  /** Cover tile background, a path under /public. Defaults to a rotating brand image. */
+  cover?: string;
 }
 
 export const NEWS_TYPE_LABEL: Record<NewsType, string> = {
@@ -57,6 +59,7 @@ export const news: NewsItem[] = [
       'Across 70,000 intakes, 75.3% of family calls to ABA providers go unanswered. Answer within three minutes and families pick up 60% of the time.',
     author: 'Jack Silverstein',
     stat: { value: '75.3%', label: 'of family calls to ABA providers go unanswered' },
+    cover: '/news/cover-sky.jpg',
   },
   {
     title: 'ABA Intake Automation Found Its Market by Accident',
@@ -68,6 +71,7 @@ export const news: NewsItem[] = [
       'How a tool built to qualify leads for contractors, and one cold LinkedIn message, led Carelu to autism care. Now 115 ABA companies are on the platform.',
     author: 'Ethan Webb',
     stat: { value: '10%', label: 'of inquiries reach the end of intake, though about 80% qualify' },
+    cover: '/news/cover-hills.jpg',
   },
 ];
 
