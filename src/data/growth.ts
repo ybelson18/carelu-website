@@ -57,6 +57,33 @@ export const growthResources: Record<string, ResourceConfig> = {
         ],
       },
       {
+        h2: 'What 185,054 family conversations say about ABA demand',
+        body: [
+          'Before choosing channels, it helps to know what demand actually looks like. These figures come from our published research: 185,054 family conversations and 29,021 captured leads across 120 ABA provider organizations in 48 states, aggregated and de-identified.',
+          'Demand is growing. The median provider in a 37-provider same-store cohort saw inquiry volume rise 35% year over year. It is concentrated: Georgia and North Carolina alone account for 27% of it. It is mostly Medicaid: 46% of families who named a payer were on Medicaid. And it arrives when offices are closed: 48% of conversations start outside business hours. The typical provider captures a median of about 24 leads a month, with the busiest tenth above 127.',
+          'One pattern stands out for growth. Providers whose intake feeds their CRM grew about 6.5% a month, against 0.9% for those whose intake didn’t, roughly seven times faster. That is a correlation, not proof, but it points the same way as everything else on this page: growth follows the operational layer.',
+        ],
+        table: {
+          cols: ['State', 'Share of national demand', 'Most-named payers'],
+          rows: [
+            { cells: ['Georgia', '13.6%', 'Medicaid 33% · Peach State 14% · CareSource 13%'] },
+            { cells: ['North Carolina', '13.3%', 'Medicaid 43% · BCBS 11% · Trillium 8%'] },
+            { cells: ['Indiana', '9.1%', 'Medicaid 39% · Anthem 26% · CareSource 10%'] },
+            { cells: ['Virginia', '6.4%', 'Medicaid 31% · Anthem 24% · Aetna 9%'] },
+            { cells: ['Tennessee', '6.4%', 'TennCare 26% · BlueCare 19% · Wellpoint 16%'] },
+            { cells: ['Ohio', '5.0%', 'CareSource 37% · Medicaid 12% · UnitedHealthcare 10%'] },
+            { cells: ['Arizona', '4.9%', 'Mercy Care / AHCCCS 39% · UnitedHealthcare 27% · BCBS 12%'] },
+            { cells: ['Utah', '4.7%', 'Medicaid 40% · Select Health 21% · BCBS 10%'] },
+            { cells: ['New Jersey', '4.2%', 'UnitedHealthcare 25% · Medicaid 20% · Aetna 19%'] },
+            { cells: ['Colorado', '3.7%', 'Medicaid 67% · Cigna 6% · UnitedHealthcare 6%'] },
+            { cells: ['New York', '3.2%', 'Medicaid 46% · Fidelis 20% · BCBS 9%'] },
+            { cells: ['Florida', '3.1%', 'Sunshine / Ambetter 25% · Medicaid 20% · Aetna 14%'] },
+          ],
+          note: 'Source: Carelu Research, "The Intake Gap" (2026). Payer shares are of families in that state who named a payer; "Medicaid" means Medicaid named without a specific plan.',
+          minWidth: 620,
+        },
+      },
+      {
         h2: 'Channel 1 — Google Ads: the highest intent, the least exclusivity',
         body: [
           'A parent typing "aba therapy near me" is the most valuable lead in the category. They have decided to act, they are looking right now, and they are within a few taps of contacting someone. You are buying that moment, and you are paying a premium for it.',
@@ -1476,6 +1503,127 @@ export const growthResources: Record<string, ResourceConfig> = {
     ],
     ctaHeadline: 'The families you are missing are calling right now.',
     ctaSub: 'Carelu answers every call, chat, text and form at any hour — confirms area and coverage, starts intake, and hands your team a qualified family in the morning instead of a voicemail.',
+  },
+
+  /* ============================================================
+     WHO ANSWERS THE PHONE
+     ============================================================ */
+  'who-should-answer-aba-intake-calls': {
+    slug: 'who-should-answer-aba-intake-calls',
+    pill: 'Playbook · Intake & Trust',
+    h1: 'Who should answer your ABA intake line: a coordinator, a BCBA, or the owner?',
+    metaTitle: 'Who Should Answer the Phone at an ABA Practice? Intake Coordinator vs. BCBA vs. Owner | Carelu',
+    metaDescription:
+      'Speed is table stakes in ABA intake, but trust is what wins the family. Who should take the first call (an intake coordinator, a BCBA, the owner or an answering service), what each one is good at, and how the fastest-growing practices split the job so every family is answered instantly and talks to a clinician early.',
+    intro: [
+      'Most ABA practices decide who answers the phone by default. Whoever sits at the front desk takes the calls, the calls go to voicemail when that person is busy, and the BCBAs stay in sessions. That setup treats the first call as admin work. It isn’t: it is the first time a worried parent decides whether to trust you with their child.',
+      'ABA intake has two jobs, and they need different people. The first is speed and stability: answer every family immediately, qualify them and get the paperwork moving. That part is table stakes. Every practice needs it, and it has to work at 9pm on a Saturday. The second is trust: a real conversation with someone who understands the child. That part is how you win, because families contact several providers at once and usually start with whoever made them feel understood first.',
+      'Among the providers we work with, the ones that grow fastest share a pattern. A BCBA or the owner talks to the family early, often on the first day, while the intake layer underneath answers every inquiry instantly and handles everything else. This playbook explains why that works and how to set it up without burning out your clinicians.',
+    ],
+    sections: [
+      {
+        h2: 'What the first contact really looks like',
+        body: [
+          'Before deciding who answers, look at who is calling and when. These numbers come from our published research across 185,054 family conversations with 120 ABA providers in 48 states, aggregated and de-identified.',
+        ],
+        list: [
+          { title: '48% arrive outside business hours', desc: 'Nearly half of families reach out in the evening, overnight or on weekends, when neither your front desk nor your BCBAs are at work. Whoever "answers the phone" has to include something that works at those hours.' },
+          { title: '22% have no diagnosis yet', desc: 'More than one family in five is still at the "is something wrong with my child?" stage. They need guidance on the path to evaluation, and that is a clinical conversation, not a form.' },
+          { title: 'The median child is 6, and 27% are 10 or older', desc: 'Many parents have already been through early intervention, school evaluations or another provider. They ask specific, experienced questions, and they can tell quickly whether the person on the line understands their child.' },
+          { title: '40% of website leads are job seekers', desc: 'A large share of what arrives is RBT and BCBA applicants, not families. If a clinician is the first line, they spend a lot of their time on the wrong calls.' },
+          { title: 'Only about a quarter of website chats become a lead', desc: 'At the median provider, roughly one website conversation in four ends with contact details captured. The rest leave without anyone knowing who they were.' },
+        ],
+      },
+      {
+        h2: 'Speed is table stakes. Trust is the game.',
+        body: [
+          'Families shop in parallel. A parent who gets a diagnosis on Tuesday afternoon typically contacts three or four providers that evening. Whoever answers first gets the first conversation, which is why speed matters so much: a practice that calls back the next morning often isn’t in the running anymore.',
+          'But answering first only gets you into the conversation. It doesn’t win it. What the parent is really deciding is whether this practice will be good for their child, and whether they trust the people there. Waitlists, payer rules and paperwork are similar across practices. The feeling of "these people get my kid" is not.',
+          'So the goal isn’t to choose between speed and trust. It’s to make speed automatic so the people who build trust can spend their time building it.',
+        ],
+      },
+      {
+        h2: 'The four options, honestly compared',
+        list: [
+          { title: 'Intake coordinator', desc: 'Strong: consistent process, knows the payer list, keeps paperwork moving, cheaper than a clinician. Weak: can’t answer clinical questions with authority ("will ABA help with his meltdowns?"), is one person with lunch breaks and sick days, and works business hours. Coordinators are essential, but on their own they make the first call feel like registration.' },
+          { title: 'BCBA', desc: 'Strong: instant credibility. A BCBA can explain what the assessment involves, what the first month looks like and what progress might mean for this child. Weak: every hour on the phone is an hour not supervising or billing, calls interrupt sessions, and nobody wants a BCBA spending the morning on job applicants and out-of-area families.' },
+          { title: 'The owner', desc: 'Strong: the most trust and urgency in the building. Owners care about every family, know every exception and can make decisions on the spot. Weak: doesn’t scale past a few dozen families a month, and the practice becomes dependent on one person’s phone. Great at the beginning, and a bottleneck later.' },
+          { title: 'Answering service', desc: 'Strong: a human voice outside business hours. Weak: usually takes a message, knows nothing about your payers or service area, and builds no relationship. The parent still waits until morning for a real answer.' },
+        ],
+      },
+      {
+        h2: 'What the fastest-growing practices do: split the job',
+        body: [
+          'The practices that grow fastest don’t pick one of the four. They separate the stable layer from the relationship layer and staff each one differently.',
+          'The stable layer answers every inquiry within seconds, on every channel and at every hour. It qualifies the family (service area, payer, age, diagnosis status), starts intake and checks benefits. It should behave the same way on a Saturday night as on a Tuesday morning. This is work for a system plus a coordinator, and it should never depend on whether a clinician is free.',
+          'The relationship layer is a real conversation with a BCBA or the owner, as early as possible, for every family who qualifies. It is not a registration call. It is fifteen minutes about the child. Because the stable layer has already filtered out job seekers, out-of-area families and unaccepted plans, the clinician’s time goes only to families you can actually serve.',
+        ],
+      },
+      {
+        h2: 'How to run the trust call',
+        list: [
+          { title: 'Call the same day', desc: 'Set a rule: every qualified family hears from a BCBA or the owner the same business day, or by the next morning for after-hours inquiries. The first practice to have a real conversation usually wins.' },
+          { title: 'Come prepared', desc: 'The clinician should read the intake summary first and never ask a question the family already answered. "I saw that Liam just turned four and his pediatrician mentioned speech" beats "So, how old is your child?"' },
+          { title: 'Talk about the child, not the paperwork', desc: 'Ask what a hard day looks like at home. Explain what the assessment involves and what the first month of services looks like. Leave insurance and forms to the intake layer, which is already handling them.' },
+          { title: 'Be honest about timing', desc: 'If there is a waitlist or a pending authorization, say so and explain what happens meanwhile. Families forgive a wait they understand, not one they discover.' },
+          { title: 'End with one concrete next step', desc: 'An assessment date, a document still needed, or a call-back time. Never end with "we’ll be in touch."' },
+          { title: 'Protect clinical time', desc: 'Give BCBAs two short call blocks a day instead of taking calls between sessions. With the stable layer running, those blocks are enough.' },
+        ],
+      },
+      {
+        h2: 'Pre-diagnosis families need the relationship most',
+        body: [
+          'The 22% of families who reach out before a diagnosis are the easiest to lose and among the most loyal once you help them. They are confused, often scared, and have been told to "get an evaluation" without anyone explaining how. A ten-minute conversation with a BCBA about what an evaluation involves, who does them locally, and what the family can do while they wait is often the moment that family decides to stay with you through the months ahead. Our guide to pre-diagnosis families covers the evaluation path in detail.',
+        ],
+      },
+      {
+        h2: 'What to measure',
+        list: [
+          { title: 'Time to first response', desc: 'From inquiry to first reply, on every channel, including nights and weekends. This is the stable layer’s number. It should be measured in seconds or minutes, not hours.' },
+          { title: 'Time to first clinical conversation', desc: 'From inquiry to the BCBA or owner call. This is the relationship layer’s number. Aim for the same day.' },
+          { title: 'Share of qualified families who talk to a clinician before the assessment', desc: 'If this is low, your clinicians are only meeting families at the assessment, and many families never get that far.' },
+          { title: 'Inquiry to first session, by who made the first call', desc: 'Compare families whose first real conversation was with a clinician to those who only spoke with admin. That comparison shows whether the trust call is worth the time.' },
+        ],
+      },
+    ],
+    faq: [
+      { q: 'Who should answer the phone at an ABA clinic?', a: 'Split the job. A stable intake layer (a system plus an intake coordinator) should answer every inquiry instantly at any hour, qualify the family and start paperwork. Then a BCBA or the owner should have a real conversation with every qualified family, ideally the same day. Speed gets you into the conversation; trust wins the family.' },
+      { q: 'Should BCBAs answer intake calls?', a: 'BCBAs shouldn’t answer every call. Many are job seekers, out-of-area families or plans you don’t accept. They should call every qualified family early, in scheduled call blocks, with the intake summary in front of them. That makes the best use of their credibility without cutting into billable time.' },
+      { q: 'Should the owner of an ABA practice answer the phone?', a: 'In the early stage, often yes. Owners build trust faster than anyone and can make decisions on the spot. As volume grows, the owner should move from answering every call to calling qualified families, then hand that role to BCBAs, while an intake layer handles speed and qualification.' },
+      { q: 'How fast should an ABA practice respond to a new inquiry?', a: 'Within minutes, at any hour. Families contact several providers at once, and 48% of contacts in our research arrive outside business hours. The first real conversation with a clinician should follow the same day.' },
+      { q: 'Is an answering service enough for ABA intake?', a: 'Usually not. Most answering services take a message without qualifying the family, checking coverage or starting intake, and build no relationship. The parent still waits until morning, often after contacting other providers.' },
+    ],
+    carelu: {
+      h2: 'How Carelu runs the stable layer so your clinicians can build trust',
+      body: [
+        'Carelu is the stable layer from this playbook. It answers every family in seconds on every channel, qualifies them and starts intake, at any hour. Your BCBAs and owner only talk to families you can serve, and they start that call already knowing the child.',
+        'The trust call stays human, and it should. Carelu makes sure it happens with the right families, early, and with nothing left for the clinician to ask twice.',
+      ],
+      list: [
+        { title: 'Every family answered instantly', desc: 'An AI voice agent, website chat, text and web forms respond within seconds, 24/7, in English and Spanish, including the 48% of contacts that arrive after hours.' },
+        { title: 'Only qualified families reach your clinicians', desc: 'Service area, payer, age and diagnosis status are checked in the first conversation. Job seekers are separated from families, and out-of-area families get a kind, clear answer.' },
+        { title: 'Routed to the right person', desc: 'Each qualified family is routed to the BCBA, owner or coordinator you choose by location or state, and appears in one live queue with its status.' },
+        { title: 'A summary before the call', desc: 'The clinician sees the full conversation and intake answers before dialing, so the trust call is about the child, not about re-asking questions.' },
+        { title: 'Paperwork kept out of the conversation', desc: 'Intake, e-signed consents, document uploads and benefits verification run in the background, with follow-up until the packet is complete.' },
+      ],
+    },
+    compareTitle: 'The first 24 hours, by hand and with Carelu',
+    compare: [
+      { step: '9pm inquiry', manual: 'Voicemail; callback next morning', carelu: 'Answered in seconds, qualified and intake started' },
+      { step: 'Filtering', manual: 'Coordinator sorts families, job seekers and out-of-area calls by hand', carelu: 'Done in the first conversation' },
+      { step: 'Clinician’s first call', manual: 'Often only at the assessment, if the family gets that far', carelu: 'Same day, with qualified families only' },
+      { step: 'Call preparation', manual: 'Clinician re-asks the basics', carelu: 'Full conversation and intake summary attached' },
+      { step: 'Paperwork', manual: 'Discussed on the call, finished later or never', carelu: 'Running in the background, with follow-up until complete' },
+    ],
+    related: [
+      { slug: 'after-hours-intake-coverage', label: 'After-hours coverage', blurb: 'Why taking a message is not coverage.' },
+      { slug: 'aba-evaluation-referrals', label: 'Families without a diagnosis', blurb: 'The 22% who reach out first, and how to keep them.' },
+      { slug: 'aba-intake-metrics', label: 'The numbers to watch', blurb: 'Speed to contact and inquiry-to-start, measured weekly.' },
+      { slug: 'how-to-grow-an-aba-practice', label: 'How to grow an ABA practice', blurb: 'The five channels, and the operations layer they all depend on.' },
+      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers.' },
+    ],
+    ctaHeadline: 'Answer every family instantly. Let your clinicians win them.',
+    ctaSub: 'Carelu answers, qualifies and starts intake for every ABA family at any hour, and hands your BCBAs and owner the families worth a same-day call.',
   },
 
 };

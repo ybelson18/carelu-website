@@ -28,7 +28,7 @@ const TOPICS: Topic[] = [
   {
     title: 'Growing your practice',
     blurb: 'Where ABA families come from, and how to win more of them.',
-    slugs: ['how-to-grow-an-aba-practice', 'google-ads-for-aba', 'meta-ads-for-aba', 'seo-for-aba-practices', 'aba-pediatrician-referrals', 'ai-for-aba-practices'],
+    slugs: ['how-to-grow-an-aba-practice', 'google-ads-for-aba', 'meta-ads-for-aba', 'seo-for-aba-practices', 'aba-pediatrician-referrals', 'who-should-answer-aba-intake-calls', 'ai-for-aba-practices'],
   },
   {
     title: 'Intake and operations',
@@ -53,6 +53,16 @@ const TOPICS: Topic[] = [
       { href: '/resources/pediatrician-referral-contacts', pill: 'Dataset', title: 'Pediatric referral contacts', desc: '150,325 pediatricians and child-development professionals across all 50 states, free to download.' },
     ],
   },
+];
+
+/* Aggregate, de-identified figures from /research/the-intake-gap. */
+const STATS = [
+  { value: '185,054', label: 'family conversations across 120 ABA providers in 48 states' },
+  { value: '48%', label: 'of families reach out outside business hours' },
+  { value: '+35%', label: 'year-over-year growth in inquiries at the median provider' },
+  { value: '46%', label: 'of families who named a payer are on Medicaid' },
+  { value: '22%', label: 'reach out before their child has a diagnosis' },
+  { value: '7×', label: 'faster monthly growth where intake feeds the CRM' },
 ];
 
 interface Card { href: string; pill: string; title: string; desc: string }
@@ -96,6 +106,8 @@ export default function Blog() {
     <div className="session-light" style={{ background: BONE, color: '#2B2A26', minHeight: '100vh' }}>
       <style>{`
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 16px; }
+        .blog-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 32px; margin-top: 8px; padding: 26px 0 4px; border-top: 1px solid ${RULE}; }
+        @media (max-width: 640px) { .blog-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         .blog-card { transition: transform 0.2s, box-shadow 0.2s; }
         .blog-card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.03); }
         .blog-card .blog-hed { transition: color 0.2s; }
@@ -118,6 +130,14 @@ export default function Blog() {
 
       <main style={{ paddingTop: 'clamp(24px, 4vw, 48px)', paddingBottom: 'clamp(56px, 7vw, 96px)' }}>
         <div style={W}>
+          <a href="/research/the-intake-gap" className="blog-stats rv" aria-label="From our research: The Intake Gap" style={{ textDecoration: 'none', color: 'inherit' }}>
+            {STATS.map((s) => (
+              <div key={s.label}>
+                <div style={{ fontFamily: SERIF, fontSize: 'clamp(30px, 3.4vw, 42px)', color: INK, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.value}</div>
+                <div style={{ fontSize: 13.5, color: MUTED, lineHeight: 1.45, marginTop: 8 }}>{s.label}</div>
+              </div>
+            ))}
+          </a>
           {topics.map((t) => {
             const cards = [...t.slugs.map(toCard).filter((c): c is Card => c !== null), ...(t.extras ?? [])];
             if (!cards.length) return null;
