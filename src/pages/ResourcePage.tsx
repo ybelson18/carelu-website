@@ -352,6 +352,38 @@ function ResourceArticle({ config }: { config: ResourceConfig }) {
         </div>
       </section>
 
+      {/* How Carelu helps — the closing pitch for this use case */}
+      {config.carelu && (
+        <section style={{ paddingTop: 'clamp(48px, 7vw, 84px)' }}>
+          <div style={MEASURE}>
+            <div className="rv" style={{
+              background: '#fff', borderRadius: 20,
+              border: `1px solid rgba(63,122,52,0.22)`,
+              padding: 'clamp(22px, 3.4vw, 36px)',
+              boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)',
+            }}>
+              <h2 style={{
+                fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 2.7vw, 33px)',
+                fontWeight: 400, color: INK, lineHeight: 1.18, letterSpacing: '-0.015em', margin: '0 0 14px',
+              }}>{config.carelu.h2}</h2>
+              {config.carelu.body.map((p, i) => (
+                <p key={i} style={{ fontSize: 15.5, color: 'rgba(43,42,38,0.72)', lineHeight: 1.72, margin: '0 0 14px' }}>{p}</p>
+              ))}
+              {config.carelu.list && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginTop: 8 }}>
+                  {config.carelu.list.map((item) => (
+                    <div key={item.title} style={{ borderLeft: `3px solid ${GREEN}`, paddingLeft: 16 }}>
+                      <h3 style={{ fontSize: 15.5, fontWeight: 700, color: INK, margin: '0 0 4px', fontFamily: 'var(--font-body)' }}>{item.title}</h3>
+                      <p style={{ fontSize: 14.5, color: 'rgba(43,42,38,0.65)', lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* How Carelu compares (optional) */}
       {config.compare && config.compare.length > 0 && (
         <section style={{ paddingTop: 'clamp(48px, 7vw, 84px)' }}>

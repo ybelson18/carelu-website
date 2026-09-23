@@ -33,6 +33,10 @@ export interface ResourceTable {
 /* Templated "show this document when…" rules. */
 export interface ResourceRule { when: string; then: string }
 export interface ResourceCompareRow { step: string; manual: string; carelu: string }
+/* The closing "How Carelu helps" block: what Carelu does for THIS page's
+   use case, rendered after the FAQ and before the compare table. Every
+   page ends on one. */
+export interface ResourceCarelu { h2: string; body: string[]; list?: ResourceListItem[] }
 /* A link to another /resources page, rendered as a "Keep reading" card grid.
    This is what ties a topic cluster together — every page in a cluster should
    point at its pillar and at 2-4 siblings. */
@@ -52,6 +56,8 @@ export interface ResourceConfig {
   sections: ResourceSection[];
   download?: ResourceDownload;
   faq: ResourceFaq[];
+  // How Carelu helps with this use case — the page's closing pitch.
+  carelu?: ResourceCarelu;
   // Optional "manual benchmark vs Carelu" comparison, rendered near the end.
   compareTitle?: string;
   compareIntro?: string;
@@ -130,6 +136,19 @@ export const resources: Record<string, ResourceConfig> = {
         a: 'Before — the day they join the list. Verification at opening adds weeks of delay to every start and lets ineligible families age on the list.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu keeps your waitlist start-ready',
+      body: [
+        'The four habits on this page are simple. What makes them hard is keeping them going for months, for every family, while your coordinators handle today’s calls. Carelu does that part. Each family is verified and documented the week they reach out, then kept warm on a schedule until a spot opens.',
+        'The decisions stay with your team: who gets the next opening, and the call that tells a family their spot is ready. Carelu makes sure that when you make that call, the family is still there and ready to start.',
+      ],
+      list: [
+        { title: 'Verified the day they join', desc: 'Insurance eligibility and ABA benefits, including coverage, in-network status and referral requirements, are checked automatically during intake. A family who will not clear benefits never sits on your list for months first.' },
+        { title: 'Documents while motivation is high', desc: 'A hosted intake families can finish on a phone, prefilled from their first conversation. Consents and releases are e-signed, and each signed document lands in the family’s packet as a PDF. Insurance cards and diagnosis reports come in by text or on the form.' },
+        { title: 'Check-ins that happen without anyone remembering', desc: 'Follow-up flows by text and email, per family and per stage, nudge missing documents and unfinished intake until the family responds or opts out.' },
+        { title: 'Readiness you can see', desc: 'Every family sits in one live queue with a status. When a spot opens, you can see at a glance who is verified, documented and ready.' },
+      ],
+    },
     related: [
       { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'Five channels, and the operational layer they all depend on.' },
       { slug: 'aba-follow-up-sequences', label: 'Follow-up that reads human', blurb: 'What to say to a family who has been waiting for months.' },
@@ -449,6 +468,20 @@ export const resources: Record<string, ResourceConfig> = {
       file: '/downloads/aba-intake-checklist.pdf',
       blurb: 'The full process on one printable page — use it to map your own funnel and find your leaks.',
     },
+    carelu: {
+      h2: 'How Carelu runs the intake sequence for you',
+      body: [
+        'This page is a lot of rules: five steps, four benchmarks, dozens of documents that apply to some families and not others, and a state table that keeps changing. No coordinator can hold all of it on every call. Carelu holds it for them. It covers the first three steps from the first minute: answering, qualifying, verifying, and collecting documents.',
+        'The assessment, the authorization request, and every clinical judgment stay with your team. What changes is that your team starts that work with a verified family and a complete packet, not a phone number and a promise to call back.',
+      ],
+      list: [
+        { title: 'First contact, any hour', desc: 'Every family is answered within seconds by phone, website chat, text or web form, in English or Spanish. Service area, payer, age and diagnosis status are captured in that first conversation.' },
+        { title: 'Verification before staff time', desc: 'Eligibility, ABA coverage, in-network status and referral requirements are checked automatically during intake, well inside the 24–48 hour benchmark.' },
+        { title: 'Payer rules per state, built in', desc: 'Diagnosis requirements and prior-auth rules for each state and payer come from Carelu’s payer directory. A family without a diagnosis goes down an evaluation path instead of being turned away.' },
+        { title: 'A packet finished on a phone', desc: 'The intake is prefilled from the conversation. Consents and releases are e-signed, each one saved as a PDF in the family’s packet. Cards and reports can be uploaded by text or on the form, and families can resume where they left off.' },
+        { title: 'Chased and routed', desc: 'Follow-up flows chase missing documents and unfinished intake. Each family is routed to the right coordinator by state or ZIP and shows up in one live queue with its status.' },
+      ],
+    },
     compareTitle: 'The same steps — done for you, in a fraction of the time.',
     compareIntro: 'Those benchmarks assume a fully-staffed team hitting every step on time. Carelu holds the whole sequence to the fast end of the range automatically, around the clock — so the delays that lose families never happen.',
     compare: [
@@ -564,6 +597,20 @@ export const resources: Record<string, ResourceConfig> = {
         a: 'Yes — it\'s free to use and adapt. Have your compliance or legal reviewer confirm the consent language matches your state and payer requirements.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu turns your packet into a form families finish',
+      body: [
+        'The seven sections still have to be collected. The four mistakes on this page are what Carelu takes away: no giant PDF, nothing asked twice, no packet left without a reminder, and no first conversation held back until the paperwork is done.',
+        'Your consent language stays yours, reviewed by your own compliance team, and your staff still review what comes in. The difference is that it arrives complete, signed, and filed.',
+      ],
+      list: [
+        { title: 'Prefilled from the conversation', desc: 'Whatever the family told you by phone, chat or text is already on the form. They confirm it instead of typing it again.' },
+        { title: 'Short steps on a phone, with resume', desc: 'A hosted intake built for a phone at 10pm. A family who stops halfway picks up where they left off, not at page one.' },
+        { title: 'Every signature becomes a document', desc: 'Consents, policies and releases are e-signed, and each signed document is generated as a PDF in the family’s packet the moment it is signed.' },
+        { title: 'Uploads without a scanner', desc: 'Families send the insurance card and diagnosis report by text or upload them on the form.' },
+        { title: 'Reminders, and a BAA', desc: 'Follow-up flows nudge unfinished forms and missing documents until the family responds or opts out. Carelu is HIPAA compliant, SOC 2 Type II, and signs a BAA.' },
+      ],
+    },
     related: [
       { slug: 'aba-follow-up-sequences', label: 'Follow-up that reads human', blurb: 'Chasing a half-finished packet without sounding like a robot.' },
       { slug: 'aba-records-request', label: 'Records requests that come back', blurb: 'The release that belongs in the packet.' },
@@ -643,6 +690,20 @@ export const resources: Record<string, ResourceConfig> = {
         a: 'Count four numbers each month: inquiries, verified families, completed packets, and first sessions. The step with the biggest percentage fall is your leak — fix that one first.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu closes each of the four leaks',
+      body: [
+        'Every leak on this page is a rote, time-sensitive task that nobody got to in time. Carelu does those tasks as they come up, at any hour, so the families who found you don’t fall out of a process you control.',
+        'Your team keeps the conversations that need a person: the family with a hard question, the scheduling decision, the call that says a spot is open. Carelu handles everything that only needed to happen on time.',
+      ],
+      list: [
+        { title: 'Leak 1: every first contact answered', desc: 'Phone, website chat, text and web forms are answered within seconds, 24/7, in English and Spanish. 48% of family contacts arrive after hours, and none of them reach voicemail.' },
+        { title: 'Leak 2: verification during intake', desc: 'Eligibility and ABA benefits are checked automatically while the family is still engaged, so there is no two-week silence while someone gets to it.' },
+        { title: 'Leak 3: paperwork that gets finished', desc: 'A phone-friendly intake prefilled from the conversation, with e-signed consents, uploads by text, and follow-up flows that chase what is missing until the family responds or opts out.' },
+        { title: 'Leak 4: a wait that is managed', desc: 'Families waiting to start get check-ins by text and email, and every family has a status in one live queue, so you can fill an opening from the ready pool.' },
+        { title: 'The leaks, measured', desc: 'Reporting shows answer rate, speed to contact, intake completion and conversion by channel and source, so you can see which leak is costing you most.' },
+      ],
+    },
     related: [
       { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'The five channels feeding the funnel that is leaking.' },
       { slug: 'after-hours-intake-coverage', label: 'After-hours coverage', blurb: 'Leak 1, in detail: 48% of contacts arrive out of hours.' },

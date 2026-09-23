@@ -149,6 +149,20 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'Almost always one of four leaks: inquiries that were never answered (especially after hours), families who waited days for insurance verification, packets that were started and abandoned, or a wait to start that no one managed. Measure the drop between each stage and fix the largest fall first. There is a fifth cause — the wrong families arriving in the first place — but it is usually not the biggest one, and it has a specific signature: you call within minutes and still hear back from very few of them, and very few of the ones who do respond are in your area, on a payer you take, or in your age band. That pattern points at channel targeting, not at intake. Without it, assume the leak is operational.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu runs the operational layer under every channel',
+      body: [
+        'The order of operations on this page starts with the terms that cost nothing in media: answering, qualifying, documents, verification, and working the families you already have. Those are the terms Carelu runs, the same way for a search call, a Meta form, or a pediatrician referral.',
+        'Channel strategy, referral relationships and clinical care are still yours. Carelu makes sure the families those efforts produce are answered, qualified and moved forward, so buying more inquiries adds starts and not just leaks.',
+      ],
+      list: [
+        { title: 'Answered, on every channel', desc: 'Phone, website chat, text and web forms answered within seconds, 24/7, in English and Spanish. That covers the 48% of contacts that arrive outside business hours.' },
+        { title: 'Qualified in the first conversation', desc: 'Service area by ZIP or drive time, payer, age and diagnosis status. Out-of-area families and payers you don’t take are turned away politely, and families without a diagnosis are routed to an evaluation path.' },
+        { title: 'Documents and verification, up front', desc: 'A hosted intake finishable on a phone, e-signed consents, and automatic insurance eligibility and ABA benefits checks before staff time is spent.' },
+        { title: 'The families you already have', desc: 'Follow-up flows by text and email for every stalled, waiting or unfinished family, until they respond or opt out. Only 2% of providers run any automated re-engagement.' },
+        { title: 'The scoreboard', desc: 'Answer rate, speed to contact, intake completion, conversion and cost per started client by channel and source, with Google Ads, Meta Ads, CallRail and your CRM connected.' },
+      ],
+    },
     compareTitle: 'The operational layer, by hand and with Carelu',
     compareIntro:
       'Every channel on this page ends at the same place: a family reaching out, and someone needing to respond well, immediately, at any hour. That work is identical whether the family came from a search ad, a Facebook video, or a pediatrician.',
@@ -277,6 +291,20 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'Name the worry in a parent’s own words, name the place, and name the next step. Avoid clinical jargon and avoid implying something is wrong with the child. Stating that you take the dominant local plan or Medicaid removes the largest objection before the parent forms it.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu works a Meta lead in the first five minutes',
+      body: [
+        'This page comes down to one discipline: reach the parent while the borrowed intent is still there, and make that first contact move them forward. Carelu does both the moment the form submits, including at 10pm and on Sundays when your ads are still running.',
+        'The account is still yours: creative, geography, audiences and budget. Carelu makes sure the leads those choices produce are judged on how they actually convert, not on how late someone called them.',
+      ],
+      list: [
+        { title: 'Worked the moment it lands', desc: 'Meta Ads connects to Carelu, so a lead form is answered by text within seconds and the conversation continues on phone, text or chat, whichever the parent prefers.' },
+        { title: 'Qualified without a screening call', desc: 'Service area by ZIP or drive time, payer, age and diagnosis status confirmed in the first exchange. Families you can’t serve are turned away politely instead of left waiting.' },
+        { title: 'A path for families without a diagnosis', desc: 'Meta reaches parents early, and 22% of families reach out before a diagnosis. They are routed to an evaluation path and kept in touch, not dead-ended.' },
+        { title: 'Intake started while intent is high', desc: 'The family gets a link to a phone-friendly intake prefilled from the conversation, and follow-up flows by text and email keep going until they respond or opt out.' },
+        { title: 'Judged on starts, not leads', desc: 'Reporting shows speed to contact, intake completion, conversion and cost per started client by source, so you can see what each campaign actually produces.' },
+      ],
+    },
     compareTitle: 'A Meta lead, by hand and with Carelu',
     compareIntro:
       'The ad account is the easy half. What decides whether Meta is profitable for an ABA practice is what happens in the twenty minutes after a form submits — including at 9pm on a Saturday.',
@@ -404,6 +432,20 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'Only if you can do something with those families — in-house testing, or a real referral path to diagnosticians with known waits and payers. Otherwise you are paying premium prices to tell parents to come back in nine months, and most of them will not.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu answers the search call you paid for',
+      body: [
+        'On this page, the auction decides who gets seen and something else decides who gets the child: who answers first, with a real answer. Carelu is that answer, on the first ring and in the first ninety seconds, at every hour the ads are running.',
+        'Campaign structure, negatives, landing pages and bids stay with you and your agency. Carelu covers the other half of the account: the calls and forms those clicks produce, and the numbers that show which of them become clients.',
+      ],
+      list: [
+        { title: 'Every call answered', desc: 'An AI voice agent picks up every paid call, 24/7, in English and Spanish. The 48% of contacts that arrive after hours don’t reach voicemail.' },
+        { title: 'Qualification that feels like help', desc: 'Service area, payer, age and diagnosis status are resolved in the first conversation, leading with what you can do. Families without a diagnosis are routed to an evaluation path.' },
+        { title: 'Intake at the peak of intent', desc: 'Web forms and chats are answered within seconds, and intake starts during that first contact, with insurance eligibility and ABA benefits checked automatically.' },
+        { title: 'Job seekers kept out of the family queue', desc: 'Carelu separates applicants from families on your website. 40% of captured website leads are job seekers, and they shouldn’t use up clinical intake hours.' },
+        { title: 'Cost per started client, by source', desc: 'With Google Ads and CallRail connected, reporting shows answer rate, speed to contact and cost per started client by channel and source.' },
+      ],
+    },
     compareTitle: 'A search call, by hand and with Carelu',
     compareIntro:
       'Two practices in the same market can run near-identical campaigns and admit very different numbers of children. The difference shows up after the click.',
@@ -561,6 +603,19 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'Only with a purpose. A handful of thorough, genuinely useful explainers aimed at worried-but-early searches outperform a weekly post written for volume, and they are far more likely to be cited by an assistant answering a parent’s question.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu answers the families your rankings send',
+      body: [
+        'Everything on this page earns you one thing: a parent contacting you, often in the evening, while they check three other practices they found the same way. Carelu makes sure that contact gets the answer the parent was looking for: whether you serve their town, whether you take their plan, and what happens next.',
+        'The ranking work is still yours: the location and payer pages, the Business Profile, and the habit of asking for reviews. Carelu makes sure what that work earns doesn’t end in a voicemail box.',
+      ],
+      list: [
+        { title: 'The evening "near me" call', desc: 'Answered live by an AI voice agent at any hour, in English or Spanish, along with website chat, text and web forms.' },
+        { title: '"Do you serve my town?"', desc: 'Service area is resolved by ZIP or drive time the same way every time, and out-of-area families are turned away politely.' },
+        { title: '"Do you take my plan?"', desc: 'Payer rules for each state are built in, and insurance eligibility and ABA benefits are checked automatically during intake.' },
+        { title: 'The weekend web form', desc: 'Answered within seconds, with a phone-friendly intake started before the parent opens the next tab.' },
+      ],
+    },
     compareTitle: 'The call that SEO earns you, by hand and with Carelu',
     compareIntro:
       'Organic search sends families at the hours they are free, which is rarely between nine and five. What happens on that call is the return on every hour spent ranking.',
@@ -680,6 +735,20 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'Say so immediately and point them somewhere useful. A fast, helpful decline preserves the relationship; a slow one where the family drifts back to the office confused is what ends it.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu follows through on every referral',
+      body: [
+        'Referral relationships die from silence, and the silence is almost always operational: the family wasn’t reached quickly, the release wasn’t signed, nobody knew where the child stood. Carelu takes that follow-through off your coordinators’ plates.',
+        'The relationship itself stays human. The visits, the one-page leave-behind, and the call to the office telling them their patient started all come from your team. Carelu makes sure you always have something good to tell them.',
+      ],
+      list: [
+        { title: 'The family reached fast', desc: 'A referred family who calls, texts or fills a form is answered within seconds, 24/7. Referrals that arrive through a connected form or webhook go straight into the same queue.' },
+        { title: 'Qualified and verified up front', desc: 'Area, payer, age and diagnosis status are confirmed in the first conversation, and eligibility and ABA benefits are checked during intake, so a family you can’t serve hears it right away.' },
+        { title: 'The release signed with intake', desc: 'The release of information is e-signed inside the hosted intake and saved as a PDF in the family’s packet, ready before your team needs it.' },
+        { title: 'Status per family, routed to the right person', desc: 'Each referral goes to the right coordinator by state or ZIP and has a status in one live queue, so you always know what to tell the referring office.' },
+        { title: 'Referrals as a channel', desc: 'Reporting shows conversion by source, so you can see which offices produce started clients.' },
+      ],
+    },
     compareTitle: 'A referral, by hand and with Carelu',
     compareIntro:
       'Referral programs rarely fail at the visit. They fail in the weeks afterwards, in the follow-through nobody has time for.',
@@ -826,6 +895,19 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'Yes, and it is frequently the fastest route. Many evaluation reports are downloadable from a patient portal in minutes. Ask in parallel with your own request rather than instead of it.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu handles releases and missing reports',
+      body: [
+        'Records work has two sides. One is the family: the release, the authority to sign, and the report they may be able to pull from a portal in minutes. The other is the organization holding the chart. Carelu runs the family side from the first day of intake, so your team never has to go back for a signature.',
+        'The request to the other organization, the call to find the right desk, and the escalation in week two stay with your coordinators. They start that work with a signed release on file and a clear list of what is still missing.',
+      ],
+      list: [
+        { title: 'The release, signed at the right moment', desc: 'The release of information is e-signed inside the hosted intake, while the parent is motivated, and generated as a PDF in the family’s packet the moment it is signed.' },
+        { title: 'Knowing what the payer will need', desc: 'Diagnosis requirements and prior-auth rules for each state and payer are built in from Carelu’s payer directory, so your team knows what to ask for before an authorization is refused.' },
+        { title: 'The family’s parallel path', desc: 'Families can upload the evaluation report by text or on the intake form, often the fastest route when the report is in a patient portal.' },
+        { title: 'Chased on a schedule', desc: 'Follow-up flows by text and email ask for missing documents until they arrive or the family opts out, and every family’s status sits in one live queue.' },
+      ],
+    },
     compareTitle: 'Records work, by hand and with Carelu',
     compareIntro:
       'Nothing here is difficult. All of it is a rote, time-sensitive task that a busy coordinator does not get to — which is exactly the category of work that should not depend on someone remembering.',
@@ -938,6 +1020,19 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'Yes, as their own cohort with scheduled touches. They convert at a lower rate and over a longer horizon than diagnosed families, which still makes them far more valuable than the zero they are worth when told to call back later.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu keeps pre-diagnosis families with you',
+      body: [
+        '22% of families reach out before a diagnosis. This page turns that from a "call us back" into a path, and nearly every step on that path is a scheduled task. Carelu does those tasks: it checks whether the diagnosis is required at all, sends the family down an evaluation path, and stays in touch through the months of waiting.',
+        'The clinical side stays human. Your team builds and vets the evaluator list, and nobody diagnoses in a sales conversation. Carelu makes sure the family is still with you when the report arrives.',
+      ],
+      list: [
+        { title: 'The real rule, before anyone says no', desc: 'Diagnosis requirements are built in for each state and payer, so families who would qualify without a diagnosis are not turned away by habit.' },
+        { title: 'An evaluation path, not a dead end', desc: 'Families without a diagnosis are routed to an evaluation path in the first conversation, on phone, chat, text or form, in English or Spanish.' },
+        { title: 'Intake done while they wait', desc: 'The family completes intake now, with e-signed consents and insurance verified. When the report exists, they upload it by text or on the form and pick up where they left off.' },
+        { title: 'Months of follow-up that actually happen', desc: 'Follow-up flows by text and email keep in touch through the waiting months, until the family responds or opts out.' },
+      ],
+    },
     compareTitle: 'The pre-diagnosis family, by hand and with Carelu',
     compareIntro:
       'Nothing on this page requires clinical judgment. It requires that a long list of small, dated follow-ups actually happen over six to twelve months.',
@@ -1061,6 +1156,19 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'On opt-out, immediately and permanently. On a clear "we started elsewhere," with a short note that the door is open. Otherwise move to a low-frequency hold instead of deleting the family, because diagnoses arrive and plans change.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu runs follow-up for every family, at every stage',
+      body: [
+        'Every practice knows the pattern on this page: reply fast, reply on their channel, write for the stage the family is actually in, and keep going past day three. Only 2% of providers run any automated re-engagement at all. Carelu runs it for every family, without anyone having to remember.',
+        'The messages that should never be automated stay with your team: bad news, clinical questions, and families who are frustrated or in crisis. Carelu handles the persistence so your coordinators have time for those conversations.',
+      ],
+      list: [
+        { title: 'The first reply, in seconds', desc: 'Every family is answered within seconds on the channel they used, whether phone, website chat, text or web form, in English or Spanish.' },
+        { title: 'A message per stage', desc: 'Follow-up flows run per family and per stage, so a missing document, an unfinished intake and a family waiting to start each get their own message.' },
+        { title: 'Persistence past day three', desc: 'Flows keep going by text and email until the family responds or opts out, not one voicemail and done.' },
+        { title: 'Consent guardrails', desc: 'Follow-up runs within the family’s consent, and an opt-out is honored.' },
+      ],
+    },
     compareTitle: 'Follow-up, by hand and with Carelu',
     compareIntro:
       'Every practice knows what good follow-up looks like. What they lack is the twenty hours a week it would take to write it by hand, for every family, forever.',
@@ -1203,6 +1311,20 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'Cost per started client, always. Cost per lead rewards channels that produce volume regardless of whether those families can be served or ever start, and it is the main reason practices keep funding channels that lose money.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu measures your intake funnel for you',
+      body: [
+        'Most of the eight numbers on this page are hard to get for one reason: phones, forms, intake and the CRM were never connected, so the joints of the funnel go unmeasured. With Carelu, first contact, qualification, intake and verification all happen in one place, so the numbers come straight from the work.',
+        'Reading the numbers, and choosing the one thing to fix this month, is still your team’s weekly twenty minutes. Carelu makes sure the numbers are there when you sit down.',
+      ],
+      list: [
+        { title: 'Answer rate and speed to contact', desc: 'Measured across phone, website chat, text and web forms, because Carelu is the first response on all of them.' },
+        { title: 'Qualification on the record', desc: 'Service area, payer, age and diagnosis status are captured in the first conversation, so qualification is written down, not remembered.' },
+        { title: 'Completion, conversion and cost', desc: 'Intake completion, conversion and cost per started client by channel and source, with Google Ads, Meta Ads and CallRail connected.' },
+        { title: 'A clean denominator', desc: 'Job seekers are separated from families on your website, and they make up 40% of captured website leads, so they don’t inflate your inquiry count.' },
+        { title: 'Your systems connected', desc: 'Leads and status flow into CentralReach, Rethink, Aloha, Salesforce, HubSpot or Zoho, or anywhere else by webhook.' },
+      ],
+    },
     compareTitle: 'Knowing your numbers, by hand and with Carelu',
     compareIntro:
       'Most of these metrics are not hard to compute. They are hard to compute repeatedly, from systems that were never connected to each other.',
@@ -1321,6 +1443,20 @@ export const growthResources: Record<string, ResourceConfig> = {
         a: 'No. They are the same families contacting you at the only time they are free. They are less patient, because the window they carved out is narrow, which makes response speed matter more rather than less.',
       },
     ],
+    carelu: {
+      h2: 'How Carelu covers nine at night',
+      body: [
+        'This page draws the line between taking a message and coverage that does the work. Carelu is the second kind. At 9pm it does what a good coordinator would do at 2pm: answer the parent’s three questions, move the family forward, and route a family with no diagnosis toward evaluation.',
+        'Your team still owns the morning: the scheduling call, the harder questions, and the families who asked for a person. The difference is that they start with qualified families who have already begun intake, not a stack of voicemails.',
+      ],
+      list: [
+        { title: 'Answered live, any hour', desc: 'An AI voice agent answers every call, and website chat, text and web forms are answered within seconds, in English and Spanish. That covers the 48% of contacts that arrive after hours.' },
+        { title: 'The three questions, answered', desc: 'Service area by ZIP or drive time and payer accepted are confirmed in the conversation, with insurance eligibility and ABA benefits checked automatically during intake.' },
+        { title: 'Intake started on the spot', desc: 'A phone-friendly intake prefilled from the conversation, with e-signed consents and uploads by text, that the family can resume later.' },
+        { title: 'Monday is a queue, not a stack', desc: 'Each family is routed to the right coordinator by state or ZIP and shows up in one live queue with its status.' },
+        { title: 'Proof it is working', desc: 'Answer rate, speed to contact and conversion by channel show whether after-hours families are converting, not just being logged.' },
+      ],
+    },
     compareTitle: 'Nine at night, by hand and with Carelu',
     compareIntro:
       'The test of a coverage plan is not whether something happens when a family calls at nine at night. It is whether the family gets what they would have gotten at two in the afternoon.',
