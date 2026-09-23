@@ -23,6 +23,8 @@ function savedEmail(): string {
 
 /* The server refused the question (email gate, daily limit, or closed for
    the day). Not a transient failure, so it is never retried. */
+const GATE_PROMPT = 'Enter your work email below to get your answer. It’s free, and you only do it once.';
+
 class Refused extends Error {
   readonly reason: string;
   constructor(reason: string, message: string) { super(message); this.reason = reason; }
@@ -86,10 +88,17 @@ export default function AskPayers() {
     const q = question.trim();
     if (!q || busy) return;
     setInput('');
+    const email = emailOverride ?? savedEmail();
+    // First visit: ask for the email before spending a call. The server
+    // refuses anonymous questions too (ANON_FREE = 0); this just saves the trip.
+    if (!email) {
+      setMessages([...base, { role: 'user', content: q }, { role: 'assistant', content: GATE_PROMPT }]);
+      setGatedQuestion(q);
+      return;
+    }
     setBusy(true);
     const next: Msg[] = [...base, { role: 'user', content: q }, { role: 'assistant', content: '' }];
     setMessages(next);
-    const email = emailOverride ?? savedEmail();
 
     const ctrl = new AbortController();
     abortRef.current = ctrl;
@@ -139,7 +148,7 @@ export default function AskPayers() {
         setGatedQuestion(q);
         setMessages((cur) => {
           const copy = [...cur];
-          copy[copy.length - 1] = { role: 'assistant', content: 'Enter your work email below to keep asking. It’s free.' };
+          copy[copy.length - 1] = { role: 'assistant', content: GATE_PROMPT };
           return copy;
         });
         return;

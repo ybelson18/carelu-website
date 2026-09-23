@@ -4,9 +4,9 @@ import { getRepoFileText, commitFiles } from './sources/_shared.js';
    Spend + abuse guard for /api/ask (the payer-directory chat).
 
    The chat costs real money per question, so:
-     - an anonymous visitor gets ANON_FREE questions a day, then must
-       give an email (the same soft gate the referral-list download
-       uses; the email is announced in #marketing by /api/leads);
+     - a visitor gives a work email before their first answer
+       (ANON_FREE = 0 anonymous questions a day); the email is
+       announced in #marketing by /api/leads;
      - an email gets EMAIL_DAILY questions a day, an IP IP_DAILY;
      - the whole chat stops for the day at HARD_CAP_USD;
      - #marketing is pinged once a day when spend passes ALERT_USD,
@@ -22,7 +22,7 @@ import { getRepoFileText, commitFiles } from './sources/_shared.js';
    workspace spend limit is the hard backstop behind this.
    ================================================================ */
 
-export const ANON_FREE = 2;
+export const ANON_FREE = 0;
 export const EMAIL_DAILY = 40;
 export const IP_DAILY = 80;
 export const ALERT_USD = 5;
@@ -109,7 +109,7 @@ export async function check(ip: string, email: string | undefined): Promise<Verd
   }
   if (!email) {
     if (byIp >= ANON_FREE) {
-      return { ok: false, status: 401, reason: 'email', message: 'Enter your work email to keep asking.' };
+      return { ok: false, status: 401, reason: 'email', message: 'Enter your work email to get your answer.' };
     }
     return { ok: true };
   }
