@@ -215,6 +215,10 @@ export function Nav({ base = '', onDark = false }: { base?: string; onDark?: boo
 
               {/* Right: company, login, and a whisper-outline demo link */}
               <div style={{ justifySelf: 'end', display: 'flex', alignItems: 'center' }}>
+                <NavA href="/blog" className="hide-mobile nav-link" style={link}
+                  onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
+                >Blog</NavA>
                 <NavA href="/carelu/company" className="hide-mobile nav-link" style={link}
                   onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.6'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
@@ -268,6 +272,7 @@ export function Nav({ base = '', onDark = false }: { base?: string; onDark?: boo
             { t: 'Multi-Site',   href: '/solutions/multi-site' },
             { t: 'Enterprise',   href: '/solutions/enterprise' },
             { t: 'FAQ',          href: `${base}#faq` },
+            { t: 'Blog',         href: '/blog' },
             { t: 'Company',      href: '/carelu/company' },
             { t: 'Log in',       href: LOGIN_URL },
           ].map(l => (

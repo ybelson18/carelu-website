@@ -45,6 +45,8 @@ ABA and behavioral-health providers lose a large share of new families to slow o
 
 ## Guides & resources
 
+- [The Carelu Blog](https://carelu.com/blog): Index of every Carelu guide for ABA practice owners, grouped by topic: growing a practice, intake and operations, payers and billing, research and tools.
+
 - [ABA waitlist management](https://carelu.com/resources/aba-waitlist-management): How to keep waitlisted families engaged, verified, and ready to start — with a free intake checklist.
 - [The ABA client intake process](https://carelu.com/resources/aba-client-intake-process): Step-by-step intake from first contact to first session, with benchmarks for each step, a full ABA intake document library (35 documents with how often each is really required), state-by-state diagnosis and referral requirements across 19 states, and templated conditions for when to show or hide each document.
 - [ABA intake forms](https://carelu.com/resources/aba-intake-forms): The seven sections every intake packet needs, plus a free printable form template.
