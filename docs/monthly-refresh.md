@@ -11,6 +11,31 @@ THREE repos are cloned in your workspace:
 
 Your job: verify, APPLY, and SHIP the month's updates, then sync the product copy via PR.
 
+## CADENCE — runs WEEKLY (added 2026-09-24)
+
+This runbook now runs every week as a scheduled cloud routine, not monthly by hand. Nothing
+here is allowed to go stale silently: the directory is re-verified on a rotation and every run
+ends with the LeadTrap copy in sync. Each weekly run does, in order:
+
+1. **Changed sources.** Run `node scripts/payer-watch/watch.mjs` (no Slack var needed; it prints
+   the changed/failed URLs and updates `scripts/payer-watch/snapshots.json`, which you commit).
+   Every guide citing a CHANGED source is re-verified this run — the source moved, so the facts
+   built on it may have too.
+2. **Rotation.** Re-verify the structured facts of ~1/4 of the states each week, so every state
+   is re-checked at least monthly: states are sorted by code, week N of the year takes every state
+   whose index % 4 == N % 4. Prioritise `unverified` facts with `blocker: 'document'` (the answer
+   is written down somewhere — try again) and anything with an effective date that has passed.
+3. **Worklist.** Settle open `verifyClaims` in `docs/payer-worklist.json`, priority 1 first (3c).
+4. **LeadTrap-only guides.** Any guide that exists only in LeadTrap is stale by construction:
+   port it into this repo with every structured field (then it rides the rotation).
+5. Apply (PHASE 2), changelog entry, `npm run payers:check` + `npm run build` must pass, push
+   main (auto-deploys). If either check fails and you cannot fix it, push a branch + open a PR
+   instead of pushing main.
+6. **Always** run PHASE 4 (LeadTrap sync PR), even when this repo had no changes, if the vendored
+   copy differs from this repo. One open sync PR at a time: update the existing branch/PR if one
+   is still open rather than opening a second.
+7. Nothing verified changed? Still commit the watch snapshots, and say so in the report.
+
 The directory: payer guides in `src/data/payers/*.ts` plus VOB enrichment layers in
 `src/data/payers/vob/` (see `docs/vob-build.md`). Every fact carries cites/sources of
 `{title,url}` to primary sources. Editorial rule: **VERIFIED-ONLY** — publish a claim only if a
@@ -207,21 +232,20 @@ verified updates. It is a one-way sync (carelu-website → LeadTrap) with these 
 
 9a. Branch off LeadTrap main: `chore/payer-guides-sync-<yyyy-mm>`.
 
-9b. For every state/national/changelog file in carelu-website `src/data/payers/` and
-`src/data/payers/vob/` that ALSO exists in `backend/src/data/payer-guides/`: copy it over,
-then strip the ` | Carelu` suffix from every `metaTitle` string (the only intentional
-transform — verify with a diff that nothing else systematic differs). For a state file that is
-NEW in carelu-website: copy it in and register it in the LeadTrap `index.ts` merges.
+9b. Run the sync script from this repo: `python3 scripts/leadtrap-sync/sync.py <LeadTrap checkout>`.
+It copies every guide and vob file (stripping only the ` | Carelu` metaTitle suffix) and MERGES
+LeadTrap-only content back in: guides that exist only in LeadTrap inside shared files (e.g.
+anthem-indiana, medcost), their vob entries, the helper constants those use, and their imports.
+LeadTrap-only files are left alone. It never overwrites `index.ts`, `vob/index.ts` or `types.ts`:
+it PRINTS the imports the website adds — port those lines (and their `...spread`) by hand, and
+port new `types.ts` fields / STATE_META rows by hand, keeping any LeadTrap-only looser unions.
+Never hand-copy files instead of running the script: a plain copy silently deleted 7 guides'
+worth of LeadTrap-only content in the first attempt of the 2026-09-24 sync.
 
-9c. PRESERVE LeadTrap-only content — guides/states that exist ONLY in LeadTrap (e.g.
-iowa/oklahoma/hawaii, added directly in the product repo) must survive untouched, including
-their `index.ts` entries. Never delete or overwrite a file that has no carelu-website
-counterpart. If `types.ts` differs beyond the known ` | Carelu` delta, do NOT overwrite it —
-describe the difference in the PR body instead. ONE-TIME (first sync after 2026-09-17): the
-`deliveryRules` types — `RuleStatus`, `PayerRuleFact`, `PayerDeliveryRules` and the
-`deliveryRules?` field on `PayerConfig` — are NEW in carelu-website and must be ported into
-LeadTrap's `types.ts`, or every guide carrying the field will fail LeadTrap's typecheck. Ideally port LeadTrap-only guides BACK into
-carelu-website in a later phase — for now just note them in the PR body.
+9c. Verify: `npx tsc --noEmit -p backend/tsconfig.json` in LeadTrap must show ZERO errors under
+`src/data/payer-guides/` (errors elsewhere from a stale local node_modules are not yours — CI is
+authoritative). Then check no slug disappeared: every `'slug': {` key removed by the diff must
+still exist somewhere in payer-guides.
 
 9d. Format changed files with the LeadTrap repo's own prettier config, commit, push the
 branch, and open a PR with `gh pr create` titled
