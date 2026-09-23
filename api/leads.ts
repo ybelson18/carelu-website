@@ -44,6 +44,7 @@ const FORMS: Record<string, { label: string; team: 'sales' | 'marketing' }> = {
   demo: { label: 'Get a Demo', team: 'sales' },
   'referral-contacts': { label: 'Pediatrician referral-contacts list', team: 'marketing' },
   'payer-directory': { label: 'Payer directory', team: 'marketing' },
+  'payer-chat': { label: 'Payer directory chat (email to keep asking)', team: 'marketing' },
   contact: { label: 'Contact form (leadtrap.com)', team: 'sales' },
 };
 

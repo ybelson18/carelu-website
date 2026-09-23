@@ -12,6 +12,22 @@ const GREEN_DKC = '#2e5a26';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
+const EMAIL_RE = /^[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+// Shared with the referral-list gate: an email given anywhere on the site
+// unlocks the chat too, so nobody is asked twice.
+const GIVEN_KEY = 'carelu_leads_email';
+
+function savedEmail(): string {
+  try { return localStorage.getItem(GIVEN_KEY) ?? ''; } catch { return ''; }
+}
+
+/* The server refused the question (email gate, daily limit, or closed for
+   the day). Not a transient failure, so it is never retried. */
+class Refused extends Error {
+  readonly reason: string;
+  constructor(reason: string, message: string) { super(message); this.reason = reason; }
+}
+
 const SUGGESTIONS = [
   'Does Cigna require prior auth for the assessment?',
   'What does NC Medicaid pay for 97153?',
@@ -37,14 +53,43 @@ export default function AskPayers() {
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
+  // Set when the server asks for an email: the question waiting to be re-sent.
+  const [gatedQuestion, setGatedQuestion] = useState<string | null>(null);
+  const [gateEmail, setGateEmail] = useState('');
+  const [gateError, setGateError] = useState('');
+  const hpRef = useRef<HTMLInputElement>(null);
 
-  async function ask(question: string) {
+  function submitGate(e: React.FormEvent) {
+    e.preventDefault();
+    const clean = gateEmail.trim();
+    if (!EMAIL_RE.test(clean)) { setGateError('That doesn’t look like an email.'); return; }
+    try { localStorage.setItem(GIVEN_KEY, clean); } catch { /* private mode */ }
+    fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        email: clean,
+        form: 'payer-chat',
+        page: window.location.pathname,
+        website: hpRef.current?.value ?? '',
+      }),
+      keepalive: true,
+    }).catch(() => {});
+    const q = gatedQuestion;
+    setGatedQuestion(null);
+    // The refused question is still on screen; drop it so ask() re-adds it.
+    setMessages((cur) => cur.slice(0, -2));
+    if (q) void ask(q, clean, messages.slice(0, -2));
+  }
+
+  async function ask(question: string, emailOverride?: string, base: Msg[] = messages) {
     const q = question.trim();
     if (!q || busy) return;
     setInput('');
     setBusy(true);
-    const next: Msg[] = [...messages, { role: 'user', content: q }, { role: 'assistant', content: '' }];
+    const next: Msg[] = [...base, { role: 'user', content: q }, { role: 'assistant', content: '' }];
     setMessages(next);
+    const email = emailOverride ?? savedEmail();
 
     const ctrl = new AbortController();
     abortRef.current = ctrl;
@@ -53,9 +98,13 @@ export default function AskPayers() {
       const res = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ messages: next.slice(0, -1) }),
+        body: JSON.stringify({ messages: next.slice(0, -1), ...(email ? { email } : {}) }),
         signal: ctrl.signal,
       });
+      if (res.status === 401 || res.status === 429) {
+        const data = await res.json().catch(() => ({})) as { error?: string; message?: string };
+        throw new Refused(data.error ?? 'limit', data.message ?? 'The assistant is unavailable right now.');
+      }
       if (!res.ok || !res.body) {
         throw new Error(`status ${res.status}`);
       }
@@ -81,11 +130,29 @@ export default function AskPayers() {
       } catch (e) {
         // One silent retry for transient failures (cold starts, 5xx blips) —
         // but not if text already streamed or the user aborted.
-        if (gotText || ctrl.signal.aborted) throw e;
+        if (e instanceof Refused || gotText || ctrl.signal.aborted) throw e;
         await new Promise((r) => setTimeout(r, 1200));
         await attempt();
       }
-    } catch {
+    } catch (e) {
+      if (e instanceof Refused && e.reason === 'email') {
+        setGatedQuestion(q);
+        setMessages((cur) => {
+          const copy = [...cur];
+          copy[copy.length - 1] = { role: 'assistant', content: 'Enter your work email below to keep asking. It’s free.' };
+          return copy;
+        });
+        return;
+      }
+      if (e instanceof Refused) {
+        const msg = e.message;
+        setMessages((cur) => {
+          const copy = [...cur];
+          copy[copy.length - 1] = { role: 'assistant', content: msg };
+          return copy;
+        });
+        return;
+      }
       setMessages((cur) => {
         const copy = [...cur];
         copy[copy.length - 1] = {
@@ -132,6 +199,33 @@ export default function AskPayers() {
         </div>
       )}
 
+      {gatedQuestion !== null ? (
+        <form onSubmit={submitGate} style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {/* Honeypot: hidden from humans, bots fill it. */}
+          <input ref={hpRef} type="text" name="website" tabIndex={-1} autoComplete="off"
+            style={{ position: 'absolute', left: -9999, width: 1, height: 1, opacity: 0 }} />
+          <input
+            type="email"
+            value={gateEmail}
+            onChange={(e) => { setGateEmail(e.target.value); setGateError(''); }}
+            placeholder="you@yourpractice.com"
+            aria-label="Work email"
+            autoFocus
+            style={{
+              flex: '1 1 220px', minWidth: 0, boxSizing: 'border-box', fontFamily: 'var(--font-body)', fontSize: 15,
+              color: INK, background: '#FAF8F3', border: `1px solid ${gateError ? '#c0392b' : 'rgba(43,42,38,0.14)'}`,
+              borderRadius: 100, padding: '13px 20px', outline: 'none',
+            }}
+          />
+          <button type="submit" style={{
+            fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, cursor: 'pointer',
+            color: '#fff', background: GREEN, border: 'none', borderRadius: 100, padding: '13px 22px', flexShrink: 0,
+          }}>
+            Continue
+          </button>
+          {gateError && <p style={{ flexBasis: '100%', fontSize: 12.5, color: '#c0392b', margin: '2px 0 0 12px' }}>{gateError}</p>}
+        </form>
+      ) : (
       <form
         onSubmit={(e) => { e.preventDefault(); ask(input); }}
         style={{ display: 'flex', gap: 8 }}
@@ -159,6 +253,7 @@ export default function AskPayers() {
           {busy ? '…' : 'Ask'}
         </button>
       </form>
+      )}
 
       {messages.length === 0 && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 12 }}>

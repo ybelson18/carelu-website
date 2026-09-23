@@ -1,5 +1,9 @@
 import Anthropic from '@anthropic-ai/sdk';
+import { waitUntil } from '@vercel/functions';
 import { payers, PAYER_REVIEWED } from '../src/data/payers/index.js';
+import { check, record, clientIp, costOf } from './_askGuard.js';
+
+const EMAIL_RE = /^[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 /* ================================================================
    POST /api/ask — the payer-directory chat.
@@ -52,6 +56,35 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
   return base.map((c) => ({ ...c, hay: `${c.payer} ${c.state} ${c.title} ${c.text}`.toLowerCase() }));
 });
 
+// The whole directory at a glance, one block per guide. Always sent (and cached)
+// so the assistant knows every payer and can answer general or comparative
+// questions ("which state pays best?") that no keyword pick of sections can serve.
+// Retrieved sections below then add the detail for the payers a question names.
+const DIRECTORY = Object.values(payers)
+  .map((p) => {
+    const lines = p.atGlance.map((f) => `- ${f.label}: ${f.value}`);
+    if (p.assessmentPA) lines.push(`- Assessment prior auth: ${fact(p.assessmentPA)}`);
+    if (p.treatmentPA) lines.push(`- Treatment prior auth: ${fact(p.treatmentPA)}`);
+    if (p.dxRequired) lines.push(`- Autism diagnosis required: ${fact(p.dxRequired)}`);
+    return `## ${p.payer}${p.state ? ` (${p.state})` : ''} — /payers/${p.slug}\n${lines.join('\n')}`;
+  })
+  .join('\n\n');
+
+// Words that say nothing about which guide a question is about. Without this,
+// "which ... has the ..." matched every section equally, and generic words like
+// "state" or "insurance" earned the payer-name bonus (Peach State, Anthem ...
+// Insurance) and crowded out the sections that actually answered the question.
+const STOPWORDS = new Set([
+  'the', 'and', 'for', 'are', 'was', 'has', 'have', 'had', 'does', 'did', 'can', 'will',
+  'which', 'what', 'who', 'whom', 'when', 'where', 'why', 'how', 'with', 'from', 'that',
+  'this', 'these', 'those', 'there', 'their', 'they', 'any', 'all', 'most', 'more',
+  'best', 'better', 'worst', 'good', 'about', 'into', 'than', 'then', 'our', 'you', 'your',
+  'need', 'needs', 'get', 'give', 'tell', 'show', 'list', 'compare', 'between',
+]);
+const GENERIC_PAYER_WORDS = new Set([
+  'state', 'states', 'insurance', 'insurer', 'health', 'plan', 'plans', 'care', 'payer', 'payers', 'aba',
+]);
+
 const STATE_NAMES: Record<string, string> = {
   ga: 'georgia', nc: 'north carolina', in: 'indiana', va: 'virginia', tn: 'tennessee',
   oh: 'ohio', nj: 'new jersey', md: 'maryland', co: 'colorado', ut: 'utah', az: 'arizona',
@@ -61,7 +94,8 @@ const STATE_NAMES: Record<string, string> = {
 
 function retrieve(question: string, prevUser: string | undefined, limit = 14): Chunk[] {
   const q = `${prevUser ?? ''} ${question}`.toLowerCase();
-  const words = Array.from(new Set(q.split(/[^a-z0-9]+/).filter((w) => w.length > 2)));
+  const words = Array.from(new Set(q.split(/[^a-z0-9]+/).filter((w) => w.length > 2 && !STOPWORDS.has(w))));
+  const nameWords = words.filter((w) => !GENERIC_PAYER_WORDS.has(w));
   // Expand state abbreviations so "AZ medicaid" matches "arizona".
   const stateTerms = Object.entries(STATE_NAMES)
     .filter(([abbr, name]) => q.includes(name) || new RegExp(`\\b${abbr}\\b`).test(q))
@@ -71,7 +105,7 @@ function retrieve(question: string, prevUser: string | undefined, limit = 14): C
     let score = 0;
     for (const w of words) if (c.hay.includes(w)) score += 1;
     const payerLower = c.payer.toLowerCase();
-    for (const w of words) if (payerLower.includes(w)) score += 4;
+    for (const w of nameWords) if (payerLower.includes(w)) score += 4;
     for (const st of stateTerms) {
       if (c.payer.toLowerCase().includes(st) || c.hay.includes(st)) score += 3;
       if (STATE_NAMES[c.state.toLowerCase()] === st) score += 5;
@@ -92,12 +126,17 @@ function retrieve(question: string, prevUser: string | undefined, limit = 14): C
 
 const SYSTEM = `You are the Carelu ABA Payer Directory assistant, embedded on carelu.com/payers. You answer questions from ABA-provider intake and billing teams about insurance payers — prior authorization, assessment PA, diagnosis requirements, rates, reauthorization cadence, licensure, mandates.
 
+You have two sources:
+- The DIRECTORY below: every payer guide Carelu publishes, at a glance (key facts and guide page). Use it to know what the directory covers and to answer general or comparative questions across payers and states.
+- Detailed <excerpts> attached to each question: the full guide sections most relevant to it. Prefer them for detail and for citations.
+
 Hard rules:
-- Answer ONLY from the excerpts provided in the conversation. They come from Carelu's payer guides, each fact compiled from primary sources (payer policies, state manuals, statutes) and last reviewed ${PAYER_REVIEWED}. Never use outside knowledge for factual claims about payers, rates, or policies — if the excerpts don't contain the answer, say plainly that our directory doesn't have that verified yet and point to the closest relevant guide instead.
-- Cite as you go: attach a markdown link to the primary source for each factual claim, e.g. "PA is required for the assessment ([GA DCH ASD Manual](url))". Use the source URLs given with each excerpt. At the end, add a "Read more:" line linking the most relevant guide page(s) using their site paths, e.g. [Georgia Medicaid guide](/payers/georgia-medicaid).
+- Answer ONLY from the directory and the excerpts. They come from Carelu's payer guides, each fact compiled from primary sources (payer policies, state manuals, statutes) and last reviewed ${PAYER_REVIEWED}. Never use outside knowledge for factual claims about payers, rates, or policies — if the excerpts don't contain the answer, say plainly that our directory doesn't have that verified yet and point to the closest relevant guide instead.
+- Cite as you go: attach a markdown link to the primary source for each factual claim, e.g. "PA is required for the assessment ([GA DCH ASD Manual](url))". Use the source URLs given with each excerpt, and only for a claim that excerpt actually supports. A fact you take from the directory alone links to its guide page instead (e.g. [New Mexico Medicaid guide](/payers/new-mexico-medicaid)); never borrow an unrelated source to back it. At the end, add a "Read more:" line linking the most relevant guide page(s) using their site paths, e.g. [Georgia Medicaid guide](/payers/georgia-medicaid).
 - Be concise and operational — answer the question directly in the first sentence, then only the detail an intake operator needs. Prefer short paragraphs over lists unless comparing several payers.
 - Every answer ends with a one-line reminder that policies change and to verify against the payer's live policy for the specific member.
 - If the question is not about ABA payers/insurance/intake (or asks for legal, clinical, or billing advice beyond general information), decline briefly and steer back to payer questions.
+- For comparative questions ("which pays best", "which states require X"), compare across the whole directory, not only the excerpts; say what the comparison covers and name payers the directory lacks data for rather than silently leaving them out. Rates differ by credential tier, unit and setting, so compare like with like.
 - Never invent payer names, policy numbers, dollar amounts, or URLs.`;
 
 export async function POST(request: Request): Promise<Response> {
@@ -105,7 +144,7 @@ export async function POST(request: Request): Promise<Response> {
     return new Response(JSON.stringify({ error: 'not configured' }), { status: 503 });
   }
 
-  let body: { messages?: ChatMessage[] };
+  let body: { messages?: ChatMessage[]; email?: unknown };
   try {
     body = await request.json();
   } catch {
@@ -125,8 +164,19 @@ export async function POST(request: Request): Promise<Response> {
     return new Response(JSON.stringify({ error: 'question too long' }), { status: 400 });
   }
 
+  const rawEmail = typeof body.email === 'string' ? body.email.trim().toLowerCase().slice(0, 254) : '';
+  const email = EMAIL_RE.test(rawEmail) ? rawEmail : undefined;
+  const ip = clientIp(request);
+  const verdict = await check(ip, email);
+  if (!verdict.ok) {
+    return new Response(JSON.stringify({ error: verdict.reason, message: verdict.message }), {
+      status: verdict.status,
+      headers: { 'content-type': 'application/json', 'cache-control': 'no-store' },
+    });
+  }
+
   const prevUser = history.filter((m) => m.role === 'user').slice(-2, -1)[0]?.content;
-  const chunks = retrieve(last.content, prevUser);
+  const chunks = retrieve(last.content, prevUser, 10);
 
   const excerpts = chunks.length === 0
     ? 'No relevant excerpts found for this question.'
@@ -146,10 +196,15 @@ export async function POST(request: Request): Promise<Response> {
 
   const stream = client.messages.stream({
     model: 'claude-opus-4-8',
-    max_tokens: 1500,
+    max_tokens: 4000,
     thinking: { type: 'adaptive' },
     output_config: { effort: 'low' },
-    system: SYSTEM,
+    // The directory is identical on every call, so cache it: later questions
+    // read it at a tenth of the input price instead of paying for ~30K tokens.
+    system: [
+      { type: 'text', text: SYSTEM },
+      { type: 'text', text: `<directory>\n${DIRECTORY}\n</directory>`, cache_control: { type: 'ephemeral' } },
+    ],
     messages,
   });
 
@@ -163,6 +218,10 @@ export async function POST(request: Request): Promise<Response> {
         controller.close();
       });
       stream.on('end', () => controller.close());
+      // Tally the spend after the answer is out; the visitor never waits on it.
+      stream.on('finalMessage', (msg) => {
+        waitUntil(record(ip, email, last.content, costOf(msg.usage)).catch((err) => console.error('ask: record failed', err)));
+      });
     },
     cancel() {
       stream.abort();
