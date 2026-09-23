@@ -157,7 +157,7 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
 // so the assistant knows every payer and can answer general or comparative
 // questions ("which state pays best?") that no keyword pick of sections can serve.
 // Retrieved sections below then add the detail for the payers a question names.
-const DIRECTORY = Object.values(payers)
+const DIRECTORY_FULL = Object.values(payers)
   .map((p) => {
     // At-a-glance lines only (~54K tokens). The long assessment/treatment PA and
     // diagnosis facts used to ride along too (~101K tokens, $0.50 per cache write);
@@ -167,6 +167,36 @@ const DIRECTORY = Object.values(payers)
     return `## ${p.payer}${p.state ? ` (${p.state})` : ''} — /payers/${p.slug}\n${lines.join('\n')}`;
   })
   .join('\n\n');
+
+/* Slim directory (TEMP flag ASK_DIRECTORY=slim while comparing). Three parts:
+   1. at a glance for the 28 guides every comparison starts from: each state
+      Medicaid program and the national commercial / BH / military plans;
+   2. each state's commercial autism-insurance mandate, once (the Aetna, Cigna
+      and UHC guides for a state all repeat it);
+   3. a one-line index of every guide, so the model knows each plan exists and
+      that its details arrive in the excerpts. */
+const MANDATE_LABELS = ['Covers ABA?', 'State mandate', 'Mandate age', 'Mandate caps', 'Exempt from mandate', 'Licensure'];
+const CORE = Object.values(payers).filter((p) => p.kind === 'state-medicaid' || p.state === 'US');
+const MANDATES = Array.from(new Set(Object.values(payers).map((p) => p.state ?? '')))
+  .filter((st) => st && st !== 'US')
+  .sort()
+  .map((st) => {
+    const g = Object.values(payers).find((p) => p.state === st && p.kind === 'commercial' &&
+      p.atGlance.some((f) => f.label === 'State mandate'));
+    if (!g) return '';
+    const lines = g.atGlance.filter((f) => MANDATE_LABELS.includes(f.label) && f.label !== 'Covers ABA?')
+      .map((f) => `- ${f.label}: ${f.value}`);
+    return `## ${st} commercial insurance: state autism mandate (fully insured plans; from /payers/${g.slug})\n${lines.join('\n')}`;
+  })
+  .filter(Boolean);
+const DIRECTORY_SLIM = [
+  ...CORE.map((p) => `## ${p.payer}${p.state ? ` (${p.state})` : ''} — /payers/${p.slug}\n${p.atGlance.map((f) => `- ${f.label}: ${f.value}`).join('\n')}`),
+  ...MANDATES,
+  '## Index of every guide (details for any of these arrive in the excerpts when a question needs them)\n' +
+    Object.values(payers).map((p) => `- ${p.payer} (${p.state ?? ''}, ${p.kind ?? ''}) — /payers/${p.slug}`).join('\n'),
+].join('\n\n');
+const SLIM = process.env.ASK_DIRECTORY === 'slim';
+const DIRECTORY = SLIM ? DIRECTORY_SLIM : DIRECTORY_FULL;
 
 // Words that say nothing about which guide a question is about. Without this,
 // "which ... has the ..." matched every section equally, and generic words like
@@ -302,7 +332,9 @@ function retrieve(question: string, prevUser: string | undefined, limit = 14): C
 const SYSTEM = `You are the Carelu ABA Payer Directory assistant, embedded on carelu.com/payers. You answer questions from ABA-provider intake and billing teams about insurance payers — prior authorization, assessment PA, diagnosis requirements, rates, reauthorization cadence, licensure, mandates.
 
 You have two sources:
-- The DIRECTORY below: every payer guide Carelu publishes, at a glance (key facts and guide page). Use it to know what the directory covers and to answer general or comparative questions across payers and states.
+- The DIRECTORY below: ${SLIM
+    ? 'each state Medicaid program and the national plans at a glance, each state\'s commercial autism-insurance mandate, and an index of every guide Carelu publishes. Details for Medicaid plans and state commercial guides arrive in the excerpts'
+    : 'every payer guide Carelu publishes, at a glance (key facts and guide page)'}. Use it to know what the directory covers and to answer general or comparative questions across payers and states.
 - Detailed <excerpts> attached to each question: the full guide sections most relevant to it. Prefer them for detail and for citations.
 
 Hard rules:
