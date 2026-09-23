@@ -28,8 +28,8 @@ export const IP_DAILY = 80;
 export const ALERT_USD = 5;
 export const HARD_CAP_USD = 25;
 
-// claude-opus-4-8, $ per million tokens.
-const PRICE = { input: 5, output: 25, cacheWrite: 6.25, cacheRead: 0.5 };
+// claude-opus-5-5, $ per million tokens (5-minute cache write = 1.25x input).
+const PRICE = { input: 4, output: 20, cacheWrite: 5, cacheRead: 0.2 };
 
 const TOKEN = process.env.GH_SOURCES_TOKEN ?? '';
 const MARKETING_SLACK_WEBHOOK_URL = process.env.SLACK_MARKETING_WEBHOOK_URL ?? '';

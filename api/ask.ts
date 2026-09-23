@@ -363,12 +363,14 @@ export async function POST(request: Request): Promise<Response> {
   ];
 
   const stream = client.messages.stream({
-    model: 'claude-opus-4-8',
-    max_tokens: 4000,
+    // Opus 5.5: 20% cheaper than Opus 4.8 per token, cache reads $0.20/M (was $0.50).
+    // Thinking is always on and counts toward max_tokens, so leave room for it.
+    model: 'claude-opus-5-5',
+    max_tokens: 8000,
     thinking: { type: 'adaptive' },
     output_config: { effort: 'low' },
     // The directory is identical on every call, so cache it: later questions
-    // read it at a tenth of the input price instead of paying for ~30K tokens.
+    // read it at a tenth of the input price instead of paying for ~60K tokens.
     system: [
       { type: 'text', text: SYSTEM },
       { type: 'text', text: `<directory>\n${DIRECTORY}\n</directory>`, cache_control: { type: 'ephemeral' } },
@@ -388,6 +390,14 @@ export async function POST(request: Request): Promise<Response> {
       stream.on('end', () => controller.close());
       // Tally the spend after the answer is out; the visitor never waits on it.
       stream.on('finalMessage', (msg) => {
+        // Safety classifiers can decline with a 200 and stop_reason 'refusal';
+        // never leave the visitor looking at an empty answer.
+        if (msg.stop_reason === 'refusal') {
+          console.warn('ask refusal', msg.stop_details);
+          try {
+            controller.enqueue(encoder.encode("\n\nSorry, I can't answer that one. Try rephrasing, or browse the payer guides below."));
+          } catch { /* stream already closed */ }
+        }
         waitUntil(record(ip, email, last.content, costOf(msg.usage)).catch((err) => console.error('ask: record failed', err)));
       });
     },
