@@ -23,8 +23,16 @@ export function loadGuides() {
       const slug = g.match(/slug: '([^']+)'/)?.[1];
       if (!slug) continue;
       const block = (name) => {
+        // The whole block, by brace depth. A fixed-width window (was 9000 chars)
+        // silently dropped fields at the end of long blocks from the count.
         const i2 = g.indexOf(`${name}: {`);
-        return i2 === -1 ? '' : g.slice(i2, i2 + 9000);
+        if (i2 === -1) return '';
+        let depth = 0;
+        for (let j = g.indexOf('{', i2); j < g.length; j++) {
+          if (g[j] === '{') depth++;
+          else if (g[j] === '}' && --depth === 0) return g.slice(i2, j + 1);
+        }
+        return g.slice(i2);
       };
       const dr = block('deliveryRules');
       const ig = block('intakeGates');
