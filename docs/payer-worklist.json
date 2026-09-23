@@ -1574,6 +1574,28 @@
       "resolve": "Open PEL_00179220 page 48 in a browser (onbaseext.phs.org refuses curl) and read the ABA row per line of business, or ask Presbyterian Turquoise Care BH UM ((505) 923-5757, option 4 then 2).",
       "sourceUrl": "https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220",
       "addedAt": "2026-09-23"
+    },
+    {
+      "id": "VC-039",
+      "priority": 2,
+      "status": "open",
+      "slug": "unitedhealthcare-* state guides (Optum-administered ABA), e.g. unitedhealthcare-new-mexico",
+      "claim": "deliveryRules.concurrentBilling 'not addressed'; telehealth, noteSignature, dailyLimits and reauth interval marked unverified.",
+      "challenge": "Surfaced while building California (2026-09-24): Optum's ABA CPT FAQ (01/2024) allows 97153 + 97155 concurrently; 97155/97156 by video are verified on POS 02 after the virtual-visits attestation; the provider-signature rule, MUE daily limits (97151 = 32 units/day) and a 4-6 month reauthorization interval are published. The shared template text on existing state guides predates this.",
+      "resolve": "Re-read the Optum ABA CPT FAQ, ABA SCC (4/2026) and Provider Express telehealth page (append ?__tracked=1), then update every unitedhealthcare-<state> guide's deliveryRules/intakeGates with cites; unitedhealthcare-california carries the verified wording to copy from.",
+      "sourceUrl": "https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf?__tracked=1",
+      "addedAt": "2026-09-24"
+    },
+    {
+      "id": "VC-040",
+      "priority": 2,
+      "status": "open",
+      "slug": "aetna-* state guides",
+      "claim": "deliveryRules.supervision says Aetna publishes no numeric supervision ratio; some guides cite the 8/22 BH provider manual and form GR-69017-4 without the 7-26 revision.",
+      "challenge": "Surfaced while building California (2026-09-24): Aetna's current ABA Medical Necessity Guide authorizes 1-2 hours of supervision per 10 hours of direct treatment; the current provider manual is the 6/26 edition and the form is GR-69017-4 (7-26). Related to VC-031.",
+      "resolve": "Confirm the ratio in the current Aetna ABA Medical Necessity Guide and update supervision on every aetna-<state> guide (aetna-california carries verified wording); re-point manual/form cites to the current editions.",
+      "sourceUrl": "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf",
+      "addedAt": "2026-09-24"
     }
   ],
   "documentRequests": [

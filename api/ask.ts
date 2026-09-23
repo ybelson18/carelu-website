@@ -234,13 +234,14 @@ const SWEEP_SLUGS = new Set(
 // Words that appear in payer names without naming one ("Georgia Medicaid").
 const NOT_A_PAYER_NAME = new Set([...GENERIC_PAYER_WORDS, 'medicaid', 'commercial', 'blue', 'cross', 'shield', 'military', 'behavioral']);
 
-const AMBIGUOUS_ABBR = new Set(['in', 'oh', 'co', 'ma', 'me', 'or', 'ok', 'hi', 'de', 'pa', 'al']);
+const AMBIGUOUS_ABBR = new Set(['in', 'oh', 'co', 'ma', 'me', 'or', 'ok', 'hi', 'de', 'pa', 'al', 'id']);
 
 const STATE_NAMES: Record<string, string> = {
   ga: 'georgia', nc: 'north carolina', in: 'indiana', va: 'virginia', tn: 'tennessee',
   oh: 'ohio', nj: 'new jersey', md: 'maryland', co: 'colorado', ut: 'utah', az: 'arizona',
   ny: 'new york', nm: 'new mexico', mo: 'missouri', tx: 'texas', ma: 'massachusetts',
   fl: 'florida', ks: 'kansas', ne: 'nebraska',
+  id: 'idaho', ca: 'california', mi: 'michigan', pa: 'pennsylvania', hi: 'hawaii', ia: 'iowa', ok: 'oklahoma',
 };
 
 function retrieve(question: string, prevUser: string | undefined, limit = 14): Chunk[] {

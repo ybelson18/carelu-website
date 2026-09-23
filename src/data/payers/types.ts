@@ -136,4 +136,11 @@ export const STATE_META: StateMeta[] = [
   { code: 'FL', name: 'Florida', mandate: 'Steven A. Geller Autism Coverage Act (\u00a7 627.6686, Fla. Stat.)', medicaidSlug: 'florida-medicaid' },
   { code: 'KS', name: 'Kansas', mandate: 'Kansas autism insurance mandate (K.S.A. 40-2,194)', medicaidSlug: 'kansas-medicaid' },
   { code: 'NE', name: 'Nebraska', mandate: 'Neb. Rev. Stat. \u00a7 44-7,106 (autism coverage, 25 hr/wk cap)', medicaidSlug: 'nebraska-medicaid' },
+  { code: 'ID', name: 'Idaho', mandate: 'No autism statute \u2014 DOI Bulletin 18-02 (habilitative-parity floor, plan years from 2019)', medicaidSlug: 'idaho-medicaid' },
+  { code: 'IA', name: 'Iowa', mandate: 'Iowa autism mandates (Iowa Code \u00a7\u00a7 514C.31, 514C.28; caps and age limits removed by H.F. 330 from 1/1/2026)', medicaidSlug: 'iowa-medicaid' },
+  { code: 'OK', name: 'Oklahoma', mandate: 'Nick\u2019s Law (36 O.S. \u00a7 6060.21; age and hour caps removed 2022)', medicaidSlug: 'oklahoma-medicaid' },
+  { code: 'MI', name: 'Michigan', mandate: 'Michigan autism mandate (MCL 500.3406s, 550.1416e; through age 18, $50K/$40K/$30K caps allowed)', medicaidSlug: 'michigan-medicaid' },
+  { code: 'HI', name: 'Hawaii', mandate: 'Luke\u2019s Law (HRS \u00a7 431:10A-133; under 14, $25,000/yr ABA cap)', medicaidSlug: 'hawaii-medicaid' },
+  { code: 'CA', name: 'California', mandate: 'SB 946 autism mandate (H&S \u00a7 1374.73, Ins. Code \u00a7 10144.51; no age or dollar caps)', medicaidSlug: 'medi-cal-california-medicaid' },
+  { code: 'PA', name: 'Pennsylvania', mandate: 'Act 62 of 2008 (40 P.S. \u00a7 764h; under 21, CPI-adjusted cap $51,908 for 2026)', medicaidSlug: 'pennsylvania-medicaid' },
 ];

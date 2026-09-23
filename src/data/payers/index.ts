@@ -22,6 +22,13 @@ import { floridaPayers } from './florida.js';
 import { kansasPayers } from './kansas.js';
 import { nebraskaPayers } from './nebraska.js';
 import { utahPayers } from './utah.js';
+import { idahoPayers } from './idaho.js';
+import { iowaPayers } from './iowa.js';
+import { oklahomaPayers } from './oklahoma.js';
+import { michiganPayers } from './michigan.js';
+import { hawaiiPayers } from './hawaii.js';
+import { californiaPayers } from './california.js';
+import { pennsylvaniaPayers } from './pennsylvania.js';
 
 export const payers: Record<string, PayerConfig> = {
   ...nationalPayers,
@@ -46,4 +53,11 @@ export const payers: Record<string, PayerConfig> = {
   ...kansasPayers,
   ...nebraskaPayers,
   ...utahPayers,
+  ...idahoPayers,
+  ...iowaPayers,
+  ...oklahomaPayers,
+  ...michiganPayers,
+  ...hawaiiPayers,
+  ...californiaPayers,
+  ...pennsylvaniaPayers,
 };

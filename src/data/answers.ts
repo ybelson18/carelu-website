@@ -170,7 +170,7 @@ export const answerResources: Record<string, ResourceConfig> = {
       { step: 'Handoff to billing', manual: 'Re-typed into the practice management system', carelu: 'Pushed to your queue and your practice management system or CRM' },
     ],
     related: [
-      { slug: '/payers', label: 'The payer directory', blurb: 'ABA coverage, prior-auth and diagnosis rules for 160+ plans across 19 states.' },
+      { slug: '/payers', label: 'The payer directory', blurb: 'ABA coverage, prior-auth and diagnosis rules for 260+ plans across 26 states.' },
       { slug: 'aba-records-request', label: 'Records requests', blurb: 'Getting the diagnostic report fast enough to file the assessment auth.' },
       { slug: 'aba-client-intake-process', label: 'The ABA intake process', blurb: 'Every step from first contact to first session, with state-by-state requirements.' },
       { slug: 'aba-intake-metrics', label: 'The numbers to watch', blurb: 'Verification turnaround and days to start, alongside the rest of the scoreboard.' },
