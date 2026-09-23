@@ -9,6 +9,7 @@ import DemoModalHost from '../components/DemoModal';
 import SiteFooter from '../components/SiteFooter';
 import { LOGIN_URL } from '../lib/loginUrl';
 import { getLiveCount } from '../lib/liveCount';
+import { sortedNews } from '../data/news';
 
 // Nav link that client-side-routes internal pages (no full reload → no font-swap
 // flash in the nav pill). Same-page hash anchors and /demo (modal-intercepted)
@@ -3235,6 +3236,81 @@ function Compliance() {
 
 
 // ── FAQ ──────────────────────────────────────────
+/* In the news — the latest coverage from src/data/news.ts, linking out to
+   the full list at /news. Renders nothing while there is no coverage. */
+function InTheNews() {
+  const items = sortedNews().slice(0, 3);
+  if (items.length === 0) return null;
+  return (
+    <section id="news" style={{ paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)', background: 'var(--bone)' }}>
+      <div style={W}>
+        <div style={{ textAlign: 'center', maxWidth: 1100, margin: '0 auto' }}>
+          <div className="rv"><Pill>News</Pill></div>
+          <h2 className="rv-scale d1" style={{
+            fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 4.2vw, 52px)',
+            fontWeight: 400, color: 'var(--green-900)',
+            lineHeight: 1.12, letterSpacing: '-0.02em', margin: '0 0 44px',
+          }}>
+            Carelu in the news.
+          </h2>
+        </div>
+        <div style={{
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+          gap: 20, maxWidth: 1100, margin: '0 auto',
+        }}>
+          {items.map((n, i) => (
+            <a
+              key={n.url}
+              href={n.url}
+              target="_blank"
+              rel="noreferrer"
+              className={`rv d${Math.min(i + 1, 5)}`}
+              style={{
+                display: 'flex', flexDirection: 'column', background: '#fff', borderRadius: 24,
+                padding: 'clamp(24px, 2.8vw, 32px)', textDecoration: 'none',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)',
+                transition: 'transform 0.2s, box-shadow 0.25s',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(0,0,0,0.09)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)'; }}
+            >
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12,
+                fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
+                color: '#3f7a34', marginBottom: 14,
+              }}>
+                <span>{n.outlet}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0 }}>
+                  <path d="M7 17L17 7M9 7h8v8" />
+                </svg>
+              </div>
+              <h3 style={{
+                fontFamily: 'var(--font-display)', fontSize: 'clamp(19px, 1.9vw, 23px)', fontWeight: 400,
+                color: 'var(--green-900)', margin: 0, letterSpacing: '-0.01em', lineHeight: 1.28,
+              }}>
+                {n.title}
+              </h3>
+              {n.excerpt && (
+                <p style={{ fontSize: 14.5, color: 'var(--gray-500)', lineHeight: 1.65, margin: '12px 0 0' }}>
+                  {n.excerpt}
+                </p>
+              )}
+              <time dateTime={n.date} style={{ fontSize: 12.5, color: 'rgba(43,42,38,0.45)', marginTop: 'auto', paddingTop: 18 }}>
+                {new Date(`${n.date}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
+              </time>
+            </a>
+          ))}
+        </div>
+        <div className="rv" style={{ textAlign: 'center', marginTop: 32 }}>
+          <Link to="/news" style={{ fontSize: 15, fontWeight: 500, color: 'var(--green-900)', textDecoration: 'underline', textUnderlineOffset: 3 }}>
+            All news
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Faq() {
   const [open, setOpen] = useState<number | null>(null);
   const faqs = [
@@ -3702,6 +3778,7 @@ export default function Landing() {
         <CeoLetter />
         <GettingStarted />
         <Compliance />
+        <InTheNews />
         <Faq />
         <SiteFooter />
       </div>
