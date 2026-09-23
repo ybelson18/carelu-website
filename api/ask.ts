@@ -26,6 +26,8 @@ interface Chunk {
   text: string;
   hay: string;
   sources: { title: string; url: string }[];
+  /** deliveryRules / intakeGates key, for the all-states sweep. */
+  rule?: string;
 }
 
 const DELIVERY_TITLES: Record<string, string> = {
@@ -74,8 +76,8 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
     // The structured layers. School/IEP, place of service, supervision, telehealth,
     // referral and diagnosis rules live here, not in the prose sections, so without
     // them the chat could not answer "what code does an IEP fall under?".
-    ...Object.entries(p.deliveryRules ?? {}).map(([k, f]) => ruleChunk(DELIVERY_TITLES[k] ?? k, f)),
-    ...Object.entries(p.intakeGates ?? {}).map(([k, f]) => ruleChunk(GATE_TITLES[k] ?? k, f)),
+    ...Object.entries(p.deliveryRules ?? {}).map(([k, f]) => ruleChunk(k, DELIVERY_TITLES[k] ?? k, f)),
+    ...Object.entries(p.intakeGates ?? {}).map(([k, f]) => ruleChunk(k, GATE_TITLES[k] ?? k, f)),
     ...(p.faq.length > 0 ? [{
       payer: p.payer, state: p.state ?? '', slug: p.slug, title: 'FAQ',
       text: p.faq.map((f) => `Q: ${f.q} A: ${f.a}`).join(' '),
@@ -89,9 +91,9 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
     ...vobChunks(p.slug),
   ];
 
-  function ruleChunk(title: string, f: { value: string; status: string; verifyVia?: string; cites?: { title: string; url: string }[] }) {
+  function ruleChunk(rule: string, title: string, f: { value: string; status: string; verifyVia?: string; cites?: { title: string; url: string }[] }) {
     return {
-      payer: p.payer, state: p.state ?? '', slug: p.slug, title,
+      payer: p.payer, state: p.state ?? '', slug: p.slug, title, rule,
       text: fact(f),
       sources: f.cites && f.cites.length > 0 ? f.cites : guideSources.slice(0, 1),
     };
@@ -193,6 +195,32 @@ const SYNONYMS: Record<string, string[]> = {
   supervision: ['rbt', 'bcba'],
 };
 
+/* A question about one of the rules that names no state or payer ("how old can
+   a diagnosis be?") should be answered for EVERY state, not for whichever ten
+   sections scored highest. Those questions get the rule from each state's
+   Medicaid program plus the national commercial/military guides, whole. */
+const RULE_TOPICS: [string, RegExp][] = [
+  ['dxRecency', /(how (old|recent)|expire|expir|valid|current|years? old|re-?eval\w*|outdated|too old).*(diagnos|eval)|(diagnos|eval)\w*.*(how (old|recent)|expire|expir|valid for|years? old|outdated|too old|recency)/],
+  ['ageLimit', /age (limit|cap|cutoff|range)|maximum age|max age|up to age|until age|minimum age|adults?\b|over (18|21)/],
+  ['diagnosingProviders', /who (can|may|is allowed to) (diagnose|make the diagnosis)|diagnosing (provider|clinician)s?|(pediatrician|psychologist).*(diagnose|diagnosis)/],
+  ['diagnosticTools', /\bados\b|diagnostic (tool|instrument|test)s?|which (tool|instrument|test)/],
+  ['referral', /referral|physician order|prescription|\border\b.*(needed|required)/],
+  ['telehealth', /telehealth|telemedicine|remote(ly)?|virtual/],
+  ['placeOfService', /school|\biep\b|place of service|\bpos\b|in-home|home-based|community|daycare|setting/],
+  ['supervision', /supervis/],
+  ['concurrentBilling', /concurrent|same time|97153.*97155|97155.*97153|bill (both|together)/],
+  ['dailyLimits', /(daily|per day|a day) (limit|cap|units|max)|units (per|a) day|\bmue\b|max(imum)? units/],
+  ['noteSignature', /session notes?|sign(ature|s|ed)?\b.*notes?|notes?.*sign/],
+  ['billAsProvider', /rendering|\bnpi\b|bill under|billing provider/],
+];
+const SWEEP_SLUGS = new Set(
+  Object.values(payers).filter((p) => p.kind === 'state-medicaid' || p.state === 'US').map((p) => p.slug),
+);
+// Words that appear in payer names without naming one ("Georgia Medicaid").
+const NOT_A_PAYER_NAME = new Set([...GENERIC_PAYER_WORDS, 'medicaid', 'commercial', 'blue', 'cross', 'shield', 'military', 'behavioral']);
+
+const AMBIGUOUS_ABBR = new Set(['in', 'oh', 'co', 'ma', 'me', 'or', 'ok', 'hi', 'de', 'pa', 'al']);
+
 const STATE_NAMES: Record<string, string> = {
   ga: 'georgia', nc: 'north carolina', in: 'indiana', va: 'virginia', tn: 'tennessee',
   oh: 'ohio', nj: 'new jersey', md: 'maryland', co: 'colorado', ut: 'utah', az: 'arizona',
@@ -214,7 +242,10 @@ function retrieve(question: string, prevUser: string | undefined, limit = 14): C
   }));
   // Expand state abbreviations so "AZ medicaid" matches "arizona".
   const stateTerms = Object.entries(STATE_NAMES)
-    .filter(([abbr, name]) => q.includes(name) || new RegExp(`\\b${abbr}\\b`).test(q))
+    .filter(([abbr, name]) => q.includes(name) || (AMBIGUOUS_ABBR.has(abbr)
+      // "done in school" is not Indiana: English-word abbreviations count only in capitals.
+      ? new RegExp(`\\b${abbr.toUpperCase()}\\b`).test(`${prevUser ?? ''} ${question}`)
+      : new RegExp(`\\b${abbr}\\b`).test(q)))
     .map(([, name]) => name);
 
   const scored = CHUNKS.map((c) => {
@@ -232,8 +263,21 @@ function retrieve(question: string, prevUser: string | undefined, limit = 14): C
   scored.sort((a, b) => b.score - a.score);
   const picked: Chunk[] = [];
   let chars = 0;
+
+  const namesPayer = nameWords.some((w) => w.length > 3 && !NOT_A_PAYER_NAME.has(w) &&
+    CHUNKS.some((c) => c.payer.toLowerCase().split(/[^a-z0-9]+/).includes(w)));
+  if (stateTerms.length === 0 && !namesPayer) {
+    const topics = RULE_TOPICS.filter(([, re]) => re.test(question.toLowerCase())).slice(0, 2);
+    for (const [rule] of topics) {
+      for (const c of CHUNKS) if (c.rule === rule && SWEEP_SLUGS.has(c.slug)) picked.push(c);
+    }
+    // The sweep is the answer; retrieval below only adds context around it.
+    if (topics.length > 0) limit = Math.min(limit, 4);
+  }
+  const swept = picked.length;
   for (const { c } of scored) {
-    if (picked.length >= limit || chars > 42000) break;
+    if (picked.length - swept >= limit || chars > 42000) break;
+    if (picked.includes(c)) continue;
     picked.push(c);
     chars += c.text.length;
   }
@@ -252,6 +296,7 @@ Hard rules:
 - Be concise and operational — answer the question directly in the first sentence, then only the detail an intake operator needs. Prefer short paragraphs over lists unless comparing several payers.
 - Every answer ends with a one-line reminder that policies change and to verify against the payer's live policy for the specific member.
 - If the question is not about ABA payers/insurance/intake (or asks for legal, clinical, or billing advice beyond general information), decline briefly and steer back to payer questions.
+- When the excerpts carry the same rule for every state Medicaid program (plus the national plans), the question was asked across states: answer state by state, covering EVERY state in the excerpts, one short line each (a compact list, alphabetical by state), then the national commercial/military plans. Lead each line with the bottom-line window (e.g. "no expiry on the diagnosis; assessment within 3 years"), and flag rules marked UNVERIFIED or PLAN-DEPENDENT rather than stating them as settled. Link each state's guide page.
 - For comparative questions ("which pays best", "which states require X"), compare across the whole directory, not only the excerpts; say what the comparison covers and name payers the directory lacks data for rather than silently leaving them out. Rates differ by credential tier, unit and setting, so compare like with like.
 - Never invent payer names, policy numbers, dollar amounts, or URLs.`;
 
