@@ -1,6 +1,8 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { waitUntil } from '@vercel/functions';
 import { payers, PAYER_REVIEWED } from '../src/data/payers/index.js';
+import { vob } from '../src/data/payers/vob/index.js';
+import type { SourceRef } from '../src/data/payers/vob/types.js';
 import { check, record, clientIp, costOf } from './_askGuard.js';
 
 const EMAIL_RE = /^[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
@@ -25,6 +27,23 @@ interface Chunk {
   hay: string;
   sources: { title: string; url: string }[];
 }
+
+const DELIVERY_TITLES: Record<string, string> = {
+  supervision: 'Supervision requirements (BCBA supervision of RBTs/techs, ratios)',
+  concurrentBilling: 'Concurrent billing (97153 and 97155 at the same time)',
+  dailyLimits: 'Daily unit limits (MUE, per-day caps)',
+  noteSignature: 'Session note signature requirements',
+  placeOfService: 'Place of service: school, IEP, home, community, clinic (where ABA is payable)',
+  billAsProvider: 'Rendering vs supervising provider NPI on the claim',
+};
+const GATE_TITLES: Record<string, string> = {
+  ageLimit: 'Age limits on the ABA benefit',
+  dxRecency: 'How recent the autism diagnostic evaluation must be',
+  diagnosingProviders: 'Who may make the autism diagnosis',
+  diagnosticTools: 'Required diagnostic instruments (ADOS etc.)',
+  referral: 'Referral or physician order requirement',
+  telehealth: 'Telehealth: which ABA codes may be delivered remotely',
+};
 
 // Flatten every guide section into a retrievable chunk. Built once per
 // (cold) function instance; the corpus is static per deploy.
@@ -52,7 +71,77 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
       ].join(' '),
       sources: (s.cites && s.cites.length > 0 ? s.cites : guideSources.slice(0, 1)),
     })),
+    // The structured layers. School/IEP, place of service, supervision, telehealth,
+    // referral and diagnosis rules live here, not in the prose sections, so without
+    // them the chat could not answer "what code does an IEP fall under?".
+    ...Object.entries(p.deliveryRules ?? {}).map(([k, f]) => ruleChunk(DELIVERY_TITLES[k] ?? k, f)),
+    ...Object.entries(p.intakeGates ?? {}).map(([k, f]) => ruleChunk(GATE_TITLES[k] ?? k, f)),
+    ...(p.faq.length > 0 ? [{
+      payer: p.payer, state: p.state ?? '', slug: p.slug, title: 'FAQ',
+      text: p.faq.map((f) => `Q: ${f.q} A: ${f.a}`).join(' '),
+      sources: guideSources.slice(0, 1),
+    }] : []),
+    ...(p.collect.length > 0 ? [{
+      payer: p.payer, state: p.state ?? '', slug: p.slug, title: 'What intake should collect from the family',
+      text: p.collect.map((c) => `${c.title}: ${c.desc}`).join('. '),
+      sources: guideSources.slice(0, 1),
+    }] : []),
+    ...vobChunks(p.slug),
   ];
+
+  function ruleChunk(title: string, f: { value: string; status: string; verifyVia?: string; cites?: { title: string; url: string }[] }) {
+    return {
+      payer: p.payer, state: p.state ?? '', slug: p.slug, title,
+      text: fact(f),
+      sources: f.cites && f.cites.length > 0 ? f.cites : guideSources.slice(0, 1),
+    };
+  }
+
+  function vobChunks(slug: string) {
+    const v = vob[slug];
+    if (!v) return [];
+    const src = (refs?: SourceRef[]) =>
+      (refs ?? []).slice(0, 3).map((r) => ({ title: r.note ?? new URL(r.url).hostname, url: r.url }));
+    const out = [];
+    if (v.codeGrid && Object.keys(v.codeGrid).length > 0) {
+      const rows = Object.entries(v.codeGrid).map(([code, e]) =>
+        `${code}: covered ${e.covered}; PA ${e.paRequired}; units ${e.unitCap} per ${e.capPeriod}; ` +
+        `place of service ${e.posAllowed.join(', ') || 'not stated'}; telehealth ${e.telehealth}` +
+        (e.modifiers.length ? `; modifiers ${e.modifiers.join(', ')}` : '') + (e.notes ? `; ${e.notes}` : ''));
+      out.push({
+        payer: p.payer, state: p.state ?? '', slug,
+        title: 'Billing codes: coverage, prior auth, unit caps, place of service (school/home/clinic), telehealth, modifiers (CPT 97151-97158, 0362T, 0373T)',
+        text: rows.join(' | '),
+        sources: src(Object.values(v.codeGrid).flatMap((e) => e.sources ?? [])),
+      });
+    }
+    if (v.rates && Object.keys(v.rates.byCode).length > 0) {
+      const rows = Object.entries(v.rates.byCode).map(([code, r]) =>
+        `${code}: ${r.rate} per ${r.unit}` +
+        (r.modifierTiers ? ` (${Object.entries(r.modifierTiers).map(([m, x]) => `${m} ${x}`).join(', ')})` : ''));
+      out.push({
+        payer: p.payer, state: p.state ?? '', slug,
+        title: `Fee schedule / reimbursement rates (${v.rates.source}, effective ${v.rates.effectiveDate})`,
+        text: rows.join(' | '),
+        sources: src(v.rates.sources),
+      });
+    }
+    const c = v.vobContact;
+    if (c && (c.providerServicesPhone || c.portal || c.fax)) {
+      out.push({
+        payer: p.payer, state: p.state ?? '', slug,
+        title: 'Provider services contact: phone, portal, fax, IVR (for verifying benefits)',
+        text: [
+          c.providerServicesPhone && `Provider services phone: ${c.providerServicesPhone}`,
+          c.ivrPath && `IVR path: ${c.ivrPath}`, c.hours && `Hours: ${c.hours}`,
+          c.portal && `Portal: ${c.portal.name} <${c.portal.url}>`, c.fax && `Fax: ${c.fax}`,
+          c.scriptedQuestions.length && `Ask on the call: ${c.scriptedQuestions.join(' ')}`,
+        ].filter(Boolean).join('. '),
+        sources: src(c.sources),
+      });
+    }
+    return out;
+  }
   return base.map((c) => ({ ...c, hay: `${c.payer} ${c.state} ${c.title} ${c.text}`.toLowerCase() }));
 });
 
@@ -80,10 +169,29 @@ const STOPWORDS = new Set([
   'this', 'these', 'those', 'there', 'their', 'they', 'any', 'all', 'most', 'more',
   'best', 'better', 'worst', 'good', 'about', 'into', 'than', 'then', 'our', 'you', 'your',
   'need', 'needs', 'get', 'give', 'tell', 'show', 'list', 'compare', 'between',
+  'fall', 'falls', 'under', 'use', 'used', 'should', 'would', 'could', 'kind', 'type',
 ]);
 const GENERIC_PAYER_WORDS = new Set([
   'state', 'states', 'insurance', 'insurer', 'health', 'plan', 'plans', 'care', 'payer', 'payers', 'aba',
 ]);
+
+// Question words that the guides spell differently. Expanding them is what
+// lets "what code does an IEP fall under" reach the place-of-service rules.
+const SYNONYMS: Record<string, string[]> = {
+  iep: ['school', 'individualized', 'education', 'place', 'service'],
+  ifsp: ['school', 'early', 'intervention'],
+  school: ['iep', 'place', 'service'],
+  pos: ['place', 'service'],
+  code: ['codes', 'billing', 'cpt'],
+  codes: ['billing', 'cpt'],
+  rate: ['rates', 'fee', 'schedule', 'reimbursement'],
+  rates: ['fee', 'schedule', 'reimbursement'],
+  pay: ['rates', 'fee', 'reimbursement'],
+  telehealth: ['remote', 'virtual'],
+  phone: ['contact', 'provider', 'services'],
+  rbt: ['supervision', 'technician'],
+  supervision: ['rbt', 'bcba'],
+};
 
 const STATE_NAMES: Record<string, string> = {
   ga: 'georgia', nc: 'north carolina', in: 'indiana', va: 'virginia', tn: 'tennessee',
@@ -94,8 +202,16 @@ const STATE_NAMES: Record<string, string> = {
 
 function retrieve(question: string, prevUser: string | undefined, limit = 14): Chunk[] {
   const q = `${prevUser ?? ''} ${question}`.toLowerCase();
-  const words = Array.from(new Set(q.split(/[^a-z0-9]+/).filter((w) => w.length > 2 && !STOPWORDS.has(w))));
+  const asked = q.split(/[^a-z0-9]+/).filter((w) => w.length > 2 && !STOPWORDS.has(w));
+  const words = Array.from(new Set([...asked, ...asked.flatMap((w) => SYNONYMS[w] ?? [])]));
   const nameWords = words.filter((w) => !GENERIC_PAYER_WORDS.has(w));
+  // Rare words decide relevance: "iep" in 40 chunks says far more than "codes"
+  // in 3,000. Weight each word by inverse document frequency; expansions count half.
+  const weight = new Map(words.map((w) => {
+    const df = CHUNKS.reduce((n, c) => n + (c.hay.includes(w) ? 1 : 0), 0);
+    const idf = Math.log((CHUNKS.length + 1) / (df + 1));
+    return [w, asked.includes(w) ? idf : idf / 2];
+  }));
   // Expand state abbreviations so "AZ medicaid" matches "arizona".
   const stateTerms = Object.entries(STATE_NAMES)
     .filter(([abbr, name]) => q.includes(name) || new RegExp(`\\b${abbr}\\b`).test(q))
@@ -103,7 +219,7 @@ function retrieve(question: string, prevUser: string | undefined, limit = 14): C
 
   const scored = CHUNKS.map((c) => {
     let score = 0;
-    for (const w of words) if (c.hay.includes(w)) score += 1;
+    for (const w of words) if (c.hay.includes(w)) score += weight.get(w) ?? 0;
     const payerLower = c.payer.toLowerCase();
     for (const w of nameWords) if (payerLower.includes(w)) score += 4;
     for (const st of stateTerms) {
