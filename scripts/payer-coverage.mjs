@@ -10,7 +10,7 @@ const SKIP = new Set(['types.ts', 'index.ts', 'changelog.ts']);
 // Structured fields every guide should carry a value for, where the payer publishes one.
 const TOP = ['cardDesc', 'assessmentPA', 'treatmentPA', 'dxRequired', 'family', 'state', 'kind'];
 const RULES = ['supervision', 'concurrentBilling', 'dailyLimits', 'noteSignature', 'placeOfService', 'billAsProvider'];
-const GATES = ['ageLimit', 'dxRecency', 'diagnosingProviders', 'diagnosticTools', 'referral', 'telehealth'];
+const GATES = ['ageLimit', 'dxRecency', 'diagnosingProviders', 'diagnosticTools', 'referral', 'telehealth', 'authTurnaround', 'coordinationOfBenefits'];
 
 export function loadGuides() {
   const out = [];

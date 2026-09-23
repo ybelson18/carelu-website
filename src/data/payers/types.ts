@@ -73,6 +73,8 @@ export interface PayerIntakeGates {
   diagnosticTools?: PayerRuleFact;     // instruments the payer requires behind the diagnosis
   referral?: PayerRuleFact;            // is a referral/order required, from whom, how current
   telehealth?: PayerRuleFact;          // which ABA codes may be delivered remotely, and where
+  authTurnaround?: PayerRuleFact;      // how long the payer has to decide a PA: standard / expedited, and any reauth lead time
+  coordinationOfBenefits?: PayerRuleFact; // who pays first when the child has other coverage (commercial + Medicaid, two parents' plans, TRICARE/CHAMPVA order)
 }
 
 export type PayerKind = 'state-medicaid' | 'medicaid-mco' | 'commercial';

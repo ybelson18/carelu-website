@@ -328,6 +328,8 @@ function PayerGuide({ config }: { config: PayerConfig }) {
                 ['Diagnostic tools required', config.intakeGates.diagnosticTools],
                 ['Referral required?', config.intakeGates.referral],
                 ['Telehealth', config.intakeGates.telehealth],
+                ['Prior-auth decision time', config.intakeGates.authTurnaround],
+                ['Other insurance (who pays first)', config.intakeGates.coordinationOfBenefits],
               ] as const)
                 .filter(([, r]) => r)
                 .sort(([, a], [, b]) => {

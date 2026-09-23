@@ -45,6 +45,8 @@ const GATE_TITLES: Record<string, string> = {
   diagnosticTools: 'Required diagnostic instruments (ADOS etc.)',
   referral: 'Referral or physician order requirement',
   telehealth: 'Telehealth: which ABA codes may be delivered remotely',
+  authTurnaround: 'Prior authorization decision time: how long the payer has to approve or deny (standard, expedited/urgent, reauthorization lead time)',
+  coordinationOfBenefits: 'Coordination of benefits: who pays first with other insurance (commercial plus Medicaid, secondary, payer of last resort, birthday rule)',
 };
 
 // Flatten every guide section into a retrievable chunk. Built once per
@@ -192,6 +194,9 @@ const SYNONYMS: Record<string, string[]> = {
   telehealth: ['remote', 'virtual'],
   phone: ['contact', 'provider', 'services'],
   rbt: ['supervision', 'technician'],
+  secondary: ['coordination', 'benefits', 'primary'],
+  cob: ['coordination', 'benefits', 'secondary'],
+  turnaround: ['decision', 'authorization', 'days'],
   supervision: ['rbt', 'bcba'],
 };
 
@@ -212,6 +217,8 @@ const RULE_TOPICS: [string, RegExp][] = [
   ['dailyLimits', /(daily|per day|a day) (limit|cap|units|max)|units (per|a) day|\bmue\b|max(imum)? units/],
   ['noteSignature', /session notes?|sign(ature|s|ed)?\b.*notes?|notes?.*sign/],
   ['billAsProvider', /rendering|\bnpi\b|bill under|billing provider/],
+  ['authTurnaround', /how long.*(auth|approv|pa\b|decision)|(auth|approval|pa)\w*.*(take|turnaround|how long|days|timeline|timeframe|decision time)|turnaround|expedited|urgent (auth|request)/],
+  ['coordinationOfBenefits', /coordination of benefits|\bcob\b|secondary|primary (insurance|payer)|two (insurances|plans)|both (insurances|plans)|other insurance|dual coverage|payer of last resort|birthday rule|who pays first|bill (first|medicaid second)/],
 ];
 const SWEEP_SLUGS = new Set(
   Object.values(payers).filter((p) => p.kind === 'state-medicaid' || p.state === 'US').map((p) => p.slug),
