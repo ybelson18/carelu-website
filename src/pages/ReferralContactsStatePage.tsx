@@ -3,6 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { Nav } from './Landing';
 import { GateModal, useGatedDownload } from '../components/ReferralGate';
 import STATS from '../data/referral_contacts_stats.json';
@@ -75,12 +76,7 @@ function buildFaq(d: StateData) {
 }
 
 function useStateJsonLd(d: StateData | null) {
-  useEffect(() => {
-    if (!d) return;
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'refstate-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('refstate-jsonld', d ? {
       '@context': 'https://schema.org',
       '@graph': [
         {
@@ -110,10 +106,7 @@ function useStateJsonLd(d: StateData | null) {
           })),
         },
       ],
-    });
-    document.head.appendChild(script);
-    return () => { document.getElementById('refstate-jsonld')?.remove(); };
-  }, [d]);
+    } : null);
 }
 
 function StatePage({ meta }: { meta: (typeof STATS.states)[number] }) {

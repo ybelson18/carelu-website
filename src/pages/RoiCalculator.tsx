@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { Nav } from './Landing';
 import SiteFooter from '../components/SiteFooter';
 
@@ -55,11 +56,7 @@ export default function RoiCalculator() {
     canonical: '/tools/intake-leak-calculator',
   });
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'calc-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('calc-jsonld', {
       '@context': 'https://schema.org',
       '@type': 'WebApplication',
       name: 'ROI Calculator',
@@ -70,9 +67,6 @@ export default function RoiCalculator() {
       publisher: { '@id': 'https://carelu.com/#organization' },
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     });
-    document.head.appendChild(script);
-    return () => { document.getElementById('calc-jsonld')?.remove(); };
-  }, []);
 
   // Carelu's asserted intake uplift — a static figure we stand behind, not a
   // user guess. Grounded in the Intake Gap research: ~48% of inquiries arrive

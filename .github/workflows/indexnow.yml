@@ -1,0 +1,30 @@
+# Tells Bing (and through it ChatGPT search, Copilot, DuckDuckGo) and the other
+# IndexNow engines that pages changed, right after each production deploy,
+# instead of waiting for a recrawl. Vercel reports its deploy to GitHub as a
+# deployment_status event.
+name: IndexNow ping
+
+on:
+  deployment_status:
+  workflow_dispatch:
+
+jobs:
+  ping:
+    if: github.event_name == 'workflow_dispatch' || (github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit every sitemap URL
+        env:
+          HOST: www.carelu.com
+          KEY: b52032363c859a0459ef558e84beb17b
+        run: |
+          curl -sfL "https://$HOST/sitemap.xml" -o sitemap.xml
+          # Sitemap URLs are written as carelu.com; the site serves them on www.
+          urls=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -E 's#</?loc>##g; s#^https://carelu\.com#https://www.carelu.com#' | jq -R . | jq -s .)
+          echo "Submitting $(echo "$urls" | jq length) URLs"
+          jq -n --arg host "$HOST" --arg key "$KEY" --argjson urls "$urls" \
+            '{host: $host, key: $key, keyLocation: "https://\($host)/\($key).txt", urlList: $urls}' > body.json
+          curl -s -o resp.txt -w "%{http_code}\n" -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' --data @body.json | tee code.txt
+          cat resp.txt
+          grep -qE '^20[02]$' code.txt

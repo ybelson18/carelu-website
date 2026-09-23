@@ -25,6 +25,9 @@ export const answerResources: Record<string, ResourceConfig> = {
     metaTitle: 'ABA CPT Codes 97151–97158 Explained (2026), with Medicaid Rates by State | Carelu',
     metaDescription:
       'Every ABA billing code in plain language: 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T. Who can render each, how 15-minute units work, daily unit limits, concurrent billing, credential modifiers, and current Medicaid rates for 97153 and 97155 in 15 states.',
+    answer:
+      'ABA is billed with ten codes in 15-minute units: 97151 (BCBA assessment), 97152 and 0362T (supporting assessment), 97153 (technician 1:1 therapy, most billed hours), 97154/97158 (group), 97155 (BCBA protocol modification), 97156/97157 (parent training) and 0373T (severe behavior). Medicaid pays 97153 from about $12 to $24 per unit depending on the state.',
+    updated: '2026-09-23',
     intro: [
       'ABA is billed with ten codes: eight Category I CPT codes (97151–97158) and two Category III codes (0362T and 0373T) for severe destructive behavior. They took effect January 1, 2019, and replaced the old temporary set. Every code is billed in 15-minute units.',
       'The codes split along two lines, and once you see them the whole set makes sense. The first is assessment versus treatment. The second is who is in the room: a technician working from a protocol, or a qualified healthcare professional (usually a BCBA) who can change the protocol. After that, the only other questions are one patient or a group, and whether the caregiver is the person being taught.',
@@ -186,6 +189,9 @@ export const answerResources: Record<string, ResourceConfig> = {
     metaTitle: 'Best ABA Intake Software (2026): A Buyer’s Guide for ABA Providers | Carelu',
     metaDescription:
       'The four kinds of tools ABA practices use for intake (practice-management intake modules, general CRMs, answering services and AI intake platforms), what each is good at, the twelve questions to ask any vendor, and a two-week test that shows whether a tool actually moves families to first session.',
+    answer:
+      'The best one fixes the step where your families get lost, so pull 60 days of inquiries and mark where each family stopped. Families who never reach a person need 24/7 answering on every channel; families who stall on documents need guided digital intake with follow-up. Test any tool on a slice of real traffic for two weeks before you buy.',
+    updated: '2026-09-23',
     intro: [
       'When an ABA owner asks for "the best intake software," they usually mean one of four different kinds of product, and the best choice depends on where families are getting lost. A practice that loses families at the first phone call needs something different from one that loses them waiting on the diagnostic report.',
       'So this guide doesn’t rank vendors. It explains the four categories, what each one actually does, the questions that separate a demo from a working system, and a two-week test to run before you sign. Carelu is one of these tools, and its pitch is at the end. The method works whatever you buy.',
@@ -294,6 +300,9 @@ export const answerResources: Record<string, ResourceConfig> = {
     metaTitle: 'AI for ABA Practices: What Works, What Doesn’t, and How to Start | Carelu',
     metaDescription:
       'A practical guide to AI in ABA practices: AI receptionists and intake, insurance verification, document collection, follow-up, marketing and admin, plus the clinical decisions AI should stay out of, and the HIPAA guardrails every tool must meet.',
+    answer:
+      'AI helps most in the front office: answering every inquiry 24/7, qualifying families, completing intake, verifying benefits and following up on missing documents, where 48% of contacts arrive after hours and only 2% of providers run automated re-engagement. It shouldn’t make clinical decisions like medical necessity, hours or treatment plans, and any tool touching family data needs a signed BAA.',
+    updated: '2026-09-23',
     intro: [
       'Most of the work that decides whether an ABA practice grows isn’t clinical. It’s answering the phone at 8:40pm, checking whether a plan covers ABA, chasing a diagnostic report, and reminding a family for the third time that one signature is missing. That is repetitive, rule-bound and time-sensitive, which is exactly what current AI does well.',
       'The clinical work is different: assessment, programming, supervision and the relationship with the family. AI can help around it, but it shouldn’t make those decisions. This guide covers where AI earns its place in an ABA practice, where it doesn’t, and how to adopt it without putting families or compliance at risk.',

@@ -4,6 +4,12 @@
 
 Carelu is built specifically for Applied Behavior Analysis (ABA) and behavioral-health organizations of every size, from single-site clinics to multi-site groups and enterprise providers. It is HIPAA compliant, SOC 2 Type II, and signs a BAA with every provider.
 
+## Machine-readable versions
+
+- [llms-full.txt](https://carelu.com/llms-full.txt): every Carelu article in full, plus the index of all ABA payer guides, as plain Markdown.
+- [Payer directory index (Markdown)](https://carelu.com/payers.md): every ABA payer guide by state, with links to each guide's Markdown twin at https://carelu.com/payers/<slug>.md (coverage rules, prior authorization, diagnosis requirements, code-level coverage, Medicaid rates and sources).
+- Every article is also available as Markdown at https://carelu.com/resources/<slug>.md.
+
 ## What Carelu does
 
 - **Answers every inbound family, 24/7** — across phone calls, live chat, web forms, and text. No missed calls, no after-hours voicemail, no lead sitting in an inbox overnight.

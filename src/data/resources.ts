@@ -52,6 +52,11 @@ export interface ResourceConfig {
   h1: string;
   metaTitle: string;
   metaDescription: string;
+  // The one-to-two-sentence answer an assistant would quote, shown in a
+  // "Short answer" box above the intro. Plain text, no markdown.
+  answer?: string;
+  // ISO date (YYYY-MM-DD) the page was last substantively updated.
+  updated?: string;
   intro: string[];
   sections: ResourceSection[];
   download?: ResourceDownload;
@@ -76,6 +81,9 @@ export const resources: Record<string, ResourceConfig> = {
     metaTitle: 'ABA Waitlist Management: The Complete Guide | Carelu',
     metaDescription:
       'How ABA providers keep waitlisted families engaged, verified, and ready to start — instead of losing them to the first competitor with an opening. Free checklist included.',
+    answer:
+      'Treat the waitlist as a pipeline, not a queue: verify insurance and collect documents the week a family joins, check in every two to three weeks, and rank by readiness rather than arrival date. A healthy list is more than 60% start-ready (verified and documented), with no family untouched for more than a month.',
+    updated: '2026-07-19',
     intro: [
       'Most ABA waitlists are where families go to disappear. A parent calls, gets told "we\'ll reach out when a spot opens," and then hears nothing for weeks. By the time you call back, they\'ve started with another provider — because every family on your waitlist is on three other waitlists too.',
       'Waitlist management isn\'t a spreadsheet problem. It\'s a communication and readiness problem: the providers who convert their waitlist treat it as a pipeline of families being actively prepared to start, not a queue of names waiting their turn.',
@@ -166,6 +174,9 @@ export const resources: Record<string, ResourceConfig> = {
     metaTitle: 'ABA Client Intake Process: Step-by-Step Guide | Carelu',
     metaDescription:
       'The complete ABA intake process — from first contact to first session — with benchmarks, a full document library with state-by-state requirements, and templated rules for when to ask for each document.',
+    answer:
+      'ABA intake runs in five steps: first contact, qualification and insurance verification, documents and consents, assessment scheduling, then authorization and onboarding. Aim for a first response under 5 minutes, benefits verified within 24–48 hours, documents complete within a week, and under two weeks from inquiry to first appointment where authorization timelines allow.',
+    updated: '2026-09-10',
     intro: [
       'Intake is the funnel every ABA practice lives or dies by, and most practices have never mapped theirs. A family reaches out; days or weeks later they either start services with you — or with whoever answered first. Everything between those two moments is the intake process.',
       'Here is the full sequence, what belongs at each step, and where families are most likely to disappear — followed by the full document library: every document an ABA intake might need, how often it is really required, what changes state to state, and the conditions that decide whether a family should ever be asked for it.',
@@ -539,6 +550,9 @@ export const resources: Record<string, ResourceConfig> = {
     metaTitle: 'ABA Intake Forms: What to Include + Free Template | Carelu',
     metaDescription:
       'Everything an ABA intake packet should cover — client and caregiver details, insurance, clinical history, availability, and consents — plus a free printable template.',
+    answer:
+      'An ABA intake packet needs seven sections: client information, caregiver and contacts, insurance and funding, diagnosis and clinical history, goals and concerns, availability and logistics, and consents and policies. Keep it short enough to finish in 15–20 minutes on a phone, prefill anything the family already told you, and collect it with a HIPAA-compliant tool under a signed BAA.',
+    updated: '2026-07-19',
     intro: [
       'A good intake form collects everything your clinical and billing teams need to start services — without exhausting a family that is already stretched thin. Most packets fail in one of two directions: so short that staff spend a week chasing missing details, or so long that parents abandon them halfway.',
       'Here\'s what actually belongs in an ABA intake packet, section by section — and a free template you can adapt.',
@@ -628,6 +642,9 @@ export const resources: Record<string, ResourceConfig> = {
     metaTitle: 'ABA Intake Drop-Off: Why Families Disappear (and the Fix) | Carelu',
     metaDescription:
       'ABA providers lose 40–85% of families between first inquiry and first session. Where the drop-off happens, why, and the playbook for fixing each leak.',
+    answer:
+      'ABA practices lose 40–85% of families between first inquiry and first session, at four points: the unanswered first contact, slow insurance verification, a stalled paperwork packet, and an unmanaged wait to start. The leaks multiply: answer 70%, verify 80%, complete 75% and start 80%, and you admit only about a third of the families who wanted you.',
+    updated: '2026-07-19',
     intro: [
       'Run the numbers on your own funnel and the result is usually a shock: of every ten families who reach out, somewhere between four and eight never make it to a first session. That\'s not a marketing problem — those families already found you, chose to contact you, and then fell out of a process you control.',
       'Drop-off clusters at four specific moments. Here\'s each one, why it happens, and what fixes it.',

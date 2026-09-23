@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { useParams, Navigate } from 'react-router-dom';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
@@ -30,11 +30,7 @@ function IntegrationGuide({ config }: { config: IntegrationConfig }) {
     description: config.metaDescription,
     canonical: `/integrations/${config.slug}`,
   });
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'integration-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('integration-jsonld', {
       '@context': 'https://schema.org',
       '@graph': [
         {
@@ -55,9 +51,6 @@ function IntegrationGuide({ config }: { config: IntegrationConfig }) {
         },
       ],
     });
-    document.head.appendChild(script);
-    return () => { document.getElementById('integration-jsonld')?.remove(); };
-  }, [config]);
 
   return (
     <div className="session-light" style={{ background: BONE, color: '#2B2A26', minHeight: '100vh' }}>

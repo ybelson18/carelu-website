@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useJsonLd } from '../hooks/useJsonLd';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
@@ -37,11 +37,7 @@ export default function ZapierMakeRisk() {
       'Zapier and Make (Integromat) do not sign a BAA and are not HIPAA compliant — routing PHI through them can put ABA providers in violation. The dangers, the penalties, and the front-office risks to know.',
     canonical: '/zapier-make-hipaa-risk',
   });
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'zm-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('zm-jsonld', {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: [
@@ -50,9 +46,6 @@ export default function ZapierMakeRisk() {
         { '@type': 'Question', name: 'What are the penalties for a HIPAA violation?', acceptedAnswer: { '@type': 'Answer', text: 'HIPAA civil penalties are tiered by culpability and adjusted annually for inflation — ranging from roughly $140 per violation to a maximum around $2.1 million per violation category per year. Willful-neglect cases and criminal violations carry the highest exposure, including fines up to $250,000 and imprisonment.' } },
       ],
     });
-    document.head.appendChild(script);
-    return () => { document.getElementById('zm-jsonld')?.remove(); };
-  }, []);
 
   return (
     <div className="session-light" style={{ background: BONE, color: '#2B2A26', minHeight: '100vh' }}>

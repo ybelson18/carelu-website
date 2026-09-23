@@ -5,3 +5,4 @@ dist
 .vercel
 public/product/*.mp4
 .vite
+dist-ssr

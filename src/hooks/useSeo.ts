@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { ssrHead } from '../lib/ssrHead';
 
 /* Per-route <head> management for the SPA. Vite serves one static index.html,
    so without this every route shares the same <title>/description/canonical.
@@ -37,6 +38,12 @@ function upsertLink(rel: string, href: string) {
 }
 
 export function useSeo({ title, description, canonical, noindex }: SeoOptions) {
+  if (import.meta.env.SSR) {
+    ssrHead.title = title;
+    ssrHead.description = description;
+    ssrHead.canonical = canonical ? (canonical.startsWith('http') ? canonical : BASE + canonical) : undefined;
+    ssrHead.robots = noindex ? 'noindex, nofollow' : DEFAULT_ROBOTS;
+  }
   useEffect(() => {
     document.title = title;
     upsertMeta('property', 'og:title', title);

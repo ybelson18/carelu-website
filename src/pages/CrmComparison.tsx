@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { Nav } from './Landing';
 import SiteFooter from '../components/SiteFooter';
 
@@ -42,11 +42,7 @@ export default function CrmComparison() {
       'A CRM (Salesforce, HubSpot, Zoho, Monday, ClickUp) is software your team has to operate. Carelu is a care enablement platform that does ABA intake for you — and integrates with your CRM so you never have to leave it.',
     canonical: '/carelu-vs-crm',
   });
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'crm-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('crm-jsonld', {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: [
@@ -55,9 +51,6 @@ export default function CrmComparison() {
         { '@type': 'Question', name: 'Do we need a CRM if we have Carelu?', acceptedAnswer: { '@type': 'Answer', text: 'Not necessarily. Carelu can be your system of record for intake and families, or it can feed the CRM you already run. Either way, the intake work is done for you rather than by you.' } },
       ],
     });
-    document.head.appendChild(script);
-    return () => { document.getElementById('crm-jsonld')?.remove(); };
-  }, []);
 
   return (
     <div className="session-light" style={{ background: BONE, color: '#2B2A26', minHeight: '100vh' }}>

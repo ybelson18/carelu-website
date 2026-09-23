@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { Nav } from './Landing';
 import { GateModal, useGatedDownload } from '../components/ReferralGate';
 import STATS from '../data/referral_contacts_stats.json';
@@ -57,11 +57,7 @@ const FAQ = [
 
 /* Dataset + FAQPage JSON-LD, injected per page and cleaned up on unmount. */
 function useDatasetJsonLd() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'refdir-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('refdir-jsonld', {
       '@context': 'https://schema.org',
       '@graph': [
         {
@@ -90,9 +86,6 @@ function useDatasetJsonLd() {
         },
       ],
     });
-    document.head.appendChild(script);
-    return () => { document.getElementById('refdir-jsonld')?.remove(); };
-  }, []);
 }
 
 /* ---- Page ----------------------------------------------------------- */

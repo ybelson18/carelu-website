@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { Nav } from './Landing';
 import STATS from '../data/intake_gap_stats.json';
 import SiteFooter from '../components/SiteFooter';
@@ -85,11 +85,7 @@ const FINDINGS: Finding[] = [
 const STATES = STATS.stateDistribution;
 
 function useReportJsonLd() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'report-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('report-jsonld', {
       '@context': 'https://schema.org',
       '@type': 'Report',
       name: 'The Intake Gap — Carelu Research Intake Data Report №1',
@@ -100,9 +96,6 @@ function useReportJsonLd() {
       author: { '@type': 'Organization', name: 'Carelu Research', url: 'https://carelu.com/' },
       publisher: { '@id': 'https://carelu.com/#organization' },
     });
-    document.head.appendChild(script);
-    return () => { document.getElementById('report-jsonld')?.remove(); };
-  }, []);
 }
 
 function Bar({ value, accent }: { value: number; accent?: boolean }) {

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { useParams, Navigate } from 'react-router-dom';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
@@ -23,13 +23,16 @@ const GREEN = '#3f7a34';
 const W: React.CSSProperties = { maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4.5vw, 40px)' };
 const MEASURE: React.CSSProperties = { maxWidth: 760, margin: '0 auto', padding: '0 clamp(20px, 4.5vw, 40px)' };
 
+function formatUpdated(iso: string) {
+  // Parse as UTC so the date never shifts a day west of Greenwich.
+  const d = new Date(`${iso}T00:00:00Z`);
+  return Number.isNaN(d.getTime()) ? iso
+    : d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+}
+
 /* Article + FAQPage JSON-LD, injected per page and cleaned up on unmount. */
 function useArticleJsonLd(config: ResourceConfig) {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'resource-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('resource-jsonld', {
       '@context': 'https://schema.org',
       '@graph': [
         {
@@ -37,6 +40,8 @@ function useArticleJsonLd(config: ResourceConfig) {
           headline: config.h1,
           description: config.metaDescription,
           url: `https://carelu.com/resources/${config.slug}`,
+          ...(config.updated ? { dateModified: config.updated } : {}),
+          ...(config.answer ? { abstract: config.answer } : {}),
           author: { '@type': 'Organization', name: 'Carelu', url: 'https://carelu.com/' },
           publisher: { '@id': 'https://carelu.com/#organization' },
         },
@@ -50,9 +55,6 @@ function useArticleJsonLd(config: ResourceConfig) {
         },
       ],
     });
-    document.head.appendChild(script);
-    return () => { document.getElementById('resource-jsonld')?.remove(); };
-  }, [config]);
 }
 
 /* Status pills used in data tables — an intensity ladder, not a
@@ -230,8 +232,29 @@ function ResourceArticle({ config }: { config: ResourceConfig }) {
           }}>
             {config.h1}
           </h1>
+          {config.updated && (
+            <p className="rv d2" style={{ fontSize: 13.5, color: 'rgba(43,42,38,0.5)', margin: '18px 0 0' }}>
+              Updated <time dateTime={config.updated}>{formatUpdated(config.updated)}</time>
+            </p>
+          )}
         </div>
       </section>
+
+      {/* Short answer: the sentence an assistant would quote */}
+      {config.answer && (
+        <section style={{ paddingBottom: 'clamp(18px, 2.4vw, 28px)' }}>
+          <div style={MEASURE}>
+            <div className="rv" style={{
+              background: '#fff', borderRadius: 16, borderLeft: `3px solid ${GREEN}`,
+              padding: 'clamp(16px, 2.2vw, 22px) clamp(18px, 2.6vw, 26px)',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03)',
+            }}>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: GREEN, marginBottom: 8 }}>Short answer</div>
+              <p style={{ fontSize: 16.5, color: INK, lineHeight: 1.65, margin: 0 }}>{config.answer}</p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Intro */}
       <section style={{ paddingBottom: 'clamp(8px, 1.5vw, 18px)' }}>
@@ -433,7 +456,7 @@ function ResourceArticle({ config }: { config: ResourceConfig }) {
               display: 'grid', gap: 12,
               gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
             }}>
-              {config.related.map((r: ResourceRelated) => (
+              {config.related.filter((r, i, all) => all.findIndex((x) => x.slug === r.slug) === i).map((r: ResourceRelated) => (
                 <a key={r.slug} href={r.slug.startsWith('/') ? r.slug : `/resources/${r.slug}`} className="rv" style={{
                   display: 'block', textDecoration: 'none',
                   background: '#fff', borderRadius: 16,

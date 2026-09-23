@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { useLocation, Navigate } from 'react-router-dom';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
@@ -31,11 +31,7 @@ function CrmGuide({ config }: { config: CrmConfig }) {
     description: config.metaDescription,
     canonical: `/carelu-vs-${config.slug}`,
   });
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'crmvs-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('crmvs-jsonld', {
       '@context': 'https://schema.org',
       '@graph': [
         {
@@ -52,9 +48,6 @@ function CrmGuide({ config }: { config: CrmConfig }) {
         },
       ],
     });
-    document.head.appendChild(script);
-    return () => { document.getElementById('crmvs-jsonld')?.remove(); };
-  }, [config]);
 
   return (
     <div className="session-light" style={{ background: BONE, color: '#2B2A26', minHeight: '100vh' }}>

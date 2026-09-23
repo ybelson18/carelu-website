@@ -23,7 +23,7 @@ const columns: { title: string; links: string[] }[] = [
 
 // Section anchors resolve against the home page, which is `/` on carelu.com and
 // `/carelu` everywhere else — same rule the nav uses.
-const isCareluDomain = /(^|\.)carelu\.com$/i.test(window.location.hostname);
+const isCareluDomain = typeof window === 'undefined' || /(^|\.)carelu\.com$/i.test(window.location.hostname);
 const home = isCareluDomain ? '/' : '/carelu';
 
 const HREFS: Record<string, string> = {

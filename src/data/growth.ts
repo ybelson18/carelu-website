@@ -33,6 +33,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'How to Grow an ABA Practice: The Complete Playbook | Carelu',
     metaDescription:
       'The five channels that bring families to an ABA practice — Google Ads, Meta, SEO, physician referrals, and the families you already have — what each one is good at, where each one leaks, and the operational work that decides whether any of it converts.',
+    answer:
+      'Fix operations before buying demand: answer every inquiry fast on every channel, qualify instantly and get documents finished, then grow through Google Ads, Meta, SEO, referrals and the families you already have. Demand isn’t the constraint (the median provider’s inquiries grew 35% year over year), but 48% of family contacts arrive outside business hours, when most practices are a voicemail.',
+    updated: '2026-09-23',
     intro: [
       'Growing an ABA practice is two separate problems that get talked about as one. The first is getting families to raise their hand. The second is not losing them between the hand-raise and the first session. Almost everything written about ABA growth is about the first problem, and almost all the lost revenue is in the second.',
       'That matters because the two problems have wildly different costs. Doubling your inquiry volume means doubling ad spend, or years of referral relationship-building. Doubling the share of inquiries that turn into started clients usually means fixing four or five specific operational failures — and it costs nothing in media.',
@@ -224,6 +227,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'Meta (Facebook & Instagram) Ads for ABA Therapy: The Playbook | Carelu',
     metaDescription:
       'How ABA practices use Meta ads to reach parents before they ever search — what to run, why lead quality looks worse than it is, and the five-minute follow-up discipline that decides whether any of it converts.',
+    answer:
+      'Meta ads work for ABA when you respond within minutes: they reach parents before they ever search, but that borrowed intent decays fast. Text within a minute, call within five, qualify area, payer, age and diagnosis in the first exchange, give undiagnosed families an evaluation path, and judge the channel on cost per started client, not cost per lead.',
+    updated: '2026-09-17',
     intro: [
       'Meta is the best tool in the category for one specific job: reaching the parent who has not searched for anything yet. A mother who has been worried about her two-year-old for months, who has googled "speech delay" twice at midnight and never once typed the word "ABA," is unreachable on search. She is very reachable on Instagram.',
       'That is an enormous audience, and it is cheap relative to search. It is also the reason Meta has a reputation for junk leads in ABA. Both things are true, and they have the same cause: you are interrupting someone rather than answering them. Everything below follows from that one fact.',
@@ -345,9 +351,6 @@ export const growthResources: Record<string, ResourceConfig> = {
     ],
     related: [
       { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
-      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
-      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
-      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
       { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'All five channels and the operational layer they share.' },
       { slug: 'google-ads-for-aba', label: 'Google Ads for ABA', blurb: 'The other paid channel, and why it behaves nothing like this one.' },
       { slug: 'aba-evaluation-referrals', label: 'Families without a diagnosis', blurb: 'What to do with the largest segment Meta will send you.' },
@@ -367,6 +370,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'Google Ads for ABA Therapy: What Actually Wins the Click | Carelu',
     metaDescription:
       'Campaign structure, negative keywords, landing pages and call tracking for ABA practices on Google Ads — plus the response discipline that decides which of the five providers that parent contacted actually gets the child.',
+    answer:
+      'Google Ads bring the highest-intent ABA families, but the click isn’t exclusive: the same parent contacts several practices in one sitting, and whoever answers first with a real answer usually wins. Run a few tightly themed campaigns, add negatives for job and training searches, use call tracking, and cover nights and weekends, when 48% of family contacts arrive.',
+    updated: '2026-09-17',
     intro: [
       'Search is the highest-intent channel in ABA and the most expensive. A parent typing "aba therapy near me" or "autism services accepting medicaid" has already decided to act. You are not persuading anyone; you are being present at the moment of action, and every competent competitor in your market is trying to be present too.',
       'Which produces the defining feature of this channel: the click is not exclusive. The same parent will contact several practices in one sitting, frequently in the same ten minutes. The auction decides who gets seen. Something else entirely decides who gets the child.',
@@ -486,7 +492,6 @@ export const growthResources: Record<string, ResourceConfig> = {
     ],
     related: [
       { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
-      { slug: '/research/the-intake-gap', label: 'The Intake Gap (our research)', blurb: '185,054 family conversations across 120 ABA providers. The source for the numbers on this page.' },
       { slug: 'how-to-grow-an-aba-practice', label: 'The full growth playbook', blurb: 'Where paid search fits among the five channels.' },
       { slug: 'meta-ads-for-aba', label: 'Meta ads for ABA', blurb: 'The volume channel, and why it needs a different response plan.' },
       { slug: 'after-hours-intake-coverage', label: 'After-hours coverage', blurb: 'Half your paid traffic arrives when the office is closed.' },
@@ -506,6 +511,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'SEO for ABA Practices (and AI Search) | Carelu',
     metaDescription:
       'The pages that actually rank for ABA searches, why Google Business Profile outranks your website for "near me," and how to be the practice an AI assistant names when a parent asks who takes their plan.',
+    answer:
+      'Maintain a Google Business Profile per location, build real location and payer pages, and make asking for reviews a habit, since local signals decide "near me" searches. To be named by AI assistants, answer one question per page in plain sentences, state the specifics (counties, payers, ages, waits) as facts, and keep your name, address and phone consistent everywhere.',
+    updated: '2026-09-17',
     intro: [
       'Search is the only ABA channel that keeps producing after you stop paying, and the only one where the asset compounds. It is also the slowest, which is why most practices start it, get impatient at month three, and quietly abandon a half-built site.',
       'Two things make ABA search unusual. Almost all of it is local, so a maintained Google Business Profile often matters more than the website it links to. And a growing share of these questions are now answered without a results page at all, by an assistant that reads a handful of sources and writes a paragraph. Optimizing for that reader is different work than optimizing for a ranking.',
@@ -673,6 +681,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'How to Get ABA Referrals from Pediatricians and Schools | Carelu',
     metaDescription:
       'Referred families are pre-qualified, usually diagnosed, and free. Here is who to approach, what to say, what to leave behind, and the follow-through loop that decides whether a first referral becomes a steady stream.',
+    answer:
+      'Lead with what you take (ages, counties, payers and current wait), make referring one step by fax, email or phone with no portal, and build the relationship with the referral coordinator as well as the physician. Then close the loop: acknowledge every referral the same day, tell the office when you reach the family, and report the outcome and start date.',
+    updated: '2026-09-17',
     intro: [
       'A referred family is the best lead an ABA practice can get. They arrive with a diagnosis or a clear path to one, they have been told by someone they trust that you are the right place, and they cost nothing per lead. A practice with three or four reliably referring offices has a floor under its census that no ad account can provide.',
       'Referral relationships also fail in a specific, predictable way, and it is almost never because a competitor out-sold you. It is because an office referred three children, heard nothing back about any of them, and stopped. Referral growth is a follow-through discipline that looks like a sales activity.',
@@ -807,6 +818,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'ABA Records Requests and ROIs: How to Get Reports Back Fast | Carelu',
     metaDescription:
       'Why diagnostic reports stall an ABA start, what makes a release valid under HIPAA, when one general ROI can cover a class of recipients, and the details that get a request fulfilled on the first attempt.',
+    answer:
+      'Send a complete request to the right desk, with a HIPAA release that states the information, discloser, recipient, purpose, expiration, signature and right to revoke. The recipient can be a clearly identified class, so one release signed at intake can cover the pediatrician, psychologist and school. Chase at day three and day seven, and ask the family to check their patient portal.',
+    updated: '2026-09-17',
     intro: [
       'A surprising share of ABA starts are not waiting on clinical capacity or on an authorization. They are waiting on a PDF sitting in another organization’s chart — an evaluation report, a diagnostic letter, a school assessment — that nobody has successfully asked for.',
       'Records work looks like administrative trivia and behaves like a growth constraint. A request that is missing one detail gets set aside by a records clerk with a hundred others, and nobody tells you it was set aside. Two weeks later a family who was ready to start is still waiting, and has begun to wonder whether you are competent.',
@@ -966,6 +980,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'ABA Leads Without a Diagnosis: Evaluation Referrals That Convert | Carelu',
     metaDescription:
       'Families who reach out before a diagnosis are the largest segment most ABA practices throw away. How to check your own payer rules, build an evaluation path, and own the months of waiting so the family starts with you.',
+    answer:
+      'Don’t send them away: 22% of families reach out before a diagnosis, and some payers don’t require one, so check each payer’s rule in each state first. Then give the family an evaluation path (named evaluators with payers and wait times, plus early intervention for under-threes), check in every three to four weeks, and make starting a single step when the report arrives.',
+    updated: '2026-09-17',
     intro: [
       'Ask a coordinator what happens when a parent calls without a diagnosis and you will usually hear a version of the same sentence: "We tell them to come back once they have one." It is said without embarrassment, because it sounds like the correct clinical answer.',
       'It is also the most expensive sentence in the practice. You paid to reach that family. They chose you. And you handed them back to a system with evaluation waits that commonly run from several months to well over a year, during which they will talk to a dozen other people, at least one of whom will be a practice that stayed in touch.',
@@ -1091,6 +1108,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'ABA Follow-Up Sequences That Get Replies | Carelu',
     metaDescription:
       'Why "Thank you for your inquiry, someone will be in touch" loses families, what a follow-up that earns a reply actually contains, and the cadence, channels and guardrails behind a sequence that works.',
+    answer:
+      'Reply within minutes on the family’s own channel with a message that names the child, their area and plan, and asks one specific question. Then call the same day with a text, alternate touches on days 2, 4, 7 and 12, move to a monthly hold after about two weeks of silence, and stop instantly on an opt-out or a human reply.',
+    updated: '2026-09-17',
     intro: [
       'A parent contacts five ABA practices in one evening. Four send the same automated line: thank you for your inquiry, we appreciate you reaching out, someone will be in touch shortly. The fifth sends a message that names their son, mentions the county they live in, notes the plan they said they had, and asks one specific question.',
       'It is not a close call. The fifth practice gets the reply, and frequently gets the child — not because their care is better, but because they were the only one who appeared to have read what the parent wrote.',
@@ -1228,6 +1248,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'ABA Intake Metrics: The 8 Numbers That Matter | Carelu',
     metaDescription:
       'Speed to first contact, answer rate, qualified rate, packet completion, verification turnaround, inquiry-to-start and cost per started client — what to measure in an ABA practice, where each number hides, and how to review it weekly.',
+    answer:
+      'Track eight: inquiries by channel, answer rate, speed to first contact, after-hours share, qualified rate with reasons, intake completion, verification turnaround, and inquiry to started with days to start, plus cost per started client. Start with answer rate and speed to contact; many practices convert only 15–60% of inquiries, while well-run funnels reach 80%+.',
+    updated: '2026-09-17',
     intro: [
       '"We get plenty of leads, they just do not convert" is the most common sentence in ABA growth conversations and the least useful, because it contains no number. Plenty compared with what? Do not convert at which step?',
       'Almost every practice that says this has a specific, findable leak, and almost none of them can point to it, because the funnel is measured at the ends — inquiries at the top, starts at the bottom — and not at the joints in between.',
@@ -1382,6 +1405,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'After-Hours Intake Coverage for ABA Practices | Carelu',
     metaDescription:
       'In a cohort of 120 providers and 185,000 family conversations, 48% of contacts arrived outside business hours. What parents do when they reach voicemail, the real options for covering those hours, and what coverage has to do beyond taking a message.',
+    answer:
+      'About half: in a cohort of 120 providers and roughly 185,000 family conversations, 48% of contacts arrived outside business hours. Parents who reach voicemail usually call the next practice, so real coverage has to tell them whether you serve their area and take their plan and start intake on the spot, not just take a message.',
+    updated: '2026-09-17',
     intro: [
       'Across 120 ABA and behavioral-health providers and roughly 185,000 family conversations, 48% of family contacts arrived outside business hours. Not a rounding error, and not an edge case. Half the demand.',
       'That number has an obvious explanation. A parent of a child who needs ABA is not free at eleven on a Tuesday morning. They are free after bedtime, on a lunch break, on Sunday afternoon — and that is when they finally do the thing they have been putting off for weeks.',
@@ -1515,6 +1541,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     metaTitle: 'Who Should Answer the Phone at an ABA Practice? Intake Coordinator vs. BCBA vs. Owner | Carelu',
     metaDescription:
       'Speed is table stakes in ABA intake, but trust is what wins the family. Who should take the first call (an intake coordinator, a BCBA, the owner or an answering service), what each one is good at, and how the fastest-growing practices split the job so every family is answered instantly and talks to a clinician early.',
+    answer:
+      'Split the job. A stable intake layer (a system plus a coordinator) should answer every inquiry instantly at any hour, qualify the family and start paperwork, and a BCBA or the owner should then have a real conversation with every qualified family, ideally the same day. Speed gets you into the conversation; trust wins the family.',
+    updated: '2026-09-23',
     intro: [
       'Most ABA practices decide who answers the phone by default. Whoever sits at the front desk takes the calls, the calls go to voicemail when that person is busy, and the BCBAs stay in sessions. That setup treats the first call as admin work. It isn’t: it is the first time a worried parent decides whether to trust you with their child.',
       'ABA intake has two jobs, and they need different people. The first is speed and stability: answer every family immediately, qualify them and get the paperwork moving. That part is table stakes. Every practice needs it, and it has to work at 9pm on a Saturday. The second is trust: a real conversation with someone who understands the child. That part is how you win, because families contact several providers at once and usually start with whoever made them feel understood first.',

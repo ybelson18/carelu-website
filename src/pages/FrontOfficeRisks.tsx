@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useJsonLd } from '../hooks/useJsonLd';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
@@ -20,11 +20,7 @@ export default function FrontOfficeRisks() {
       'The front office carries the biggest hidden risks in an ABA practice — HIPAA compliance, claim denials from bad intake data, prior-authorization gaps, assessment errors, and more. What each costs, and how to reduce it.',
     canonical: '/aba-front-office-risks',
   });
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'for-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('for-jsonld', {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: 'The biggest ABA front-office risks',
@@ -33,9 +29,6 @@ export default function FrontOfficeRisks() {
       author: { '@type': 'Organization', name: 'Carelu', url: 'https://carelu.com/' },
       publisher: { '@id': 'https://carelu.com/#organization' },
     });
-    document.head.appendChild(script);
-    return () => { document.getElementById('for-jsonld')?.remove(); };
-  }, []);
 
   const counts = FRONT_OFFICE_RISKS.reduce((m, r) => { m[r.tag] = (m[r.tag] || 0) + 1; return m; }, {} as Record<string, number>);
 

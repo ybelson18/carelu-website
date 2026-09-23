@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { useParams, Navigate } from 'react-router-dom';
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
@@ -25,11 +25,7 @@ const W: React.CSSProperties = { maxWidth: 1100, margin: '0 auto', padding: '0 c
 const MEASURE: React.CSSProperties = { maxWidth: 780, margin: '0 auto', padding: '0 clamp(20px, 4.5vw, 40px)' };
 
 function usePayerJsonLd(config: PayerConfig) {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'payer-jsonld';
-    script.textContent = JSON.stringify({
+  useJsonLd('payer-jsonld', {
       '@context': 'https://schema.org',
       '@graph': [
         {
@@ -50,9 +46,6 @@ function usePayerJsonLd(config: PayerConfig) {
         },
       ],
     });
-    document.head.appendChild(script);
-    return () => { document.getElementById('payer-jsonld')?.remove(); };
-  }, [config]);
 }
 
 function PayerGuide({ config }: { config: PayerConfig }) {
