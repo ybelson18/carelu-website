@@ -2102,4 +2102,76 @@ export const PAYER_CHANGELOG: PayerChangeEntry[] = [
       "Layer 2 completion: stcMap on all 179 guides (16 verified / 226 inferred / 829 unverified). Closes the gap left after the original Layer 2 pass (GA/NC/FL/TX/NY + scattered gap-fill), which covered 70 of 179 guides; the remaining 109 — the 14 states delivered after that pass (AZ, CO, IN, KS, MA, MD, MO, NE, NJ, NM, OH, TN, UT, VA) plus the 3 national commercial guides (aetna, cigna, unitedhealthcare-optum) — now carry a Layer 2 stcMap. Commercial guides (aetna-<state>/cigna-<state>/unitedhealthcare-<state>) inherit the existing Cigna/Evernorth, UnitedHealthcare/Optum, and Aetna family defaults (src/data/payers/vob/stc-defaults.ts) via inheritFamilyStc, all fields 'inferred' except the fields those family defaults themselves ship 'unverified' (Aetna's entire family default, and copayUnit/oopMaxApplies for Cigna/UHC — no primary companion-guide addresses per-visit-vs-per-day copay timing or OOP-max application for any family). The 3 national commercial guides (aetna/cigna/unitedhealthcare-optum) carry the family-default stcMap directly, not inherited, since they ARE that family's canonical source guide. State-Medicaid guides and their MCOs ship overwhelmingly 'unverified' by design, not by oversight: per state, each guide's own already-fetched 270/271 companion guide (Layer 1 sourcing) was checked for a service-type-code support table, and in every one of the 14 states no such table was locatable (several companion-guide portals 403 automated fetches entirely, matching the already-documented Colorado/Georgia pattern; others document MCO-enrollment loop/segment mechanics but not STC-level financial detail) — so 'unverified' with a verifyVia note (state EDI/fiscal-agent help desk, or the specific MCO's provider services) is the honest, correct output per the \"never guess\" rule, not a placeholder. Three exceptions surfaced real, citable facts instead of the unverified default: utah-medicaid (UT_PRISM_COMPANION_GUIDE states Utah Medicaid returns eligibility only at the generic STC '30' bucket, not procedure-code level — abaBenefitBucket/quality271Score ship 'verified'); select-health-utah (inherits utah-medicaid's stcMap via inheritFamilyStc, since this file's own edi layer already documents Select Health's ABA benefit is carved out entirely to Utah Medicaid FFS — Select Health never adjudicates it); and maryland-medicaid (Carelon BHASO's own national 270/271 companion guide, already cited in this file's edi.bhCarveOut, states verbatim it \"treats all inquiries as Service Type Code 30\" — abaBenefitBucket '30'/quality271Score 'low' ship 'inferred'; MD's own ABA manual states the program is \"payment-in-full\" with no balance-billing, supporting deductibleAppliesToAba 'no' as 'verified' and oopMaxApplies false as 'inferred'). No state's Layer-0 prose (src/data/payers/<state>.ts) carried a citable EPSDT $0-cost-share fact beyond Maryland's payment-in-full statement, so deductibleAppliesToAba/costShareType ship honestly 'unverified' everywhere else rather than assumed from the general EPSDT pattern.",
     totals: { guides: 179, states: 19 },
   },
+  {
+    date: '2026-09-23',
+    type: 'policy-update',
+    summary:
+      'Two new intake-gate fields on all 193 guides: authTurnaround (how long the payer has to decide a prior-auth request, standard and expedited, plus any reauthorization lead time) and coordinationOfBenefits (who pays first when the child has other coverage, and whether the secondary payer still wants its own PA). Coverage 0% to 100% for both. authTurnaround: 128 verified, 63 plan-dependent, 2 unverified. coordinationOfBenefits: 139 verified, 50 plan-dependent, 4 unverified. Plan-dependent is almost entirely the commercial guides, where the clock depends on funding type: fully insured plans follow state utilization-review law, self-funded plans follow ERISA (29 CFR 2560.503-1: 15 days pre-service, one 15-day extension, 72 hours urgent). Federal floors were read at eCFR, not recalled: Medicaid managed care 42 CFR 438.210(d) and FFS 440.230(e) cap standard decisions at 7 calendar days and expedited at 72 hours for rating periods from 1/1/2026 (CMS-0057-F); Medicaid is payer of last resort under 42 CFR 433.139. Many state rules are stricter and win: Texas MCOs 3 business days (Gov\'t Code 540.0303), Georgia CMOs 3 business days, Florida SMMC 5 days, Indiana MCOs 48 hours / 24 urgent (IC 27-1-37.5-23), Massachusetts insured plans 2 working days, Missouri insured plans 36 hours; Nebraska, Tennessee, Georgia, New Mexico, Colorado, Maryland and Indiana deem a request approved when the deadline is missed. Many MCO manuals still print the pre-2026 14-day clock (Molina NE, UHC Community Plan KS/NY/NJ/VA/AZ, Wellpoint NJ, several NC and AZ plans); each field quotes the manual AND names the rule that binds. Whether Medicaid wants its own PA when it is secondary varies plan by plan and is stated per guide (e.g. required in GA, TX, MO, IN; not required by Carelon MD, Sentara VA, Anthem OH Medicaid, Aetna Better Health NJ; Trillium NC refuses to authorize when private insurance exists). The research surfaced errors on live pages; nine were verified against primary sources and corrected (details), one challenge was re-checked and withdrawn (TriWest\'s 10-day resubmission rule is correct; the agent had missed a second section of the guide), and seven that could not be settled from documents are logged as VC-032 to VC-038. Tooling: payers:coverage read a fixed 9,000-character window per block and silently under-counted fields at the end of long intakeGates blocks (coordinationOfBenefits read 121/193 when 193/193 carried it); it now reads each block by brace depth. SOURCE ACCESS: codes.ohio.gov rule text via r.jina.ai; archived GAMMIS files via web.archive.org/web/2026id_/.',
+    details: [
+      {
+        slug: 'unitedhealthcare-community-plan-indiana',
+        field: 'treatmentPA, atGlance, sections, faq',
+        change:
+          'CORRECTION — decision times read "non-urgent within 7 calendar days (max 14); urgent 48 hrs". IC 27-1-37.5-23 (eff. 7/1/2025), which reaches Medicaid risk-based managed care via -5(a)(3), requires urgent decisions "not later than twenty-four (24) hours" and all others "not later than forty-eight (48) hours", weekends and holidays excluded, with deemed authorization if missed (-28). MHS Indiana already publishes the statutory clock. PathWays for Aging is excluded from the chapter.',
+        sourceUrl: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/',
+      },
+      {
+        slug: 'amerihealth-caritas-ohio',
+        field: 'treatmentPA, atGlance, sections, collect, referral, faq',
+        change:
+          'CORRECTION — "initial decisions commonly reported at 10–14 business days" in seven places. OAC 5160-26-03.1 (eff. 1/1/2026) requires standard decisions "no later than seven calendar days following receipt of the request for service"; the plan\'s January 2026 manual still prints "no later than 10 calendar days". Both now quoted, the rule named as binding.',
+        sourceUrl: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1',
+      },
+      {
+        slug: 'bluecare-tennessee',
+        field: 'cardDesc, metaDescription, intro, atGlance, sections, faq',
+        change:
+          'CORRECTION — "14-day UM decisions" (cited to a Sept 2024 tri-MCO overview). The BlueCare Provider Administration Manual (07/01/2026) sets standard decisions "within State-established timeframes that may not exceed 7 calendar days", expedited 72 hours, and the TennCare Statewide Contract A.2.19.3.5 requires 7 calendar days from 1/1/2026.',
+        sourceUrl: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf',
+      },
+      {
+        slug: 'blue-cross-blue-shield-new-mexico',
+        field: 'treatmentPA, intro, atGlance, sections, referral, collect, faq',
+        change:
+          'CORRECTION — the ABA request was said to be due "within the 30 days prior, and at least 2 weeks before" the start date. The current form (Oct 2025): "This form can be submitted up to 60 days prior to the treatment request start date" and "Submit forms at least two weeks before requested start date". The only 30 days on the form is the assessment-recency rule.',
+        sourceUrl: 'https://www.bcbsnm.com/docs/provider/nm/education/forms/aba-clinical-service-request.pdf',
+      },
+      {
+        slug: 'cigna, cigna-texas',
+        field: 'atGlance, sections, referral, authTurnaround',
+        change:
+          'CORRECTION — "later submissions trigger retrospective review" (after two weeks past start). The autism resource guide only ENCOURAGES requests up to 30 days before or two weeks after the start date; EN0499 (eff. 5/15/2026) defines a retrospective request as one made "when more than 90 days have passed since the start date of the requested authorization, or any time after the patient has discharged."',
+        sourceUrl: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf',
+      },
+      {
+        slug: 'molina-healthcare-florida',
+        field: 'referral, sections',
+        change:
+          'CORRECTION — "turnaround commitments are not publicly verifiable". Molina\'s Florida Medicaid manual (3/18/2026) publishes them: "no later than contractual requirements or seven (7) calendar days" standard, "two (2) calendar days" expedited.',
+        sourceUrl: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/3-18-26-MHFL-Medicaid-Provider-Handbook-508.ashx',
+      },
+      {
+        slug: 'cms-health-plan-florida, sunshine-health-florida',
+        field: 'treatmentPA, referral, sections, sources (citations)',
+        change:
+          'CITATION — the 7-day CMS Health Plan figure was cited to Sunshine\'s BA quick-reference page, which no longer mentions CMS. Re-cited to the CMS Health Plan Provider Manual, which states "within seven calendar days of receipt of the request". Whether the MMA 5-day contract clock binds the CMS Plan is VC-034.',
+        sourceUrl: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/CMS-PRO-PE-Manual.pdf',
+      },
+      {
+        slug: 'aetna-better-health-new-jersey',
+        field: 'assessmentPA, sections (citations)',
+        change:
+          'CITATION — "urgent 24 hours, routine 7 days" was cited to a 2022 BH PA form that says "Routine services processed within 14 days". Re-cited to the Aug 2026 provider manual, which states both numbers.',
+        sourceUrl: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf',
+      },
+      {
+        slug: 'presbyterian-health-plan-new-mexico',
+        field: 'sources',
+        change:
+          'Source edition updated 06.01.2026 → 09.01.2026 (same URL now serves it); the routing facts cited from it re-checked and hold. The same edition raised VC-038 (whether 97151/97152/0362T need PA for Turquoise Care).',
+        sourceUrl: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220',
+      },
+    ],
+    totals: { guides: 193, states: 19 },
+  },
 ];

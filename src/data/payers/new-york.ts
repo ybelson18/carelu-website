@@ -172,6 +172,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'NYS Medicaid\u2019s general telehealth policy and the Medicaid Update archive for an ABA-specific telehealth notice; for a managed-care member, the plan\u2019s own telehealth policy.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value:
+          'Nothing to decide at the fee-for-service layer: the eMedNY ABA manual requires no prior authorization, so the referral is the whole gate (FFS’s own new PA clocks — standard requests “adjudicated within seven days from the date received, provided all necessary documentation is included,” expedited within 72 hours, effective January 1, 2027 — only bite on services that carry a PA). For the majority of children, who sit in a Medicaid Managed Care plan, the state model contract sets the clock: a prior authorization request is decided “within three (3) business days of receipt of necessary information, but no more than fourteen (14) days after receipt of the Service Authorization request,” expedited requests within 72 hours, and a request for “more of an authorized service than what is currently authorized” (a concurrent review — reauths and unit increases) “within one (1) business day of receipt of necessary information”; either clock may be extended up to 14 days. Federal law caps the outer limit at 7 calendar days for plan rating periods starting on or after January 1, 2026 (42 CFR 438.210(d)). The state sets no reauth submission lead time; plans publish their own.',
+        status: 'verified',
+        cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }, { title: 'NYS Medicaid Update, May 2026 (Vol 42 No 6) — Prior Approval Changes Effective January 1, 2027', url: 'https://www.health.ny.gov/health_care/medicaid/program/update/2026/no06_2026-05.htm' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }, { title: 'eCFR — 42 CFR 438.210(d), timeframe for decisions', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid pays last. “The Medicaid Program is designed to provide payment for medical care and services only after all other resources available for payments have been exhausted; Medicaid is the payer of last resort,” and “Providers must bill all applicable insurance sources before submitting claims to Medicaid. Payment from those sources must be received before submitting a Medicaid claim.” So check MEVS for a third-party coverage code at intake, bill the commercial plan first, then bill eMedNY for the balance — a claim pushed past Medicaid’s 90-day filing limit by the other payer’s processing must reach Medicaid within 30 days of that payer’s determination, with the Explanation of Medical Benefits on paper claims. Two practical twists: a child with other insurance may be excluded from managed care (“Enrollees who have other third party insurance so that managed care enrollment is not cost-effective”), which lands them in FFS, where ABA has no PA at all; and if the child is in a plan, the plan must “alert the provider and ask them to bill the TPHI that should be primary to the Plan.” A provider may not refuse service because a third party is liable. The manuals state no pay-and-chase exception for ABA.',
+        status: 'verified',
+        cites: [{ title: 'eMedNY Information for All Providers — General Policy (Version 2022-2)', url: 'https://www.emedny.org/ProviderManuals/AllProviders/PDFS/Information_for_All_Providers-General_Policy.pdf' }, { title: 'eMedNY Information for All Providers — General Billing (Version 2025-1)', url: 'https://www.emedny.org/ProviderManuals/AllProviders/PDFS/Information_for_All_Providers-General_Billing.pdf' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), §3.7 Third Party Health Insurance Determination', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -344,6 +356,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'Fidelis provider services and the ABA form on the fideliscare.org Provider Policies page \u2014 confirm telehealth code eligibility and POS in writing before scheduling remote sessions.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Fidelis publishes a clock tighter than the state model contract: a non-urgent pre-service request is decided “within 3 business days of receipt of necessary information,” and “for standard service authorizations the decision and notification will be made no more than seven (7) calendar days from receipt of the request (unless an extension is requested)”; urgent requests within 72 hours of receipt. A continuing (non-urgent concurrent) request gets a verbal decision “within 1 business day,” “extended up to 14 calendar days with request for additional clinical information,” and “Preservice and concurrent review timeframes may be extended by an additional 14 days.” No ABA reauth lead time is published, but the ABA policy puts reviews on a 6-month cycle and the tip sheet says concurrent reviews “require updated graphs and charts,” monthly session notes per authorized CPT code, an updated treatment plan and a signed visit attestation — so assemble the packet well before the auth ends.',
+        status: 'verified',
+        cites: [{ title: 'Fidelis Care Provider Manual (Medicaid Managed Care), §11 Authorization Determination Timeframes (V26.3, 6/1/2026)', url: 'https://www.fideliscare.org/Portals/0/Providers/ProviderManuals/Provider-Manual-Medicaid-English.pdf' }, { title: 'Fidelis Care Clinical Policy: Applied Behavior Analysis (FC.CP.BH.301.04)', url: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf' }, { title: 'Fidelis Care ABA Provider Tip Sheet (1/1/2026)', url: 'https://www.fideliscare.org/Portals/0/Providers/TipSheets/ABA-Provider-Tip-Sheet.pdf' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Bill the other insurance first. “In the event a claim is initially filed with Fidelis Care for which another carrier is determined to be the primary payer, the provider will be notified on a remittance advice to file with the primary insurer.” After the primary pays or denies, “File the claim with Fidelis Care along with the primary carrier’s Explanation of Benefits (EOB) attached” within 90 calendar days of receiving that EOB; “Fidelis Care will coordinate benefits up to Fidelis Care’s allowable as secondary payer.” This sits on the state rule that Medicaid pays last and that the plan must “alert the provider and ask them to bill the TPHI that should be primary.” The manual does not say whether Fidelis’s own ABA prior authorization is still required when it is secondary — confirm with Provider Services (1-888-343-3547) before starting on the primary’s approval alone.',
+        status: 'verified',
+        cites: [{ title: 'Fidelis Care Provider Manual (Medicaid Managed Care), §12 Coordination of Benefits (V26.0, 1/1/2026)', url: 'https://www.fideliscare.org/Portals/0/Providers/ProviderManuals/Provider-Manual-Medicaid-English.pdf' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3 and §3.7', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -502,6 +526,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'The most specific telehealth answer of any New York Medicaid plan: telehealth is allowed for supervision (97155) and caregiver training (97156 and 97157) once the practice is approved as a virtual-visits provider, billed with place of service 02. Direct technician-delivered treatment is not on that list. Optum\u2019s national criteria add only best-practice framing \u2014 telehealth options \u201care not intended to supplant in-person service; rather, they are intended to supplement the traditional in-person service delivery model.\u201d',
         status: 'verified',
         cites: [{ title: 'Optum NY Medicaid ABA Provider Orientation (BH00869, 01/30/2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/nyaba/NYabaPres.pdf' }, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'Every ABA service is prior-authorized through Optum (providerexpress.com). UHC’s 2026 New York manual decides a non-urgent pre-service request “within 3 business days of receipt of medical record information required, but no longer than 14 calendar days of receipt,” an urgent request “within 72 hours of receipt of an expedited authorization request,” and a concurrent review “within 24 hours or next business day following.” Note the outer limit: federal rules cap standard Medicaid managed-care decisions at 7 calendar days for plan rating periods starting on or after January 1, 2026, so the manual’s 14-day ceiling is looser than the current floor — plan around the 3-business-day clock and escalate anything past 7 days. Neither the manual nor Optum’s NY ABA materials set a reauth submission lead time; each concurrent request needs updated diagnoses, other services, medications, school hours, parent participation, progress and discharge criteria.',
+        status: 'verified',
+        cites: [{ title: 'UnitedHealthcare Community Plan 2026 Care Provider Manual — New York, Ch. 4 Medical management and Ch. 17 ABA', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NY-UHCCP-Dual-LTC-CHIP-Care-Provider-Manual.pdf' }, { title: 'Optum NY Medicaid ABA Provider Orientation (BH00869, 01/30/2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/nyaba/NYabaPres.pdf' }, { title: 'eCFR — 42 CFR 438.210(d), timeframe for decisions', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          '“UnitedHealthcare Community Plan is, by law, the payer of last resort for eligible members. Therefore, you must bill and obtain an explanation of benefits (EOB) from any other insurance or health care coverage resource before billing UnitedHealthcare Community Plan… Please attach a copy of the EOB to the submitted claim.” The EOB must be complete enough to show the paid amount or denial reason, and “the date on the other carrier’s payment correspondence starts the timely filing period for submission to UnitedHealthcare Community Plan.” Neither the manual nor Optum’s ABA materials say whether Optum’s ABA prior authorization is still required when UHC is secondary — confirm with Optum (1-866-362-3368) before relying on the primary plan’s approval.',
+        status: 'verified',
+        cites: [{ title: 'UnitedHealthcare Community Plan 2026 Care Provider Manual — New York, Subrogation and coordination of benefits / Third-party resources', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NY-UHCCP-Dual-LTC-CHIP-Care-Provider-Manual.pdf' }],
       },
     },
     deliveryRules: {
@@ -664,6 +700,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Availity or Anthem NY provider services \u2014 and the plan\u2019s ABA Services FAQ for New York providers; get the telehealth answer in writing per case.',
         blocker: 'document',
+      },
+      authTurnaround: {
+        value:
+          'Anthem’s NY Medicaid manual runs the 7-day ceiling: a standard precertification is decided “within three business days of receipt of the necessary information, but no later than 7 days after the receipt of the request,” an urgent one “no later than 72 hours after receipt of the request,” and a continuing-care (concurrent) request “within one business day of receipt of the necessary information, but no more than 7 days after receipt of the request” (urgent concurrent: one business day, 72 hours at most). “In accordance with the New York State Medicaid contract,” any of these may be extended up to 14 days. ABA goes in through Availity on Anthem’s ASD Treatment Plan Request Form, and the plan should be dated within 30 days of the requested start date. No reauth submission lead time is published.',
+        status: 'verified',
+        cites: [{ title: 'Anthem Blue Cross and Blue Shield HP — NY Medicaid Provider Manual (eff. March 1, 2026), Precertification / Concurrent Review', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ProviderManual.pdf?v=202501161732' }, { title: 'Anthem NY Medicaid — Treatment Plan Request Form for ASD', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          '“We and our providers agree the Medicaid program will be the payer of last resort when third-party resources are available.” If Anthem knows of other coverage it rejects the claim and redirects you “to bill the appropriate insurance carrier”; if it learns later, it recovers after payment. So bill the other plan first, then submit to Anthem with the COB/other-insurance information — “In the case of other insurance, submit the claim within 90 days of receiving a response from the third-party payer.” The manual does not say whether Anthem’s own ABA precertification is still required when it is secondary — confirm with Provider Services (800-450-8753) before starting on the primary plan’s approval alone.',
+        status: 'verified',
+        cites: [{ title: 'Anthem Blue Cross and Blue Shield HP — NY Medicaid Provider Manual (eff. March 1, 2026), Coordination of Benefits', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ProviderManual.pdf?v=202501161732' }],
       },
     },
     deliveryRules: {
@@ -845,6 +893,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'Healthfirst provider services (1-888-801-1660) or the current ABA authorization policy on hfproviders.org \u2014 confirm code eligibility and POS before scheduling remote sessions.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value:
+          'Healthfirst decides prior authorization “within three (3) business days of receipt of all necessary information,” and urgent Medicaid requests within 72 hours of receipt; when the plan asks for more information, the provider must send it within 10 calendar days. For continuing ABA, “Providers must furnish clinical information to Utilization Management to support continued authorization of services before the expiration of the authorized treatment period,” with a decision within one day of receiving the necessary information. The manual publishes no Medicaid outer limit, so the state contract governs: no more than 14 days after receipt, extendable up to 14 days, with federal rules capping it at 7 calendar days for plan rating periods starting on or after January 1, 2026. A missed deadline counts as a denial the family can appeal.',
+        status: 'verified',
+        cites: [{ title: 'Healthfirst NY Provider Manual (updated 9/1/2026), §12 Utilization Management', url: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3 and §3.7', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }, { title: 'eCFR — 42 CFR 438.210(d), timeframe for decisions', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          '“Healthfirst requires a primary carrier Explanation of Payment (EOP) when Healthfirst is the secondary payer before appropriate claims payment can be issued.” So bill the other plan first and attach its EOP or denial. That sits on the state rule: Medicaid pays last, providers “must bill all applicable insurance sources before submitting claims to Medicaid,” and the plan must ask providers “to bill the TPHI that should be primary to the Plan.” The manual does not say whether Healthfirst’s ABA preauthorization is still required when it is secondary — confirm with Provider Services (1-888-801-1660) before relying on the primary plan’s approval.',
+        status: 'verified',
+        cites: [{ title: 'Healthfirst NY Provider Manual (updated 9/1/2026), §17.4 Coordination of Benefits', url: 'https://assets.healthfirst.org/pdf_9432a72611d0176a1f6a5503a1d88d94' }, { title: 'eMedNY Information for All Providers — General Policy (Version 2022-2)', url: 'https://www.emedny.org/ProviderManuals/AllProviders/PDFS/Information_for_All_Providers-General_Policy.pdf' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3 and §3.7', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1015,6 +1075,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'MetroPlus CSS or the metroplus.org provider authorization page \u2014 confirm telehealth code eligibility and POS in writing before scheduling remote sessions.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'MetroPlusHealth’s June 2026 manual tightened every Medicaid clock: a standard prior authorization is decided “within three (3) business days of the receipt of all necessary information, but no later than seven (7) days after the request is received”; a fast-track (urgent) request “within seventy-two (72) hours from the date that the request is received”; a continuing-care (concurrent) request within one business day of all necessary information, again no later than 7 days (72 hours if fast-track). Extensions shrank too: timeframes “may be extended seven (7) calendar days” at the member’s or provider’s request or when the plan needs information (the March 2025 manual allowed 14). ABA requests go to metroplusaba@metroplus.org or fax 212-908-5182. No ABA reauth lead time is published for Medicaid.',
+        status: 'verified',
+        cites: [{ title: 'MetroPlusHealth Provider Manual (updated June 2026, PRV-26073), §7.12', url: 'https://metroplus.org/wp-content/uploads/2026/07/H0423_PRV26_3833_C-06162026-PRV-26073_Jun26-Provider-Manual_R8_UA.pdf' }, { title: 'MetroPlusHealth — Provider Authorization', url: 'https://metroplus.org/providers/provider-resources/provider-authorization/' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          'MetroPlusHealth’s June 2026 manual publishes no coordination-of-benefits procedure of its own (its only primary-insurer language covers no-fault and workers’ compensation denials), so the state rule governs. Medicaid is “the payer of last resort” and “Providers must bill all applicable insurance sources before submitting claims to Medicaid. Payment from those sources must be received before submitting a Medicaid claim”; under the state contract, when other coverage is known the plan must “alert the provider and ask them to bill the TPHI that should be primary to the Plan.” In practice: bill the commercial plan first, then MetroPlus with the primary’s EOB. Whether MetroPlus still requires its own ABA authorization when it is secondary is not published — ask Provider Services (800-303-9629).',
+        status: 'verified',
+        cites: [{ title: 'eMedNY Information for All Providers — General Policy (Version 2022-2)', url: 'https://www.emedny.org/ProviderManuals/AllProviders/PDFS/Information_for_All_Providers-General_Policy.pdf' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3 and §3.7', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }, { title: 'MetroPlusHealth Provider Manual (updated June 2026, PRV-26073)', url: 'https://metroplus.org/wp-content/uploads/2026/07/H0423_PRV26_3833_C-06162026-PRV-26073_Jun26-Provider-Manual_R8_UA.pdf' }],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1176,6 +1248,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         verifyVia:
           'The emblemhealth.com provider portal or provider services \u2014 confirm telehealth code eligibility and place of service in writing per case.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          '“Preauthorization or notification is always required” for autism treatment, and EmblemHealth’s behavioral health UM is run by Carelon Behavioral Health. Emblem’s manual says determinations “for most non-urgent requests, must be made within three (3) business days of receipt of the necessary information, but depending on the line of business, and if additional information is required, the plan may have additional time,” and concurrent determinations within one business day of the necessary information; for Medicaid it points to “authorization request timeframes as described in the Medicaid Managed Care Model Contract.” That contract fills the gaps: expedited within 72 hours, standard no more than 14 days after receipt (extendable up to 14 days), and federal rules cap the standard decision at 7 calendar days for plan rating periods starting on or after January 1, 2026. Neither Emblem nor Carelon’s NY Medicaid addendum publishes an ABA reauth lead time.',
+        status: 'verified',
+        cites: [{ title: 'EmblemHealth Provider Manual — Utilization and Care Management (generated 06-26-2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/care-management.pdf' }, { title: 'EmblemHealth Provider Manual — Behavioral Health Services (generated 05-04-2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/behavioral-health-services.pdf' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3 and §3.7', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }, { title: 'eCFR — 42 CFR 438.210(d), timeframe for decisions', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid pays last: providers “must bill all applicable insurance sources before submitting claims to Medicaid,” and under the state contract the plan must “alert the provider and ask them to bill the TPHI that should be primary to the Plan.” Emblem’s own rule is about when it may hold a claim: it “does not deny a claim, in whole or in part, based on coordinating benefits unless we have a reasonable basis to believe the member has other health insurance coverage that is primary,” and if it asks the member about other coverage and hears nothing in 45 days it adjudicates the claim. Behavioral health claims go through Carelon Behavioral Health; COB billing mechanics are in Emblem’s claim submission guides. Whether Emblem/Carelon still requires its own ABA authorization when it is secondary is not published — ask Carelon (800-397-1630).',
+        status: 'verified',
+        cites: [{ title: 'EmblemHealth Provider Manual — Claims (generated 07-28-2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/claims.pdf' }, { title: 'eMedNY Information for All Providers — General Policy (Version 2022-2)', url: 'https://www.emedny.org/ProviderManuals/AllProviders/PDFS/Information_for_All_Providers-General_Policy.pdf' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3 and §3.7', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }],
       },
     },
     deliveryRules: {
@@ -1350,6 +1434,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Molina NY provider services or the NY Medicaid bulletins index at molinahealthcare.com \u2014 confirm telehealth code eligibility and POS in writing.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          '“For Medicaid, Molina’s decision must be made as fast as the Member requires or within three (3) business days of receipt of necessary information but no more than fourteen (14) days of the request.” Expedited requests: “within seventy-two (72) hours of receipt of the expedited request.” Continued-service (concurrent) requests — reauths and unit increases — are decided within one business day of the necessary information (expedited: “no more than 72 hours”). Either clock “may be extended by an additional fourteen (14) days” at the member’s or provider’s request or when Molina needs more information. Federal rules now cap standard Medicaid managed-care decisions at 7 calendar days for plan rating periods starting on or after January 1, 2026, which is tighter than the manual’s 14. No ABA reauth submission lead time is published.',
+        status: 'verified',
+        cites: [{ title: 'Molina Healthcare of New York Provider Manual — Medicaid Managed Care, PLUS and CHP (2026 Mid-Year Update, June 2026), §7', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/2026%20Medicaid%20Provider%20Manual%20Mid-Year%20remediated' }, { title: 'eCFR — 42 CFR 438.210(d), timeframe for decisions', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          '“Medicaid is always the payer of last resort… If third-party liability can be established, Provider must bill the primary payer and submit a primary explanation of benefits (EOB) to Molina for secondary Claim processing,” and “Primary carrier payment information is required with the Claim submission.” The one pay-and-chase carve-out: “Molina will pay claims for prenatal care and EPSDT and then seek reimbursement from third parties” — ask billing whether an ABA claim is treated as EPSDT before relying on it. If Molina paid before learning of other coverage, it sends an overpayment letter with the other policy’s details. The manual does not say whether Molina’s own ABA prior authorization is still required when it is secondary — confirm with Provider Services before starting on the primary plan’s approval alone.',
+        status: 'verified',
+        cites: [{ title: 'Molina Healthcare of New York Provider Manual (2026 Mid-Year Update, June 2026), §12 Coordination of Benefits and Third Party Liability', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/2026%20Medicaid%20Provider%20Manual%20Mid-Year%20remediated' }],
       },
     },
     deliveryRules: {
@@ -1545,6 +1641,22 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'Aetna\u2019s telemedicine policy and the member\u2019s benefit document, confirmed at precertification before scheduling remote sessions.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Aetna requires prior authorization for ABA (request on Availity with form GR-69017-4, which expects re-evaluation “every 6 months”) but publishes no decision clock of its own — the clock depends on how the plan is funded. If the child’s plan is fully insured in New York, Insurance Law §4903 sets the clock: a pre-authorization is decided “within three business days of receipt of the necessary information,” and a request for continued or additional services in an ongoing course of treatment (an ABA reauth or unit increase) “within one business day of receipt of the necessary information”; a missed deadline is “deemed to be an adverse determination subject to appeal.” If the employer self-funds, ERISA’s floor applies instead: pre-service decisions “not later than 15 days after receipt of the claim” (one 15-day extension allowed), urgent claims within 72 hours. Aetna publishes no reauth submission lead time, so start the 6-month re-evaluation packet early.',
+        status: 'plan-dependent',
+        cites: [{ title: 'NY Insurance Law §4903 — utilization review determinations', url: 'https://www.nysenate.gov/legislation/laws/ISC/4903' }, { title: 'eCFR — 29 CFR 2560.503-1(f)(2), ERISA claims procedure timeframes', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' }, { title: 'Aetna Outpatient Behavioral Health — ABA Treatment Request form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+        verifyVia: 'the member services or behavioral health number on the ID card — ask whether the plan is fully insured (and in which state) or self-funded, and for its UM decision timeframes',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Aetna says: “We coordinate benefits as allowed by state or federal law following the National Associations of Insurance Commissioners (NAIC) guidelines. If there is no applicable law, then we coordinate according to the member’s plan.” For a child covered through both parents, New York’s COB regulation (binding on fully insured plans) applies the birthday rule: “the benefits of the plan of the parent whose birthday falls earlier in a year are determined before those of the plan of the parent whose birthday falls later” (month and day only; same birthday — the plan that covered the parent longer). Divorced or separated parents: the custodial parent’s plan, then the custodial parent’s spouse’s plan, then the other parent’s — unless a court decree assigns health costs to one parent. A plan covering the child as the subscriber pays before a dependent plan. Medicaid is never the primary “plan” (the regulation excludes “a State plan under Medicaid”), so a child with Medicaid as well bills the commercial plan first. Self-funded plans often use Maintenance of Benefits when secondary, which can leave less for the secondary to pay. Bill the primary first and send its EOB with the secondary claim.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: '11 NYCRR §52.23 (Regulation 62) — Coordination of benefits', url: 'https://www.law.cornell.edu/regulations/new-york/11-NYCRR-52.23' }],
+        verifyVia: 'the carrier’s eligibility response (Availity or the ID-card number) for an other-insurance record, and both parents’ birth dates and custody arrangements at intake; a self-funded plan follows its own plan document',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1723,6 +1835,22 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'Permitted, with no code list and no place-of-service rule published: \u201cABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities,\u201d chosen on individual characteristics, treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Telehealth is one of the environments where services must be \u201cclearly identified and documented,\u201d and the line-of-sight/proximity requirement expressly \u201cdoes not apply to telehealth services, when applicable.\u201d New York\u2019s mandate is silent on modality.',
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'Evernorth (Cigna’s behavioral arm) makes “coverage determinations in accordance with the time frames required under applicable law,” so the clock depends on how the plan is funded. If the child’s plan is fully insured in New York, Insurance Law §4903 sets the clock: a pre-authorization is decided “within three business days of receipt of the necessary information,” and a request for continued or additional services in an ongoing course of treatment (an ABA reauth or unit increase) “within one business day of receipt of the necessary information”; a missed deadline is “deemed to be an adverse determination subject to appeal.” If the employer self-funds, ERISA’s floor applies instead: pre-service decisions “not later than 15 days after receipt of the claim” (one 15-day extension allowed), urgent claims within 72 hours. Evernorth’s own lead time: “For ABA, we encourage providers to request authorizations up to 30 days in advance of or two weeks after the start date of service. A delay in request may result in a retrospective review and could delay the determination for up to 30 days.”',
+        status: 'plan-dependent',
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (March 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, { title: 'Evernorth Behavioral Health — Autism resource guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'NY Insurance Law §4903 — utilization review determinations', url: 'https://www.nysenate.gov/legislation/laws/ISC/4903' }, { title: 'eCFR — 29 CFR 2560.503-1(f)(2), ERISA claims procedure timeframes', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' }],
+        verifyVia: 'the Evernorth Autism Care Coordinator team (877-279-7603) or the ID-card number — ask whether the plan is fully insured in New York or self-funded',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Evernorth follows “the National Association of Insurance Commissioners guidelines about the industry standard of order of benefit determination subject to applicable law and the terms of the benefit plan.” For a child of married parents living together, “The plan of the parent whose birthday falls earlier in the calendar year is primary to the plan of the parent whose birthday falls later in the year” (same birthday: the plan in effect longer); for separated or divorced parents, a court decree first, then the custodial parent’s plan, the custodial parent’s spouse’s, the non-custodial parent’s, and that parent’s spouse’s. Bill the primary first, then Cigna (payer ID 62308, or paper with the primary’s EOB). For fully insured New York plans the same birthday rule is required by Regulation 62, which also excludes Medicaid from the definition of a plan — so Medicaid always pays after Cigna.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (March 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, { title: '11 NYCRR §52.23 (Regulation 62) — Coordination of benefits', url: 'https://www.law.cornell.edu/regulations/new-york/11-NYCRR-52.23' }],
+        verifyVia: 'the carrier’s eligibility response (Availity or the ID-card number) for an other-insurance record, and both parents’ birth dates and custody arrangements at intake; a self-funded plan follows its own plan document',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1906,6 +2034,22 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum NY Medicaid ABA Provider Orientation (BH00869, 01/30/2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/nyaba/NYabaPres.pdf' }],
         verifyVia:
           'Optum/Provider Express virtual-visits requirements and the member\u2019s benefit plan \u2014 confirm code eligibility and POS before scheduling remote sessions.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'For New York members UHC’s administrative guide (Oxford commercial supplement) publishes the state clock: “Prior authorization – We make UR decisions and provide notice to you and the member, by phone and in writing, within 3 business days of receipt of necessary information”; standard concurrent reviews (reauths) within 1 business day of necessary information; urgent concurrent reviews within 24 hours. That matches Insurance Law §4903 for fully insured plans, where a missed deadline counts as an appealable denial. A self-funded employer plan is bound only by ERISA’s floor (15 days, one 15-day extension; urgent 72 hours) unless it adopts the insurer’s clock. Optum (UHC’s behavioral arm) sets the reauth window: call the ABA/Autism queue “no more than 30 days prior to the current approvals on file expiring,” with all clinical information ready; retrospective reviews take up to 30 calendar days.',
+        status: 'plan-dependent',
+        cites: [{ title: '2026 UnitedHealthcare Care Provider Administrative Guide (eff. April 1, 2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — FAQ Autism/ABA Using CPT Codes', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' }, { title: 'Optum National Network Manual (eff. Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: 'NY Insurance Law §4903 — utilization review determinations', url: 'https://www.nysenate.gov/legislation/laws/ISC/4903' }, { title: 'eCFR — 29 CFR 2560.503-1(f)(2), ERISA claims procedure timeframes', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' }],
+        verifyVia: 'the member services or behavioral health number on the ID card — ask whether the plan is fully insured (and in which state) or self-funded, and for its UM decision timeframes',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'UHC administers COB “according to the member’s benefit plan and in accordance with law.” Its New York (Oxford) supplement lists the NAIC order: a plan with no COB clause pays first, the plan covering the child as subscriber before a dependent plan, then the birthday rule (“The coverage of the parent whose birthday falls first in the calendar year is the primary carrier”), then custody or court decree, active before retiree coverage, longer before shorter. Optum: “You are responsible for determining if the member has other insurance coverage. If so, you should bill the primary insurance carrier first, then notify Optum of your findings”; the secondary pays up to Optum’s contracted rate and you may not balance-bill. Regulation 62 excludes Medicaid from the definition of a plan, so Medicaid pays after UHC.',
+        status: 'plan-dependent',
+        cites: [{ title: '2026 UnitedHealthcare Care Provider Administrative Guide (eff. April 1, 2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (eff. Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '11 NYCRR §52.23 (Regulation 62) — Coordination of benefits', url: 'https://www.law.cornell.edu/regulations/new-york/11-NYCRR-52.23' }],
+        verifyVia: 'the carrier’s eligibility response (Availity or the ID-card number) for an other-insurance record, and both parents’ birth dates and custody arrangements at intake; a self-funded plan follows its own plan document',
         blocker: 'per-case',
       },
     },
@@ -2104,6 +2248,20 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'Excellus Provider Services \u2014 confirm ABA telehealth reimbursement and the required modifier before scheduling remote sessions.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Excellus publishes its Medicaid clock in its own member handbooks (the provider manual is behind the portal login): a standard prior authorization is decided “within 3 work days of when we have all the information we need, but no later than 7 days after we receive your request”; a fast-track request “within 72 hours”; a continued-service (concurrent) request within one work day of complete information, again no later than 7 days. When Excellus needs more information, the decision comes “no later than 14 days from the day we asked for more information.” The ABA medical policy asks for an updated treatment plan and progress notes “at least once every 12 months or as state mandated” but sets no reauth submission lead time.',
+        status: 'verified',
+        cites: [{ title: 'Excellus BCBS Blue Choice Option (Medicaid Managed Care) Member Handbook (revised April 2025)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-inp-mdm-blue-choice-option-handbook' }, { title: 'Excellus BCBS HMOBlue Option Member Handbook (revised April 2025)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-inp-mdm-hmo-blue-option-handbook' }, { title: 'Excellus BCBS Medical Policy 3.01.11 — Applied Behavior Analysis (eff. June 18, 2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          'The state rule is clear: Medicaid is “the payer of last resort,” providers “must bill all applicable insurance sources before submitting claims to Medicaid,” and the plan must “alert the provider and ask them to bill the TPHI that should be primary to the Plan.” What Excellus’s own Medicaid claim procedure adds — attachments, filing window, and whether its ABA prior authorization is still required when it is secondary — sits in the provider manual behind the portal login and could not be checked. The only public Excellus billing guide (a general Blues billing orientation, not Medicaid-specific) says “For secondary paper claims, we require a copy of the primary carrier’s EOB.”',
+        status: 'unverified',
+        cites: [{ title: 'eMedNY Information for All Providers — General Policy (Version 2022-2)', url: 'https://www.emedny.org/ProviderManuals/AllProviders/PDFS/Information_for_All_Providers-General_Policy.pdf' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3 and §3.7', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }, { title: 'Excellus BCBS — Navigating the Blues Billing Orientation Guidebook', url: 'https://provider.excellusbcbs.com/documents/53971/224461/Navigating+the+Blues+Billing+Orientation+Guidebook.pdf' }],
+        verifyVia: 'Excellus provider manual (Government Programs / claims and UM sections) in the provider.excellusbcbs.com portal, or Excellus Provider Service 1-800-920-8889 — ask whether a Medicaid ABA prior authorization is needed when Excellus is secondary.',
+        blocker: 'document',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -2288,6 +2446,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         verifyVia:
           'MVP Provider Services \u2014 confirm the current telehealth reimbursement status for ABA codes before scheduling remote sessions; the policy\u2019s waiver reference has not been updated since the cited date passed.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'MVP requires prior authorization for ABA assessments and services and, for Medicaid, says it “will render decisions in accordance with established timeframes outlined in the Medicaid Managed Care Model Contract.” That contract sets the clock: a standard request within three business days of the necessary information and no more than 14 days after receipt; expedited within 72 hours; a concurrent request (reauth or more units) within one business day of the necessary information; any of these extendable up to 14 days. Federal rules cap the standard decision at 7 calendar days for plan rating periods starting on or after January 1, 2026. MVP’s own operational rules: submit prior authorization requests “no less than five (5) calendar days prior” to the service, and when MVP asks for missing clinical information it must arrive within 2 business days (24 hours if urgent). No ABA reauth lead time is published.',
+        status: 'verified',
+        cites: [{ title: 'MVP 2026 Provider Policies (eff. April 1, 2026), Utilization and Case Management', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-provider-policies-effective-april-1-2026.pdf' }, { title: 'MVP Payment Policies (eff. April 1, 2026) — Applied Behavior Analysis', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3 and §3.7', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }, { title: 'eCFR — 42 CFR 438.210(d), timeframe for decisions', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Bill the other payer first; the claim to MVP must carry the other payer’s approved amount, paid amount and remaining patient liability. MVP’s own authorization rules still apply when it is secondary: “If MVP is the Secondary Payer, the rules and procedures of MVP as stated in the Member’s Subscriber Contract must be followed before MVP will make payment,” and “When billing MVP as the secondary Payer, all MVP primary billing requirements and codes must be followed… regardless of what was billed to the Other Payer.” In practice: get MVP’s ABA prior authorization even when the commercial plan is primary. Underneath is the state rule that Medicaid pays last (“Providers must bill all applicable insurance sources before submitting claims to Medicaid”). MVP’s COB department: 1-800-556-2477, option 2.',
+        status: 'verified',
+        cites: [{ title: 'MVP 2026 Provider Policies (eff. April 1, 2026), Claims — Coordination of Benefits', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-provider-policies-effective-april-1-2026.pdf' }, { title: 'eMedNY Information for All Providers — General Policy (Version 2022-2)', url: 'https://www.emedny.org/ProviderManuals/AllProviders/PDFS/Information_for_All_Providers-General_Policy.pdf' }],
       },
     },
     deliveryRules: {
@@ -2474,6 +2644,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         verifyVia:
           'The CDPHP Behavioral Health Access Center (518-641-3600 / 1-888-320-9584) \u2014 confirm POS and modifier requirements before delivering remotely.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'CDPHP’s provider manual publishes no Medicaid decision clock of its own: it says CDPHP “complies with all specific time frames for decision making and notification under the law” and points to “established timeframes in the Medicaid Managed Care Model Contract.” That contract governs: a standard prior authorization is decided “within three (3) business days of receipt of necessary information, but no more than fourteen (14) days after receipt”; expedited within 72 hours; a concurrent request (reauth or more units) within one business day of the necessary information; each extendable up to 14 days. Federal rules cap the standard decision at 7 calendar days for plan rating periods starting on or after January 1, 2026. No ABA reauth lead time is published in the public manual; CDPHP’s full ABA policy sits behind the provider login.',
+        status: 'verified',
+        cites: [{ title: 'CDPHP Provider Office Administrative Manual — Section 5, Referral & Authorization Process', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-5-referral-authorization-process.pdf' }, { title: 'CDPHP Provider Office Administrative Manual — Section 3, Government Programs (rev. Feb 2026)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-3-government-programs.pdf' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3 and §3.7', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }, { title: 'eCFR — 42 CFR 438.210(d), timeframe for decisions', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          '“If CDPHP is secondary, the provider must wait for the explanation of benefits (EOB) from the primary carrier first before billing CDPHP,” then “submit a duplicate claim with the total amount billed (just as if CDPHP were the only insurance company) with the primary carrier’s explanation of benefits (EOB) attached.” A claim with no EOB when CDPHP has another carrier on file denies automatically (“RPC” — check the secure provider site for the primary carrier). For a Medicaid member this sits on the state rule that Medicaid pays last and providers “must bill all applicable insurance sources before submitting claims to Medicaid.” The COB section (revised January 2020) does not say whether CDPHP’s ABA authorization is still required when it is secondary — ask the Behavioral Health Access Center (518-641-3600).',
+        status: 'verified',
+        cites: [{ title: 'CDPHP Provider Office Administrative Manual — Section 8, Coordination of Benefits (rev. January 2020)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-8-coordination-of-benefits.pdf' }, { title: 'eMedNY Information for All Providers — General Policy (Version 2022-2)', url: 'https://www.emedny.org/ProviderManuals/AllProviders/PDFS/Information_for_All_Providers-General_Policy.pdf' }],
       },
     },
     deliveryRules: {
@@ -2664,6 +2846,20 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'Independent Health Provider Services \u2014 confirm telehealth eligibility, code list and place of service before scheduling remote sessions.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'MediSource behavioral health prior authorization and utilization review are run by Carelon Behavioral Health. Independent Health’s 2026 MediSource handbook sets the clock: standard review “within 3 work days of when we have all the information we need, but you will hear from us no later than 14 days after we receive your request”; fast track “within 72 hours”; a continued-service (concurrent) request within one work day of complete information, no later than 14 days (72 hours if fast-track). Federal rules cap the standard decision at 7 calendar days for plan rating periods starting on or after January 1, 2026, which is tighter than the handbook’s 14. No ABA reauth submission lead time is published; the provider manual is behind the HealthTrio login.',
+        status: 'verified',
+        cites: [{ title: 'Independent Health MediSource 2026 Member Handbook (published April 1, 2026)', url: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf' }, { title: 'Independent Health — Behavioral Health for State Products', url: 'https://www.independenthealth.com/providers/policies-and-guidelies/behavioral-health-for-state-products' }, { title: 'eCFR — 42 CFR 438.210(d), timeframe for decisions', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          'The state rule is clear: Medicaid is “the payer of last resort,” providers “must bill all applicable insurance sources before submitting claims to Medicaid,” and the plan must “alert the provider and ask them to bill the TPHI that should be primary to the Plan.” Independent Health’s own MediSource claim procedure — what to attach, the secondary filing window, and whether Carelon’s ABA authorization is still required when MediSource is secondary — is not in any public document; the provider manual is behind the HealthTrio login and the member handbook is silent.',
+        status: 'unverified',
+        cites: [{ title: 'eMedNY Information for All Providers — General Policy (Version 2022-2)', url: 'https://www.emedny.org/ProviderManuals/AllProviders/PDFS/Information_for_All_Providers-General_Policy.pdf' }, { title: 'NYS Medicaid Managed Care Model Contract (March 1, 2019), Appendix F §3 and §3.7', url: 'https://www.health.ny.gov/health_care/managed_care/docs/medicaid_managed_care_fhp_hiv-snp_model_contract.pdf' }],
+        verifyVia: 'Independent Health provider administrative manual (HealthTrio portal), or Carelon Behavioral Health claims 1-888-249-0478 — ask whether a MediSource ABA authorization is needed when another plan is primary.',
+        blocker: 'document',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -2852,6 +3048,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Highmark WNY Provider Services \u2014 confirm the COVID-era telehealth bulletin is still operative before billing 97151/97153/97155/97156/97157 via telehealth.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'ABA requires authorization (effective January 1, 2023). “In the case of a standard or non-expedited request, a decision and notification will be made within three business days of receipt of the necessary information but no later than 14 calendar days after the receipt of the request”; expedited requests no later than 72 hours after receipt; a continued-services (concurrent) request within one business day of the necessary information, no more than 14 calendar days. “An extension will extend the review turnaround time by 14 calendar days.” Highmark’s submission rule: “Precertification requests must be submitted, at a minimum, within 72 hours prior to the scheduled service/procedure,” or they are administratively denied. Federal rules cap standard decisions at 7 calendar days for plan rating periods starting on or after January 1, 2026, tighter than the manual’s 14. No ABA reauth lead time is published (the manual’s 14-day pre-expiry rule is for children’s HCBS, not ABA).',
+        status: 'verified',
+        cites: [{ title: 'Highmark BCBS of Western New York Provider Manual — Medicaid Managed Care and Child Health Plus (eff. April 1, 2026)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_ProviderManual.pdf' }, { title: 'eCFR — 42 CFR 438.210(d), timeframe for decisions', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          '“We and our providers agree the Medicaid program will be the payer of last resort when third-party resources are available.” When Highmark knows of other coverage it rejects the claim and redirects you to bill that carrier; when it learns later, it recovers after payment. Bill the other plan first, then Highmark: “In the case of other insurance, submit the claim within 120 days of receiving a response from the third-party payer.” The manual does not say whether Highmark’s ABA authorization is still required when it is secondary — confirm on Highmark’s precertification line (1-866-231-0847) before starting on the primary plan’s approval alone.',
+        status: 'verified',
+        cites: [{ title: 'Highmark BCBS of Western New York Provider Manual — Medicaid Managed Care and Child Health Plus (eff. April 1, 2026), Coordination of Benefits', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_ProviderManual.pdf' }],
       },
     },
     deliveryRules: {
@@ -3075,6 +3283,20 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Anthem ABA Provider Resource Guide \u2014 New York and 10 other states (June 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/aba-provider-resource-guide-abc-ny.pdf' }],
         verifyVia:
           'Anthem\u2019s Virtual Visits reimbursement policy and the allowed-virtual-services list for New York \u2014 confirm ABA code eligibility before scheduling remote sessions.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Anthem’s New York manual publishes its UM clock: a non-urgent pre-service request is decided “within three (3) business days of receipt of all necessary information”; a continued-stay (concurrent) request “within one (1) business day of receipt of all necessary clinical information or 72 hours, whichever is shorter”; urgent requests within one business day of all necessary clinical information or 72 hours, whichever is shorter; post-service within 30 calendar days. A missed deadline is “deemed to be an adverse determination subject to appeal.” These track Insurance Law §4903. For PPO, EPO and indemnity products the precert duty sits on the member, but providers should request it. No ABA reauth lead time is published; the ABA guide expects the treatment plan “reviewed and/or updated at a min of every 6 months.”',
+        status: 'verified',
+        cites: [{ title: 'Anthem Blue Cross Blue Shield New York Provider Manual (eff. July 1, 2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/manuals/PM_NY_000016.pdf' }, { title: 'Anthem ABA Provider Resource Guide (June 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/aba-provider-resource-guide-abc-ny.pdf' }, { title: 'NY Insurance Law §4903 — utilization review determinations', url: 'https://www.nysenate.gov/legislation/laws/ISC/4903' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Anthem’s manual covers what it pays as secondary, not who is primary: it pays in accordance with the agreement and the member’s health benefit plan, the secondary payment plus all other sources “including the Member, shall add up to one hundred percent (100%) of the Plan rate,” and the member owes no more than if Anthem were primary. Bill the primary first and include its EOB on paper COB claims (or submit via Availity). For a child covered through both parents, New York’s COB regulation (binding on fully insured plans) applies the birthday rule: “the benefits of the plan of the parent whose birthday falls earlier in a year are determined before those of the plan of the parent whose birthday falls later” (month and day only; same birthday — the plan that covered the parent longer). Divorced or separated parents: the custodial parent’s plan, then the custodial parent’s spouse’s plan, then the other parent’s — unless a court decree assigns health costs to one parent. A plan covering the child as the subscriber pays before a dependent plan. Medicaid is never the primary “plan” (the regulation excludes “a State plan under Medicaid”), so a child with Medicaid as well bills the commercial plan first.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Anthem Blue Cross Blue Shield New York Provider Manual (eff. July 1, 2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/manuals/PM_NY_000016.pdf' }, { title: '11 NYCRR §52.23 (Regulation 62) — Coordination of benefits', url: 'https://www.law.cornell.edu/regulations/new-york/11-NYCRR-52.23' }],
+        verifyVia: 'the carrier’s eligibility response (Availity or the ID-card number) for an other-insurance record, and both parents’ birth dates and custody arrangements at intake; a self-funded plan follows its own plan document',
         blocker: 'per-case',
       },
     },

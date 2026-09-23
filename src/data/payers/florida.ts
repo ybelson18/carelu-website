@@ -60,6 +60,23 @@ export const floridaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
       },
+      authTurnaround: {
+        value:
+          'Fee-for-service BA requests go to Acentra (eQSuite), and Acentra measures the clock from a complete file: “The review completion timeframe is measured from the date eQHealth receives all required information.” First-level approvals come “within 3 business days”; cases needing physician review “within 5 business days”; reconsiderations within 3 business days. A request missing documents is pended, and if the missing items are not in “within two business day[s] the review request is Technically Denied” and must be resubmitted as a new case. Lead times: submit an initial (“admission”) request “at least 5 business days before services are initiated,” and a reauthorization (“continued stay”) “no less than 10 business days, but not more than 30 business days before the end of the current approval period.” Approvals run up to 180 calendar days. The federal FFS rule effective 1/1/2026 caps standard decisions at 7 calendar days and expedited at 72 hours from receipt (42 CFR 440.230(e)). Most children are in an MMA plan, and each plan runs its own clock.',
+        status: 'verified',
+        cites: [
+          { title: 'Acentra Health — Behavior Analysis Provider Manual 2026', url: 'https://fl.acentra.com/wp-content/uploads/sites/14/2026/05/Behavior-Analysis-Provider-Manual-2026.pdf' },
+          { title: '42 CFR 440.230(e) — Medicaid fee-for-service prior authorization timeframes, from 1/1/2026 (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-440.230' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Florida Medicaid pays last. Rule 59G-1.052: “Florida Medicaid is the payer of last resort. Providers must exhaust all TPL sources of payment, such as Medicare, TRICARE, private health insurance, AARP plans, or automobile coverage prior to submitting or resubmitting a claim for reimbursement to Florida Medicaid.” Bill the commercial plan first, then send Medicaid the balance with proof of the other payer’s payment or denial. Medicaid pays only “the difference between the Florida Medicaid rate and the third-party payment,” and nothing if the other payer paid at or above the Medicaid rate. It also pays nothing when “the provider’s TPL claim is denied for failing to obtain the appropriate authorization from the third-party.” So get the commercial plan’s ABA authorization. The rule’s only Medicaid-PA exemption is for “services approved by Medicare”; it gives none when a commercial plan is primary. Providers “must inquire if a recipient has third-party insurance coverage” at every visit, and may not refuse a Medicaid child because other insurance exists. Exceptions where Medicaid pays before another program include IDEA Part B/C funds and Indian Health Service. The rule publishes no pay-and-chase exception for EPSDT or preventive pediatric care.',
+        status: 'verified',
+        cites: [
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -229,7 +246,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
     treatmentPA: {
       value: 'Required — authorizations up to 6 months; determinations within 5 calendar days (7 for CMS Health Plan)',
       status: 'verified',
-      cites: [{ title: 'Sunshine Health \u2014 BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }],
+      cites: [{ title: 'Sunshine Health \u2014 BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Children’s Medical Services Health Plan Provider Manual (CMS_10234, © 2025 Sunshine Health) — standard PA decisions within seven calendar days', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/CMS-PRO-PE-Manual.pdf' }],
     },
     dxRequired: {
       value: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
@@ -274,6 +291,26 @@ export const floridaPayers: Record<string, PayerConfig> = {
           'One code only, stated on the face of Sunshine’s own PA form: “telehealth only allowed for 97156 with limits (see fee schedule)” — matching the state policy’s two-hours-a-week cap on Lead Analyst caregiver training by telemedicine. Sunshine adds two conditions of its own: an out-of-state rendering provider “must be registered with the Florida Department of Health,” and “the telehealth platform must be compliant with HIPAA.”',
         status: 'verified',
         cites: [{ title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'Sunshine’s BA page: “MMA, CW, SMI, LTC, HIV: Determination within 5 calendar days of receipt of request.” The 2026 provider manual matches for standard requests (“within five calendar days of receiving the request,” extendable “up to an additional four calendar days”). For expedited requests the manual says “within two business days of receipt,” with a one-time one-calendar-day extension. The AHCA contract sets expedited at two calendar days. Lead time: the manual asks for pre-scheduled services “within five calendar days before the requested service date.” BA authorizations run up to 6 months. No separate BA reauthorization lead time is published. The AHCA contract every MMA plan signs sets the clock: plans “shall provide standard authorization decisions within no more than five (5) days following receipt of the request for service,” extendable by “up to four (4) additional days,” and expedited decisions “no later than two (2) days after receipt,” extendable by one day. The contract defines days as calendar days. That is stricter than the federal Medicaid managed-care cap (7 calendar days standard and 72 hours expedited for rating periods from 1/1/2026, 42 CFR 438.210(d)), so the state clock governs.',
+        status: 'verified',
+        cites: [
+          { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' },
+          { title: 'Sunshine Health Provider Manual (SH_11287, © 2026) — MMA, LTC, CWSP, SMI and HIV lines', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/Provider%20Manual.pdf' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Sunshine’s manual: bill other insurance first “as Medicaid is always the payer of last resort. If an authorization is required, the providers still must obtain Sunshine Health authorization for the Medicaid portion of the bill.” So a child with a parent’s commercial plan needs two authorizations: the commercial plan’s and Sunshine’s BA authorization. Primary and secondary claims are never processed together; send the secondary claim only after the primary’s EOP or ERA, or it is denied “based on the need for primary insurance information.” File the COB claim within 90 days of the primary payer’s explanation of payment (participating and non-participating alike). Where the primary plan’s benefit is exhausted, send the EOB that shows the exhaustion. Florida Medicaid pays last. Rule 59G-1.052 says: “Florida Medicaid is the payer of last resort. Providers must exhaust all TPL sources of payment, such as Medicare, TRICARE, private health insurance … prior to submitting or resubmitting a claim.” The AHCA contract binds every MMA plan to that rule. Two consequences for intake: Medicaid pays only “the difference between the Florida Medicaid rate and the third-party payment,” and it pays nothing when “the provider’s TPL claim is denied for failing to obtain the appropriate authorization from the third-party.” So get the commercial plan’s own ABA authorization first.',
+        status: 'verified',
+        cites: [
+          { title: 'Sunshine Health Provider Manual (SH_11287, © 2026) — MMA, LTC, CWSP, SMI and HIV lines', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/Provider%20Manual.pdf' },
+          { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+        ],
       },
     },
     deliveryRules: {
@@ -417,7 +454,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
     treatmentPA: {
       value: 'Required — determinations within 7 calendar days (vs. 5 on other Sunshine lines)',
       status: 'verified',
-      cites: [{ title: 'Sunshine Health \u2014 BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }],
+      cites: [{ title: 'Children’s Medical Services Health Plan Provider Manual (CMS_10234, © 2025 Sunshine Health) — standard PA decisions within seven calendar days', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/CMS-PRO-PE-Manual.pdf' }],
     },
     dxRequired: {
       value: 'No — state BA policy applies: physician referral + order + CDE, no autism-diagnosis requirement',
@@ -455,13 +492,31 @@ export const floridaPayers: Record<string, PayerConfig> = {
         value:
           'Required — the state referral plus physician order plus CDE, submitted through Sunshine’s BA process. Two CMS-specific mechanics: prior authorization applies to the ABA CPT codes for Title 21 (CHIP) members as well as Title 19, so a CHIP card does not shortcut the workflow; and determinations run up to seven calendar days rather than Sunshine’s five, which is the longest published clock among the Sunshine lines.',
         status: 'verified',
-        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        cites: [{ title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Children’s Medical Services Health Plan Provider Manual (CMS_10234, © 2025 Sunshine Health) — standard PA decisions within seven calendar days', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/CMS-PRO-PE-Manual.pdf' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
       },
       telehealth: {
         value:
           'Follows the Florida Medicaid rule as administered by Sunshine: telehealth is allowed only for 97156 caregiver training, within the state’s two-hours-a-week telemedicine cap, with a HIPAA-compliant platform and Florida Department of Health registration for an out-of-state rendering provider. No CMS Health Plan-specific telehealth expansion is published.',
         status: 'verified',
         cites: [{ title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' }, { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' }, { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'CMS Health Plan runs its own, slower clock. Its provider manual: standard medical and behavioral health PA decisions “are made within seven calendar days of receipt of the request,” with one extension of “up to an additional four calendar days.” Urgent or expedited requests are decided “within 48 hours of receipt,” with a one-time one-day extension. Lead time: submit pre-scheduled services “within seven calendar days before the requested service date.” No separate BA reauthorization lead time is published. Note the gap with the AHCA contract: CMS Health Plan “must meet all other plan requirements for the MMA program,” and the MMA contract sets 5 days standard and 2 days expedited. Plan around the 7 days the plan publishes.',
+        status: 'verified',
+        cites: [
+          { title: 'Children’s Medical Services Health Plan Provider Manual (CMS_10234, © 2025 Sunshine Health)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/CMS-PRO-PE-Manual.pdf' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'CMS Health Plan’s manual: if “the member has other primary medical insurance, providers should submit the claim to that insurance as CMS Health Plan is always the payer of last resort. If an authorization is required, the providers still must obtain Sunshine Health authorization for the Medicaid portion of the bill.” Check the Coordination of Benefits tab in the Sunshine portal. Primary and secondary claims must be split and sent in order. File the COB claim within 90 days of the primary payer’s explanation of payment. Florida Medicaid pays last. Rule 59G-1.052 says: “Florida Medicaid is the payer of last resort. Providers must exhaust all TPL sources of payment, such as Medicare, TRICARE, private health insurance … prior to submitting or resubmitting a claim.” The AHCA contract binds every MMA plan to that rule. Two consequences for intake: Medicaid pays only “the difference between the Florida Medicaid rate and the third-party payment,” and it pays nothing when “the provider’s TPL claim is denied for failing to obtain the appropriate authorization from the third-party.” So get the commercial plan’s own ABA authorization first.',
+        status: 'verified',
+        cites: [
+          { title: 'Children’s Medical Services Health Plan Provider Manual (CMS_10234, © 2025 Sunshine Health)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/CMS-PRO-PE-Manual.pdf' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+        ],
       },
     },
     deliveryRules: {
@@ -529,7 +584,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
           'Everything mechanical about CMS Health Plan BA is Sunshine Health: the Secure Provider Portal, the BA PA request form, the dedicated BA fax at 1-844-208-9113, in-house UM, and the AHCA clinical criteria underneath (referral + order + CDE, Vineland-3/BASC-3 reports, 6-month authorizations). The two differences worth building into intake: determinations take up to 7 calendar days rather than 5 — set family expectations accordingly — and PA applies to ABA CPT codes for Title 21 (CHIP) members as well as Title 19, so don\'t assume a CHIP card changes the workflow. Because the plan serves children with chronic and complex conditions, Florida\'s no-autism-diagnosis eligibility matters here more than anywhere: members with co-occurring medical conditions and functionally impairing behavior qualify through the referral gate without an ASD label.',
         ],
         cites: [
-          { title: 'Sunshine Health — BA Provider Quick Reference Guide (CMS turnaround)', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' },
+          { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' },
+          { title: 'Children’s Medical Services Health Plan Provider Manual (CMS_10234, © 2025 Sunshine Health) — standard PA decisions within seven calendar days', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/CMS-PRO-PE-Manual.pdf' },
         ],
       },
     ],
@@ -542,6 +598,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' },
       { title: 'Sunshine Health — PA required for ABA CPT codes incl. CMS Title 21 (plan notice)', url: 'https://www.sunshinehealth.com/newsroom/aba-cpt-codes.html' },
+      { title: 'Children’s Medical Services Health Plan Provider Manual (CMS_10234, © 2025 Sunshine Health)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/CMS-PRO-PE-Manual.pdf' },
       { title: 'Sunshine Health — BA PA Request Form (fax 1-844-208-9113)', url: 'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
     ],
@@ -612,6 +669,27 @@ export const floridaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' }],
         verifyVia:
           'Carelon eServices or provider.relations.FL@carelon.com before scheduling any remote session other than 97156 caregiver training.',
+      },
+      authTurnaround: {
+        value:
+          'Simply’s MMA manual publishes only the expedited clock: “Decisions on urgent requests (that is, expedited service authorizations) will be made within two calendar days,” and expedited requests must go through Availity Essentials, not fax or phone. It publishes no standard-request number, so the contract clock applies. The AHCA contract every MMA plan signs sets the clock: plans “shall provide standard authorization decisions within no more than five (5) days following receipt of the request for service,” extendable by “up to four (4) additional days,” and expedited decisions “no later than two (2) days after receipt,” extendable by one day. The contract defines days as calendar days. That is stricter than the federal Medicaid managed-care cap (7 calendar days standard and 72 hours expedited for rating periods from 1/1/2026, 42 CFR 438.210(d)), so the state clock governs. Carelon runs Simply’s BA reviews, and its 30-day rule bites first: the treatment plan and data must be no more than 30 days old when submitted. No reauthorization lead time is published.',
+        status: 'verified',
+        cites: [
+          { title: 'Simply Healthcare — Florida SMMC MMA and Florida Healthy Kids Provider Manual (Nov 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SMH_FHKProviderManual.pdf?v=202606181620' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+          { title: 'Simply Healthcare / Carelon — Florida Medicaid Behavioral Analysis provider training (Jan 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Simply’s manual: “the Medicaid program will be the payer of last resort when third-party resources are available.” When Simply knows of other coverage before paying, it will reject the claim “and redirect the provider to bill the appropriate insurance carrier,” or recover after payment if it learns later. Send COB/TPL information to Florida Claims Correspondence with a Claim Correspondence Form and the other payer’s EOP. The manual does not say whether a Simply (Carelon) BA authorization is still needed when a commercial plan is primary. Florida Medicaid pays last. Rule 59G-1.052 says: “Florida Medicaid is the payer of last resort. Providers must exhaust all TPL sources of payment, such as Medicare, TRICARE, private health insurance … prior to submitting or resubmitting a claim.” The AHCA contract binds every MMA plan to that rule. Two consequences for intake: Medicaid pays only “the difference between the Florida Medicaid rate and the third-party payment,” and it pays nothing when “the provider’s TPL claim is denied for failing to obtain the appropriate authorization from the third-party.” So get the commercial plan’s own ABA authorization first.',
+        status: 'verified',
+        cites: [
+          { title: 'Simply Healthcare — Florida SMMC MMA and Florida Healthy Kids Provider Manual (Nov 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SMH_FHKProviderManual.pdf?v=202606181620' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+        ],
+        verifyVia: 'Carelon (1-800-397-1630), before the first date of service: whether Simply requires its own BA authorization when a commercial plan pays first.',
       },
     },
     deliveryRules: {
@@ -768,6 +846,26 @@ export const floridaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' }, { title: 'Optum Provider Express — Florida ABA QRG', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf' }],
         verifyVia:
           'Optum Behavioral Health provider services (1-877-614-0484) before scheduling any remote BA session other than 97156 caregiver training.',
+      },
+      authTurnaround: {
+        value:
+          'UHC’s 2026 Florida Medicaid manual lists non-urgent pre-service decisions “within 7 days of receipt of request” and urgent/expedited pre-service decisions “within 2 days of request receipt.” Retrospective reviews take 30 calendar days from receipt of all clinical information. BA requests go through Optum (Provider Express), and neither the manual nor the Optum BA quick reference guide publishes a reauthorization lead time. Note the gap with the AHCA contract, which requires standard decisions “within no more than five (5) days following receipt” for MMA plans. The plan’s published 7 days is the realistic planning number.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Florida LTC and MMA', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/FL-Care-Provider-Manual-Statewide-Medicaid-Managed-Care.pdf' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'UHC’s manual: “UnitedHealthcare Community Plan is, by law, the payer of last resort for eligible members. Therefore, you must bill and obtain an explanation of benefits (EOB) from any other insurance or health care coverage resource before billing.” Attach the complete EOB, showing the paid amount or denial reason, to the UHC claim. Optum’s BA quick reference guide warns that claims needing “an exception process, such as coordination of benefits (COB)” may fall outside the usual 15-calendar-day processing time. It does not say whether an Optum BA authorization is still needed when a commercial plan is primary. Florida Medicaid pays last. Rule 59G-1.052 says: “Florida Medicaid is the payer of last resort. Providers must exhaust all TPL sources of payment, such as Medicare, TRICARE, private health insurance … prior to submitting or resubmitting a claim.” The AHCA contract binds every MMA plan to that rule. Two consequences for intake: Medicaid pays only “the difference between the Florida Medicaid rate and the third-party payment,” and it pays nothing when “the provider’s TPL claim is denied for failing to obtain the appropriate authorization from the third-party.” So get the commercial plan’s own ABA authorization first.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Florida LTC and MMA', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/FL-Care-Provider-Manual-Statewide-Medicaid-Managed-Care.pdf' },
+          { title: 'UnitedHealthcare Community Plan of Florida / Optum — Behavioral Analysis quick reference guide', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+        ],
+        verifyVia: 'Optum / UHC Community Plan Provider Services: whether an Optum BA authorization is required when a commercial plan pays first.',
       },
     },
     deliveryRules: {
@@ -929,6 +1027,27 @@ export const floridaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Humana Healthy Horizons FL — BA Informational Flyer (675204FL0225)', url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf' }],
         verifyVia:
           'Humana’s Florida BA mailbox (FLBA@humana.com) or the provider line 800-477-6931 before scheduling a remote session other than 97156 caregiver training.',
+      },
+      authTurnaround: {
+        value:
+          'Humana’s 2026 Florida provider handbook publishes no decision timeframe for PA requests. Its PA page says only that requests “should be made as soon as possible.” The contract clock therefore applies. The AHCA contract every MMA plan signs sets the clock: plans “shall provide standard authorization decisions within no more than five (5) days following receipt of the request for service,” extendable by “up to four (4) additional days,” and expedited decisions “no later than two (2) days after receipt,” extendable by one day. The contract defines days as calendar days. That is stricter than the federal Medicaid managed-care cap (7 calendar days standard and 72 hours expedited for rating periods from 1/1/2026, 42 CFR 438.210(d)), so the state clock governs. Humana’s BA request must include a current assessment “from within the past 60 days,” so time the reassessment to the submission. No reauthorization lead time is published.',
+        status: 'verified',
+        cites: [
+          { title: 'Humana Healthy Horizons in Florida — 2026 Provider Handbook', url: 'https://assets.humana.com/is/content/humana/Provider_Handbookpdf' },
+          { title: 'Humana Healthy Horizons in Florida — Prior Authorization page', url: 'https://provider.humana.com/medicaid/florida-medicaid/prior-authorization' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Humana’s handbook says only: “Humana Healthy Horizons assumes full responsibility for collections in the event of third-party liability.” It publishes no step-by-step rule on billing the other payer first. The state rule that binds every MMA plan still applies. Florida Medicaid pays last. Rule 59G-1.052 says: “Florida Medicaid is the payer of last resort. Providers must exhaust all TPL sources of payment, such as Medicare, TRICARE, private health insurance … prior to submitting or resubmitting a claim.” The AHCA contract binds every MMA plan to that rule. Two consequences for intake: Medicaid pays only “the difference between the Florida Medicaid rate and the third-party payment,” and it pays nothing when “the provider’s TPL claim is denied for failing to obtain the appropriate authorization from the third-party.” So get the commercial plan’s own ABA authorization first.',
+        status: 'verified',
+        cites: [
+          { title: 'Humana Healthy Horizons in Florida — 2026 Provider Handbook', url: 'https://assets.humana.com/is/content/humana/Provider_Handbookpdf' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+        ],
+        verifyVia: 'Humana Provider Services (IVR 800-523-0023): whether Humana wants the commercial EOB before its claim, and whether its BA authorization is still required when a commercial plan pays first.',
       },
     },
     deliveryRules: {
@@ -1096,6 +1215,24 @@ export const floridaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'The ABHFL provider portal, the BA FAQ, or a BA Provider Open Office Hours session — the state provision is the dependable floor in the meantime.',
       },
+      authTurnaround: {
+        value:
+          'Aetna Better Health of Florida is faster than the contract. Its manual: “For Medicaid members, routine prior authorization requests will be completed within four (4) calendar days of receipt of the request. A four (4) day extension can be provided if additional information is needed.” Urgent requests “will be processed within 48 hours of the Plan’s receipt of the request unless additional information is required.” No reauthorization lead time is published. The AHCA contract floor is 5 days standard and 2 days expedited.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Better Health of Florida — Provider Manual, MMA and Comprehensive LTC (published 8/7/2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/provider/pdf/abhfl_medicaid_comprehensive_ltc_provider_manual.pdf' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Aetna Better Health of Florida waives its own PA when another payer is primary: “If other insurance is the primary payer before Aetna Better Health of Florida, prior authorization of a service is not required, unless it is known that the service provided is not covered by the primary payer. If the service is not covered by the primary payer, the provider must follow our prior authorization rules.” Bill the other insurer first and send its EOB or remittance advice with the claim; claims without it “will be denied in most cases.” When the primary does not cover the service or the benefit is exhausted, get an updated letter from the primary carrier every January and July. Filing deadlines differ inside the manual: 90 days after the primary’s final determination (citing the SMMC contract) in one place, 180 days from the EOB in another. File within 90 to satisfy both. Florida Medicaid pays last. Rule 59G-1.052 says: “Florida Medicaid is the payer of last resort. Providers must exhaust all TPL sources of payment, such as Medicare, TRICARE, private health insurance … prior to submitting or resubmitting a claim.” The AHCA contract binds every MMA plan to that rule.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Better Health of Florida — Provider Manual, MMA and Comprehensive LTC (published 8/7/2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/provider/pdf/abhfl_medicaid_comprehensive_ltc_provider_manual.pdf' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1250,9 +1387,9 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Required — the state gate applies: an independent physician referral, a physician’s order for BA services, and a Comprehensive Diagnostic Evaluation performed to national evidence-based practice standards, with prior authorization on all BA services. The submission channel, any Molina-specific form and the turnaround commitments are not publicly verifiable; Molina’s Prior Authorization Code Lookup Tool and provider portal are the authoritative sources.',
+          'Required — the state gate applies: an independent physician referral, a physician’s order for BA services, and a Comprehensive Diagnostic Evaluation performed to national evidence-based practice standards, with prior authorization on all BA services. The submission channel and any Molina-specific form are not publicly verifiable; Molina’s Prior Authorization Code Lookup Tool and provider portal are the authoritative sources. Turnaround is published in Molina’s 3/18/2026 Florida Medicaid manual: a standard determination “no later than contractual requirements or seven (7) calendar days after we receive the initial request for service,” and an expedited one “no later than contractual requirements or two (2) calendar days” (the AHCA contract sets 5 days standard, 2 expedited).',
         status: 'verified',
-        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Molina FL — BA Quick Reference Guide 2026 (access-restricted)', url: 'https://www.molinahealthcare.com/providers/fl/medicaid/comm/-/media/D0605825716B47F8819AD3B554626A86.ashx' }],
+        cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Molina FL — BA Quick Reference Guide 2026 (access-restricted)', url: 'https://www.molinahealthcare.com/providers/fl/medicaid/comm/-/media/D0605825716B47F8819AD3B554626A86.ashx' }, { title: 'Molina Healthcare of Florida — Medicaid Provider Manual (3/18/2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/3-18-26-MHFL-Medicaid-Provider-Handbook-508.ashx' }],
         verifyVia:
           'Molina’s BA Quick Reference Guide and PA Code Lookup Tool in the provider portal — build the first Molina submission around a portal session.',
       },
@@ -1264,6 +1401,25 @@ export const floridaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
         verifyVia:
           'Molina’s BA Quick Reference Guide in the provider portal; the state provision is the dependable floor in the meantime.',
+      },
+      authTurnaround: {
+        value:
+          'Molina’s March 2026 Florida manual: “For a standard authorization request, Molina makes the determination and provides notification no later than contractual requirements or seven (7) calendar days after we receive the initial request for service.” Expedited requests are decided “no later than contractual requirements or two (2) calendar days.” The contractual requirement is the AHCA clock of 5 days standard and 2 days expedited. Molina does not retroactively authorize services that need PA. No BA reauthorization lead time is published.',
+        status: 'verified',
+        cites: [
+          { title: 'Molina Healthcare of Florida — Medicaid Provider Manual (3/18/2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/3-18-26-MHFL-Medicaid-Provider-Handbook-508.ashx' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Molina’s manual: “Medicaid is always the payer of last resort … If third party liability can be established, Providers must bill the primary payer and submit a primary explanation of benefits (EOB) to Molina for secondary Claim processing.” Primary carrier payment information must be on the claim. Pay-and-chase exception: “Molina will pay claims for prenatal care and preventive pediatric care (EPSDT) and then seek reimbursement from third parties.” The manual does not say whether ABA claims count as EPSDT preventive care for this purpose. Florida Medicaid pays last. Rule 59G-1.052 says: “Florida Medicaid is the payer of last resort. Providers must exhaust all TPL sources of payment, such as Medicare, TRICARE, private health insurance … prior to submitting or resubmitting a claim.” The AHCA contract binds every MMA plan to that rule. Two consequences for intake: Medicaid pays only “the difference between the Florida Medicaid rate and the third-party payment,” and it pays nothing when “the provider’s TPL claim is denied for failing to obtain the appropriate authorization from the third-party.” So get the commercial plan’s own ABA authorization first.',
+        status: 'verified',
+        cites: [
+          { title: 'Molina Healthcare of Florida — Medicaid Provider Manual (3/18/2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/3-18-26-MHFL-Medicaid-Provider-Handbook-508.ashx' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+        ],
+        verifyVia: 'Molina Provider Services: whether an ABA claim for a child with commercial coverage can be paid first under the EPSDT exception, and whether Molina’s BA authorization is required when the commercial plan pays first.',
       },
     },
     deliveryRules: {
@@ -1334,10 +1490,11 @@ export const floridaPayers: Record<string, PayerConfig> = {
       {
         h2: 'What\'s verified, and what to confirm in the portal',
         body: [
-          'Verified: Molina administers BA in-house since the February 1, 2025 carve-in, maintains a BA Quick Reference Guide (updated October 2025, with a 2026 edition), and — like every MMA plan — must comply with the AHCA coverage policy without imposing more stringent limits. That gives you the dependable core: PA on all BA services with the CDE and required documentation, the referral + order gate with no autism-diagnosis requirement, Vineland-3/BASC-3 scoring reports, and up-to-6-month authorization periods. Not publicly verifiable (the plan\'s site blocks automated retrieval): the exact submission channel, forms, and turnaround commitments. Molina\'s Prior Authorization Code Lookup Tool and provider portal are the authoritative sources for those — build the first Molina submission around a portal session, not this page.',
+          'Verified: Molina administers BA in-house since the February 1, 2025 carve-in, maintains a BA Quick Reference Guide (updated October 2025, with a 2026 edition), and — like every MMA plan — must comply with the AHCA coverage policy without imposing more stringent limits. That gives you the dependable core: PA on all BA services with the CDE and required documentation, the referral + order gate with no autism-diagnosis requirement, Vineland-3/BASC-3 scoring reports, and up-to-6-month authorization periods. Not publicly verifiable (the plan\'s site blocks automated retrieval): the exact submission channel and forms. Molina\'s Prior Authorization Code Lookup Tool and provider portal are the authoritative sources for those — build the first Molina submission around a portal session, not this page. Turnaround is published in Molina\u2019s 3/18/2026 Florida Medicaid manual: a standard determination “no later than contractual requirements or seven (7) calendar days after we receive the initial request for service,” and an expedited one “no later than contractual requirements or two (2) calendar days” (the AHCA contract sets 5 days standard, 2 expedited).',
         ],
         cites: [
           { title: 'Molina FL — BA Quick Reference Guide 2026 (access-restricted)', url: 'https://www.molinahealthcare.com/providers/fl/medicaid/comm/-/media/D0605825716B47F8819AD3B554626A86.ashx' },
+          { title: 'Molina Healthcare of Florida — Medicaid Provider Manual (3/18/2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/3-18-26-MHFL-Medicaid-Provider-Handbook-508.ashx' },
           { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
         ],
       },
@@ -1416,6 +1573,27 @@ export const floridaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' }],
         verifyVia:
           'Therapy Network of Florida provider relations (1-888-550-8800, option 2) before scheduling any remote session other than 97156 caregiver training.',
+      },
+      authTurnaround: {
+        value:
+          'Therapy Network of Florida decides CCP’s BA requests. For approvals: “Standard/Routine requests are completed within 5 calendar days. Expedited/Urgent requests are completed within 2 calendar days.” Expedited means waiting “could place the member’s life, health, or ability to regain maximum function in serious jeopardy.” Reassessment (reauthorization) requests must “be submitted at least 10 days but not more than 30 days prior to the last day of the previously certified service”; for an authorization ending 4/30, submit no earlier than 4/1. CCP’s own MMA manual says standard requests “will not exceed 5 calendar days” and expedited “will not exceed 2 business days.” The AHCA contract sets 2 days for expedited.',
+        status: 'verified',
+        cites: [
+          { title: 'Community Care Plan — Behavior Analysis Provider Manual (Therapy Network of Florida, Jan 2025)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' },
+          { title: 'Community Care Plan — MMA Provider Manual (3/11/2026)', url: 'https://ccpcares.org/wp-content/uploads/CCP-MMA-Provider-Manual_03.11.26.pdf' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'CCP’s MMA manual: “Claims with primary and secondary coverage cannot be processed simultaneously. Medicaid is the payer of last resort. Submit claims to the primary payer first.” BA claims go to Therapy Network of Florida, not CCP, and TNFL allows “ninety (90) days from the date of final determination of the primary payer” for a claims complaint. Neither manual says whether a TNFL BA authorization is still needed when a commercial plan is primary. Florida Medicaid pays last. Rule 59G-1.052 says: “Florida Medicaid is the payer of last resort. Providers must exhaust all TPL sources of payment, such as Medicare, TRICARE, private health insurance … prior to submitting or resubmitting a claim.” The AHCA contract binds every MMA plan to that rule. Two consequences for intake: Medicaid pays only “the difference between the Florida Medicaid rate and the third-party payment,” and it pays nothing when “the provider’s TPL claim is denied for failing to obtain the appropriate authorization from the third-party.” So get the commercial plan’s own ABA authorization first.',
+        status: 'verified',
+        cites: [
+          { title: 'Community Care Plan — MMA Provider Manual (3/11/2026)', url: 'https://ccpcares.org/wp-content/uploads/CCP-MMA-Provider-Manual_03.11.26.pdf' },
+          { title: 'Community Care Plan — Behavior Analysis Provider Manual (Therapy Network of Florida, Jan 2025)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+        ],
+        verifyVia: 'Therapy Network of Florida: whether a TNFL BA authorization is required when a commercial plan pays first.',
       },
     },
     deliveryRules: {
@@ -1573,6 +1751,26 @@ export const floridaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'The FCC Utilization Department (FCCUMDepartment@FCCHealthPlan.com) or the provider call centre 1-833-322-7526 before scheduling a remote session other than 97156 caregiver training.',
       },
+      authTurnaround: {
+        value:
+          'FCC’s provider handbook: “Staff process pre-service routine requests within 7 calendar days from the date of receipt,” with notice to provider and enrollee in the same 7 days. Urgent pre-service requests are processed “within 48 hours from the date and time of receipt”; providers can mark a request STAT. No BA reauthorization lead time is published. Note the gap with the AHCA contract, which sets 5 days standard and 2 days expedited for MMA plans. Plan around the 7 days FCC publishes.',
+        status: 'verified',
+        cites: [
+          { title: 'Florida Community Care — Provider Handbook (rev. 3)', url: 'https://fcchealthplan.com/wp-content/uploads/2025/01/2M2609-FCC-Prov-Manual-r3.pdf' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'FCC’s provider handbook publishes no coordination-of-benefits procedure of its own, so the state rule governs. Florida Medicaid pays last. Rule 59G-1.052 says: “Florida Medicaid is the payer of last resort. Providers must exhaust all TPL sources of payment, such as Medicare, TRICARE, private health insurance … prior to submitting or resubmitting a claim.” The AHCA contract binds every MMA plan to that rule. Two consequences for intake: Medicaid pays only “the difference between the Florida Medicaid rate and the third-party payment,” and it pays nothing when “the provider’s TPL claim is denied for failing to obtain the appropriate authorization from the third-party.” So get the commercial plan’s own ABA authorization first.',
+        status: 'verified',
+        cites: [
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+          { title: 'AHCA SMMC Model Health Plan Contract — Attachment II Core Provisions (update 10/1/2025), §V.6 and §XI.D', url: 'https://ahca.myflorida.com/content/download/27248/file/Attachment%20II-%20-%20Core%20Contract%20Provisions%20Oct%202025.pdf' },
+          { title: 'Florida Community Care — Provider Handbook (rev. 3)', url: 'https://fcchealthplan.com/wp-content/uploads/2025/01/2M2609-FCC-Prov-Manual-r3.pdf' },
+        ],
+        verifyVia: 'FCC Utilization Management: whether FCC requires its own BA authorization when a commercial plan pays first.',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1725,6 +1923,32 @@ export const floridaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
         verifyVia:
           'Aetna’s telemedicine policy and provider services at the number on the member’s ID card — confirm which ABA codes pay by telehealth on that specific Florida plan before scheduling remote sessions.',
+      },
+      authTurnaround: {
+        value:
+          'No Florida statute sets the decision deadline: § 627.42392, Fla. Stat. governs the prior authorization form, not the clock. The federal claims rule sets the floor for employer plans, whether insured or self-funded, and for non-grandfathered individual and marketplace plans: a pre-service decision “not later than 15 days after receipt of the claim,” with one 15-day extension, and urgent care “not later than 72 hours after receipt” (29 CFR 2560.503-1(f)(2); 45 CFR 147.136). A plan may be faster. Aetna’s behavioral health provider manual publishes no decision timeframe.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '§ 627.42392, Fla. Stat. — Prior authorization (2026)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.42392' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' },
+          { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+        verifyVia: 'Aetna Behavioral Health precertification (number on the member ID card): the plan’s standard and urgent turnaround for ABA requests, whether the clock starts at receipt or at a complete request, and how far ahead of expiry a reauthorization must be filed. Also ask whether the plan is grandfathered, since grandfathered plans are outside 45 CFR 147.136.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child covered on both parents’ group plans, Florida’s COB statute sets the order: “The benefits of the policy or plan of the parent whose birthday, excluding year of birth, falls earlier in a year are determined before” the other parent’s. For divorced or separated parents, the order is the custodial parent’s plan, then the custodial parent’s spouse’s plan, then the non-custodial parent’s, unless a court decree assigns health costs to one parent. The statute reaches group policies and group plans issued in Florida; whether a self-funded employer plan follows it or its own plan document’s COB clause is a question for that plan. Public coverage pays after this plan. Medicaid is the payer of last resort (Rule 59G-1.052). TRICARE “pays after all other health insurance, except for” Medicaid. CHAMPVA “is always the secondary payer, except to Medicaid.” If the other plan denies because its rules were not followed, including its prior authorization, TRICARE “may also deny the claim.” So get this plan’s authorization even when a public program is secondary.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '§ 627.4235, Fla. Stat. — Coordination of benefits', url: 'https://www.flsenate.gov/Laws/Statutes/2025/627.4235' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+          { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' },
+        ],
+        verifyVia: 'Ask the family for both parents’ cards and birth dates, and ask the employer or HR whether each plan is fully insured (Florida statute order applies) or self-funded (the plan document’s COB clause applies).',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1918,6 +2142,31 @@ export const floridaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
+      authTurnaround: {
+        value:
+          'No Florida statute sets the decision deadline: § 627.42392, Fla. Stat. governs the prior authorization form, not the clock. The federal claims rule sets the floor for employer plans, whether insured or self-funded, and for non-grandfathered individual and marketplace plans: a pre-service decision “not later than 15 days after receipt of the claim,” with one 15-day extension, and urgent care “not later than 72 hours after receipt” (29 CFR 2560.503-1(f)(2); 45 CFR 147.136). A plan may be faster.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '§ 627.42392, Fla. Stat. — Prior authorization (2026)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.42392' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' },
+        ],
+        verifyVia: 'Evernorth Behavioral Health / Cigna (number on the member ID card): the plan’s standard and urgent turnaround for ABA requests, whether the clock starts at receipt or at a complete request, and how far ahead of expiry a reauthorization must be filed. Also ask whether the plan is grandfathered, since grandfathered plans are outside 45 CFR 147.136.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child covered on both parents’ group plans, Florida’s COB statute sets the order: “The benefits of the policy or plan of the parent whose birthday, excluding year of birth, falls earlier in a year are determined before” the other parent’s. For divorced or separated parents, the order is the custodial parent’s plan, then the custodial parent’s spouse’s plan, then the non-custodial parent’s, unless a court decree assigns health costs to one parent. The statute reaches group policies and group plans issued in Florida; whether a self-funded employer plan follows it or its own plan document’s COB clause is a question for that plan. Public coverage pays after this plan. Medicaid is the payer of last resort (Rule 59G-1.052). TRICARE “pays after all other health insurance, except for” Medicaid. CHAMPVA “is always the secondary payer, except to Medicaid.” If the other plan denies because its rules were not followed, including its prior authorization, TRICARE “may also deny the claim.” So get this plan’s authorization even when a public program is secondary.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '§ 627.4235, Fla. Stat. — Coordination of benefits', url: 'https://www.flsenate.gov/Laws/Statutes/2025/627.4235' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+          { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' },
+        ],
+        verifyVia: 'Ask the family for both parents’ cards and birth dates, and ask the employer or HR whether each plan is fully insured (Florida statute order applies) or self-funded (the plan document’s COB clause applies).',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -2110,6 +2359,31 @@ export const floridaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
         verifyVia:
           'Optum Behavioral Health provider services and the member’s benefit document — confirm which ABA codes pay by telehealth, and under which place-of-service code, before scheduling remote sessions.',
+      },
+      authTurnaround: {
+        value:
+          'No Florida statute sets the decision deadline: § 627.42392, Fla. Stat. governs the prior authorization form, not the clock. The federal claims rule sets the floor for employer plans, whether insured or self-funded, and for non-grandfathered individual and marketplace plans: a pre-service decision “not later than 15 days after receipt of the claim,” with one 15-day extension, and urgent care “not later than 72 hours after receipt” (29 CFR 2560.503-1(f)(2); 45 CFR 147.136). A plan may be faster.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '§ 627.42392, Fla. Stat. — Prior authorization (2026)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.42392' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' },
+        ],
+        verifyVia: 'Optum Behavioral Health (number on the member ID card): the plan’s standard and urgent turnaround for ABA requests, whether the clock starts at receipt or at a complete request, and how far ahead of expiry a reauthorization must be filed. Also ask whether the plan is grandfathered, since grandfathered plans are outside 45 CFR 147.136.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child covered on both parents’ group plans, Florida’s COB statute sets the order: “The benefits of the policy or plan of the parent whose birthday, excluding year of birth, falls earlier in a year are determined before” the other parent’s. For divorced or separated parents, the order is the custodial parent’s plan, then the custodial parent’s spouse’s plan, then the non-custodial parent’s, unless a court decree assigns health costs to one parent. The statute reaches group policies and group plans issued in Florida; whether a self-funded employer plan follows it or its own plan document’s COB clause is a question for that plan. Public coverage pays after this plan. Medicaid is the payer of last resort (Rule 59G-1.052). TRICARE “pays after all other health insurance, except for” Medicaid. CHAMPVA “is always the secondary payer, except to Medicaid.” If the other plan denies because its rules were not followed, including its prior authorization, TRICARE “may also deny the claim.” So get this plan’s authorization even when a public program is secondary.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '§ 627.4235, Fla. Stat. — Coordination of benefits', url: 'https://www.flsenate.gov/Laws/Statutes/2025/627.4235' },
+          { title: 'Rule 59G-1.052, F.A.C. — Third-Party Liability Requirements (AHCA)', url: 'https://ahca.myflorida.com/content/download/5929/file/59G_1052_TPL_Requirements.pdf?version=1' },
+          { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' },
+        ],
+        verifyVia: 'Ask the family for both parents’ cards and birth dates, and ask the employer or HR whether each plan is fully insured (Florida statute order applies) or self-funded (the plan document’s COB clause applies).',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {

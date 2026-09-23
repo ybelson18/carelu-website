@@ -147,6 +147,28 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
       },
+      authTurnaround: {
+        value:
+          'Every TennCare ABA request is decided by the member\'s MCO, and the statewide MCO contract sets the clock. For a standard (non-urgent) request, the decision is due "within seven (7) calendar days of the request\'s receipt." This took effect January 1, 2026; before that it was 14 days. The MCO may add "up to fourteen (14) additional calendar days" if the family or provider asks, or if it shows TennCare it needs more information. An expedited decision is due "no later than seventy-two (72) hours after receipt of the request for service." Expedited applies when the standard clock "could seriously jeopardize the enrollee\'s life or health or ability to attain, maintain, or regain maximum function." These match the federal managed-care cap in 42 CFR 438.210(d). The shared tri-MCO ABA form sets 26-week authorization periods but publishes no lead time for filing a continuation. Put the end date in the calendar and file before it.',
+        status: 'verified',
+        cites: [
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3 and A.2.21.4', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+          { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'TennCare pays last. The MCO contract makes TennCare "the payer of last resort for all covered services." Provider agreements must require providers "to seek such third party liability payment before submitting claims" to the MCO. So a child on a parent\'s commercial plan is billed there first, and the primary EOB goes with the TennCare claim. Get the commercial plan\'s prior authorization too. The MCO "shall deny payment on a claim that has been denied by a third party payer when the reason for denial is the provider or enrollee\'s failure to follow prescribed procedures, including but not limited to, failure to obtain prior authorization." The contract does let certain claims be paid first and recovered later (the State Medicaid Manual 3904.4 services). Each MCO publishes its own list: Wellpoint pays and pursues for any child under 21 without Medicare, BlueCare/TennCareSelect list "TennCare Kids," and UnitedHealthcare\'s manual lists none. See the MCO guides. TRICARE by statute pays only after other coverage "except in the case of a plan administered under title XIX" (Medicaid), so TRICARE goes before TennCare. CHAMPVA is the reverse: "If you are eligible under Medicaid, CHAMPVA will pay first."',
+        status: 'verified',
+        cites: [
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3 and A.2.21.4', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+          { title: '42 U.S.C. 1396a(a)(25) — Medicaid third-party liability', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title42/html/USCODE-2023-title42-chap7-subchapXIX-sec1396a.htm' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -203,7 +225,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
   'bluecare-tennessee': {
     slug: 'bluecare-tennessee',
     family: 'bcbst',
-    cardDesc: 'Shared TennCare program via Availity/BCBST; 26-week auths, 14-day UM decisions.',
+    cardDesc: 'Shared TennCare program via Availity/BCBST; 26-week auths, 7-day UM decisions.',
     assessmentPA: {
       value: 'Required — Universal ABA Request Form (diagnostic report + doctor\'s order) via Availity or fax (800) 292-5311',
       status: 'verified',
@@ -225,16 +247,16 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     h1: 'BlueCare Tennessee ABA coverage (TennCare MCO).',
     metaTitle: 'BlueCare Tennessee (TennCare MCO) ABA Coverage & Prior Auth | Carelu',
     metaDescription:
-      'How BlueCare Tennessee (BCBST) administers TennCare\'s ABA benefit — the shared tri-MCO program description, the universal request form via Availity, BlueCare\'s supplemental initiation/continuation form, and 14-day UM timelines.',
+      'How BlueCare Tennessee (BCBST) administers TennCare\'s ABA benefit — the shared tri-MCO program description, the universal request form via Availity, BlueCare\'s supplemental initiation/continuation form, and 7-day UM timelines.',
     intro: [
-      'BlueCare Tennessee (including TennCareSelect), run by BlueCross BlueShield of Tennessee, administers the TennCare ABA benefit under the shared tri-MCO program description — so the clinical rules match the TennCare baseline exactly. What\'s BlueCare-specific is the machinery: Availity submission, BlueCare\'s own supplemental initiation/continuation form, dedicated fax lines, and a 14-day standard UM clock.',
+      'BlueCare Tennessee (including TennCareSelect), run by BlueCross BlueShield of Tennessee, administers the TennCare ABA benefit under the shared tri-MCO program description — so the clinical rules match the TennCare baseline exactly. What\'s BlueCare-specific is the machinery: Availity submission, BlueCare\'s own supplemental initiation/continuation form, dedicated fax lines, and a 7-day standard UM clock.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'TennCare MCO (BlueCross BlueShield of TN; incl. TennCareSelect)' },
       { label: 'Clinical rules', value: 'Shared tri-MCO ABA program description (TennCare baseline)' },
       { label: 'Prior auth', value: 'Required — universal form + BlueCare initiation/continuation form' },
       { label: 'Auth periods', value: '26 weeks / 6 months; continuation shows approved vs. used hours' },
-      { label: 'UM timeline', value: 'Non-urgent decisions within 14 calendar days; retrospective within 30' },
+      { label: 'UM timeline', value: 'Standard decisions within 7 calendar days of receipt (since 1/1/2026); expedited within 72 hours' },
       { label: 'Rates', value: 'Negotiated per contract — no published ABA fee schedule' },
     ],
     sections: [
@@ -251,9 +273,11 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       {
         h2: 'What\'s worth knowing at intake',
         body: [
-          'Authorized ABA hours are not inclusive of other services — the form explicitly separates OT/PT — so map the family\'s full therapy schedule without fear of crowding out the ABA request. Non-urgent UM decisions land within 14 calendar days (retrospective reviews within 30), which is the number to set family expectations against. And like all TennCare MCOs, continuation requests must account for authorized-versus-used hours, making honest availability capture at intake a six-months-later safeguard.',
+          'Authorized ABA hours are not inclusive of other services — the form explicitly separates OT/PT — so map the family\'s full therapy schedule without fear of crowding out the ABA request. Standard (non-urgent) authorization decisions are due within 7 calendar days: BlueCare\'s July 2026 manual commits to "State-established timeframes that may not exceed 7 calendar days following the receipt of the request for service" (expedited: "no later than 72 hours"), matching the TennCare contract\'s 7-day rule effective January 1, 2026. That is the number to set family expectations against. The older tri-MCO overview (Sept 2024) quoted 14 days; retrospective reviews it put at 30. And like all TennCare MCOs, continuation requests must account for authorized-versus-used hours, making honest availability capture at intake a six-months-later safeguard.',
         ],
         cites: [
+          { title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — Standard Authorization Decisions', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3.5', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
           { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
         ],
       },
@@ -310,6 +334,28 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
       },
+      authTurnaround: {
+        value:
+          'BlueCare\'s July 2026 manual: for a standard request, BlueCare "will provide notice as expeditiously as the member\'s condition requests and within State-established timeframes that may not exceed 7 calendar days following the receipt of the request for service." It may add "up to 14 additional calendar days" if the member or provider asks, or if BlueCare justifies needing more information. Expedited requests are decided "no later than 72 hours after the receipt of the request for service." That 72 hours can also stretch by up to 14 days on the same grounds. The clock runs from receipt. BlueCare\'s ABA form says continuation requests "must be submitted at least once every six months" (26-week periods) but sets no lead time before expiry.',
+        status: 'verified',
+        cites: [
+          { title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — covers BlueCare and TennCareSelect', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3 and A.2.21.4', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+          { title: 'BlueCare — Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'BlueCare, TennCareSelect and CoverKids "are always the payers of last resort." Bill the commercial plan first. The secondary claim must carry "the primary payer\'s explanation of benefits" and must be "received within 120 days from the date the primary insurer\'s remittance was produced." BlueCare pays only the gap up to its own allowed amount: if the other carrier paid at or above BlueCare\'s allowable, "BCT will make no additional reimbursement." Pay-and-chase exception: claims for "TennCare Kids," "Preventive pediatric care," all CoverKids members under 21, and absent-parent insurance "will not be denied for a primary carrier\'s EOB." BlueCare pays and recovers from the other plan, though the manual notes billing the other carrier first earns "the higher reimbursement rate." The manual does not say whether an ABA claim counts as "TennCare Kids." It also says to seek the primary insurer\'s prior authorization first only when BlueCare is secondary to Medicare. It is silent on a commercial primary. The TennCare contract lets the MCO deny a claim the primary denied for "failure to obtain prior authorization." Get the commercial PA, and confirm with BlueCare whether its own ABA PA is still needed. TRICARE by statute pays only after other coverage "except in the case of a plan administered under title XIX" (Medicaid), so TRICARE goes before TennCare. CHAMPVA is the reverse: "If you are eligible under Medicaid, CHAMPVA will pay first."',
+        status: 'verified',
+        cites: [
+          { title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — covers BlueCare and TennCareSelect', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3 and A.2.21.4', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'BlueCare Provider Service / UM (Availity) — ask whether an ABA claim for a member under 21 falls under the "TennCare Kids" pay-and-chase line, and whether BlueCare wants its own ABA authorization when a commercial plan is primary.',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -357,7 +403,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does BlueCare Tennessee cover ABA therapy?', a: 'Yes — BlueCare administers the TennCare ABA benefit under the shared tri-MCO program description: EPSDT members under 21, prior authorization on assessment and treatment, TN LBA licensure for direct ABA.' },
-      { q: 'How do I submit an ABA prior authorization to BlueCare?', a: 'Through Availity (or provider.bcbst.com), or by fax to (800) 292-5311 for BlueCare/TennCareSelect — using the universal tri-MCO ABA request form, plus BlueCare\'s initiation/continuation form for treatment. Non-urgent decisions come within 14 calendar days.' },
+      { q: 'How do I submit an ABA prior authorization to BlueCare?', a: 'Through Availity (or provider.bcbst.com), or by fax to (800) 292-5311 for BlueCare/TennCareSelect — using the universal tri-MCO ABA request form, plus BlueCare\'s initiation/continuation form for treatment. Standard decisions come within 7 calendar days of receipt (72 hours if expedited).' },
       { q: 'Is BlueCare\'s ABA policy different from TennCare\'s?', a: 'Clinically, no — the rules are the shared TennCare baseline. The differences are mechanical: BlueCare\'s portal, fax lines, supplemental form, and UM timelines.' },
     ],
   },
@@ -471,6 +517,28 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           'Per-code on the universal form, with a UHC-specific clinical gate on top: \u201cdirect Telehealth services may only be considered medically necessary when the provider has assessed that a member has core skills to attend to a device for an extended period of time.\u201d The guidelines add that \u201ctelehealth service delivery for ABA should include an ongoing review of ethical, efficacy, and scope of practice considerations.\u201d So document device-attention skills before requesting telehealth hours \u2014 it is a medical-necessity element, not a logistics preference.',
         status: 'verified',
         cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'UnitedHealthcare\'s 2026 TennCare manual sets the standard pre-service decision "Within 5 working days of receipt of medical record information required but no longer than 7 calendar days of receipt." Urgent/expedited pre-service decisions come "Within 3 days of request receipt." The TennCare contract caps expedited decisions at 72 hours from receipt and allows a 14-day extension on either track. Retrospective review takes "Within 30 calendar days of receiving all pertinent clinical information." ABA is requested through Optum Behavioral Health on the shared tri-MCO form, with 26-week authorization periods. Neither the manual nor the form publishes a reauthorization lead time.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Tennessee — TennCare Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TN-TennCare-Care-Provider-Administrative-Manual.pdf' },
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3 and A.2.21.4', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'UnitedHealthcare Community Plan "is, by law, the payer of last resort." You "must bill and obtain an EOB from any other insurance or health care coverage resource before billing," then "attach a copy of the EOB to the submitted claim." The EOB "must be complete to understand the paid amount or denial reason." At authorization, providers should "Determine if the covered person has other insurance that should be billed first." Unlike Wellpoint and BlueCare, the manual publishes no pay-and-chase list. It is also silent on whether the Optum ABA authorization is still needed when UnitedHealthcare is secondary. The TennCare contract lets the MCO deny a claim the primary plan denied for "failure to obtain prior authorization." Get the commercial PA. TRICARE by statute pays only after other coverage "except in the case of a plan administered under title XIX" (Medicaid), so TRICARE goes before TennCare. CHAMPVA is the reverse: "If you are eligible under Medicaid, CHAMPVA will pay first."',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Tennessee — TennCare Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TN-TennCare-Care-Provider-Administrative-Manual.pdf' },
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3 and A.2.21.4', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'Optum Behavioral Health for UnitedHealthcare Community Plan of Tennessee (1-800-690-1606) — ask whether an ABA authorization is required when a commercial plan is primary, and whether ABA for members under 21 is paid first and recovered later.',
       },
     },
     deliveryRules: {
@@ -631,6 +699,27 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           'Follows the TennCare rule: telehealth is requested and authorized per code via the \u201cIndicate if Hours are telehealth\u201d checkbox that appears on every ABA code row of the universal form Wellpoint hosts, with Telehealth also listed among the places of service. No Wellpoint-Tennessee-specific ABA telehealth policy was located, so the shared program description\u2019s cautions \u2014 clinical appropriateness protocols by model, HIPAA-compliant technology, demonstrated provider competence \u2014 are the operative standard.',
         status: 'verified',
         cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'Wellpoint\'s TennCare manual: "The decision regarding an authorization request for service must be made within 14 calendar days (seven calendar days as of 1/1/26) for standard request or 72 hours for expedited." The TennCare contract counts the 7 days from receipt of the request. It allows up to 14 more calendar days if the family or provider asks, or if the MCO justifies needing more information. ABA is requested on the shared tri-MCO form in 26-week authorization periods. Wellpoint publishes no reauthorization lead time.',
+        status: 'verified',
+        cites: [
+          { title: 'Wellpoint Tennessee Provider Manual (TNWP-CD-PM-086546-25-B, Dec 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_ProviderManual.pdf' },
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3 and A.2.21.4', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Wellpoint and its providers agree "the Medicaid program will be the payer of last resort." Providers "should bill the third party prior to billing Wellpoint." Wellpoint\'s secondary payment is the lesser of the primary\'s allowed amount and its own. A secondary claim "without the primary carrier\'s EOP will be denied stating the member has other insurance." Two exceptions matter for ABA. First, Wellpoint does not enter its own authorization when other insurance is primary: "If Member has Other Health Insurance (OHI) ... no authorization should be entered for a review as the member\'s OHI insurance is primary and responsible for payment." Second, Wellpoint pays and pursues "When the services are rendered to a child under the age of 21 who does not have Medicare, including preventive, EPSDT and pediatric care." For a child, Wellpoint pays and then recovers from the other plan. TRICARE by statute pays only after other coverage "except in the case of a plan administered under title XIX" (Medicaid), so TRICARE goes before TennCare. CHAMPVA is the reverse: "If you are eligible under Medicaid, CHAMPVA will pay first."',
+        status: 'verified',
+        cites: [
+          { title: 'Wellpoint Tennessee Provider Manual (TNWP-CD-PM-086546-25-B, Dec 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_ProviderManual.pdf' },
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3 and A.2.21.4', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
       },
     },
     deliveryRules: {
@@ -831,6 +920,28 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
       },
+      authTurnaround: {
+        value:
+          'TennCareSelect is administered by BlueCare Tennessee, and the shared July 2026 BlueCare Tennessee manual governs it: for a standard request, BlueCare "will provide notice as expeditiously as the member\'s condition requests and within State-established timeframes that may not exceed 7 calendar days following the receipt of the request for service." It may add "up to 14 additional calendar days" if the member or provider asks, or if BlueCare justifies needing more information. Expedited requests are decided "no later than 72 hours after the receipt of the request for service." That 72 hours can also stretch by up to 14 days on the same grounds. The clock runs from receipt. BlueCare\'s ABA form says continuation requests "must be submitted at least once every six months" (26-week periods) but sets no lead time before expiry.',
+        status: 'verified',
+        cites: [
+          { title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — covers BlueCare and TennCareSelect', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3 and A.2.21.4', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+          { title: 'BlueCare — Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Other coverage is routine on TennCareSelect. Children in Katie Beckett Part A "must have a primary payer or third-party liability (TPL) that will be their first payor with Medicaid paying secondary," and TennCareSelect is their plan. BlueCare, TennCareSelect and CoverKids "are always the payers of last resort." Bill the commercial plan first. The secondary claim must carry "the primary payer\'s explanation of benefits" and must be "received within 120 days from the date the primary insurer\'s remittance was produced." BlueCare pays only the gap up to its own allowed amount: if the other carrier paid at or above BlueCare\'s allowable, "BCT will make no additional reimbursement." Pay-and-chase exception: claims for "TennCare Kids," "Preventive pediatric care," all CoverKids members under 21, and absent-parent insurance "will not be denied for a primary carrier\'s EOB." BlueCare pays and recovers from the other plan, though the manual notes billing the other carrier first earns "the higher reimbursement rate." The manual does not say whether an ABA claim counts as "TennCare Kids." It also says to seek the primary insurer\'s prior authorization first only when BlueCare is secondary to Medicare. It is silent on a commercial primary. The TennCare contract lets the MCO deny a claim the primary denied for "failure to obtain prior authorization." Get the commercial PA, and confirm with BlueCare whether its own ABA PA is still needed. TRICARE by statute pays only after other coverage "except in the case of a plan administered under title XIX" (Medicaid), so TRICARE goes before TennCare. CHAMPVA is the reverse: "If you are eligible under Medicaid, CHAMPVA will pay first."',
+        status: 'verified',
+        cites: [
+          { title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — covers BlueCare and TennCareSelect', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
+          { title: 'TennCare Statewide MCO Contract (Amendment 25, July 1, 2026) — A.2.19.3 and A.2.21.4', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'BlueCare Tennessee Provider Service / UM (Availity) — ask whether an ABA claim falls under the "TennCare Kids" pay-and-chase line, and whether TennCareSelect wants its own ABA authorization when a commercial plan is primary.',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1022,6 +1133,30 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Aetna\u2019s telemedicine policy and the member\u2019s benefit document, confirmed at precertification before scheduling remote sessions.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'It depends on how the plan is funded. A fully insured Aetna plan sold in Tennessee follows the Prior Authorization Fairness Act. A standard request is "deemed approved within seven (7) calendar days" of submission if the carrier fails to approve, deny, or ask for the missing information. If it asks, it gets "an additional five (5) calendar days" after the provider responds, and the whole process "must not exceed seventeen (17) calendar days." An urgent request is deemed approved if not decided within "seventy-two (72) hours plus, if applicable, one (1) additional business day." A self-funded employer plan is governed by ERISA instead: pre-service decisions "not later than 15 days after receipt of the claim," with one 15-day extension, and urgent care "not later than 72 hours." No reauthorization lead time is published for Aetna ABA in Tennessee.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Tenn. Code Ann. 56-7-3705 — Prior Authorization Fairness Act timeframes', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-3705/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification with Aetna: ask whether the plan is fully insured (Tennessee Prior Authorization Fairness Act) or self-funded (ERISA timelines), and the plan\'s reauthorization lead time.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Between two parents\' group plans, Tennessee\'s coordination-of-benefits rule uses the birthday rule: "the benefits of the Plan of the parent whose birthday falls earlier in a year are determined before those of the Plan of the parent whose birthday falls later in that year." Only month and day count. If the birthdays match, the plan that has covered the parent longer pays first. A court decree or the divorced/separated-parent rules can change this. That rule governs fully insured group contracts. A self-funded employer plan sets its own order in its plan document, and individual policies are outside the group rule. The Aetna plan pays before TennCare, because Medicaid is payer of last resort. It also pays before TRICARE, which pays only after other coverage. When the child also has CHAMPVA, the Aetna plan pays first: "If you have any other type of other health insurance, CHAMPVA will pay secondary." Get the Aetna prior authorization even when a secondary plan will pick up the balance.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Tenn. Comp. R. & Regs. 0780-01-53 — Coordination of Benefits (group contracts)', url: 'https://publications.tnsosfiles.com/rules/0780/0780-01/0780-01-53.pdf' },
+          { title: '42 U.S.C. 1396a(a)(25) — Medicaid third-party liability', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title42/html/USCODE-2023-title42-chap7-subchapXIX-sec1396a.htm' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'Aetna member services / benefits verification: confirm funding type and the COB order in the plan document, and collect the other parent\'s plan and each parent\'s date of birth at intake.',
         blocker: 'per-case',
       },
     },
@@ -1216,6 +1351,30 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
+      authTurnaround: {
+        value:
+          'It depends on how the plan is funded. A fully insured Cigna plan sold in Tennessee follows the Prior Authorization Fairness Act. A standard request is "deemed approved within seven (7) calendar days" of submission if the carrier fails to approve, deny, or ask for the missing information. If it asks, it gets "an additional five (5) calendar days" after the provider responds, and the whole process "must not exceed seventeen (17) calendar days." An urgent request is deemed approved if not decided within "seventy-two (72) hours plus, if applicable, one (1) additional business day." A self-funded employer plan is governed by ERISA instead: pre-service decisions "not later than 15 days after receipt of the claim," with one 15-day extension, and urgent care "not later than 72 hours." No reauthorization lead time is published for Cigna ABA in Tennessee.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Tenn. Code Ann. 56-7-3705 — Prior Authorization Fairness Act timeframes', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-3705/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification with Cigna: ask whether the plan is fully insured (Tennessee Prior Authorization Fairness Act) or self-funded (ERISA timelines), and the plan\'s reauthorization lead time.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Between two parents\' group plans, Tennessee\'s coordination-of-benefits rule uses the birthday rule: "the benefits of the Plan of the parent whose birthday falls earlier in a year are determined before those of the Plan of the parent whose birthday falls later in that year." Only month and day count. If the birthdays match, the plan that has covered the parent longer pays first. A court decree or the divorced/separated-parent rules can change this. That rule governs fully insured group contracts. A self-funded employer plan sets its own order in its plan document, and individual policies are outside the group rule. The Cigna plan pays before TennCare, because Medicaid is payer of last resort. It also pays before TRICARE, which pays only after other coverage. When the child also has CHAMPVA, the Cigna plan pays first: "If you have any other type of other health insurance, CHAMPVA will pay secondary." Get the Cigna prior authorization even when a secondary plan will pick up the balance.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Tenn. Comp. R. & Regs. 0780-01-53 — Coordination of Benefits (group contracts)', url: 'https://publications.tnsosfiles.com/rules/0780/0780-01/0780-01-53.pdf' },
+          { title: '42 U.S.C. 1396a(a)(25) — Medicaid third-party liability', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title42/html/USCODE-2023-title42-chap7-subchapXIX-sec1396a.htm' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'Cigna member services / benefits verification: confirm funding type and the COB order in the plan document, and collect the other parent\'s plan and each parent\'s date of birth at intake.',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1394,6 +1553,30 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/Provider Express virtual-visits requirements and the member\u2019s benefit plan \u2014 confirm code eligibility and POS before scheduling remote sessions.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'It depends on how the plan is funded. A fully insured UnitedHealthcare plan sold in Tennessee follows the Prior Authorization Fairness Act. A standard request is "deemed approved within seven (7) calendar days" of submission if the carrier fails to approve, deny, or ask for the missing information. If it asks, it gets "an additional five (5) calendar days" after the provider responds, and the whole process "must not exceed seventeen (17) calendar days." An urgent request is deemed approved if not decided within "seventy-two (72) hours plus, if applicable, one (1) additional business day." A self-funded employer plan is governed by ERISA instead: pre-service decisions "not later than 15 days after receipt of the claim," with one 15-day extension, and urgent care "not later than 72 hours." No reauthorization lead time is published for UnitedHealthcare ABA in Tennessee.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Tenn. Code Ann. 56-7-3705 — Prior Authorization Fairness Act timeframes', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-3705/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification with UnitedHealthcare: ask whether the plan is fully insured (Tennessee Prior Authorization Fairness Act) or self-funded (ERISA timelines), and the plan\'s reauthorization lead time.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Between two parents\' group plans, Tennessee\'s coordination-of-benefits rule uses the birthday rule: "the benefits of the Plan of the parent whose birthday falls earlier in a year are determined before those of the Plan of the parent whose birthday falls later in that year." Only month and day count. If the birthdays match, the plan that has covered the parent longer pays first. A court decree or the divorced/separated-parent rules can change this. That rule governs fully insured group contracts. A self-funded employer plan sets its own order in its plan document, and individual policies are outside the group rule. The UnitedHealthcare plan pays before TennCare, because Medicaid is payer of last resort. It also pays before TRICARE, which pays only after other coverage. When the child also has CHAMPVA, the UnitedHealthcare plan pays first: "If you have any other type of other health insurance, CHAMPVA will pay secondary." Get the UnitedHealthcare prior authorization even when a secondary plan will pick up the balance.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Tenn. Comp. R. & Regs. 0780-01-53 — Coordination of Benefits (group contracts)', url: 'https://publications.tnsosfiles.com/rules/0780/0780-01/0780-01-53.pdf' },
+          { title: '42 U.S.C. 1396a(a)(25) — Medicaid third-party liability', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title42/html/USCODE-2023-title42-chap7-subchapXIX-sec1396a.htm' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'UnitedHealthcare member services / benefits verification: confirm funding type and the COB order in the plan document, and collect the other parent\'s plan and each parent\'s date of birth at intake.',
         blocker: 'per-case',
       },
     },

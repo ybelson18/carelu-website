@@ -179,6 +179,26 @@ export const ohioPayers: Record<string, PayerConfig> = {
         verifyVia: 'ODM Telehealth Services: Guidelines for Managed Care Entities and the ODM Telehealth Billing Guidelines, plus the member’s MCO — confirm which ABA codes are payable by telehealth and with which modifier.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Two layers. The statute covers ODM and its designees, including the MCOs: for requests submitted electronically, they must “respond to all prior authorization requests within forty-eight hours for urgent care services, or ten calendar days for any prior authorization request that is not for an urgent care service, of the time the request is received” (R.C. 5160.34). An incomplete request must get a reply naming “the specific additional information that is required.” Stricter rules now override the 10 days. For MCO members (most ABA families), OAC 5160-26-03.1 has required 7 calendar days standard and 48 hours expedited since 1/1/2026. For fee-for-service requests, the federal rule caps standard decisions at 7 calendar days and expedited at 72 hours from 1/1/2026 (42 CFR 440.230(e)). Together: 7 calendar days standard, 48 hours urgent. An adverse decision can be reconsidered: ODM decides “within ten calendar days of receipt,” or within 48 hours for urgent care services (OAC 5160-1-31). None of the rules read here sets an ABA reauthorization lead time.',
+        status: 'verified',
+        cites: [
+          { title: 'R.C. 5160.34 — Ohio Medicaid prior authorization requirements', url: 'https://codes.ohio.gov/ohio-revised-code/section-5160.34' },
+          { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
+          { title: '42 CFR 440.230(e) — Medicaid fee-for-service prior authorization timeframes, from 1/1/2026 (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-440.230' },
+          { title: 'OAC 5160-1-31 — Medicaid prior authorization (eff. 6/30/2024)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-31' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Ohio Medicaid pays last. OAC 5160-1-08: “The medicaid program must be the last payer to receive and adjudicate the claim,” and the provider must get the other insurer’s details from the family and “bill the insurance company prior to billing ODM.” Ask about other coverage at every visit, whether or not the Medicaid card shows it. ODM pays only after “reasonable measures”: a remittance from the other payer showing a valid reason for non-payment; three submissions within ninety days and no reply within ninety days of the last one; a partial payment with its remittance; or written proof from the other payer that the service is not covered. Valid reasons include “the service is not covered,” charges applied to the deductible or copays, and a benefit maximum reached. Payment “will not exceed the medicaid maximum payment for the service … less all third party payments.” Exception: “Medicaid pays before any TPL and medicare for preventive pediatric services identified in 42 C.F.R. 433.139.” Medicaid also pays before the children with medical handicaps program and the crime-victims reparations program. Neither 5160-1-08 nor the PA rule (5160-1-31) exempts a secondary Medicaid claim from Ohio Medicaid prior authorization.',
+        status: 'verified',
+        cites: [
+          { title: 'OAC 5160-1-08 — Medicaid coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-08' },
+          { title: 'OAC 5160-1-31 — Medicaid prior authorization (eff. 6/30/2024)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-31' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -395,6 +415,25 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
           { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
         ],
+      },
+      authTurnaround: {
+        value:
+          'CareSource’s Ohio Medicaid manual matches the rule: “Standard Pre-Service — 7 calendar days from receipt of the request,” with one extension of up to 14 calendar days for lack of information if the member asks. Urgent pre-service decisions come in “48 hours from receipt of request.” No ABA reauthorization lead time is published in the manual. Ohio’s MCO rule sets the clock. For a standard request the MCO “must provide notice to the provider and member as expeditiously as the member’s health condition requires but no later than seven calendar days following receipt of the request for service,” extendable by up to fourteen calendar days (an MCO-requested extension needs ODM’s prior approval). An expedited decision is due “no later than forty-eight hours after receipt of the request for service” (OAC 5160-26-03.1, effective 1/1/2026). The 48 hours is stricter than the federal 72-hour managed-care cap.',
+        status: 'verified',
+        cites: [
+          { title: 'CareSource — Ohio Medicaid Provider Manual', url: 'https://www.caresource.com/documents/oh-provider-manual.pdf' },
+          { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'CareSource coordinates by subtracting “the primary payment from the lessor of the primary carrier allowable or the Medicaid allowable. If the member’s primary insurer pays a provider equal to or more than CareSource’s fee schedule for a covered service, CareSource will not pay the additional amount.” When CareSource is secondary, submit within 365 calendar days of the date of service. If a claim is denied for missing COB information, send the primary payer’s EOB within the rest of the timely-filing period, or within 90 calendar days of the primary EOB date if that period has passed. The manual does not say whether CareSource’s ABA authorization is still needed when a commercial plan pays first. Ohio’s MCO rule: “The MCE is the payer of last resort when a member has third party resources available.” Providers must “take reasonable measures to obtain all third party payments and file claims with all TPPs prior to billing the MCE.” That means a remittance from the other payer showing a valid non-payment reason (service not covered, applied to the deductible or copay, benefit maximum reached), a partial payment with its remittance, or no response within ninety days of submitting to the other payer. The MCO pays at most its allowed amount minus the other payments, and must allow at least ninety days from the other payer’s remittance to file. Exception: “The MCE, except SPBM, pays first for preventive pediatric services before seeking reimbursement from any liable third party.” Children in the custody of a county children’s services agency are exempt from TPL cooperation (OAC 5160-26-09.1).',
+        status: 'verified',
+        cites: [
+          { title: 'CareSource — Ohio Medicaid Provider Manual', url: 'https://www.caresource.com/documents/oh-provider-manual.pdf' },
+          { title: 'OAC 5160-26-09.1 — MCO third party recovery and coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-09.1' },
+        ],
+        verifyVia: 'CareSource Provider Services: whether a CareSource ABA authorization is required when a commercial plan pays first.',
       },
     },
     deliveryRules: {
@@ -613,6 +652,25 @@ export const ohioPayers: Record<string, PayerConfig> = {
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Buckeye’s 2026 Medicaid manual: standard (non-urgent pre-service) determinations are made “no later than 7 calendar days after Buckeye receives the request for service.” Expedited determinations: “no later than 48 hours after Buckeye receives the request,” with provider attestation of urgency. Lead time: “Standard prior authorization requests should be submitted for medical necessity review at least five (5) business days before the scheduled service delivery date or as soon as the need for service is identified.” No separate ABA reauthorization lead time is published. Ohio’s MCO rule sets the clock. For a standard request the MCO “must provide notice to the provider and member as expeditiously as the member’s health condition requires but no later than seven calendar days following receipt of the request for service,” extendable by up to fourteen calendar days (an MCO-requested extension needs ODM’s prior approval). An expedited decision is due “no later than forty-eight hours after receipt of the request for service” (OAC 5160-26-03.1, effective 1/1/2026). The 48 hours is stricter than the federal 72-hour managed-care cap.',
+        status: 'verified',
+        cites: [
+          { title: 'Buckeye Health Plan — Medicaid Provider Manual 2026 (amended 1/6/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/Manuals/Buckeye_Provider%20Manual_BHP%20MEDICAID%20Provider%20Manual%202026_FINAL_amd%201.6.26_R.pdf' },
+          { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Buckeye’s 2026 manual publishes no COB procedure of its own beyond asking providers to “obtain and report to Buckeye information regarding other insurance coverage,” so the state MCO rule governs. Ohio’s MCO rule: “The MCE is the payer of last resort when a member has third party resources available.” Providers must “take reasonable measures to obtain all third party payments and file claims with all TPPs prior to billing the MCE.” That means a remittance from the other payer showing a valid non-payment reason (service not covered, applied to the deductible or copay, benefit maximum reached), a partial payment with its remittance, or no response within ninety days of submitting to the other payer. The MCO pays at most its allowed amount minus the other payments, and must allow at least ninety days from the other payer’s remittance to file. Exception: “The MCE, except SPBM, pays first for preventive pediatric services before seeking reimbursement from any liable third party.” Children in the custody of a county children’s services agency are exempt from TPL cooperation (OAC 5160-26-09.1).',
+        status: 'verified',
+        cites: [
+          { title: 'OAC 5160-26-09.1 — MCO third party recovery and coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-09.1' },
+          { title: 'Buckeye Health Plan — Medicaid Provider Manual 2026 (amended 1/6/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/Manuals/Buckeye_Provider%20Manual_BHP%20MEDICAID%20Provider%20Manual%202026_FINAL_amd%201.6.26_R.pdf' },
+        ],
+        verifyVia: 'Buckeye Provider Services: whether a Buckeye ABA authorization is required when a commercial plan pays first.',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -804,6 +862,25 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Molina’s 2026 Ohio Medicaid manual: “Standard requests must be made as soon as medically indicated, within a maximum of 7 calendar days after receipt of the request.” Expedited requests are decided “within 48 hours (including weekends and holidays) following receipt of the validated request.” No ABA reauthorization lead time is published. Ohio’s MCO rule sets the clock. For a standard request the MCO “must provide notice to the provider and member as expeditiously as the member’s health condition requires but no later than seven calendar days following receipt of the request for service,” extendable by up to fourteen calendar days (an MCO-requested extension needs ODM’s prior approval). An expedited decision is due “no later than forty-eight hours after receipt of the request for service” (OAC 5160-26-03.1, effective 1/1/2026). The 48 hours is stricter than the federal 72-hour managed-care cap.',
+        status: 'verified',
+        cites: [
+          { title: 'Molina Healthcare of Ohio — 2026 Medicaid Provider Manual (March 2026 addendum)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/oh/medicaid/manual/MHO-Medicaid-2026-Manual-508.pdf' },
+          { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Molina’s manual: “Medicaid is the payer of last resort. Commercial, private and governmental carriers must be billed prior to billing Molina … with the exception of EPSDT/Healthchek Services. EPSDT services are processed as primary and then Molina follows the Third Party Liability process.” Primary carrier payment information is required on the claim. Two of Molina’s listed “extenuating circumstances” let a provider file a clinical claim dispute without prior authorization: a retroactive COB change that makes Molina primary, and a service that “is not an included benefit in the primary insurance coverage.” The manual does not say whether ABA for a child counts as an EPSDT/Healthchek service for the pay-first exception. Ohio’s MCO rule: “The MCE is the payer of last resort when a member has third party resources available.” Providers must “take reasonable measures to obtain all third party payments and file claims with all TPPs prior to billing the MCE.” That means a remittance from the other payer showing a valid non-payment reason (service not covered, applied to the deductible or copay, benefit maximum reached), a partial payment with its remittance, or no response within ninety days of submitting to the other payer. The MCO pays at most its allowed amount minus the other payments, and must allow at least ninety days from the other payer’s remittance to file. Exception: “The MCE, except SPBM, pays first for preventive pediatric services before seeking reimbursement from any liable third party.” Children in the custody of a county children’s services agency are exempt from TPL cooperation (OAC 5160-26-09.1).',
+        status: 'verified',
+        cites: [
+          { title: 'Molina Healthcare of Ohio — 2026 Medicaid Provider Manual (March 2026 addendum)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/oh/medicaid/manual/MHO-Medicaid-2026-Manual-508.pdf' },
+          { title: 'OAC 5160-26-09.1 — MCO third party recovery and coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-09.1' },
+        ],
+        verifyVia: 'Molina Provider Services (855-322-4079): whether ABA claims for a child with commercial coverage are paid first under the EPSDT/Healthchek exception, and whether a Molina authorization is needed when the commercial plan pays.',
       },
     },
     deliveryRules: {
@@ -999,6 +1076,24 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Anthem’s Ohio Medicaid manual, citing OAC 5160-26-03.1 and R.C. 5160.34: “For non-urgent pre-service requests: 7 calendar days. For urgent pre-service requests: 48 hours,” both counted from receipt of the request. If Anthem decides a request marked urgent is not urgent, it becomes an elective request and the provider is told. No ABA reauthorization lead time is published. Ohio’s MCO rule sets the clock. For a standard request the MCO “must provide notice to the provider and member as expeditiously as the member’s health condition requires but no later than seven calendar days following receipt of the request for service,” extendable by up to fourteen calendar days (an MCO-requested extension needs ODM’s prior approval). An expedited decision is due “no later than forty-eight hours after receipt of the request for service” (OAC 5160-26-03.1, effective 1/1/2026). The 48 hours is stricter than the federal 72-hour managed-care cap.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield — Ohio Medicaid Managed Care Provider Manual', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
+          { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Anthem is explicit that its own PA drops away on secondary claims: “No authorization is required for coordination of benefit (COB) claims.” Bill the primary carrier first, then send Anthem a claim for total billed charges with the primary carrier’s remittance advice, or a third-party letter explaining the denial. COB claims without one of these “will be mailed back.” Timely filing runs from the date of the other carrier’s explanation of payment (the manual’s table also says within 365 days of the date of service). Ohio’s MCO rule: “The MCE is the payer of last resort when a member has third party resources available.” Providers must “take reasonable measures to obtain all third party payments and file claims with all TPPs prior to billing the MCE.” That means a remittance from the other payer showing a valid non-payment reason (service not covered, applied to the deductible or copay, benefit maximum reached), a partial payment with its remittance, or no response within ninety days of submitting to the other payer. The MCO pays at most its allowed amount minus the other payments, and must allow at least ninety days from the other payer’s remittance to file. Exception: “The MCE, except SPBM, pays first for preventive pediatric services before seeking reimbursement from any liable third party.” Children in the custody of a county children’s services agency are exempt from TPL cooperation (OAC 5160-26-09.1).',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield — Ohio Medicaid Managed Care Provider Manual', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
+          { title: 'OAC 5160-26-09.1 — MCO third party recovery and coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-09.1' },
+        ],
       },
     },
     deliveryRules: {
@@ -1197,6 +1292,25 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          'UHC’s 2026 Ohio Medicaid manual: UHC “responds to prior authorization requests: Urgent services – within 48 hours … Nonurgent services – within 7 calendar days. This time period begins once we receive the request with all required information.” So an incomplete packet delays the start. The same manual’s UM table lists older figures (non-urgent “within 5 working days of receipt of medical record information required but no longer than 14 calendar days”; urgent “within 3 days”). The state rule of 7 days and 48 hours governs. No ABA reauthorization lead time is published. Ohio’s MCO rule sets the clock. For a standard request the MCO “must provide notice to the provider and member as expeditiously as the member’s health condition requires but no later than seven calendar days following receipt of the request for service,” extendable by up to fourteen calendar days (an MCO-requested extension needs ODM’s prior approval). An expedited decision is due “no later than forty-eight hours after receipt of the request for service” (OAC 5160-26-03.1, effective 1/1/2026). The 48 hours is stricter than the federal 72-hour managed-care cap.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Ohio Medicaid', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/OH-Care-Provider-Manual.pdf' },
+          { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'UHC’s manual: “UnitedHealthcare Community Plan is, by law, the payer of last resort for eligible members. Therefore, you must bill and obtain an EOB from any other insurance or health care coverage resource before billing.” Attach a complete EOB that shows the paid amount or denial reason. The manual does not say whether UHC’s authorization is still needed when a commercial plan pays first. Ohio’s MCO rule: “The MCE is the payer of last resort when a member has third party resources available.” Providers must “take reasonable measures to obtain all third party payments and file claims with all TPPs prior to billing the MCE.” That means a remittance from the other payer showing a valid non-payment reason (service not covered, applied to the deductible or copay, benefit maximum reached), a partial payment with its remittance, or no response within ninety days of submitting to the other payer. The MCO pays at most its allowed amount minus the other payments, and must allow at least ninety days from the other payer’s remittance to file. Exception: “The MCE, except SPBM, pays first for preventive pediatric services before seeking reimbursement from any liable third party.” Children in the custody of a county children’s services agency are exempt from TPL cooperation (OAC 5160-26-09.1).',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Ohio Medicaid', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/OH-Care-Provider-Manual.pdf' },
+          { title: 'OAC 5160-26-09.1 — MCO third party recovery and coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-09.1' },
+        ],
+        verifyVia: 'UHC Community Plan of Ohio Provider Services (1-800-600-9007): whether a UHC/Optum ABA authorization is required when a commercial plan pays first.',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1273,9 +1387,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
       blocker: 'document',
     },
     treatmentPA: {
-      value: 'Required — 6-month authorization periods, requested through the Jiva UM system via NaviNet; UM at (833) 735-7700, with initial decisions commonly reported at 10–14 business days',
+      value: 'Required — 6-month authorization periods, requested through the Jiva UM system via NaviNet; UM at (833) 735-7700. Decision clock: the January 2026 manual says standard decisions come “no later than 10 calendar days after AmeriHealth Caritas Ohio receives the request” (expedited: 48 hours), but OAC 5160-26-03.1 (eff. 1/1/2026) binds Ohio MCOs to “no later than seven calendar days following receipt of the request for service”',
       status: 'unverified',
-      verifyVia: 'AmeriHealth Caritas Ohio\'s behavioral-health prior-authorization guidance and Jiva UM criteria, via NaviNet or carelu.com/sources — the public site blocks automated retrieval.',
+      cites: [{ title: 'AmeriHealth Caritas Ohio — Provider Manual (January 2026, version six)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' }, { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' }],
+      verifyVia: 'The decision clock is sourced (manual + OAC 5160-26-03.1); the Jiva/NaviNet channel, UM phone line and 6-month period still need AmeriHealth Caritas Ohio\'s behavioral-health prior-authorization guidance, via NaviNet or carelu.com/sources.',
       blocker: 'document',
     },
     family: 'amerihealth',
@@ -1302,24 +1417,26 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { label: 'Prior auth', value: 'Required before ABA begins; 6-month auth periods' },
       { label: 'UM contact', value: '(833) 735-7700' },
       { label: 'Portal', value: 'Jiva via NaviNet' },
-      { label: 'Decision time', value: 'Initial authorizations reported at 10–14 business days' },
+      { label: 'Decision time', value: '7 calendar days standard / 48 hours expedited (OAC 5160-26-03.1); plan manual still prints 10 calendar days' },
     ],
     sections: [
       {
         h2: 'How AmeriHealth Caritas runs ABA authorization',
         body: [
-          'The clinical baseline is the state rule: PA on ABA services, DSM-5-TR diagnosis via comprehensive evaluation, 6-month review cycles. Authorization requests flow through the Jiva UM system via NaviNet, with UM at (833) 735-7700 and initial authorization decisions commonly reported at 10–14 business days — a timeline to set family expectations against. Approved intensities in the 10–40 hours/week range track clinical necessity per the state framework. Because the plan\'s public documents can\'t be pulled programmatically, download the current behavioral-health PA guidance from the portal and re-check it quarterly; the OhioRISE rule applies as everywhere — ABA bills to AmeriHealth Caritas, never to OhioRISE.',
+          'The clinical baseline is the state rule: PA on ABA services, DSM-5-TR diagnosis via comprehensive evaluation, 6-month review cycles. Authorization requests flow through the Jiva UM system via NaviNet, with UM at (833) 735-7700 and a standard decision due “no later than seven calendar days following receipt of the request for service” under OAC 5160-26-03.1 (effective 1/1/2026) — the plan’s January 2026 manual still prints “no later than 10 calendar days,” so 7 is the binding outer limit and 48 hours applies to expedited requests. Approved intensities in the 10–40 hours/week range track clinical necessity per the state framework. Because the plan\'s public documents can\'t be pulled programmatically, download the current behavioral-health PA guidance from the portal and re-check it quarterly; the OhioRISE rule applies as everywhere — ABA bills to AmeriHealth Caritas, never to OhioRISE.',
         ],
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
           { title: 'AmeriHealth Caritas OH — BH prior authorization (access via portal; site blocks automated retrieval)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
+          { title: 'AmeriHealth Caritas Ohio — Provider Manual (January 2026, version six)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
+          { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
         ],
       },
     ],
     collect: [
       { title: 'NaviNet/Jiva access', desc: 'The working authorization channel — confirm registration before the first case.' },
       { title: 'ASD diagnosis (DSM-5-TR)', desc: 'Comprehensive evaluation per the state baseline.' },
-      { title: 'Timeline expectations', desc: '10–14 business days for initial decisions — communicate it to families up front.' },
+      { title: 'Timeline expectations', desc: 'Standard decisions due within 7 calendar days of receipt (OAC 5160-26-03.1), 48 hours if expedited — communicate it to families up front.' },
     ],
     sources: [
       { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
@@ -1365,12 +1482,14 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       referral: {
-        value: 'No referral or service order requirement is published, and AmeriHealth Caritas Ohio publishes no distinct ABA clinical policy — expect utilization management driven by the OAC 5160-34 framework. Authorization requests flow through the Jiva UM system via NaviNet, with UM at (833) 735-7700; initial authorization decisions are commonly reported at 10–14 business days and authorization periods run 6 months. Because the plan’s public documents cannot be pulled programmatically, download the current behavioral-health PA guidance from the portal and re-check it quarterly.',
+        value: 'No referral or service order requirement is published, and AmeriHealth Caritas Ohio publishes no distinct ABA clinical policy — expect utilization management driven by the OAC 5160-34 framework. Authorization requests flow through the Jiva UM system via NaviNet, with UM at (833) 735-7700; standard decisions are due “no later than seven calendar days following receipt of the request for service” under OAC 5160-26-03.1 (the plan’s January 2026 manual still prints 10 calendar days), and authorization periods run 6 months. Because the plan’s public documents cannot be pulled programmatically, download the current behavioral-health PA guidance from the portal and re-check it quarterly.',
         status: 'verified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
           { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
+          { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
+          { title: 'AmeriHealth Caritas Ohio — Provider Manual (January 2026, version six)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
         ],
       },
       telehealth: {
@@ -1382,6 +1501,25 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'AmeriHealth Caritas Ohio’s January 2026 manual still prints the older standard clock: notice “no later than 10 calendar days after AmeriHealth Caritas Ohio receives the request,” extendable up to 14 calendar days. Expedited decisions: “no later than 48 hours after receipt of the request for service.” The manual points to OAC 5160-26-03.1, which has required 7 calendar days for standard decisions since 1/1/2026, so 7 days is the binding outer limit. No ABA reauthorization lead time is published. Ohio’s MCO rule sets the clock. For a standard request the MCO “must provide notice to the provider and member as expeditiously as the member’s health condition requires but no later than seven calendar days following receipt of the request for service,” extendable by up to fourteen calendar days (an MCO-requested extension needs ODM’s prior approval). An expedited decision is due “no later than forty-eight hours after receipt of the request for service” (OAC 5160-26-03.1, effective 1/1/2026). The 48 hours is stricter than the federal 72-hour managed-care cap.',
+        status: 'verified',
+        cites: [
+          { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
+          { title: 'AmeriHealth Caritas Ohio — Provider Manual (January 2026, version six)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'AmeriHealth Caritas Ohio’s manual: “before billing AmeriHealth Caritas Ohio when there is a Primary Insurer, healthcare providers are required to bill the Primary Insurer first and obtain an Explanation of Benefits (EOB) statement.” Then bill the balance with the EOB attached, within 180 days of the date the other insurer paid. Pay-first exception: providers “are not required to bill the third party” first when “the claim is for preventive pediatric services (including EPSDT/Healthchek) that are covered by the Medicaid program.” The plan then recovers from the other payer. The manual does not say whether ABA qualifies, or whether its own authorization is needed when a commercial plan pays first. Ohio’s MCO rule: “The MCE is the payer of last resort when a member has third party resources available.” Providers must “take reasonable measures to obtain all third party payments and file claims with all TPPs prior to billing the MCE.” That means a remittance from the other payer showing a valid non-payment reason (service not covered, applied to the deductible or copay, benefit maximum reached), a partial payment with its remittance, or no response within ninety days of submitting to the other payer. The MCO pays at most its allowed amount minus the other payments, and must allow at least ninety days from the other payer’s remittance to file. Exception: “The MCE, except SPBM, pays first for preventive pediatric services before seeking reimbursement from any liable third party.” Children in the custody of a county children’s services agency are exempt from TPL cooperation (OAC 5160-26-09.1).',
+        status: 'verified',
+        cites: [
+          { title: 'AmeriHealth Caritas Ohio — Provider Manual (January 2026, version six)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
+          { title: 'OAC 5160-26-09.1 — MCO third party recovery and coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-09.1' },
+        ],
+        verifyVia: 'AmeriHealth Caritas Ohio Provider Services (1-833-644-6001): whether ABA claims fall under the EPSDT/Healthchek pay-first exception, and whether a plan authorization is required when a commercial plan pays first.',
       },
     },
     deliveryRules: {
@@ -1446,7 +1584,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does AmeriHealth Caritas Ohio cover ABA therapy?', a: 'Yes — under the Ohio Medicaid framework, with prior authorization before services begin and 6-month authorization periods, managed through Jiva via NaviNet.' },
-      { q: 'How long do AmeriHealth Caritas Ohio ABA authorizations take?', a: 'Initial decisions are commonly reported at 10–14 business days — plan family communication accordingly.' },
+      { q: 'How long do AmeriHealth Caritas Ohio ABA authorizations take?', a: 'Standard decisions are due “no later than seven calendar days following receipt of the request for service” under OAC 5160-26-03.1 (effective 1/1/2026), and expedited decisions within 48 hours. The plan’s January 2026 provider manual still prints “no later than 10 calendar days” — treat 7 as the binding outer limit.' },
     ],
   },
 
@@ -1569,6 +1707,25 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Humana’s 2026 Ohio manual still prints the older standard clock: notice “no later than 10 calendar days following receipt of the request for service.” Expedited and urgent behavioral health decisions come “no later than 48 hours after receipt,” and concurrent decisions within three calendar days. OAC 5160-26-03.1 has required 7 calendar days for standard decisions since 1/1/2026, so 7 days is the binding outer limit. No ABA reauthorization lead time is published. Ohio’s MCO rule sets the clock. For a standard request the MCO “must provide notice to the provider and member as expeditiously as the member’s health condition requires but no later than seven calendar days following receipt of the request for service,” extendable by up to fourteen calendar days (an MCO-requested extension needs ODM’s prior approval). An expedited decision is due “no later than forty-eight hours after receipt of the request for service” (OAC 5160-26-03.1, effective 1/1/2026). The 48 hours is stricter than the federal 72-hour managed-care cap.',
+        status: 'verified',
+        cites: [
+          { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
+          { title: 'Humana Healthy Horizons in Ohio — 2026 Provider Manual', url: 'https://assets.humana.com/is/content/humana/2025_OH_Provider_Manualpdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Humana’s Ohio manual: “Humana Healthy Horizons in Ohio collects COB information for our members … Medicaid programs are the payer of last resort.” A COB claim needs the primary carrier’s remittance or payment information. When Humana is secondary, it recommends submitting “within 180 days from the other insurance payment date.” Its timely-filing limit is “at least 90 days from the date of the remittance advice” of the other payer. If a claim is denied for missing COB information, send the primary remittance within the rest of the initial timely-filing period. The manual does not say whether Humana’s authorization is still needed when a commercial plan pays first. Ohio’s MCO rule: “The MCE is the payer of last resort when a member has third party resources available.” Providers must “take reasonable measures to obtain all third party payments and file claims with all TPPs prior to billing the MCE.” That means a remittance from the other payer showing a valid non-payment reason (service not covered, applied to the deductible or copay, benefit maximum reached), a partial payment with its remittance, or no response within ninety days of submitting to the other payer. The MCO pays at most its allowed amount minus the other payments, and must allow at least ninety days from the other payer’s remittance to file. Exception: “The MCE, except SPBM, pays first for preventive pediatric services before seeking reimbursement from any liable third party.” Children in the custody of a county children’s services agency are exempt from TPL cooperation (OAC 5160-26-09.1).',
+        status: 'verified',
+        cites: [
+          { title: 'Humana Healthy Horizons in Ohio — 2026 Provider Manual', url: 'https://assets.humana.com/is/content/humana/2025_OH_Provider_Manualpdf' },
+          { title: 'OAC 5160-26-09.1 — MCO third party recovery and coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-09.1' },
+        ],
+        verifyVia: 'Humana Healthy Horizons in Ohio Provider Services: whether a Humana ABA authorization is required when a commercial plan pays first.',
       },
     },
     deliveryRules: {
@@ -1792,6 +1949,33 @@ export const ohioPayers: Record<string, PayerConfig> = {
         verifyVia: 'Availity, or the precertification line on the member ID card — ask which ABA codes Aetna will pay via telehealth on this specific plan, and with which POS code and modifier.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'For insured Ohio plans the state clock is faster than the federal floor. When the request is submitted electronically, the insurer “shall respond to all prior authorization requests within forty-eight hours for urgent care services, or ten calendar days for any prior authorization request that is not for an urgent care service, of the time the request is received” (R.C. 3923.041 for sickness-and-accident insurers and public employee benefit plans; R.C. 1751.72 for health insuring corporations). An incomplete request must get a reply naming the missing information. Plans outside those statutes, such as a self-funded private employer plan, are held to the federal floor: pre-service decisions “not later than 15 days after receipt of the claim,” one 15-day extension, and urgent care “not later than 72 hours after receipt” (29 CFR 2560.503-1). The same floor applies to non-grandfathered individual and marketplace plans (45 CFR 147.136). Aetna’s behavioral health provider manual publishes no decision timeframe.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'R.C. 3923.041 — prior authorization: sickness and accident insurers and public employee benefit plans', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.041' },
+          { title: 'R.C. 1751.72 — prior authorization: health insuring corporations', url: 'https://codes.ohio.gov/ohio-revised-code/section-1751.72' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' },
+          { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+        verifyVia: 'Aetna Behavioral Health precertification (number on the member ID card): whether the plan is insured in Ohio (R.C. 3923.041 / 1751.72 apply), self-funded (ERISA floor) or grandfathered; the plan’s own standard and urgent turnaround for ABA; and how far ahead of expiry a reauthorization must be filed.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Ohio’s COB rule sets the order for a child on both parents’ plans: “The plan of the parent whose birthday falls earlier in the calendar year is the primary plan”; if the birthdays match, the plan that has covered a parent longer goes first. For parents who are divorced, separated or not living together, a court decree assigning health costs controls. Without one, the order is the custodial parent’s plan, then the custodial parent’s spouse’s, then the non-custodial parent’s, then the non-custodial parent’s spouse’s (OAC 3901-8-01). That rule governs contracts issued in Ohio. Whether a self-funded employer plan follows it or its own plan document’s COB clause is a question for that plan. Public coverage pays after this plan. Ohio Medicaid “must be the last payer” (OAC 5160-1-08). TRICARE “pays after all other health insurance, except for” Medicaid. CHAMPVA “is always the secondary payer, except to Medicaid.” If this plan denies because its rules were not followed, including its prior authorization, TRICARE “may also deny the claim.” So get this plan’s authorization even when a public program is secondary.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'OAC 3901-8-01 — Coordination of benefits (order of benefit determination)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-3901-8-01' },
+          { title: 'OAC 5160-1-08 — Medicaid coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-08' },
+          { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' },
+        ],
+        verifyVia: 'Ask the family for both parents’ cards and birth dates, and ask the employer or HR whether each plan is fully insured and issued in Ohio (OAC 3901-8-01 order applies) or self-funded (the plan document’s COB clause applies).',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1996,6 +2180,32 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          'For insured Ohio plans the state clock is faster than the federal floor. When the request is submitted electronically, the insurer “shall respond to all prior authorization requests within forty-eight hours for urgent care services, or ten calendar days for any prior authorization request that is not for an urgent care service, of the time the request is received” (R.C. 3923.041 for sickness-and-accident insurers and public employee benefit plans; R.C. 1751.72 for health insuring corporations). An incomplete request must get a reply naming the missing information. Plans outside those statutes, such as a self-funded private employer plan, are held to the federal floor: pre-service decisions “not later than 15 days after receipt of the claim,” one 15-day extension, and urgent care “not later than 72 hours after receipt” (29 CFR 2560.503-1). The same floor applies to non-grandfathered individual and marketplace plans (45 CFR 147.136).',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'R.C. 3923.041 — prior authorization: sickness and accident insurers and public employee benefit plans', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.041' },
+          { title: 'R.C. 1751.72 — prior authorization: health insuring corporations', url: 'https://codes.ohio.gov/ohio-revised-code/section-1751.72' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' },
+        ],
+        verifyVia: 'Evernorth Behavioral Health / Cigna (number on the member ID card): whether the plan is insured in Ohio (R.C. 3923.041 / 1751.72 apply), self-funded (ERISA floor) or grandfathered; the plan’s own standard and urgent turnaround for ABA; and how far ahead of expiry a reauthorization must be filed.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Ohio’s COB rule sets the order for a child on both parents’ plans: “The plan of the parent whose birthday falls earlier in the calendar year is the primary plan”; if the birthdays match, the plan that has covered a parent longer goes first. For parents who are divorced, separated or not living together, a court decree assigning health costs controls. Without one, the order is the custodial parent’s plan, then the custodial parent’s spouse’s, then the non-custodial parent’s, then the non-custodial parent’s spouse’s (OAC 3901-8-01). That rule governs contracts issued in Ohio. Whether a self-funded employer plan follows it or its own plan document’s COB clause is a question for that plan. Public coverage pays after this plan. Ohio Medicaid “must be the last payer” (OAC 5160-1-08). TRICARE “pays after all other health insurance, except for” Medicaid. CHAMPVA “is always the secondary payer, except to Medicaid.” If this plan denies because its rules were not followed, including its prior authorization, TRICARE “may also deny the claim.” So get this plan’s authorization even when a public program is secondary.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'OAC 3901-8-01 — Coordination of benefits (order of benefit determination)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-3901-8-01' },
+          { title: 'OAC 5160-1-08 — Medicaid coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-08' },
+          { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' },
+        ],
+        verifyVia: 'Ask the family for both parents’ cards and birth dates, and ask the employer or HR whether each plan is fully insured and issued in Ohio (OAC 3901-8-01 order applies) or self-funded (the plan document’s COB clause applies).',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -2199,6 +2409,32 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Provider Express (Clinical Resources → ABA Information) or the behavioral health number on the member ID card — ask which ABA codes are payable by telehealth on this plan and with which POS code.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'For insured Ohio plans the state clock is faster than the federal floor. When the request is submitted electronically, the insurer “shall respond to all prior authorization requests within forty-eight hours for urgent care services, or ten calendar days for any prior authorization request that is not for an urgent care service, of the time the request is received” (R.C. 3923.041 for sickness-and-accident insurers and public employee benefit plans; R.C. 1751.72 for health insuring corporations). An incomplete request must get a reply naming the missing information. Plans outside those statutes, such as a self-funded private employer plan, are held to the federal floor: pre-service decisions “not later than 15 days after receipt of the claim,” one 15-day extension, and urgent care “not later than 72 hours after receipt” (29 CFR 2560.503-1). The same floor applies to non-grandfathered individual and marketplace plans (45 CFR 147.136).',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'R.C. 3923.041 — prior authorization: sickness and accident insurers and public employee benefit plans', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.041' },
+          { title: 'R.C. 1751.72 — prior authorization: health insuring corporations', url: 'https://codes.ohio.gov/ohio-revised-code/section-1751.72' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' },
+        ],
+        verifyVia: 'Optum Behavioral Health (number on the member ID card): whether the plan is insured in Ohio (R.C. 3923.041 / 1751.72 apply), self-funded (ERISA floor) or grandfathered; the plan’s own standard and urgent turnaround for ABA; and how far ahead of expiry a reauthorization must be filed.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Ohio’s COB rule sets the order for a child on both parents’ plans: “The plan of the parent whose birthday falls earlier in the calendar year is the primary plan”; if the birthdays match, the plan that has covered a parent longer goes first. For parents who are divorced, separated or not living together, a court decree assigning health costs controls. Without one, the order is the custodial parent’s plan, then the custodial parent’s spouse’s, then the non-custodial parent’s, then the non-custodial parent’s spouse’s (OAC 3901-8-01). That rule governs contracts issued in Ohio. Whether a self-funded employer plan follows it or its own plan document’s COB clause is a question for that plan. Public coverage pays after this plan. Ohio Medicaid “must be the last payer” (OAC 5160-1-08). TRICARE “pays after all other health insurance, except for” Medicaid. CHAMPVA “is always the secondary payer, except to Medicaid.” If this plan denies because its rules were not followed, including its prior authorization, TRICARE “may also deny the claim.” So get this plan’s authorization even when a public program is secondary.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'OAC 3901-8-01 — Coordination of benefits (order of benefit determination)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-3901-8-01' },
+          { title: 'OAC 5160-1-08 — Medicaid coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-08' },
+          { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' },
+        ],
+        verifyVia: 'Ask the family for both parents’ cards and birth dates, and ask the employer or HR whether each plan is fully insured and issued in Ohio (OAC 3901-8-01 order applies) or self-funded (the plan document’s COB clause applies).',
         blocker: 'per-case',
       },
     },
@@ -2487,6 +2723,32 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
           { title: 'Anthem Ohio — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/ohio/articles/streamlined-aba-claim-process-starts-january-1-2026-27879' },
         ],
+      },
+      authTurnaround: {
+        value:
+          'For insured Ohio plans the state clock is faster than the federal floor. When the request is submitted electronically, the insurer “shall respond to all prior authorization requests within forty-eight hours for urgent care services, or ten calendar days for any prior authorization request that is not for an urgent care service, of the time the request is received” (R.C. 3923.041 for sickness-and-accident insurers and public employee benefit plans; R.C. 1751.72 for health insuring corporations). An incomplete request must get a reply naming the missing information. Plans outside those statutes, such as a self-funded private employer plan, are held to the federal floor: pre-service decisions “not later than 15 days after receipt of the claim,” one 15-day extension, and urgent care “not later than 72 hours after receipt” (29 CFR 2560.503-1). The same floor applies to non-grandfathered individual and marketplace plans (45 CFR 147.136).',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'R.C. 3923.041 — prior authorization: sickness and accident insurers and public employee benefit plans', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.041' },
+          { title: 'R.C. 1751.72 — prior authorization: health insuring corporations', url: 'https://codes.ohio.gov/ohio-revised-code/section-1751.72' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' },
+        ],
+        verifyVia: 'Anthem Blue Cross and Blue Shield / Carelon Behavioral Health (number on the member ID card): whether the plan is insured in Ohio (R.C. 3923.041 / 1751.72 apply), self-funded (ERISA floor) or grandfathered; the plan’s own standard and urgent turnaround for ABA; and how far ahead of expiry a reauthorization must be filed.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Ohio’s COB rule sets the order for a child on both parents’ plans: “The plan of the parent whose birthday falls earlier in the calendar year is the primary plan”; if the birthdays match, the plan that has covered a parent longer goes first. For parents who are divorced, separated or not living together, a court decree assigning health costs controls. Without one, the order is the custodial parent’s plan, then the custodial parent’s spouse’s, then the non-custodial parent’s, then the non-custodial parent’s spouse’s (OAC 3901-8-01). That rule governs contracts issued in Ohio. Whether a self-funded employer plan follows it or its own plan document’s COB clause is a question for that plan. Public coverage pays after this plan. Ohio Medicaid “must be the last payer” (OAC 5160-1-08). TRICARE “pays after all other health insurance, except for” Medicaid. CHAMPVA “is always the secondary payer, except to Medicaid.” If this plan denies because its rules were not followed, including its prior authorization, TRICARE “may also deny the claim.” So get this plan’s authorization even when a public program is secondary.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'OAC 3901-8-01 — Coordination of benefits (order of benefit determination)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-3901-8-01' },
+          { title: 'OAC 5160-1-08 — Medicaid coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-08' },
+          { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' },
+        ],
+        verifyVia: 'Ask the family for both parents’ cards and birth dates, and ask the employer or HR whether each plan is fully insured and issued in Ohio (OAC 3901-8-01 order applies) or self-funded (the plan document’s COB clause applies).',
+        blocker: 'per-case',
       },
     },
     faq: [

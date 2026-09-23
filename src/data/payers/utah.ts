@@ -238,6 +238,26 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Utah Medicaid decides ABA prior authorization itself through PRISM, and neither the ASD Services manual nor Section I publishes a decision timeframe. The federal fee-for-service floor therefore governs: since January 1, 2026 the state agency must decide a standard request "in no case later than 7 calendar days after receiving the request," extendable by up to 14 calendar days, and an expedited one "in no case later than 72 hours after receiving the request." The clock effectively starts on a complete request: "When a prior authorization request is submitted without the required documentation, it will be returned to the provider without processing," and "The date a complete submission, with all necessary supporting documentation, is received will be the date posted on the prior authorization request." Only two additional-documentation rounds are allowed; incomplete after the third submission, the request is denied. Timing rules unique to ABA: at the start of services "providers will be permitted a 10-business day grace period to submit a request for prior authorization"; for renewals "The request for the new certification period must be received within 10 business days of the re-certification period start date," or the authorization "will begin on the day that the completed request and all required documentation is submitted." Authorizations run in 26-week periods.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (updated January 2026), ch. 10', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information (updated September 2026), ch. 10-1', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: '42 CFR 440.230(e) — State Medicaid agency prior-authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-B/section-440.230' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid pays last, and Utah adds an ABA-specific rule. "When other insurance coverage is available and a provider under that insurance is available to deliver ABA services, those services must be exhausted prior to claims being submitted to Medicaid." If you are not paneled with the private plan and it has no out-of-network benefit, "a transition to a provider enrolled with the private insurance must be facilitated within six months of the discovery of the insurance" — or you keep serving under Medicaid while "actively seeking enrollment with the private insurance," also within 6 months. Billing order: "Submit the claim to the third party or parties," then Medicaid with the TPL payment shown; "If the third party denies the claim for any reason (non-covered benefit, patient not eligible, etc.) submit a claim to Medicaid" electronically with the TPL response. Medicaid pays only the difference up to its allowable, and the family owes no primary-plan cost share. Keep the Medicaid prior auth in place even when it pays second: "Medicaid can pay for services only if all conditions of coverage have been met, including but not limited to, the requirement for prior authorization." Wrong TPL on file goes to the Office of Recovery Services TPL unit, (801) 536-8798. Billing the primary first and missing the 365-day deadline is an accepted timely-filing exception.',
+        status: 'verified',
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — ASD Services (updated January 2026), ch. 11-1 Third party liability', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information (updated September 2026), ch. 10, 11-1, 11-5', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Utah Medicaid cover ABA therapy?', a: 'Yes — as a state-plan ASD service, fee-for-service, regardless of age (PRISM shows ages 1 and older, adult plans included). No PA on assessments; treatment requires PA in 26-week periods, with a 10-business-day grace to submit after starting services.' },
@@ -507,6 +527,29 @@ export const utahPayers: Record<string, PayerConfig> = {
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
         blocker: 'document',
       },
+      authTurnaround: {
+        value:
+          'Commercial members: Select Health\'s own 2026 ABA Preauthorization Form sets the clock — "Once Select Health receives this form, we have the following decision time frames to make a benefit determination (unless an expedited review is requested): For Commercial Plans: 14 days (Utah)." Expedited review is available only if the standard time frame could seriously jeopardize life, health or the ability to regain maximum function, or leave severe pain unmanaged. Utah requires fully insured plans\' adverse-determination procedures to comply with 29 CFR 2560.503-1, which caps an urgent pre-service decision at 72 hours after receipt. From January 1, 2027 Utah Code 31A-22-650 (SB 319, 2026) tightens insurers to "no later than seven calendar days after the day on which the insurer receives all necessary information," and 72 hours for urgent care. Select Health separately distinguishes an initial request (diagnostic evaluation report) from a concurrent request (updated treatment plan with progress data). Community Care (Medicaid) members: the plan\'s manual gives 14 calendar days standard and 72 hours urgent for its own preauthorizations, but this guide records ABA as routing to Utah Medicaid fee-for-service, where the state\'s clock applies instead.',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+          { title: 'Select Health — Provider Reference Manual, Commercial and Government Plans (January 2025 edition)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
+          { title: 'Utah Admin. Code R590-261-4 — Adverse Benefit Determination Procedure Compliance (Cornell LII mirror; rules.utah.gov blocked)', url: 'https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R590-261-4' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'Utah Code 31A-22-650 — Health care preauthorization requirements (version effective 1/1/2027)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S650_2026050620270101.html' },
+        ],
+        verifyVia: 'Select Health Health Services, 800-442-5305: the reauthorization lead time for ABA concurrent requests, which neither the form nor the manual states.',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Commercial members follow the standard order in Select Health\'s manual, which tracks Utah\'s COB rule. For a child on both parents\' plans, "The benefits of the plan of the parent whose birthday falls earlier in the calendar year are determined before those of the plan of the parent whose birthday falls later in the year" (month and day only; same birthday goes to the plan that covered the parent longer). Divorced or separated parents: a court decree naming the responsible parent controls; joint custody without one uses the birthday rule. "Because of the government\'s role in subsidizing care for members enrolled in CHAMPUS/TRICARE and MEDICAID, these policies are always considered secondary to another plan" — so Select Health commercial pays before a child\'s Medicaid or TRICARE. When Select Health is secondary, the COB information must reach it "within 12 months after the claim was processed by the primary plan." Community Care (Medicaid) members: Medicaid is payer of last resort; for ABA routed to fee-for-service, Utah Medicaid\'s own TPL rules apply (other coverage exhausted first, 6-month transition to an in-network provider).',
+        status: 'verified',
+        cites: [
+          { title: 'Select Health — Provider Reference Manual, Commercial and Government Plans (January 2025 edition), §8.0 Coordination of Benefits', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
+          { title: 'Utah Admin. Code R590-131-6 — Determining Order of Benefits (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R590-131-6' },
+          { title: 'Utah Medicaid Provider Manual — ASD Services (updated January 2026), ch. 11-1 Third party liability', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Select Health cover ABA therapy in Utah?', a: 'Depends which Select Health. SelectHealth Community Care (the Medicaid ACO) never administers ABA — it rides Utah Medicaid\'s fee-for-service carve-out. Select Health commercial (employer/individual) plans cover ABA under the plan\'s own Policy #630, with prior authorization required.' },
@@ -748,6 +791,29 @@ export const utahPayers: Record<string, PayerConfig> = {
         verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Aetna publishes no commercial decision clock of its own: ABA "services require prior authorization. To get ABA services precertified, call the number on the member\'s Aetna ID card," and the manual sets no reauthorization lead time (none in the ABA Medical Necessity Guide or the ABA precert form either). The legal ceiling depends on funding. Utah requires fully insured plans\' procedures to "comply with this rule, 29 CFR 2560.503-1, and 45 CFR 147.136" (R590-261-4), and self-funded plans follow 29 CFR 2560.503-1 directly, so through 2026 the ceiling is the same either way: a pre-service decision "not later than 15 days after receipt of the claim" (one 15-day extension) and 72 hours for urgent care. From January 1, 2027 Utah Code 31A-22-650 tightens insurers (fully insured only) to "no later than seven calendar days after the day on which the insurer receives all necessary information," and 72 hours for urgent care.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Utah Admin. Code R590-261-4 — Adverse Benefit Determination Procedure Compliance (Cornell LII mirror; rules.utah.gov blocked)', url: 'https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R590-261-4' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'Utah Code 31A-22-650 — Health care preauthorization requirements (version effective 1/1/2027, SB 319 of 2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S650_2026050620270101.html' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Aetna: "We coordinate benefits as allowed by state or federal law following the National Associations of Insurance Commissioners (NAIC) guidelines. If there is no applicable law, then we coordinate according to the member\'s plan" — the manual\'s order-of-benefits list includes the birthday rule for children whose parents are not separated or divorced. Utah\'s COB rule (R590-131-6) governs fully insured plans: for a child whose parents are married or living together, "the plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered the parent longest); a court order stating otherwise controls. Self-funded plans follow their plan document instead, and Aetna notes many use "Maintenance of Benefits (MOB)" rather than the "100% Allowable" method most state laws require, so a secondary payment can be smaller. If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Utah Admin. Code R590-131-6 — Determining Order of Benefits (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R590-131-6' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Utah?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Utah\'s mandate (Utah Code § 31A-22-642) for individual and large-group fully-insured plans. Small-group and self-funded employer plans sit outside the mandate, so always verify market segment and funding type first.' },
@@ -962,6 +1028,30 @@ export const utahPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'Cigna (Evernorth Behavioral Health) makes "coverage determinations in accordance with the time frames required under applicable law," and warns: "You must supply all information requested within the time frames specified … Failure to provide information within the time frames requested may result in nonpayment." ABA requests go to the Autism Utilization Management team. Lead time is published: "For ABA, we encourage providers to request authorizations up to 30 days in advance of or two weeks after the start date of service. A delay in request may result in a retrospective review and could delay the determination for up to 30 days" — so file each reauthorization up to 30 days before the current one ends. Utah requires fully insured plans\' procedures to "comply with this rule, 29 CFR 2560.503-1, and 45 CFR 147.136" (R590-261-4), and self-funded plans follow 29 CFR 2560.503-1 directly, so through 2026 the ceiling is the same either way: a pre-service decision "not later than 15 days after receipt of the claim" (one 15-day extension) and 72 hours for urgent care. From January 1, 2027 Utah Code 31A-22-650 tightens insurers (fully insured only) to "no later than seven calendar days after the day on which the insurer receives all necessary information," and 72 hours for urgent care.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Utah Admin. Code R590-261-4 — Adverse Benefit Determination Procedure Compliance (Cornell LII mirror; rules.utah.gov blocked)', url: 'https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R590-261-4' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'Utah Code 31A-22-650 — Health care preauthorization requirements (version effective 1/1/2027, SB 319 of 2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S650_2026050620270101.html' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Evernorth follows the NAIC order "subject to applicable law and the terms of the benefit plan": "The plan of the parent whose birthday falls earlier in the calendar year is primary … Only the month and day of birth are relevant" (same birthday: the longer-running plan); a court decree controls for divorced or separated parents, and with no decree the order is custodial parent, custodial parent\'s spouse, noncustodial parent, noncustodial parent\'s spouse. Utah\'s COB rule (R590-131-6) governs fully insured plans: for a child whose parents are married or living together, "the plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered the parent longest); a court order stating otherwise controls. When Cigna is secondary, bill the primary first, then send the claim "along with a copy of the primary payer\'s EOP" (not needed if HIPAA-compliant COB data goes electronically to payer ID 62308). If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Utah Admin. Code R590-131-6 — Determining Order of Benefits (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R590-131-6' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
         ],
       },
     },
@@ -1181,6 +1271,32 @@ export const utahPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'UnitedHealthcare publishes its own commercial clock: "Standard requests: up to 15 calendar days"; "Expedited requests: 72 hours"; "We may extend this time if we need additional information." Submit "at least 15 calendar days in advance, if possible, but … at least 5 business days before the planned service date." ABA requests route to Optum (Provider Express, AutismABA), where "All services require prior approval"; Optum\'s ABA FAQ says to request a continuation "no more than 30 days prior to the current approvals on file expiring" (that FAQ dates from October 2021). Utah requires fully insured plans\' procedures to "comply with this rule, 29 CFR 2560.503-1, and 45 CFR 147.136" (R590-261-4), and self-funded plans follow 29 CFR 2560.503-1 directly, so through 2026 the ceiling is the same either way: a pre-service decision "not later than 15 days after receipt of the claim" (one 15-day extension) and 72 hours for urgent care. From January 1, 2027 Utah Code 31A-22-650 tightens insurers (fully insured only) to "no later than seven calendar days after the day on which the insurer receives all necessary information," and 72 hours for urgent care. Where state law is stricter than UHC\'s 15 days, the law wins for fully insured members.',
+        status: 'verified',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Ch. 7 and Ch. 10', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Autism/ABA FAQ (BH3632, October 2021)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: 'Utah Admin. Code R590-261-4 — Adverse Benefit Determination Procedure Compliance (Cornell LII mirror; rules.utah.gov blocked)', url: 'https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R590-261-4' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'Utah Code 31A-22-650 — Health care preauthorization requirements (version effective 1/1/2027, SB 319 of 2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S650_2026050620270101.html' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'UnitedHealthcare: "COB is administered according to the member\'s benefit plan and in accordance with law. We accept secondary claims electronically," and "If COB caused a delay, you have 90 days from the date of the primary carrier Explanation of Benefits to submit." For ABA through Optum: "bill the primary insurance carrier first, then notify Optum of your findings"; Optum processes "using industry-wide coordination of benefits (COB) standards and in accordance with benefit contracts and applicable state laws." Utah\'s COB rule (R590-131-6) governs fully insured plans: for a child whose parents are married or living together, "the plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered the parent longest); a court order stating otherwise controls. Self-funded plans follow their plan document. If another payer needs a UHC denial to pay, Optum\'s FAQ says to "Call the number on the back of the member\'s insurance card to request a denial." If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Ch. 7 and Ch. 10', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum Autism/ABA FAQ (BH3632, October 2021)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: 'Utah Admin. Code R590-131-6 — Determining Order of Benefits (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R590-131-6' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
         ],
       },
     },

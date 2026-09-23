@@ -64,6 +64,35 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'The member\'s MCO — the state sets no ABA telehealth rule, so each plan answers for itself; DMAHS\'s Autism Line (609-588-8522) is the state-side route.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'NJ FamilyCare ABA is authorized by the child\'s MCO, not the state: "Effective 4/1/2020, ABA providers shall contact the child\'s NJ FamilyCare MCO to receive authorization to provide services. For children who are pending assignment to an MCO, services shall be covered under NJ FamilyCare Fee-for-Service (FFS) and no prior authorization shall be required until a managed care plan has been assigned." So there is no state decision clock for ABA — the MCO\'s clock applies. Federal floor for every NJ FamilyCare MCO: standard decisions within 7 calendar days of the request for contract rating periods starting on or after January 1, 2026 (14 days before that), extendable by up to 14 calendar days at the member\'s or provider\'s request or when the plan justifies needing more information; expedited within 72 hours. What the five MCOs publish: Horizon NJ Health, Aetna Better Health and Fidelis Care state 7 calendar days standard and 24 hours (no later than 72) urgent; UnitedHealthcare Community Plan\'s 2025 manual and Wellpoint\'s June 2025 manual still print 14 calendar days for non-urgent requests.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+          { title: 'Horizon NJ Health — UM policy: Timeframes for Authorization Determination and Notification (last reviewed 12/10/2025)', url: 'https://www.horizonnjhealth.com/for-providers/resources/policies/health-services-policies/utilization-management/timeframes-for' },
+          { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
+          { title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
+          { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
+          { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'NJ FamilyCare pays last: "All TPL, for example, health insurance, Medicare, CHAMPUS, prepaid health plans… shall, if available, be used first and to the fullest extent." Bill the commercial plan first; supplementation claims "shall not be filed with the program unless accompanied by a statement of payment, Explanation of Benefits (EOB), or denial from the other carrier." Two traps: "No program payments shall be made when the third-party payer requires a contracting or participating provider to accept that third-party payer\'s payment as payment in full," and when NJ FamilyCare is secondary it pays the lesser of its allowed amount minus other payments, or the patient liability. Federal law allows the state to pay first and recover later only for preventive pediatric services (including EPSDT services) or where the coverage comes from an absent parent under child-support enforcement; New Jersey adopts those exceptions (plus prenatal care). Authorization when Medicaid is secondary is set by each MCO: Aetna Better Health waives its PA when the primary covers the service; Horizon NJ Health requires its normal notification/authorization policies; UnitedHealthcare will not pay a primary\'s medical-necessity denial unless it gave prior authorization; Wellpoint will not pay when the primary refused because its guidelines were not followed. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'N.J.A.C. 10:49-7.3 — Third-party liability (TPL) benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-3' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+          { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
+          { title: 'Horizon NJ Health — Provider Administrative Manual', url: 'https://www.horizonnjhealth.com/provider-admin-manual' },
+          { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
+          { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -294,6 +323,26 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Horizon NJ Health provider services, or the ABA UM escalation contact on the DMAHS BH integration contact sheet.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Horizon NJ Health\'s UM timeframes policy (last reviewed December 10, 2025): for Medicaid behavioral health, non-urgent prior authorization decisions within seven (7) calendar days of receipt of the request, with an extension of up to 14 calendar days at the member\'s or provider\'s request or when in the member\'s best interest; urgent outpatient requests decided within 24 hours of receipt of the necessary information — if the request is incomplete Horizon asks for more information within 24 hours and decides within 24 hours of receiving it, "but no later than seventy-two (72) hours, from receipt of the original request." Continued or extended services for a member in a course of treatment: decided within 24 hours of the request. For Medicaid only, "If Horizon fails to respond to an authorization request within the specific timeframes, the hospital or physician request shall be deemed approved." Federal floor for every NJ FamilyCare MCO: standard decisions within 7 calendar days of the request for contract rating periods starting on or after January 1, 2026 (14 days before that), extendable by up to 14 calendar days at the member\'s or provider\'s request or when the plan justifies needing more information; expedited within 72 hours.',
+        status: 'verified',
+        cites: [
+          { title: 'Horizon NJ Health — UM policy: Timeframes for Authorization Determination and Notification (last reviewed 12/10/2025)', url: 'https://www.horizonnjhealth.com/for-providers/resources/policies/health-services-policies/utilization-management/timeframes-for' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Horizon NJ Health\'s manual: "Horizon NJ Health is the payor of last resort on all claims" — verify other coverage and document that the claim was first processed by the other insurer. Do not file with Horizon "until they receive the EOB from the member\'s other insurance carrier(s)"; then submit the claim, PCP referral and the primary\'s EOB (all pages) within 60 days of the other carrier\'s correspondence or 180 days from the date of service, whichever is later. Authorization still applies when Horizon is secondary: "With the exception of Medicare, Horizon NJ Health\'s same notification policies that are routinely applied and required must be followed for any claims to be considered for payment" — get Horizon\'s ABA authorization even when the commercial plan pays first. State rule underneath: NJ FamilyCare pays last: "All TPL, for example, health insurance, Medicare, CHAMPUS, prepaid health plans… shall, if available, be used first and to the fullest extent." Bill the commercial plan first; supplementation claims "shall not be filed with the program unless accompanied by a statement of payment, Explanation of Benefits (EOB), or denial from the other carrier." Two traps: "No program payments shall be made when the third-party payer requires a contracting or participating provider to accept that third-party payer\'s payment as payment in full," and when NJ FamilyCare is secondary it pays the lesser of its allowed amount minus other payments, or the patient liability. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'Horizon NJ Health — Provider Administrative Manual', url: 'https://www.horizonnjhealth.com/provider-admin-manual' },
+          { title: 'N.J.A.C. 10:49-7.3 — Third-party liability (TPL) benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-3' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
+      },
     },
     deliveryRules: {
       concurrentBilling: {
@@ -407,7 +456,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     assessmentPA: {
       value: 'Required — ABA is on the PA list; urgent requests decided in 24 hours, routine in 7 days',
       status: 'verified',
-      cites: [{ title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' }, { title: 'DMAHS BH Integration Points of Contact V3.1 (per-MCO ABA contacts)', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' }],
+      cites: [{ title: 'Aetna Better Health of New Jersey — Provider Manual (Decision/notification requirements)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }, { title: 'DMAHS BH Integration Points of Contact V3.1 (per-MCO ABA contacts)', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' }],
     },
     treatmentPA: {
       value: 'Required — via Availity or the BH prior authorization form; progress reports via Availity or fax (844) 404-3972',
@@ -463,6 +512,26 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Aetna Better Health of New Jersey provider services (1-855-232-3596) or the plan\'s named ABA clinical contacts on the DMAHS BH integration contact sheet.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Aetna Better Health of New Jersey\'s provider manual: urgent pre-service decisions "Within twenty-four (24) hours of receipt of necessary information, but no later than 72 hours from receipt of request"; non-urgent pre-service "Within seven (7) calendar days (or sooner as required by the needs of the member) of receipt of necessary information sufficient to make an informed decision"; continued/extended services within 24 hours of receipt of necessary information, no later than 72 hours. These apply "Unless otherwise required by the New Jersey Division of Medical Assistance and Health Services (DMAHS) or state law." Note the older BH prior authorization request form still reads "Routine services processed within 14 days" — the manual\'s 7-day standard is the current one. Federal floor for every NJ FamilyCare MCO: standard decisions within 7 calendar days of the request for contract rating periods starting on or after January 1, 2026 (14 days before that), extendable by up to 14 calendar days at the member\'s or provider\'s request or when the plan justifies needing more information; expedited within 72 hours.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Aetna Better Health of New Jersey\'s manual: "If other insurance is the primary payer before Aetna Better Health of New Jersey, prior authorization of a service is not required, unless it is known that the service provided is not covered by the primary payer. If the service is not covered by the primary payer, the provider must follow our prior authorization rules." So a commercial plan that covers ABA → its authorization only; one that excludes ABA → Aetna\'s PA before services. Submit COB claims within 60 days of the primary insurer\'s EOB or 180 days from the date of service, whichever is later. State rule underneath: NJ FamilyCare pays last: "All TPL, for example, health insurance, Medicare, CHAMPUS, prepaid health plans… shall, if available, be used first and to the fullest extent." Bill the commercial plan first; supplementation claims "shall not be filed with the program unless accompanied by a statement of payment, Explanation of Benefits (EOB), or denial from the other carrier." Two traps: "No program payments shall be made when the third-party payer requires a contracting or participating provider to accept that third-party payer\'s payment as payment in full," and when NJ FamilyCare is secondary it pays the lesser of its allowed amount minus other payments, or the patient liability. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
+          { title: 'N.J.A.C. 10:49-7.3 — Third-party liability (TPL) benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-3' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
       },
     },
     deliveryRules: {
@@ -534,6 +603,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'DMAHS BH Integration Points of Contact V3.1 — Aetna ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
+          { title: 'Aetna Better Health of New Jersey — Provider Manual (Decision/notification requirements)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
           { title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' },
         ],
       },
@@ -623,6 +693,26 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Fidelis Care New Jersey\'s ABA UM contact (per the DMAHS BH integration contact sheet) before the first submission — nothing ABA-specific is published by the plan.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Fidelis Care\'s 2026 NJ manual: routine (non-urgent) prior authorization determinations "within seven (7) calendar days (or sooner as required by the needs of the Member) of receipt of necessary information sufficient to make an informed decision"; urgent determinations "within twenty-four (24) hours of receipt of the necessary information, but no later than seventy-two (72) hours after receipt of the request for service" — ask for expedited decisions by telephone or the portal, not fax. Continued or extended services (a reauthorization during an ongoing course of treatment) are "determined and communicated by telephone and in writing within one (1) business day of receipt of the necessary information." Federal floor for every NJ FamilyCare MCO: standard decisions within 7 calendar days of the request for contract rating periods starting on or after January 1, 2026 (14 days before that), extendable by up to 14 calendar days at the member\'s or provider\'s request or when the plan justifies needing more information; expedited within 72 hours.',
+        status: 'verified',
+        cites: [
+          { title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Fidelis Care\'s manual: "Providers shall bill primary insurers for items and services they provide to a Member before they submit claims for the same items or services to Fidelis Care," with the primary\'s EOB and payment amount on the claim; if the primary paid at least Fidelis\'s liability nothing more is paid, otherwise Fidelis pays the difference up to its allowed amount; if the primary coverage ended, submit proof of termination. The manual publishes no rule on whether Fidelis\'s own authorization is needed when it is secondary — confirm with Fidelis Provider Services (1-888-453-2534) before relying on the primary\'s authorization alone. State rule underneath: NJ FamilyCare pays last: "All TPL, for example, health insurance, Medicare, CHAMPUS, prepaid health plans… shall, if available, be used first and to the fullest extent." Bill the commercial plan first; supplementation claims "shall not be filed with the program unless accompanied by a statement of payment, Explanation of Benefits (EOB), or denial from the other carrier." Two traps: "No program payments shall be made when the third-party payer requires a contracting or participating provider to accept that third-party payer\'s payment as payment in full," and when NJ FamilyCare is secondary it pays the lesser of its allowed amount minus other payments, or the patient liability. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
+          { title: 'N.J.A.C. 10:49-7.3 — Third-party liability (TPL) benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-3' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
       },
     },
     deliveryRules: {
@@ -777,6 +867,27 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'The one New Jersey plan with a published ABA telehealth rule, and it is specific. Optum allows BCBAs and licensed BH clinicians within contracted ABA practices to deliver ABA supervision and caregiver training by telehealth, but only after the practice becomes an approved Optum virtual-visits provider by attestation on Provider Express, and only if it alerts the Care Advocate that the services will be virtual while completing the authorization. Billing is then plain: "include the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not inside the carve-out, and the state publishes no ABA telehealth rule of its own.',
         status: 'verified',
         cites: [{ title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'UnitedHealthcare Community Plan of New Jersey\'s manual (2025 edition) prints: non-urgent pre-service "Within 14 calendar days from the receipt of the request"; urgent/expedited pre-service "Within 24 hours of receipt of the necessary information, but no later than 72 hours after receipt"; concurrent review within 24 hours or the next business day. Federal floor for every NJ FamilyCare MCO: standard decisions within 7 calendar days of the request for contract rating periods starting on or after January 1, 2026 (14 days before that), extendable by up to 14 calendar days at the member\'s or provider\'s request or when the plan justifies needing more information; expedited within 72 hours. Treat 7 calendar days as the ceiling for any contract year that began on or after January 1, 2026. ABA authorizations run through Optum.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'UHC Community Plan of New Jersey: bill the commercial plan first (the manual\'s own example is a member covered as a dependent on a parent\'s plan: "the commercial plan is primary and must be billed first"), then submit COB claims "within 60 days from the date of the primary insurer\'s EOB or 180 days from the dates of service, whichever is later," with evidence of the first payer\'s payment. On authorization the manual is blunt: "Unless we have given prior authorization, we are not liable for payment if the other payer refuses payment due to a determination that the services provided were not medically necessary" — get UHC/Optum\'s authorization as well. State rule underneath: NJ FamilyCare pays last: "All TPL, for example, health insurance, Medicare, CHAMPUS, prepaid health plans… shall, if available, be used first and to the fullest extent." Bill the commercial plan first; supplementation claims "shall not be filed with the program unless accompanied by a statement of payment, Explanation of Benefits (EOB), or denial from the other carrier." Two traps: "No program payments shall be made when the third-party payer requires a contracting or participating provider to accept that third-party payer\'s payment as payment in full," and when NJ FamilyCare is secondary it pays the lesser of its allowed amount minus other payments, or the patient liability. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
+          { title: 'Optum — UHC Community Plan of NJ Behavioral Health Provider Network Manual Addendum (2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/welcomeNtwk/nj/njMedicaidManual.pdf' },
+          { title: 'N.J.A.C. 10:49-7.3 — Third-party liability (TPL) benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-3' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
       },
     },
     deliveryRules: {
@@ -950,6 +1061,27 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Wellpoint New Jersey provider services ((833) 731-2149 / (800) 454-3730), and Carelon Behavioral Health (provider.relations.NJ@carelon.com), which runs the ABA network.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Wellpoint New Jersey\'s manual (June 2025): "Prior authorization decisions for non-emergency services shall be made within 14 calendar days or sooner as required by the needs of the enrollee," with denials in writing under the Health Claims Authorization, Processing and Payment Act. Federal floor for every NJ FamilyCare MCO: standard decisions within 7 calendar days of the request for contract rating periods starting on or after January 1, 2026 (14 days before that), extendable by up to 14 calendar days at the member\'s or provider\'s request or when the plan justifies needing more information; expedited within 72 hours. Treat 7 calendar days as the ceiling for any contract year that began on or after January 1, 2026. An incomplete request is not approved — Wellpoint notifies you to send the missing documentation, so the file you submit sets the clock.',
+        status: 'verified',
+        cites: [
+          { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Wellpoint\'s manual: "If you\'re aware of third-party coverage, you must submit a claim first to the appropriate third party before submitting a claim to us." COB claims are due "within 60 days from the date of the primary insurer\'s Explanation of Benefits (EOB) or 180 days from the dates of service, whichever is later," and Wellpoint pays its allowable minus the primary\'s payment. The rule that bites ABA: "If the third-party liability did not pay for a service because the member or provider did not follow the third-party payer\'s guidelines, the service will not be paid by Wellpoint" — so the commercial plan\'s authorization and network rules must be met. Wellpoint lists pay-first-and-recover exceptions including "preventive pediatric services (including EPSDT services)" and a child in DCP&P out-of-home placement. State rule underneath: NJ FamilyCare pays last: "All TPL, for example, health insurance, Medicare, CHAMPUS, prepaid health plans… shall, if available, be used first and to the fullest extent." Bill the commercial plan first; supplementation claims "shall not be filed with the program unless accompanied by a statement of payment, Explanation of Benefits (EOB), or denial from the other carrier." Two traps: "No program payments shall be made when the third-party payer requires a contracting or participating provider to accept that third-party payer\'s payment as payment in full," and when NJ FamilyCare is secondary it pays the lesser of its allowed amount minus other payments, or the patient liability. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+          { title: 'Wellpoint New Jersey — Provider Quick Reference Guide', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_CAID_ProviderQRG.pdf' },
+          { title: 'N.J.A.C. 10:49-7.3 — Third-party liability (TPL) benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-3' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
+      },
     },
     deliveryRules: {
       concurrentBilling: {
@@ -1107,6 +1239,32 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia:
           'Aetna provider services and the member\'s benefit document — confirm which ABA codes pay by telehealth and with which POS code before scheduling remote supervision or caregiver training.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured New Jersey plans follow the Ensuring Transparency in Prior Authorization Act (in force January 1, 2025): for outpatient services such as ABA, a denial must be communicated "no later than 12 days if the request is submitted in paper, or nine days if submitted through an electronic portal provided by the payer," and urgent-care determinations no later than 72 hours after receipt; if the payer asks for more information and the provider does not respond within 72 hours, the request is deemed withdrawn. Useful for reauthorizations: a prior authorization for a chronic or long-term condition "shall remain in effect for 180 days" unless a shorter period is needed with notice to the provider. Self-funded (ERISA) plans follow the federal claims rule instead: pre-service decisions within 15 days of receipt (one 15-day extension), urgent within 72 hours. Aetna\'s office manual and ABA medical-necessity guide publish no ABA-specific decision clock.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+          { title: 'NJ DOBI Bulletin 24-17 — Ensuring Transparency in Prior Authorization Act', url: 'https://nj.gov/dobi/bulletins/blt24_17.pdf' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification: fully insured NJ policy (ETPAA 9/12-day clock, 180-day authorizations) vs. self-funded ERISA plan (15 days / 72 hours), plus the carrier\'s behavioral health reviewer turnaround.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child on two parents\' plans, New Jersey\'s group coordination-of-benefits rule (fully insured group contracts) puts the plan of "the parent whose birthday falls earlier in a year" first — month and day only; same birthday → the plan that covered the parent longer. Divorced or separated parents: the custodial parent\'s plan pays first, then the custodial parent\'s spouse\'s plan, then the non-custodial parent\'s plan, unless a court decree makes one parent responsible for the child\'s health care. Self-funded plans set their own order in the plan document. Aetna says it follows the NAIC order-of-benefit rules, "as allowed by state or federal law," including the birthday rule, and that many self-funded plans use maintenance of benefits. If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'N.J.A.C. 11:4-28.6 — Rules for coordination of benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-11-4-28-6' },
+          { title: 'Aetna — Office manual for health care professionals (coordination of benefits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: 'N.J.A.C. 10:49-7.3 — Third-party liability (TPL) benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-3' },
+        ],
+        verifyVia: 'Benefits verification with both plans: funding type, which is primary for the child, and whether the secondary plan requires its own authorization.',
         blocker: 'per-case',
       },
     },
@@ -1296,6 +1454,32 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor to fall back on here — unlike Nebraska, whose statute names telehealth expressly.',
         status: 'verified',
         cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured New Jersey plans follow the Ensuring Transparency in Prior Authorization Act (in force January 1, 2025): for outpatient services such as ABA, a denial must be communicated "no later than 12 days if the request is submitted in paper, or nine days if submitted through an electronic portal provided by the payer," and urgent-care determinations no later than 72 hours after receipt; if the payer asks for more information and the provider does not respond within 72 hours, the request is deemed withdrawn. Useful for reauthorizations: a prior authorization for a chronic or long-term condition "shall remain in effect for 180 days" unless a shorter period is needed with notice to the provider. Self-funded (ERISA) plans follow the federal claims rule instead: pre-service decisions within 15 days of receipt (one 15-day extension), urgent within 72 hours. Cigna\'s ABA policy (EN0499) sets no decision clock; continued-treatment requests need current data "collected within no more than 60 days prior to the start date of the continued treatment request."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+          { title: 'NJ DOBI Bulletin 24-17 — Ensuring Transparency in Prior Authorization Act', url: 'https://nj.gov/dobi/bulletins/blt24_17.pdf' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+        verifyVia: 'Benefits verification: fully insured NJ policy (ETPAA 9/12-day clock, 180-day authorizations) vs. self-funded ERISA plan (15 days / 72 hours), plus the carrier\'s behavioral health reviewer turnaround.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child on two parents\' plans, New Jersey\'s group coordination-of-benefits rule (fully insured group contracts) puts the plan of "the parent whose birthday falls earlier in a year" first — month and day only; same birthday → the plan that covered the parent longer. Divorced or separated parents: the custodial parent\'s plan pays first, then the custodial parent\'s spouse\'s plan, then the non-custodial parent\'s plan, unless a court decree makes one parent responsible for the child\'s health care. Self-funded plans set their own order in the plan document. Cigna\'s ABA documents publish no coordination-of-benefits rule of their own. If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'N.J.A.C. 11:4-28.6 — Rules for coordination of benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-11-4-28-6' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: 'N.J.A.C. 10:49-7.3 — Third-party liability (TPL) benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-3' },
+        ],
+        verifyVia: 'Benefits verification with both plans: funding type, which is primary for the child, and whether the secondary plan requires its own authorization.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1489,6 +1673,34 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'The Optum Care Advocate at authorization and Provider Express — Optum runs a virtual-visits attestation on some lines of business, so confirm approval status and the billing POS before scheduling remote 97155 or 97156.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured New Jersey plans follow the Ensuring Transparency in Prior Authorization Act (in force January 1, 2025): for outpatient services such as ABA, a denial must be communicated "no later than 12 days if the request is submitted in paper, or nine days if submitted through an electronic portal provided by the payer," and urgent-care determinations no later than 72 hours after receipt; if the payer asks for more information and the provider does not respond within 72 hours, the request is deemed withdrawn. Useful for reauthorizations: a prior authorization for a chronic or long-term condition "shall remain in effect for 180 days" unless a shorter period is needed with notice to the provider. Self-funded (ERISA) plans follow the federal claims rule instead: pre-service decisions within 15 days of receipt (one 15-day extension), urgent within 72 hours. UnitedHealthcare\'s commercial administrative guide states "Standard requests: up to 15 calendar days" and "Expedited requests: 72 hours," and asks for requests "at least 15 calendar days in advance, if possible," and at least 5 business days before the service — for a fully insured NJ plan the state\'s shorter clock controls. ABA reviews run through Optum Behavioral Health.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+          { title: 'NJ DOBI Bulletin 24-17 — Ensuring Transparency in Prior Authorization Act', url: 'https://nj.gov/dobi/bulletins/blt24_17.pdf' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+        verifyVia: 'Benefits verification: fully insured NJ policy (ETPAA 9/12-day clock, 180-day authorizations) vs. self-funded ERISA plan (15 days / 72 hours), plus the carrier\'s behavioral health reviewer turnaround.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child on two parents\' plans, New Jersey\'s group coordination-of-benefits rule (fully insured group contracts) puts the plan of "the parent whose birthday falls earlier in a year" first — month and day only; same birthday → the plan that covered the parent longer. Divorced or separated parents: the custodial parent\'s plan pays first, then the custodial parent\'s spouse\'s plan, then the non-custodial parent\'s plan, unless a court decree makes one parent responsible for the child\'s health care. Self-funded plans set their own order in the plan document. UnitedHealthcare: "COB is administered according to the member\'s benefit plan and in accordance with law"; Optum: "You are responsible for determining if the member has other insurance coverage. If so, you should bill the primary insurance carrier first, then notify Optum of your findings." If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'N.J.A.C. 11:4-28.6 — Rules for coordination of benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-11-4-28-6' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Behavioral Health — National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: 'N.J.A.C. 10:49-7.3 — Third-party liability (TPL) benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-3' },
+        ],
+        verifyVia: 'Benefits verification with both plans: funding type, which is primary for the child, and whether the secondary plan requires its own authorization.',
         blocker: 'per-case',
       },
     },

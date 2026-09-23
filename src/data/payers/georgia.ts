@@ -64,6 +64,33 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Whether Georgia still limits telehealth billing to a rendering provider located in Georgia or within 50 miles of the state line — CareSource MCD-MM-0212 states that rule and attributes it to this guidance, but the 10/1/2025 version does not contain it. Confirm in GAMMIS (mmis.georgia.gov) or with DCH before relying on either reading.',
       },
+      authTurnaround: {
+        value:
+          'Federal law sets the ceiling, and Georgia\'s CMOs publish a faster clock. For fee-for-service members, the state must decide a standard prior authorization "in no case later than 7 calendar days after receiving the request" (beginning January 1, 2026). It may add up to 14 calendar days if the family or provider asks or the state needs more information. Expedited requests are due "no later than 72 hours." CMO members fall under the federal managed-care cap of 7 calendar days from receipt (42 CFR 438.210(d)), plus Georgia\'s prior-authorization law. That law applies to DCH\'s CMO contracts (O.C.G.A. 33-46-30): notice "within 7 calendar days of obtaining all necessary information," 72 hours for urgent, and "automatic authorization" when a deadline is missed. All three CMOs\' current manuals print a stricter standard: three business days for a standard request and 24 hours for an expedited one. ABS is authorized "in six (6) month increments," with the assessment and treatment PAs requested separately. The posted ASD manual sets no lead time for reauthorization.',
+        status: 'verified',
+        cites: [
+          { title: '42 CFR 440.230(e) — Medicaid fee-for-service prior authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-440.230' },
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+          { title: 'CareSource Georgia Medicaid Provider Manual (GA-MED-P-2890751a, July 2026)', url: 'https://www.caresource.com/documents/ga-provider-manual.pdf' },
+          { title: 'Peach State Health Plan Provider Manual (April 2026)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/pdfs/GA-INT-11666%20Provider%20Handbook%20Update%202026%20FINAL%202_R.pdf' },
+          { title: 'Amerigroup Georgia Medicaid Provider Manual (GA-AGP-CD-PM-003925-26)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_ProviderManual.pdf' },
+          { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+          { title: 'GA DCH — Part II ASD Policy Manual', url: 'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Georgia Medicaid pays last. DCH\'s Part I manual (version date July 1, 2026): "other available third-party resources must be exhausted before Medicaid/PeachCare for Kids pays." Providers must file "with the appropriate primary health plan(s) prior to filing with Medicaid" and list the other insurers and their payments on the claim. Medicaid pays only the gap up to its own maximum allowable. Get Medicaid\'s own PA even when Medicaid is secondary. DCH\'s Part I manual: "Regardless of whether or not the primary plan has made any payment toward a service, when billing the secondary claim to Medicaid, you must follow the Medicaid policies and procedures for that particular Category of Service, including adherence to all policies/guidelines for pre- certification and pre-authorizations of services." A claim the primary plan denied because the provider did not follow its rules is not paid: DCH "will not reimburse the provider submitted charges denied by the primary plan because of the provider\'s failure to follow the primary plan\'s rules." So get the commercial PA as well. A service the primary plan does not cover, or where its annual or lifetime limits are exhausted, "is reimbursable up to the Medicaid/PeachCare for Kids maximum allowable amount." EPSDT exception: "A provider is not required to exhaust other health plan benefits with respect to claims for preventive and pediatric services including health check (also known as EPSDT)." The manual does not say whether ABS claims fall under it. TRICARE pays only after other coverage "except in the case of a plan administered under title XIX" (Medicaid), so TRICARE goes before Georgia Medicaid. CHAMPVA is the reverse: "If you are eligible under Medicaid, CHAMPVA will pay first."',
+        status: 'verified',
+        cites: [
+          { title: 'GA DCH — Part I Policies and Procedures for Medicaid/PeachCare for Kids (version date July 1, 2026), 104.3 and 303 (GAMMIS copy retrieved via web.archive.org)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/HANDBOOKS/Part%201%20Policies%20and%20Procedures%20for%20Medicaid%20PeachCare%20for%20Kids%20Q3%20July%202026%2020260706155614.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+          { title: '42 U.S.C. 1396a(a)(25) — Medicaid third-party liability', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title42/html/USCODE-2023-title42-chap7-subchapXIX-sec1396a.htm' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'The member\'s CMO or the GAMMIS TPL unit (678-564-1162, option 3) — ask whether an ABS claim for a child under 21 is paid under the EPSDT exception without the primary EOB.',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -290,6 +317,31 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Anthem’s Virtual Visits reimbursement policy and the Georgia “Allowed virtual services” list, plus the member’s benefit document, before scheduling remote ABA.',
       },
+      authTurnaround: {
+        value:
+          'It depends on how the plan is funded. A fully insured Anthem Blue Cross and Blue Shield plan sold in Georgia follows the Ensuring Transparency in Prior Authorization Act. A standard request gets notice "within 7 calendar days of obtaining all necessary information to make such authorization or adverse determination" (O.C.G.A. 33-46-26). Urgent requests get notice "no later than 72 hours after receiving all information needed" (33-46-27). A missed deadline means "automatic authorization" of the service (33-46-29), with a narrow de minimis exception. Both clocks start only once the plan has everything it needs, so send a complete packet. The Act also binds DCH contracts under the State Health Benefit Plan. A self-funded employer plan is governed by ERISA instead: "not later than 15 days after receipt of the claim," with one 15-day extension, and 72 hours for urgent care. No reauthorization lead time is published for Anthem Blue Cross and Blue Shield ABA in Georgia.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+          { title: 'O.C.G.A. 33-46-26 — prior authorization notice within 7 calendar days (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-46-26/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification with Anthem Blue Cross and Blue Shield: ask whether the plan is fully insured (Georgia prior-authorization law), self-funded (ERISA), or the State Health Benefit Plan, and the plan\'s reauthorization lead time.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Between two parents\' group plans, Georgia\'s coordination-of-benefits rule uses the birthday rule: "The benefits of the plan of the parent whose birthday falls earlier in a year are determined before those of the plan of the parent whose birthday falls later in that year." "Birthday" means month and day only. If the birthdays match, the plan that has covered the parent longer pays first. For separated or divorced parents, the order is the custodial parent\'s plan, then the step-parent\'s, then the non-custodial parent\'s, unless a court decree assigns health costs to one parent. That rule governs fully insured group plans. A self-funded employer plan sets its own order in its plan document. The Anthem Blue Cross and Blue Shield plan pays before Georgia Medicaid, which is payer of last resort and still wants its own ABS PA when secondary. It also pays before TRICARE, which pays only after other coverage. When the child also has CHAMPVA, the Anthem Blue Cross and Blue Shield plan pays first: "If you have any other type of other health insurance, CHAMPVA will pay secondary."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ga. Comp. R. & Regs. 120-2-48-.05 — Group Coordination of Benefits, order of benefits', url: 'https://www.law.cornell.edu/regulations/georgia/Ga-Comp-R-Regs-R-120-2-48-.05' },
+          { title: 'GA DCH — Part I Policies and Procedures for Medicaid/PeachCare for Kids (version date July 1, 2026), 104.3 and 303 (GAMMIS copy retrieved via web.archive.org)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/HANDBOOKS/Part%201%20Policies%20and%20Procedures%20for%20Medicaid%20PeachCare%20for%20Kids%20Q3%20July%202026%2020260706155614.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'Anthem Blue Cross and Blue Shield member services / benefits verification: confirm funding type and the COB order in the plan document, and collect the other parent\'s plan, each parent\'s date of birth and any custody decree at intake.',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -466,6 +518,29 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'The 50-mile rule specifically: CareSource attributes it to the DCH Telehealth Guidance, but the version dated 10/1/2025 does not contain it. Confirm with CareSource GA provider services, or against the current guidance inside GAMMIS, before relying on a border-adjacent rendering location.',
       },
+      authTurnaround: {
+        value:
+          'CareSource\'s 2026 Georgia manual: "For standard prior authorization decisions, CareSource provides notice to the provider and member as expeditiously as the member\'s health condition requires, but no later than three business days after receipt of the request for service." "Urgent prior authorization decisions are made within 24 hours of receipt of the request for service." Either can be extended (14 calendar days for standard, 5 business days for expedited) if the member or provider asks, or CareSource justifies it to DCH. That is faster than the federal 7-calendar-day cap and Georgia\'s 7-day statute. Autism spectrum disorder PAs go through the GAMMIS centralized portal, not the CareSource portal. Timing for renewals: treatment is authorized "in 6-month increments." The reassessment can be done once per 6-month period, "no more than 2 months prior to the effective date of the next treatment authorization." Its results must be dated "no more than 2 months prior to the treatment services PA effective date." Schedule the reassessment inside that two-month window before the current authorization ends.',
+        status: 'verified',
+        cites: [
+          { title: 'CareSource Georgia Medicaid Provider Manual (GA-MED-P-2890751a, July 2026)', url: 'https://www.caresource.com/documents/ga-provider-manual.pdf' },
+          { title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' },
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+          { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'CareSource follows "the federal regulations that Medicaid programs serve as the payer of last resort," and its ABA policy repeats: "When a member has other insurance, Medicaid is always the payer of last resort. CareSource will not pay more than the Medicaid rate totals for service. The primary payer must provide evidence of determinations for consideration of Medicaid coverage for services." Bill the commercial plan first. When CareSource is secondary, "the provider may submit for secondary payment within 90 calendar days of the primary carrier\'s EOP, but not more than 12 months from the date of service." A claim denied for missing COB information needs the primary EOB within the remaining timely-filing window. The manual publishes no pay-and-chase exception. Get Medicaid\'s own PA even when Medicaid is secondary. DCH\'s Part I manual: "Regardless of whether or not the primary plan has made any payment toward a service, when billing the secondary claim to Medicaid, you must follow the Medicaid policies and procedures for that particular Category of Service, including adherence to all policies/guidelines for pre- certification and pre-authorizations of services." TRICARE pays only after other coverage "except in the case of a plan administered under title XIX" (Medicaid), so TRICARE goes before Georgia Medicaid. CHAMPVA is the reverse: "If you are eligible under Medicaid, CHAMPVA will pay first."',
+        status: 'verified',
+        cites: [
+          { title: 'CareSource Georgia Medicaid Provider Manual (GA-MED-P-2890751a, July 2026)', url: 'https://www.caresource.com/documents/ga-provider-manual.pdf' },
+          { title: 'CareSource GA MCD-MM-0212 (ABA policy)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101' },
+          { title: 'GA DCH — Part I Policies and Procedures for Medicaid/PeachCare for Kids (version date July 1, 2026), 104.3 and 303 (GAMMIS copy retrieved via web.archive.org)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/HANDBOOKS/Part%201%20Policies%20and%20Procedures%20for%20Medicaid%20PeachCare%20for%20Kids%20Q3%20July%202026%2020260706155614.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -626,6 +701,29 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'GA DCH \u2014 Part II Policies and Procedures for Telehealth Guidance, version date 10/1/2025 (hosted copy \u2014 the medicaid.georgia.gov download link serves a 2020 file and GAMMIS blocks automated access)', url: 'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf' }, { title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' }],
         verifyVia:
           'Peach State / Centene provider services for any plan-level telehealth restriction on ABS, since GA.CP.BH.504 is silent where its other criteria are explicit.',
+      },
+      authTurnaround: {
+        value:
+          'Peach State\'s April 2026 manual: "Prior Authorization decisions for nonurgent services shall be made within three (3) Business Days, or other established timeframe, of the request (generally submitted one week prior to the service or procedure)." It may add 14 calendar days if the member or provider asks, or Peach State justifies needing more information to DCH. The same paragraph later refers to "the original fourteen (14) day determination timeframe," so hold Peach State to three business days and escalate past that. Expedited decisions come "within twenty-four (24) clock hours," with notice "no later than 72 clock hours after receipt of the request for service." Renewals: the reassessment must be "completed at least every six months or no more than 2 months prior to the start of the initial treatment authorization." Its data and graphs must be dated "no more than two (2) months prior to the Treatment Services PA request effective date." Plan the reassessment inside the two months before the authorization ends, and submit about a week ahead.',
+        status: 'verified',
+        cites: [
+          { title: 'Peach State Health Plan Provider Manual (April 2026)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/pdfs/GA-INT-11666%20Provider%20Handbook%20Update%202026%20FINAL%202_R.pdf' },
+          { title: 'Peach State GA.CP.BH.504 (ASD services)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf' },
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+          { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Peach State: "Medicaid is the payor of last resort, therefore Peach State Health Plan will make every effort to cost avoid claims or services that are subject to payment from a third party health insurance carrier." Providers "must bill the primary payor prior to billing Peach State Health Plan." Peach State then pays up to its allowable, including the member\'s commercial copay, coinsurance and deductible, but never more than it would have paid as primary. Secondary claims "must be received within 180 days of the date of the primary carrier\'s EOP, but never more than twelve (12) months from the month of service." Exception: "Cost avoidance applies to all covered services except claims for EPSDT." Peach State "utilizes the \'Pay and Chase\' approach as required" and "complies with Georgia Medicaid COB policies." The manual does not say whether ABA claims count as EPSDT claims. Get Medicaid\'s own PA even when Medicaid is secondary. DCH\'s Part I manual: "Regardless of whether or not the primary plan has made any payment toward a service, when billing the secondary claim to Medicaid, you must follow the Medicaid policies and procedures for that particular Category of Service, including adherence to all policies/guidelines for pre- certification and pre-authorizations of services." TRICARE pays only after other coverage "except in the case of a plan administered under title XIX" (Medicaid), so TRICARE goes before Georgia Medicaid. CHAMPVA is the reverse: "If you are eligible under Medicaid, CHAMPVA will pay first."',
+        status: 'verified',
+        cites: [
+          { title: 'Peach State Health Plan Provider Manual (April 2026)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/pdfs/GA-INT-11666%20Provider%20Handbook%20Update%202026%20FINAL%202_R.pdf' },
+          { title: 'GA DCH — Part I Policies and Procedures for Medicaid/PeachCare for Kids (version date July 1, 2026), 104.3 and 303 (GAMMIS copy retrieved via web.archive.org)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/HANDBOOKS/Part%201%20Policies%20and%20Procedures%20for%20Medicaid%20PeachCare%20for%20Kids%20Q3%20July%202026%2020260706155614.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'Peach State Provider Services (1-866-874-0633) — ask whether ABA claims for members under 21 count as "claims for EPSDT" under the cost-avoidance exception.',
       },
     },
     deliveryRules: {
@@ -789,6 +887,28 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Amerigroup/Wellpoint Georgia provider services for any plan-level restriction the posted 2018 guideline would not show.',
       },
+      authTurnaround: {
+        value:
+          'Amerigroup\'s Georgia Medicaid manual: "Amerigroup will decide on pre-service nonurgent care services within three business days from when we receive the request for service," and providers are notified through Availity or the MMIS portal in the same three business days. It may add 14 calendar days if the member or provider asks, or Amerigroup justifies needing more information to DCH. Expedited requests are decided "within 24 clock hours from when we receive the request for service," with notice "no later than 72 hours from the receipt of the request." The manual publishes no reauthorization lead time for ABA. Its 30-days-before-expiry renewal rule covers medical injectable and pharmacy PAs only. The ABA guideline expects the treatment plan to be updated and resubmitted "in general, every 6 months."',
+        status: 'verified',
+        cites: [
+          { title: 'Amerigroup Georgia Medicaid Provider Manual (GA-AGP-CD-PM-003925-26)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_ProviderManual.pdf' },
+          { title: 'Amerigroup GA Medicaid UM Guideline — Adaptive Behavioral Treatment for ASD', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_UMGuideline_AdaptiveBehavioralTreatmentAutismSpectrumDisorder.pdf?v=202101081602' },
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+          { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Amerigroup agrees that the Medicaid program will be the payer of last resort when third-party resources are available." When it knows of other coverage before paying, Amerigroup will reject the claim and redirect "the provider to bill the appropriate insurance carrier." When it learns later, it recovers after payment. "State-specific guidelines will be followed when Coordination of Benefits (COB) procedures are necessary." For COB, "the time frames for filing a claim will begin on the date that the third party documents resolution of the claim." The manual publishes no pay-and-chase exception. Get Medicaid\'s own PA even when Medicaid is secondary. DCH\'s Part I manual: "Regardless of whether or not the primary plan has made any payment toward a service, when billing the secondary claim to Medicaid, you must follow the Medicaid policies and procedures for that particular Category of Service, including adherence to all policies/guidelines for pre- certification and pre-authorizations of services." TRICARE pays only after other coverage "except in the case of a plan administered under title XIX" (Medicaid), so TRICARE goes before Georgia Medicaid. CHAMPVA is the reverse: "If you are eligible under Medicaid, CHAMPVA will pay first."',
+        status: 'verified',
+        cites: [
+          { title: 'Amerigroup Georgia Medicaid Provider Manual (GA-AGP-CD-PM-003925-26)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_ProviderManual.pdf' },
+          { title: 'GA DCH — Part I Policies and Procedures for Medicaid/PeachCare for Kids (version date July 1, 2026), 104.3 and 303 (GAMMIS copy retrieved via web.archive.org)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/HANDBOOKS/Part%201%20Policies%20and%20Procedures%20for%20Medicaid%20PeachCare%20for%20Kids%20Q3%20July%202026%2020260706155614.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -927,6 +1047,31 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
         verifyVia:
           'Aetna’s telemedicine policy and provider services at the number on the member’s ID card — confirm which ABA codes pay by telehealth on that specific Georgia plan before scheduling remote sessions.',
+      },
+      authTurnaround: {
+        value:
+          'It depends on how the plan is funded. A fully insured Aetna plan sold in Georgia follows the Ensuring Transparency in Prior Authorization Act. A standard request gets notice "within 7 calendar days of obtaining all necessary information to make such authorization or adverse determination" (O.C.G.A. 33-46-26). Urgent requests get notice "no later than 72 hours after receiving all information needed" (33-46-27). A missed deadline means "automatic authorization" of the service (33-46-29), with a narrow de minimis exception. Both clocks start only once the plan has everything it needs, so send a complete packet. The Act also binds DCH contracts under the State Health Benefit Plan. A self-funded employer plan is governed by ERISA instead: "not later than 15 days after receipt of the claim," with one 15-day extension, and 72 hours for urgent care. No reauthorization lead time is published for Aetna ABA in Georgia.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+          { title: 'O.C.G.A. 33-46-26 — prior authorization notice within 7 calendar days (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-46-26/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification with Aetna: ask whether the plan is fully insured (Georgia prior-authorization law), self-funded (ERISA), or the State Health Benefit Plan, and the plan\'s reauthorization lead time.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Between two parents\' group plans, Georgia\'s coordination-of-benefits rule uses the birthday rule: "The benefits of the plan of the parent whose birthday falls earlier in a year are determined before those of the plan of the parent whose birthday falls later in that year." "Birthday" means month and day only. If the birthdays match, the plan that has covered the parent longer pays first. For separated or divorced parents, the order is the custodial parent\'s plan, then the step-parent\'s, then the non-custodial parent\'s, unless a court decree assigns health costs to one parent. That rule governs fully insured group plans. A self-funded employer plan sets its own order in its plan document. The Aetna plan pays before Georgia Medicaid, which is payer of last resort and still wants its own ABS PA when secondary. It also pays before TRICARE, which pays only after other coverage. When the child also has CHAMPVA, the Aetna plan pays first: "If you have any other type of other health insurance, CHAMPVA will pay secondary."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ga. Comp. R. & Regs. 120-2-48-.05 — Group Coordination of Benefits, order of benefits', url: 'https://www.law.cornell.edu/regulations/georgia/Ga-Comp-R-Regs-R-120-2-48-.05' },
+          { title: 'GA DCH — Part I Policies and Procedures for Medicaid/PeachCare for Kids (version date July 1, 2026), 104.3 and 303 (GAMMIS copy retrieved via web.archive.org)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/HANDBOOKS/Part%201%20Policies%20and%20Procedures%20for%20Medicaid%20PeachCare%20for%20Kids%20Q3%20July%202026%2020260706155614.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'Aetna member services / benefits verification: confirm funding type and the COB order in the plan document, and collect the other parent\'s plan, each parent\'s date of birth and any custody decree at intake.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1117,6 +1262,31 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           'Open, and stated at both the policy and the guide level. EN0499: “ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities,” with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements — and the line-of-sight/close-proximity documentation rule expressly “does not apply to telehealth services, when applicable.” The Evernorth autism resource guide is blunter: “all ABA CPT codes are covered telehealth services,” subject to EN0499. Services delivered via telehealth must still meet the direct treatment / direct engagement definition and be documented as such.',
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'It depends on how the plan is funded. A fully insured Cigna plan sold in Georgia follows the Ensuring Transparency in Prior Authorization Act. A standard request gets notice "within 7 calendar days of obtaining all necessary information to make such authorization or adverse determination" (O.C.G.A. 33-46-26). Urgent requests get notice "no later than 72 hours after receiving all information needed" (33-46-27). A missed deadline means "automatic authorization" of the service (33-46-29), with a narrow de minimis exception. Both clocks start only once the plan has everything it needs, so send a complete packet. The Act also binds DCH contracts under the State Health Benefit Plan. A self-funded employer plan is governed by ERISA instead: "not later than 15 days after receipt of the claim," with one 15-day extension, and 72 hours for urgent care. No reauthorization lead time is published for Cigna ABA in Georgia.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+          { title: 'O.C.G.A. 33-46-26 — prior authorization notice within 7 calendar days (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-46-26/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification with Cigna: ask whether the plan is fully insured (Georgia prior-authorization law), self-funded (ERISA), or the State Health Benefit Plan, and the plan\'s reauthorization lead time.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Between two parents\' group plans, Georgia\'s coordination-of-benefits rule uses the birthday rule: "The benefits of the plan of the parent whose birthday falls earlier in a year are determined before those of the plan of the parent whose birthday falls later in that year." "Birthday" means month and day only. If the birthdays match, the plan that has covered the parent longer pays first. For separated or divorced parents, the order is the custodial parent\'s plan, then the step-parent\'s, then the non-custodial parent\'s, unless a court decree assigns health costs to one parent. That rule governs fully insured group plans. A self-funded employer plan sets its own order in its plan document. The Cigna plan pays before Georgia Medicaid, which is payer of last resort and still wants its own ABS PA when secondary. It also pays before TRICARE, which pays only after other coverage. When the child also has CHAMPVA, the Cigna plan pays first: "If you have any other type of other health insurance, CHAMPVA will pay secondary."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ga. Comp. R. & Regs. 120-2-48-.05 — Group Coordination of Benefits, order of benefits', url: 'https://www.law.cornell.edu/regulations/georgia/Ga-Comp-R-Regs-R-120-2-48-.05' },
+          { title: 'GA DCH — Part I Policies and Procedures for Medicaid/PeachCare for Kids (version date July 1, 2026), 104.3 and 303 (GAMMIS copy retrieved via web.archive.org)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/HANDBOOKS/Part%201%20Policies%20and%20Procedures%20for%20Medicaid%20PeachCare%20for%20Kids%20Q3%20July%202026%2020260706155614.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'Cigna member services / benefits verification: confirm funding type and the COB order in the plan document, and collect the other parent\'s plan, each parent\'s date of birth and any custody decree at intake.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -1310,6 +1480,31 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum \u2014 Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum \u2014 ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Optum Behavioral Health provider services and the member’s benefit document — confirm which ABA codes pay by telehealth, and under which place-of-service code, before scheduling remote sessions.',
+      },
+      authTurnaround: {
+        value:
+          'It depends on how the plan is funded. A fully insured UnitedHealthcare plan sold in Georgia follows the Ensuring Transparency in Prior Authorization Act. A standard request gets notice "within 7 calendar days of obtaining all necessary information to make such authorization or adverse determination" (O.C.G.A. 33-46-26). Urgent requests get notice "no later than 72 hours after receiving all information needed" (33-46-27). A missed deadline means "automatic authorization" of the service (33-46-29), with a narrow de minimis exception. Both clocks start only once the plan has everything it needs, so send a complete packet. The Act also binds DCH contracts under the State Health Benefit Plan. A self-funded employer plan is governed by ERISA instead: "not later than 15 days after receipt of the claim," with one 15-day extension, and 72 hours for urgent care. No reauthorization lead time is published for UnitedHealthcare ABA in Georgia.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+          { title: 'O.C.G.A. 33-46-26 — prior authorization notice within 7 calendar days (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-46-26/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification with UnitedHealthcare: ask whether the plan is fully insured (Georgia prior-authorization law), self-funded (ERISA), or the State Health Benefit Plan, and the plan\'s reauthorization lead time.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Between two parents\' group plans, Georgia\'s coordination-of-benefits rule uses the birthday rule: "The benefits of the plan of the parent whose birthday falls earlier in a year are determined before those of the plan of the parent whose birthday falls later in that year." "Birthday" means month and day only. If the birthdays match, the plan that has covered the parent longer pays first. For separated or divorced parents, the order is the custodial parent\'s plan, then the step-parent\'s, then the non-custodial parent\'s, unless a court decree assigns health costs to one parent. That rule governs fully insured group plans. A self-funded employer plan sets its own order in its plan document. The UnitedHealthcare plan pays before Georgia Medicaid, which is payer of last resort and still wants its own ABS PA when secondary. It also pays before TRICARE, which pays only after other coverage. When the child also has CHAMPVA, the UnitedHealthcare plan pays first: "If you have any other type of other health insurance, CHAMPVA will pay secondary."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ga. Comp. R. & Regs. 120-2-48-.05 — Group Coordination of Benefits, order of benefits', url: 'https://www.law.cornell.edu/regulations/georgia/Ga-Comp-R-Regs-R-120-2-48-.05' },
+          { title: 'GA DCH — Part I Policies and Procedures for Medicaid/PeachCare for Kids (version date July 1, 2026), 104.3 and 303 (GAMMIS copy retrieved via web.archive.org)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/HANDBOOKS/Part%201%20Policies%20and%20Procedures%20for%20Medicaid%20PeachCare%20for%20Kids%20Q3%20July%202026%2020260706155614.pdf' },
+          { title: '10 U.S.C. 1079(i)(1) — TRICARE pays after other coverage, Medicaid excepted', url: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title10/html/USCODE-2023-title10-subtitleA-partII-chap55-sec1079.htm' },
+          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) — Other Health Insurance', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+        ],
+        verifyVia: 'UnitedHealthcare member services / benefits verification: confirm funding type and the COB order in the plan document, and collect the other parent\'s plan, each parent\'s date of birth and any custody decree at intake.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {

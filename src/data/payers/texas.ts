@@ -232,6 +232,27 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Fee-for-service through TMHP: when a CCP request needs physician review, TMHP\'s Physician Reviewer "will complete the review within three business days of receipt of the completed prior authorization request," with "an additional three business days" when a peer-to-peer with the prescriber is needed. The clock runs from a COMPLETE request: an incomplete one is held while TMHP makes at least three contact attempts, and if the missing information "is not received within 14 business days of the request receipt date, the request will be denied as \'incomplete.\'" The federal ceiling for state agencies since 1/1/2026 is 7 calendar days standard and 72 hours expedited (42 CFR 440.230(e)), unless state law sets a shorter one. The windows that actually cost money are the provider-side ones in § 2.3.11: the evaluation PA goes in within 60 days before or on the evaluation date; initial treatment within 3 business days of the start-of-care date (later requests are denied for dates before receipt); the 90-day extension is timely "within 30 days prior to the end of the current authorization period"; and a 180-day recertification must be received "no earlier than 60 days before the current authorization period expires" — anything filed after the end date is denied for the gap. Managed-care members follow their MCO\'s clock (Texas law: 3 business days, see the MCO guides).',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.1.4.1 (CCP PA review) and § 2.3.11 (ABA PA submission windows)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: '42 CFR § 440.230(e) — State Medicaid agency PA timeframes (from 1/1/2026)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-B/section-440.230' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid is the payer of last resort: a provider "must seek reimbursement from available third party insurance that the provider knows about or should know about before billing Texas Medicaid." Bill the commercial plan (or TRICARE, which the TMPPM lists as a third party resource) first, then file with TMHP within 95 days of the other insurer\'s payment or denial and within 365 days of the date of service, with the EOB\'s disposition date; if the other insurer has not answered after 110 days, TMHP will consider the claim. Get the Medicaid PA even when Medicaid is secondary — § 5.1.4: "If a client\'s primary coverage is private insurance and Medicaid is secondary but prior authorization is required for Medicaid reimbursement, providers must follow the guidelines and requirements listed in the handbook for that service." The one bill-Medicaid-first option in Section 8 ("THSteps medical and dental providers are not required to bill other insurance before billing Medicaid") names only THSteps medical and dental (checkup) providers; ABA is a CCP service, so bill the other coverage first. Exceptions to last-resort: in STAR Health (foster care) "Medicaid is primary … Providers must not bill other health insurance unless there is a court order," and CHAMPVA pays before Medicaid. The family owes nothing past the other insurer\'s payment for a Medicaid-covered service.',
+        status: 'verified',
+        cites: [
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+          { title: 'TMPPM Vol. 1, Section 5: Prior Authorization, § 5.1.4 (clients with private insurance)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_05_Prior_Authorization/1_05_Prior_Authorization.htm' },
+          { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Texas Medicaid cover ABA therapy?', a: 'Yes — since February 1, 2022, as the Autism Services benefit under THSteps-CCP (EPSDT), for members from birth through age 20 with an ASD diagnosis. Everything requires prior authorization, from the evaluation forward. CHIP is excluded.' },
@@ -435,6 +456,25 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Superior "will respond to complete prior authorization requests within two Business Days for CHIP products, and within three Business Days for non-CHIP products" — three business days for STAR, STAR Kids and STAR Health, the same as the Texas statutory limit for nonhospitalized members (Tex. Gov\'t Code § 540.0303). "Urgent requests for services to be rendered within 72 hours may be submitted with reason for urgency indicated" and are decided within 72 hours. The clock runs on a complete request: an incomplete one is returned by fax listing what is missing, and "If the documentation/information is not provided within three Business Days from Superior\'s provider notification … the request may result in an adverse benefit determination." Lead time: "It is recommended that requests be submitted five Business Days prior to the desired start date." The manual lists ABA evaluation, treatment and "subsequent re-certifications" as PA-required but sets no ABA-specific recertification lead time.',
+        status: 'verified',
+        cites: [
+          { title: 'Superior HealthPlan — Provider Manual (STAR, CHIP, STAR+PLUS, STAR Kids, STAR Health), Rev. 09/01/2026 (PDF)', url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Federal and state law require Medicaid (STAR/STAR+PLUS/STAR Kids/CHIP) be the payer of last resort." If the child has other insurance, "you must submit your claim to the primary insurance for consideration," then file with Superior attaching "a copy of the EOB, EOP or rejection letter from the other insurance" — without it the claim pends or denies. On authorization Superior is unusually specific: "An authorization is not required if an authorization from the primary insurance carrier indicating approval is received," but "If the other insurance carrier has denied and Superior is being asked to pay as primary for a service that requires an authorization, the provider will be required to request authorization prior to payment with Superior as primary" — so if the commercial plan may deny ABA, get Superior\'s PA in place before starting. STAR Health (foster care): "Superior does not actively pursue Coordination of Benefits (COB) for STAR Health members."',
+        status: 'verified',
+        cites: [
+          { title: 'Superior HealthPlan — Provider Manual (STAR, CHIP, STAR+PLUS, STAR Kids, STAR Health), Rev. 09/01/2026 (PDF)', url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Superior HealthPlan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit on TMPPM criteria, with prior authorization required on every ABA code, evaluation included, through Superior\'s provider portal.' },
@@ -630,6 +670,25 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'Texas Children\'s publishes its own turnaround table: "Routine 3 business days / Urgent 1 business day / Inpatient 1 business day / Life-threatening conditions Within one hour"; a request with no priority marked "will default to routine status." A standard decision may be extended "by up to 14 calendar days" if the member or provider asks, or if more information is needed and the extension is in the member\'s interest. Lead time: providers "are to request non-emergent services seven (7) days in advance of dates of service." The manual sets no ABA-specific recertification lead time; Texas law caps nonhospitalized decisions at 3 business days after receipt (Tex. Gov\'t Code § 540.0303), with the state\'s incomplete-request process in 1 TAC § 353.425.',
+        status: 'verified',
+        cites: [
+          { title: 'Texas Children\'s Health Plan — Provider Manual, CHIP and STAR/Medicaid (Sept. 1, 2026) (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2026-08/FY26%20PR-2105-045%20STAR_CHIP%20Provider_Manual.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Medicaid is secondary when coordinating benefits with all other insurance coverage, unless an exception applies under federal law." Providers "must submit claims to other health insurers for consideration prior to billing Texas Children\'s Health Plan," then file with "a copy of the Explanation of Payment (EOP) or rejection letter from the other insurance"; when the other payer denies or applies payment to the deductible, attach that denial or EOP too, or the claim will deny. The manual does not say whether Texas Children\'s own ABA prior authorization is still required when it pays second — confirm with TCHP utilization management before starting.',
+        status: 'verified',
+        cites: [
+          { title: 'Texas Children\'s Health Plan — Provider Manual, CHIP and STAR/Medicaid (Sept. 1, 2026) (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2026-08/FY26%20PR-2105-045%20STAR_CHIP%20Provider_Manual.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
     },
@@ -831,6 +890,26 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Wellpoint\'s decision table: Medicaid routine/non-urgent "3 business days"; CHIP routine "2 business days (approval) / 3 business days (adverse determination)"; Medicaid and CHIP urgent/expedited "3 calendar days"; concurrent "1 business day"; post-service "30 calendar days," with written notice "no later than the next business day following a prior authorization request determination." A request is not expedited when "The date of service is greater than one week from the request date." Incomplete requests are paused while Wellpoint asks for the missing documentation; if it does not arrive "within the designated time frame, the medical director will make a determination based on the information previously received." Lead times: initial requests "a minimum of three business days prior to the start of care"; recertifications may be submitted "at least 60 calendar days prior to the expiration of the current authorization" (the 30-day exception list names only PT/OT/speech therapy, private duty nursing and PPECC — not ABA).',
+        status: 'verified',
+        cites: [
+          { title: 'Wellpoint Texas — Provider Manual, STAR/STAR Kids/STAR+PLUS/CHIP (January 2026) (PDF)', url: 'https://provider.wellpoint.com/content/dam/digital/wellpoint/documents/provider/texas/government/general/TX_WLP_CAID_ProviderManual.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Federal and state laws require Medicaid — including the STAR, STAR Kids, and STAR+PLUS programs — to be the payer of last resort." Submit to the other insurer first and attach its "EOB/EOP or rejection letter"; if Wellpoint already knows of other coverage it "will deny the claim and redirect the provider to bill the appropriate insurance carrier." Filing deadline with other insurance: "within 95 days of receiving a response from the third-party payer" (after a primary adjustment, the 95 days run from the most recent EOB). Wellpoint pays first and recovers later only for "Preventive pediatric care" and services tied to a child support enforcement action; the TMPPM\'s matching option is limited to THSteps medical and dental checkup providers, so bill the other coverage first for ABA. The manual does not say whether Wellpoint\'s PA is still needed when it is secondary — request it.',
+        status: 'verified',
+        cites: [
+          { title: 'Wellpoint Texas — Provider Manual, STAR/STAR Kids/STAR+PLUS/CHIP (January 2026) (PDF)', url: 'https://provider.wellpoint.com/content/dam/digital/wellpoint/documents/provider/texas/government/general/TX_WLP_CAID_ProviderManual.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+          { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Wellpoint Texas cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit on TMPPM criteria, restated in its behavioral-health provider document: PA on evaluation and treatment, ages 0–20, credential modifiers, 8-hour daily cap.' },
@@ -1030,6 +1109,26 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'Three business days on a complete request: "We will render a decision for prior authorizations submitted electronically or by fax, and which include complete supporting documentation" within three business days; expedited reviews within 72 hours. The Care Provider Manual\'s table words the standard as "Within 3 working days of receipt of medical record information required but no longer 14 calendar days of receipt," and adds that "For members younger than 21 years of age, we allow up to 7 days for any necessary additional information." Incomplete requests: a letter listing what is missing goes out within 3 business days; if nothing arrives by the end of the third business day the request may be denied after medical-director review, and "The request will be decisioned no later than the 10th business day from receipt of the request." Renewals: an existing authorization "can be requested to continue that service as a prior authorization with[in] 60 days of the end of the previously approved authorization period." ABA requests route through the plan\'s Optum behavioral health pipeline.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Texas — Prior Authorization Timelines', url: 'https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-prior-auth/tx-pa-timelines.html' },
+          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Sept. 2, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"UnitedHealthcare Community Plan is the payer of last resort. Other coverage should be billed as the primary carrier. When billing UnitedHealthcare Community Plan, submit the primary payer\'s Explanation of Benefits or remittance advice with the claim." The EOB must show the paid amount or denial reason. "The date on the other carrier\'s payment correspondence starts the timely filing period" for the Medicaid claim, and under the 110-day rule, if the other insurer "has not responded to or has delayed payment on a claim for more than 110 days from the date the claim was billed, we will consider the claim for reimbursement." The manual does not say whether the plan\'s own ABA authorization is still needed when it pays second — request it through Optum anyway.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Sept. 2, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
     },
@@ -1259,6 +1358,29 @@ export const texasPayers: Record<string, PayerConfig> = {
         verifyVia: 'Aetna Better Health of Texas provider relations — its Texas provider manual and Medicaid PA pages block automated retrieval, so we could not confirm whether the plan publishes anything that deviates from the TMPPM.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value:
+          'Not confirmed from a current plan document. The statutory ceiling binds the plan regardless: a Texas Medicaid MCO must decide a nonhospitalized PA "within three business days after the organization receives the request" (Tex. Gov\'t Code § 540.0303), and an incomplete request follows 1 TAC § 353.425 — written notice of what is missing within 3 business days, and a final decision no later than 3 business days after the information arrives. The plan\'s own prior-authorization page as archived in July 2024 said the same: "Allow at least three business days for a response … The turnaround time begins when we receive all info necessary to make a decision," with concurrent review in one business day. Whether the current manual sets a stricter clock, or any ABA reauthorization lead time, could not be checked.',
+        status: 'unverified',
+        cites: [
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+          { title: 'Aetna Better Health of Texas — Prior Authorization page (Wayback capture 7/22/2024)', url: 'https://web.archive.org/web/20240722134910/https://www.aetnabetterhealth.com/texas/providers/prior-authorization.html' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider manual (published 8/6/2026) and live prior-authorization page — aetnabetterhealth.com returns an Akamai "Access Denied" to curl, to a real Chrome session and to r.jina.ai, and the newest Wayback copy of the manual is truncated. Human retrieval via carelu.com/sources, or ask Aetna Better Health provider services using the number on the member card.',
+        blocker: 'document',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Not confirmed from a current plan document. The state rule every Texas Medicaid MCO operates under: Medicaid is the payer of last resort, so bill the commercial plan first and submit its EOB with the Medicaid claim. The plan\'s September 2022 manual (archived) gave the filing window as "within 95 days of the primary carrier\'s EOB in the Coordination of Benefits (COB) case." Whether the current manual requires the plan\'s own ABA prior authorization when it pays second could not be checked — request it.',
+        status: 'unverified',
+        cites: [
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+          { title: 'Aetna Better Health of Texas — Provider Manual (Sept. 2022, Wayback capture) (PDF)', url: 'https://web.archive.org/web/20221006124427id_/https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
+        ],
+        verifyVia: 'Aetna Better Health of Texas provider manual (published 8/6/2026) and live prior-authorization page — aetnabetterhealth.com returns an Akamai "Access Denied" to curl, to a real Chrome session and to r.jina.ai, and the newest Wayback copy of the manual is truncated. Human retrieval via carelu.com/sources, or ask Aetna Better Health provider services using the number on the member card.',
+        blocker: 'document',
+      },
     },
     faq: [
       { q: 'Does Aetna Better Health of Texas cover ABA?', a: 'Yes — as a Texas Medicaid MCO it delivers the statewide THSteps-CCP Autism Services benefit under TMPPM criteria: PA on evaluation and treatment, ages 0–20, 3-year dx recency. CHIP members are excluded.' },
@@ -1485,6 +1607,26 @@ export const texasPayers: Record<string, PayerConfig> = {
         verifyVia: 'Molina\'s Texas Behavioral Health and Medical Prior Authorization Code Matrix / Look-Up Tool and the current MHT Prior Authorization Guide, both served behind bot protection — download them manually from molinahealthcare.com.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value:
+          'Molina\'s 2026 manual: "For a standard authorization request, Molina makes the determination and provides notification within three (3) calendar days for CHIP and three (3) business days for Medicaid"; non-urgent pre-service decisions for STAR run "Within 3 business days after receipt of request." Expedited: "as promptly as the member\'s health requires and no later than seventy-two (72) hours after we receive the initial request," and "Supporting documentation is required to justify the expedited request" — the PA guide adds that requests outside the urgent definition "will be handled as routine or non-urgent." A request to extend an ongoing course of ambulatory treatment counts as concurrent review, decided "Within 24 clock hours of receipt of request" when urgent. ABA is on Molina\'s PA list; the manual sets no ABA reauthorization lead time and no incomplete-request timeline of its own, so the state process applies (1 TAC § 353.425).',
+        status: 'verified',
+        cites: [
+          { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/manual/MHTX-Medicaid-CHIP-Provider-Manual-508.ashx' },
+          { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (access-restricted)', url: 'https://www.molinamarketplace.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Medicaid is the payer of last resort. Private and governmental carriers must be billed prior to billing Molina." After the other coverage pays or denies, submit to Molina with the primary\'s remittance advice — "A copy of the remittance advice from the primary payer must accompany the claim or the claim will be denied" — "within 95 calendar days after final determination by the primary payer." If the primary paid more than Molina\'s contracted allowable, the claim is paid in full at zero. The manual does not say whether Molina\'s own ABA PA is still needed when Molina pays second — request it.',
+        status: 'verified',
+        cites: [
+          { title: 'Molina Healthcare of Texas — Provider Manual, STAR/STAR+PLUS/CHIP 2026 (last updated 04/2026) (PDF)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/manual/MHTX-Medicaid-CHIP-Provider-Manual-508.ashx' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Molina Healthcare of Texas cover ABA?', a: 'Yes — the statewide THSteps-CCP Autism Services benefit on TMPPM criteria, with PA on evaluation and treatment. Pediatric ABA members sit on Molina STAR; STAR+PLUS is the adult program and CHIP is excluded.' },
@@ -1679,6 +1821,25 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Community First Health Plans — Autism Services Billing Guidelines', url: 'https://communityfirsthealthplans.com/community-first-providers/medicaid-providers/autism-services-billing-guidelines/' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'Community First\'s STAR manual publishes no decision clock of its own, so the Texas rule governs: a Medicaid MCO must decide a nonhospitalized PA "within three business days after the organization receives the request" (Tex. Gov\'t Code § 540.0303), with the 1 TAC § 353.425 process for incomplete requests (written notice of what is missing within 3 business days; final decision within 3 business days after it arrives). What the manual adds: a pended request is worked with the provider and, if the information never arrives, "the services will be denied … for lack of requested information"; denials are communicated "by phone and letter … within 48 hours"; and "Pre-authorizations are generally valid for 30 days from the date issued; this timeframe may be extended based on the type of request," with "administrative denial of the claim" for services started without one. No ABA reauthorization lead time is published.',
+        status: 'verified',
+        cites: [
+          { title: 'Community First Health Plans — STAR Provider Manual (Sept. 2025, posted 4/15/2026) (PDF)', url: 'https://medicaid.communityfirsthealthplans.com/wp-content/uploads/sites/2/2026/04/STAR_ProviderManual_2025_web_04.15.26.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"In situations where a STAR Member has other insurance, the other insurance carrier will be the primary payor. Providers must bill the third-party insurance first and then attach a copy of the Explanation of Payment (EOP) statement … Providers must file claims to Community First within 95 days of the third-party insurance EOP." Community First "will act as the payor of last resort" and "will deny payment for claims that do not include proof of prior filing with the STAR Member\'s third-party insurance." The manual does not say whether Community First\'s own ABA PA is still needed when it pays second — request it.',
+        status: 'verified',
+        cites: [
+          { title: 'Community First Health Plans — STAR Provider Manual (Sept. 2025, posted 4/15/2026) (PDF)', url: 'https://medicaid.communityfirsthealthplans.com/wp-content/uploads/sites/2/2026/04/STAR_ProviderManual_2025_web_04.15.26.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
     },
@@ -1876,6 +2037,24 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'STAR and STAR Kids requests "submitted with complete supporting clinical information and documentation: Within three (3) business days from the receipt of a preauthorization request"; CHIP within 2 business days for approvals and 3 for adverse determinations; urgent "no later than 24 hours from receipt." Incomplete STAR/STAR Kids requests go through Driscoll\'s Lack of Information process: a letter within three business days gives the provider three business days to respond, and the process "will not exceed 10 business days/14 calendar days from date of receipt." Renewals: "DHP allows for timely submission of continuation of service requests/renewal of an existing prior authorization up to 60 days before the current prior authorization expires" and will decide, "if practicable, before the existing authorization expires" — but where a renewal needs assessments or progress notes more recent than 60 days, Driscoll will ask you to resubmit closer to the end date, which is the ABA situation.',
+        status: 'verified',
+        cites: [
+          { title: 'Driscoll Health Plan — Provider Manual (Rev. 9/2026) (PDF)', url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-Provider-Manual-September-2026.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"DHP is the payer of last resort. Providers must bill all other carriers and receive payment or denial prior to billing DHP," attaching the denial letter or EOP when the other payer denies. Driscoll is the one Texas MCO that says plainly what happens to authorization when it pays second: "Some outpatient services/procedure codes may require prior authorization regardless of DHP as secondary payer," so check the DHP Prior Authorization Portal; and "If the services are known to be a non-covered benefit by the primary payer, prior authorization is required by DHP and proof of non-coverage of benefit must accompany the claim submission." For ABA, where many commercial plans exclude or cap the benefit, get the Driscoll PA.',
+        status: 'verified',
+        cites: [
+          { title: 'Driscoll Health Plan — Provider Manual (Rev. 9/2026) (PDF)', url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-Provider-Manual-September-2026.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
     },
@@ -2091,6 +2270,25 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services (adopted 6/2026, PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          '"Routine - Within three business days from the receipt of a request for a UM determination"; "Urgent - As soon as possible based on the clinical situation, but no later than one business day"; post-hospitalization or life-threatening conditions within one hour. Lack of information: Community requests the missing documentation within three business days of receipt; if it is not in by the end of the third business day the request goes to the Medical Director "no later than the seventh business day," and "Community will make a decision no later than the tenth business day after the request received date." ABA-specific windows come from Community\'s ABA guideline: initial treatment is authorized for 90 days and may be extended another 90 on submission of the attendance log (85% attendance expected), re-evaluations need no PA and "may occur as early as 60 days prior to the end of the current authorization period," and continuation runs in 180-day periods with the CCP form signed by the ordering practitioner.',
+        status: 'verified',
+        cites: [
+          { title: 'Community Health Choice — STAR, CHIP, CHIP-Perinatal & STAR+PLUS Provider Manual (March 2026) (PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/04/HHS_Provider_Manual_010226-Final-1.pdf' },
+          { title: 'Community Health Choice — Medical Review Guideline: Applied Behavioral Analysis (ABA) Services', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/07/mrg-aba-services-guideline.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Community Health Choice is the payer of last resort when other insurance is in effect." "Providers must submit claims to other health insurers for consideration prior to billing Community Health Choice. A copy of the other health insurer\'s EOB/EOP or rejection letter should be submitted with the claim," and a claim for a member with known other coverage is denied and redirected to that carrier; coverage discovered after payment is recovered post-payment. The manual states only the general 95-days-from-date-of-service filing limit and does not say whether Community\'s ABA PA is still needed when it pays second — request it.',
+        status: 'verified',
+        cites: [
+          { title: 'Community Health Choice — STAR, CHIP, CHIP-Perinatal & STAR+PLUS Provider Manual (March 2026) (PDF)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2026/04/HHS_Provider_Manual_010226-Final-1.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Community Health Choice cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit under CHC\'s own ABA Medical Review Guideline (adopted June 2026), which restates TMPPM criteria for STAR members in Harris and Jefferson counties. CHIP is excluded.' },
@@ -2292,6 +2490,26 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'BCBSTX\'s Medicaid manual publishes no decision clock (only that "Faxes received after hours will be processed the next business day"), and its ABA checklist lists what makes a request complete without timing — so the Texas rule governs: a Medicaid MCO must decide a nonhospitalized PA "within three business days after the organization receives the request" (Tex. Gov\'t Code § 540.0303), with the 1 TAC § 353.425 incomplete-request process (written notice of what is missing within 3 business days; a final decision within 3 business days after it arrives). The federal ceiling is 7 calendar days standard and 72 hours expedited (42 CFR 438.210(d)); Texas\'s 3 business days is stricter. No ABA reauthorization lead time is published.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSTX — Texas Medicaid STAR, CHIP, and STAR Kids Provider Manual (June 2025) (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/tx-medicaid-star-chip-starkids-provider-manual-handbook-2025.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+          { title: '42 CFR § 438.210(d) — Medicaid managed care authorization timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Bill the other carrier first: "Providers should submit the claim to the other carrier first," then send BCBSTX the COB claim with the other carrier\'s remittance advice, denial letter or member EOB — "We deny Coordination of Benefits claims received without at least one of the above three items." Filing deadline: "BCBSTX must receive Coordination of Benefit claims within 95 days from the date on the other carrier\'s or program\'s PRA or letter of denial of coverage." The manual\'s option to bill Medicaid without billing other insurance is written for "Texas Health Steps providers" (checkups), not ABA. It does not say whether BCBSTX\'s ABA PA is still required when it pays second — request it.',
+        status: 'verified',
+        cites: [
+          { title: 'BCBSTX — Texas Medicaid STAR, CHIP, and STAR Kids Provider Manual (June 2025) (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/tx-medicaid-star-chip-starkids-provider-manual-handbook-2025.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
     },
@@ -2497,6 +2715,26 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Cook Children\'s own table: "Routine — Within 3 business days after receiving the request / Urgent — Within 1 business day after receiving the request / Inpatient (Concurrent) — Within 1 business day … / Emergent/Life Threatening — Within 1 hour after receiving the request"; a request with no priority marked defaults to routine, and "Requests submitted that are not urgent in nature, but rather submitted as urgent based on the delay in Provider submission will be processed as routine." Incomplete requests are returned listing the missing elements; the plan "must receive the requested information within three business days from the date of the letter," after which it decides "based solely on the information that we have." Cook\'s ABA training restates the TMPPM windows: evaluation PA "within 60 days prior to or on the requested evaluation date"; initial treatment "within 3 business days of the start of care (SOC) date"; the 90-day request is timely "within 30 days prior to the end of the current authorization period"; and a 180-day recertification "must be received no earlier than 60 days before the current authorization period expires." Late requests are denied for dates before receipt.',
+        status: 'verified',
+        cites: [
+          { title: 'Cook Children\'s Health Plan — STAR/CHIP/CHIP Perinatal Provider Manual (rev. 02/13/26) (PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-manual/star-chip-chip-perinatal-provider-manual-021326.pdf' },
+          { title: 'Cook Children\'s Health Plan — Acute Prior Authorization (Including PDN & ABA) provider training', url: 'https://www.cookchp.org/siteassets/documents/pdfs/electronic-visit/acute-prior-authorization-including-pdn--aba-062426.pdf' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Medicaid is secondary when coordinating benefits with all other insurance coverage, unless an exception applies under federal law … Providers must submit claims to other health insurers for consideration prior to billing Cook Children\'s Health Plan"; if the plan knows of other coverage the provider did not bill, the claim denies. The secondary claim "Must be received by the health plan within ninety-five days of the disposition date on the primary insurance Explanation of Benefits (EOB)." Cook\'s materials do not say whether its ABA PA is still needed when it pays second — request it.',
+        status: 'verified',
+        cites: [
+          { title: 'Cook Children\'s Health Plan — STAR/CHIP/CHIP Perinatal Provider Manual (rev. 02/13/26) (PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-manual/star-chip-chip-perinatal-provider-manual-021326.pdf' },
+          { title: 'Cook Children\'s Health Plan — Applied Behavior Analysis provider training (rev. 1/15/2025)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-relations/applied-behavior-analysis-011525-.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Cook Children\'s Health Plan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit across STAR and STAR Kids in its six-county North Texas service area, on TMPPM criteria, with a dedicated 123-page ABA provider training restating the requirements in detail.' },
@@ -2695,6 +2933,25 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'Parkland\'s table: "Medicaid Routine/Non-Urgent 3 business days | CHIP Routine/Non-Urgent 2 business days (approval) 3 business days (adverse determination) | Medicaid & CHIP Urgent/expedited 3 calendar days," with hospitalized requests within 1 business day and post-stabilization or life-threatening within 1 hour. A request is not expedited when "The date of service is greater than one week from the request date," and "Urgent," "Expedited" or "STAT" labels that do not meet the definition are processed as non-urgent. Incomplete requests: the plan "will notify the requesting provider and member, by phone and in writing, of missing information no later than three (3) business days after the prior authorization receive date"; if nothing arrives in the stated time the medical director decides on what was received. Lead times: initial requests "a minimum of three business days prior to the start of care"; recertifications "at least 60 calendar days prior to the expiration of the current authorization" (the 30-day exception list names only PT/OT/speech, private duty nursing and PPECC — not ABA).',
+        status: 'verified',
+        cites: [
+          { title: 'Parkland Community Health Plan — 2025 Provider Manual, STAR Medicaid and CHIP (eff. June 2025) (PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%20Provider%20Manual_20260504.pdf' },
+          { title: 'Parkland Community Health Plan — Prior Authorization Requirements (eff. 9/1/2025, PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%202025%20Prior%20Authorization%20Requirements%20v2.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Federal and state laws require Medicaid, including the STAR program, be the payer of last resort … Providers must submit claims to other health insurers for consideration prior to billing us. A copy of the other health insurer\'s EOB/EOP or rejection letter should be submitted with the claim." Deadline: "submit clean claims within 95 calendar days of receiving a response from the third-party payer." Parkland\'s pay-and-pursue language covers trauma and subrogation cases, not other health insurance. The manual does not say whether Parkland\'s ABA PA is still needed when it pays second — request it.',
+        status: 'verified',
+        cites: [
+          { title: 'Parkland Community Health Plan — 2025 Provider Manual, STAR Medicaid and CHIP (eff. June 2025) (PDF)', url: 'https://providers.parklandhealthplan.com/Uploads/Public/Documents/Provider/PCHP%20Provider%20Manual_20260504.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
     },
@@ -2900,6 +3157,25 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'El Paso Health — ABA Request Checklist (eff. 2/1/2022, PDF)', url: 'https://elpasohealth.com/documents/ABA-REQUEST-CHECKLIST-final-2022.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'El Paso Health\'s prior-authorization page: "Standard/Routine Within three (3) business days after receipt of the request; Expedited/Urgent Within one (1) business day after receipt of the request; Inpatient Within one (1) business day …; Post-Stabilization Within one (1) hour." Incomplete requests: a fax "no later than 3 Business Days after the prior authorization is received" lists what is missing and when it is due; if it is not in by the end of the third business day the Medical Director reviews by the 7th business day, and a final decision comes "No later than the 10th Business Day from when the PA was received." The April 2025 manual warns that a request with "incomplete, missing, incorrect, or illegible" information is returned unentered — neither approved nor denied — and must be resubmitted. No outpatient or ABA reauthorization lead time is published (the manual\'s "Three (3) Days prior" rule is for elective admissions).',
+        status: 'verified',
+        cites: [
+          { title: 'El Paso Health — Prior Authorization (provider page)', url: 'https://elpasohealth.com/providers/prior-authorization.html' },
+          { title: 'El Paso Health — Provider Manual, CHIP, STAR & STAR+PLUS (April 2025) (PDF)', url: 'https://www.elpasohealth.com/pdf/EPH_SP_MCCO-COMMS_Provider%20Manual.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Bill the other coverage first and file with El Paso Health "95 Days from the date of disposition by the other insurance carrier"; if the other insurer has not responded, "the Provider must allow 110 Days to elapse before submitting a claim." El Paso Health "does not process as a primary carrier if the services qualify for COB benefits unless the services have not been allowed or were denied by the primary carrier." Authorization still applies when it pays second: "For Coordination of Benefits (COB), El Paso Health pre-certification requirements will apply" — get the El Paso Health ABA PA even when commercial insurance is primary. (Quoted from the April 2025 manual; the November 2025 edition could not be opened.)',
+        status: 'verified',
+        cites: [
+          { title: 'El Paso Health — Provider Manual, CHIP, STAR & STAR+PLUS (April 2025) (PDF)', url: 'https://www.elpasohealth.com/pdf/EPH_SP_MCCO-COMMS_Provider%20Manual.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
     },
@@ -3112,6 +3388,25 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'FirstCare processes authorizations "in the order received and within 3 working days of receipt of the necessary clinical information," and sends an adverse determination "Within 3 working days in writing to the provider of record and the member if the member is not hospitalized." It asks for lead time without mandating it: "we encourage providers to submit requests a minimum of five days prior to the anticipated service date" (elective admissions and procedures: at least 2 working days). The manual has no ABA-specific timing or reauthorization lead time; an incomplete request follows the state process in 1 TAC § 353.425.',
+        status: 'verified',
+        cites: [
+          { title: 'FirstCare — 2026 STAR and CHIP Provider Manual (PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Coverage under Medicaid and CHIP is secondary to all other insurance coverage, unless an exception applies under federal law. Coverage provided under Medicaid will pay benefits for Covered Services that remain unpaid after all other insurance coverage has been paid." File with FirstCare "within 95 days of the date on the primary payor\'s Explanation of Benefits (EOB) or Remittance Advice (RA)"; any overpayment made because FirstCare was not primary "must be refunded in full." The manual does not say whether FirstCare\'s ABA PA is still needed when it pays second — request it.',
+        status: 'verified',
+        cites: [
+          { title: 'FirstCare — 2026 STAR and CHIP Provider Manual (PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
     },
@@ -3349,6 +3644,24 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'BSWHP Medical Coverage Policy 206 — Autism Spectrum Disorder', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          '"RightCare Medical Management processes prior authorization requests within 3 business days after receipt of a completed request" — the same language appears for behavioral health — and inpatient or concurrent requests "within one business day after receipt of a completed request." Lead time is a requirement, not a suggestion: "the requesting/performing provider must contact RightCare Medical Management at least 3 business days before the requested services are provided. Failure to timely request prior authorization may result in denial," and RightCare "does not process requests for retro-authorization." No ABA-specific reauthorization lead time is published.',
+        status: 'verified',
+        cites: [
+          { title: 'RightCare — 2026 Provider Manual', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/provider-manual.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"If a RightCare member has insurance other than Medicaid, the other insurance becomes the primary carrier and claims should be submitted to that primary carrier first," then filed with RightCare with the EOB attached "within 95 days of settlement with the primary carrier." Authorization still applies when RightCare pays second: "RightCare\'s authorization procedures must be followed to receive payment." The manual\'s exceptions to billing the other insurer first are "Texas Health Steps exams and family planning services" — not ABA.',
+        status: 'verified',
+        cites: [
+          { title: 'RightCare — 2026 Provider Manual', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/provider-manual.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+        ],
+      },
     },
     faq: [
       { q: 'Is RightCare/Baylor Scott & White still a Texas Medicaid option?', a: 'Only through August 31, 2026 — the plan is exiting Texas Medicaid managed care (regulatory approval pending), per TMHP\'s July 2026 announcement. Claims for dates of service on or after September 1, 2026 will be rejected; providers have until 8/31/2028 to submit claims for earlier dates of service.' },
@@ -3572,6 +3885,25 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'Dell Children\'s timeliness standards: "Non-urgent pre-service: … a decision will be made within three business days. Urgent pre-service: … within one business day but not later than 72 hours or three calendar days"; urgent concurrent within 24 hours; standard timeframes may be extended when information is insufficient. Incomplete requests are not approved; the reviewer asks for the missing documentation, and "If no additional information is received within the designated time frame, the … medical director will make a determination based on the information previously received." The September 2025 manual sets no submission or reauthorization lead time and nothing ABA-specific.',
+        status: 'verified',
+        cites: [
+          { title: 'Dell Children\'s Health Plan — Provider Manual, CHIP and STAR (September 2025) (PDF)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2025/09/FY26-Provider-Manual-1.pdf' },
+          { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
+          { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Federal and state laws require Medicaid, including the STAR program, be the payer of last resort … Providers must submit claims to other health insurers for consideration prior to billing us. A copy of the other health insurer\'s EOB/EOP or rejection letter should be submitted with the claim." Deadline: "submit clean claims within 95 calendar days of receiving a response from the third-party payer." The manual does not say whether Dell Children\'s ABA PA is still needed when it pays second — request it.',
+        status: 'verified',
+        cites: [
+          { title: 'Dell Children\'s Health Plan — Provider Manual, CHIP and STAR (September 2025) (PDF)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2025/09/FY26-Provider-Manual-1.pdf' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
     },
@@ -3813,6 +4145,34 @@ export const texasPayers: Record<string, PayerConfig> = {
         verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured Texas HMO/PPO: Aetna\'s Texas supplement commits to an approval notice within "3 calendar days from receipt of a complete request, or 2 working days of receipt of all necessary information to decide," adverse preauthorization notices within 3 working days, and no more than 1 hour for post-stabilization or life-threatening care — tracking Tex. Ins. Code §§ 843.348 and 1301.135 ("not later than the third calendar day after the date the request is received"). Texas also requires state-regulated plans to let a provider request renewal of an existing preauthorization "at least 60 days before the date the preauthorization expires" (28 TAC § 19.1718(l)) — file the ABA reauth early. Self-funded employer (ERISA) plans sit outside Texas law: the federal claims rule allows up to 15 days for a pre-service decision, extendable once by 15 days, and 72 hours for urgent care. Aetna\'s national provider manual publishes no ABA-specific clock of its own.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna — Provider manual State Supplement, Texas section (8705750-01-01, 7/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/ProviderManual-StateSpplmt.pdf' },
+          { title: 'Tex. Ins. Code § 843.348 — HMO preauthorization', url: 'https://texas.public.law/statutes/tex._ins._code_section_843.348' },
+          { title: 'Tex. Ins. Code § 1301.135 — PPO preauthorization', url: 'https://texas.public.law/statutes/tex._ins._code_section_1301.135' },
+          { title: '28 Tex. Admin. Code § 19.1718 — Preauthorization for HMOs and PPOs (incl. renewal requests)', url: 'https://www.law.cornell.edu/regulations/texas/28-Tex-Admin-Code-SS-19-1718' },
+          { title: '29 CFR § 2560.503-1(f)(2) — ERISA group health plan claim decision deadlines', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+        verifyVia: 'Benefits verification: ask whether the plan is fully insured (Texas timelines apply) or self-funded/ASO (ERISA timelines), then confirm the reauthorization submission window with Aetna precertification (Availity or the number on the card).',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Aetna coordinates "as allowed by state or federal law following the National Associations of Insurance Commissioners (NAIC) guidelines," and names the birthday rule among the order-of-benefit rules it applies: for a child whose parents are married or living together, the plan of the parent whose birthday falls earlier in the calendar year is primary (same birthday: the plan that has covered the parent longer). For separated or divorced parents a court order decides; without one it runs custodial parent, custodial parent\'s spouse, noncustodial parent, noncustodial parent\'s spouse (28 TAC § 3.3507 for Texas-regulated plans). "If there is no applicable law, then we coordinate according to the member\'s plan" — and many self-funded plans pay secondary on a maintenance-of-benefits basis, which can leave nothing after a rich primary. Against government coverage Aetna pays first: Medicaid is payer of last resort (bill Aetna, send its EOB to Medicaid, and get the Medicaid PA too), TRICARE is by law secondary to other health insurance, and CHAMPVA pays after other health insurance.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: '28 Tex. Admin. Code § 3.3507 — COB order of benefits', url: 'https://www.law.cornell.edu/regulations/texas/28-Tex-Admin-Code-SS-3-3507' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+          { title: 'TMPPM Vol. 1, Section 5: Prior Authorization, § 5.1.4 (clients with private insurance)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_05_Prior_Authorization/1_05_Prior_Authorization.htm' },
+          { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Texas?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Texas\'s mandate (Tex. Ins. Code § 1355.015) for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -4029,6 +4389,35 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Cigna/Evernorth publishes no clock of its own — "We (or our designees) make coverage determinations in accordance with the time frames required under applicable law" — so it turns on funding. Fully insured Texas HMO/PPO: a determination "not later than the third calendar day after the date the request is received" (Tex. Ins. Code §§ 843.348, 1301.135), and the plan must accept a renewal request "at least 60 days before the date the preauthorization expires" (28 TAC § 19.1718(l)). Self-funded ERISA plans: up to 15 days for a pre-service decision, extendable once by 15 days; 72 hours for urgent care. What Cigna does publish on timing is encouragement, not a rule: its autism resource guide says "we encourage providers to request authorizations up to 30 days in advance of or two weeks after the start date of service. A delay in request may result in a retrospective review and could delay the determination for up to 30 days." EN0499 (eff. 5/15/2026) sets the actual retrospective trigger: "A retrospective authorization request for ABA is any request made when more than 90 days have passed since the start date of the requested authorization, or any time after the patient has discharged."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (March 2026) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Tex. Ins. Code § 843.348 — HMO preauthorization', url: 'https://texas.public.law/statutes/tex._ins._code_section_843.348' },
+          { title: 'Tex. Ins. Code § 1301.135 — PPO preauthorization', url: 'https://texas.public.law/statutes/tex._ins._code_section_1301.135' },
+          { title: '28 Tex. Admin. Code § 19.1718 — Preauthorization for HMOs and PPOs (incl. renewal requests)', url: 'https://www.law.cornell.edu/regulations/texas/28-Tex-Admin-Code-SS-19-1718' },
+          { title: '29 CFR § 2560.503-1(f)(2) — ERISA group health plan claim decision deadlines', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification: fully insured (Texas timelines) or self-funded/ASO (ERISA timelines)? Then confirm the reauthorization window with the Cigna Autism Care Coordinator team (877-279-7603).',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Evernorth follows the NAIC order-of-benefit rules "subject to applicable law and the terms of the benefit plan": a dependent child of married parents living together follows the "birthday rule" — "The plan of the parent whose birthday falls earlier in the calendar year is primary" (only month and day count; same birthday, the longer-running plan wins). Divorced or separated parents follow the custodial rule: a court decree first, otherwise custodial parent, custodial parent\'s spouse, noncustodial parent, noncustodial parent\'s spouse. When Cigna is secondary, bill the primary first, then submit to Cigna with the primary\'s explanation of payment (electronic COB content replaces the paper copy); the 90-day filing limit runs from the primary payer\'s processing date. Cigna pays ahead of Medicaid (payer of last resort — and get the Medicaid PA even when it is secondary), TRICARE (secondary to other health insurance by law) and CHAMPVA (pays after other health insurance).',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (March 2026) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: '28 Tex. Admin. Code § 3.3507 — COB order of benefits', url: 'https://www.law.cornell.edu/regulations/texas/28-Tex-Admin-Code-SS-3-3507' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+          { title: 'TMPPM Vol. 1, Section 5: Prior Authorization, § 5.1.4 (clients with private insurance)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_05_Prior_Authorization/1_05_Prior_Authorization.htm' },
+          { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Cigna cover ABA therapy in Texas?', a: 'Yes — under national policy EN0499 (which has no Texas carve-out), layered on Texas\'s mandate (Tex. Ins. Code § 1355.015) for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -4242,6 +4631,37 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
+      },
+      authTurnaround: {
+        value:
+          'Turns on funding. UnitedHealthcare\'s 2026 Administrative Guide says "We notify you of our coverage decision within the time required by law," and for commercial prior authorization lists "Standard requests: up to 15 calendar days" and "Expedited requests: 72 hours," asking for notification "at least 15 calendar days in advance, if possible, but … at least 5 business days before the planned service date." For a fully insured Texas HMO/PPO, Texas law is tighter: a determination "not later than the third calendar day after the date the request is received" (Tex. Ins. Code §§ 843.348, 1301.135), and the plan must accept a renewal request "at least 60 days before the date the preauthorization expires" (28 TAC § 19.1718(l)). Self-funded ERISA plans: up to 15 days pre-service (one 15-day extension), 72 hours urgent. ABA itself is authorized by Optum Behavioral Health, whose ABA FAQ says to request continued services "no more than 30 days prior to the current approvals on file expiring" — on a fully insured Texas plan the state\'s 60-day renewal right governs.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: 'Tex. Ins. Code § 843.348 — HMO preauthorization', url: 'https://texas.public.law/statutes/tex._ins._code_section_843.348' },
+          { title: 'Tex. Ins. Code § 1301.135 — PPO preauthorization', url: 'https://texas.public.law/statutes/tex._ins._code_section_1301.135' },
+          { title: '28 Tex. Admin. Code § 19.1718 — Preauthorization for HMOs and PPOs (incl. renewal requests)', url: 'https://www.law.cornell.edu/regulations/texas/28-Tex-Admin-Code-SS-19-1718' },
+          { title: '29 CFR § 2560.503-1(f)(2) — ERISA group health plan claim decision deadlines', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification: fully insured (Texas timelines) or self-funded/ASO (ERISA timelines)? Then confirm the continued-service request window with the Optum ABA line (behavioral health number on the member card).',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'UnitedHealthcare states only that "COB is administered according to the member\'s benefit plan and in accordance with law"; Optum puts the burden on the provider — "You are responsible for determining if the member has other insurance coverage. If so, you should bill the primary insurance carrier first" — and when Optum is secondary "you will be paid up to the Optum contracted rate" with no balance billing. On a fully insured Texas plan the order is set by 28 TAC § 3.3507: for a child of married or cohabiting parents, the plan of the parent whose birthday falls earlier in the calendar year is primary; for separated parents, a court order, then custodial parent, custodial parent\'s spouse, noncustodial parent. A self-funded plan\'s own document governs. UnitedHealthcare pays ahead of Medicaid (payer of last resort — get the Medicaid PA even when it is secondary), TRICARE (secondary to other health insurance by law) and CHAMPVA (pays after other health insurance).',
+        status: 'plan-dependent',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Behavioral Health Solutions National Network Manual (eff. Oct. 1, 2025) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/netwManual/2024/NNMJune2024.pdf' },
+          { title: '28 Tex. Admin. Code § 3.3507 — COB order of benefits', url: 'https://www.law.cornell.edu/regulations/texas/28-Tex-Admin-Code-SS-3-3507' },
+          { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
+          { title: 'TMPPM Vol. 1, Section 5: Prior Authorization, § 5.1.4 (clients with private insurance)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_05_Prior_Authorization/1_05_Prior_Authorization.htm' },
+          { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+        verifyVia: 'Benefits verification: ask whether the plan is fully insured or self-funded and which COB rule and secondary-payment method (standard vs maintenance of benefits) its plan document uses.',
+        blocker: 'per-case',
       },
     },
     faq: [

@@ -179,6 +179,30 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
+      authTurnaround: {
+        value: 'NC Medicaid Direct (fee-for-service): the state’s prior-approval page says Medicaid "will make every effort possible to make a decision within 15 business days of receipt of the request unless there is a more stringent requirement" — and a more stringent one now exists: since January 1, 2026, 42 CFR 440.230(e) requires state fee-for-service decisions within 7 calendar days for a standard request (extendable up to 14 calendar days when more information is needed) and 72 hours for an expedited one. Health plans (Standard, Tailored, CFSP): the federal managed-care ceiling is 7 calendar days standard for rating periods starting on or after January 1, 2026 — NC’s rating period starts July 1, so from July 1, 2026 — plus up to 14 extension days, and 72 hours expedited; the posted Standard Plan contract text still reads "no later than fourteen (14) calendar days following receipt of the request", and plan manuals vary (see each plan). Reauthorization: CCP 8F says "Reauthorization must be submitted prior to initial or concurrent authorization expiring" (every 180 days at ≤16 hrs/week, every 90 above), and NC Medicaid asks providers to "request authorization of a continuing services 10 calendar days before the end of the current authorization period" so services continue during any adverse-decision notice period.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Prior Approval and Due Process (modified 2/18/2026)', url: 'https://medicaid.ncdhhs.gov/providers/programs-and-services/prior-approval-and-due-process' },
+          { title: '42 CFR 440.230(e) — Medicaid fee-for-service prior authorization timeframes (from 1/1/2026)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-B/section-440.230' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'NC Medicaid Standard Plan contract, Amendment 17(18) — "Rating Period" defined as July 1 to June 30', url: 'https://medicaid.ncdhhs.gov/contract-30-190029-dhb-prepaid-health-plan-services-amendment-1718/open' },
+          { title: 'NC Medicaid — Revised & Restated Standard Plan RFP #30-190029-DHB, §V.C.1.j (UM timeframes)', url: 'https://medicaid.ncdhhs.gov/contract-30-190029-dhb-prepaid-health-plan-services-rfp/download?attachment' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'Medicaid pays last. "Medicaid is the \'payer of last resort\' by federal law" — Medicare and private carriers "must process a claim before Medicaid processes a claim." CCP 8F restates it for RB-BHT: providers "shall bill all other third-party payers, including Medicare, before submitting a claim for Medicaid reimbursement." Ask about other coverage before the first session; where it shows on the NCTracks record "the provider must bill the carrier before billing Medicaid" and must hold the primary carrier’s EOB with the payment or denial, then file with Medicaid within 180 days of that EOB date. A denial the provider caused with the other plan cannot be overridden at Medicaid — fix it with that carrier. Prior approval still applies: CCP 8F requires prior approval before rendering RB-BHT and makes no exception for members with other insurance. Pay-and-chase: health plans pay first and recover for EPSDT and, per the state’s plan billing guidance, "If a prior authorization is approved as EPSDT medical necessity, health plans should pay and chase for all claims related to this prior authorization"; RB-BHT codes are not on the TPL bypass list. Federal program order: TRICARE pays after all other health insurance except Medicaid (so TRICARE pays before Medicaid), and CHAMPVA pays first when the member is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — Third-Party Liability Billing Guide (DMA-2046, June 2022)', url: 'https://medicaid.ncdhhs.gov/documents/files/third-party-liability-billing-manual-dma-2046/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.27 TPL', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: '42 CFR 433.139 — payment of claims involving third-party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -350,6 +374,23 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
+      authTurnaround: {
+        value: 'Healthy Blue’s manual (Blue Cross NC) sets behavioral health turnarounds tighter than the federal floor: routine initial requests are decided "within two business days of receipt of all necessary information but no later than 7 days from the request for services", and routine concurrent (continuing) requests "within one business day of obtaining all necessary information but no later than 7 days from the request for services." Expedited decisions come "no later than 72 hours after receipt of the request for service", and requests marked expedited that do not meet the federal urgency standard are downgraded to standard. RB-BHT is on the PA list. The manual gives no reauthorization lead time; CCP 8F requires the reauth before the current authorization expires (every 180 days at ≤16 hrs/week, every 90 above).',
+        status: 'verified',
+        cites: [
+          { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'Healthy Blue pays last: submit to the primary insurer first, then bill Healthy Blue the balance. It is the one NC plan that answers the secondary-PA question in writing: "Blue Cross NC does not require prior authorization (PA) when the member has OHI. However, a PA will be required if Healthy Blue becomes the primary payer for the service(s) rendered" — so if the commercial plan denies or exhausts ABA, get Healthy Blue’s PA before Healthy Blue becomes primary. Pay-and-chase (paid first, recovered later) is limited to prenatal care, preventive pediatric services "including Early and Periodic Screening, Diagnosis and Treatment (EPSDT) and well-baby screenings", and child-support cases; everything else is cost-avoided. Check other coverage in Availity, not NCTracks. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
+          { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -516,6 +557,27 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
+      authTurnaround: {
+        value: 'AmeriHealth Caritas’ manual (Version 16, October 2025) says standard decisions come "no later than 14 calendar days after AmeriHealth Caritas North Carolina receives the request", extendable up to 14 more calendar days, and expedited decisions "no later than 72 hours after receipt of the request for service" (also extendable up to 14 calendar days); its BH UM Guide lists 14 calendar days as the expected determination time for RB-BHT under 8F. A missed deadline counts as an adverse benefit determination the family can appeal. The federal managed-care ceiling for rating periods starting on or after January 1, 2026 is 7 calendar days standard, which reaches NC plans from July 1, 2026 — newer than this manual edition, so expect 7 and confirm with ACNC UM. No reauthorization lead time is published; CCP 8F requires the reauth before the current authorization expires.',
+        status: 'verified',
+        cites: [
+          { title: 'AmeriHealth Caritas NC — Provider Manual (Version 16, published 10/2/2025)', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
+          { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (Jan 2025)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'NC Medicaid Standard Plan contract, Amendment 17(18) — "Rating Period" defined as July 1 to June 30', url: 'https://medicaid.ncdhhs.gov/contract-30-190029-dhb-prepaid-health-plan-services-amendment-1718/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'ACNC pays last: "health care providers are required to bill the Primary Insurer first and obtain an Explanation of Benefits (EOB) or Claim Adjustment Reason Codes (CARC)" and claims carrying the primary EOB must reach ACNC "within 180 days of the date on the primary insurer\'s EOB." ACNC "will pay and then chase" for EPSDT, "Diagnostic and Treatment (Medical Necessity) after Early and Periodic Screening", and child support enforcement. The manual does not say whether its own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'AmeriHealth Caritas NC — Provider Manual (Version 16, published 10/2/2025)', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -679,6 +741,28 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
+      authTurnaround: {
+        value: 'CCH’s 2026 manual (merged with WellCare NC on April 1, 2026) says standard decisions "will be made within fourteen (14) calendar days" and urgent/expedited ones "within seventy-two (72) hours of the receipt of the request"; concurrent reviews are decided within 72 hours of receiving the necessary information. It states the change as "Effective January 1, 2027": standard requests "within 7 calendar days, with a possible extension up to 14 calendar days." That date conflicts with the federal rule, which caps standard decisions at 7 calendar days for rating periods starting on or after January 1, 2026, and NC’s rating period starts July 1, so the ceiling reaches NC plans from July 1, 2026 — confirm with CCH UM which clock it is running. Lead time: the manual asks for standard requests "at least fourteen (14) business days prior" to the service (another passage says 14 calendar days); CCP 8F requires the RB-BHT reauth before the current authorization expires.',
+        status: 'verified',
+        cites: [
+          { title: 'Carolina Complete Health — Provider Manual 2026 (last updated 6/29/2026, state approved)', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCHE_PRV15_Provider_Manual_2026.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'NC Medicaid Standard Plan contract, Amendment 17(18) — "Rating Period" defined as July 1 to June 30', url: 'https://medicaid.ncdhhs.gov/contract-30-190029-dhb-prepaid-health-plan-services-amendment-1718/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'CCH is payer of last resort: bill the other insurer first and upload its EOB/EOP or rejection letter — without it "the claim will pend and/or deny until this information is received." Secondary claims are due within 365 calendar days of "the primary insurer\'s Explanation of Benefits/Remittance Advice date (whether the claim was paid or denied)." Check other coverage in CCH’s portal. Neither the provider nor the billing manual lists pay-and-chase services; the state’s plan billing guidance requires plans to pay and chase EPSDT and claims under a PA "approved as EPSDT medical necessity." The manual does not say whether its own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Carolina Complete Health — Provider Manual 2026 (last updated 6/29/2026, state approved)', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCHE_PRV15_Provider_Manual_2026.pdf' },
+          { title: 'Carolina Complete Health — Provider Billing Manual (last updated 7/14/2026)', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCH-Current-Provider-Billing-Manual.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.27 TPL', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -839,6 +923,25 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      authTurnaround: {
+        value: 'UHC Community Plan of NC’s 2026 manual already runs the 7-day clock: non-urgent pre-service decisions come "As quickly as the member\'s condition requires but no longer than 7 calendar days of request receipt", urgent/expedited "Within 72 hours of request receipt", concurrent review "Within 24 hours or next business day", and retrospective review within 30 calendar days of receiving all pertinent clinical information. The manual asks for non-emergency outpatient PA at least 14 business days ahead; RB-BHT (managed by Optum) needs PA on 97152–97157. CCP 8F requires the reauth before the current authorization expires.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of NC — 2026 Care Provider Manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NC-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: '"UnitedHealthcare Community Plan is, by law, the payer of last resort": bill and obtain an EOB from the other coverage first, then submit to UHC with the complete EOB showing the paid amount or denial reason, "within 180 calendar days from the primary insurer\'s explanation of benefits/remittance advice date (whether the claim was paid or denied)." The manual lists no pay-and-chase services of its own; the state’s plan billing guidance requires plans to pay and chase EPSDT and claims under a PA "approved as EPSDT medical necessity." The manual does not say whether its own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of NC — 2026 Care Provider Manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NC-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'NC Medicaid — Managed Care Billing Guidance to Health Plans v36 (9/4/2026), §3.27 TPL', url: 'https://medicaid.ncdhhs.gov/health-plan-billing-guide-version-36/download?attachment=' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
         ],
       },
     },
@@ -1016,6 +1119,29 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
           { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
           { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
+        ],
+      },
+      authTurnaround: {
+        value: 'WellCare of NC merged into Carolina Complete Health on April 1, 2026, and CCH’s rules govern dates of service from then on (standard 14 calendar days per its manual, which dates the 7-day change to January 1, 2027, against a federal 7-calendar-day ceiling that reaches NC plans from July 1, 2026; expedited 72 hours). For pre-merger dates of service, WellCare’s last manual said standard pre-service decisions "will not exceed 14 (14) calendar days" with a 14-day extension, expedited 72 hours, urgent concurrent 24 hours, and post-service 30 calendar days. CCP 8F requires the reauth before the current authorization expires; active WellCare authorizations transferred to CCH.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
+          { title: 'Carolina Complete Health — Provider Manual 2026 (last updated 6/29/2026, state approved)', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCHE_PRV15_Provider_Manual_2026.pdf' },
+          { title: 'WellCare of North Carolina — 2025–2026 NC Medicaid Provider Manual (eff. 1/22/2026, pre-merger)', url: 'https://www.wellcarenc.com/content/dam/centene/wellcare/nc/pdfs/providers/NC_Medicaid_Provider_Manual_03_2026_R.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'For dates of service from April 1, 2026, bill Carolina Complete Health, which pays last: the other insurer first, then CCH with its EOB/EOP or rejection letter, within 365 calendar days of the primary EOB/RA date. For pre-merger claims, WellCare’s manual required "Any balance due after receipt of payment from the primary payer" to be submitted "with a copy of the primary payer\'s explanation of payment (EOP)", within 90 days of the primary EOB date, paid on lesser-of logic. Neither manual says whether the plan’s own PA is needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT with no exception for other insurance. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
+          { title: 'Carolina Complete Health — Provider Billing Manual (last updated 7/14/2026)', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCH-Current-Provider-Billing-Manual.pdf' },
+          { title: 'WellCare of North Carolina — 2025–2026 NC Medicaid Provider Manual (eff. 1/22/2026, pre-merger)', url: 'https://www.wellcarenc.com/content/dam/centene/wellcare/nc/pdfs/providers/NC_Medicaid_Provider_Manual_03_2026_R.pdf' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
         ],
       },
     },
@@ -1202,6 +1328,26 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
         ],
       },
+      authTurnaround: {
+        value: 'Alliance’s provider manual (V.26, March 2026) sets standard authorization decisions at 14 calendar days and expedited at "72 hours of the request", each extendable by 14 calendar days, with retrospective reviews at 30 calendar days; "All timelines in this document refer to calendar days unless otherwise specified," and "Incomplete forms are not processed and will be returned to the requesting provider." The federal managed-care ceiling for rating periods starting on or after January 1, 2026 is 7 calendar days standard, which reaches NC plans from July 1, 2026 — after this manual edition, so expect 7 and confirm with Alliance UM. Continuing requests are due "on or before the last day of the previously authorized date of service"; CCP 8F requires the RB-BHT reauth before the current authorization expires.',
+        status: 'verified',
+        cites: [
+          { title: 'Alliance Health — Tailored Plan/PIHP Provider Manual (V.26, revised March 2026)', url: 'https://www.alliancehealthplan.org/document-library/79431/' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'NC Medicaid Standard Plan contract, Amendment 17(18) — "Rating Period" defined as July 1 to June 30', url: 'https://medicaid.ncdhhs.gov/contract-30-190029-dhb-prepaid-health-plan-services-amendment-1718/open' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: '"Alliance Health is the payer of last resort. Providers are required to collect all third-party funds prior to submitting claims." Upload the other insurer’s RA/EOB into ACS with the claim (a $0-paid third-party claim needs the denial documentation), and "Only the remaining amount of the consumer responsibility under their insurance policy is reimbursable by Alliance Health when Medicaid is secondary coverage." If the other insurer pays later, send a replacement claim within 30 calendar days. Pay-and-chase: "EPSDT claims are paid by Medicaid as the primary payer; Alliance Health will seek recovery from any liable third party." State funds pay after Medicaid for state-funded services. The manual does not say whether its own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Alliance Health — Tailored Plan/PIHP Provider Manual (V.26, revised March 2026)', url: 'https://www.alliancehealthplan.org/document-library/79431/' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1380,6 +1526,26 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value: 'Trillium’s July 2026 manual lists "7 calendar days for a routine request" and "72 hours for an expedited request" alongside timely responses to Treatment Authorization Requests (TARs), and says formal decisions are made only "when a complete request is received." Submit TARs "at least 7 days prior to the end date of the current authorization"; for RB-BHT the benefit plan adds "Reauth must be submitted prior to initial or concurrent auth expiring" (up to 180 days at 16 hours a week or fewer, up to 90 above). A service cannot be authorized "if requested more than 30 days in advance." The 7-day figure matches the federal managed-care ceiling for NC plans from July 1, 2026.',
+        status: 'verified',
+        cites: [
+          { title: 'Trillium Health Resources — BH I/DD Tailored Plan/PIHP Provider Manual (eff. 7/20/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Provider-Manual/Trillium-TP-Provider-Manual.pdf' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 8/31/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'Trillium pays last, and it answers the secondary-auth question the opposite way to most plans: "The requested service cannot be authorized if the member has private insurance, and the provider should seek authorization from primary insurance source. Medicaid is the payor of last resort." So for a child with commercial coverage, get the ABA authorization from the commercial plan, "Bill all first - and third-party payers prior to submitting claims to Trillium", and record the other payer’s payment or denial on the claim (keep the EOB). Claims go to the primary insurer first, "then secondary insurance after the initial EOB has been received." Exceptions paid without TPL first include medical support enforcement (coverage through an absent parent) and "Preventive Pediatric Services including … EPSDT". Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 8/31/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: 'Trillium Health Resources — BH I/DD Tailored Plan/PIHP Provider Manual (eff. 7/20/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Provider-Manual/Trillium-TP-Provider-Manual.pdf' },
+          { title: 'Trillium — Claims Billing Guide 2026', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Claims-Billing-Guide.pdf' },
+          { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
         ],
       },
     },
@@ -1562,6 +1728,26 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Vaya Health — Authorization Guidelines: Medicaid RB-BHT Services for ASD (v2.0, rev. 9/5/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf' },
         ],
       },
+      authTurnaround: {
+        value: 'Vaya: "Vaya will issue a decision and provide notice within 14 calendar days of receipt of the request", extendable up to 14 more calendar days, and expedited requests "within 72 hours following acceptance of an expedited request." When information is missing, providers "have up to three business days to submit any requested additional information" or the request is returned. Lead time is explicit: "Submit SARs at least 14 days before the end of the existing authorization … to avoid a gap in authorization or payment." The federal managed-care ceiling for rating periods starting on or after January 1, 2026 is 7 calendar days standard, which reaches NC plans from July 1, 2026 — after Vaya’s March 2026 manual, so expect 7 and confirm with Vaya UM. RB-BHT authorizations run 180 days at 16 hours a week or fewer, 90 above.',
+        status: 'verified',
+        cites: [
+          { title: 'Vaya Health — prior authorization page', url: 'https://providers.vayahealth.com/authorization-information/prior-authorization/' },
+          { title: 'Vaya Health — Provider Operations Manual v3.1 (3/5/2026)', url: 'https://providers.vayahealth.com/resources/vaya_provider_operations_manual_3-1_20260305/' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'NC Medicaid Standard Plan contract, Amendment 17(18) — "Rating Period" defined as July 1 to June 30', url: 'https://medicaid.ncdhhs.gov/contract-30-190029-dhb-prepaid-health-plan-services-amendment-1718/open' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: '"Medicaid is the payor of last resort. Providers are required to collect all first- and third-party funds prior to submitting claims to Vaya." Wait a reasonable time for the other payer, keep its RA/EOB or other proof of payment or denial, and bill Vaya only the remaining amount; such claims are due "within 180 days of the date you receive a remittance from a first- or second-party payor." Where the member also uses state-funded services, state funds pay last. The manual does not say whether its own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Vaya Health — Provider Operations Manual v3.1 (3/5/2026)', url: 'https://providers.vayahealth.com/resources/vaya_provider_operations_manual_3-1_20260305/' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1735,6 +1921,26 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Partners — RB-BHT authorizations transition to ALL codes (provider alert)', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
+        ],
+      },
+      authTurnaround: {
+        value: 'Partners’ operations manual: "Partners must decide and provide notice within 14 calendar days of receiving a standard request for authorization of service with a possible extension of an additional 14 calendar days", and within 72 hours for expedited requests (expedited concurrent within 24 hours). Its January 2026 bulletin says the CMS prior-authorization timeframes "have been postponed to July 1, 2026" — from then the federal ceiling is 7 calendar days standard, so expect 7 now and confirm with Partners UM. "Services are expected to be requested on or before the start date"; a request submitted more than 30 days before the start date is administratively denied. CCP 8F requires the RB-BHT reauth before the current authorization expires.',
+        status: 'verified',
+        cites: [
+          { title: 'Partners Health Management — 2025-2026 Provider Operations Manual (rev. 20250623)', url: 'https://providers.partnersbhm.org/wp-content/uploads/partners-provider-operations-manual.pdf' },
+          { title: 'Partners — Provider Communication Bulletin #172 (CMS prior-auth timeframes postponed to 7/1/2026)', url: 'https://providers.partnersbhm.org/provider-communication-bulletin-172/' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: '"Federal and state regulations require Medicaid to be the payer of last resort": Medicare and private carriers "must process the claim before Partners processes a Medicaid claim", and "Medicaid claims submitted without third-party information will be denied." Partners pays only the gap up to its contracted rate, and "will not pay for any service that could have been paid for by Medicare or other private insurance plans had the member or provider complied with the plan\'s requirements" — including failure to obtain the other plan’s prior approval — so follow the commercial plan’s ABA precert rules to the letter. Codes on Partners’ TPL/Medicare bypass list skip the other payer; no RB-BHT code is on it. The manual does not say whether its own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Partners Health Management — 2025-2026 Provider Operations Manual (rev. 20250623)', url: 'https://providers.partnersbhm.org/wp-content/uploads/partners-provider-operations-manual.pdf' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
         ],
       },
     },
@@ -1954,6 +2160,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         verifyVia: 'Availity, or the precertification line on the member ID card — ask which ABA codes Aetna will pay via telehealth on this specific plan, and with which POS code and modifier.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value: 'Aetna publishes no day counts of its own: its 2026 manual says "The timing of the review incorporates state, federal, CMS and NCQA requirements," and ABA services "require prior authorization" by calling the number on the member ID card. So the governing clock depends on funding. For a fully insured plan issued in North Carolina, G.S. 58-50-61(f) governs: "Prospective and concurrent determinations shall be communicated to the covered person\'s provider within three business days after the insurer obtains all necessary information" — the clock starts on complete information, not receipt, and the statute sets no separate faster clock for an urgent first decision (its expedited track is for appeals). In concurrent review "the insurer shall remain liable for health care services until the covered person has been notified of the noncertification." A self-funded employer plan sits outside state law and follows ERISA: a non-urgent pre-service decision "not later than 15 days after receipt of the claim by the plan", extendable once by up to 15 days; an urgent one within 72 hours; the clock starts when the request is filed, whether or not it is complete; and an urgent request to extend an approved course is decided within 24 hours if made "at least 24 hours prior to the expiration" of the current authorization.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-50-61 — utilization review (prospective/concurrent determinations)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-50-61.html' },
+          { title: '29 CFR 2560.503-1(f) — ERISA claims procedure: group health plan decision timeframes', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'At benefits verification, ask whether the plan is fully insured (a policy issued in the state) or a self-funded employer (ERISA) plan — that decides which clock applies — then ask the carrier’s behavioral health precert line its expected ABA turnaround and how early it wants the reauth.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value: 'North Carolina’s COB rule for insured group plans (11 NCAC 12 .0514) sets the order: the plan covering the person as employee or subscriber pays before the plan covering them as a dependent; for a child of parents not separated, "the benefits of the Health Plan of the parent whose birthday falls earlier in a year are determined before those of the Health Plan of the parent whose birthday falls later" (same birthday: the longer-running plan first); for separated or divorced parents the custodial parent’s plan pays first, then the custodial parent’s spouse’s, then the non-custodial parent’s, unless a court decree the plan knows of assigns responsibility; Medicaid is expressly outside that rule. Self-funded plans follow their own plan document. Aetna says it coordinates "as allowed by state or federal law following the National Associations of Insurance Commissioners (NAIC) guidelines. If there is no applicable law, then we coordinate according to the member\'s plan" (it names the NAIC birthday and divorced-parent rules); on a secondary claim, send the primary payer’s paid/denied data in the 837 COB loops. Government coverage sorts itself by federal rule: a commercial plan pays before TRICARE, which is secondary to every other health plan but "In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer"; CHAMPVA "is the last payer to OHI"; and Medicaid pays after all of them (42 CFR 433.139), so a child with commercial plus Medicaid needs this plan’s authorization and EOB before Medicaid will pay.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '11 NCAC 12 .0514 — coordination of benefits, order of benefit determination (readopted eff. 7/1/2020)', url: 'http://reports.oah.state.nc.us/ncac/title%2011%20-%20insurance/chapter%2012%20-%20life%20and%20health%20division/11%20ncac%2012%20.0514.pdf' },
+          { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Coordination of benefits billing tips', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/COB-billing-tips.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276 — CHAMPVA is the last payer to other health insurance', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+          { title: '42 CFR 433.139 — payment of claims involving third-party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+        ],
+        verifyVia: 'Collect both parents’ plans, dates of birth, and any custody decree at intake; confirm primary/secondary with each carrier’s COB unit (and whether the plan is self-funded) before the first claim.',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -2160,6 +2391,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      authTurnaround: {
+        value: 'Evernorth (Cigna behavioral health) makes coverage determinations "in accordance with the time frames required under applicable law" and publishes no day counts; for ABA it asks providers "to request authorizations up to 30 days in advance of or two weeks after the start date of service. A delay in request may result in a retrospective review and could delay the determination for up to 30 days." Assessment codes 97151, 97152 and 0362T no longer need PA with an autism diagnosis. So the governing clock depends on funding. For a fully insured plan issued in North Carolina, G.S. 58-50-61(f) governs: "Prospective and concurrent determinations shall be communicated to the covered person\'s provider within three business days after the insurer obtains all necessary information" — the clock starts on complete information, not receipt, and the statute sets no separate faster clock for an urgent first decision (its expedited track is for appeals). In concurrent review "the insurer shall remain liable for health care services until the covered person has been notified of the noncertification." A self-funded employer plan sits outside state law and follows ERISA: a non-urgent pre-service decision "not later than 15 days after receipt of the claim by the plan", extendable once by up to 15 days; an urgent one within 72 hours; the clock starts when the request is filed, whether or not it is complete; and an urgent request to extend an approved course is decided within 24 hours if made "at least 24 hours prior to the expiration" of the current authorization.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-50-61 — utilization review (prospective/concurrent determinations)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-50-61.html' },
+          { title: '29 CFR 2560.503-1(f) — ERISA claims procedure: group health plan decision timeframes', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'At benefits verification, ask whether the plan is fully insured (a policy issued in the state) or a self-funded employer (ERISA) plan — that decides which clock applies — then ask the carrier’s behavioral health precert line its expected ABA turnaround and how early it wants the reauth.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value: 'North Carolina’s COB rule for insured group plans (11 NCAC 12 .0514) sets the order: the plan covering the person as employee or subscriber pays before the plan covering them as a dependent; for a child of parents not separated, "the benefits of the Health Plan of the parent whose birthday falls earlier in a year are determined before those of the Health Plan of the parent whose birthday falls later" (same birthday: the longer-running plan first); for separated or divorced parents the custodial parent’s plan pays first, then the custodial parent’s spouse’s, then the non-custodial parent’s, unless a court decree the plan knows of assigns responsibility; Medicaid is expressly outside that rule. Self-funded plans follow their own plan document. Evernorth spells the same order out: the employee/subscriber plan is "always considered the primary payer" over a dependent plan; married parents follow "the \'birthday rule\'"; divorced, separated or not-living-together parents follow the custodial rule (custodial parent, their spouse, non-custodial parent, their spouse) unless a court decree assigns it, and joint custody without a named parent falls back to the birthday rule. Paper COB claims need "a copy of the primary payer\'s explanation of payment (EOP)." Government coverage sorts itself by federal rule: a commercial plan pays before TRICARE, which is secondary to every other health plan but "In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer"; CHAMPVA "is the last payer to OHI"; and Medicaid pays after all of them (42 CFR 433.139), so a child with commercial plus Medicaid needs this plan’s authorization and EOB before Medicaid will pay.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '11 NCAC 12 .0514 — coordination of benefits, order of benefit determination (readopted eff. 7/1/2020)', url: 'http://reports.oah.state.nc.us/ncac/title%2011%20-%20insurance/chapter%2012%20-%20life%20and%20health%20division/11%20ncac%2012%20.0514.pdf' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276 — CHAMPVA is the last payer to other health insurance', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+          { title: '42 CFR 433.139 — payment of claims involving third-party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+        ],
+        verifyVia: 'Collect both parents’ plans, dates of birth, and any custody decree at intake; confirm primary/secondary with each carrier’s COB unit (and whether the plan is self-funded) before the first claim.',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -2355,6 +2611,32 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
         verifyVia: 'Provider Express (Clinical Resources → ABA Information) or the behavioral health number on the member ID card — ask which ABA codes are payable by telehealth on this plan and with which POS code.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value: 'UHC’s 2026 commercial administrative guide says standard requests take "up to 15 calendar days" and expedited "72 hours", and asks for requests "at least 15 calendar days in advance, if possible, but must be submitted at least 5 business days before the planned service date"; ABA itself is authorized by Optum Behavioral Health, whose network manual publishes no prospective decision clock (retrospective requests are decided within 30 calendar days). So the governing clock depends on funding. For a fully insured plan issued in North Carolina, G.S. 58-50-61(f) governs: "Prospective and concurrent determinations shall be communicated to the covered person\'s provider within three business days after the insurer obtains all necessary information" — the clock starts on complete information, not receipt, and the statute sets no separate faster clock for an urgent first decision (its expedited track is for appeals). In concurrent review "the insurer shall remain liable for health care services until the covered person has been notified of the noncertification." A self-funded employer plan sits outside state law and follows ERISA: a non-urgent pre-service decision "not later than 15 days after receipt of the claim by the plan", extendable once by up to 15 days; an urgent one within 72 hours; the clock starts when the request is filed, whether or not it is complete; and an urgent request to extend an approved course is decided within 24 hours if made "at least 24 hours prior to the expiration" of the current authorization.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'UnitedHealthcare — 2026 Care Provider Administrative Guide (Commercial, eff. 4/1/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Behavioral Health — National Network Manual (eff. 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-50-61 — utilization review (prospective/concurrent determinations)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-50-61.html' },
+          { title: '29 CFR 2560.503-1(f) — ERISA claims procedure: group health plan decision timeframes', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'At benefits verification, ask whether the plan is fully insured (a policy issued in the state) or a self-funded employer (ERISA) plan — that decides which clock applies — then ask the carrier’s behavioral health precert line its expected ABA turnaround and how early it wants the reauth.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value: 'North Carolina’s COB rule for insured group plans (11 NCAC 12 .0514) sets the order: the plan covering the person as employee or subscriber pays before the plan covering them as a dependent; for a child of parents not separated, "the benefits of the Health Plan of the parent whose birthday falls earlier in a year are determined before those of the Health Plan of the parent whose birthday falls later" (same birthday: the longer-running plan first); for separated or divorced parents the custodial parent’s plan pays first, then the custodial parent’s spouse’s, then the non-custodial parent’s, unless a court decree the plan knows of assigns responsibility; Medicaid is expressly outside that rule. Self-funded plans follow their own plan document. UHC says "COB is administered according to the member\'s benefit plan and in accordance with law"; Optum’s network manual tells providers to determine other coverage, "bill the primary insurance carrier first, then notify Optum of your findings," and says it applies industry-standard COB rules and state law. Government coverage sorts itself by federal rule: a commercial plan pays before TRICARE, which is secondary to every other health plan but "In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer"; CHAMPVA "is the last payer to OHI"; and Medicaid pays after all of them (42 CFR 433.139), so a child with commercial plus Medicaid needs this plan’s authorization and EOB before Medicaid will pay.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '11 NCAC 12 .0514 — coordination of benefits, order of benefit determination (readopted eff. 7/1/2020)', url: 'http://reports.oah.state.nc.us/ncac/title%2011%20-%20insurance/chapter%2012%20-%20life%20and%20health%20division/11%20ncac%2012%20.0514.pdf' },
+          { title: 'UnitedHealthcare — 2026 Care Provider Administrative Guide (Commercial, eff. 4/1/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Behavioral Health — National Network Manual (eff. 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276 — CHAMPVA is the last payer to other health insurance', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+          { title: '42 CFR 433.139 — payment of claims involving third-party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+        ],
+        verifyVia: 'Collect both parents’ plans, dates of birth, and any custody decree at intake; confirm primary/secondary with each carrier’s COB unit (and whether the plan is self-funded) before the first claim.',
         blocker: 'per-case',
       },
     },

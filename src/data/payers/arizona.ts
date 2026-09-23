@@ -186,6 +186,28 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           'The AHCCCS Telehealth code set and the Behavioral Health Services Billing Matrix on azahcccs.gov (both blocked to automated retrieval at this review), or the member\'s Contractor.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value: 'Fee-for-service (AIHP/tribal and other FFS members): since January 1, 2026, 42 CFR 440.230(e) requires state FFS decisions "in no case later than 7 calendar days after receiving the request" for standard and 72 hours for expedited (standard extendable up to 14 calendar days). Health plans: AHCCCS’s own CY2025 prior-authorization metrics report (March 2026) says that "Beginning January 1, 2026" the CMS rule requires Medicaid managed care plans to decide within "7 calendar days for standard requests (non-urgent)" and "72 hours for expedited requests (urgent)"; the federal regulation ties the 7-day ceiling to rating periods starting on or after January 1, 2026. AHCCCS’s contractor policy ACOM 414 (rev. March 2025) still reads "no later than 14 calendar days from receipt of the request for the service, regardless of whether the 14th day falls on a weekend", 72 hours expedited, each extendable up to 14 more calendar days. Expect 7 and confirm with the plan; individual plan manuals still vary (see each plan). No ABA-specific decision clock or reauthorization lead time is published; AMPM 320-S requires progress reports at least every six months, which is what the reauth is built from.',
+        status: 'verified',
+        cites: [
+          { title: '42 CFR 440.230(e) — Medicaid fee-for-service prior authorization timeframes (from 1/1/2026)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-B/section-440.230' },
+          { title: 'AHCCCS — Prior Authorization Metrics for Medical Items and Services, CY2025 (3/31/2026)', url: 'https://www.azahcccs.gov/Resources/Downloads/PriorAuthorizationMetricAnnualReports/CMS_PA_Mandate_Report_Final_033026.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'AHCCCS ACOM 414 — Requirements for Service Authorization Decisions and NOABD (rev. 3/7/2025)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/414.pdf' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: '"AHCCCS is the payer of last resort unless specifically prohibited by state or federal law." AHCCCS policy (ACOM 434) makes the plan payer of last resort — bill the commercial plan first — but separates its authorization from the other insurer’s: "A denial of the service request by a third-party is not to be used as a basis for the Contractor\'s determination of medical necessity" (the plan reviews on its own criteria), and "When a third-party has approved a service request as medically necessary, the Contractor shall not apply a secondary Prior Authorization (PA)." Plans pay first and recover later for preventive pediatric/EPSDT services (the ACOM 434 list for children under 21 includes "Therapies, and Behavioral Health Exams") and absent-parent support cases. In fee-for-service, PA is not required when "The member has Medicare, third party liability (TPL), or commercial insurance coverage and the services are covered by Medicare, TPL, or commercial insurance"; if the other insurer denies, "the provider must follow the payer\'s appeal process and exhaust all remedies before AHCCCS can consider the covered service", attaching the final appeal decision and the EOB/RA. AHCCCS pays up to the difference between its allowed amount and the primary payment and does not separately reimburse copays, deductibles or coinsurance. Under federal rules TRICARE pays before Medicaid, and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'AHCCCS FFS Provider Billing Manual, Ch. 9 — Medicare and Other Insurance Liability (rev. 6/3/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap09Medicare.pdf' },
+          { title: 'AHCCCS ACOM 434 — Coordination of Benefits and Third-Party Liability (eff. 5/2/2025)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/434.pdf' },
+          { title: 'AHCCCS FFS Provider Billing Manual, Ch. 8 — Prior Authorizations', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap08PriorAuthorizations.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -390,6 +412,27 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           'Mercy Care provider services / Availity, and the AHCCCS Telehealth code set (azahcccs.gov blocked automated retrieval at this review; mercycareaz.org returns 403).',
         blocker: 'document',
       },
+      authTurnaround: {
+        value: 'Mercy Care’s manual: "The authorization decision must be made within 14 calendar days from the date of receipt of the service request"; expedited within 72 hours, and if that deadline falls on a weekend or holiday the decision is due the day before. ABA treatment (97153–97158) needs PA, assessments 97151/97152 do not, and an approved authorization runs "a maximum for 6 months, re-authorization will be required" on the same ABA PA form, built on the six-month reassessment. No reauth lead time is published. AHCCCS’s own CY2025 prior-authorization metrics report (March 2026) says that "Beginning January 1, 2026" the CMS rule requires Medicaid managed care plans to decide within "7 calendar days for standard requests (non-urgent)" and "72 hours for expedited requests (urgent)"; the federal regulation ties the 7-day ceiling to rating periods starting on or after January 1, 2026. Mercy Care’s July 2025 manual predates that, so confirm which clock it runs.',
+        status: 'verified',
+        cites: [
+          { title: 'Mercy Care — Provider Manual Ch. 100, General Terms (last updated July 2025)', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/provider_manual_100_ua.pdf' },
+          { title: 'Mercy Care — ABA PA request form', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/PAabarequest_ua.pdf' },
+          { title: 'AHCCCS — Prior Authorization Metrics for Medical Items and Services, CY2025 (3/31/2026)', url: 'https://www.azahcccs.gov/Resources/Downloads/PriorAuthorizationMetricAnnualReports/CMS_PA_Mandate_Report_Final_033026.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'Mercy Care answers the secondary-PA question on its ABA page: "If members have other primary insurance, you may not need PA. You do need PA if: Mercy Care is the primary payer for services; The primary insurance doesn\'t cover the service; The member has exhausted their benefit" — note which applies on the PA form. For children, AHCCCS has instructed Mercy Care to "Reimburse AHCCCS-approved children\'s services (18 years and younger) at a primary level" and "Pursue coordination of benefits via a post-adjudication reclamation process. ABA services are part of this process" — send the primary EOB with each claim, but claims are not denied for it. Otherwise bill the primary first (H/S/T codes bypass COB). On a family’s commercial copays and deductibles Mercy Care pays the lesser of the primary’s member cost share or the gap to your contracted rate. Under federal rules TRICARE pays before Medicaid, and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+          { title: 'Mercy Care — Provider Manual Ch. 100, General Terms (last updated July 2025)', url: 'https://www.mercycareaz.org/content/dam/mercycare/pdf/provider_manual_100_ua.pdf' },
+          { title: 'AHCCCS ACOM 434 — Coordination of Benefits and Third-Party Liability (eff. 5/2/2025)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/434.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -593,6 +636,26 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           'Optum\'s Autism/Applied Behavior Analysis page on Provider Express and the Arizona autism clinical team, plus the AHCCCS telehealth code set.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value: 'UHC Community Plan of Arizona’s 2026 manual: "A decision and notification is made no later than 14 calendar days following the receipt of the request. This time frame may be extended up to 7 days" on request; expedited no later than 72 hours (extendable up to 14 days). Optum administers ABA — all ABA codes except 97151 and 97152 need PA, with the same clinical packet at each concurrent review — and publishes no ABA clock or reauth lead time. AHCCCS’s own CY2025 prior-authorization metrics report (March 2026) says that "Beginning January 1, 2026" the CMS rule requires Medicaid managed care plans to decide within "7 calendar days for standard requests (non-urgent)" and "72 hours for expedited requests (urgent)"; the federal regulation ties the 7-day ceiling to rating periods starting on or after January 1, 2026. Confirm with UHC which clock it runs.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Arizona — 2026 Care Provider Manual (ACC / ALTCS / DD)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/AZ-Provider-Manual.pdf' },
+          { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
+          { title: 'AHCCCS — Prior Authorization Metrics for Medical Items and Services, CY2025 (3/31/2026)', url: 'https://www.azahcccs.gov/Resources/Downloads/PriorAuthorizationMetricAnnualReports/CMS_PA_Mandate_Report_Final_033026.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'UHC is payer of last resort and "will reimburse as secondary payer without prior authorization when the claim is submitted with an EOB showing primary allowed. If an authorization is denied by the Primary Insurer, providers are to submit the request" to UHC with clinical documentation. Secondary claims "must be received within 6 months (180 days) from the date of service, even if the primary carrier has not made payment." Payment is the difference up to the contracted rate. The manual lists no pay-and-chase services of its own; AHCCCS policy (ACOM 434), which it follows, requires pay-and-recover for preventive pediatric/EPSDT services and bars a secondary PA when the other insurer approved the service. Under federal rules TRICARE pays before Medicaid, and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Arizona — 2026 Care Provider Manual (ACC / ALTCS / DD)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/AZ-Provider-Manual.pdf' },
+          { title: 'AHCCCS ACOM 434 — Coordination of Benefits and Third-Party Liability (eff. 5/2/2025)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/434.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -785,6 +848,27 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           'Permitted, without a code list. CP.BH.104 states that ABA "services may be provided in various settings (e.g., home, clinic, school, community) and modalities (e.g., in-person, telehealth)," and devotes a section to CASP\'s Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis: telehealth "is not intended to replace in person service, as it is intended to supplement the traditional in person service delivery model," with modality selected on the member\'s needs, preference, caregiver availability and environmental support — and "providers should refer to respective state allowances for telehealth services."',
         status: 'verified',
         cites: [{ title: 'Centene/AzCH — Clinical Policy CP.BH.104, Applied Behavior Analysis (rev. 12/24)', url: 'https://www.azcompletehealth.com/content/dam/centene/policies/behavioral-policies/CP.BH.104.pdf' }],
+      },
+      authTurnaround: {
+        value: 'AzCH’s provider manual (§4.3): standard requests decided "not later than fourteen (14) calendar days after the receipt of the authorization request" with a possible extension of up to 14 calendar days; expedited no later than 72 hours. Nothing ABA-specific beyond deferring to AMPM 320-S, and no reauth lead time. AHCCCS’s own CY2025 prior-authorization metrics report (March 2026) says that "Beginning January 1, 2026" the CMS rule requires Medicaid managed care plans to decide within "7 calendar days for standard requests (non-urgent)" and "72 hours for expedited requests (urgent)"; the federal regulation ties the 7-day ceiling to rating periods starting on or after January 1, 2026. Confirm with AzCH which clock it runs.',
+        status: 'verified',
+        cites: [
+          { title: 'Arizona Complete Health — Provider Manual Section 4, Medical/Utilization Management', url: 'https://www.azcompletehealth.com/providers/resources/provider-manual/pm_section_4.html' },
+          { title: 'AHCCCS — Prior Authorization Metrics for Medical Items and Services, CY2025 (3/31/2026)', url: 'https://www.azahcccs.gov/Resources/Downloads/PriorAuthorizationMetricAnnualReports/CMS_PA_Mandate_Report_Final_033026.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'AzCH: "The Health Plan does not require prior authorization when the Health Plan is not the primary payer." Pursue the primary and submit its EOB before billing AzCH for copays and deductibles. When the member has exhausted the primary benefit, request AzCH prior authorization for primary coverage — "The provider MUST submit evidence of the member\'s primary benefits being exhausted." "Medicaid is the payer of last resort except under limited situations"; AzCH pays the difference up to the contracted rate (AHCCCS allowable if non-contracted). The manual gives conflicting secondary filing windows, so file as early as possible after the primary EOB. AHCCCS policy (ACOM 434) adds pay-and-recover for preventive pediatric/EPSDT services. Under federal rules TRICARE pays before Medicaid, and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Arizona Complete Health — Provider Manual Section 4, Medical/Utilization Management', url: 'https://www.azcompletehealth.com/providers/resources/provider-manual/pm_section_4.html' },
+          { title: 'Arizona Complete Health — Provider Manual Section 8, Claims (§8.22 COB)', url: 'https://www.azcompletehealth.com/providers/resources/provider-manual/pm_section_8.html' },
+          { title: 'AHCCCS ACOM 434 — Coordination of Benefits and Third-Party Liability (eff. 5/2/2025)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/434.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
       },
     },
     deliveryRules: {
@@ -981,6 +1065,25 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Banner Health Plans at bannerhealth.com/bhpprovider — pull the current ABA Prior Authorization Form and ask the plan directly; none of this is published at plan level.',
         blocker: 'document',
+      },
+      authTurnaround: {
+        value: 'Banner – UFC’s 2026 manual: "Medical Standard requests will be reviewed within 14 days. Medical Expedited requests will be reviewed within 72 hours of receipt," and "Extensions on expedited and standard requests can be provided if more time is needed to obtain records." ABA PA is required before services begin, faxed on Banner’s ABA PA form; no reauth lead time is published. AHCCCS’s own CY2025 prior-authorization metrics report (March 2026) says that "Beginning January 1, 2026" the CMS rule requires Medicaid managed care plans to decide within "7 calendar days for standard requests (non-urgent)" and "72 hours for expedited requests (urgent)"; the federal regulation ties the 7-day ceiling to rating periods starting on or after January 1, 2026. Confirm with Banner which clock it runs.',
+        status: 'verified',
+        cites: [
+          { title: 'Banner – University Family Care — 2026 Provider Manual (eff. 7/9/2026)', url: 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/manuals-and-directories/manuals/prov-bufc-prov-manual_eff07092026_en.pdf' },
+          { title: 'AHCCCS — Prior Authorization Metrics for Medical Items and Services, CY2025 (3/31/2026)', url: 'https://www.azahcccs.gov/Resources/Downloads/PriorAuthorizationMetricAnnualReports/CMS_PA_Mandate_Report_Final_033026.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'Banner – UFC pays last: it "will require an Evidence of Benefit (EOB) or Remit Advice (RA) from a primary payer to coordinate benefits once the primary payer has adjudicated the claim" and "may further review the claim for medical necessity" on its own criteria; "If primary payor does not cover the service, B – UFC may waive the need for an EOB or RA." Cost sharing is paid up to the lesser of its fee schedule or the other payer’s allowed amount, and secondary claims are due within 60 days of the primary RA. The manual does not say whether Banner requires its own PA when secondary; AHCCCS policy (ACOM 434) bars a secondary PA only when the other insurer approved the service as medically necessary, so where the commercial plan has not approved ABA, get Banner’s PA. Under federal rules TRICARE pays before Medicaid, and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Banner – University Family Care — 2026 Provider Manual (eff. 7/9/2026)', url: 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/manuals-and-directories/manuals/prov-bufc-prov-manual_eff07092026_en.pdf' },
+          { title: 'AHCCCS ACOM 434 — Coordination of Benefits and Third-Party Liability (eff. 5/2/2025)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/434.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
       },
     },
     deliveryRules: {
@@ -1206,6 +1309,25 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           'The current PA guidelines grid on healthchoiceaz.com, or the PA line 1-800-322-8670 / fax 480-760-4732 — the grids revise several times a year, so read the live version.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value: 'Health Choice’s Ch. 6 (rev. December 2025) already runs the 7-day clock: "\'Standard\': up to 7 calendar days" and "\'Expedited\': up to 72 hours", each extendable by 14 days, with adverse decisions sent "within 7 calendar days for Standard request (excluding situations in which a 14-days extension is exercised)." The same chapter still carries an older 28-day/17-day total, so confirm if a decision runs long. Nothing ABA-specific and no ABA reauth lead time (its "seven days prior" rule covers inpatient, BHRF and therapeutic foster care only).',
+        status: 'verified',
+        cites: [
+          { title: 'Health Choice Arizona — Provider Manual Ch. 6, Authorizations and Notifications (rev. 12/19/2025)', url: 'https://assets.azblue.com/m/3791bc8d4445267e/original/Chapter_06_Authorizations-and-Notifications_HCA.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'Health Choice pays last: bill Medicare and all private insurers first — "primary insurance and/or other credible coverage must be billed first, regardless of primary benefit coverage" — or the claim is denied; initial claims within 6 months and the clean claim with the primary EOB within 12 months. It pays first and recovers later for "Preventive pediatric services, including EPSDT services and administration of vaccines" (VFC) and absent-parent support. The manual does not say whether its own PA is waived when it is secondary; AHCCCS policy (ACOM 434) bars a secondary PA only when the other insurer approved the service as medically necessary. Under federal rules TRICARE pays before Medicaid, and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Health Choice Arizona — Provider Manual Ch. 14, Medicare and Other Insurance Liability (rev. 12/19/2025)', url: 'https://assets.azblue.com/m/5e7343737596d6eb/original/Chapter_14-Medicare-and-Other-Ins-Liability_HCA.pdf' },
+          { title: 'Health Choice Arizona — Provider Manual Ch. 6, Authorizations and Notifications (rev. 12/19/2025)', url: 'https://assets.azblue.com/m/3791bc8d4445267e/original/Chapter_06_Authorizations-and-Notifications_HCA.pdf' },
+          { title: 'AHCCCS ACOM 434 — Coordination of Benefits and Third-Party Liability (eff. 5/2/2025)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/434.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1419,6 +1541,24 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Molina Healthcare Services at (844) 782-2678 or fax (833) 832-1015, and the current Prior Auth and Pre-Service Review Guide.',
         blocker: 'document',
+      },
+      authTurnaround: {
+        value: 'Molina’s April 2026 manual already runs the 7-day clock: "For a standard authorization request, Molina makes the determination and provides notification within seven (7) calendar days," outpatient standard pre-service "No later than 7 Calendar Days from the date the request was received", and expedited no later than 72 hours; behavioral health outpatient extensions add up to 14 calendar days from the extension notice. ABA is on Molina’s PA list; no reauth lead time is published.',
+        status: 'verified',
+        cites: [
+          { title: 'Molina Healthcare of Arizona — Medicaid 2026 Provider Manual (updated April 2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/MHAZ-Medicaid-2026%20Provider-Manual-508.pdf' },
+          { title: 'Molina Healthcare of Arizona — Prior Auth and Pre-Service Review Guide', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/az/Forms/MHAZ-Prior-Auth-and-Pre-Service-Review-Guide-508.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: '"Medicaid is always the payer of last resort": bill the primary payer and submit its EOB to Molina for secondary processing, reimbursed under the state COB methodology. "Molina will pay claims for prenatal care and preventive pediatric care (EPSDT) and then seek reimbursement from third parties." The manual does not say whether Molina’s own PA is needed when it is secondary; AHCCCS policy (ACOM 434) bars a secondary PA only when the other insurer approved the service as medically necessary. Under federal rules TRICARE pays before Medicaid, and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'Molina Healthcare of Arizona — Medicaid 2026 Provider Manual (updated April 2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/MHAZ-Medicaid-2026%20Provider-Manual-508.pdf' },
+          { title: 'AHCCCS ACOM 434 — Coordination of Benefits and Third-Party Liability (eff. 5/2/2025)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/434.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
       },
     },
     deliveryRules: {
@@ -1642,6 +1782,27 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'The member\'s DDD Health Plan — Mercy Care DD or UnitedHealthcare Community Plan DD — plus the DDD support coordinator on the service-plan side.',
         blocker: 'document',
+      },
+      authTurnaround: {
+        value: 'DDD’s own policy and the policy for its health plans (AdSS — Mercy Care DD and UHC Community Plan DD, which authorize ABA) both still read "no later than 14 Calendar Days from receipt of the request for the service regardless of whether the 14th day falls on a weekend … or Legal Holiday", 72 hours expedited, each extendable up to 14 more days. AHCCCS’s own CY2025 prior-authorization metrics report (March 2026) says that "Beginning January 1, 2026" the CMS rule requires Medicaid managed care plans to decide within "7 calendar days for standard requests (non-urgent)" and "72 hours for expedited requests (urgent)"; the federal regulation ties the 7-day ceiling to rating periods starting on or after January 1, 2026. Confirm with the DDD health plan which clock it runs. No ABA-specific decision clock or reauthorization lead time is published; AMPM 320-S requires progress reports at least every six months, which is what the reauth is built from.',
+        status: 'verified',
+        cites: [
+          { title: 'DES/DDD — Division Operations Policy 414, Service Authorization Decisions (rev. 5/29/2024)', url: 'https://des.az.gov/sites/default/files/media/Division_Operations_Policy_Manual_414_Requirements_for_Service_Authorization_Decisions_and_Notice_of_Adverse_Benefit_Determination.pdf' },
+          { title: 'DES/DDD — AdSS Operations Policy 414 (DDD health plans), Service Authorization Decisions (rev. 5/29/2024)', url: 'https://des.az.gov/sites/default/files/media/AdSS_Operations_Policy_Manual_414_Requirements_for_Service_Authorization_Decisions_and_Notice_of_Adverse_Benefit_Determination.pdf' },
+          { title: 'AHCCCS — Prior Authorization Metrics for Medical Items and Services, CY2025 (3/31/2026)', url: 'https://www.azahcccs.gov/Resources/Downloads/PriorAuthorizationMetricAnnualReports/CMS_PA_Mandate_Report_Final_033026.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'DDD pays last and must "independently evaluate the Member\'s service request using its own criteria" when a third party denies; "when a Third Party has approved a service request as medically necessary" it must "Not apply a secondary prior authorization" and coordinate payment. It pays first and recovers later for preventive pediatric/EPSDT services, a list that includes "Therapies, and behavioral health exams." DDD Qualified Vendors bill the other insurer first (including high-deductible plans), obtain the EOB or denial, and bill the difference up to the contracted rate. Under federal rules TRICARE pays before Medicaid, and CHAMPVA pays first when the child is also Medicaid-eligible.',
+        status: 'verified',
+        cites: [
+          { title: 'DES/DDD — Division Operations Policy 434, Coordination of Benefits and TPL (rev. 6/17/2026)', url: 'https://des.az.gov/sites/default/files/media/Division_Operations_Policy_Manual_434_Coordination_of_Benefits_and_TPL.pdf' },
+          { title: 'DES/DDD — AdSS Operations Policy 434 (DDD health plans), COB and TPL (rev. 6/12/2024)', url: 'https://des.az.gov/sites/default/files/media/AdSS_Operations_Policy_Manual_434_Coordination_of_Benefits_and_Third_Party_Liability.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
       },
     },
     deliveryRules: {
@@ -1880,6 +2041,31 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           'Aetna provider services at the number on the member\'s ID card, and the plan\'s telehealth/virtual-care policy — confirm before scheduling remote 97155 or 97156.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value: 'Aetna publishes no day counts of its own: its 2026 manual says "The timing of the review incorporates state, federal, CMS and NCQA requirements," and ABA services "require prior authorization" by calling the number on the member ID card. So the governing clock depends on funding. For a fully insured plan issued in Arizona, A.R.S. § 20-3404 governs: urgent requests "not later than five days after the receipt of all necessary information", non-urgent "not later than fourteen days after receipt of all necessary information", with the same five/fourteen days again after the provider completes an incomplete request — and "A prior authorization request is deemed granted if a health care services plan or its utilization review agent fails to comply with the deadlines." A granted authorization cannot be rescinded after services are rendered in good faith, absent fraud. A self-funded employer plan sits outside state law and follows ERISA: a non-urgent pre-service decision "not later than 15 days after receipt of the claim by the plan", extendable once by up to 15 days; an urgent one within 72 hours; the clock starts when the request is filed, whether or not it is complete; and an urgent request to extend an approved course is decided within 24 hours if made "at least 24 hours prior to the expiration" of the current authorization.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'A.R.S. § 20-3404 — prior authorization request deadlines (deemed granted if missed)', url: 'https://www.azleg.gov/ars/20/03404.htm' },
+          { title: '29 CFR 2560.503-1(f) — ERISA claims procedure: group health plan decision timeframes', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'At benefits verification, ask whether the plan is fully insured (a policy issued in the state) or a self-funded employer (ERISA) plan — that decides which clock applies — then ask the carrier’s behavioral health precert line its expected ABA turnaround and how early it wants the reauth.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value: 'Arizona’s COB rule for group plans (A.A.C. R20-6-214) sets the order: the plan covering the person other than as a dependent pays first; for a dependent child, "The plan of a parent whose birthday occurs earlier in a calendar year shall cover a dependent child before" the other parent’s plan (month and day only); for separated or divorced parents, the custodial parent’s plan, then the custodial parent’s spouse’s, then the non-custodial parent’s, unless a court decree the plan knows of says otherwise. Self-funded plans follow their own plan document. Aetna says it coordinates "as allowed by state or federal law following the National Associations of Insurance Commissioners (NAIC) guidelines. If there is no applicable law, then we coordinate according to the member\'s plan" (it names the NAIC birthday and divorced-parent rules); on a secondary claim, send the primary payer’s paid/denied data in the 837 COB loops. Government coverage sorts itself by federal rule: a commercial plan pays before TRICARE, which is secondary to every other health plan but "In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer"; CHAMPVA "is the last payer to OHI"; and Medicaid pays after all of them (42 CFR 433.139), so a child with commercial plus Medicaid needs this plan’s authorization and EOB before Medicaid will pay.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ariz. Admin. Code R20-6-214 — coordination of benefits, order of benefit determination (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R20-6-214' },
+          { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Coordination of benefits billing tips', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/COB-billing-tips.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276 — CHAMPVA is the last payer to other health insurance', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+          { title: '42 CFR 433.139 — payment of claims involving third-party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+        ],
+        verifyVia: 'Collect both parents’ plans, dates of birth, and any custody decree at intake; confirm primary/secondary with each carrier’s COB unit (and whether the plan is self-funded) before the first claim.',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -2085,6 +2271,31 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
+      },
+      authTurnaround: {
+        value: 'Evernorth (Cigna behavioral health) makes coverage determinations "in accordance with the time frames required under applicable law" and publishes no day counts; for ABA it asks providers "to request authorizations up to 30 days in advance of or two weeks after the start date of service. A delay in request may result in a retrospective review and could delay the determination for up to 30 days." Assessment codes 97151, 97152 and 0362T no longer need PA with an autism diagnosis. So the governing clock depends on funding. For a fully insured plan issued in Arizona, A.R.S. § 20-3404 governs: urgent requests "not later than five days after the receipt of all necessary information", non-urgent "not later than fourteen days after receipt of all necessary information", with the same five/fourteen days again after the provider completes an incomplete request — and "A prior authorization request is deemed granted if a health care services plan or its utilization review agent fails to comply with the deadlines." A granted authorization cannot be rescinded after services are rendered in good faith, absent fraud. A self-funded employer plan sits outside state law and follows ERISA: a non-urgent pre-service decision "not later than 15 days after receipt of the claim by the plan", extendable once by up to 15 days; an urgent one within 72 hours; the clock starts when the request is filed, whether or not it is complete; and an urgent request to extend an approved course is decided within 24 hours if made "at least 24 hours prior to the expiration" of the current authorization.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'A.R.S. § 20-3404 — prior authorization request deadlines (deemed granted if missed)', url: 'https://www.azleg.gov/ars/20/03404.htm' },
+          { title: '29 CFR 2560.503-1(f) — ERISA claims procedure: group health plan decision timeframes', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'At benefits verification, ask whether the plan is fully insured (a policy issued in the state) or a self-funded employer (ERISA) plan — that decides which clock applies — then ask the carrier’s behavioral health precert line its expected ABA turnaround and how early it wants the reauth.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value: 'Arizona’s COB rule for group plans (A.A.C. R20-6-214) sets the order: the plan covering the person other than as a dependent pays first; for a dependent child, "The plan of a parent whose birthday occurs earlier in a calendar year shall cover a dependent child before" the other parent’s plan (month and day only); for separated or divorced parents, the custodial parent’s plan, then the custodial parent’s spouse’s, then the non-custodial parent’s, unless a court decree the plan knows of says otherwise. Self-funded plans follow their own plan document. Evernorth spells the same order out: the employee/subscriber plan is "always considered the primary payer" over a dependent plan; married parents follow "the \'birthday rule\'"; divorced, separated or not-living-together parents follow the custodial rule (custodial parent, their spouse, non-custodial parent, their spouse) unless a court decree assigns it, and joint custody without a named parent falls back to the birthday rule. Paper COB claims need "a copy of the primary payer\'s explanation of payment (EOP)." Government coverage sorts itself by federal rule: a commercial plan pays before TRICARE, which is secondary to every other health plan but "In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer"; CHAMPVA "is the last payer to OHI"; and Medicaid pays after all of them (42 CFR 433.139), so a child with commercial plus Medicaid needs this plan’s authorization and EOB before Medicaid will pay.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ariz. Admin. Code R20-6-214 — coordination of benefits, order of benefit determination (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R20-6-214' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276 — CHAMPVA is the last payer to other health insurance', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+          { title: '42 CFR 433.139 — payment of claims involving third-party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+        ],
+        verifyVia: 'Collect both parents’ plans, dates of birth, and any custody decree at intake; confirm primary/secondary with each carrier’s COB unit (and whether the plan is self-funded) before the first claim.',
+        blocker: 'per-case',
       },
     },
     deliveryRules: {
@@ -2294,6 +2505,32 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value: 'UHC’s 2026 commercial administrative guide says standard requests take "up to 15 calendar days" and expedited "72 hours", and asks for requests "at least 15 calendar days in advance, if possible, but must be submitted at least 5 business days before the planned service date"; ABA itself is authorized by Optum Behavioral Health, whose network manual publishes no prospective decision clock (retrospective requests are decided within 30 calendar days). So the governing clock depends on funding. For a fully insured plan issued in Arizona, A.R.S. § 20-3404 governs: urgent requests "not later than five days after the receipt of all necessary information", non-urgent "not later than fourteen days after receipt of all necessary information", with the same five/fourteen days again after the provider completes an incomplete request — and "A prior authorization request is deemed granted if a health care services plan or its utilization review agent fails to comply with the deadlines." A granted authorization cannot be rescinded after services are rendered in good faith, absent fraud. A self-funded employer plan sits outside state law and follows ERISA: a non-urgent pre-service decision "not later than 15 days after receipt of the claim by the plan", extendable once by up to 15 days; an urgent one within 72 hours; the clock starts when the request is filed, whether or not it is complete; and an urgent request to extend an approved course is decided within 24 hours if made "at least 24 hours prior to the expiration" of the current authorization.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'UnitedHealthcare — 2026 Care Provider Administrative Guide (Commercial, eff. 4/1/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Behavioral Health — National Network Manual (eff. 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'A.R.S. § 20-3404 — prior authorization request deadlines (deemed granted if missed)', url: 'https://www.azleg.gov/ars/20/03404.htm' },
+          { title: '29 CFR 2560.503-1(f) — ERISA claims procedure: group health plan decision timeframes', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'At benefits verification, ask whether the plan is fully insured (a policy issued in the state) or a self-funded employer (ERISA) plan — that decides which clock applies — then ask the carrier’s behavioral health precert line its expected ABA turnaround and how early it wants the reauth.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value: 'Arizona’s COB rule for group plans (A.A.C. R20-6-214) sets the order: the plan covering the person other than as a dependent pays first; for a dependent child, "The plan of a parent whose birthday occurs earlier in a calendar year shall cover a dependent child before" the other parent’s plan (month and day only); for separated or divorced parents, the custodial parent’s plan, then the custodial parent’s spouse’s, then the non-custodial parent’s, unless a court decree the plan knows of says otherwise. Self-funded plans follow their own plan document. UHC says "COB is administered according to the member\'s benefit plan and in accordance with law"; Optum’s network manual tells providers to determine other coverage, "bill the primary insurance carrier first, then notify Optum of your findings," and says it applies industry-standard COB rules and state law. Government coverage sorts itself by federal rule: a commercial plan pays before TRICARE, which is secondary to every other health plan but "In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer"; CHAMPVA "is the last payer to OHI"; and Medicaid pays after all of them (42 CFR 433.139), so a child with commercial plus Medicaid needs this plan’s authorization and EOB before Medicaid will pay.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ariz. Admin. Code R20-6-214 — coordination of benefits, order of benefit determination (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R20-6-214' },
+          { title: 'UnitedHealthcare — 2026 Care Provider Administrative Guide (Commercial, eff. 4/1/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Behavioral Health — National Network Manual (eff. 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (secondary to other plans, primary to Medicaid)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276 — CHAMPVA is the last payer to other health insurance', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+          { title: '42 CFR 433.139 — payment of claims involving third-party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+        ],
+        verifyVia: 'Collect both parents’ plans, dates of birth, and any custody decree at intake; confirm primary/secondary with each carrier’s COB unit (and whether the plan is self-funded) before the first claim.',
         blocker: 'per-case',
       },
     },

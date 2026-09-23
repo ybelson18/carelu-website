@@ -218,6 +218,26 @@ export const missouriPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'MO HealthNet Behavioral Health Services Manual, \u00a71.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' }, { title: 'MHD Applied Behavioral Analysis fee schedule (official download portal)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/DLFiles.aspx' }],
       },
+      authTurnaround: {
+        value:
+          'MO HealthNet decides ABA precertification itself (fee-for-service, faxed form 2575-045), and neither the Behavioral Health Services Manual nor the General Sections Manual publishes a decision timeframe. The federal fee-for-service floor therefore governs: since January 1, 2026 the state agency must decide a standard prior-authorization request "in no case later than 7 calendar days after receiving the request," extendable by up to 14 calendar days when the provider or participant asks or the agency needs more information, and an expedited request "in no case later than 72 hours after receiving the request." The clock starts on receipt, so send the complete package the ABA section lists with the form. Approvals come back by fax: "Providers will receive a faxed response indicating the number of hours allowed, as well as precertification start and end dates." ABA intervention is precertified "for a period of up to six (6) months from the start date," and nothing is backdated: "If services are initiated before the approval date on the Prior Authorization (PA) Request or after the authorization deadline, payment will not be made." Reauthorization lead time: "For services to continue after the expiration date of an existing PA Request, a new PA Request must be completed and submitted prior to the end of the current PA." No fixed number of days ahead is published.',
+        status: 'verified',
+        cites: [
+          { title: '42 CFR 440.230(e) — State Medicaid agency prior-authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-B/section-440.230' },
+          { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
+          { title: 'MO HealthNet General Sections Provider Manual, §8.2 Prior Authorization Guidelines (March 2026)', url: 'https://dss.mo.gov/sites/mydss/files/media/file/2026/03/General-Sections-Provider-Manual.docx' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'MO HealthNet pays last. "MHD does not and should not pay a claim for medical expenses until the provider submits documentation that all available TPRs have considered the claim for payment." Bill the child\'s commercial plan (or TRICARE, CHAMPVA, a non-custodial parent\'s court-ordered plan) first; MO HealthNet then pays only "the difference between the MHD allowable and the TPR benefit amount." If the commercial plan denies, attach a "legitimate denial" — an EOB stating the service is not payable "for reasons other than failure to meet claim filing requirements." MHD will not pay behind an administrative denial: "TPR\'s claim filing instructions were not followed" or "Any other payment precondition was not met," so get the commercial plan\'s own prior auth and network status right. An out-of-network commercial provider is paid only if that plan "has paid primary or there is a legitimate denial." Get the MO HealthNet precert too: the ABA rule has no other-insurance exception ("All ABA services (except for school-based ABA services included in an IEP) require precertification"), and the same manual states for behavioral-health precert that "Precertification is required when third party insurance coverage exists." The TPL bypass list (pay first, recover later) covers claims "Related to preventative pediatric care," personal care and ID/DD waiver services; ABA is not on it. Difficulty getting a primary EOB does not extend MO HealthNet\'s 12-month filing limit.',
+        status: 'verified',
+        cites: [
+          { title: 'MO HealthNet General Sections Provider Manual, §5 Third Party Liability (March 2026)', url: 'https://dss.mo.gov/sites/mydss/files/media/file/2026/03/General-Sections-Provider-Manual.docx' },
+          { title: 'MO HealthNet Behavioral Health Services Manual, §1.5 and §1.16 (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+        ],
+      },
     },
     faq: [
       { q: 'Does MO HealthNet cover ABA therapy?', a: 'Yes — for participants under 21, with precertification. The standard benefit requires an ASD diagnosis from a licensed physician or psychologist; under EPSDT/HCY, ABA is also covered for other diagnoses when medically necessary.' },
@@ -414,6 +434,31 @@ export const missouriPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
       },
+      authTurnaround: {
+        value:
+          'Aetna publishes no commercial decision clock of its own: ABA "services require prior authorization. To get ABA services precertified, call the number on the member\'s Aetna ID card," and the manual sets no reauthorization lead time (none in the ABA Medical Necessity Guide or the ABA precert form either). The legal ceiling depends on funding. Missouri fully insured plans are bound by RSMo 376.1363: a carrier "shall make the determination within thirty-six hours, which shall include one working day, of obtaining all necessary information," with an approval phoned or sent electronically to the provider within 24 hours; concurrent review (continuing an approved course) is decided "within one working day of obtaining all necessary information." The clock starts when the file is complete, not when the form lands. Self-funded ERISA plans are outside state law and follow 29 CFR 2560.503-1: a pre-service decision "not later than 15 days after receipt of the claim" (one 15-day extension), 72 hours for urgent care, and an urgent extension request decided within 24 hours if made at least 24 hours before the approval expires. Aetna\'s Missouri supplement adds the peer-to-peer window for fully insured members: request "within 14 calendar days of the denial letter date"; response "within one 24-hour working day of the request."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Provider Manual — State Supplement (Missouri)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/ProviderManual-StateSpplmt.pdf' },
+          { title: 'RSMo 376.1363 — Utilization review decisions, procedures', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1363' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Aetna precertification (number on the member ID card): ask whether the plan is fully insured or self-funded (which sets the legal clock) and how far before expiry Aetna wants the ABA reauthorization — Aetna publishes no lead time.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Aetna: "We coordinate benefits as allowed by state or federal law following the National Associations of Insurance Commissioners (NAIC) guidelines. If there is no applicable law, then we coordinate according to the member\'s plan" — the manual\'s order-of-benefits list includes the birthday rule for children whose parents are not separated or divorced. Missouri\'s COB rule (20 CSR 400-2.030) governs fully insured group plans: when parents are not separated or divorced, "The benefits of the plan of the parent whose birthday falls earlier in a year are determined before those of the plan of the parent whose birthday falls later in that year" (same birthday: the plan that covered the parent longer); for divorced or separated parents a court decree naming the responsible parent controls. Self-funded plans follow their plan document instead, and Aetna notes many use "Maintenance of Benefits (MOB)" rather than the "100% Allowable" method most state laws require, so a secondary payment can be smaller. If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: '20 CSR 400-2.030 — Missouri Group Coordination of Benefits', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/20csr/20c400-2.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Missouri?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Missouri\'s mandate (RSMo § 376.1224) for fully-insured plans. Self-funded private employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -591,6 +636,31 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'The most permissive position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model \u2014 in person, telehealth or hybrid \u2014 chosen on the individual\'s needs. Missouri adds nothing for a commercial plan; its telemedicine regulation governs MO HealthNet.',
         status: 'verified',
         cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'Cigna (Evernorth Behavioral Health) makes "coverage determinations in accordance with the time frames required under applicable law," and warns: "You must supply all information requested within the time frames specified … Failure to provide information within the time frames requested may result in nonpayment." ABA requests go to the Autism Utilization Management team. Lead time is published: "For ABA, we encourage providers to request authorizations up to 30 days in advance of or two weeks after the start date of service. A delay in request may result in a retrospective review and could delay the determination for up to 30 days" — so file each reauthorization up to 30 days before the current one ends. Missouri fully insured plans are bound by RSMo 376.1363: a carrier "shall make the determination within thirty-six hours, which shall include one working day, of obtaining all necessary information," with an approval phoned or sent electronically to the provider within 24 hours; concurrent review (continuing an approved course) is decided "within one working day of obtaining all necessary information." The clock starts when the file is complete, not when the form lands. Self-funded ERISA plans are outside state law and follow 29 CFR 2560.503-1: a pre-service decision "not later than 15 days after receipt of the claim" (one 15-day extension), 72 hours for urgent care, and an urgent extension request decided within 24 hours if made at least 24 hours before the approval expires.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'RSMo 376.1363 — Utilization review decisions, procedures', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1363' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Evernorth Behavioral Health / Cigna Autism Care Coordinator team, 877.279.7603: confirm whether the plan is fully insured or self-funded, which sets the legal decision clock.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Evernorth follows the NAIC order "subject to applicable law and the terms of the benefit plan": "The plan of the parent whose birthday falls earlier in the calendar year is primary … Only the month and day of birth are relevant" (same birthday: the longer-running plan); a court decree controls for divorced or separated parents, and with no decree the order is custodial parent, custodial parent\'s spouse, noncustodial parent, noncustodial parent\'s spouse. Missouri\'s COB rule (20 CSR 400-2.030) governs fully insured group plans: when parents are not separated or divorced, "The benefits of the plan of the parent whose birthday falls earlier in a year are determined before those of the plan of the parent whose birthday falls later in that year" (same birthday: the plan that covered the parent longer); for divorced or separated parents a court decree naming the responsible parent controls. When Cigna is secondary, bill the primary first, then send the claim "along with a copy of the primary payer\'s EOP" (not needed if HIPAA-compliant COB data goes electronically to payer ID 62308). If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: '20 CSR 400-2.030 — Missouri Group Coordination of Benefits', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/20csr/20c400-2.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+        ],
       },
     },
     faq: [
@@ -788,6 +858,33 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'Gated on the provider, not just the code. Tele-supervision and virtual family training require the provider to be an approved Optum virtual-visits provider with a completed attestation on Provider Express, and the authorization itself must note virtual delivery. Optum frames telehealth as a supplement to in-person care rather than a replacement. Missouri\'s Medicaid telemedicine rule does not reach a commercial UnitedHealthcare plan.',
         status: 'verified',
         cites: [{ title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'UnitedHealthcare publishes its own commercial clock: "Standard requests: up to 15 calendar days"; "Expedited requests: 72 hours"; "We may extend this time if we need additional information." Submit "at least 15 calendar days in advance, if possible, but … at least 5 business days before the planned service date." ABA requests route to Optum (Provider Express, AutismABA), where "All services require prior approval"; Optum\'s ABA FAQ says to request a continuation "no more than 30 days prior to the current approvals on file expiring" (that FAQ dates from October 2021). Missouri fully insured plans are bound by RSMo 376.1363: a carrier "shall make the determination within thirty-six hours, which shall include one working day, of obtaining all necessary information," with an approval phoned or sent electronically to the provider within 24 hours; concurrent review (continuing an approved course) is decided "within one working day of obtaining all necessary information." The clock starts when the file is complete, not when the form lands. Self-funded ERISA plans are outside state law and follow 29 CFR 2560.503-1: a pre-service decision "not later than 15 days after receipt of the claim" (one 15-day extension), 72 hours for urgent care, and an urgent extension request decided within 24 hours if made at least 24 hours before the approval expires. Where state law is stricter than UHC\'s 15 days, the law wins for fully insured members.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Ch. 7 and Ch. 10', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Autism/ABA FAQ (BH3632, October 2021)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: 'RSMo 376.1363 — Utilization review decisions, procedures', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1363' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Optum Behavioral Health (number on the member ID card): confirm whether the plan is fully insured or self-funded, which sets whether state law or UHC\'s 15-day ceiling governs.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'UnitedHealthcare: "COB is administered according to the member\'s benefit plan and in accordance with law. We accept secondary claims electronically," and "If COB caused a delay, you have 90 days from the date of the primary carrier Explanation of Benefits to submit." For ABA through Optum: "bill the primary insurance carrier first, then notify Optum of your findings"; Optum processes "using industry-wide coordination of benefits (COB) standards and in accordance with benefit contracts and applicable state laws." Missouri\'s COB rule (20 CSR 400-2.030) governs fully insured group plans: when parents are not separated or divorced, "The benefits of the plan of the parent whose birthday falls earlier in a year are determined before those of the plan of the parent whose birthday falls later in that year" (same birthday: the plan that covered the parent longer); for divorced or separated parents a court decree naming the responsible parent controls. Self-funded plans follow their plan document. If another payer needs a UHC denial to pay, Optum\'s FAQ says to "Call the number on the back of the member\'s insurance card to request a denial." If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Ch. 7 and Ch. 10', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum Autism/ABA FAQ (BH3632, October 2021)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: '20 CSR 400-2.030 — Missouri Group Coordination of Benefits', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/20csr/20c400-2.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+        ],
       },
     },
     faq: [
@@ -1034,6 +1131,31 @@ export const missouriPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Anthem ABA Provider Resource Guide \u2014 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
         verifyVia: 'Anthem\'s Virtual Visits reimbursement policy and the Missouri allowed-virtual-services list, or Anthem provider services via Availity Essentials.',
         blocker: 'document',
+      },
+      authTurnaround: {
+        value:
+          'Anthem publishes no number of its own: "UM review timeframes follow Federal, State, and accreditation requirements as applicable to the review," and providers "shall make best efforts to supply requested information within twenty-four (24) hours of request." No ABA reauthorization lead time is published; the ASD treatment-plan form says only that the "Treatment plan should be dated within 30 days of start date." Missouri fully insured plans are bound by RSMo 376.1363: a carrier "shall make the determination within thirty-six hours, which shall include one working day, of obtaining all necessary information," with an approval phoned or sent electronically to the provider within 24 hours; concurrent review (continuing an approved course) is decided "within one working day of obtaining all necessary information." The clock starts when the file is complete, not when the form lands. Self-funded ERISA plans are outside state law and follow 29 CFR 2560.503-1: a pre-service decision "not later than 15 days after receipt of the claim" (one 15-day extension), 72 hours for urgent care, and an urgent extension request decided within 24 hours if made at least 24 hours before the approval expires.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Anthem Missouri Provider Manual (effective January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_00010.pdf' },
+          { title: 'Anthem ASD Treatment Plan Request Form', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+          { title: 'RSMo 376.1363 — Utilization review decisions, procedures', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1363' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Anthem / Carelon behavioral health UM (number on the member ID card): confirm fully insured vs. self-funded, and how far before expiry Anthem wants the ABA reauthorization — no lead time is published.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Anthem\'s Missouri manual covers the mechanics, not the order: when Anthem is secondary, its payment "plus the amounts owed by all other sources, including the Member, shall add up to one hundred percent (100%) of the Plan rate"; "Include Explanation of Benefit (EOB) from primary insurance carrier with Coordination of Benefits (COB) Claims submitted for secondary payment," matched to each service line and charge, with CMS-1500 fields 9–9d completed. The order of benefits comes from state law for fully insured plans. Missouri\'s COB rule (20 CSR 400-2.030) governs fully insured group plans: when parents are not separated or divorced, "The benefits of the plan of the parent whose birthday falls earlier in a year are determined before those of the plan of the parent whose birthday falls later in that year" (same birthday: the plan that covered the parent longer); for divorced or separated parents a court decree naming the responsible parent controls. Self-funded plans follow their plan document. If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem Missouri Provider Manual (effective January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_00010.pdf' },
+          { title: '20 CSR 400-2.030 — Missouri Group Coordination of Benefits', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/20csr/20c400-2.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+        ],
       },
     },
     faq: [

@@ -191,6 +191,29 @@ export const nationalPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
       },
+      authTurnaround: {
+        value:
+          'No national number: Aetna\'s provider manual publishes no decision clock for ABA precertification, so the deadline comes from the law that governs the plan. Self-funded employer plans (ERISA): a pre-service decision "not later than 15 days after receipt of the claim," extendable once by 15 days, and 72 hours for urgent care. Fully insured plans follow the state\'s utilization-review law, which is often tighter — Aetna\'s own state supplement shows Texas at "3 calendar days from receipt of a complete request." Reauthorization lead time is likewise a state-law and plan question; capture the authorization end date and file the continued-service request well before it.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Provider manual State Supplement, Texas section (8705750-01-01, 7/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/ProviderManual-StateSpplmt.pdf' },
+          { title: '29 CFR § 2560.503-1(f)(2) — ERISA group health plan claim decision deadlines', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification: ask whether the plan is fully insured (state UR deadlines) or self-funded (ERISA deadlines), and ask Aetna precertification how early a reauthorization may be submitted.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Aetna coordinates "as allowed by state or federal law following the National Associations of Insurance Commissioners (NAIC) guidelines. If there is no applicable law, then we coordinate according to the member\'s plan," and lists the birthday rule among the order-of-benefit rules it applies: for a child whose parents are married or living together, the plan of the parent whose birthday falls earlier in the year is primary; separated or divorced parents follow the custodial-parent rule unless a court order assigns coverage. Secondary payment is either the standard 100%-allowable method or maintenance of benefits, "a method used by many self-funded plans" under which Aetna pays nothing when the primary\'s benefit equals or exceeds Aetna\'s. Aetna pays ahead of Medicaid (payer of last resort by federal law — the Medicaid program may still require its own PA), TRICARE (secondary to other health insurance by law) and CHAMPVA (pays after other health insurance).',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Aetna cover ABA therapy?', a: 'Yes — for autism spectrum disorder (ICD-10 F84.0–F84.9) under clinical policy CPB 0554, with precertification. Aetna considers ABA experimental for non-ASD indications.' },
@@ -238,7 +261,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { label: 'Covers ABA?', value: 'Yes — ASD only (Rett syndrome excluded)' },
       { label: 'Assessment PA', value: 'None for 97151, 97152, 0362T (with ASD dx + licensed/BCBA provider)' },
       { label: 'Treatment PA', value: 'Required — assessment + plan + PA form' },
-      { label: 'Submission window', value: 'Up to 30 days before or within 2 weeks after start' },
+      { label: 'Submission window', value: 'Encouraged: up to 30 days before or within 2 weeks after start; retrospective only after 90+ days (EN0499)' },
       { label: 'Telehealth', value: '"All ABA CPT codes are covered telehealth services"' },
       { label: 'Policy', value: 'EN0499 (eff. 5/15/2026) + autism resource guide' },
       { label: 'Assessment recency', value: 'Standardized assessment within 60 days of treatment start' },
@@ -253,9 +276,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Treatment authorization',
-        cites: [{ title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        cites: [{ title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
         body: [
-          'The treatment PA package is the completed assessment plus treatment plan with Cigna\'s ABA PA form, submitted up to 30 days before or within two weeks after the start of service (later submissions trigger retrospective review). Initiation requires a standardized, validated instrument — current edition, e.g., Vineland-3 — administered within 60 days before treatment start, with deficits mapped to DSM-5-TR ASD domains and to the treatment plan\'s goals.',
+          'The treatment PA package is the completed assessment plus treatment plan with Cigna\'s ABA PA form, which Cigna\'s autism resource guide encourages providers to submit up to 30 days before or within two weeks after the start of service ("A delay in request may result in a retrospective review"). EN0499 (eff. 5/15/2026) sets the actual retrospective trigger: "A retrospective authorization request for ABA is any request made when more than 90 days have passed since the start date of the requested authorization, or any time after the patient has discharged." Initiation requires a standardized, validated instrument — current edition, e.g., Vineland-3 — administered within 60 days before treatment start, with deficits mapped to DSM-5-TR ASD domains and to the treatment plan\'s goals.',
         ],
         list: [
           { title: 'Treatment-plan bar', desc: 'Measurable goals with operational definitions and mastery criteria; dated baseline data per setting; caregiver-training goals with their own baselines and data plans; a named, credentialed supervisor; and defined discharge criteria with a fading plan.' },
@@ -362,7 +385,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'No referral or physician order is required by EN0499, and \u2014 the part that makes Cigna the friendliest front door in this directory \u2014 no prior authorization is required on assessment codes 97151, 97152 and 0362T when there is an autism diagnosis on file and the provider is independently licensed or a BCBA. Treatment is the gated step: the completed assessment plus a treatment plan on Cigna\'s ABA PA form, submitted up to 30 days before or within two weeks after the start of service, with later submissions triggering retrospective review.',
+          'No referral or physician order is required by EN0499, and \u2014 the part that makes Cigna the friendliest front door in this directory \u2014 no prior authorization is required on assessment codes 97151, 97152 and 0362T when there is an autism diagnosis on file and the provider is independently licensed or a BCBA. Treatment is the gated step: the completed assessment plus a treatment plan on Cigna\'s ABA PA form, which Cigna\'s autism resource guide encourages providers to submit up to 30 days before or within two weeks after the start of service. The retrospective line is EN0499\'s, not that window: a request becomes retrospective "when more than 90 days have passed since the start date of the requested authorization, or any time after the patient has discharged."',
         status: 'verified',
         cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
@@ -371,6 +394,30 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'The most permissive published position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model \u2014 in person, telehealth or hybrid \u2014 chosen on the individual\'s needs rather than by code. State Medicaid telehealth restrictions do not reach commercial Cigna business.',
         status: 'verified',
         cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'Cigna/Evernorth publishes no clock of its own: "We (or our designees) make coverage determinations in accordance with the time frames required under applicable law." For self-funded employer plans that is the ERISA claims rule — a pre-service decision within 15 days (one 15-day extension) and 72 hours for urgent care; fully insured plans follow the state\'s utilization-review law. What Cigna does publish on timing is encouragement, not a rule: its autism resource guide says "we encourage providers to request authorizations up to 30 days in advance of or two weeks after the start date of service. A delay in request may result in a retrospective review and could delay the determination for up to 30 days." EN0499 (eff. 5/15/2026) sets the actual retrospective trigger: "A retrospective authorization request for ABA is any request made when more than 90 days have passed since the start date of the requested authorization, or any time after the patient has discharged."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (March 2026) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: '29 CFR § 2560.503-1(f)(2) — ERISA group health plan claim decision deadlines', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification: fully insured (state UR deadlines) or self-funded/ASO (ERISA)? Confirm the reauthorization window with the Cigna Autism Care Coordinator team (877-279-7603).',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Evernorth follows the NAIC order-of-benefit rules "subject to applicable law and the terms of the benefit plan." Dependent child of married parents living together: the "birthday rule" — "The plan of the parent whose birthday falls earlier in the calendar year is primary" (month and day only; same birthday, the longer-running plan). Divorced or separated parents: a court decree first, otherwise custodial parent, custodial parent\'s spouse, noncustodial parent, noncustodial parent\'s spouse. When Cigna is secondary, bill the primary first and submit to Cigna with the primary\'s explanation of payment; the 90-day filing limit runs from the primary\'s processing date. Cigna pays ahead of Medicaid (payer of last resort by federal law — the Medicaid program may still require its own PA), TRICARE (secondary to other health insurance by law) and CHAMPVA (pays after other health insurance).',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (March 2026) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
       },
     },
     faq: [
@@ -552,6 +599,33 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Gated on the provider, not just the code. Tele-supervision and virtual family training require the provider to be an approved Optum virtual-visits provider with a completed attestation on Provider Express, and the authorization itself must note virtual delivery \u2014 so a plan built on remote hours has to be requested that way, not converted later. Optum frames telehealth as a supplement to in-person care rather than a replacement for it.',
         status: 'verified',
         cites: [{ title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'UnitedHealthcare\'s 2026 Administrative Guide says "We notify you of our coverage decision within the time required by law" and, for commercial prior authorization, lists "Standard requests: up to 15 calendar days" and "Expedited requests: 72 hours" (may be extended for missing information), asking for notification "at least 15 calendar days in advance, if possible," and at least 5 business days before the service. Fully insured plans can be tighter under state utilization-review law; self-funded plans follow ERISA (15 days pre-service, one 15-day extension; 72 hours urgent). For ABA the operative lead time is Optum\'s: request continued services "no more than 30 days prior to the current approvals on file expiring," with all clinical information ready at the call.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: '29 CFR § 2560.503-1(f)(2) — ERISA group health plan claim decision deadlines', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification: fully insured (state UR deadlines) or self-funded/ASO (ERISA)? Confirm the continued-service window with the Optum ABA line (behavioral health number on the member card).',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'UnitedHealthcare: "COB is administered according to the member\'s benefit plan and in accordance with law." Optum puts the check on the provider — "You are responsible for determining if the member has other insurance coverage. If so, you should bill the primary insurance carrier first" — and when Optum is secondary "you will be paid up to the Optum contracted rate," with no billing the family for the difference. Neither document states the dependent-child order itself, so the birthday rule applies through state COB law on fully insured plans and through the plan document on self-funded ones. UnitedHealthcare pays ahead of Medicaid (payer of last resort by federal law — the Medicaid program may still require its own PA), TRICARE (secondary to other health insurance by law) and CHAMPVA (pays after other health insurance). To bill a secondary plan when the member has no ABA benefit, Optum\'s FAQ says to call the number on the card to request a denial.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial, Exchange, MA) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Behavioral Health Solutions National Network Manual (eff. Oct. 1, 2025) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/netwManual/2024/NNMJune2024.pdf' },
+          { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+        verifyVia: 'Benefits verification: ask which COB order and secondary-payment method the plan document uses (standard vs maintenance of benefits), and whether the plan is fully insured or self-funded.',
+        blocker: 'per-case',
       },
     },
     faq: [

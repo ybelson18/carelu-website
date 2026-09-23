@@ -212,6 +212,18 @@ export const militaryPayers: Record<string, PayerConfig> = {
         verifyVia: 'Humana Military\u2019s ABA dedicated line at (866) 323-7155, or the authorization letter itself in provider self-service. TRICARE Operations Manual Ch. 18, Sec. 3 is the governing document, but manuals.health.mil blocks automated retrieval.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value:
+          'Every ABA service is pre-authorized, and there is no published expedited track. The DHA rule the contractor works under: it “shall complete 100% clinical necessity reviews for ABA services for all compliant TPs within five business days for authorization processing standards.” Humana Military authorizes the initial assessment “upon receipt of all necessary documents,” and missing clinical information “may result in delays, terminations of authorized care and denials.” The clock that matters is reauthorization: “Humana Military does not accept retrospective referrals and will not backdate late submissions. Providers can submit requests for ongoing treatment up to 60 days in advance. However, submitting requests less than 30 days before the current authorization expires may result in non-reimbursement.” Diary every six-month auth for day 60 before expiry, and never later than day 30.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Change 11, Jul 24, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-08-06/AsOf/tot5/c18s3.html' }, { title: 'Humana Military — ACD authorization process', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/authorizationprocess' }, { title: 'Humana Military — TRICARE Provider Handbook, East Region (2026)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/tricare-provider-handbook.pdf' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          '“TRICARE is the secondary payer to all health benefits and insurance plans, except for Medicaid, TRICARE supplements, the Indian Health Service and other programs or plans as identified by Defense Health Agency (DHA).” With Medicaid, TRICARE pays first (“In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer”). Otherwise “the provider must bill the OHI first,” then file with TRICARE showing the other plan’s payment. OHI normally waives TRICARE referrals and authorizations, but ABA is on Humana’s list of services that “require prior authorization even when OHI coverage exists” — get the ACD authorization too. TRICARE will not pay amounts the other plan denied “because the beneficiary failed to meet some other requirement of coverage,” so follow the primary plan’s PA rules as well.',
+        status: 'verified',
+        cites: [{ title: 'Humana Military — TRICARE Provider Handbook, East Region (2026)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/tricare-provider-handbook.pdf' }, { title: 'eCFR — 32 CFR 199.8, Double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Change 11, Jul 24, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-08-06/AsOf/tot5/c18s3.html' }],
+      },
     },
     faq: [
       { q: 'Does TRICARE East cover ABA therapy?', a: 'Yes, but not through the regular medical benefit. ABA is covered under the Comprehensive Autism Care Demonstration, a separate program currently authorized through Dec. 31, 2028 and administered in the East Region by Humana Military. Every ABA service requires prior authorization.' },
@@ -459,6 +471,18 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'The narrowest telehealth rule in this directory, and TriWest publishes it explicitly. Telehealth is POS 02, one code only \u2014 97156 \u2014 and only after the first six-month treatment period, with a GT or 95 modifier. Audio-only is not allowed under the ACD at all. 97151, 97153, 97155, 97157 and 97158 may not be delivered remotely. Plan the first six months as fully in-person and treat remote parent training as an earned option rather than a starting assumption.',
         status: 'verified',
         cites: [{ title: 'TriWest \u2014 Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          '“TriWest will complete reviews within five business days of receipt.” If TriWest asks for more documents and they are “not received within 10 calendar days, the request will be canceled until the information is received.” There is no fast lane: “There is no expedited review process, therefore, late submissions will not be reviewed and may cause a gap in authorization,” and “authorizations cannot be backdated.” Reauthorization for each six-month period is submitted through Availity as early as 60 calendar days and no later than 30 calendar days before the current authorization ends (the DHA rule: “as early as 60 calendar days in advance and no later than 30 calendar days in advance”).',
+        status: 'verified',
+        cites: [{ title: 'TriWest — TRICARE West Region Autism Care Demonstration Provider Guide', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'TriWest — TRICARE West Region ACD Quick Reference Guide (rev. April 6, 2026)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/tricare-west-region-autism-care-demonstration-qrg.pdf' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Change 11, Jul 24, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-08-06/AsOf/tot5/c18s3.html' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          '“For other beneficiary categories, TRICARE pays secondary to Medicare and other primary coverage. If TRICARE is the secondary payer, the provider is required to submit claims to the primary payer before billing TRICARE” (TRICARE is always primary for active-duty service members, and it pays before Medicaid, TRICARE supplements, IHS and state victims-of-crime programs). “If TRICARE receives claim before OHI processes it, the claim will be denied,” as will one without the other payer’s EOB or COB payment data; file with TRICARE within 90 calendar days of the OHI adjudication date. ABA is on TriWest’s list of services that “require a TRICARE pre-authorization regardless of OHI” — “Prior approval is needed for ABA services for all beneficiaries, even if they have other health insurance.” TRICARE will not pay what the other plan denied for failure to meet its requirements.',
+        status: 'verified',
+        cites: [{ title: 'TriWest — TRICARE Provider Handbook: Claims Processing and Billing Information', url: 'https://tricare.triwest.com/en/provider/tricare-provider-handbook/claims-processing-and-billing-information/' }, { title: 'TriWest — TRICARE West Region Autism Care Demonstration Provider Guide', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'eCFR — 32 CFR 199.8, Double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' }],
       },
     },
     faq: [
@@ -712,6 +736,20 @@ export const militaryPayers: Record<string, PayerConfig> = {
         verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value:
+          'CHAMPVA requires pre-authorization for “Applied behavior analysis (ABA) for treatment only (not the evaluation),” requested by phone, email or mail to the pre-authorization unit. Neither the CHAMPVA Guidebook nor the CHAMPVA regulation (38 CFR 17.273) states how long VA has to decide an ABA request, and no reauthorization lead time is published. One exception removes the clock entirely: when the child’s other insurance is primary and has authorized the service, CHAMPVA does not require its own pre-authorization.',
+        status: 'unverified',
+        cites: [{ title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' }, { title: 'eCFR — 38 CFR 17.273, Preauthorization', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/subject-group-ECFRd3f6f5d27d7b5ae/section-17.273' }],
+        verifyVia: 'The CHAMPVA Operational Policy Manual, Chapter 2 (Benefits), Section 18 Mental Health — ABA article on vha.cc.va.gov, or the CHAMPVA pre-authorization line (833-930-0816) — ask the decision turnaround and how far ahead to submit each renewal.',
+        blocker: 'document',
+      },
+      coordinationOfBenefits: {
+        value:
+          'CHAMPVA pays last: “CHAMPVA only pays first if you have one of four types of these other health insurance …: Medicaid; Indian Health Services; State Victims of Crime Compensation Program; CHAMPVA supplemental health insurance. If you have any other type of other health insurance, CHAMPVA will pay secondary.” File with the other plan first, then send CHAMPVA the claim with the other plan’s EOB and the provider’s itemized bill — “CHAMPVA benefits will generally not be paid until the claim has been filed with the OHI and the OHI has issued a final payment determination.” The practical upside: “When other health insurance has authorized a service listed under ‘Services that require pre-authorization’ … we do not require pre-authorization for that service.” The catch: “If other health insurance denies coverage because their rules for coverage were not followed or medical necessity was not established, we will also deny coverage.”',
+        status: 'verified',
+        cites: [{ title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' }, { title: 'eCFR — 38 CFR 17.276, Claim filing deadline (§17.276(d): CHAMPVA is the last payer to OHI)', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/section-17.276' }],
+      },
     },
     faq: [
       { q: 'Does CHAMPVA cover ABA therapy?', a: 'Yes. Applied behavior analysis appears in the CHAMPVA Guidebook as a covered behavioral health benefit, with pre-authorization required for treatment only, not for the evaluation.' },
@@ -930,6 +968,18 @@ export const militaryPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' }, { title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
         verifyVia: 'Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 request the current ACD-ABA training deck and the USFHP provider manual, and confirm which ABA codes the plan pays by telehealth.',
         blocker: 'document',
+      },
+      authTurnaround: {
+        value:
+          'Johns Hopkins USFHP states: “TRICARE requires authorization notification within two working days but not to exceed five working days following receipt of the request and all required information” — consistent with the DHA ACD rule that compliant ABA treatment plans be reviewed “within the five business days.” The required outcome measures must accompany “the initial and concurrent requests for authorization,” or authorizations may be delayed or denied. The manual sets no reauth lead time of its own; the DHA rule it cites (TRICARE Operations Manual 6010.59-M, Ch. 18) says a reauthorization “should be requested” as early as 60 calendar days and no later than 30 calendar days before the six-month authorization ends, and late submissions are not backdated.',
+        status: 'verified',
+        cites: [{ title: 'Johns Hopkins US Family Health Plan Provider Manual (2024)', url: 'https://www.hopkinsmedicine.org/-/media/johns-hopkins-health-plans/documents/usfhp/usfhp-provider-manual.pdf' }, { title: 'TRICARE Operations Manual 6010.59-M (2015 ed.), Ch. 18 Sec. 4 — Autism Care Demonstration (Change 139, Jun 10, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-06-10/AsOf/TO15/C18S4.html' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          '“If other health insurance coverage exists, plan coverage is available only as a secondary payor (except in cases involving Medicaid, Indian Health Services, and Veteran’s Administration) and only after a claim has been filed with the double coverage plan and a payment determination issued.” So bill the commercial plan first; COB claims are due “90 days from the date the primary insurance adjudicated the original claim.” The plan will not pay “amounts denied by the other health insurer because the claim was not filed in a timely manner or because the member failed to satisfy some other requirement,” and families may not waive the other coverage. Under the DHA ACD rule, “For Other Health Insurance (OHI), beneficiaries receiving ABA services must obtain a referral and prior authorization” — get the USFHP ABA authorization even when the other plan is primary.',
+        status: 'verified',
+        cites: [{ title: 'Johns Hopkins US Family Health Plan Provider Manual (2024)', url: 'https://www.hopkinsmedicine.org/-/media/johns-hopkins-health-plans/documents/usfhp/usfhp-provider-manual.pdf' }, { title: 'TRICARE Operations Manual 6010.59-M (2015 ed.), Ch. 18 Sec. 4 — Autism Care Demonstration (Change 139, Jun 10, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-06-10/AsOf/TO15/C18S4.html' }, { title: 'eCFR — 32 CFR 199.8, Double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' }],
       },
     },
     faq: [
@@ -1160,6 +1210,18 @@ export const militaryPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
         verifyVia: 'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask which ABA codes the plan pays by telehealth, under which modifiers, and whether the authorization must say so.',
         blocker: 'document',
+      },
+      authTurnaround: {
+        value:
+          'Martin’s Point publishes no USFHP-specific ABA decision clock (the 72-hour/7-day decision times on its site are for its Medicare Advantage plans), so the DHA ACD rule for USFHP governs: the plan completes clinical-necessity review of a compliant treatment plan “within the five business days for authorization processing standards.” Martin’s Point’s own lead times: “Reauthorizations: Submit at least 30 days before the authorization expires, with progress reports and updated outcome measures,” and prior authorization requests generally “should be submitted at least 14 calendar days prior to date of service.” The DHA rule lets reauths go in as early as 60 calendar days before expiry, and late submissions are not backdated.',
+        status: 'verified',
+        cites: [{ title: 'Martin’s Point — US Family Health Plan Training for ABA Providers (TRICARE ACD)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }, { title: 'Martin’s Point — Authorizations and Referrals', url: 'https://www.martinspoint.org/For-Providers/Tools/Authorizations-and-Referrals' }, { title: 'TRICARE Operations Manual 6010.59-M (2015 ed.), Ch. 18 Sec. 4 — Autism Care Demonstration (Change 139, Jun 10, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-06-10/AsOf/TO15/C18S4.html' }],
+      },
+      coordinationOfBenefits: {
+        value:
+          '“The US Family Health Plan is primary to the Medicaid program and secondary to all commercial health insurance plans such as Aetna, CIGNA, or Anthem. Federally sponsored health plans (e.g., Federal Blue Cross and Mail Handlers) are employee benefits and are primary to the US Family Health Plan.” Bill the commercial plan first, then submit to Martin’s Point with the primary EOB “within 120 calendar days from the remittance date of the primary payer’s payment or denial”; a claim without it is denied (“OHI must process claim first, resubmit with primary EOB”). Under the DHA ACD rule, “For Other Health Insurance (OHI), beneficiaries receiving ABA services must obtain a referral and prior authorization” — get the USFHP ABA authorization even when the commercial plan is primary.',
+        status: 'verified',
+        cites: [{ title: 'Martin’s Point Provider Manual — Claims (updated January 1, 2026)', url: 'https://www.martinspoint.org/For-Providers/Provider-Manual/Claims' }, { title: 'TRICARE Operations Manual 6010.59-M (2015 ed.), Ch. 18 Sec. 4 — Autism Care Demonstration (Change 139, Jun 10, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-06-10/AsOf/TO15/C18S4.html' }],
       },
     },
     faq: [

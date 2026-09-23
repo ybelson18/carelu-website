@@ -188,6 +188,28 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'HCPF — Telemedicine Provider Information (allowed procedure codes, POS rules)', url: 'https://hcpf.colorado.gov/telemedicine-provider-information' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Health First Colorado (Acentra, ColoradoPAR): since January 2026 the standard PAR turnaround is seven (7) calendar days and expedited PARs are decided within three (3) calendar days — "PARs submitted as Expedited: no pends or requests for information will be allowed," so the expedited file must be complete at submission. On standard PARs, pends for additional information were cut "from 10 business days to seven (7) calendar days," only one pend is allowed ("all information requested in the initial pend must be supplied, or the PAR will result in a technical denial"), and "All PARs, including pends, must be processed within 21 calendar days of initial submission." For renewals: PARs are approved "for up to a six (6)-month period," every PBT service (97151 assessment included) must be approved "prior to rendering the services," and assessment or progress notes must be no more than 60 days old when the PAR is submitted — so build the next PAR inside that 60-day window and before the current one ends.',
+        status: 'verified',
+        cites: [
+          { title: 'Health First Colorado Provider Bulletin B2600534 (Feb 2026) — Interoperability changes beginning January 2026', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Bulletin%200226_B2600534_0.pdf' },
+          { title: 'HCPF — Pediatric Behavioral Therapies billing manual', url: 'https://hcpf.colorado.gov/pbt-manual' },
+          { title: '42 CFR 440.230(e) — Medicaid FFS prior-authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-440.230' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Health First Colorado pays last: it "is called the payer of last resort because Federal regulations require that all available health insurance benefits be used before Health First Colorado considers payment," and "claims for members with health insurance resources are denied when the claim does not show insurance payment or denial information." Report the TPL payment or denial and the TPL EOB date on each claim (the EOB itself need not be attached every time); keep the commercial EOBs for seven years. A member with commercial managed-care coverage "must obtain MCO benefit services from the MCO" (the manual: "Health First Colorado claims for members who have commercial managed care coverage are denied"), so work inside the commercial plan\'s network and rules; and invalid primary denials ("No denial reason identified," "Duplicate claim," "Insufficient information for processing," "Claim in process") do not open the Medicaid claim. When a commercial benefit limit is exhausted, claims beyond it still go to the TPL first. The PAR is still needed: "Approval of a PAR does not guarantee Health First Colorado payment" and payment also requires "third party resources payment pursued" — the PBT manual gives no exemption from the PAR when Medicaid is secondary. Unreported coverage found later leads to retraction of paid claims. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'HCPF — General Provider Information Manual (Third-Party Liability / Coordination of Benefits)', url: 'https://hcpf.colorado.gov/gen-info-manual' },
+          { title: 'HCPF — Pediatric Behavioral Therapies billing manual', url: 'https://hcpf.colorado.gov/pbt-manual' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -409,6 +431,31 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           'Aetna provider services at the number on the member\'s ID card, and the plan\'s telehealth/virtual-care policy — confirm before scheduling remote 97155 or 97156.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured Colorado plans follow C.R.S. § 10-16-112.5: within five business days after receipt the carrier must say the request is "approved, denied, or incomplete" (naming the missing information), then decide within five business days after receiving it; urgent requests within "two business days but not longer than seventy-two hours." If the carrier misses those deadlines the request "is deemed granted" — but the provider must send any requested information within two business days of the notice or loses that protection. An approval "is valid for at least one hundred eighty days after the date of approval and continues for the duration of the authorized course of treatment." Self-funded (ERISA) plans follow the federal claims rule instead: pre-service decisions within 15 days of receipt (one 15-day extension), urgent within 72 hours. Aetna\'s office manual and ABA medical-necessity guide publish no ABA-specific decision clock.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'C.R.S. § 10-16-112.5 — Prior authorization for health-care services', url: 'https://colorado.public.law/statutes/crs_10-16-112.5' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification: fully insured Colorado policy (5-business-day clock, 180-day approvals, deemed-granted rule) vs. self-funded ERISA plan (15 days / 72 hours).',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child on two parents\' plans, Colorado\'s group coordination-of-benefits regulation (fully insured plans): parents married or living together — "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday → the plan that covered the parent longer); otherwise a court decree controls, and without one the order is custodial parent, custodial parent\'s spouse, non-custodial parent, then the non-custodial parent\'s spouse. Self-funded plans set their own order in the plan document. Aetna says it follows the NAIC order-of-benefit rules, "as allowed by state or federal law," including the birthday rule, and that many self-funded plans use maintenance of benefits. If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '3 CCR 702-4-6-2-6 — Rules for Coordination of Benefits (LII)', url: 'https://www.law.cornell.edu/regulations/colorado/3-CCR-702-4-6-2-6' },
+          { title: 'Aetna — Office manual for health care professionals (coordination of benefits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: 'HCPF — General Provider Information Manual (Third-Party Liability / Coordination of Benefits)', url: 'https://hcpf.colorado.gov/gen-info-manual' },
+        ],
+        verifyVia: 'Benefits verification with both plans: funding type, which is primary for the child, and whether the secondary plan requires its own authorization.',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -609,6 +656,31 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured Colorado plans follow C.R.S. § 10-16-112.5: within five business days after receipt the carrier must say the request is "approved, denied, or incomplete" (naming the missing information), then decide within five business days after receiving it; urgent requests within "two business days but not longer than seventy-two hours." If the carrier misses those deadlines the request "is deemed granted" — but the provider must send any requested information within two business days of the notice or loses that protection. An approval "is valid for at least one hundred eighty days after the date of approval and continues for the duration of the authorized course of treatment." Self-funded (ERISA) plans follow the federal claims rule instead: pre-service decisions within 15 days of receipt (one 15-day extension), urgent within 72 hours. Cigna\'s ABA policy (EN0499) sets no decision clock; continued-treatment requests need current data "collected within no more than 60 days prior to the start date of the continued treatment request."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'C.R.S. § 10-16-112.5 — Prior authorization for health-care services', url: 'https://colorado.public.law/statutes/crs_10-16-112.5' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+        verifyVia: 'Benefits verification: fully insured Colorado policy (5-business-day clock, 180-day approvals, deemed-granted rule) vs. self-funded ERISA plan (15 days / 72 hours).',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child on two parents\' plans, Colorado\'s group coordination-of-benefits regulation (fully insured plans): parents married or living together — "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday → the plan that covered the parent longer); otherwise a court decree controls, and without one the order is custodial parent, custodial parent\'s spouse, non-custodial parent, then the non-custodial parent\'s spouse. Self-funded plans set their own order in the plan document. Cigna\'s ABA documents publish no coordination-of-benefits rule of their own. If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '3 CCR 702-4-6-2-6 — Rules for Coordination of Benefits (LII)', url: 'https://www.law.cornell.edu/regulations/colorado/3-CCR-702-4-6-2-6' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: 'HCPF — General Provider Information Manual (Third-Party Liability / Coordination of Benefits)', url: 'https://hcpf.colorado.gov/gen-info-manual' },
+        ],
+        verifyVia: 'Benefits verification with both plans: funding type, which is primary for the child, and whether the secondary plan requires its own authorization.',
+        blocker: 'per-case',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -804,6 +876,33 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
         verifyVia:
           'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured Colorado plans follow C.R.S. § 10-16-112.5: within five business days after receipt the carrier must say the request is "approved, denied, or incomplete" (naming the missing information), then decide within five business days after receiving it; urgent requests within "two business days but not longer than seventy-two hours." If the carrier misses those deadlines the request "is deemed granted" — but the provider must send any requested information within two business days of the notice or loses that protection. An approval "is valid for at least one hundred eighty days after the date of approval and continues for the duration of the authorized course of treatment." Self-funded (ERISA) plans follow the federal claims rule instead: pre-service decisions within 15 days of receipt (one 15-day extension), urgent within 72 hours. UnitedHealthcare\'s commercial administrative guide states "Standard requests: up to 15 calendar days" and "Expedited requests: 72 hours," and asks for requests "at least 15 calendar days in advance, if possible," and at least 5 business days before the service — for a fully insured Colorado plan the state\'s shorter clock controls. ABA reviews run through Optum Behavioral Health.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'C.R.S. § 10-16-112.5 — Prior authorization for health-care services', url: 'https://colorado.public.law/statutes/crs_10-16-112.5' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+        verifyVia: 'Benefits verification: fully insured Colorado policy (5-business-day clock, 180-day approvals, deemed-granted rule) vs. self-funded ERISA plan (15 days / 72 hours).',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child on two parents\' plans, Colorado\'s group coordination-of-benefits regulation (fully insured plans): parents married or living together — "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday → the plan that covered the parent longer); otherwise a court decree controls, and without one the order is custodial parent, custodial parent\'s spouse, non-custodial parent, then the non-custodial parent\'s spouse. Self-funded plans set their own order in the plan document. UnitedHealthcare: "COB is administered according to the member\'s benefit plan and in accordance with law"; Optum: "You are responsible for determining if the member has other insurance coverage. If so, you should bill the primary insurance carrier first, then notify Optum of your findings." If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '3 CCR 702-4-6-2-6 — Rules for Coordination of Benefits (LII)', url: 'https://www.law.cornell.edu/regulations/colorado/3-CCR-702-4-6-2-6' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Behavioral Health — National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: 'HCPF — General Provider Information Manual (Third-Party Liability / Coordination of Benefits)', url: 'https://hcpf.colorado.gov/gen-info-manual' },
+        ],
+        verifyVia: 'Benefits verification with both plans: funding type, which is primary for the child, and whether the secondary plan requires its own authorization.',
         blocker: 'per-case',
       },
     },
@@ -1089,6 +1188,30 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           'Payable, with the code list held elsewhere. Anthem names two telehealth places of service for ABA in Colorado — "10 = Telehealth (member located in home while receiving services)" and "02 = Telehealth (member located outside of home while receiving services)" — each "subject to the member\'s coverage and reviews by the plan." Which codes are eligible is governed by Anthem\'s Virtual Visits reimbursement policy: "allowed codes may vary. Refer to the Allowed virtual services in addition to CPT Appendix P to obtain codes that are eligible for reimbursement in your state."',
         status: 'verified',
         cites: [{ title: 'Anthem ABA Provider Resource Guide — Colorado (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' }],
+      },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured Colorado plans follow C.R.S. § 10-16-112.5: within five business days after receipt the carrier must say the request is "approved, denied, or incomplete" (naming the missing information), then decide within five business days after receiving it; urgent requests within "two business days but not longer than seventy-two hours." If the carrier misses those deadlines the request "is deemed granted" — but the provider must send any requested information within two business days of the notice or loses that protection. An approval "is valid for at least one hundred eighty days after the date of approval and continues for the duration of the authorized course of treatment." Self-funded (ERISA) plans follow the federal claims rule instead: pre-service decisions within 15 days of receipt (one 15-day extension), urgent within 72 hours. Anthem\'s Colorado precertification list and ABA resource guide publish no separate decision clock or submission lead time.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'C.R.S. § 10-16-112.5 — Prior authorization for health-care services', url: 'https://colorado.public.law/statutes/crs_10-16-112.5' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification: fully insured Colorado policy (5-business-day clock, 180-day approvals, deemed-granted rule) vs. self-funded ERISA plan (15 days / 72 hours).',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child on two parents\' plans, Colorado\'s group coordination-of-benefits regulation (fully insured plans): parents married or living together — "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday → the plan that covered the parent longer); otherwise a court decree controls, and without one the order is custodial parent, custodial parent\'s spouse, non-custodial parent, then the non-custodial parent\'s spouse. Self-funded plans set their own order in the plan document. Anthem\'s Colorado ABA documents publish no coordination-of-benefits rule of their own. If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '3 CCR 702-4-6-2-6 — Rules for Coordination of Benefits (LII)', url: 'https://www.law.cornell.edu/regulations/colorado/3-CCR-702-4-6-2-6' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: 'HCPF — General Provider Information Manual (Third-Party Liability / Coordination of Benefits)', url: 'https://hcpf.colorado.gov/gen-info-manual' },
+        ],
+        verifyVia: 'Benefits verification with both plans: funding type, which is primary for the child, and whether the secondary plan requires its own authorization.',
+        blocker: 'per-case',
       },
     },
     faq: [

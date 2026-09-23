@@ -198,6 +198,32 @@ export const kansasPayers: Record<string, PayerConfig> = {
           'The KMAP Mental Health and Professional Fee-for-Service Provider Manuals named in Bulletin 26140 (portal.kmap-state-ks.us was unreachable at this review), or the member\'s MCO — Sunflower, UnitedHealthcare/Optum or Healthy Blue.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value:
+          'KanCare authorizes ABA (CCTS/IIS) only through the member\'s MCO, so the managed-care clock governs. Federal law caps a standard decision at 7 calendar days after the MCO receives the request, for rating periods starting on or after January 1, 2026. KanCare\'s rating periods run by calendar year, so the 7 days apply now; before 2026 the cap was 14. The MCO may extend by up to 14 more calendar days if the provider or family asks, or if it justifies needing more information. An expedited decision is due "no later than 72 hours after receipt of the request for service" when the standard clock could seriously jeopardize the child\'s health or ability to attain, maintain or regain maximum function. Sunflower and Healthy Blue print 7 days and 72 hours in their 2026 manuals. UnitedHealthcare\'s 2026 KanCare manual still prints a 14-day standard. Reauthorization runs at least every 6 months. How far ahead to file it is set by each MCO, not the state: Sunflower says request "at least five days prior" to service, and Healthy Blue accepts recertification requests up to 60 calendar days before expiry.',
+        status: 'verified',
+        cites: [
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+          { title: 'KanCare 3.0 cost proposal, RFP EVT0009267 (calendar-year rating period)', url: 'https://admin.ks.gov/media/cms/Healthy_Blue_KanCare_Cost_CCHPKS_add1b632ef81a.pdf' },
+          { title: 'Sunflower Health Plan Provider Manual (KDHE-approved Feb 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+          { title: 'Healthy Blue Kansas Medicaid Provider Manual (June 2026)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
+          { title: 'UnitedHealthcare Community Plan KanCare Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf' },
+        ],
+        verifyVia: 'The member\'s MCO for the reauthorization lead time it applies to ABA. The KMAP fee-for-service manuals on portal.kmap-state-ks.us could not be opened.',
+      },
+      coordinationOfBenefits: {
+        value:
+          'KanCare pays last. Any other coverage the child has (a parent\'s employer or marketplace plan, TRICARE, CHAMPVA) is billed first. Only the balance goes to the MCO, with the primary payer\'s EOB or remittance codes. Under 42 CFR 433.139(b), when other coverage is on file the claim is rejected back to the provider "for a determination of the amount of liability." The pay-and-chase exception covers preventive pediatric care: Healthy Blue names "preventive pediatric care, including KAN Be Healthy" and prenatal care, and Sunflower names "preventive and prenatal services." Treat ABA as bill-the-primary-first. TRICARE pays before Medicaid, because federal rules exclude Medicaid from TRICARE\'s double-coverage plans. Sunflower and Healthy Blue both deny the Medicaid balance when the primary denied for an administrative reason (no authorization, untimely filing), so follow the commercial plan\'s PA and network rules exactly. Sunflower spells out the practical step: if the primary denies ABA as non-covered or benefits exhausted, a Sunflower authorization is required, and it "encourage[s]" getting one up front for those denials.',
+        status: 'verified',
+        cites: [
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (Medicaid excepted)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: 'Sunflower Health Plan Provider Manual (KDHE-approved Feb 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+          { title: 'Healthy Blue Kansas Medicaid Provider Manual (June 2026)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
+          { title: 'UnitedHealthcare Community Plan KanCare Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf' },
+        ],
+        verifyVia: 'The KMAP General TPL Payment Provider Manual (portal.kmap-state-ks.us, unreachable) for state-level TPL billing detail.',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -406,6 +432,25 @@ export const kansasPayers: Record<string, PayerConfig> = {
           'Sunflower provider services and the Sunflower/Centene payment policies; the KMAP Mental Health Fee-for-Service Provider Manual was unreachable at this review.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value:
+          'Sunflower\'s 2026 manual: "For standard service authorizations, the decision and notification will be made within 7 calendar days from receipt of the request," extendable "by up to 14 additional calendar days" if the member or provider asks or Sunflower justifies needing more information. Urgent/expedited requests are decided "within 72 hours of the receipt of the request." They must come with a physician attestation of urgency and may be downgraded to routine. The clock runs from receipt, but missing clinicals "can result in a denial." The Autism Prior Authorization Request Form returns incomplete forms and says "Information older than 30 days will be considered outdated and will not be accepted for review." Timing guidance: request "at least five days prior to the scheduled service delivery date (keeping in mind a possible 7-day turnaround time)." Reauth is at least every 6 months, with an annual KAN Be Healthy recommendation.',
+        status: 'verified',
+        cites: [
+          { title: 'Sunflower Health Plan Provider Manual (KDHE-approved Feb 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+          { title: 'Sunflower Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Autism-Prior-Auth.pdf' },
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Sunflower is always the payer of last resort." Bill the other insurer first, then send Sunflower the balance with the primary EOB on paper, or line-level COB data on electronic claims. Tertiary claims go on paper with both EOBs. Pay-and-chase is limited to "preventive and prenatal services," so ABA is not included. When the primary pays, no Sunflower authorization is needed to coordinate. Sunflower will NOT pay the balance if the primary denied for "no authorization or lack of medical necessity, untimely filing and duplicate denial," so follow the commercial plan\'s PA rules. The practical rule: "If the primary insurer denies for non-administrative reasons, the provider would be required to obtain an authorization for any service Sunflower Health Plan would require an authorization for if we were the primary payer," and Sunflower encourages getting it up front for "Noncovered Service" and "Benefits Exhausted" denials. For ABA against a commercial plan with a cap or exclusion, get the Sunflower PA in parallel.',
+        status: 'verified',
+        cites: [
+          { title: 'Sunflower Health Plan Provider Manual (KDHE-approved Feb 27, 2026) — TPL + Appendix VI COB/TPL', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -613,6 +658,27 @@ export const kansasPayers: Record<string, PayerConfig> = {
           'Optum\'s Kansas ABA network team (contracting line 1-877-614-0484) and the Optum KanCare Provider Manual on Provider Express.',
         blocker: 'document',
       },
+      authTurnaround: {
+        value:
+          'ABA authorizations run through Optum, not the medical UM desk ("For behavioral health and substance use disorder authorizations, please contact Optum"). The legal ceiling is the federal managed-care rule: a standard decision within 7 calendar days of receipt for rating periods starting on or after January 1, 2026 (KanCare runs calendar-year rating periods), plus up to 14 extra calendar days. Expedited decisions are due within 72 hours. UnitedHealthcare\'s own 2026 KanCare manual has not caught up: its table still reads "Within 5 working days of receipt of medical record information required but no longer 14 calendar days of receipt" for non-urgent pre-service and "Within 3 days of request receipt" for urgent. Chapter 12 also still says "no later than 14 calendar days." Hold the plan to 7 days. Formal treatment-plan renewal is at minimum every 6 months with monthly progress review. Neither the manual nor Optum\'s KanCare ABA training publishes a reauthorization lead time.',
+        status: 'verified',
+        cites: [
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+          { title: 'UnitedHealthcare Community Plan KanCare Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf' },
+          { title: 'KanCare 3.0 cost proposal, RFP EVT0009267 (calendar-year rating period)', url: 'https://admin.ks.gov/media/cms/Healthy_Blue_KanCare_Cost_CCHPKS_add1b632ef81a.pdf' },
+        ],
+        verifyVia: 'Optum KanCare ABA line (1-877-614-0484 / Provider Express) for the reauthorization lead time; neither the 2026 manual nor the KanCare ABA training (BH00698_10292024) states one.',
+      },
+      coordinationOfBenefits: {
+        value:
+          '"KanCare is the payer of last resort and is to be billed only after payment has been sought from primary insurance carriers (including Medicare)." If the member has other coverage, "the other insurance is the primary carrier. You should bill the primary carrier first and, upon payment or denial, submit the remaining claim." Send the primary\'s EOB with a paper claim, or the TPL data on EDI/KMAP claims. The only codes that skip the primary are a short state list of HCBS and waiver codes, and no ABA code (9715x) is on it. The plan says it "follows KMAP Third Party Liability (TPL) policy. All KMAP TPL billing requirements still apply." The manual does not say whether an Optum ABA authorization is still required when UnitedHealthcare is secondary.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan KanCare Care Provider Manual (2026) — Ch. 11 billing', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+        ],
+        verifyVia: 'Optum KanCare ABA (1-877-614-0484): whether an ABA authorization is required when a commercial plan is primary. The KMAP General TPL Payment Provider Manual the plan defers to is on portal.kmap-state-ks.us, which refused connection.',
+      },
     },
     deliveryRules: {
       supervision: {
@@ -813,6 +879,25 @@ export const kansasPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Healthy Blue\'s ABA line at 877-563-9347, or Availity Essentials; the KMAP Mental Health Fee-for-Service Provider Manual was unreachable at this review.',
         blocker: 'document',
+      },
+      authTurnaround: {
+        value:
+          'Healthy Blue\'s June 2026 manual: non-urgent pre-service requests are decided "Within seven calendar days following receipt of request." Urgent (expedited) requests are decided "as expeditiously as the member\'s health condition requires, but no later than 72 hours (three calendar days) after receipt of request." Urgent concurrent reviews are also 72 hours. Requests marked urgent that don\'t meet the criteria are reprocessed as non-urgent. If documentation is incomplete, the plan asks for more and, absent a reply, "the medical director will make a determination based on the information previously received." ABA is on the precertification list. For renewals, "A physician or health care provider can submit a medical prior authorization recertification request at least 60 calendar days prior to the expiration of the current authorization." File the ABA reauth well ahead of expiry.',
+        status: 'verified',
+        cites: [
+          { title: 'Healthy Blue Kansas Medicaid Provider Manual (June 2026)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
+          { title: '42 CFR 438.210(d) — MCO authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Medicaid acts as a secondary payer to all Third Parties, except for Special Health Services, Vocational Rehabilitation, Indian Health Services, and Crime Victim\'s Compensation Funds." Per 42 CFR 433.139(b), Healthy Blue rejects a claim when other coverage is on file, so "the provider must attempt to bill the other insurance prior to filing the claim." Pay-and-chase covers only "preventive pediatric care, including KAN Be Healthy" and prenatal care. "The provider must follow the rules of the primary insurance plan (such as obtaining prior authorization and filing within the primary insurance plan\'s timely filing period), or the related Healthy Blue claim will be denied." Put the primary\'s adjustment and remark codes on the claim, and bill only the remaining patient liability, never the contractual write-off. If the commercial plan excludes ABA, a blanket denial letter on the carrier\'s letterhead can stand in for per-claim denials. The manual does not say whether Healthy Blue\'s own ABA precert is required when it is secondary.',
+        status: 'verified',
+        cites: [
+          { title: 'Healthy Blue Kansas Medicaid Provider Manual (June 2026) — COB and TPL', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+        ],
+        verifyVia: 'Healthy Blue Provider Services 833-838-2595: whether ABA precertification is required when a commercial plan is primary.',
       },
     },
     deliveryRules: {
@@ -1036,6 +1121,28 @@ export const kansasPayers: Record<string, PayerConfig> = {
           'Aetna provider services at the number on the member\'s ID card, and the plan\'s telehealth/virtual-care policy — confirm before scheduling remote 97155 or 97156.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Aetna publishes no commercial decision clock of its own: ABA "services require prior authorization. To get ABA services precertified, call the number on the member\'s Aetna ID card," and the manual sets no reauthorization lead time (none in the ABA Medical Necessity Guide or the ABA precert form either). The legal ceiling depends on funding. Kansas fully insured plans are held to the Insurance Department\'s utilization-management standards adopted by K.A.R. 40-4-41: prospective (pre-service) review "Within 15 calendar days of the receipt of request" (one 15-calendar-day extension, with at least 45 days to supply missing information) and "no later than 72 hours" for urgent care; an urgent request to extend a current course of treatment is decided within 24 hours if received "at least 24 hours before the expiration of the currently certified period." Self-funded ERISA plans land on the same numbers under 29 CFR 2560.503-1 (15 days, 72 hours urgent), so 15 calendar days / 72 hours from receipt is the ceiling either way.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'K.A.R. 40-4-41 — Kansas Insurance Department Policy and Procedure Relating to Health Utilization Management Standards (March 22, 2016), HUM 19/21', url: 'https://insurance.ks.gov/documents/department/regulations-adopted/article-4/40-4-41-URAC-Policy.pdf' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Aetna: "We coordinate benefits as allowed by state or federal law following the National Associations of Insurance Commissioners (NAIC) guidelines. If there is no applicable law, then we coordinate according to the member\'s plan" — the manual\'s order-of-benefits list includes the birthday rule for children whose parents are not separated or divorced. Kansas\'s COB rule (K.A.R. 40-4-34) governs fully insured plans: for a child whose parents are married or living together, "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered the parent longest); for divorced or separated parents a court decree naming the responsible parent controls. Self-funded plans follow their plan document instead, and Aetna notes many use "Maintenance of Benefits (MOB)" rather than the "100% Allowable" method most state laws require, so a secondary payment can be smaller. If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'K.A.R. 40-4-34 — Kansas Insurance Department Policy and Procedure Relating to Coordination of Benefits', url: 'https://insurance.ks.gov/documents/department/regulations-adopted/article-4/40-4-34-Policy.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+        ],
+      },
     },
     deliveryRules: {
       supervision: {
@@ -1238,6 +1345,29 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'Cigna (Evernorth Behavioral Health) makes "coverage determinations in accordance with the time frames required under applicable law," and warns: "You must supply all information requested within the time frames specified … Failure to provide information within the time frames requested may result in nonpayment." ABA requests go to the Autism Utilization Management team. Lead time is published: "For ABA, we encourage providers to request authorizations up to 30 days in advance of or two weeks after the start date of service. A delay in request may result in a retrospective review and could delay the determination for up to 30 days" — so file each reauthorization up to 30 days before the current one ends. Kansas fully insured plans are held to the Insurance Department\'s utilization-management standards adopted by K.A.R. 40-4-41: prospective (pre-service) review "Within 15 calendar days of the receipt of request" (one 15-calendar-day extension, with at least 45 days to supply missing information) and "no later than 72 hours" for urgent care; an urgent request to extend a current course of treatment is decided within 24 hours if received "at least 24 hours before the expiration of the currently certified period." Self-funded ERISA plans land on the same numbers under 29 CFR 2560.503-1 (15 days, 72 hours urgent), so 15 calendar days / 72 hours from receipt is the ceiling either way.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'K.A.R. 40-4-41 — Kansas Insurance Department Policy and Procedure Relating to Health Utilization Management Standards (March 22, 2016), HUM 19/21', url: 'https://insurance.ks.gov/documents/department/regulations-adopted/article-4/40-4-41-URAC-Policy.pdf' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Evernorth follows the NAIC order "subject to applicable law and the terms of the benefit plan": "The plan of the parent whose birthday falls earlier in the calendar year is primary … Only the month and day of birth are relevant" (same birthday: the longer-running plan); a court decree controls for divorced or separated parents, and with no decree the order is custodial parent, custodial parent\'s spouse, noncustodial parent, noncustodial parent\'s spouse. Kansas\'s COB rule (K.A.R. 40-4-34) governs fully insured plans: for a child whose parents are married or living together, "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered the parent longest); for divorced or separated parents a court decree naming the responsible parent controls. When Cigna is secondary, bill the primary first, then send the claim "along with a copy of the primary payer\'s EOP" (not needed if HIPAA-compliant COB data goes electronically to payer ID 62308). If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'K.A.R. 40-4-34 — Kansas Insurance Department Policy and Procedure Relating to Coordination of Benefits', url: 'https://insurance.ks.gov/documents/department/regulations-adopted/article-4/40-4-34-Policy.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
         ],
       },
     },
@@ -1443,6 +1573,31 @@ export const kansasPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'UnitedHealthcare publishes its own commercial clock: "Standard requests: up to 15 calendar days"; "Expedited requests: 72 hours"; "We may extend this time if we need additional information." Submit "at least 15 calendar days in advance, if possible, but … at least 5 business days before the planned service date." ABA requests route to Optum (Provider Express, AutismABA), where "All services require prior approval"; Optum\'s ABA FAQ says to request a continuation "no more than 30 days prior to the current approvals on file expiring" (that FAQ dates from October 2021). Kansas fully insured plans are held to the Insurance Department\'s utilization-management standards adopted by K.A.R. 40-4-41: prospective (pre-service) review "Within 15 calendar days of the receipt of request" (one 15-calendar-day extension, with at least 45 days to supply missing information) and "no later than 72 hours" for urgent care; an urgent request to extend a current course of treatment is decided within 24 hours if received "at least 24 hours before the expiration of the currently certified period." Self-funded ERISA plans land on the same numbers under 29 CFR 2560.503-1 (15 days, 72 hours urgent), so 15 calendar days / 72 hours from receipt is the ceiling either way. Where state law is stricter than UHC\'s 15 days, the law wins for fully insured members.',
+        status: 'verified',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Ch. 7 and Ch. 10', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Autism/ABA FAQ (BH3632, October 2021)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: 'K.A.R. 40-4-41 — Kansas Insurance Department Policy and Procedure Relating to Health Utilization Management Standards (March 22, 2016), HUM 19/21', url: 'https://insurance.ks.gov/documents/department/regulations-adopted/article-4/40-4-41-URAC-Policy.pdf' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'UnitedHealthcare: "COB is administered according to the member\'s benefit plan and in accordance with law. We accept secondary claims electronically," and "If COB caused a delay, you have 90 days from the date of the primary carrier Explanation of Benefits to submit." For ABA through Optum: "bill the primary insurance carrier first, then notify Optum of your findings"; Optum processes "using industry-wide coordination of benefits (COB) standards and in accordance with benefit contracts and applicable state laws." Kansas\'s COB rule (K.A.R. 40-4-34) governs fully insured plans: for a child whose parents are married or living together, "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered the parent longest); for divorced or separated parents a court decree naming the responsible parent controls. Self-funded plans follow their plan document. If another payer needs a UHC denial to pay, Optum\'s FAQ says to "Call the number on the back of the member\'s insurance card to request a denial." If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Ch. 7 and Ch. 10', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum Autism/ABA FAQ (BH3632, October 2021)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: 'K.A.R. 40-4-34 — Kansas Insurance Department Policy and Procedure Relating to Coordination of Benefits', url: 'https://insurance.ks.gov/documents/department/regulations-adopted/article-4/40-4-34-Policy.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+        ],
       },
     },
     deliveryRules: {

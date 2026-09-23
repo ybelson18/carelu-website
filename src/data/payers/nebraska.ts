@@ -101,6 +101,31 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }, { title: 'Provider Bulletin 25-14 — ABA Rates (July 1, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf' }],
       },
+      authTurnaround: {
+        value:
+          'Nebraska runs every ABA authorization through the member\'s Heritage Health MCO, and DHHS publishes no timeframe of its own. Its provider manual points to each MCO for "coverage and authorization processes." The federal managed-care floor therefore governs. Standard decisions are due "within state established time frames that may not exceed 7 calendar days after receiving the request for service" for rating periods starting on or after January 1, 2026; Heritage Health rates are certified by calendar year, so this applies to 2026. Expedited decisions are due "no later than 72 hours after receipt of the request for service." Either clock can be extended up to 14 more calendar days at the family\'s or provider\'s request, or when the plan justifies needing more information. The 2025–2026 quality review reports that DHHS\'s MCO contracts still said 14 days and recommends updating them to seven. The three plans\' 2026 manuals are not aligned: Nebraska Total Care and UnitedHealthcare Community Plan publish 7 calendar days, Molina still publishes 14. No statewide reauthorization lead time is published. The treatment plan must still be reviewed at least every 90 days.',
+        status: 'verified',
+        cites: [
+          { title: '42 CFR 438.210(d) — Timeframe for decisions (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'Nebraska Medicaid Provider Manual (August 2026)', url: 'https://dhhs.ne.gov/Documents/Medicaid%20Provider%20Manual.pdf' },
+          { title: 'Contract Year 2025–2026 External Quality Review Technical Report for Heritage Health (HSAG)', url: 'https://dhhs.ne.gov/Documents/Heritage%20Health%20Aggregate%20Report%20-%20Measurement%20Year%202025.pdf' },
+          { title: 'Nebraska Heritage Health CY22 Rate Certification (calendar-year rating period)', url: 'https://dhhs.ne.gov/Grants%20and%20Contract%20Opportunity%20Docs/Attachment%2019%20-%20Nebraska%20Heritage%20Health%20CY22%20Certification%202021.11.04.pdf' },
+        ],
+        verifyVia:
+          'The member\'s MCO for its current turnaround and any reauthorization lead time: Nebraska Total Care 1-844-385-2192, Molina 1-844-782-2678, UnitedHealthcare Community Plan / Optum 1-866-331-2243.',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid pays last, and Nebraska enforces it at the claim. "All third party resources available to a Medicaid client must be utilized for all or part of their medical costs before Medicaid. … Medicaid is the payor of last resort." Bill the child\'s commercial plan first. When it pays part or denies, send its EOB or valid denial with the Medicaid claim: "The dates of service on the third party documentation must match the dates of service on each claim." A Medicaid prior auth does not skip that step: "The provider must resolve all third party resources before Nebraska Medicaid can consider paying a claim regardless of whether Medicaid prior authorization has been given." File with Medicaid within 12 months of service even while the other plan is unresolved. "Waiver claims" are the only listed pay-first exception, and Nebraska publishes no pediatric-preventive pay-and-chase carve-out for ABA. You may not turn a family away because another payer might be liable. TRICARE pays before Medicaid, because its double-coverage rule excludes Medicaid. Whether the MCO also wants its own ABA prior auth when it is the secondary payer is not written in the state rules.',
+        status: 'verified',
+        cites: [
+          { title: '471 NAC 3-005 — Third Party Resources (Cornell LII reproduction of the 2022 chapter)', url: 'https://www.law.cornell.edu/regulations/nebraska/471-Neb-Admin-Code-ch-3-SS-005' },
+          { title: 'Nebraska Medicaid Provider Manual (August 2026), §5.4 Third Party Liability', url: 'https://dhhs.ne.gov/Documents/Medicaid%20Provider%20Manual.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+        ],
+        verifyVia:
+          'The member\'s MCO utilization-management line, to confirm whether it requires its own ABA prior authorization when a commercial plan is primary. None of the three plans\' manuals says.',
+      },
     },
     pill: 'Payer Guide · Nebraska Medicaid',
     h1: 'Nebraska Medicaid (Heritage Health) ABA coverage: the intake guide.',
@@ -330,6 +355,25 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Nebraska Total Care provider services / the secure provider portal at provider.nebraskatotalcare.com.',
       },
+      authTurnaround: {
+        value:
+          'Nebraska Total Care publishes its own clock, and it matches the 2026 federal floor. "Preservice/non-urgent: Seven (7) calendar days"; "Preservice/Urgent: 72 hours"; "Concurrent review: 72 hours," with decisions made "as expeditiously as the member\'s health condition requires." The behavioral-health section says the same for the ABA request form (the OTR): "allow up to seven (7) calendar days to process non-urgent requests." Requests faxed or sent through the portal after 8 a.m.–5 p.m. CST, Monday to Friday, are "processed the next business day." Plan ahead, because nothing is backdated: "We will not retroactively certify routine services. The dates of the authorization request must correspond to the dates of expected services." An incomplete OTR "can result in authorization delays and/or denials." The plan publishes no ABA reauthorization lead time; its medical-side table asks five business days before elective outpatient services.',
+        status: 'verified',
+        cites: [
+          { title: 'Nebraska Total Care 2026 Provider Manual (PROV16-NE-00025 rev 01/2026)', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/PDFs/ProviderRelations/NTC_10_Provider_Manual_03032025_01122026_Final_508.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Nebraska Total Care is always the payer of last resort," and "Any other insurance, including Medicare, is always primary to Medicaid coverage." Bill the primary plan first. Then "submit a copy of the Explanation of Benefits (EOB) or Explanation of Payment (EOP), or rejection letter from the other insurance when the claim is filed." Without it the claim "will deny until this information is received." When a child has two primary plans ("Medicaid would be the third payer"), the claim "must be submitted on a paper claim," not by EDI or the portal. As secondary payer, claims are due "within 365 calendar days of the date of service" instead of 180. A third-party payment received after Nebraska Total Care has paid must be refunded within 30 calendar days, with the EOB. The manual does not say whether its own ABA prior auth is required when another plan is primary.',
+        status: 'verified',
+        cites: [
+          { title: 'Nebraska Total Care 2026 Provider Billing Guide — Third Party Liability / Coordination of Benefits', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/PDFs/ProviderRelations/NTC_Provider_Billing_Guide_12152025_01132026_508.pdf' },
+          { title: 'Nebraska Total Care 2026 Provider Manual (PROV16-NE-00025 rev 01/2026)', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/PDFs/ProviderRelations/NTC_10_Provider_Manual_03032025_01122026_Final_508.pdf' },
+        ],
+        verifyVia:
+          'Nebraska Total Care Pre-Auth check tool or 1-844-385-2192: ask whether an OTR is still required for ABA when a commercial plan is primary.',
+      },
     },
     pill: 'Payer Guide · Nebraska Total Care',
     h1: 'Nebraska Total Care ABA coverage (Heritage Health MCO).',
@@ -498,6 +542,28 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Molina Nebraska via Availity Essentials or the PA look-up tool, and the current-quarter PA code-change PDF — Molina\'s PA code lists change quarterly, so re-check per cohort rather than per year.',
       },
+      authTurnaround: {
+        value:
+          'Molina\'s 2026 Nebraska manual is out of date against federal law. Its table still reads "Prior Authorization Standard: 14 Calendar days" and "Prior Authorization Urgent: 72 hours." Heritage Health rating periods run by calendar year, so from January 1, 2026 the federal floor caps standard decisions at "7 calendar days after receiving the request for service." Expedited decisions stay at 72 hours, and either clock can be extended up to 14 calendar days. Hold Molina to seven days. Urgent requests must include "Supporting documentation … to justify the expedited request." After a denial, a peer-to-peer can be requested "within five (5) business days of the denial notification." Molina publishes no ABA reauthorization lead time.',
+        status: 'verified',
+        cites: [
+          { title: 'Molina Healthcare of Nebraska — Medicaid Provider Manual 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ne/EN/Provider-Manual-2026.ashx' },
+          { title: '42 CFR 438.210(d) — Timeframe for decisions (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
+          { title: 'Contract Year 2025–2026 External Quality Review Technical Report for Heritage Health (HSAG)', url: 'https://dhhs.ne.gov/Documents/Heritage%20Health%20Aggregate%20Report%20-%20Measurement%20Year%202025.pdf' },
+        ],
+        verifyVia:
+          'Molina Nebraska Provider Services (844) 782-2678: confirm the standard turnaround it now applies and any ABA reauthorization lead time. Its manual still prints 14 days.',
+      },
+      coordinationOfBenefits: {
+        value:
+          '"Medicaid is always the payer of last resort," except for Indian Health Service, Ryan White and similar federal programs. "If third-party liability can be established, Providers must first bill the primary payer and submit a primary explanation of benefits (EOB) to Molina for secondary Claim processing," and "Primary carrier payment information is required with the Claim submission." Timely filing restarts: "the Provider must submit Claims to Molina within 180 calendar days after final determination by the primary payer." Molina "will not deny Provider Claims on the basis of untimely filing for Claims that involve coordination of services or subrogation." Molina pays the secondary amount "based on the state regulatory COB methodology." The manual does not say whether Molina\'s ABA prior auth is required when another plan is primary.',
+        status: 'verified',
+        cites: [
+          { title: 'Molina Healthcare of Nebraska — Medicaid Provider Manual 2026, Coordination of Benefits (COB) and Third-Party Liability (TPL)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ne/EN/Provider-Manual-2026.ashx' },
+        ],
+        verifyVia:
+          'Molina Nebraska PA look-up tool on Availity Essentials or (844) 782-2678: ask whether ABA prior authorization is still required when a commercial plan is primary.',
+      },
     },
     pill: 'Payer Guide · Molina Healthcare (NE)',
     h1: 'Molina Healthcare of Nebraska ABA coverage (Heritage Health MCO).',
@@ -665,6 +731,24 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'ABA Medicaid Service Definition (treatment MSD)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' }],
         verifyVia:
           'The Optum Care Advocate / the NE Heritage Health Medicaid Autism-ABA Program page on Provider Express.',
+      },
+      authTurnaround: {
+        value:
+          'UnitedHealthcare Community Plan\'s 2026 Nebraska manual sets the clocks, and Optum (United Behavioral Health) decides ABA requests. Non-urgent pre-service: "Within 5 working days of receipt of medical record information required but no longer than 7 calendar days of receipt of request." Urgent: "Within 72 hours of request receipt." Either can be extended up to 14 days at your or the family\'s request, or when more information is justified. Concurrent review: "Within 24 hours from receipt of the request," extended to 72 hours if the plan documents an attempt to get clinical information. Approvals are communicated within 24 hours of the decision; written denials go out within 2 business days. For lead time, the manual says to seek prior authorization for "Nonemergency admissions or outpatient services (except maternity) – at least 14 business days beforehand." Use that as the reauthorization window.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Nebraska — 2026 Care Provider Manual, Chapter 4: Medical management', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NE-Care-Provider-Manual.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          '"UnitedHealthcare Community Plan is, by law, the payer of last resort for eligible members." You "must bill and obtain an explanation of benefits (EOB) from any other insurance or health care coverage resource before billing UnitedHealthcare Community Plan." Then "attach a copy of the EOB to the submitted claim"; it "must be complete to understand the paid amount or denial reason." For deadlines, the manual says: "Refer to your Agreement for third party claim submission deadlines." Benefits are coordinated "based on the member\'s benefit contract and applicable regulations." Neither the manual nor Optum\'s Nebraska ABA guides say whether Optum\'s ABA prior auth is required when a commercial plan is primary.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Nebraska — 2026 Care Provider Manual, Chapter 11 (Third-party resources; Subrogation and COB)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NE-Care-Provider-Manual.pdf' },
+        ],
+        verifyVia:
+          'Optum / UnitedHealthcare Community Plan 1-866-331-2243: ask whether ABA prior authorization is required when a commercial plan is primary, and what third-party claim deadline your Agreement sets.',
       },
     },
     pill: 'Payer Guide · UHC Community Plan (NE)',
@@ -843,6 +927,30 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'Aetna provider services and the member\'s benefit document — confirm which ABA codes pay by telehealth and with which POS code before scheduling remote supervision or caregiver training.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'Aetna publishes no commercial decision clock of its own: ABA "services require prior authorization. To get ABA services precertified, call the number on the member\'s Aetna ID card," and the manual sets no reauthorization lead time (none in the ABA Medical Necessity Guide or the ABA precert form either). The legal ceiling depends on funding. Nebraska fully insured plans are bound by LB 77 (operative January 1, 2026): a decision "within seventy-two hours after obtaining all necessary information" for urgent care and "within seven days after obtaining all necessary information" for nonurgent care (urgent tightens to 48 hours from January 1, 2028); "Health care services are deemed authorized if a utilization review agent fails to comply with the deadlines," the approval notice must state the authorization\'s duration or expiry date, and "prior authorization shall be valid for at least one year from the date the utilization review agent approves the prior authorization request." Self-funded ERISA plans are outside state law and follow 29 CFR 2560.503-1: a pre-service decision "not later than 15 days after receipt of the claim" (one 15-day extension), 72 hours for urgent care, and an urgent request to extend an approved course of treatment decided within 24 hours if made "at least 24 hours prior to the expiration."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Nebraska LB 77 (2025) — Ensuring Transparency in Prior Authorization Act, slip law', url: 'https://nebraskalegislature.gov/FloorDocs/109/PDF/Slip/LB77.pdf' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Aetna precertification (number on the member ID card): ask whether the plan is fully insured or self-funded (which sets the legal clock) and how far before expiry Aetna wants the ABA reauthorization — Aetna publishes no lead time.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Aetna: "We coordinate benefits as allowed by state or federal law following the National Associations of Insurance Commissioners (NAIC) guidelines. If there is no applicable law, then we coordinate according to the member\'s plan" — the manual\'s order-of-benefits list includes the birthday rule for children whose parents are not separated or divorced. Nebraska\'s COB regulation (210 NAC 39) governs fully insured plans: for a child whose parents are married or living together, "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered the parent longest); for divorced or separated parents a court decree naming the responsible parent controls. Self-funded plans follow their plan document instead, and Aetna notes many use "Maintenance of Benefits (MOB)" rather than the "100% Allowable" method most state laws require, so a secondary payment can be smaller. If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: '210 NAC 39 — Nebraska Coordination of Benefits Regulation, §006.04(B)', url: 'https://doi.nebraska.gov/sites/default/files/doc/Chapter%2039.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+        ],
       },
     },
     pill: 'Payer Guide · Aetna · Nebraska',
@@ -1034,6 +1142,31 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
       },
+      authTurnaround: {
+        value:
+          'Cigna (Evernorth Behavioral Health) makes "coverage determinations in accordance with the time frames required under applicable law," and warns: "You must supply all information requested within the time frames specified … Failure to provide information within the time frames requested may result in nonpayment." ABA requests go to the Autism Utilization Management team. Lead time is published: "For ABA, we encourage providers to request authorizations up to 30 days in advance of or two weeks after the start date of service. A delay in request may result in a retrospective review and could delay the determination for up to 30 days" — so file each reauthorization up to 30 days before the current one ends. Nebraska fully insured plans are bound by LB 77 (operative January 1, 2026): a decision "within seventy-two hours after obtaining all necessary information" for urgent care and "within seven days after obtaining all necessary information" for nonurgent care (urgent tightens to 48 hours from January 1, 2028); "Health care services are deemed authorized if a utilization review agent fails to comply with the deadlines," the approval notice must state the authorization\'s duration or expiry date, and "prior authorization shall be valid for at least one year from the date the utilization review agent approves the prior authorization request." Self-funded ERISA plans are outside state law and follow 29 CFR 2560.503-1: a pre-service decision "not later than 15 days after receipt of the claim" (one 15-day extension), 72 hours for urgent care, and an urgent request to extend an approved course of treatment decided within 24 hours if made "at least 24 hours prior to the expiration."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Nebraska LB 77 (2025) — Ensuring Transparency in Prior Authorization Act, slip law', url: 'https://nebraskalegislature.gov/FloorDocs/109/PDF/Slip/LB77.pdf' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Evernorth Behavioral Health / Cigna Autism Care Coordinator team, 877.279.7603: confirm whether the plan is fully insured or self-funded, which sets the legal decision clock.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Evernorth follows the NAIC order "subject to applicable law and the terms of the benefit plan": "The plan of the parent whose birthday falls earlier in the calendar year is primary … Only the month and day of birth are relevant" (same birthday: the longer-running plan); a court decree controls for divorced or separated parents, and with no decree the order is custodial parent, custodial parent\'s spouse, noncustodial parent, noncustodial parent\'s spouse. Nebraska\'s COB regulation (210 NAC 39) governs fully insured plans: for a child whose parents are married or living together, "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered the parent longest); for divorced or separated parents a court decree naming the responsible parent controls. When Cigna is secondary, bill the primary first, then send the claim "along with a copy of the primary payer\'s EOP" (not needed if HIPAA-compliant COB data goes electronically to payer ID 62308). If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, March 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: '210 NAC 39 — Nebraska Coordination of Benefits Regulation, §006.04(B)', url: 'https://doi.nebraska.gov/sites/default/files/doc/Chapter%2039.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+        ],
+      },
     },
     pill: 'Payer Guide · Cigna · Nebraska',
     h1: 'Cigna / Evernorth ABA coverage in Nebraska: the intake guide.',
@@ -1224,6 +1357,33 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         verifyVia:
           'The Optum Care Advocate at authorization and Provider Express — Optum runs a virtual-visits attestation on some lines of business, so confirm approval status and the billing POS before scheduling remote 97155 or 97156.',
         blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'UnitedHealthcare publishes its own commercial clock: "Standard requests: up to 15 calendar days"; "Expedited requests: 72 hours"; "We may extend this time if we need additional information." Submit "at least 15 calendar days in advance, if possible, but … at least 5 business days before the planned service date." ABA requests route to Optum (Provider Express, AutismABA), where "All services require prior approval"; Optum\'s ABA FAQ says to request a continuation "no more than 30 days prior to the current approvals on file expiring" (that FAQ dates from October 2021). Nebraska fully insured plans are bound by LB 77 (operative January 1, 2026): a decision "within seventy-two hours after obtaining all necessary information" for urgent care and "within seven days after obtaining all necessary information" for nonurgent care (urgent tightens to 48 hours from January 1, 2028); "Health care services are deemed authorized if a utilization review agent fails to comply with the deadlines," the approval notice must state the authorization\'s duration or expiry date, and "prior authorization shall be valid for at least one year from the date the utilization review agent approves the prior authorization request." Self-funded ERISA plans are outside state law and follow 29 CFR 2560.503-1: a pre-service decision "not later than 15 days after receipt of the claim" (one 15-day extension), 72 hours for urgent care, and an urgent request to extend an approved course of treatment decided within 24 hours if made "at least 24 hours prior to the expiration." Where state law is stricter than UHC\'s 15 days, the law wins for fully insured members.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Ch. 7 and Ch. 10', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Autism/ABA FAQ (BH3632, October 2021)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: 'Nebraska LB 77 (2025) — Ensuring Transparency in Prior Authorization Act, slip law', url: 'https://nebraskalegislature.gov/FloorDocs/109/PDF/Slip/LB77.pdf' },
+          { title: '29 CFR 2560.503-1(f)(2) — Group health plan claim decision timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Optum Behavioral Health (number on the member ID card): confirm whether the plan is fully insured or self-funded, which sets whether state law or UHC\'s 15-day ceiling governs.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'UnitedHealthcare: "COB is administered according to the member\'s benefit plan and in accordance with law. We accept secondary claims electronically," and "If COB caused a delay, you have 90 days from the date of the primary carrier Explanation of Benefits to submit." For ABA through Optum: "bill the primary insurance carrier first, then notify Optum of your findings"; Optum processes "using industry-wide coordination of benefits (COB) standards and in accordance with benefit contracts and applicable state laws." Nebraska\'s COB regulation (210 NAC 39) governs fully insured plans: for a child whose parents are married or living together, "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered the parent longest); for divorced or separated parents a court decree naming the responsible parent controls. Self-funded plans follow their plan document. If another payer needs a UHC denial to pay, Optum\'s FAQ says to "Call the number on the back of the member\'s insurance card to request a denial." If the child also has Medicaid, this plan pays first: Medicaid is payer of last resort (42 CFR 433.139) — bill here, then send the EOB or denial to Medicaid, and get Medicaid\'s own prior auth too if the state requires it. TRICARE is secondary to this plan ("TRICARE shall be last pay," 32 CFR 199.8), and "CHAMPVA is the last payer to OHI" (38 CFR 17.276(d)).',
+        status: 'verified',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Ch. 7 and Ch. 10', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum Autism/ABA FAQ (BH3632, October 2021)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
+          { title: '210 NAC 39 — Nebraska Coordination of Benefits Regulation, §006.04(B)', url: 'https://doi.nebraska.gov/sites/default/files/doc/Chapter%2039.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276(d) — CHAMPVA last payer to other health insurance (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+        ],
       },
     },
     pill: 'Payer Guide · UnitedHealthcare · Nebraska',

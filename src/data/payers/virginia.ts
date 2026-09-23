@@ -255,6 +255,30 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Standard (non-urgent) requests: decided within 7 calendar days of receipt; expedited: within 72 hours — in force since January 1, 2026 for DMAS FFS (Acentra) and every Cardinal Care MCO alike. The standard clock can extend by up to 14 calendar days if the member or provider requests it, or if the extension is justified in the member\'s interest to obtain more medical evidence; expedited applies when the standard timeframe "could seriously jeopardize the member\'s life, physical or mental health, or ability to attain, maintain, or regain maximum function." Before the rule the standard limit was 14 days. When to submit: Appendix D says providers "shall submit service authorization requests by the requested start date of services. If submitted after the required time-frame, the begin date of authorization will be based on the date of receipt" — and the DMAS bulletin adds that days/units not submitted timely are denied. Assessment codes need no authorization, so the clock matters for treatment and every continued-stay request.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS bulletin — Interoperability and Prior Authorization Final Rule implementation update', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/interoperability-and-prior-authorization-final-rule-implementation-update' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '42 CFR 440.230(e) — Medicaid FFS prior-authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-440.230' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid pays last. DMAS: "The provider must bill other insurance as primary," and "The member can keep private health insurance and still be covered by Medicaid. The other insurance plan pays first." For ABA specifically, the Project BRAVO FAQ answers the secondary-claim question directly: "All claims must first be submitted [to] the youth\'s commercial plan before being submitted to the youth\'s Medicaid MCO for secondary coverage consideration." The Medicaid claim must still reach DMAS within 12 months of the date of service even while you wait on the primary, and a claim flagged as having other coverage with no TPL payment needs the EOB/denial attached. Appendix D makes payment for every non-assessment ABA service conditional on service authorization ("Services other than assessment (97151, 97152 and 0362T) must be service authorized by the FFS service authorization contractor or MCO") and names no exemption for a secondary claim, so get the Medicaid authorization even when the commercial plan pays first. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid. Federal law lets a state pay first and chase the third party for claims for preventive pediatric services, "including early and periodic screening, diagnosis and treatment services"; DMAS\'s mental health billing chapter publishes no such exception for ABA, so bill the commercial plan first.',
+        status: 'verified',
+        cites: [
+          { title: 'DMAS — MHS manual Chapter V, Billing Instructions (rev. 12/5/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-12/MHS%20-%20Chapter%205%20%28updated%2012.5.25%29_Final.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Virginia Medicaid cover ABA therapy?', a: 'Yes — for members under 21 with autism, under the EPSDT benefit, with no hard hour cap. Assessment codes need no service authorization; all treatment hours are authorized with units itemized per CPT code.' },
@@ -465,6 +489,28 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Virginia Medicaid rule, applied by Aetna Better Health of Virginia: since January 1, 2026 DMAS requires FFS and every Cardinal Care MCO to decide standard (non-urgent) requests within 7 calendar days of receipt and expedited requests within 72 hours; the 7-day clock can extend up to 14 calendar days if the member or provider asks, or if the extra time is justified in the member\'s interest to obtain more medical evidence. Aetna\'s own manual (contract year July 2025–June 2026) still prints the older table — non-urgent preservice "no more than 14 calendar days from receipt of the request," urgent preservice 72 hours/3 calendar days — but that table applies "Unless otherwise required by DMAS," and DMAS has required 7 days since 1/1/2026. Timing from Appendix D: submit treatment requests (initial and continued stay) by the requested start date — "If submitted after the required time-frame, the begin date of authorization will be based on the date of receipt," so a late reauthorization leaves an unpaid gap.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Better Health of Virginia — Provider Manual (contract year 7/1/2025–6/30/2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_provider_manual.pdf' },
+          { title: 'DMAS bulletin — Interoperability and Prior Authorization Final Rule implementation update', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/interoperability-and-prior-authorization-final-rule-implementation-update' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid pays last. Aetna\'s manual: "By law, Medicaid is the payor of last resort… Aetna Better Health shall be used as a source of payment for covered services only after all other sources of payment have been exhausted." Bill the commercial plan first; the Aetna claim must arrive within 365 days of the primary carrier\'s remittance-advice date, with a copy of the primary RA and disposition detail attached. On authorization the manual says two things — "If other insurance is the primary payer before Aetna Better Health, prior authorization of a service is required," and, in the COB section, "If the claim is processed as secondary by Aetna Better Health, then that payer\'s authorization rules are applied." The safe reading for ABA: get Aetna\'s service authorization as well as the commercial plan\'s. DMAS\'s ABA FAQ is explicit that claims go to the commercial plan before the MCO for secondary consideration. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Better Health of Virginia — Provider Manual (contract year 7/1/2025–6/30/2026)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_provider_manual.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Aetna Better Health of Virginia cover ABA?', a: 'Yes — on DMAS\'s EPSDT criteria and standardized forms (Aetna\'s commercial CPB 0554 policy doesn\'t apply). Assessment codes need no authorization; treatment codes do, via Availity or fax.' },
@@ -673,6 +719,29 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Virginia Medicaid rule, applied by Anthem HealthKeepers Plus: since January 1, 2026 DMAS requires FFS and every Cardinal Care MCO to decide standard (non-urgent) requests within 7 calendar days of receipt and expedited requests within 72 hours; the 7-day clock can extend up to 14 calendar days if the member or provider asks, or if the extra time is justified in the member\'s interest to obtain more medical evidence. Anthem\'s own manual (effective July 1, 2026) states the same numbers: "Standard authorization decisions are made within seven calendar days following receipt of the request for service," and "Expedited / urgent authorization decisions are made within 72 hours," with behavioral health non-urgent preservice at 7 calendar days in its timeliness table. Timing from Appendix D: submit treatment requests (initial and continued stay) by the requested start date — "If submitted after the required time-frame, the begin date of authorization will be based on the date of receipt," so a late reauthorization leaves an unpaid gap.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem HealthKeepers Plus — Provider Manual (effective July 1, 2026)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf' },
+          { title: 'DMAS bulletin — Interoperability and Prior Authorization Final Rule implementation update', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/interoperability-and-prior-authorization-final-rule-implementation-update' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid pays last. Anthem\'s manual: "Providers must submit coordination of benefits (COB) claims to the primary carrier before submitting to HealthKeepers, Inc." — then bill Anthem the total charges with the primary carrier\'s remittance advice or a letter explaining the denial; COB claims without one are returned "with a request to submit to the other healthcare program first," and COB filing time frames start on the date of the primary payer\'s determination. Where Anthem learns of other coverage it rejects the claim and redirects you, except in its listed pay-and-chase cases — "When the services are for preventive pediatric care, including EPSDT," and a child whose primary coverage comes through an absent parent (if unpaid 100 days after service). The manual does not say whether ABA falls in the EPSDT pay-and-chase group, and DMAS\'s ABA FAQ says claims go to the commercial plan first, so bill primary first. Appendix D makes payment for every non-assessment ABA service conditional on service authorization ("Services other than assessment (97151, 97152 and 0362T) must be service authorized by the FFS service authorization contractor or MCO") and names no exemption for a secondary claim, so get the Medicaid authorization even when the commercial plan pays first. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem HealthKeepers Plus — Provider Manual (effective July 1, 2026)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Anthem HealthKeepers Plus cover ABA?', a: 'Yes — Virginia\'s Cardinal Care ABA benefit on DMAS criteria and standardized forms: no authorization on assessment codes, SA on treatment codes 97153–97158 and 0373T, submitted via Availity\'s Interactive Care Reviewer.' },
@@ -879,6 +948,29 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Virginia Medicaid rule, applied by Humana Healthy Horizons in Virginia: since January 1, 2026 DMAS requires FFS and every Cardinal Care MCO to decide standard (non-urgent) requests within 7 calendar days of receipt and expedited requests within 72 hours; the 7-day clock can extend up to 14 calendar days if the member or provider asks, or if the extra time is justified in the member\'s interest to obtain more medical evidence. Humana\'s manual text says the same ("not to exceed 7 calendar days following receipt of the request"; expedited "no later than 72 hours after receipt"), though its summary tables still print 14 calendar days for nonurgent preservice — the 7-day DMAS rule controls. Timing from Appendix D: submit treatment requests (initial and continued stay) by the requested start date — "If submitted after the required time-frame, the begin date of authorization will be based on the date of receipt," so a late reauthorization leaves an unpaid gap.',
+        status: 'verified',
+        cites: [
+          { title: 'Humana Healthy Horizons in Virginia — Cardinal Care Provider Manual (2025)', url: 'https://assets.humana.com/is/content/humana/VA_Provider_Manualpdf' },
+          { title: 'DMAS bulletin — Interoperability and Prior Authorization Final Rule implementation update', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/interoperability-and-prior-authorization-final-rule-implementation-update' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid pays last. Humana\'s manual: "Claims should be submitted to a patient\'s TPL coverage for payment before submitting to Humana. Humana reduces its payments based on TPL coverage payments made for covered services," and "All claims that involve other insurance must be accompanied by an explanation of benefits (EOB) or a remittance advice (RA) that clearly states how the claim was paid or the reason for denial." Providers are required to identify TPL coverage and should ask members for all insurance at the time of service; Humana\'s COB records can be checked on Availity. Humana\'s manual publishes no secondary-payer authorization exemption. Appendix D makes payment for every non-assessment ABA service conditional on service authorization ("Services other than assessment (97151, 97152 and 0362T) must be service authorized by the FFS service authorization contractor or MCO") and names no exemption for a secondary claim, so get the Medicaid authorization even when the commercial plan pays first. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'Humana Healthy Horizons in Virginia — Cardinal Care Provider Manual (2025)', url: 'https://assets.humana.com/is/content/humana/VA_Provider_Manualpdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Humana Healthy Horizons in Virginia cover ABA?', a: 'Yes — it administers the Cardinal Care ABA benefit on DMAS criteria and standardized forms, having entered Virginia on July 1, 2025 as Molina\'s replacement.' },
@@ -1081,6 +1173,28 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
         ],
       },
+      authTurnaround: {
+        value:
+          'Virginia Medicaid rule, applied by Sentara Community Plan: since January 1, 2026 DMAS requires FFS and every Cardinal Care MCO to decide standard (non-urgent) requests within 7 calendar days of receipt and expedited requests within 72 hours; the 7-day clock can extend up to 14 calendar days if the member or provider asks, or if the extra time is justified in the member\'s interest to obtain more medical evidence. Sentara\'s 2026 manual states the same: standard decisions "not to exceed seven calendar days following receipt of the request for service," expedited "no later than 72 hours after receipt of the request." Timing from Appendix D: submit treatment requests (initial and continued stay) by the requested start date — "If submitted after the required time-frame, the begin date of authorization will be based on the date of receipt," so a late reauthorization leaves an unpaid gap.',
+        status: 'verified',
+        cites: [
+          { title: 'Sentara Health Plans — Virginia Medicaid Program Provider Manual (2026)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/166702e707ad4460995f61992a6be8e0?v=2c7ff490' },
+          { title: 'DMAS bulletin — Interoperability and Prior Authorization Final Rule implementation update', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/interoperability-and-prior-authorization-final-rule-implementation-update' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid pays last. Sentara\'s manual: "If a Sentara Health Plans program member is identified as having a commercial product, the provider must send the initial claim to the commercial plan for payment… Medicaid is always the payor of last resort." Sentara is the one Virginia MCO that writes down the secondary-authorization rule: "Sentara Health Plans does not require service authorization when acting as the secondary payer except" when the primary payer does not cover the service, or the member has exhausted the primary\'s benefit — in either case Sentara becomes the primary payer and its service authorization is required. So: covered by the commercial plan → the commercial plan\'s authorization, no Sentara SA; commercial plan excludes ABA or the benefit is used up → Sentara SA before services. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'Sentara Health Plans — Virginia Medicaid Program Provider Manual (2026)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/166702e707ad4460995f61992a6be8e0?v=2c7ff490' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+        ],
+      },
     },
     faq: [
       { q: 'Does Sentara Community Plan cover ABA?', a: 'Yes — Virginia\'s Cardinal Care ABA benefit on DMAS criteria and forms: no authorization on assessment codes, treatment authorized with units per CPT code on the new DMAS preservice form.' },
@@ -1278,6 +1392,29 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
           { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
           { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'Virginia Medicaid rule, applied by UnitedHealthcare Community Plan of Virginia: since January 1, 2026 DMAS requires FFS and every Cardinal Care MCO to decide standard (non-urgent) requests within 7 calendar days of receipt and expedited requests within 72 hours; the 7-day clock can extend up to 14 calendar days if the member or provider asks, or if the extra time is justified in the member\'s interest to obtain more medical evidence. UHC\'s 2026 manual states "Standard – As soon as the member\'s health condition requires, not to exceed 7 calendar days following the request for service" and expedited "no later than 72 hours" — but its behavioral health authorization table still lists 14 calendar days for non-urgent pre-service; the DMAS 7-day rule controls. Timing from Appendix D: submit treatment requests (initial and continued stay) by the requested start date — "If submitted after the required time-frame, the begin date of authorization will be based on the date of receipt," so a late reauthorization leaves an unpaid gap.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Virginia — Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'DMAS bulletin — Interoperability and Prior Authorization Final Rule implementation update', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/interoperability-and-prior-authorization-final-rule-implementation-update' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Medicaid pays last. UHC\'s manual: "UnitedHealthcare Community Plan is, by law, the payer of last resort for eligible members. Therefore, you must bill and obtain an explanation of benefits (EOB) from any other insurance or health care coverage resource before billing UnitedHealthcare Community Plan," and "When billing UnitedHealthcare Community Plan, submit the primary payer\'s Explanation of Benefits or remittance advice with the claim." Third-party claim deadlines are set in your Agreement. The manual publishes no secondary-payer authorization exemption. Appendix D makes payment for every non-assessment ABA service conditional on service authorization ("Services other than assessment (97151, 97152 and 0362T) must be service authorized by the FFS service authorization contractor or MCO") and names no exemption for a secondary claim, so get the Medicaid authorization even when the commercial plan pays first. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
+        status: 'verified',
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Virginia — Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
         ],
       },
     },
@@ -1514,6 +1651,32 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured Virginia plans: Virginia\'s utilization-review statute requires the entity to "communicate its utilization review decision no later than two business days after receipt by the entity of all information necessary to complete the review" — the clock starts only once the file is complete. Self-funded (ERISA) plans are excluded from that article and follow the federal claims rule instead: a pre-service decision within 15 days of receipt (one 15-day extension allowed, with notice; if the extension is for missing information you get at least 45 days to supply it) and an urgent-care decision within 72 hours; a request to extend an ongoing course of treatment that is urgent is decided within 24 hours if made at least 24 hours before the current authorization expires. Aetna\'s office manual and ABA medical-necessity guide publish no ABA-specific decision clock.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Va. Code § 32.1-137.9 — utilization review standards (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title32.1/chapter5/section32.1-137.9/' },
+          { title: 'Va. Code § 32.1-137.8 — application; ERISA-exempt plans excluded (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title32.1/chapter5/section32.1-137.8/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification: ask whether the plan is fully insured (Virginia UR statute applies) or self-funded ERISA (federal 15-day/72-hour rule), and the carrier\'s turnaround for its behavioral health reviewer.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Aetna states it coordinates "as allowed by state or federal law following the National Associations of Insurance Commissioners (NAIC) guidelines. If there is no applicable law, then we coordinate according to the member\'s plan," using the NAIC order-of-benefit rules — including the "Dependent Child/Parents Not Separated or Divorced Rule (Birthday Rule)" and the separated/divorced rule. Many self-funded plans use maintenance of benefits, where the secondary plan pays nothing if the primary paid at least what it would have. If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last. When the child has two parents\' plans, the plan\'s own coordination-of-benefits provision decides the order — a self-funded plan writes its own rules. For Virginia HMO contracts, 14VAC5-211-80 lets the plan coordinate but says it "shall not be relieved of its duty to provide a covered health care service" because of other coverage, must "provide or arrange for the service first and then, at its option, seek coordination of benefits," and "Until a coordination of benefits determination is made, the enrollee shall not be held liable."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna — Office manual for health care professionals (coordination of benefits)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: '14VAC5-211-80 — HMO coordination of benefits (Virginia LIS)', url: 'https://law.lis.virginia.gov/admincode/title14/agency5/chapter211/section80/' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+        ],
+        verifyVia: 'Benefits verification with each plan: which is primary for the child (order-of-benefits rule, custody/court order), and whether the secondary plan needs its own authorization.',
+        blocker: 'per-case',
+      },
     },
     faq: [
       { q: 'Does Aetna cover ABA therapy in Virginia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Virginia\'s mandate (Va. Code § 38.2-3418.17) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1748,6 +1911,32 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         verifyVia: 'A live benefits verification — for fully-insured Virginia members the plan document, not EN0499, sets modality terms.',
         blocker: 'per-case',
       },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured Virginia plans: Virginia\'s utilization-review statute requires the entity to "communicate its utilization review decision no later than two business days after receipt by the entity of all information necessary to complete the review" — the clock starts only once the file is complete. Self-funded (ERISA) plans are excluded from that article and follow the federal claims rule instead: a pre-service decision within 15 days of receipt (one 15-day extension allowed, with notice; if the extension is for missing information you get at least 45 days to supply it) and an urgent-care decision within 72 hours; a request to extend an ongoing course of treatment that is urgent is decided within 24 hours if made at least 24 hours before the current authorization expires. Cigna\'s ABA policy (EN0499) publishes no decision clock; what it dates is the reauthorization packet — continued-treatment requests need current data "collected within no more than 60 days prior to the start date of the continued treatment request," so collect progress data inside that window.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Va. Code § 32.1-137.9 — utilization review standards (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title32.1/chapter5/section32.1-137.9/' },
+          { title: 'Va. Code § 32.1-137.8 — application; ERISA-exempt plans excluded (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title32.1/chapter5/section32.1-137.8/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+        verifyVia: 'Benefits verification: ask whether the plan is fully insured (Virginia UR statute applies) or self-funded ERISA (federal 15-day/72-hour rule), and the carrier\'s turnaround for its behavioral health reviewer.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Cigna\'s ABA documents publish no coordination-of-benefits rule; order of benefits follows the plan document. If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last. When the child has two parents\' plans, the plan\'s own coordination-of-benefits provision decides the order — a self-funded plan writes its own rules. For Virginia HMO contracts, 14VAC5-211-80 lets the plan coordinate but says it "shall not be relieved of its duty to provide a covered health care service" because of other coverage, must "provide or arrange for the service first and then, at its option, seek coordination of benefits," and "Until a coordination of benefits determination is made, the enrollee shall not be held liable."',
+        status: 'plan-dependent',
+        cites: [
+          { title: '14VAC5-211-80 — HMO coordination of benefits (Virginia LIS)', url: 'https://law.lis.virginia.gov/admincode/title14/agency5/chapter211/section80/' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+        ],
+        verifyVia: 'Benefits verification with each plan: which is primary for the child (order-of-benefits rule, custody/court order), and whether the secondary plan needs its own authorization.',
+        blocker: 'per-case',
+      },
     },
     faq: [
       { q: 'Does Cigna cover ABA therapy in Virginia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Virginia\'s mandate (Va. Code § 38.2-3418.17) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1973,6 +2162,34 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
+      },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured Virginia plans: Virginia\'s utilization-review statute requires the entity to "communicate its utilization review decision no later than two business days after receipt by the entity of all information necessary to complete the review" — the clock starts only once the file is complete. Self-funded (ERISA) plans are excluded from that article and follow the federal claims rule instead: a pre-service decision within 15 days of receipt (one 15-day extension allowed, with notice; if the extension is for missing information you get at least 45 days to supply it) and an urgent-care decision within 72 hours; a request to extend an ongoing course of treatment that is urgent is decided within 24 hours if made at least 24 hours before the current authorization expires. UnitedHealthcare\'s commercial administrative guide states its own review times — "Standard requests: up to 15 calendar days" and "Expedited requests: 72 hours" — and asks that requests be submitted "at least 15 calendar days in advance, if possible," and no later than 5 business days before the planned service. ABA reviews run through Optum Behavioral Health.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Va. Code § 32.1-137.9 — utilization review standards (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title32.1/chapter5/section32.1-137.9/' },
+          { title: 'Va. Code § 32.1-137.8 — application; ERISA-exempt plans excluded (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title32.1/chapter5/section32.1-137.8/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+        verifyVia: 'Benefits verification: ask whether the plan is fully insured (Virginia UR statute applies) or self-funded ERISA (federal 15-day/72-hour rule), and the carrier\'s turnaround for its behavioral health reviewer.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'UnitedHealthcare: "COB is administered according to the member\'s benefit plan and in accordance with law," and Optum, which administers the behavioral health benefit, puts the burden on the provider: "You are responsible for determining if the member has other insurance coverage. If so, you should bill the primary insurance carrier first, then notify Optum of your findings." If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last. When the child has two parents\' plans, the plan\'s own coordination-of-benefits provision decides the order — a self-funded plan writes its own rules. For Virginia HMO contracts, 14VAC5-211-80 lets the plan coordinate but says it "shall not be relieved of its duty to provide a covered health care service" because of other coverage, must "provide or arrange for the service first and then, at its option, seek coordination of benefits," and "Until a coordination of benefits determination is made, the enrollee shall not be held liable."',
+        status: 'plan-dependent',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum Behavioral Health — National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '14VAC5-211-80 — HMO coordination of benefits (Virginia LIS)', url: 'https://law.lis.virginia.gov/admincode/title14/agency5/chapter211/section80/' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+        ],
+        verifyVia: 'Benefits verification with each plan: which is primary for the child (order-of-benefits rule, custody/court order), and whether the secondary plan needs its own authorization.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -2213,6 +2430,32 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Anthem ABA Provider Resource Guide — 11-state commercial (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
         ],
+      },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded. Fully insured Virginia plans: Virginia\'s utilization-review statute requires the entity to "communicate its utilization review decision no later than two business days after receipt by the entity of all information necessary to complete the review" — the clock starts only once the file is complete. Self-funded (ERISA) plans are excluded from that article and follow the federal claims rule instead: a pre-service decision within 15 days of receipt (one 15-day extension allowed, with notice; if the extension is for missing information you get at least 45 days to supply it) and an urgent-care decision within 72 hours; a request to extend an ongoing course of treatment that is urgent is decided within 24 hours if made at least 24 hours before the current authorization expires. Anthem\'s Virginia precertification lists add a submission lead time: "For non-urgent requests, submit all required clinical information 14 calendar days before the proposed service when possible."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Va. Code § 32.1-137.9 — utilization review standards (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title32.1/chapter5/section32.1-137.9/' },
+          { title: 'Va. Code § 32.1-137.8 — application; ERISA-exempt plans excluded (Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title32.1/chapter5/section32.1-137.8/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'Anthem Virginia Local Precertification/Prior Authorization List — HMO & EPO (updated September 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/VA-BCBS-CM-DISTRO_VA_HMO_PA_List.pdf' },
+        ],
+        verifyVia: 'Benefits verification: ask whether the plan is fully insured (Virginia UR statute applies) or self-funded ERISA (federal 15-day/72-hour rule), and the carrier\'s turnaround for its behavioral health reviewer.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'Anthem\'s Virginia ABA documents publish no coordination-of-benefits rule; order of benefits follows the plan document. If the child also has TRICARE, this plan pays first — TRICARE is the secondary payer to other health insurance under its double-coverage rule (Medicaid is the only coverage it pays ahead of). CHAMPVA likewise pays last: "In double coverage situations, CHAMPVA would be the last payer." If the child also has Medicaid, this plan is primary and Medicaid pays last. When the child has two parents\' plans, the plan\'s own coordination-of-benefits provision decides the order — a self-funded plan writes its own rules. For Virginia HMO contracts, 14VAC5-211-80 lets the plan coordinate but says it "shall not be relieved of its duty to provide a covered health care service" because of other coverage, must "provide or arrange for the service first and then, at its option, seek coordination of benefits," and "Until a coordination of benefits determination is made, the enrollee shall not be held liable."',
+        status: 'plan-dependent',
+        cites: [
+          { title: '14VAC5-211-80 — HMO coordination of benefits (Virginia LIS)', url: 'https://law.lis.virginia.gov/admincode/title14/agency5/chapter211/section80/' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: '38 CFR 17.270 — CHAMPVA definitions, double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-433.139' },
+        ],
+        verifyVia: 'Benefits verification with each plan: which is primary for the child (order-of-benefits rule, custody/court order), and whether the secondary plan needs its own authorization.',
+        blocker: 'per-case',
       },
     },
     faq: [
