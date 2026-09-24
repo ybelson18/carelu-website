@@ -10,6 +10,7 @@ export type GuideBlock = {
   table?: { head: string[]; rows: string[][] };
   example?: string;
   ask?: string;
+  shots?: { src: string; alt: string }[];
 };
 
 export type GuideSection = { id: string; title: string; intro?: string; blocks: GuideBlock[] };
@@ -29,6 +30,7 @@ const totalCare: Guide = {
       intro: 'Carelu has no sidebar. Everything lives in the bar floating at the bottom of the screen.',
       blocks: [
         {
+          shots: [{ src: 'dock', alt: 'The menu bar at the bottom of the screen' }],
           table: {
             head: ['Button', 'What it is for'],
             rows: [
@@ -51,6 +53,7 @@ const totalCare: Guide = {
         {
           title: 'Table or pipeline',
           path: ['Opportunities', 'Table View / Pipeline View'],
+          shots: [{ src: 'views-toggle', alt: 'Table View and Pipeline View toggle' }, { src: 'board', alt: 'The pipeline board with one column per stage' }],
           body: [
             '<b>Table View</b> is a spreadsheet of every family. <b>Pipeline View</b> shows the same families as cards in columns, one column per stage.',
             'Click any row or card to open that family in the side panel. The web address changes to that lead, so you can copy it and send it to a teammate.',
@@ -59,12 +62,14 @@ const totalCare: Guide = {
         {
           title: 'Filter and search',
           path: ['Opportunities', 'Search leads...'],
+          shots: [{ src: 'search-filter', alt: 'Search box and Filter button' }],
           body: ['Search by name, email, or phone. Next to the search box you can filter by <b>Status</b>, <b>Source</b>, <b>State</b>, and <b>Flow</b>.'],
           example: 'Coordinators usually filter to their own state. Filter by <b>State</b>, then save it as a view (below) so it opens that way every time.',
         },
         {
           title: 'Save a view',
           path: ['Opportunities', 'New view'],
+          shots: [{ src: 'new-view', alt: 'The New view link above the table' }],
           steps: [
             'Set the filters and columns you want.',
             'Click <b>New view</b> and give it a name, like "Arizona" or "My families".',
@@ -82,11 +87,13 @@ const totalCare: Guide = {
         {
           title: 'Add a family by hand',
           path: ['Opportunities', 'Add Lead'],
+          shots: [{ src: 'add-lead', alt: 'The Add Lead button' }],
           body: ['For a referral that came in by fax or a walk-in. Fill in what you have and click <b>Create Lead</b>. You can then send them the intake form (see "Sending the intake form").'],
         },
         {
           title: 'Download a spreadsheet',
           path: ['Opportunities', 'Actions', 'CSV', 'Download CSV'],
+          shots: [{ src: 'actions-csv', alt: 'The CSV tab in Actions' }],
           body: ['Pick the fields under <b>Fields to Export</b>. To export just a few families, tick their rows and use <b>Export</b> → <b>Export to CSV</b> in the bar that appears.'],
         },
       ],
@@ -110,6 +117,7 @@ const totalCare: Guide = {
         {
           title: 'Move a family to another stage',
           path: ['Opportunities', 'open a family', 'status pill next to the name'],
+          shots: [{ src: 'status-pill', alt: 'The stage pill at the top of a family' }],
           body: [
             'Click the colored pill next to the parent\'s name and pick the new stage. In <b>Pipeline View</b> you can also drag the card to another column.',
             'A stage you set by hand is never overwritten by Carelu.',
@@ -125,6 +133,7 @@ const totalCare: Guide = {
       blocks: [
         {
           title: 'What is in the panel',
+          shots: [{ src: 'drawer-tabs', alt: 'Activity, Documents, Insurance and Tasks tabs' }, { src: 'intake-pdf', alt: 'The Intake PDF in Generated PDFs' }, { src: 'documents-tab', alt: 'The Documents tab' }, { src: 'insurance-tab', alt: 'The Insurance tab with a verified benefits check' }],
           table: {
             head: ['Part', 'What you find there'],
             rows: [
@@ -141,12 +150,14 @@ const totalCare: Guide = {
         {
           title: 'Leave an internal note',
           path: ['open a family', 'Activity', 'Add an internal note...', 'Add Note'],
+          shots: [{ src: 'note', alt: 'The internal note box and Add Note button' }],
           body: ['Notes are only visible to your team, never to the family. Only the person who wrote a note can edit it.'],
         },
         {
           title: 'Reassign a family',
-          path: ['open a family', 'Record', 'Assignee'],
-          body: ['Pick the coordinator. They are added to the lead summary email from then on.'],
+          path: ['open a family', 'Record', 'Assigned'],
+          shots: [{ src: 'assignee', alt: 'The Assigned dropdown in Record' }],
+          body: ['Open the <b>Assigned</b> dropdown and pick the coordinator. They are added to the lead summary email from then on.'],
         },
       ],
     },
@@ -157,13 +168,15 @@ const totalCare: Guide = {
         {
           title: 'Email a family their link',
           path: ['open a family', 'envelope icon next to "Patient Profile"'],
+          shots: [{ src: 'envelope', alt: 'The envelope icon next to Patient Profile' }],
           body: [
-            'Click the envelope. If the family started the form, the email lets them pick up exactly where they left off. If they finished, it lets them review or update their answers. Click it again to resend.',
+            'Click the envelope at the right end of the <b>Patient Profile</b> line. If the family started the form, the email lets them pick up exactly where they left off. If they finished, it lets them review or update their answers. Click it again to resend.',
           ],
         },
         {
           title: 'Your shareable link',
           path: ['Forms', 'View intake'],
+          shots: [{ src: 'view-intake', alt: 'The View intake button' }],
           body: [
             '<b>View intake</b> opens your live intake form. That page\'s web address is the link you can put in an email signature, a text, or on your website. Each family who opens it starts their own form.',
           ],
@@ -183,21 +196,24 @@ const totalCare: Guide = {
         {
           title: 'Edit a question',
           path: ['Forms', 'Intake', 'Intake pages', 'Edit page'],
+          shots: [{ src: 'edit-page', alt: 'The pencil on a page card' }, { src: 'edit-question', alt: 'The pencil on a question' }, { src: 'question-dialog', alt: 'The Edit Question window' }, { src: 'required', alt: 'The Required field switch' }],
           steps: [
             'Each card under <b>Intake pages</b> is one page of the form, in order. Click <b>Edit page</b>.',
             'Click a question to open <b>Edit Question</b>. Change the <b>Label</b> (what the parent reads) or the <b>Options (one per line)</b>.',
-            'Tick <b>Required field</b> if the family cannot move on without answering.',
+            'Turn on the <b>Required field</b> switch if the family cannot move on without answering. Under <b>Optional in these states</b> you can let some states skip it.',
             'Click <b>View intake</b> to see the change the way a family will.',
           ],
         },
         {
           title: 'Add a question',
           path: ['Forms', 'Intake', 'Edit page', 'Add Question'],
+          shots: [{ src: 'add-question', alt: 'The Add Question button' }],
           body: ['Pick a <b>Type</b> (short answer, dropdown, yes/no, date, upload, and so on), write the <b>Label</b>, and save.'],
         },
         {
           title: 'Show a question only in some states',
           path: ['Edit Question', 'Question visibility', 'pencil', 'State Visibility'],
+          shots: [{ src: 'visibility', alt: 'The pencil next to Question visibility' }, { src: 'state-visibility', alt: 'The State Visibility window' }],
           body: [
             'Pick the states that should see the question. Carelu uses the state the family typed, not their internet location.',
           ],
@@ -207,6 +223,7 @@ const totalCare: Guide = {
         {
           title: 'Consent documents',
           path: ['Forms', 'Intake', 'Edit page', 'a Consent Document question'],
+          shots: [{ src: 'consents', alt: 'Consent documents on the consent page' }, { src: 'consent-text', alt: 'Document content inside a consent' }],
           body: [
             'Each release is a <b>Consent Document</b> question. Edit the text under <b>Document content</b>. For Spanish you can let Carelu translate it, paste your own translation, or leave it in English.',
             'The family signs once at the end of the stack. Every signed document becomes its own PDF, shows in the family\'s <b>Documents</b> tab, and is included in the intake packet.',
@@ -236,11 +253,13 @@ const totalCare: Guide = {
       blocks: [
         {
           path: ['Forms', 'Service areas'],
+          shots: [{ src: 'service-areas-tab', alt: 'The Service areas tab' }, { src: 'areas-list', alt: 'Your states, click one to open it' }],
           body: ['Click a state to open it. Every change saves on its own.'],
         },
         {
           title: 'Insurance',
           path: ['Service areas', 'a state', 'State Insurance Configuration'],
+          shots: [{ src: 'insurance-config', alt: 'The In-Network menu on each carrier' }, { src: 'not-on-list', alt: 'Insurance not on the list' }],
           body: [
             'Each carrier is <b>In-Network</b>, <b>Case-by-Case</b> (the family qualifies but your team reviews), or <b>Not Accepted</b> (the family is told kindly you cannot take their plan).',
             'Under <b>Insurance not on the list</b> choose what happens when a family types a plan you have not listed.',
@@ -259,12 +278,14 @@ const totalCare: Guide = {
         {
           title: 'Where you serve',
           path: ['Service areas', 'a state', 'Coverage Area'],
+          shots: [{ src: 'coverage', alt: 'Statewide or specific ZIP codes' }, { src: 'clinics', alt: 'Clinic Locations and Add Clinic' }],
           body: ['<b>Statewide coverage</b>, or <b>Specific zip codes only</b> with <b>Bulk add ZIPs</b> to paste a list. Add or change offices under <b>Clinic Locations</b> → <b>Add Clinic</b>.'],
           ask: 'Opening a new clinic (like Tooele) changes which families see a clinic option. Send us the address and we will redraw the drive-time areas.',
         },
         {
           title: 'Age and payment',
           path: ['Service areas', 'a state', 'Age Range Accepted / Payment Methods Accepted'],
+          shots: [{ src: 'areas-age', alt: 'Age Range Accepted' }],
           body: ['Set the ages you serve and whether you take self-pay families.'],
         },
       ],
@@ -276,9 +297,10 @@ const totalCare: Guide = {
         {
           title: 'Assignment rules',
           path: ['Opportunities', 'Actions', 'Assignment', 'Add rule'],
+          shots: [{ src: 'assignment', alt: 'The Assignment tab' }, { src: 'rule-modes', alt: 'Always, AI prompt or Column rules' }, { src: 'rule-assignee', alt: 'Assign to one coordinator or several' }],
           steps: [
             'Choose when the rule applies: <b>Always</b>, <b>AI prompt</b> (describe it in words, like "families in Arizona"), or <b>Column rules</b> (exact matches, like State is Georgia).',
-            'Under <b>Assign to...</b> pick one coordinator, or several. With several, families rotate between them in turn.',
+            'Under <b>Assign to...</b> pick one coordinator, or several. With several, families rotate between them in turn. Click <b>Add rule</b> to save.',
             'Rules are checked from the top. The first one that matches wins.',
           ],
           example:
@@ -294,8 +316,9 @@ const totalCare: Guide = {
         {
           title: 'Build a flow',
           path: ['Outreach', 'Flows', 'New flow'],
+          shots: [{ src: 'new-flow', alt: 'The New flow button' }, { src: 'flow-type', alt: 'Follow-up or Recovery' }],
           steps: [
-            'Choose <b>Follow-up</b> (families who have not finished) or <b>Recovery</b> (families who went cold).',
+            'Choose <b>Follow-up</b> (get the paperwork in) or <b>Recovery</b> (bring back families you turned away: no diagnosis yet, insurance you do not take, location, or age).',
             'Click <b>Add a step</b> and pick <b>Text</b>, <b>Email</b>, or <b>Phone call</b>, and when it goes out.',
             'Write it yourself, or choose <b>Let the AI write it</b>.',
           ],
@@ -319,9 +342,10 @@ const totalCare: Guide = {
       blocks: [
         {
           path: ['Forms', 'Website forms'],
+          shots: [{ src: 'website-forms-btn', alt: 'The Website forms button' }, { src: 'website-fields', alt: 'Switch fields on or off' }, { src: 'embed', alt: 'Copy the embed code' }],
           body: [
-            'We built a website form that matches the one on your homepage. Change its look under <b>Appearance</b>, and its fields under <b>Advanced</b> → <b>Layout &amp; fields</b>.',
-            '<b>Embed Code</b> gives your web team the snippet to paste on your site.',
+            'We built a website form that matches the one on your homepage. Switch fields on or off under <b>Fields</b>, and watch the <b>Live Preview</b> change next to it. Whatever a family types here is carried into the full intake, so they never answer it twice.',
+            'Under <b>Embed Code</b>, <b>Copy Head Code</b> and the body snippet are what your web team pastes on your site.',
           ],
           ask: 'Your site still sends its form to Salesforce, so our form is not live on your homepage yet. When your web team is ready, we will send them the snippet and help them swap it in.',
         },
@@ -333,7 +357,8 @@ const totalCare: Guide = {
       blocks: [
         {
           path: ['Settings', 'Users & Roles'],
-          body: ['See everyone on your account here. A new coordinator signs up with an invite link and sets their own password. Once they join, they show up in <b>Assign to...</b> and in the Assignee picker.'],
+          shots: [{ src: 'users', alt: 'Users and Roles in Settings' }],
+          body: ['See everyone on your account here. A new coordinator joins through an <b>Invite Link</b> and sets their own password. Once they join, they show up in <b>Assign to...</b> and in the Assigned dropdown.'],
           ask: 'Send us the new coordinator\'s name, email, and state, and we will send the invite link and add them to your assignment rules.',
         },
       ],

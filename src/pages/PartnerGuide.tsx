@@ -42,6 +42,8 @@ const CSS = `
 .pg-chip { font-size: 13px; font-weight: 600; background: rgba(63,122,52,0.09); color: ${GREEN}; border-radius: 999px; padding: 3px 11px; }
 .pg-arrow { color: ${MUTE}; font-size: 13px; }
 .pg-steps { margin: 0; padding-left: 22px; }
+.pg-shot { margin: 4px 0 14px; border: 1px solid ${HAIR}; border-radius: 12px; overflow: hidden; background: ${BONE}; }
+.pg-shot img { display: block; width: 100%; height: auto; }
 .pg-steps li { margin: 0 0 6px; }
 .pg-steps b, .pg-card p b { font-weight: 600; }
 .pg-note { border-left: 3px solid ${GREEN}; background: rgba(63,122,52,0.05); border-radius: 0 12px 12px 0; padding: 14px 18px; margin-top: 12px; font-size: 14.5px; line-height: 1.55; }
@@ -65,7 +67,7 @@ const CSS = `
 }
 `;
 
-function Block({ b }: { b: GuideBlock }) {
+function Block({ b, slug }: { b: GuideBlock; slug: string }) {
   return (
     <div className="pg-card">
       {b.title && <h3>{b.title}</h3>}
@@ -79,6 +81,11 @@ function Block({ b }: { b: GuideBlock }) {
           ))}
         </div>
       )}
+      {b.shots?.map((sh) => (
+        <figure key={sh.src} className="pg-shot">
+          <img src={`/guides/${slug}/${sh.src}.webp`} alt={sh.alt} loading="lazy" />
+        </figure>
+      ))}
       {b.body?.map((t, i) => <p key={i} dangerouslySetInnerHTML={{ __html: t }} />)}
       {b.steps && (
         <ol className="pg-steps">
@@ -160,7 +167,7 @@ export default function PartnerGuide() {
             <section key={s.id} id={s.id} className="pg-sec">
               <h2>{s.title}</h2>
               {s.intro && <p>{s.intro}</p>}
-              {s.blocks.map((b, i) => <Block key={i} b={b} />)}
+              {s.blocks.map((b, i) => <Block key={i} b={b} slug={slug} />)}
             </section>
           ))}
           <p className="pg-foot">
