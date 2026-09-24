@@ -215,6 +215,16 @@ const INTENT_LABEL: Record<string, string> = {
   'other': 'other',
 };
 
+/** The chat's markdown, flattened for a plain-text Slack post: link text only, no bold. */
+function plainAnswer(md: string): string {
+  const text = md
+    .replace(/\[([^\]]+)\]\((?:https?:\/\/|\/)[^)\s]*\)/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  return text.length > 1500 ? `${text.slice(0, 1500).trimEnd()}\u2026` : text;
+}
+
 async function postQuestion(asked: Asked, tags: QuestionTags | undefined, followUpOf: number): Promise<void> {
   if (!QUESTIONS_SLACK_WEBHOOK_URL) return;
   const who = asked.email
@@ -226,7 +236,7 @@ async function postQuestion(asked: Asked, tags: QuestionTags | undefined, follow
     tags && (tags.states.length || tags.payers.length) ? `about: ${[...tags.states, ...tags.payers].join(', ')}` : '',
     asked.email ? `asked by ${asked.email}${who}` : `anonymous (IP ${asked.ip})`,
     asked.page ? `on ${asked.page}` : '',
-  ].filter(Boolean).join(' | ');
+  ].filter(Boolean).join(' | ') + (asked.answer ? `\n\nAnswer: ${plainAnswer(asked.answer)}` : '');
   try {
     // Workflow Builder triggers render only their declared variables: `email` and `source`.
     await fetch(QUESTIONS_SLACK_WEBHOOK_URL, {
