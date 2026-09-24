@@ -115,8 +115,8 @@ export const integrationCatalog: CatalogGroup[] = [
       },
       {
         name: 'Chorus',
-        logoWidth: 99,
-        logo: '/logos/chorus.png',
+        logoWidth: 130,
+        logo: '/logos/chorus.svg',
         blurb: 'Clean, verified insurance data captured at intake feeds Chorus\'s revenue-cycle platform — eligibility, claims, and remits start from a correct record.',
         href: '/integrations/chorus',
         linkLabel: 'See the integration',
