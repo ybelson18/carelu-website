@@ -27,6 +27,10 @@ export interface QuestionTags {
   payers: string[];   // payers named or clearly implied
   states: string[];   // 2-letter state codes named or clearly implied
   summary: string;    // one line: what this person wants, in plain words
+  /** Did the directory actually answer it? Judged from the answer given.
+   *  'not-covered' / 'partial' questions are data gaps the weekly refresh fills. */
+  coverage?: 'answered' | 'partial' | 'not-covered';
+  missing?: string;   // what data the directory would need to answer fully ('' when answered)
 }
 
 const SCHEMA = {
@@ -37,16 +41,19 @@ const SCHEMA = {
     payers: { type: 'array', items: { type: 'string' } },
     states: { type: 'array', items: { type: 'string' } },
     summary: { type: 'string' },
+    coverage: { type: 'string', enum: ['answered', 'partial', 'not-covered'] },
+    missing: { type: 'string' },
   },
-  required: ['intent', 'topics', 'payers', 'states', 'summary'],
+  required: ['intent', 'topics', 'payers', 'states', 'summary', 'coverage', 'missing'],
   additionalProperties: false,
 };
 
 const INSTRUCTIONS = `You label questions asked to an ABA-therapy payer directory chat (users are mostly intake, billing and owners at ABA provider agencies).
 Return: intent (one of the enum values), 1-3 short lowercase topics, the payers and 2-letter US state codes the question names or clearly implies (empty arrays if none), and a one-line plain summary of what the person wants (max 20 words, no preamble).
-If a previous question is given, use it to resolve follow-ups like "what about Ohio?".`;
+If a previous question is given, use it to resolve follow-ups like "what about Ohio?".
+If the answer the directory gave is included, judge coverage: 'answered' if it answered the question directly from its data; 'partial' if it answered only part, hedged because data was missing, or pointed elsewhere for the core of the question; 'not-covered' if it said the directory lacks the state, payer or fact. In 'missing', name concretely what data would let it answer fully (payer + state + fact, e.g. "CareFirst MD commercial: whether RBT certification is required"); empty string when answered.`;
 
-export async function classifyQuestion(question: string, previous?: string): Promise<QuestionTags | undefined> {
+export async function classifyQuestion(question: string, previous?: string, answer?: string): Promise<QuestionTags | undefined> {
   try {
     const client = new Anthropic();
     const res = await client.messages.create({
@@ -56,7 +63,8 @@ export async function classifyQuestion(question: string, previous?: string): Pro
       output_config: { format: { type: 'json_schema', schema: SCHEMA } },
       messages: [{
         role: 'user',
-        content: (previous ? `Previous question: ${previous.slice(0, 500)}\n\n` : '') + `Question: ${question.slice(0, 1000)}`,
+        content: (previous ? `Previous question: ${previous.slice(0, 500)}\n\n` : '') + `Question: ${question.slice(0, 1000)}` +
+          (answer ? `\n\nAnswer the directory gave:\n${answer.slice(0, 3000)}` : ''),
       }],
     });
     if (res.stop_reason === 'refusal') return undefined;

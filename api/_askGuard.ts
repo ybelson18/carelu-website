@@ -194,7 +194,7 @@ export async function check(ip: string, email: string | undefined): Promise<Verd
 
 /** Record one answered question (who, what, intent) and fire the daily alert if it crossed. */
 export async function record(asked: Asked, cost: number): Promise<void> {
-  const tags = await classifyQuestion(asked.question, asked.previousQuestion);
+  const tags = await classifyQuestion(asked.question, asked.previousQuestion, asked.answer);
   let followUpOf = 0;
   try {
     followUpOf = await store(asked, cost, tags);
@@ -234,6 +234,8 @@ async function postQuestion(asked: Asked, tags: QuestionTags | undefined, follow
     `Payer chat question${followUpOf > 1 ? ` (#${followUpOf} in this conversation)` : ''}: "${asked.question.slice(0, 600)}"`,
     tags ? `wants: ${INTENT_LABEL[tags.intent] ?? tags.intent} \u2014 ${tags.summary}` : '',
     tags && (tags.states.length || tags.payers.length) ? `about: ${[...tags.states, ...tags.payers].join(', ')}` : '',
+    tags && tags.coverage && tags.coverage !== 'answered'
+      ? `DATA GAP (${tags.coverage === 'not-covered' ? 'not covered' : 'partial'}): ${tags.missing || 'see answer'}` : '',
     asked.email ? `asked by ${asked.email}${who}` : `anonymous (IP ${asked.ip})`,
     asked.page ? `on ${asked.page}` : '',
   ].filter(Boolean).join(' | ') + (asked.answer ? `\n\nAnswer: ${plainAnswer(asked.answer)}` : '');

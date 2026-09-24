@@ -11,7 +11,7 @@ const GREEN = '#3f7a34';
 const HAIR = 'rgba(43,42,38,0.08)';
 const MUTE = 'rgba(43,42,38,0.6)';
 
-interface Tags { intent: string; topics: string[]; payers: string[]; states: string[]; summary: string }
+interface Tags { intent: string; topics: string[]; payers: string[]; states: string[]; summary: string; coverage?: string; missing?: string }
 interface Q { ts: string; q: string; answer?: string; email?: string; emailSource?: string; page?: string; cost: number; tags?: Tags }
 interface Conversation { id: string; page?: string; started: string; questions: Q[] }
 interface Person {
@@ -113,6 +113,11 @@ function PersonRow({ p }: { p: Person }) {
                   {q.tags && (
                     <div style={{ marginTop: 6, display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
                       <Pill tone="green">{INTENT_LABEL[q.tags.intent] ?? q.tags.intent}</Pill>
+                      {q.tags.coverage && q.tags.coverage !== 'answered' && (
+                        <span style={{ fontSize: 11.5, fontWeight: 700, padding: '3px 9px', borderRadius: 100, color: '#9a4b00', background: 'rgba(214,120,0,0.12)' }}>
+                          Data gap{q.tags.missing ? `: ${q.tags.missing}` : ''}
+                        </span>
+                      )}
                       {[...q.tags.states, ...q.tags.payers, ...q.tags.topics].map((t) => <Pill key={t}>{t}</Pill>)}
                       <span style={{ fontSize: 12.5, color: MUTE, fontStyle: 'italic' }}>{q.tags.summary}</span>
                     </div>
