@@ -701,6 +701,11 @@ export default function SourcesApp() {
         <button onClick={logout} style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, fontWeight: 600, color: MUTE, background: 'transparent', border: `1px solid ${HAIR}`, borderRadius: 100, padding: '8px 16px', cursor: 'pointer' }}>Sign out</button>
       </div>
 
+      {data && (
+        <p style={{ fontSize: 14, margin: '0 0 14px' }}>
+          <a href="/sources/questions" style={{ color: GREEN, fontWeight: 600 }}>Payer chat: who asked what →</a>
+        </p>
+      )}
       {data && <Heartbeat hb={data.heartbeat} />}
 
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: 24, marginTop: 24 }}>

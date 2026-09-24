@@ -215,6 +215,19 @@ export async function getRepoFileText(token: string, filePath: string): Promise<
   return res.text();
 }
 
+// File names in a directory of the private repo ([] if the directory does not exist yet).
+export async function listRepoDir(token: string, dirPath: string): Promise<string[]> {
+  const res = await githubFetch(token, `${repoPath}/contents/${dirPath}?ref=${DEFAULT_BRANCH}`);
+  if (res.status === 404) return [];
+  if (!res.ok) {
+    const err = new Error(`GitHub GET contents/${dirPath} -> ${res.status}`) as GithubError;
+    err.status = res.status;
+    throw err;
+  }
+  const items = (await res.json()) as Array<{ name: string; type: string }>;
+  return items.filter((i) => i.type === 'file').map((i) => i.name);
+}
+
 // Latest commit date on the default branch (ISO string), or null if none.
 export async function getLatestCommitDate(token: string): Promise<string | null> {
   const commits = await githubJson<Array<{ commit: { committer?: { date?: string }; author?: { date?: string } } }>>(

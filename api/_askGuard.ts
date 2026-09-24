@@ -1,4 +1,5 @@
 import { getRepoFileText, commitFiles } from './sources/_shared.js';
+import { classifyQuestion, type QuestionTags } from './_askIntent.js';
 
 /* ================================================================
    Spend + abuse guard for /api/ask (the payer-directory chat).
@@ -16,6 +17,13 @@ import { getRepoFileText, commitFiles } from './sources/_shared.js';
    (ask-usage/YYYY-MM-DD.json, New York date), next to leads.json.
    It is a read-modify-write, so a race between two answers can lose
    a count; fine for a spend guard, and the loser retries.
+
+   Every answered question is logged WITH who asked it (email, how we
+   know it, browser id, conversation id, page) and an intent label, so
+   the team can see what people care about at /sources/questions.
+   ask-usage/identities.json remembers which email each browser id and
+   IP belongs to: a later question that arrives without an email (new
+   tab, cleared storage, a storage blip) is still attributed.
 
    Fails OPEN: if GitHub is unreachable, questions still go through.
    A storage outage must not take the chat down, and the Anthropic
@@ -43,7 +51,67 @@ interface DayUsage {
   capped?: boolean;
   byEmail: Record<string, Tally>;
   byIp: Record<string, Tally>;
-  log: { ts: string; email?: string; ip: string; q: string; cost: number }[];
+  log: LogEntry[];
+}
+
+/** How we know who asked: they typed it, their browser was linked to it
+ *  earlier, or (weakest) their IP was. */
+export type EmailSource = 'given' | 'browser' | 'ip';
+
+export interface LogEntry {
+  ts: string;
+  email?: string;
+  emailSource?: EmailSource;
+  ip: string;
+  visitorId?: string;
+  conversationId?: string;
+  page?: string;
+  q: string;
+  answer?: string;
+  cost: number;
+  tags?: QuestionTags;
+}
+
+export interface Asked {
+  ip: string;
+  email?: string;
+  emailSource?: EmailSource;
+  visitorId?: string;
+  conversationId?: string;
+  page?: string;
+  question: string;
+  previousQuestion?: string;
+  answer: string;
+}
+
+interface Identities {
+  visitors: Record<string, { email: string; ts: string }>;
+  ips: Record<string, { email: string; ts: string }>;
+}
+const IDENTITIES = 'ask-usage/identities.json';
+// An IP is shared by offices and carriers; only trust a recent link.
+const IP_LINK_DAYS = 30;
+
+async function readIdentities(): Promise<Identities | null> {
+  if (!TOKEN) return null;
+  try {
+    return JSON.parse(await getRepoFileText(TOKEN, IDENTITIES)) as Identities;
+  } catch (err) {
+    if ((err as { status?: number }).status === 404) return { visitors: {}, ips: {} };
+    console.error('askGuard: identities read failed', err);
+    return null;
+  }
+}
+
+/** Who is this, when the request carried no email? Browser link first, then a recent IP link. */
+export async function resolveIdentity(visitorId: string | undefined, ip: string):
+    Promise<{ email: string; source: EmailSource } | undefined> {
+  const ids = await readIdentities();
+  if (!ids) return undefined;
+  if (visitorId && ids.visitors[visitorId]) return { email: ids.visitors[visitorId].email, source: 'browser' };
+  const byIp = ids.ips[ip];
+  if (byIp && Date.now() - Date.parse(byIp.ts) < IP_LINK_DAYS * 86400_000) return { email: byIp.email, source: 'ip' };
+  return undefined;
 }
 
 export interface Usage {
@@ -120,12 +188,14 @@ export async function check(ip: string, email: string | undefined): Promise<Verd
   return { ok: true };
 }
 
-/** Record one answered question and fire the daily alert if it crossed. */
-export async function record(ip: string, email: string | undefined, question: string, cost: number): Promise<void> {
+/** Record one answered question (who, what, intent) and fire the daily alert if it crossed. */
+export async function record(asked: Asked, cost: number): Promise<void> {
   if (!TOKEN) return;
+  const tags = await classifyQuestion(asked.question, asked.previousQuestion);
+  const { ip, email } = asked;
   const date = today();
   for (let attempt = 0; attempt < 4; attempt++) {
-    const day = await read(date);
+    const [day, ids] = await Promise.all([read(date), readIdentities()]);
     if (!day) return;
 
     day.costUsd = Math.round((day.costUsd + cost) * 10000) / 10000;
@@ -136,16 +206,36 @@ export async function record(ip: string, email: string | undefined, question: st
     };
     bump(day.byIp, ip);
     if (email) bump(day.byEmail, email);
-    day.log.push({ ts: new Date().toISOString(), ...(email ? { email } : {}), ip, q: question.slice(0, 300), cost: Math.round(cost * 10000) / 10000 });
+    const entry: LogEntry = {
+      ts: new Date().toISOString(),
+      ...(email ? { email, emailSource: asked.emailSource ?? 'given' } : {}),
+      ip,
+      ...(asked.visitorId ? { visitorId: asked.visitorId } : {}),
+      ...(asked.conversationId ? { conversationId: asked.conversationId } : {}),
+      ...(asked.page ? { page: asked.page } : {}),
+      q: asked.question.slice(0, 1000),
+      answer: asked.answer.slice(0, 1500),
+      cost: Math.round(cost * 10000) / 10000,
+      ...(tags ? { tags } : {}),
+    };
+    day.log.push(entry);
 
     const crossedAlert = !day.alerted && day.costUsd >= ALERT_USD;
     const crossedCap = !day.capped && day.costUsd >= HARD_CAP_USD;
     if (crossedAlert) day.alerted = true;
     if (crossedCap) day.capped = true;
 
+    // Only a typed email creates links; inferred ones never overwrite them.
+    const files = [{ path: pathFor(date), content: JSON.stringify(day, null, 1) + '\n' }];
+    if (ids && email && (asked.emailSource ?? 'given') === 'given') {
+      const now = new Date().toISOString();
+      if (asked.visitorId) ids.visitors[asked.visitorId] = { email, ts: now };
+      ids.ips[ip] = { email, ts: now };
+      files.push({ path: IDENTITIES, content: JSON.stringify(ids, null, 1) + '\n' });
+    }
+
     try {
-      await commitFiles(TOKEN, [{ path: pathFor(date), content: JSON.stringify(day, null, 1) + '\n' }],
-        `ask: ${date} $${day.costUsd.toFixed(2)} (${day.questions}q)`);
+      await commitFiles(TOKEN, files, `ask: ${date} $${day.costUsd.toFixed(2)} (${day.questions}q)`);
     } catch (err) {
       console.error(`askGuard: commit attempt ${attempt + 1} failed`, err);
       await new Promise((r) => setTimeout(r, 300 * (attempt + 1)));

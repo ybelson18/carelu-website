@@ -3,7 +3,7 @@ import { waitUntil } from '@vercel/functions';
 import { payers, PAYER_REVIEWED } from '../src/data/payers/index.js';
 import { vob } from '../src/data/payers/vob/index.js';
 import type { SourceRef } from '../src/data/payers/vob/types.js';
-import { check, record, clientIp, costOf } from './_askGuard.js';
+import { check, record, clientIp, costOf, resolveIdentity, type EmailSource } from './_askGuard.js';
 
 const EMAIL_RE = /^[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
@@ -321,7 +321,7 @@ export async function POST(request: Request): Promise<Response> {
     return new Response(JSON.stringify({ error: 'not configured' }), { status: 503 });
   }
 
-  let body: { messages?: ChatMessage[]; email?: unknown };
+  let body: { messages?: ChatMessage[]; email?: unknown; visitorId?: unknown; conversationId?: unknown; page?: unknown };
   try {
     body = await request.json();
   } catch {
@@ -342,9 +342,21 @@ export async function POST(request: Request): Promise<Response> {
   }
 
   const rawEmail = typeof body.email === 'string' ? body.email.trim().toLowerCase().slice(0, 254) : '';
-  const email = EMAIL_RE.test(rawEmail) ? rawEmail : undefined;
   const ip = clientIp(request);
-  const verdict = await check(ip, email);
+  const idParam = (v: unknown) => (typeof v === 'string' && /^[A-Za-z0-9-]{8,64}$/.test(v) ? v : undefined);
+  const visitorId = idParam(body.visitorId);
+  const conversationId = idParam(body.conversationId);
+  const page = typeof body.page === 'string' ? body.page.slice(0, 200) : undefined;
+  // Who is asking? The email they gave, else the email this browser (or,
+  // more weakly, this IP) was linked to earlier. Only a browser link counts
+  // for the email gate; an IP link is attribution only.
+  let email = EMAIL_RE.test(rawEmail) ? rawEmail : undefined;
+  let emailSource: EmailSource | undefined = email ? 'given' : undefined;
+  if (!email) {
+    const known = await resolveIdentity(visitorId, ip);
+    if (known) { email = known.email; emailSource = known.source; }
+  }
+  const verdict = await check(ip, emailSource === 'ip' ? undefined : email);
   if (!verdict.ok) {
     return new Response(JSON.stringify({ error: verdict.reason, message: verdict.message }), {
       status: verdict.status,
@@ -390,7 +402,8 @@ export async function POST(request: Request): Promise<Response> {
   const encoder = new TextEncoder();
   const readable = new ReadableStream<Uint8Array>({
     start(controller) {
-      stream.on('text', (delta) => controller.enqueue(encoder.encode(delta)));
+      let answer = '';
+      stream.on('text', (delta) => { answer += delta; controller.enqueue(encoder.encode(delta)); });
       stream.on('error', (err) => {
         controller.enqueue(encoder.encode('\n\nSorry — something went wrong generating this answer. Please try again.'));
         console.error('ask stream error', err);
@@ -410,7 +423,10 @@ export async function POST(request: Request): Promise<Response> {
         const cost = costOf(msg.usage);
         // One line per answer in the Vercel logs: `vercel logs -q "ask usage"`.
         console.log('ask usage', JSON.stringify({ cost: Math.round(cost * 10000) / 10000, ...msg.usage }));
-        waitUntil(record(ip, email, last.content, cost).catch((err) => console.error('ask: record failed', err)));
+        waitUntil(record({
+          ip, email, emailSource, visitorId, conversationId, page,
+          question: last.content, previousQuestion: prevUser, answer,
+        }, cost).catch((err) => console.error('ask: record failed', err)));
       });
     },
     cancel() {
@@ -422,6 +438,8 @@ export async function POST(request: Request): Promise<Response> {
     headers: {
       'content-type': 'text/plain; charset=utf-8',
       'cache-control': 'no-store',
+      // The browser was recognised: hand the email back so the page remembers it.
+      ...(emailSource === 'browser' && email ? { 'x-carelu-email': email } : {}),
     },
   });
 }

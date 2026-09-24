@@ -17,13 +17,27 @@ const EMAIL_RE = /^[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 // unlocks the chat too, so nobody is asked twice.
 const GIVEN_KEY = 'carelu_leads_email';
 
+// Stable per-browser id: links later questions to the email given once,
+// even when a request arrives without it.
+const VISITOR_KEY = 'carelu_visitor';
+function visitorId(): string | undefined {
+  try {
+    let id = localStorage.getItem(VISITOR_KEY);
+    if (!id) { id = crypto.randomUUID(); localStorage.setItem(VISITOR_KEY, id); }
+    return id;
+  } catch { return undefined; }
+}
+function newId(): string {
+  try { return crypto.randomUUID(); } catch { return `c${Date.now()}${Math.random().toString(36).slice(2, 10)}`; }
+}
+
 function savedEmail(): string {
   try { return localStorage.getItem(GIVEN_KEY) ?? ''; } catch { return ''; }
 }
 
 /* The server refused the question (email gate, daily limit, or closed for
    the day). Not a transient failure, so it is never retried. */
-const GATE_PROMPT = 'Enter your work email below to get your answer. It’s free, and you only do it once.';
+const GATE_PROMPT = 'Enter your work email below to get your answer. It’s free, and you only do it once. We save your questions with your email so we can follow up and improve the directory.';
 
 class Refused extends Error {
   readonly reason: string;
@@ -55,6 +69,8 @@ export default function AskPayers() {
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
+  // One id per chat on this page load, so follow-ups group into a conversation.
+  const conversationRef = useRef<string>(newId());
   // Set when the server asks for an email: the question waiting to be re-sent.
   const [gatedQuestion, setGatedQuestion] = useState<string | null>(null);
   const [gateEmail, setGateEmail] = useState('');
@@ -89,13 +105,9 @@ export default function AskPayers() {
     if (!q || busy) return;
     setInput('');
     const email = emailOverride ?? savedEmail();
-    // First visit: ask for the email before spending a call. The server
-    // refuses anonymous questions too (ANON_FREE = 0); this just saves the trip.
-    if (!email) {
-      setMessages([...base, { role: 'user', content: q }, { role: 'assistant', content: GATE_PROMPT }]);
-      setGatedQuestion(q);
-      return;
-    }
+    // No email in this browser: still ask the server, which may recognise the
+    // browser from an earlier visit; otherwise it answers 401 and the email
+    // gate opens (the model is never called for an unknown visitor).
     setBusy(true);
     const next: Msg[] = [...base, { role: 'user', content: q }, { role: 'assistant', content: '' }];
     setMessages(next);
@@ -107,13 +119,22 @@ export default function AskPayers() {
       const res = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ messages: next.slice(0, -1), ...(email ? { email } : {}) }),
+        body: JSON.stringify({
+          messages: next.slice(0, -1),
+          ...(email ? { email } : {}),
+          visitorId: visitorId(),
+          conversationId: conversationRef.current,
+          page: window.location.pathname,
+        }),
         signal: ctrl.signal,
       });
       if (res.status === 401 || res.status === 429) {
         const data = await res.json().catch(() => ({})) as { error?: string; message?: string };
         throw new Refused(data.error ?? 'limit', data.message ?? 'The assistant is unavailable right now.');
       }
+      // The server recognised this browser from an earlier visit: remember the email.
+      const known = res.headers.get('x-carelu-email');
+      if (known && !email) { try { localStorage.setItem(GIVEN_KEY, known); } catch { /* private mode */ } }
       if (!res.ok || !res.body) {
         throw new Error(`status ${res.status}`);
       }
