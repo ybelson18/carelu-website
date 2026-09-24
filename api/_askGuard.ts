@@ -41,6 +41,10 @@ const PRICE = { input: 4, output: 20, cacheWrite: 5, cacheRead: 0.2 };
 
 const TOKEN = process.env.GH_SOURCES_TOKEN ?? '';
 const MARKETING_SLACK_WEBHOOK_URL = process.env.SLACK_MARKETING_WEBHOOK_URL ?? '';
+// Every question is posted to Slack as it comes in. A dedicated channel's
+// Workflow Builder trigger goes in SLACK_CHAT_QUESTIONS_WEBHOOK_URL (declaring
+// the same two variables, `email` and `source`); until then, #marketing.
+const QUESTIONS_SLACK_WEBHOOK_URL = process.env.SLACK_CHAT_QUESTIONS_WEBHOOK_URL || MARKETING_SLACK_WEBHOOK_URL;
 
 interface Tally { q: number; cost: number }
 interface DayUsage {
@@ -190,13 +194,59 @@ export async function check(ip: string, email: string | undefined): Promise<Verd
 
 /** Record one answered question (who, what, intent) and fire the daily alert if it crossed. */
 export async function record(asked: Asked, cost: number): Promise<void> {
-  if (!TOKEN) return;
   const tags = await classifyQuestion(asked.question, asked.previousQuestion);
+  let followUpOf = 0;
+  try {
+    followUpOf = await store(asked, cost, tags);
+  } finally {
+    // Slack even when storage failed: no question goes unseen.
+    await postQuestion(asked, tags, followUpOf);
+  }
+}
+
+const INTENT_LABEL: Record<string, string> = {
+  'family-coverage-check': 'checking a family\u2019s coverage',
+  'intake-process': 'intake process',
+  'billing-and-rates': 'billing & rates',
+  'authorization': 'prior auth',
+  'credentialing-network': 'credentialing / network',
+  'market-research': 'market research',
+  'vendor-evaluation': 'evaluating Carelu',
+  'other': 'other',
+};
+
+async function postQuestion(asked: Asked, tags: QuestionTags | undefined, followUpOf: number): Promise<void> {
+  if (!QUESTIONS_SLACK_WEBHOOK_URL) return;
+  const who = asked.email
+    ? (asked.emailSource === 'browser' ? ' (recognised browser)' : asked.emailSource === 'ip' ? ' (matched by IP, unconfirmed)' : '')
+    : '';
+  const source = [
+    `Payer chat question${followUpOf > 1 ? ` (#${followUpOf} in this conversation)` : ''}: "${asked.question.slice(0, 600)}"`,
+    tags ? `wants: ${INTENT_LABEL[tags.intent] ?? tags.intent} \u2014 ${tags.summary}` : '',
+    tags && (tags.states.length || tags.payers.length) ? `about: ${[...tags.states, ...tags.payers].join(', ')}` : '',
+    asked.email ? `asked by ${asked.email}${who}` : `anonymous (IP ${asked.ip})`,
+    asked.page ? `on ${asked.page}` : '',
+  ].filter(Boolean).join(' | ');
+  try {
+    // Workflow Builder triggers render only their declared variables: `email` and `source`.
+    await fetch(QUESTIONS_SLACK_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ email: asked.email ?? 'anonymous', source }),
+    });
+  } catch (err) {
+    console.error('askGuard: slack question post failed', err);
+  }
+}
+
+/** Write the question to the day's log (+ identity links). Returns its position in the conversation. */
+async function store(asked: Asked, cost: number, tags: QuestionTags | undefined): Promise<number> {
+  if (!TOKEN) return 0;
   const { ip, email } = asked;
   const date = today();
   for (let attempt = 0; attempt < 4; attempt++) {
     const [day, ids] = await Promise.all([read(date), readIdentities()]);
-    if (!day) return;
+    if (!day) return 0;
 
     day.costUsd = Math.round((day.costUsd + cost) * 10000) / 10000;
     day.questions += 1;
@@ -244,9 +294,10 @@ export async function record(asked: Asked, cost: number): Promise<void> {
 
     if (crossedAlert) await alert(day, `passed $${ALERT_USD} today`);
     if (crossedCap) await alert(day, `hit the $${HARD_CAP_USD} daily cap and is paused until tomorrow`);
-    return;
+    return asked.conversationId ? day.log.filter((e) => e.conversationId === asked.conversationId).length : 1;
   }
   console.error('askGuard: GAVE UP recording usage', ip, email);
+  return 0;
 }
 
 async function alert(day: DayUsage, what: string): Promise<void> {
