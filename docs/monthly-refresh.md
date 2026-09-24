@@ -35,6 +35,17 @@ ends with the LeadTrap copy in sync. Each weekly run does, in order:
    copy differs from this repo. One open sync PR at a time: update the existing branch/PR if one
    is still open rather than opening a second.
 7. Nothing verified changed? Still commit the watch snapshots, and say so in the report.
+8. **Gaps from real questions (do this every week).** The payer chat logs every question to
+   carelu-sources `ask-usage/YYYY-MM-DD.json`; each entry's `tags.coverage` is `answered`,
+   `partial` or `not-covered`, and `tags.missing` names the data it needed. Read the last 7 days
+   (skip entries from @leadtrap.com / @carelu.com addresses and questions starting "TEST").
+   For every partial / not-covered question: find the fact at a primary source and add it to the
+   right guide (or a new structured field / section), verified-only as always. When the gap is a
+   whole STATE that real visitors asked about, build that state this run (Medicaid + its plans +
+   Aetna/Cigna/UHC + the dominant local Blue, every structured field, the state-mandate atGlance
+   rows on each commercial guide), registered in index.ts, STATE_META, the sitemap and
+   api/ask.ts STATE_NAMES. A gap you could not close goes in the worklist with the question
+   quoted. List every gap and what you did about it in the report.
 
 The directory: payer guides in `src/data/payers/*.ts` plus VOB enrichment layers in
 `src/data/payers/vob/` (see `docs/vob-build.md`). Every fact carries cites/sources of
