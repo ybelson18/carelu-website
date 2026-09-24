@@ -31,6 +31,7 @@ import CrmVsPage from './pages/CrmVsPage'
 import ZapierMakeRisk from './pages/ZapierMakeRisk'
 import FrontOfficeRisks from './pages/FrontOfficeRisks'
 import SourcesApp from './pages/SourcesApp'
+import PartnerGuide from './pages/PartnerGuide'
 import News from './pages/News'
 import Blog from './pages/Blog'
 import { CRM_SLUGS } from './data/crms'
@@ -101,6 +102,8 @@ export default function App() {
         <Route path="/aba-front-office-risks" element={<FrontOfficeRisks />} />
         {/* Standalone document-upload app (no marketing nav, noindex, not in sitemap) */}
         <Route path="/sources" element={<SourcesApp />} />
+        {/* Per-clinic how-to guides (no marketing nav, noindex, not in sitemap) */}
+        <Route path="/guides/:slug" element={<PartnerGuide />} />
         {CRM_SLUGS.map((slug) => (
           <Route key={slug} path={`/carelu-vs-${slug}`} element={<CrmVsPage />} />
         ))}
