@@ -143,4 +143,5 @@ export const STATE_META: StateMeta[] = [
   { code: 'HI', name: 'Hawaii', mandate: 'Luke\u2019s Law (HRS \u00a7 431:10A-133; under 14, $25,000/yr ABA cap)', medicaidSlug: 'hawaii-medicaid' },
   { code: 'CA', name: 'California', mandate: 'SB 946 autism mandate (H&S \u00a7 1374.73, Ins. Code \u00a7 10144.51; no age or dollar caps)', medicaidSlug: 'medi-cal-california-medicaid' },
   { code: 'PA', name: 'Pennsylvania', mandate: 'Act 62 of 2008 (40 P.S. \u00a7 764h; under 21, CPI-adjusted cap $51,908 for 2026)', medicaidSlug: 'pennsylvania-medicaid' },
+  { code: 'NH', name: 'New Hampshire', mandate: 'RSA 417-E:2 autism coverage (HB 569, 2010; no age or dollar caps in current text)', medicaidSlug: 'new-hampshire-medicaid' },
 ];

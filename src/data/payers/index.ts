@@ -29,6 +29,7 @@ import { michiganPayers } from './michigan.js';
 import { hawaiiPayers } from './hawaii.js';
 import { californiaPayers } from './california.js';
 import { pennsylvaniaPayers } from './pennsylvania.js';
+import { newHampshirePayers } from './new-hampshire.js';
 
 export const payers: Record<string, PayerConfig> = {
   ...nationalPayers,
@@ -60,4 +61,5 @@ export const payers: Record<string, PayerConfig> = {
   ...hawaiiPayers,
   ...californiaPayers,
   ...pennsylvaniaPayers,
+  ...newHampshirePayers,
 };

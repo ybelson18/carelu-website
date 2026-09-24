@@ -42,7 +42,8 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { label: 'Administered by', value: 'Carelon Behavioral Health (BHASO) — carved out of ALL nine HealthChoice MCOs' },
       { label: 'Prior auth', value: 'Required on every ABA service; auths valid max 180 days' },
       { label: 'Diagnosis', value: 'Confirmed ASD (F84.0/.5/.8/.9) via Comprehensive Diagnostic Evaluation by a QHCP' },
-      { label: 'Diagnosis recency', value: 'No fixed expiry — but a Clinical Confirmation Form may be required, depending on age at diagnosis and time since' },
+      { label: 'Diagnosis recency', value: 'An old CDE is accepted, with one exception: diagnosed before age 3 yrs 1 mo AND 2+ years ago → Clinical Confirmation Form + QHCP visit note from the last 6 months' },
+      { label: 'ABA referral', value: 'Required from a QHCP, dated within the last 6 months (Carelon Maryland Medicaid ABA Referral Form)' },
       { label: 'Rates (per 15 min, eff. 2/1/2026)', value: '97153: $24.41 BCBA · $20.91 BCaBA · $19.17 RBT/BT; 97151/97155: $38.34' },
       { label: 'Portals', value: 'Carelon ProviderConnect (auths) · Availity Essentials (claims)' },
       { label: 'Telehealth floor (eff. 4/1/2026)', value: '97155, 97156/-U2, 97157: min. 25% in person, up to 75% telehealth (PT 60-26)' },
@@ -58,6 +59,23 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
           { title: 'MDH HealthChoice — Behavioral Health Coverage (carve-out)', url: 'https://health.maryland.gov/mmcp/healthchoice/Pages/BehavioralHealthCoverage.aspx' },
           { title: 'Carelon Behavioral Health of Maryland — ABA providers', url: 'https://maryland.carelonbh.com/aba-providers/' },
+        ],
+      },
+      {
+        h2: 'Maryland\'s ABA rulebook: which documents govern, and Carelon\'s eligibility test',
+        body: [
+          'Maryland Medicaid ABA is governed by a short stack of documents. The regulations are COMAR 10.09.28 (Applied Behavioral Analysis Services), COMAR 10.09.36 (general provider participation) and COMAR 10.09.49 (telehealth), which the MDH ABA Provider Manual (effective February 1, 2026) names as its legal authority. The manual carries the enrollment, documentation, clinic and school rules and the fee schedule. MDH transmittals change the rules between manual editions: PT 42-26 (combination of services, H2012 retired) and PT 60-26 (the 25% in-person floor for telehealth-eligible codes from April 1, 2026). Carelon, the BHASO, publishes the working documents: the ABA Medically Necessary Criteria, the ABA Authorization Guide, the Authorization Grid, the state Treatment Plan Template with the Telehealth Readiness Checklist, the ABA Referral Form, the Clinical Confirmation Form and the PBHS Provider Manual. Commercial plans in Maryland follow a different rulebook: Insurance § 15-835 and COMAR 31.10.39 (see the Aetna, Cigna, UnitedHealthcare and CareFirst Maryland guides).',
+          'Carelon\'s preauthorization criteria require all five of the following: the participant is under 21; has a DSM-5 ASD diagnosis from a QHCP (developmental pediatrician, pediatric neurologist, child psychiatrist, independently licensed clinical psychologist, pediatrician, neuropsychologist or nurse practitioner with ASD training); has "an ABA referral/recommendation no older than 6 months"; has maladaptive behaviors or skill deficits attributable to ASD causing significant impairment in personal care, psychological, vocational, educational or social functioning, or communication; and "can be adequately and safely maintained in their home environment" without needing a more intensive level of care. The manual states the same gate in fewer words: under 21, living in a home/community setting, with confirmed ASD, and referred by a QHCP. Carelon will not authorize vocational or recreational services, respite, custodial care, travel, other educational services, or anything that duplicates a service the child already gets from another program or in school.',
+          'An old diagnosis is accepted. The CDE has no expiry date. The one exception is set by the Clinical Confirmation Form (CCF). Carelon\'s criteria and Authorization Guide say: "If the participant was diagnosed before age 3 and 1 month and it has been more than two years since the initial diagnosis," submit a CCF "along with a copy of the QHCP visit notes dated within the last six months from the date the form was completed." The CCF itself states the trigger as "younger than 3 years old at the time of ASD diagnosis AND two years or more have passed." On the CCF, a QHCP re-confirms the DSM-5 criteria after a face-to-face evaluation within the past six months. What does go stale is the referral: it must be no older than 6 months at the initial assessment request, whatever the age of the CDE. One more rule for a family switching agencies: if the child already has an active authorization with another ABA provider, a new initial assessment needs a Continuity of Care Form plus a parent or guardian note naming the change and the last day of services with the current provider.',
+        ],
+        cites: [
+          { title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
+          { title: 'Carelon Maryland — ABA Medically Necessary Criteria (updated 10/22/25)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Medically-Necessary-Criteria.pdf' },
+          { title: 'Carelon Maryland — ABA Authorization Guide: Initial, Concurrent, and Addendum Requirements', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Authorization-Guide-Requirements.pdf' },
+          { title: 'Carelon Maryland — ABA Services Clinical Confirmation Form (CCF)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Services-Clinical-Confirmation-Form.pdf' },
+          { title: 'Carelon Maryland — Maryland Medicaid ABA Referral Form', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/Maryland-Medicaid-ABA-Referral-Form.pdf' },
+          { title: 'PT 42-26 — ABA combination-of-service update + H2012 discontinuation', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT42-26_Updates_to_ABA_Combination_of_Service_Rules__and_Discontinuation_of_H2012.pdf' },
+          { title: 'PT 60-26 — ABA Transmittal No. 9: Updates to ABA Telehealth (eff. 4/1/2026)', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT60-26_Updates_to_ABA_Telehealth.pdf' },
         ],
       },
       {
@@ -113,7 +131,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
     collect: [
       { title: 'Medicaid eligibility — not the MCO', desc: 'Verify Medical Assistance eligibility and route everything to Carelon; the HealthChoice MCO on the card is irrelevant for ABA.' },
       { title: 'CDE report + referral', desc: 'The Comprehensive Diagnostic Evaluation by a QHCP, with the confirmed ASD code (F84.0/.5/.8/.9) and the referral for ABA.' },
-      { title: 'Diagnosis date + child\'s age at diagnosis', desc: 'Determines whether Carelon will require a Clinical Confirmation Form before authorizing.' },
+      { title: 'Diagnosis date + child\'s age at diagnosis', desc: 'Diagnosed before age 3 yrs 1 mo and 2+ years ago means Carelon needs a Clinical Confirmation Form plus a QHCP visit note from the last 6 months.' },
+      { title: 'Referral date', desc: 'The QHCP\'s ABA referral or recommendation must be no older than 6 months when the assessment is requested (Carelon ABA Referral Form).' },
+      { title: 'Current ABA provider, if any', desc: 'If another agency holds an active authorization, a new assessment needs a Continuity of Care Form plus a parent note naming the switch and the last day with the current provider.' },
       { title: 'Home/community setting picture', desc: 'Services must be home/community-based — clinic delivery needs individualized COMAR justification; capture where care will actually happen.' },
       { title: 'School status (age 6+)', desc: 'Participants over 6 should be in school with an IEP; school-based ABA is short-term only and an RBT can\'t be a 1:1 aide.' },
     ],
@@ -122,6 +142,10 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'MDH Applied Behavior Analysis program page', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/pages/home.aspx' },
       { title: 'PT 42-26 — ABA combination-of-service update + H2012 discontinuation', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT42-26_Updates_to_ABA_Combination_of_Service_Rules__and_Discontinuation_of_H2012.pdf' },
       { title: 'PT 60-26 — ABA Transmittal No. 9: Updates to ABA Telehealth (eff. 4/1/2026)', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT60-26_Updates_to_ABA_Telehealth.pdf' },
+      { title: 'Carelon Maryland — ABA Medically Necessary Criteria (updated 10/22/25)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Medically-Necessary-Criteria.pdf' },
+      { title: 'Carelon Maryland — ABA Authorization Guide: Initial, Concurrent, and Addendum Requirements', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Authorization-Guide-Requirements.pdf' },
+      { title: 'Carelon Maryland — ABA Services Clinical Confirmation Form (CCF)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Services-Clinical-Confirmation-Form.pdf' },
+      { title: 'Carelon Maryland — Maryland Medicaid ABA Referral Form', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/Maryland-Medicaid-ABA-Referral-Form.pdf' },
       { title: 'MDH HealthChoice — Behavioral Health Coverage (carve-out)', url: 'https://health.maryland.gov/mmcp/healthchoice/Pages/BehavioralHealthCoverage.aspx' },
       { title: 'MDH HealthChoice home page', url: 'https://health.maryland.gov/mmcp/healthchoice/pages/home.aspx' },
       { title: 'Carelon Behavioral Health of Maryland — ABA providers', url: 'https://maryland.carelonbh.com/aba-providers/' },
@@ -181,9 +205,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'No fixed expiry date on the Comprehensive Diagnostic Evaluation \u2014 but there is a conditional re-confirmation. The manual defines a Clinical Confirmation Form as \u201ca form to be completed by a QHCP to confirm a participant continues to meet the criteria for Autism Spectrum Disorder,\u201d and notes that \u201cthe need for the form is dependent on age of participant at time of ASD diagnosis and amount of time since that diagnosis was given.\u201d So capture the diagnosis date and the child\'s age at diagnosis at intake, not just the diagnosis: those two facts decide whether Carelon will ask for a CCF before authorizing.',
+          'No fixed expiry on the Comprehensive Diagnostic Evaluation, so an old CDE is accepted, with one defined exception. The manual defines the Clinical Confirmation Form (CCF) as \u201ca form to be completed by a QHCP to confirm a participant continues to meet the criteria for Autism Spectrum Disorder.\u201d Carelon\'s ABA Medically Necessary Criteria and Authorization Guide set the trigger: \u201cIf the participant was diagnosed before age 3 and 1 month and it has been more than two years since the initial diagnosis,\u201d a CCF is required \u201calong with a copy of the QHCP visit notes dated within the last six months.\u201d The CCF form states it as younger than 3 at diagnosis AND two years or more since. It is needed at the initial assessment request and at initial and concurrent treatment requests. Separately, the ABA referral or recommendation must be no older than 6 months. Capture the diagnosis date, the child\'s age at diagnosis and the referral date at intake.',
         status: 'verified',
-        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }, { title: 'Carelon Maryland — ABA Medically Necessary Criteria (updated 10/22/25)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Medically-Necessary-Criteria.pdf' }, { title: 'Carelon Maryland — ABA Authorization Guide: Initial, Concurrent, and Addendum Requirements', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Authorization-Guide-Requirements.pdf' }, { title: 'Carelon Maryland — ABA Services Clinical Confirmation Form (CCF)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Services-Clinical-Confirmation-Form.pdf' }],
       },
       diagnosingProviders: {
         value:
@@ -199,9 +223,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Required, and it is part of the CDE rather than a separate note. The QHCP\'s comprehensive diagnostic evaluation must result \u201cin a referral for ABA therapy services,\u201d and the BHASO \u201cwill only authorize ABA services if a QHCP completes a CDE and prescribes medically necessary ABA services.\u201d Access to the benefit additionally requires that the participant be under 21, reside in a home/community setting and carry a confirmed ASD diagnosis. Every ABA service is prior-authorized by Carelon \u2014 assessment included \u2014 and authorizations run a maximum of 180 days.',
+          'Required, and it is part of the CDE rather than a separate note. The QHCP\'s comprehensive diagnostic evaluation must result \u201cin a referral for ABA therapy services,\u201d and the BHASO \u201cwill only authorize ABA services if a QHCP completes a CDE and prescribes medically necessary ABA services.\u201d Access to the benefit additionally requires that the participant be under 21, reside in a home/community setting and carry a confirmed ASD diagnosis. Carelon adds a freshness rule: the preauthorization criteria require \u201can ABA referral/recommendation no older than 6 months,\u201d and the Authorization Guide asks for a \u201cRecommendation, referral, or prescription (RX) for ABA\u201d dated 6 months or less with the initial assessment request. Carelon\'s Maryland Medicaid ABA Referral Form must be completed by one of the seven QHCP types and records the referring provider\'s NPI. Every ABA service is prior-authorized by Carelon \u2014 assessment included \u2014 and authorizations run a maximum of 180 days.',
         status: 'verified',
-        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }],
+        cites: [{ title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' }, { title: 'Carelon Maryland — ABA Medically Necessary Criteria (updated 10/22/25)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Medically-Necessary-Criteria.pdf' }, { title: 'Carelon Maryland — ABA Authorization Guide: Initial, Concurrent, and Addendum Requirements', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-Authorization-Guide-Requirements.pdf' }, { title: 'Carelon Maryland — Maryland Medicaid ABA Referral Form', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/Maryland-Medicaid-ABA-Referral-Form.pdf' }],
       },
       telehealth: {
         value:
@@ -227,7 +251,270 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'Which Maryland Medicaid MCO should we contact for ABA?', a: 'None of them. ABA is carved out of all nine HealthChoice MCOs and paid fee-for-service through Carelon. Authorizations go through ProviderConnect, claims through Availity — the MCO on the family\'s card never touches ABA.' },
       { q: 'What does Maryland Medicaid pay for ABA?', a: 'Per the fee schedule effective February 1, 2026: 97153 direct treatment pays $24.41/15-min unit at the BCBA tier, $20.91 BCaBA, $19.17 RBT/BT; 97151 assessment and 97155 pay $38.34; 97156 parent training pays $20.91 without the child present or $38.34 with (billed 97156-U2).' },
       { q: 'Is an autism diagnosis required for Maryland Medicaid ABA?', a: 'Yes — a confirmed ASD diagnosis (F84.0, F84.5, F84.8, or F84.9) made through a Comprehensive Diagnostic Evaluation by a qualified health care provider, plus a referral. Depending on the child\'s age at diagnosis and time elapsed, a Clinical Confirmation Form may also be required.' },
+      { q: 'What Maryland guidelines govern Medicaid ABA?', a: 'COMAR 10.09.28 (ABA services), 10.09.36 (provider participation) and 10.09.49 (telehealth); the MDH ABA Provider Manual (eff. Feb 1, 2026) with its fee schedule; MDH transmittals PT 42-26 and PT 60-26; and Carelon\'s ABA Medically Necessary Criteria, Authorization Guide, Treatment Plan Template, Referral Form and Clinical Confirmation Form. Commercial plans follow Insurance § 15-835 and COMAR 31.10.39 instead.' },
+      { q: 'Who is eligible for ABA through Carelon (Maryland Medicaid)?', a: 'A Medicaid participant under 21, with a DSM-5 ASD diagnosis from a QHCP, an ABA referral no older than 6 months, maladaptive behaviors or skill deficits from ASD that significantly impair functioning, and who can be safely maintained at home without a more intensive level of care. Services must be home/community-based (clinic needs justification).' },
+      { q: 'Is a referral required for Maryland Medicaid ABA?', a: 'Yes. The CDE must result in a referral for ABA from a QHCP, and Carelon requires the referral or recommendation to be no older than 6 months when the initial assessment is requested. Carelon publishes a Maryland Medicaid ABA Referral Form for it.' },
+      { q: 'Does Carelon accept an old CDE (diagnostic evaluation)?', a: 'Yes. The CDE does not expire. The exception: if the child was diagnosed before age 3 years 1 month and more than two years have passed, Carelon requires a Clinical Confirmation Form from a QHCP plus visit notes from the last six months. The referral, unlike the CDE, must be 6 months old or less.' },
+      { q: 'Can a new agency assess a child who already has ABA with another Maryland Medicaid provider?', a: 'Yes, when clinically appropriate. Carelon\'s Authorization Guide asks for a Continuity of Care Form plus a parent or guardian note outlining the change of ABA providers and the last day of services with the current provider, sent to MDH.ABACareCoordinatorsFAX@carelon.com or by phone at 1-800-888-1965.' },
       { q: 'Can Maryland Medicaid ABA be delivered 100% by telehealth?', a: 'Not for 97155 (RBT/BCaBA/BT supervision), 97156/97156-U2 (parent training), or 97157 (group parent training) — effective April 1, 2026, PT 60-26 ("ABA Transmittal No. 9") requires at least 25% of those three services to be rendered in person, with up to 75% allowed via telehealth. Direct 97153 treatment was never on the telehealth list at all.' },
+    ],
+  },
+
+  'carefirst-maryland': {
+    slug: 'carefirst-maryland',
+    family: 'bcbs',
+    cardDesc: 'Maryland\'s dominant Blue plan: Medical Policy 3.01.015 + Operating Procedure 8.01.011A, ABA preauthorized, RBTs billed under the supervising licensed BCBA.',
+    assessmentPA: {
+      value: 'Not stated separately for the assessment. CareFirst\'s policies say "Adaptive Behavioral Treatment (ABT) must be preauthorized" and "Applied behavioral analysis (ABA) services and habilitative diagnoses must be preauthorized," but neither separates the 97151 assessment from treatment. Check 97151 in the Prior Authorization Look-up (PAL) tool before scheduling.',
+      status: 'unverified',
+      cites: [
+        { title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+        { title: 'CareFirst Medical Policy Operating Procedure 8.01.011A — Habilitative Services (MD and DC Mandates) (rev. 4/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+      ],
+      verifyVia: 'CareFirst Provider Portal → Prior Auth/Notifications → Prior Authorization Look-up (PAL) tool, entering 97151 for the member, or 1-866-773-2884 (1-866-PRE-AUTH).',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Required. Medical Policy 3.01.015: "Adaptive Behavioral Treatment (ABT) must be preauthorized." Operating Procedure 8.01.011A: "Prior authorization is required for Applied Behavioral Analysis (ABA) and habilitative services for Maryland members." Submit through the CareFirst Provider Portal (Prior Auth/Notifications) or call 1-866-773-2884. Habilitative Services (8.01.011A) is on CareFirst\'s published PPO pre-service review list.',
+      status: 'verified',
+      cites: [
+        { title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+        { title: 'CareFirst Medical Policy Operating Procedure 8.01.011A — Habilitative Services (MD and DC Mandates) (rev. 4/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+        { title: 'CareFirst — Pre-Cert/Pre-Auth (In-Network)', url: 'https://provider.carefirst.com/providers/medical/in-network-precertification-preauthorization.page' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes. ABT, including ABA, is medically necessary only when the "Individual has confirmed diagnosis of autism spectrum disorder (ASD) from a qualified healthcare provider," and ABT "is considered not medically necessary for all other non-autism spectrum disorder (non-ASD) indications."',
+      status: 'verified',
+      cites: [
+        { title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+      ],
+    },
+    payer: 'CareFirst BlueCross BlueShield (Maryland)',
+    state: 'MD', kind: 'commercial',
+    pill: 'Payer Guide · CareFirst BCBS · Maryland',
+    h1: 'CareFirst BlueCross BlueShield ABA coverage in Maryland: the intake guide.',
+    metaTitle: 'CareFirst BCBS ABA Coverage in Maryland: Prior Auth, RBT & Mandate Guide | Carelu',
+    metaDescription:
+      'How CareFirst BlueCross BlueShield covers ABA in Maryland: Medical Policy 3.01.015, the habilitative-services operating procedure 8.01.011A, prior authorization, how RBT and BCaBA services are billed under the supervising licensed BCBA, the Maryland mandate\'s 25/10-hour floors, and what intake should verify.',
+    intro: [
+      'CareFirst BlueCross BlueShield is the Blue plan for Maryland, Washington, D.C. and Northern Virginia, and the commercial card a Maryland ABA agency sees most. Two CareFirst documents govern ABA: Medical Policy 3.01.015 (Autism Spectrum Disorder), which sets the medical-necessity criteria and says ABA must be preauthorized, and Medical Policy Operating Procedure 8.01.011A (Habilitative Services, MD and DC Mandates), which carries Maryland\'s hour floors. A third, Payment Policy PP CO 020.01, answers the question agencies ask most: CareFirst does not contract with RBTs directly, but pays for their services when a licensed BCBA supervises and bills. As with every Maryland commercial plan, the funding type decides whether the state mandate applies at all.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes — for ASD, per CareFirst Medical Policy 3.01.015 (Adaptive Behavioral Treatment, incl. ABA)' },
+      { label: 'State mandate', value: 'Md. Ins. § 15-835 + COMAR 31.10.39.03 (habilitative services)' },
+      { label: 'Mandate age', value: 'Through at least the month the enrollee turns 19; hour floors span 18 months–18 years' },
+      { label: 'Mandate floors', value: 'No denial solely on hours up to 25 hrs/wk (18 mo–5 yrs) or 10 hrs/wk (6–18); no dollar cap' },
+      { label: 'Exempt from mandate', value: 'Self-funded ERISA plans; early-intervention/school-delivered services' },
+      { label: 'Licensure', value: 'MD Licensed Behavior Analyst (Board of Professional Counselors & Therapists)' },
+      { label: 'Prior auth', value: 'Required for ABA (3.01.015, 8.01.011A); PAL tool or 1-866-PRE-AUTH' },
+      { label: 'RBTs / BCaBAs', value: 'Not contracted directly; services paid when supervised by a licensed BCBA and billed under that BCBA\'s name and provider number (PP CO 020.01)' },
+      { label: 'BCBA rate basis', value: '75% of CareFirst\'s base physician fee schedule (PP CO 020.01); actual amounts are in your contract' },
+    ],
+    sections: [
+      {
+        h2: 'The medical policy: 3.01.015 and what it requires',
+        body: [
+          'Medical Policy 3.01.015 (last reviewed 12/01/2025, effective 3/1/2026) covers "Adaptive Behavioral Treatment (ABT), including Applied Behavioral Analysis (ABA) and Developmental Relationship Based Intervention (DRBI)," as medically necessary when all four criteria are met: a confirmed ASD diagnosis from a qualified healthcare provider; treatment "provided by an appropriately trained, certified or licensed health care professional" using a systematic approach based on ABA and/or DRBI principles; treatment that targets the core deficits of ASD as set out in the DSM-5; and services rendered appropriately in type, frequency, extent, site and duration and "expected to result in meaningful and measurable improvements." ABT is not medically necessary for any non-ASD indication. The services needed to make the ASD diagnosis are themselves medically necessary.',
+          'The policy adds two benefit limits. ABA benefits "apply only to eligible members under a contract\'s habilitative benefit," so check the member\'s contract. And "Benefits are not provided for diagnostic or treatment services related to learning, curriculum planning, educational achievement or special education programs," which the policy assigns to the school system under IDEA or a 504 plan. The January 2026 policy update also added a pointer to Md. Insurance § 15-835 for Maryland members. CareFirst\'s own utilization management relies on MCG Health Behavioral Health Care Guidelines alongside the Medical Policy Reference Manual.',
+        ],
+        cites: [
+          { title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+          { title: 'CareFirst — January 2026 Medical Policy Update (3.01.015 entry)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/medical-policy-update-january-2026.pdf' },
+          { title: 'CareFirst Provider Manual, Chapter 7: Care Management (Utilization Management criteria)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-7-care-management.pdf' },
+        ],
+      },
+      {
+        h2: 'Prior authorization and the documentation CareFirst can ask for',
+        body: [
+          'Both CareFirst documents require ABA to be preauthorized. Operating Procedure 8.01.011A says "Applied behavioral analysis (ABA) services and habilitative diagnoses must be preauthorized," and Habilitative Services is on CareFirst\'s published list of services needing pre-service review for PPO members. Requests go through the CareFirst Provider Portal (Prior Auth/Notifications tab, where the PAL tool shows code-level requirements) or 1-866-773-2884 (1-866-PRE-AUTH). Neither policy separates the 97151 assessment from treatment, so check the assessment code in PAL.',
+          'If CareFirst asks, you must make available for annual review: a brief medical history; a written evaluation establishing baseline data with objective tests and measurements where possible; a plan of treatment listing diagnosis, short- and long-term goals, procedures, visits per week, estimated duration and the "date of last certification by referring physician"; and progress notes documenting improvement or changes to the plan. Build intake to capture the referring physician and the date of that physician\'s last certification.',
+        ],
+        cites: [
+          { title: 'CareFirst Medical Policy Operating Procedure 8.01.011A — Habilitative Services (MD and DC Mandates) (rev. 4/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+          { title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+          { title: 'CareFirst — Pre-Cert/Pre-Auth (In-Network)', url: 'https://provider.carefirst.com/providers/medical/in-network-precertification-preauthorization.page' },
+        ],
+      },
+      {
+        h2: 'Technicians: does CareFirst require RBT certification?',
+        body: [
+          'CareFirst does not credential or contract with technicians at all. Payment Policy PP CO 020.01 (Limited Licensed Providers) states: "CareFirst currently does not contract directly with physician assistants, assistant behavior analysts, and registered behavior technicians." Their services are "eligible for reimbursement when rendered under the supervision of a physician or licensed board-certified behavior analyst as required by local licensing agencies and submitted under that supervising physician\'s or licensed board-certified behavior analyst\'s name and provider number." No extra modifier distinguishes the technician, and the allowance is based on the supervising BCBA\'s fee schedule.',
+          'So CareFirst\'s own documents name the technician as a registered behavior technician and tie payment to supervision "as required by local licensing agencies." They do not separately require RBT certification for someone working under a licensed BCBA. The medical policy requires treatment by "an appropriately trained, certified or licensed health care professional," and COMAR 31.10.39.03E lets a Maryland carrier limit payment to people "licensed, certified, or otherwise authorized" under the Health Occupations Article. Whether a claim for an uncertified technician would be paid is not stated anywhere. Treat RBT certification as the safe standard and confirm with CareFirst before billing uncertified staff.',
+          'At the supervisor level, CareFirst credentials "Licensed Board-Certified Behavior Analyst (Maryland and Virginia only)" as an eligible professional provider type, and the practitioner "must be licensed in the state where the member receives the service" within CareFirst\'s service area (Maryland, Washington, D.C. and Northern Virginia). Credentialing runs through CAQH ProView plus the CareFirst questionnaire.',
+        ],
+        cites: [
+          { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' },
+          { title: 'CareFirst Provider Manual, Chapter 3: Provider Network Requirements (Credentialing)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-3-administrative-functions.pdf' },
+          { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' },
+          { title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+        ],
+      },
+      {
+        h2: 'The Maryland mandate as CareFirst applies it',
+        body: [
+          'Operating Procedure 8.01.011A carries the Maryland mandate into CareFirst\'s rules. For children "until the end of the month in which the insured or enrollee turns 19 years of age," habilitative benefits are provided "under all contracts that follow Maryland state mandates," do not count toward any therapy maximum, and include ABA "for at least the following hours": a minimum of 25 hours a week from 18 months to 6 years, and a minimum of 10 hours a week from 6 until the month the child turns 19. That matches COMAR 31.10.39.03D, which bars denial based solely on hours at or under those levels and allows more when medically necessary. COMAR 31.10.39.03 also lets a carrier require a comprehensive evaluation by the PCP or a specialty physician, a prescription with specific treatment goals, and an annual review by the prescriber. It bars denying ABA as experimental or investigational, and bars denying payment because a treatment goal places services in the child\'s educational setting.',
+          'The statute reaches insurers, nonprofit health service plans and HMOs issuing or delivering contracts in Maryland (§ 15-835(b)). It does not require reimbursement for services delivered through early intervention or schools (§ 15-835(c)(2)). Self-funded employer plans administered by CareFirst are not bound by it, and CareFirst notes that non-local accounts such as NASCO and the Federal Employee Program "may differ from our local determinations." For Washington, D.C. contracts, 8.01.011A records a separate mandate covering habilitative services including ABA at all ages in non-grandfathered individual and small-group plans.',
+        ],
+        cites: [
+          { title: 'CareFirst Medical Policy Operating Procedure 8.01.011A — Habilitative Services (MD and DC Mandates) (rev. 4/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+          { title: 'Md. Insurance Article § 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' },
+          { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' },
+          { title: 'CareFirst — January 2026 Medical Policy Update', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/medical-policy-update-january-2026.pdf' },
+        ],
+      },
+      {
+        h2: 'Billing, rates, and the CareFirst Medicaid card',
+        body: [
+          'Claims for technician and BCaBA services go out under the supervising licensed BCBA\'s name and provider number (PP CO 020.01). Operating Procedure 8.01.011A says habilitative services should be reported with the Category I CPT code plus modifier 96 (habilitative services), effective 1/1/2018. CareFirst applies CMS National Correct Coding Initiative edits, both procedure-to-procedure pairs and Medically Unlikely Edits, to professional claims (PP CO 090.01). Claims must be filed within 365 days of the date of service. On rates, CareFirst publishes no ABA fee schedule. PP CO 020.01 says a BCBA is paid 75% of CareFirst\'s base physician fee schedule, but the dollar amounts are in your contract. Maryland Medicaid\'s published fee schedule is the public benchmark to negotiate against.',
+          'A family with CareFirst BlueCross BlueShield Community Health Plan Maryland is on a Medicaid HealthChoice MCO, and Maryland carves ABA out of every HealthChoice MCO. Authorizations and claims for those children go to Carelon Behavioral Health under the Maryland Medicaid rules, not to CareFirst. Use the Maryland Medicaid guide for them.',
+        ],
+        cites: [
+          { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' },
+          { title: 'CareFirst Payment Policy PP CO 090.01 — NCCI Editing, Professional, DME Supplier and Facility (last review 4/15/2026)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' },
+          { title: 'CareFirst Medical Policy Operating Procedure 8.01.011A — Habilitative Services (MD and DC Mandates) (rev. 4/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+          { title: 'CareFirst Provider Manual, Chapter 5: Claims, Billing and Payments', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-5-claims-billing-and-payments.pdf' },
+          { title: 'MDH HealthChoice — Behavioral Health Coverage (carve-out)', url: 'https://health.maryland.gov/mmcp/healthchoice/Pages/BehavioralHealthCoverage.aspx' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Plan funding type and product', desc: 'Fully insured Maryland contract (mandate and hour floors apply), self-funded employer plan (exempt), FEP or a NASCO national account (may differ from CareFirst\'s local policies), or CareFirst Community Health Plan Maryland (Medicaid, so ABA goes to Carelon).' },
+      { title: 'BlueChoice HMO referral', desc: 'If the card is BlueChoice HMO (not Open Access or BlueChoice Advantage), get the PCP\'s written or standing referral. BlueChoice referrals last up to 120 days and three visits unless standing.' },
+      { title: 'Diagnosis report', desc: 'A confirmed ASD diagnosis from a qualified healthcare provider, with the diagnosing clinician\'s name, credential and evaluation date.' },
+      { title: 'Prescription with goals + referring physician', desc: 'COMAR lets the carrier require a prescription with specific treatment goals from the PCP or a specialty physician, reviewed yearly. CareFirst\'s treatment-plan documentation asks for the date of the referring physician\'s last certification.' },
+      { title: 'Supervising BCBA', desc: 'Technician and BCaBA services bill under a CareFirst-credentialed licensed BCBA\'s name and provider number, so assign one before the first session.' },
+      { title: 'Other coverage', desc: 'Any second commercial plan or Medicaid. Secondary claims to CareFirst need the primary carrier\'s EOB.' },
+    ],
+    sources: [
+      { title: 'CareFirst Medical Policy Reference Manual (3.01.015 Autism Spectrum Disorder; 8.01.011A Habilitative Services; 2.01.072A Telemedicine)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+      { title: 'CareFirst Payment Policy Reference Manual (PP CO 020.01 Limited Licensed Providers; PP CO 090.01 NCCI Editing; PP CO 200.02 Telemedicine Services)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' },
+      { title: 'CareFirst — January 2026 Medical Policy Update', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/medical-policy-update-january-2026.pdf' },
+      { title: 'CareFirst — Pre-Cert/Pre-Auth (In-Network)', url: 'https://provider.carefirst.com/providers/medical/in-network-precertification-preauthorization.page' },
+      { title: 'CareFirst Provider Manual, Chapter 2: Product Descriptions', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-2-product-descriptions.pdf' },
+      { title: 'CareFirst Provider Manual, Chapter 3: Provider Network Requirements (Credentialing)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-3-administrative-functions.pdf' },
+      { title: 'CareFirst Provider Manual, Chapter 5: Claims, Billing and Payments', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-5-claims-billing-and-payments.pdf' },
+      { title: 'CareFirst Provider Manual, Chapter 7: Care Management', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-7-care-management.pdf' },
+      { title: 'Md. Insurance Article § 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' },
+      { title: 'Md. Insurance Article § 15-10B-06 — private review agent determinations', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-10B-06&enactments=false' },
+      { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' },
+      { title: 'MDH Board of Professional Counselors & Therapists — Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' },
+      { title: 'MDH HealthChoice — Behavioral Health Coverage (carve-out)', url: 'https://health.maryland.gov/mmcp/healthchoice/Pages/BehavioralHealthCoverage.aspx' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'CareFirst\'s rule is about who supervises and bills, not a numeric ratio. PP CO 020.01: services by assistant behavior analysts or registered behavior technicians are "eligible for reimbursement when rendered under the supervision of a physician or licensed board-certified behavior analyst as required by local licensing agencies and submitted under that supervising physician\'s or licensed board-certified behavior analyst\'s name and provider number." CareFirst credentials the licensed BCBA (Maryland and Virginia) but not the technician. CareFirst publishes no supervision-hours ratio. The ratio you work to is the BACB\'s and Maryland licensure\'s, not a CareFirst figure.',
+        status: 'verified',
+        cites: [{ title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }, { title: 'CareFirst Provider Manual, Chapter 3: Provider Network Requirements (Credentialing)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-3-administrative-functions.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Not published for ABA. CareFirst applies CMS NCCI procedure-to-procedure edits to professional claims (PP CO 090.01). When both codes of an edit pair are billed for the same member on the same date, the column-two code is denied unless a clinically appropriate modifier is reported. Neither the medical policy nor the payment policies say whether 97155 may be billed alongside 97153 for the same clock time.',
+        status: 'unverified',
+        cites: [{ title: 'CareFirst Payment Policy PP CO 090.01 — NCCI Editing, Professional, DME Supplier and Facility (last review 4/15/2026)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }],
+        verifyVia: 'CareFirst provider services or the Provider Portal: ask whether 97155 pays when billed for the same clock time as 97153 on this member\'s plan, and whether an NCCI edit applies to the pair.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value:
+          'CareFirst applies the CMS Medically Unlikely Edits to professional claims. PP CO 090.01 defines an MUE as "the maximum number of units to be reported for a code by the same provider/supplier for the same member on the same date of service," and says distinct-service modifiers "should not be included to bypass an MUE." CareFirst publishes no ABA-specific unit table of its own. The per-code daily ceilings are the CMS practitioner MUE values, and the authorization sets the hours.',
+        status: 'verified',
+        cites: [{ title: 'CareFirst Payment Policy PP CO 090.01 — NCCI Editing, Professional, DME Supplier and Facility (last review 4/15/2026)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }],
+      },
+      noteSignature: {
+        value:
+          'No session-note signature rule is published. What CareFirst does publish is the record it can request for annual review: a brief medical history; a written evaluation establishing baseline data; a treatment plan listing diagnosis, short- and long-term goals, procedures, visits per week, estimated duration and the date of last certification by the referring physician; and progress notes documenting improvement or changes. Records requested for billing verification are due within 15 days.',
+        status: 'unverified',
+        cites: [{ title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }, { title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }],
+        verifyVia: 'CareFirst provider services: ask who must sign technician session notes (the RBT, the supervising BCBA, or both) and by when, since claims go out under the BCBA.',
+        blocker: 'per-case',
+      },
+      placeOfService: {
+        value:
+          'Two rules pull against each other, and funding type decides between them. Medical Policy 3.01.015 excludes "diagnostic or treatment services related to learning, curriculum planning, educational achievement or special education programs" as the school system\'s responsibility under IDEA or a 504 plan. Operating Procedure 8.01.011A, in its D.C. mandate section, says benefits may not be provided to a child under an individualized education program or other IDEA obligation of a public school. For a fully insured Maryland contract, COMAR 31.10.39.03F says a carrier "may not deny payment for habilitative services if a treatment goal identifies the location of the habilitative services as the child\'s educational setting," though it need not cover services owed under an IEP. Telehealth is billed with POS 02 or 10.',
+        status: 'plan-dependent',
+        cites: [{ title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }, { title: 'CareFirst Medical Policy Operating Procedure 8.01.011A — Habilitative Services (MD and DC Mandates) (rev. 4/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }, { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' }],
+        verifyVia: 'Benefits check on the member\'s plan: confirm funding type, then ask which places of service are payable for ABA and whether a school-setting goal is covered.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value:
+          'Under the supervising licensed BCBA. PP CO 020.01: technician and assistant-behavior-analyst services are "submitted under that supervising physician\'s or licensed board-certified behavior analyst\'s name and provider number"; "services rendered do not require additional modifiers to distinguish between provider types," and "allowances will be based on the fee schedule for the supervising physician or licensed board-certified behavior analyst." A BCBA\'s allowance is 75% of CareFirst\'s base physician fee schedule. Operating Procedure 8.01.011A asks that habilitative services carry CPT modifier 96 (effective 1/1/2018).',
+        status: 'verified',
+        cites: [{ title: 'CareFirst Payment Policy PP CO 020.01 — Limited Licensed Providers, Professional (last review 5/6/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }, { title: 'CareFirst Medical Policy Operating Procedure 8.01.011A — Habilitative Services (MD and DC Mandates) (rev. 4/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Medical Policy 3.01.015 sets no age limit. For contracts that follow Maryland mandates, Operating Procedure 8.01.011A covers habilitative services including ABA "for children until the end of the month in which the insured or enrollee turns 19 years of age," with the 25-hour (18 months to 6) and 10-hour (6 to 19) weekly floors. D.C. mandate contracts cover ABA at all ages. Self-funded plans follow their own plan document.',
+        status: 'plan-dependent',
+        cites: [{ title: 'CareFirst Medical Policy Operating Procedure 8.01.011A — Habilitative Services (MD and DC Mandates) (rev. 4/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }, { title: 'Md. Insurance Article § 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' }],
+        verifyVia: 'Benefits check (Provider Portal or the number on the card): confirm whether the plan follows Maryland mandates (fully insured Maryland contract) or is self-funded, and any age limit on the habilitative benefit.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value:
+          'CareFirst publishes no recency rule for the diagnostic evaluation. The currency requirements that exist sit on the prescription. COMAR 31.10.39.03 lets a carrier require an annual review by the prescribing PCP or specialty physician. CareFirst\'s treatment-plan documentation asks for the "date of last certification by referring physician." Capture both the evaluation date and the physician\'s most recent certification date.',
+        status: 'unverified',
+        cites: [{ title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }, { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' }],
+        verifyVia: 'CareFirst prior authorization (PAL tool or 1-866-PRE-AUTH): ask whether an evaluation of this age will be accepted, or whether an updated evaluation or physician re-certification is needed.',
+        blocker: 'per-case',
+      },
+      diagnosingProviders: {
+        value:
+          'A "qualified healthcare provider." Medical Policy 3.01.015 requires a "confirmed diagnosis of autism spectrum disorder (ASD) from a qualified healthcare provider" and does not list which credentials qualify. On a fully insured Maryland contract, COMAR 31.10.39.03 lets the carrier require a comprehensive evaluation by the child\'s primary care provider or a specialty physician.',
+        status: 'verified',
+        cites: [{ title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }, { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' }],
+      },
+      diagnosticTools: {
+        value:
+          'No instrument is named. Medical Policy 3.01.015 requires a confirmed ASD diagnosis but names no diagnostic tool or score. Its annual-review documentation asks for "a written evaluation that establishes the physical baseline data utilizing objective tests and measurements, where possible."',
+        status: 'unverified',
+        cites: [{ title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }],
+        verifyVia: 'CareFirst prior authorization (1-866-PRE-AUTH): ask whether a specific instrument is expected behind the diagnosis before scheduling testing.',
+        blocker: 'per-case',
+      },
+      referral: {
+        value:
+          'Two separate things. First, the product: BlueChoice HMO members need a written PCP referral for office services not rendered by the PCP. A written referral lasts "a maximum of 120 days and limited to three visits," and members with long-term conditions can get a standing referral. BlueChoice Open Access, BlueChoice Advantage and PPO (BluePreferred) members need no specialist referral. Second, the mandate: on a fully insured Maryland contract, COMAR 31.10.39.03 lets the carrier require a prescription with specific treatment goals from the PCP or a specialty physician, plus annual review by that prescriber. CareFirst\'s documentation list asks for the date of the referring physician\'s last certification.',
+        status: 'plan-dependent',
+        cites: [{ title: 'CareFirst Provider Manual, Chapter 2: Product Descriptions', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-2-product-descriptions.pdf' }, { title: 'COMAR 31.10.39.03 — Utilization Review Criteria for Treatment of Autism and Autism Spectrum Disorders', url: 'https://regs.maryland.gov/us/md/exec/comar/31.10.39.03' }, { title: 'CareFirst Medical Policy 3.01.015 — Autism Spectrum Disorder (ASD) (eff. 3/1/2026), Medical Policy Reference Manual', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }],
+        verifyVia: 'Read the product off the card (BlueChoice HMO vs. Open Access/Advantage vs. PPO). For BlueChoice HMO, confirm whether ABA falls under a standing referral.',
+        blocker: 'per-case',
+      },
+      telehealth: {
+        value:
+          'CareFirst\'s telemedicine billing rules are published, but no ABA code list is. PP CO 200.02 requires modifier GT or 95 for synchronous audio-video, POS 02 (not in the patient\'s home) or 10 (in the patient\'s home), and says services by telemedicine "must meet all the coding components of a face-to-face visit." "CareFirst will only cover audio-only calls where mandated by law." For fully insured Maryland members that means E/M codes at in-person rates, not ABA codes. Neither PP CO 200.02 nor Medical Policy 2.01.072A says which of 97151–97158 may be delivered remotely.',
+        status: 'plan-dependent',
+        cites: [{ title: 'CareFirst Payment Policy PP CO 200.02 — Telemedicine Services, Professional (rev. 12/31/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }, { title: 'CareFirst Medical Policy Operating Procedure 2.01.072A — Telemedicine (Unified Communications) (eff. 6/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }],
+        verifyVia: 'CareFirst prior authorization: ask which ABA codes (97151–97158) are approved for telehealth on this member\'s plan before requesting them with GT/95.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'CareFirst\'s manual says "Request review timelines vary, and are based on applicable NCQA, state and federal requirements." For a fully insured Maryland contract, the state clock is Insurance § 15-10B-06. Initial non-emergency determinations are due "within 2 working days after receipt of the information necessary to make the determination." Requests for additional services within an existing treatment plan are due within 1 working day. If information is missing, CareFirst must say what is needed within 3 calendar days. A determination not made within the time limits "shall be deemed approved." The same section requires acceptance of Maryland\'s uniform treatment plan form for mental and emotional disorder services. Self-funded plans follow federal rules and the plan document instead.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Md. Insurance Article § 15-10B-06 — private review agent determinations', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-10B-06&enactments=false' }, { title: 'CareFirst Provider Manual, Chapter 7: Care Management', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-7-care-management.pdf' }],
+        verifyVia: 'Confirm funding type on the benefits check. For a self-funded plan, ask CareFirst for that plan\'s UM decision timeframes.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'CareFirst applies COB "whenever a member covered under a CareFirst contract is also eligible for health insurance benefits through another insurance company or Medicare." As primary, it pays per the member\'s contract. As secondary, its standard method pays the lesser of the balance up to the provider\'s full charge, or what CareFirst would have paid as primary minus the other carrier\'s payment. "Claims for secondary benefits must be accompanied by the explanation of benefits from the primary carrier." Group contracts may coordinate differently. Which parent\'s plan is primary is not set out in the manual.',
+        status: 'plan-dependent',
+        cites: [{ title: 'CareFirst Provider Manual, Chapter 5: Claims, Billing and Payments (Coordination of Benefits)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-5-claims-billing-and-payments.pdf' }],
+        verifyVia: 'Eligibility response in the CareFirst Provider Portal for an other-insurance record. Collect both parents\' plans and birth dates at intake and ask CareFirst which is primary.',
+        blocker: 'per-case',
+      },
+    },
+    faq: [
+      { q: 'Does CareFirst cover ABA therapy in Maryland?', a: 'Yes, for autism spectrum disorder. Medical Policy 3.01.015 covers Adaptive Behavioral Treatment, including ABA, when the child has a confirmed ASD diagnosis from a qualified healthcare provider, treatment is by an appropriately trained, certified or licensed professional, it targets core ASD deficits, and it is expected to produce measurable improvement. On fully insured Maryland contracts the habilitative mandate adds floors of 25 hrs/week (18 months–5) and 10 hrs/week (6–18).' },
+      { q: 'Does CareFirst require RBT certification for ABA technicians?', a: 'CareFirst does not credential technicians at all. Payment Policy PP CO 020.01 says it does not contract directly with assistant behavior analysts or registered behavior technicians. Their services are paid when rendered under the supervision of a licensed BCBA "as required by local licensing agencies" and billed under that BCBA\'s name and provider number. CareFirst\'s documents do not state a separate certification rule for technicians, so RBT certification is the safe standard. Confirm with CareFirst before billing uncertified staff.' },
+      { q: 'Does CareFirst require prior authorization for ABA?', a: 'Yes. Medical Policy 3.01.015 says ABT "must be preauthorized," and Operating Procedure 8.01.011A says ABA services and habilitative diagnoses must be preauthorized. Submit through the CareFirst Provider Portal or 1-866-773-2884, and check the 97151 assessment code in the PAL tool, since the policies do not treat it separately.' },
+      { q: 'Which CareFirst medical policy covers ABA?', a: 'Medical Policy 3.01.015, Autism Spectrum Disorder (ASD), effective 3/1/2026, for medical necessity. Medical Policy Operating Procedure 8.01.011A, Habilitative Services (MD and DC Mandates), for the Maryland mandate and its hour floors. Payment Policy PP CO 020.01, Limited Licensed Providers, for how technician services are billed. The old policy 3.01.006 (Pervasive Developmental Disorders) is retired.' },
+      { q: 'What does CareFirst pay for ABA?', a: 'CareFirst publishes no ABA fee schedule. PP CO 020.01 says a BCBA is paid 75% of CareFirst\'s base physician fee schedule, and technician services are allowed at the supervising BCBA\'s rate. The dollar amounts are in your participating-provider agreement. Use Maryland Medicaid\'s published fee schedule as the public benchmark.' },
     ],
   },
 
@@ -672,9 +959,10 @@ export const marylandPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      value: 'Required — a separate treatment authorization after the assessment. “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law,” and continued-care requests go in “no more than 30 days prior to the current approvals on file expiring” (Optum ABA CPT FAQ)',
       status: 'verified',
       cites: [
+        { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
       ],
@@ -768,6 +1056,10 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'MDH Board of Professional Counselors & Therapists — Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' },
       { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
       { title: 'MDH HealthChoice MCO Comparison Chart (UHC Community Plan roster entry)', url: 'https://health.maryland.gov/mmcp/healthchoice/Documents/hc-mco-comparison-chart.pdf' },
+      { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+      { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+      { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -777,18 +1069,21 @@ export const marylandPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'MDH Board of Professional Counselors & Therapists \u2014 Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' }],
       },
       concurrentBilling: {
-        value:
-          'Permitted in three named pairs: supervision alongside direct care (97153 + 97155), group oversight (97154 + 97155), and parent training alongside direct care (97153 + 97156). Not covered at all: team meetings without the member present, 1:1 classroom aides, and services owed under IDEA.',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.”',
         status: 'verified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+        cites: [
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
       },
       dailyLimits: {
-        value:
-          'Optum does not authorize against a per-day unit ceiling; it authorizes in four code clusters \u2014 assessment (97151, 97152), direct care (97153, 97154), multi-staff (0362T, 0373T) and QHP services (97155\u201397158) \u2014 and units flex within a cluster without a new authorization. The number that actually bites runs the other way: utilization below 80 percent of authorized hours over a two-week window draws scrutiny at review.',
-        status: 'unverified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia: 'The authorization letter itself on Provider Express, and Optum provider services \u2014 ask whether any per-day MUE applies to this plan on top of the cluster structure.',
-        blocker: 'per-case',
+        value: 'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum frequency per day for every code: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs) — and “If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery.” The ABA CPT FAQ confirms “For our commercial ABA program MUE’s apply.” There is no weekly hour cap: hours are authorized on documented clinical need, approved units can be shifted among codes within a cluster, and utilization below 80% of authorized hours over a two-week period is addressed at review.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -797,12 +1092,13 @@ export const marylandPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum BH803ABA \u2014 ABA State Mandates supplemental criteria (Maryland entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
       },
       noteSignature: {
-        value:
-          'Not published in the Supplemental Clinical Criteria. What Optum specifies is the review packet rather than the session note: continued-service reviews every 4\u20136 months want progress documented per targeted behavior using the same measurement methods as baseline, mastered-program rates, change scores and updated standardized adaptive measures. Who signs an individual session note, and by when, is not stated.',
-        status: 'unverified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia: 'Optum provider services, or your Provider Express network manager \u2014 ask for the documentation standard applied at audit.',
-        blocker: 'per-case',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
       },
       billAsProvider: {
         value:
@@ -851,10 +1147,13 @@ export const marylandPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       telehealth: {
-        value:
-          'Gated on the provider, not just the code. Tele-supervision and virtual family training require the provider to be an approved Optum virtual-visits provider with a completed attestation on Provider Express, and the authorization itself must note virtual delivery. Optum frames telehealth as a supplement to in-person care rather than a replacement for it, so a request built mostly on remote hours should expect pushback.',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
         status: 'verified',
-        cites: [{ title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' }],
+        cites: [
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
       },
       authTurnaround: {
         value:
@@ -877,6 +1176,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare cover ABA therapy in Maryland?', a: 'Yes — under Optum\'s national two-step authorization policy for ASD, and for fully-insured Maryland plans Optum\'s own State Mandates document applies the COMAR 31.10.39.03 criteria, including the 25 and 10 hour/week no-denial floors. Self-funded employer plans follow the standard national policy instead.' },
       { q: 'What does the Maryland mandate require for ABA?', a: 'For fully-insured plans: habilitative-services coverage through at least the month the enrollee turns 19, no denial of ABA solely on prescribed hours up to 25 hrs/week (ages 18 months–5) or 10 hrs/week (ages 6–18), no experimental/investigational denials, and no dollar cap — entered via a comprehensive evaluation plus a physician prescription reviewed annually. Optum reproduces these criteria in its own published document.' },
       { q: 'What does UnitedHealthcare pay for ABA in Maryland?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against Maryland Medicaid\'s February 2026 fee schedule and treat rate-setting as part of contracting.' },
+      { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
     ],
   },
 };

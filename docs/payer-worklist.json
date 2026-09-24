@@ -1578,13 +1578,15 @@
     {
       "id": "VC-039",
       "priority": 2,
-      "status": "open",
+      "status": "resolved",
       "slug": "unitedhealthcare-* state guides (Optum-administered ABA), e.g. unitedhealthcare-new-mexico",
       "claim": "deliveryRules.concurrentBilling 'not addressed'; telehealth, noteSignature, dailyLimits and reauth interval marked unverified.",
       "challenge": "Surfaced while building California (2026-09-24): Optum's ABA CPT FAQ (01/2024) allows 97153 + 97155 concurrently; 97155/97156 by video are verified on POS 02 after the virtual-visits attestation; the provider-signature rule, MUE daily limits (97151 = 32 units/day) and a 4-6 month reauthorization interval are published. The shared template text on existing state guides predates this.",
       "resolve": "Re-read the Optum ABA CPT FAQ, ABA SCC (4/2026) and Provider Express telehealth page (append ?__tracked=1), then update every unitedhealthcare-<state> guide's deliveryRules/intakeGates with cites; unitedhealthcare-california carries the verified wording to copy from.",
       "sourceUrl": "https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf?__tracked=1",
-      "addedAt": "2026-09-24"
+      "addedAt": "2026-09-24",
+      "resolvedAt": "2026-09-25",
+      "resolution": "Re-read Optum ABA CPT FAQ (01/2024), ABA Reimbursement Policy 2022RP501A (upd. 06/2026), Telehealth Billing QRG (09/2025) and ABA Documentation Protocol (6/1/2026); all 27 commercial unitedhealthcare-* guides now carry verified concurrentBilling (single-QHP exclusion), dailyLimits (Optum per-day max table + MUEs), noteSignature (provider signature, date-finalized rule), telehealth (97155/97156/97157 only, POS 10/02 by member location, attestation), treatmentPA 4-6-month review cadence and a reauthorization FAQ."
     },
     {
       "id": "VC-040",
@@ -1596,6 +1598,50 @@
       "resolve": "Confirm the ratio in the current Aetna ABA Medical Necessity Guide and update supervision on every aetna-<state> guide (aetna-california carries verified wording); re-point manual/form cites to the current editions.",
       "sourceUrl": "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf",
       "addedAt": "2026-09-24"
+    },
+    {
+      "id": "VC-041",
+      "priority": 2,
+      "status": "open",
+      "slug": "sunflower-health-plan-kansas, healthy-blue-kansas",
+      "claim": "Visitor question (payer chat): \"Kansas Medicaid: does an RBT enroll with KMAP/Medicaid directly, or with the MCOs, or neither?\" KMAP enrollment (IIS type 11/specialty 404, Individual within a Group) and UHC CP/Optum's KMAP-first contracting are verified in kansas-medicaid; whether Sunflower and Healthy Blue credential each technician at the plan level is not published.",
+      "challenge": "No Sunflower or Healthy Blue provider-manual text found on technician-level (RBT) credentialing or roster requirements.",
+      "resolve": "Read the current Sunflower and Healthy Blue Kansas provider manuals (credentialing chapters) or ask each plan's network team; add the answer to each guide's billAsProvider/supervision field with cites.",
+      "sourceUrl": "https://www.sunflowerhealthplan.com/newsroom/kmap-21013.html",
+      "addedAt": "2026-09-25"
+    },
+    {
+      "id": "VC-042",
+      "priority": 2,
+      "status": "open",
+      "slug": "aetna-kansas",
+      "claim": "Visitor question (payer chat): \"Aetna in Kansas: does Aetna enroll / allow services by out-of-state BCBAs?\" The guide now carries Aetna's manual (credentialing, licensure 'in the state in which they practice') and the Kansas statutes (K.S.A. 65-7503, 40-2,194, 40-2,211/2,213); two parts remain open.",
+      "challenge": "(1) Aetna's Network Participation Criteria PDF could not be located (guessed URLs 404). (2) No BSRB statement on whether video ABA delivered from another state to a child located in Kansas is practice 'in this state' requiring a Kansas LBA.",
+      "resolve": "Find Aetna's Network Participation Criteria document (aetna.com join-the-network pages) and ask the Kansas BSRB (785-296-3240) for its position on interstate telehealth by out-of-state behavior analysts; update aetna-kansas intakeGates.telehealth and the out-of-state section.",
+      "sourceUrl": "https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html",
+      "addedAt": "2026-09-25"
+    },
+    {
+      "id": "VC-043",
+      "priority": 2,
+      "status": "open",
+      "slug": "carefirst-maryland",
+      "claim": "Visitor question (payer chat): \"CareFirst BlueCross BlueShield: does CareFirst require RBT certification (or what credential) for ABA technicians? prior auth? medical policy?\" Guide built 2026-09-25; treatmentPA, technician billing (PP CO 020.01) and medical policy 3.01.015 verified. Still open: assessmentPA (97151), the ABA telehealth code list, and whether an uncertified technician may render under a licensed BCBA.",
+      "challenge": "Medical Policy 3.01.015 and Operating Procedure 8.01.011A do not separate 97151 from treatment PA; PP CO 200.02 and 2.01.072A list no ABA telehealth codes; PP CO 020.01 states no certification rule for staff under a BCBA.",
+      "resolve": "Check 97151-97158 in the CareFirst Provider Portal prior-auth lookup (PAL, login required) and ask CareFirst provider services about ABA telehealth codes and technician credential requirements; update carefirst-maryland assessmentPA, intakeGates.telehealth and deliveryRules.supervision.",
+      "sourceUrl": "https://provider.carefirst.com",
+      "addedAt": "2026-09-25"
+    },
+    {
+      "id": "VC-044",
+      "priority": 3,
+      "status": "open",
+      "slug": "harvard-pilgrim / point32 guides in massachusetts.ts",
+      "claim": "The Massachusetts Point32Health/Harvard Pilgrim guide attributes an ABA accreditation requirement to Point32Health's October 2025 notice.",
+      "challenge": "While building New Hampshire (2026-09-25) the agent read that October 2025 notice and found no accreditation requirement in it, so the claim's citation does not support it.",
+      "resolve": "Re-read the Point32Health October 2025 ABA notice and the current Point32 ABA guideline; keep the claim only with a source that states it, otherwise mark it unverified.",
+      "sourceUrl": "https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025",
+      "addedAt": "2026-09-25"
     }
   ],
   "documentRequests": [

@@ -114,6 +114,17 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Optum/UHC — KanCare Autism/ABA Program provider training (BH00698_10292024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ks-abaTraining.pdf' },
         ],
       },
+      {
+        h2: 'Does an RBT enroll with KMAP, with the MCOs, or neither?',
+        body: [
+          'Both, in that order — and never “neither.” Kansas does not let a technician ride under the supervising BCBA\'s number. The technician is a KMAP provider in their own right: KMAP General Bulletin 21013 enrolls Intensive Individual Supports as “provider type/specialty of 11/404,” qualified by a “Certificate as Registered Behavior Technician (RBT) OR A letter signed by the KDADS HCBS Autism Waiver Program Manager or HCBS Director,” plus the five-part background check. Optum\'s KanCare getting-started guide spells out the sequence for a group: “The group and individual health care professionals must be enrolled with KMAP and must have a KMAP ID to bill for Medicaid services. Your group must be enrolled and have a KMAP ID before your individual ABAs or RBTs can enroll,” choosing “Individual within a Group” as the organizational type, and “when you hire new ABAs or RBTs, you must enroll them through KMAP before you can bill Medicaid under the employee\'s NPI number.” Each individual is enrolled separately for each service location.',
+          'The MCO step comes second. For UnitedHealthcare Community Plan, “Once KMAP approves your enrollment, KMAP will notify us and Optum Behavioral Health will retrieve the application and documentation,” then credentials (Optum is “allowed 60 days to credential” and 30 days to contract) — and “You must have an executed contract with Optum Behavioral Health to begin to see UnitedHealthcare Community Plan members.” IIS enrollees submit their RBT certificate or, if not RBT-certified, the KDADS letter, and “All providers must present proof of relevant background checks and insurance coverage.” Sunflower and Healthy Blue publish no ABA-specific rule on whether each technician is individually credentialed with the plan after KMAP enrollment, so ask each plan\'s network team before a new RBT\'s first session.',
+        ],
+        cites: [
+          { title: 'KMAP Bulletin 21013 — CCTS/IIS provider enrollment clarification', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-21013.html' },
+          { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'KanCare MCO', desc: 'Sunflower, UnitedHealthcare, or Healthy Blue — same CCTS/IIS baseline, different PA machinery. Anything saying "Aetna Better Health" is stale (moved to Healthy Blue 1/1/2025).' },
@@ -292,6 +303,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Which MCOs run KanCare autism services?', a: 'Sunflower Health Plan, UnitedHealthcare Community Plan (Optum behavioral health), and Healthy Blue Kansas — the new plan effective 1/1/2025. Aetna Better Health of Kansas lost its contract; its members moved to Healthy Blue on 1/1/2025.' },
       { q: 'How recent does the autism diagnosis need to be?', a: 'Both Sunflower and Optum/UHC require the ASD diagnosis to have been validated by an MD or licensed psychologist within the last 6 months at initial authorization — plan for a diagnostic refresh if the report is older.' },
       { q: 'Who is allowed to make the ASD diagnosis for KanCare members?', a: 'As of KMAP Bulletin 26140 (eff. 11/1/2026), for members age 20 and under the diagnosis must come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity using a validated tool such as ADOS or CARS. This layers on top of the existing 6-month diagnosis-currency rule rather than replacing it; existing members diagnosed by a non-compliant provider get a 2-year grace period.' },
+      { q: 'Does an RBT enroll with KMAP (Kansas Medicaid) or with the KanCare MCOs, or bill under the supervising BCBA?', a: 'The RBT enrolls with KMAP individually — IIS provider type 11, specialty 404, as “Individual within a Group” under an already-enrolled group, once per service location — and claims go out under the RBT\'s own NPI: “when you hire new ABAs or RBTs, you must enroll them through KMAP before you can bill Medicaid under the employee\'s NPI number.” Then the MCO credentials them: for UnitedHealthcare Community Plan, Optum retrieves the KMAP application, credentials within 60 days and contracts within 30. Sunflower and Healthy Blue publish no technician-level credentialing rule, so confirm with their network teams. A non-RBT technician can still enroll with the KDADS letter instead of the RBT certificate.' },
       { q: 'What does Kansas Medicaid pay for ABA?', a: 'Current rates aren\'t reliably published. The last public anchor is $17.50/15-minute unit for 97151 effective 1/1/2019, raised 4/1/2019 without published amounts; the 2022 BH increase skipped the 9715x codes. Pull current figures from the KMAP interactive fee-schedule lookup — the only source of truth.' },
     ],
   },
@@ -1054,6 +1066,23 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'K.S.A. 65-7502 — ABA licensure act definitions', url: 'https://ksrevisor.gov/statutes/chapters/ch65/065_075_0002.html' },
         ],
       },
+      {
+        h2: 'Out-of-state BCBAs: credentialing, telehealth and the Kansas license',
+        body: [
+          'Aetna\'s own rule is written from the practitioner\'s side, not the member\'s. Its provider manual says that for practitioners treating autism with ABA “either national certification is needed from the Behavior Analyst Certification Board (BACB), or the practitioner must be licensed as a behavior analyst in the state in which they practice,” that every provider “must be credentialed in order to initially participate in our network” (recredentialed every three years), and, for telehealth, that “Providers must act within the scope of their license and ensure that they have the proper licensure based on state requirements.” The ABA Medical Necessity Guide adds that services “must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists.” Aetna publishes no rule that a BCBA based in another state is refused, and none that it is accepted, for a Kansas member.',
+          'Kansas law is what makes the Kansas license the practical requirement. K.S.A. 65-7503: “On or after July 1, 2016, no person shall practice applied behavior analysis in this state unless they are” a licensed behavior analyst, a LaBA under LBA supervision, a supervised trainee, or a licensed psychologist. On a fully insured large-group Kansas plan the mandate ties payment to the same act: “reimbursement shall be allowed only for services provided by an autism service provider licensed or exempt from licensure under the applied behavior analysis licensure act” (K.S.A. 40-2,194). The Kansas telemedicine act\'s coverage-parity rule (K.S.A. 40-2,213) protects services delivered “by a healthcare provider,” which it defines to include a “person licensed, registered, certified or otherwise authorized to practice by the behavioral sciences regulatory board” — a BCBA holding only another state\'s license is not in that definition. Neither the statute nor the BSRB\'s behavior-analyst regulations (K.A.R. 102-8) says in terms whether a BCBA outside Kansas treating a child located in Kansas by video is “practicing in this state,” so the safe plan is a Kansas LBA before the first remote session. Getting one: the BSRB application asks whether you “intend to apply under the provisions of 2021 House Bill 2066” (K.S.A. 48-3406), the expedited route for a holder of another state\'s license who has established or intends to establish Kansas residency — a license due within 45 days of a complete application (issued on up-to-six-months\' probation when no Kansas endorsement route fits). A BCBA who neither lives in nor intends to move to Kansas applies on the ordinary LBA application.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+          { title: 'K.S.A. 40-2,194 — Kansas autism insurance mandate', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0194.html' },
+          { title: 'K.S.A. 40-2,211 — Kansas telemedicine act definitions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0211.html' },
+          { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
+          { title: 'K.S.A. 48-3406 — expedited licensure for holders of another state\'s license', url: 'https://www.ksrevisor.gov/statutes/chapters/ch48/048_034_0006.html' },
+          { title: 'Kansas BSRB — LaBA/LBA application (June 2026)', url: 'https://www.ksbsrb.ks.gov/home/showpublisheddocument/64/639159023771900000' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1071,6 +1100,10 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Kansas Action for Children — Aetna → Healthy Blue transition', url: 'https://www.kac.org/state_selects_companies_to_manage_kancare' },
       { title: 'Autism Legal Resource Center — Kansas (parity analysis)', url: 'https://www.autismlegalresourcecenter.com/resources/autism-healthcare-info/kansas/' },
       { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+      { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
+      { title: 'K.S.A. 48-3406 — expedited licensure for holders of another state\'s license', url: 'https://www.ksrevisor.gov/statutes/chapters/ch48/048_034_0006.html' },
+      { title: 'Kansas BSRB — LaBA/LBA application (June 2026)', url: 'https://www.ksbsrb.ks.gov/home/showpublisheddocument/64/639159023771900000' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1111,11 +1144,13 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Not published. Aetna\'s ABA Medical Necessity Guide and CPB 0554 set medical-necessity criteria and precertification requirements but say nothing about which ABA codes may be delivered remotely, or with which place-of-service code.',
+          'Not published. Aetna\'s ABA Medical Necessity Guide and CPB 0554 set medical-necessity criteria and precertification requirements but say nothing about which ABA codes may be delivered remotely, or with which place-of-service code. What is published is the licensure condition: Aetna\'s provider manual says telehealth providers \u201cmust act within the scope of their license and ensure that they have the proper licensure based on state requirements,\u201d and Kansas requires a BSRB license to \u201cpractice applied behavior analysis in this state\u201d (K.S.A. 65-7503) \u2014 so a BCBA outside Kansas needs a Kansas LBA before treating a Kansas child by video.',
         status: 'unverified',
         cites: [
           { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
         ],
         verifyVia:
           'Aetna provider services at the number on the member\'s ID card, and the plan\'s telehealth/virtual-care policy — confirm before scheduling remote 97155 or 97156.',
@@ -1196,6 +1231,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Kansas?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Kansas\'s mandate (K.S.A. 40-2,194) for fully-insured large-group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Kansas autism mandate require?', a: 'For large-group (51+) fully-insured plans: coverage for members under 12, with ABA capped at 1,300 hours/year for 4 years when diagnosed by age 5, otherwise 520 hours/year — exceedable with prior approval when medically necessary. Federal parity analysis questions whether the age limit and hour caps are enforceable, so treat cap denials as appealable.' },
       { q: 'Is Aetna a KanCare (Medicaid) plan in Kansas?', a: 'Not anymore — Aetna Better Health of Kansas lost the KanCare 3.0 contract and its members moved to Healthy Blue Kansas on 1/1/2025. Aetna cards in Kansas today are commercial.' },
+      { q: 'Will Aetna credential or pay an out-of-state BCBA for a Kansas member, including by telehealth?', a: 'Aetna publishes no Kansas-specific rule either way. Its provider manual requires network credentialing, BACB certification or a behavior-analyst license “in the state in which they practice,” and, for telehealth, “the proper licensure based on state requirements.” Kansas requires a BSRB license to “practice applied behavior analysis in this state” (K.S.A. 65-7503), the mandate pays only providers “licensed or exempt from licensure under the applied behavior analysis licensure act” (K.S.A. 40-2,194), and the telemedicine-parity law protects only BSRB-licensed providers. Get a Kansas LBA before treating a Kansas child remotely, then confirm with Aetna Credentialing Customer Service (1-800-353-1232) that the Kansas license is on your credentialing file.' },
       { q: 'What does Aetna pay for ABA in Kansas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. The Medicaid benchmark is only available via the KMAP interactive fee-schedule lookup, so pull current figures there before contracting conversations.' },
     ],
   },
@@ -1438,9 +1474,12 @@ export const kansasPayers: Record<string, PayerConfig> = {
       cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
     },
     treatmentPA: {
-      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      value: 'Required — a separate treatment authorization after the assessment. “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law,” and continued-care requests go in “no more than 30 days prior to the current approvals on file expiring” (Optum ABA CPT FAQ)',
       status: 'verified',
-      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      cites: [
+        { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
     },
     dxRequired: {
       value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
@@ -1526,6 +1565,9 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'K.S.A. 65-7502 — ABA licensure act definitions', url: 'https://ksrevisor.gov/statutes/chapters/ch65/065_075_0002.html' },
       { title: 'Autism Legal Resource Center — Kansas (parity analysis)', url: 'https://www.autismlegalresourcecenter.com/resources/autism-healthcare-info/kansas/' },
       { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+      { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+      { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1566,13 +1608,13 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
       telehealth: {
-        value:
-          'Optum publishes no ABA telehealth code list in the Supplemental Clinical Criteria; it points providers to CASP\'s Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition, which it describes as a resource for ABA "delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)" and as a supplement to, not a replacement for, in-person delivery.',
-        status: 'unverified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
-        blocker: 'per-case',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
       },
       authTurnaround: {
         value:
@@ -1623,13 +1665,13 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
       },
       noteSignature: {
-        value:
-          'No signature rule is published, but the documentation burden is explicit where money turns on it: services billed on the same date must be "separate, distinct, and clearly documented in the progress notes," and if documentation does not clearly separate them the claim may be denied. Who signs, and within what window, is not stated.',
-        status: 'unverified',
-        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
-        verifyVia:
-          'The UnitedHealthcare/Optum provider manual and your participation agreement\'s documentation clause.',
-        blocker: 'document',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -1652,6 +1694,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'What does the Kansas autism mandate require?', a: 'For large-group (51+) fully-insured plans: coverage for members under 12, with ABA capped at 1,300 hours/year for 4 years when diagnosed by age 5, otherwise 520 hours/year — exceedable with prior approval when medically necessary. Federal parity analysis questions the age limit and hour caps, so treat cap denials as appealable.' },
       { q: 'Does Optum have Kansas-specific ABA criteria?', a: 'Yes, but only for Medicaid: its State Mandates supplement carries a "For Kansas Medicaid member" section (KanCare CCTS/IIS rules). Commercial Kansas members follow the national Supplemental Clinical Criteria.' },
       { q: 'What does UnitedHealthcare pay for ABA in Kansas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. The Medicaid benchmark exists only via the KMAP interactive fee-schedule lookup.' },
+      { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
     ],
   },
 };

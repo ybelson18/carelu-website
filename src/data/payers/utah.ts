@@ -114,6 +114,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'ACO name (for PT/OT/ST only)', desc: 'Irrelevant to ABA routing, but the ACO handles ASD-related PT, OT, and speech for its enrollees.' },
     ],
     sources: [
+      { title: 'Utah Medicaid Fee Schedule Download (PAC 166 Applied Behavioral Analyst, DOS 9/24/2026)', url: 'https://health.utah.gov/stplan/lookup/FeeScheduleDownload.php' },
       { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
       { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
       { title: 'Accessing Medicaid Autism Related Services — family FAQ (archived)', url: 'https://web.archive.org/web/20260106200503/https://medicaid-documents.dhhs.utah.gov/Documents/pdfs/Accessing%20ASD%20Services%20FAX%20V2,%207-15-24.pdf' },
@@ -263,6 +264,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Does Utah Medicaid cover ABA therapy?', a: 'Yes — as a state-plan ASD service, fee-for-service, regardless of age (PRISM shows ages 1 and older, adult plans included). No PA on assessments; treatment requires PA in 26-week periods, with a 10-business-day grace to submit after starting services.' },
       { q: 'My client is on Molina / SelectHealth / Healthy U / Health Choice — where does the ABA request go?', a: 'To Utah Medicaid directly. ABA is carved out of all four ACO contracts to state fee-for-service — the ACO handles only ASD-related PT/OT/ST. There are no per-plan ABA portals, forms, or criteria in Utah.' },
       { q: 'What does Utah Medicaid pay for ABA?', a: 'Published in the PRISM lookup, effective 7/1/2026 per 15-minute unit: 97153 pays $19.67; 97151, 97155, and 97156 each pay $37.51 (97155 with credential modifiers HP/HO/HN but one published rate).' },
+      { q: 'Which insurance pays the highest ABA rates in Utah?', a: 'Only Utah Medicaid publishes its ABA rates, so it is the only payer whose rates can be compared from public sources. For dates of service on and after July 1, 2026 its PRISM fee schedule (Provider Allowable Code 166, Applied Behavioral Analyst) pays per 15-minute unit: 97153 $19.67; 97151, 97155, 97156 and indirect supervision H0032 $37.51; group 97154 $13.91; 97157 and 97158 are covered at $0.00 and 97152 is not covered. Commercial ABA rates in Utah (Select Health commercial, Aetna, Cigna, UnitedHealthcare/Optum) are not published; they are negotiated in each participating-provider agreement, so no public source can say which commercial plan pays most \u2014 use the Medicaid schedule as the benchmark in negotiation. SelectHealth Community Care members are not a separate rate: their ABA is paid by Utah Medicaid fee-for-service at the same schedule.' },
       { q: 'Can adults get ABA under Utah Medicaid?', a: 'Yes — Utah\'s ASD services are not an EPSDT child-only benefit. The state offers them regardless of age, and PRISM lists Traditional Adult and Targeted Adult plans among covered eligibility groups.' },
     ],
   },
@@ -1075,9 +1077,10 @@ export const utahPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      value: 'Required — a separate treatment authorization after the assessment. “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law,” and continued-care requests go in “no more than 30 days prior to the current approvals on file expiring” (Optum ABA CPT FAQ)',
       status: 'verified',
       cites: [
+        { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       ],
     },
@@ -1161,6 +1164,10 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
       { title: 'Utah Medicaid Managed Care page (PMHP list)', url: 'https://medicaid.utah.gov/managed-care/' },
       { title: 'Utah Code § 31A-22-642 (prior version, effective 5/4/2022)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2022050420220504.pdf' },
+      { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+      { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+      { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1173,33 +1180,31 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value:
-          'Not addressed in Optum\'s supplemental clinical criteria, which govern medical necessity rather than claim editing.',
-        status: 'unverified',
-        cites: [
-          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
-        ],
-        verifyVia: 'Optum/UnitedHealthcare reimbursement policy via Provider Express, or the participating-provider agreement.',
-        blocker: 'document',
-      },
-      dailyLimits: {
-        value:
-          'No per-day unit ceiling is published. Optum frames total intensity as direct plus indirect services (caregiver training and supervision included), increased or decreased on the individual\'s response to treatment. Under the Utah mandate there is no hour cap for individual and large-group plans entered or renewed since 1/1/2020.',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.”',
         status: 'verified',
         cites: [
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum frequency per day for every code: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs) — and “If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery.” The ABA CPT FAQ confirms “For our commercial ABA program MUE’s apply.” There is no weekly hour cap: hours are authorized on documented clinical need, approved units can be shifted among codes within a cluster, and utilization below 80% of authorized hours over a two-week period is addressed at review. Under the Utah mandate there is no hour cap for individual and large-group plans entered or renewed since 1/1/2020.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
           { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
         ],
       },
       noteSignature: {
-        value:
-          'Optum specifies the content that must be documented — goals and objectives, baseline behaviors, frequency, intensity, duration and progress-measurement method for each intervention, the percentage of planned sessions attended, and progress against standardized norm-referenced adaptive measures — but does not state who must sign a session note or when.',
-        status: 'unverified',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        status: 'verified',
         cites: [
-          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
-        verifyVia: 'Optum provider services via Provider Express — the supplemental clinical criteria carry no signature standard.',
-        blocker: 'per-case',
       },
       placeOfService: {
         value:
@@ -1266,11 +1271,12 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value:
-          'Optum treats telehealth as an available modality, citing practice parameters for telehealth implementation of ABA and noting delivery across a broad range of clinical settings (home, clinic, school) — but the telehealth options are intended to supplement, not supplant, in-person service.',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
         status: 'verified',
         cites: [
-          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
       },
       authTurnaround: {
@@ -1305,6 +1311,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum have Utah-specific ABA criteria?', a: 'No — Utah has no entry in Optum\'s ABA State Mandates supplemental criteria (January 2026 edition), so Utah commercial ABA runs on Optum\'s standard national criteria plus the state mandate.' },
       { q: 'What does the Utah autism mandate require?', a: 'For individual and large-group plans entered or renewed since 1/1/2020: coverage for ASD diagnosis and treatment with no age limit and no cap on ABA hours, a treatment plan due within 14 business days of starting treatment, insurer reviews at most every 3 months, and networks that include BCBAs. Small group is not covered by the statute.' },
       { q: 'What does UnitedHealthcare pay for ABA in Utah?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against Utah Medicaid\'s published PRISM rates ($19.67/unit on 97153, $37.51 on 97151/97155/97156, effective 7/1/2026) and treat rate-setting as part of contracting.' },
+      { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. Under the Utah mandate the insurer may review the treatment plan at most once every 3 months.' },
     ],
   },
 };

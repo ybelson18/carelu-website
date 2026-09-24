@@ -132,6 +132,8 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'HCPF Provider Enrollment (fingerprint background check requirements & CY2026 fee)', url: 'https://hcpf.colorado.gov/provider-enrollment' },
       { title: 'Health First Colorado Fee Schedule (July 1, 2026 v1.1) — PBT rates unchanged', url: 'https://hcpf.colorado.gov/provider-rates-fee-schedule' },
+      { title: 'Health First Colorado Fee Schedule, July 1, 2026 v1.3 (xlsx) \u2014 PBT rates', url: 'https://hcpf.colorado.gov/sites/hcpf/files/01_CO_Fee%20Schedule_Health%20First%20Colorado_07012026%20v1.3.xlsx' },
+      { title: 'C.R.S. \u00a7 10-16-104 (FindLaw) \u2014 autism mandate for commercial plans', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
       { title: 'HCPF Provider News — PBT exempted from the HB 26-1410 2.0% rate cut (through 7/27/2026)', url: 'https://hcpf.colorado.gov/provider-news' },
       { title: 'HCPF — Telemedicine Provider Information (allowed procedure codes, POS rules)', url: 'https://hcpf.colorado.gov/telemedicine-provider-information' },
     ],
@@ -277,7 +279,9 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Do I submit Colorado ABA authorizations to the member\'s RAE?', a: 'No — PBT/ABA is a fee-for-service carve-out. Regardless of RAE region (RMHP, NHP, CCHA, or Colorado Access) or the Elevate MCO, all PARs go to the state UM vendor Acentra through the Atrezzo portal (ColoradoPAR.com), and claims go to the state fiscal agent.' },
       { q: 'Does the ABA assessment need prior authorization in Colorado?', a: 'Yes — unlike many states, ALL PBT services must be pre-approved in a PAR, including the 97151 assessment. Approved PARs run up to 6 months, so plan for reauthorization twice a year with charts-and-graphs progress data.' },
       { q: 'Can I bill 97156 parent training to Health First Colorado?', a: 'No — 97156 is not in the PBT allowable-code table and has no rate on the fee schedule. Caregiver training is a required element of the treatment plan, not a separately billable service.' },
-      { q: 'What does Colorado Medicaid pay for ABA?', a: 'For dates of service on or after 10/1/2025: 97153 pays $17.20 and 97155 pays $25.80 per 15-minute unit (single rate per code, no credential tiers); 97151 pays a flat amount per assessment ($882.78 on the July 2025 schedule, before the October cut), once per 365 days. Group codes 97154/97158 were cut 23-48% in the same bulletin.' },
+      { q: 'What does Colorado Medicaid pay for ABA?', a: 'For dates of service on or after 10/1/2025: 97153 pays $17.20 and 97155 pays $25.80 per 15-minute unit (single rate per code, no credential tiers); 97151 pays a flat $866.88 per assessment (down from $882.78 before the October cut), once per 365 days, and 97151-TJ pays $39.61 per unit. Group codes 97154/97158 were cut 23-48% in the same bulletin. HCPF\'s July 1, 2026 v1.3 fee schedule carries exactly these PBT rates, so they are the rates in force for FY2026-27.' },
+      { q: 'Does Colorado require an autism diagnosis for ABA?', a: 'It depends on the payer. Health First Colorado (Medicaid) does not: its Criteria for Behavioral Therapies open the benefit on a qualifying diagnosed condition (ASD is one, not the only one), functional interference with home, school or community participation, or a safety risk \u2014 though a signed comprehensive diagnostic evaluation from the previous 12 months is still required. Commercial plans are the opposite: the state mandate, C.R.S. \u00a7 10-16-104(1.4), is a mandate for the treatment of autism spectrum disorders, and the carriers\' ABA policies (Aetna, Cigna, UnitedHealthcare/Optum, Anthem) cover ABA for an ASD diagnosis \u2014 see each carrier guide\'s diagnosis field.' },
+      { q: 'Which ABA payer contract pays best in Colorado?', a: 'Only Medicaid publishes its ABA rates, so only Medicaid can be compared on paper. Health First Colorado pays one statewide rate per code with no credential tiers: 97153 $17.20 and 97155 $25.80 per 15-minute unit, 97151 a flat $866.88 per assessment, group codes 97154 $8.81 and 97158 $9.34, and nothing at all for 97156 (July 1, 2026 v1.3 fee schedule). Commercial ABA rates in Colorado (Aetna, Cigna, UnitedHealthcare/Optum, Anthem) are not published; they are negotiated in each participating-provider agreement, so the answer for a commercial contract is whatever you negotiate, benchmarked against the Medicaid schedule. The non-rate terms differ too: Medicaid prior-authorizes every code including 97151, requires EVV in home and community settings and does not pay parent training, while fully insured commercial plans answer to a mandate with no age limit and no dollar cap and self-funded plans are exempt from it.' },
     ],
   },
 
@@ -750,9 +754,12 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
     },
     treatmentPA: {
-      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      value: 'Required — a separate treatment authorization after the assessment. “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law,” and continued-care requests go in “no more than 30 days prior to the current approvals on file expiring” (Optum ABA CPT FAQ)',
       status: 'verified',
-      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      cites: [
+        { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
     },
     dxRequired: {
       value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
@@ -830,6 +837,9 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
       { title: 'HCPF — Accountable Care Collaborative Phase III', url: 'https://hcpf.colorado.gov/accphaseIII' },
       { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+      { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+      { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -870,13 +880,13 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
       telehealth: {
-        value:
-          'Optum publishes no ABA telehealth code list in the Supplemental Clinical Criteria; it points providers to CASP\'s Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition, which it describes as a resource for ABA "delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)" and as a supplement to, not a replacement for, in-person delivery.',
-        status: 'unverified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
-        blocker: 'per-case',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
       },
       authTurnaround: {
         value:
@@ -929,13 +939,13 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
       },
       noteSignature: {
-        value:
-          'No signature rule is published, but the documentation burden is explicit where money turns on it: services billed on the same date must be "separate, distinct, and clearly documented in the progress notes," and if documentation does not clearly separate them the claim may be denied. Who signs, and within what window, is not stated.',
-        status: 'unverified',
-        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
-        verifyVia:
-          'The UnitedHealthcare/Optum provider manual and your participation agreement\'s documentation clause.',
-        blocker: 'document',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -958,6 +968,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum have Colorado-specific ABA criteria?', a: 'No — Colorado has no entry in Optum\'s ABA State Mandates supplemental criteria (effective January 2026), so the national two-step authorization guideline plus the state mandate is the whole picture.' },
       { q: 'What if the family is on Rocky Mountain Health Plans (RMHP)?', a: 'RMHP is UnitedHealthcare\'s Colorado Medicaid footprint, but ABA is a state fee-for-service carve-out — RMHP does not authorize or pay ABA claims. Those members follow the Health First Colorado process (Acentra PAR, state fee schedule) in our Colorado Medicaid guide.' },
       { q: 'What does UnitedHealthcare pay for ABA in Colorado?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Health First Colorado fee schedule, and treat rate-setting as part of contracting.' },
+      { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
     ],
   },
 

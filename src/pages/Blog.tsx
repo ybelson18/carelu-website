@@ -40,7 +40,7 @@ const TOPICS: Topic[] = [
     blurb: 'Coverage rules, codes and the documents an authorization needs.',
     slugs: ['aba-cpt-codes', 'aba-records-request', 'aba-evaluation-referrals'],
     extras: [
-      { href: '/payers', pill: 'Directory · Payers', title: 'The ABA payer directory', desc: 'Coverage, prior-auth and diagnosis rules for 260+ Medicaid and commercial plans across 26 states, with sources.' },
+      { href: '/payers', pill: 'Directory · Payers', title: 'The ABA payer directory', desc: 'Coverage, prior-auth and diagnosis rules for 260+ Medicaid and commercial plans across 27 states, with sources.' },
     ],
   },
   {

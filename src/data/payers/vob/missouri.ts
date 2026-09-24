@@ -232,7 +232,7 @@ const missouriMedicaidCodeGrid: Record<string, CodeGridEntry> = {
 /* Layer 4 — MO HealthNet ABA rate table (fee schedule dated 2026-07-07). */
 
 const MO_MEDICAID_RATES: RateTable = {
-  source: 'MHD Applied Behavioral Analysis fee schedule (.xlsx, apps.dss.mo.gov static portal), file-stamped 2026-07-07; cross-confirmed against the Behavioral Health Services Manual §1.16. Per 15-min unit; TM (telemedicine) rows precert-not-required.',
+  source: 'MHD Applied Behavioral Analysis fee schedule (.xlsx, apps.dss.mo.gov static portal), file-stamped 2026-07-07 and RE-VERIFIED 2026-09-25 against the current file (header date 8/27/2026, https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx): every ABA rate, rate-effective date and maximum-unit value below is unchanged; cross-confirmed against the Behavioral Health Services Manual §1.16. Per 15-min unit; TM (telemedicine) rows precert-not-required.',
   effectiveDate: '2026-07-07 (file stamp; per-code rate-effective dates vary — noted per code)',
   byCode: {
     '97151': { rate: 'Modifier-tiered — see modifierTiers (max 32 units/day; eff 7/1/2022)', unit: '15min', modifierTiers: { HO: '$25.26 (behavior analyst/psychologist)', 'U8+HO': '$25.26 (in-home)', 'TM+HO': '$25.26 (telehealth, no precert)' } },

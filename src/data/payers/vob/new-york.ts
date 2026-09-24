@@ -714,6 +714,10 @@ const NYS_MEDICAID_UPDATE_AUG2025 = src(
   'https://web.archive.org/web/20251031063334if_/https://www.health.ny.gov/health_care/medicaid/program/update/2025/no08_2025-08.htm',
   'Wayback Machine archive (snapshot 2025-10-31) of NYS Medicaid Update, August 2025, Vol. 41 No. 8 — the live health.ny.gov URL returns HTTP 403 to automated fetches (confirmed during this build); this is an archived copy of the primary-source bulletin text, not a secondary paraphrase. "Reimbursement Reduction for Services Administered by an Unlicensed Individual" section confirms 97153: $16.85/unit eff. 10/1/2025, $14.45/unit eff. 4/1/2026; same issue documents the 10/1/2025 LBA 5%-supervision rule applying to both FFS and MMC.'
 );
+const NYS_MEDICAID_UPDATE_AUG2026 = src(
+  'https://www.health.ny.gov/health_care/medicaid/program/update/2026/no09_2026-08.htm',
+  'NYS Medicaid Update, August 2026, Vol. 42 No. 9 — read via the r.jina.ai text proxy (health.ny.gov returns HTTP 403 to direct automated fetches), accessed 2026-09-25. Section "Reimbursement Change for Unlicensed Individuals Providing Applied Behavior Analysis Services": "As authorized by the New York State (NYS) Enacted Budget for Fiscal Year 2026-2027, NYS Medicaid fee-for-service (FFS) will decrease the fee paid for ... CPT code 97153" and "Effective October 1, 2026, the reimbursement for CPT code 97153 will be reduced to $9.63/per unit." Names FFS only; no other ABA code changes; no later change announced in the Jan-Aug 2026 issues.'
+);
 const ACUITY_NEWS_RATES = src(
   'https://acuity.news/regulation/new-york-medicaid-aba-reimbursement-rate-reduction-2026/',
   'Secondary source, used only for cross-confirmation of the 97153 phase-down figures and the pre-reduction $19.26 baseline — consistent with the primary fee schedule and Medicaid Update.'
@@ -958,8 +962,8 @@ const newYorkMedicaidCodeGrid: Record<string, CodeGridEntry> = {
   ),
   '97153': nyMedicaidFfsEntry(
     '97153',
-    "Technician-delivered direct treatment — the volume code. Rate is being phased down: $19.26 → $16.85/unit (eff. 10/1/2025) → $14.45/unit (eff. 4/1/2026, current). See rates for the full history.",
-    [NYS_MEDICAID_UPDATE_AUG2025]
+    "Technician-delivered direct treatment — the volume code. Rate is being phased down: $19.26 → $16.85/unit (eff. 10/1/2025) → $14.45/unit (eff. 4/1/2026, current through 9/30/2026) → $9.63/unit (eff. 10/1/2026, announced in the August 2026 Medicaid Update under the FY 2026-27 enacted budget; FFS). See rates for the full history.",
+    [NYS_MEDICAID_UPDATE_AUG2025, NYS_MEDICAID_UPDATE_AUG2026]
   ),
   '97154': nyMedicaidFfsEntry(
     '97154',
@@ -985,13 +989,13 @@ const newYorkMedicaidCodeGrid: Record<string, CodeGridEntry> = {
 
 const newYorkMedicaidRates: RateTable = {
   source:
-    'eMedNY ABA Fee Schedule (.xls, effective 4/1/2026), cross-confirmed for the 97153 phase-down history against the NYS Medicaid Update Aug 2025 (Vol 41 No 8) — the FFS fee schedule is a single flat statewide rate per code with no credential tiers, no modifiers, no geographic variation. MMC plans negotiate their own rates (see each MCO guide\'s rates block).',
+    'eMedNY ABA Fee Schedule (.xls, effective 4/1/2026), cross-confirmed for the 97153 phase-down history against the NYS Medicaid Update Aug 2025 (Vol 41 No 8), plus the Aug 2026 Update (Vol 42 No 9) announcing 97153 at $9.63/unit from 10/1/2026 — the FFS fee schedule is a single flat statewide rate per code with no credential tiers, no modifiers, no geographic variation. MMC plans negotiate their own rates (see each MCO guide\'s rates block).',
   effectiveDate: '2026-04-01',
   byCode: {
     '97151': { rate: '$19.26 per 15-min unit', unit: '15min' },
     '97152': { rate: '$19.26 per 15-min unit (no distinct historical effective date published)', unit: '15min' },
     '97153': {
-      rate: '$14.45 per 15-min unit (current, eff. 4/1/2026) — phased down from $19.26 → $16.85 (eff. 10/1/2025) → $14.45 (eff. 4/1/2026)',
+      rate: '$14.45 per 15-min unit (current, eff. 4/1/2026, through 9/30/2026) — phased down from $19.26 → $16.85 (eff. 10/1/2025) → $14.45 (eff. 4/1/2026); SCHEDULED: $9.63 per unit effective 10/1/2026 (NYS Medicaid Update Aug 2026, FFS; the eMedNY .xls had not yet been reissued when checked 2026-09-25)',
       unit: '15min',
     },
     '97154': { rate: '$3.31 per unit per member (group code)', unit: '15min' },
@@ -1003,7 +1007,7 @@ const newYorkMedicaidRates: RateTable = {
     '0373T': { rate: 'unverified — code absent from the fee schedule', unit: 'unverified' },
     '99366': { rate: 'unverified — code absent from the fee schedule', unit: 'unverified' },
   },
-  sources: [EMEDNY_ABA_FEE_SCHEDULE, NYS_MEDICAID_UPDATE_AUG2025, ACUITY_NEWS_RATES],
+  sources: [EMEDNY_ABA_FEE_SCHEDULE, NYS_MEDICAID_UPDATE_AUG2025, NYS_MEDICAID_UPDATE_AUG2026, ACUITY_NEWS_RATES],
 };
 
 /* ==================== fidelis-care-new-york ==================== */

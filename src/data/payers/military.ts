@@ -149,6 +149,19 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'On what the family pays: ABA is treated as outpatient specialty care and a single copayment covers all ABA services received on one day. Under TRICARE Prime, active duty family members pay $0 for network specialty care in both Group A and Group B; retirees and all others pay $39. Under TRICARE Select, active duty family members pay $39 network (Group A) or $33 (Group B), and retirees and all others pay $52 network or 25% non-network. There are no yearly or lifetime caps on ABA, and the amounts count toward the family catastrophic cap. Verify current-year figures on the TRICARE cost page before quoting them.',
         ],
       },
+      {
+        h2: 'One treating provider at a time: second opinions, provider changes and back-dating',
+        cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Change 11, Jul 24, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-08-06/AsOf/tot5/c18s3.html' },
+          { title: 'Humana Military — ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' },
+          { title: 'Humana Military — ACD authorization process', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/authorizationprocess' },
+          { title: 'Humana Military — TRICARE Provider Handbook, East Region (2026)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/tricare-provider-handbook.pdf' },
+        ],
+        body: [
+          'Humana Military\u2019s ABA FAQ answers the two-agency question directly. A family may see more than one authorized ABA supervisor, \u201chowever only one authorized ABA supervisor is approved to provide ABA services for a beneficiary at a time\u201d; a supervisor brought in for consultation does not take over, and the primary supervisor \u201cis the sole provider authorized to bill for ABA services.\u201d The DHA manual carves out the assessment: \u201cA second opinion authorization (for 32 units of CPT code 97151) may be permitted to overlap with another approved authorization. Two \u2018ongoing\u2019 treatment authorizations of direct services (CPT codes 97153, 97155, 97156, 97157, and 97158) are not permitted.\u201d So agency B may be authorized to assess a child while agency A keeps treating, but agency B cannot hold treatment units until agency A\u2019s treatment authorization ends. Humana Military publishes no separate East transfer-of-care procedure; request the second-opinion or change-of-provider authorization through provider self-service or the ABA line at (866) 323-7155.',
+          'Nothing is back-dated. Humana Military: \u201cABA services must be pre-authorized before services can begin. Humana Military does not accept retrospective referrals and will not backdate late submissions\u201d; its 2026 East Region provider handbook says \u201cAll ABA authorizations must be preauthorized; retrospective authorization is not allowed,\u201d and the DHA manual says \u201cA retroactive referral shall not be accepted.\u201d Reauthorizations may be filed up to 60 days ahead, and filing less than 30 days before expiry \u201cmay result in non-reimbursement.\u201d',
+        ],
+      },
     ],
     collect: [
       { title: 'Sponsor status and plan', desc: 'Active duty vs. retiree vs. Guard/Reserve, and Prime vs. Select vs. USFHP — it drives both eligibility and the copay. Group A or B (sponsor’s service entry before or on/after Jan. 1, 2018) changes the Select amounts.' },
@@ -232,6 +245,9 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'Can a behavior technician deliver ABA in a TRICARE child’s school?', a: 'No. DHA states that ABA rendered by a behavior technician in the school setting is not covered. A BCBA may be authorized where there is a clinically necessary, focused and time-limited goal, but only with pre-authorization and contractor approval of the goals.' },
       { q: 'How often does the family need a new referral?', a: 'Every two years. An approved ASD diagnosing provider must issue a new referral and an updated DHA-approved DSM-5 checklist; the ABA provider cannot supply either. Treatment authorizations themselves run in six-month increments.' },
       { q: 'What does a TRICARE family pay for ABA?', a: 'The copayment or cost-share for their plan, with one copayment covering all ABA services on the same day. Active duty family members in TRICARE Prime pay $0 for network specialty care; retirees and others pay $39. Select amounts run $33 to $52 network depending on category and group. There is no yearly or lifetime cap on ABA.' },
+      { q: 'Is there a maximum number of 97151 units for a TRICARE East ABA assessment?', a: 'Yes. Under TRICARE Operations Manual Ch. 18, Sec. 3, the initial assessment and treatment plan are authorized for up to 32 units (eight hours) of 97151, including the PDDBI, and each later reassessment for up to 24 units (six hours) per authorization, which is once every six months. The units must be used within 14 calendar days of the first 97151 date of service or the claim is denied. Outcome measures are authorized separately as 97151 with modifier 99.' },
+      { q: 'Will Humana Military back-date or retro-authorize ABA for TRICARE?', a: 'No. Humana Military does not accept retrospective referrals and will not backdate late submissions, and its 2026 provider handbook states that retrospective authorization is not allowed. Get the authorization before the first session, and file reauthorizations 30 to 60 days before the current one expires.' },
+      { q: 'Can one ABA agency do an assessment while another agency keeps treating the child under TRICARE East?', a: 'The assessment, yes; treatment, no. DHA allows a second-opinion authorization for 32 units of 97151 to overlap another approved authorization, but two ongoing treatment authorizations for direct services are not permitted. Humana Military approves only one authorized ABA supervisor to provide ABA for a child at a time. If the family moves to the new agency, the new treatment authorization cannot start until the old one ends.' },
     ],
     deliveryRules: {
       supervision: {
@@ -251,13 +267,13 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
       },
       dailyLimits: {
-        value: 'Humana Military does not publish per-day unit ceilings on its public ACD pages; the ceilings live in TRICARE Operations Manual Ch. 18, Sec. 3 and in the authorization itself. One hard clock is public: all authorized 97151 units must be used within 14 calendar days of the first 97151 date of service or the claim is denied.',
-        status: 'unverified',
+        value: 'The ceilings are DHA\u2019s, set in TRICARE Operations Manual Ch. 18, Sec. 3, which Humana Military\u2019s ABA FAQ names as the governing reference. 97151 (assessment): the contractor authorizes \u201cup to 32 units (eight hours) for the initial request of ABA services to complete an initial ABA assessment and TP development (to include administration, scoring, and review of the PDDBI),\u201d then \u201cup to 24 units (six hours) for reassessments and TP updates for every subsequent authorization\u201d \u2014 i.e. one reassessment per six-month authorization. 97151 \u201cmust be used within 14 calendar days of the first date of service for CPT code 97151 and is a use or lose concept\u201d; Humana Military states that if all 97151 cannot be completed in 14 days \u201cthe claim will be denied,\u201d with the appeals process for delays outside the provider\u2019s control. Outcome measures are authorized separately as 97151 with modifier 99. Per-day denials: 97153 above \u201c32 units (eight hours) per day or 160 units (40 hours) per week\u201d; 97155 above eight units (two hours) per day; 97156 above eight units (two hours) per day.',
+        status: 'verified',
         cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Change 11, Jul 24, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-08-06/AsOf/tot5/c18s3.html' },
           { title: 'Humana Military — ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' },
+          { title: 'Humana Military — ACD outcome measures (97151 with modifier 99)', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/outcomemeasures' },
         ],
-        verifyVia: 'Humana Military provider self-service authorization letter, the ABA dedicated line at (866) 323-7155, or TRICARE Operations Manual Ch. 18, Sec. 3 at manuals.health.mil',
-        blocker: 'document',
       },
       noteSignature: {
         value: 'Progress notes must carry the name and credentials of the rendering ABA supervisor, assistant behavior analyst or behavior technician, with a dated signature. Notes are not submitted with claims but are pulled in ABA quality audits and compared against the claims. Required elements include beneficiary name, date and start/end times with session length, place of service, participants and their relationship to the beneficiary, clinical status as DHA defines it, a narrative session summary, techniques used, response to treatment and progress toward goals. A treatment plan alone does not satisfy the 97151 note requirement.',
@@ -411,6 +427,17 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Every ACD participant in the West is assigned an Autism Services Navigator — a care manager who is the family’s main point of contact, builds the comprehensive care plan, and carries documentation through a permanent change of station. Navigators are health advocates: they do not review treatment plans for clinical necessity and do not decide coverage. Worth knowing for intake: USFHP members and overseas beneficiaries do not get an ASN.',
         ],
       },
+      {
+        h2: 'Second opinions, changing providers and back-dating',
+        cites: [
+          { title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' },
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Change 11, Jul 24, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-08-06/AsOf/tot5/c18s3.html' },
+        ],
+        body: [
+          'TriWest writes the two-agency rule out. A second-opinion assessment \u201cfollows the same rules and requirements as the first assessment,\u201d needs no new referral inside the two-year referral window, and a \u201csecond opinion, or change in provider, can also be requested as long as it is within two years of the current referral.\u201d But \u201conly one provider can give treatment at a time, and only one treatment authorization approval may be active at one time. If the family decides to pursue services with second opinion provider\u2019s recommendations, the first provider\u2019s authorization will end just before the second provider\u2019s authorization starts.\u201d The family should tell the current provider when it plans to hold the final session, and the first provider submits a discharge report. The DHA manual behind it: a second-opinion authorization for 32 units of 97151 \u201cmay be permitted to overlap with another approved authorization,\u201d while two ongoing treatment authorizations are not. A provider ending services on its own must give 45 days\u2019 notice.',
+          'Nothing is back-dated: TriWest states \u201cauthorizations cannot be backdated\u201d and that there is no expedited review, so late submissions \u201cwill not be reviewed and may cause a gap in authorization.\u201d The DHA manual adds that \u201cA retroactive referral shall not be accepted.\u201d',
+        ],
+      },
     ],
     collect: [
       { title: 'ZIP code, then region', desc: 'The East/West line is drawn by ZIP and six states moved on Jan. 1, 2025. Confirm West before you route anything to TriWest or Availity.' },
@@ -492,6 +519,9 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'How far ahead can a reauthorization be filed?', a: 'Up to 60 calendar days before the current authorization ends, and no later than 30 days before it expires. Submissions inside 30 days risk a gap in care.' },
       { q: 'How long is an ACD referral good for?', a: 'Two years, regardless of a move. TriWest accepts a new referral within six months of expiry, and a new DSM-5-TR ASD criteria checklist is required at each renewal — completed by an approved TRICARE diagnosing provider, not by the ABA provider.' },
       { q: 'Do West Region families get an Autism Services Navigator?', a: 'Yes — every ACD participant in the West is assigned one. Navigators coordinate care, build the comprehensive care plan and carry documents through a PCS move, but they do not review treatment plans for clinical necessity or decide coverage. USFHP members and overseas beneficiaries do not get one.' },
+      { q: 'How many 97151 units does TriWest authorize for an ABA assessment?', a: 'Initial assessments are approved for 32 units (eight hours) per authorization period and reassessments for 24 units (six hours), including the PDDBI. The units must be completed within 14 days of the first service date, and 97151 cannot be done by telehealth. Each outcome measure gets one separately authorized 97151 unit billed with modifier 99.' },
+      { q: 'Can TriWest back-date an ABA authorization?', a: 'No. TriWest states that authorizations cannot be backdated and there is no expedited review, so a late reauthorization can leave a gap in coverage. File each reauthorization 30 to 60 days before the current one ends.' },
+      { q: 'Can a second ABA provider assess a child while the first keeps treating under TRICARE West?', a: 'Yes for the assessment: a second-opinion assessment is allowed within the two-year referral window with no new referral. But only one provider can give treatment at a time, and only one treatment authorization can be active. If the family switches, the first provider\u2019s authorization ends just before the second provider\u2019s starts, and the first provider submits a discharge report.' },
     ],
     deliveryRules: {
       supervision: {

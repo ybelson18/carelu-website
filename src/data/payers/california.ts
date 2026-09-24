@@ -3594,6 +3594,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
       { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+      { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3641,15 +3643,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Supervision and family training by video are payable once the provider is "an approved Optum virtual visits provider who has attested," billed on 97155 or 97156 with POS 02 (POS 10 is listed for telehealth in the member’s home). Optum’s criteria point to CASP’s telehealth parameters — telehealth is "not intended to supplant in-person service" — and the CASP guidelines allow in-person, telehealth or hybrid delivery. Whether technician-delivered 97153 is payable remotely is not stated.',
-        status: 'plan-dependent',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” The CASP guidelines Optum posts as its California commercial criteria allow in-person, telehealth or hybrid delivery.',
+        status: 'verified',
         cites: [
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
           { title: 'CASP ABA Practice Guidelines for the Treatment of ASD, 3rd ed. (posted by Optum as California Commercial ABA criteria)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/welcomeNtwk/CA/ca_hpc_aba_guidelines.pdf' },
         ],
-        verifyVia: 'Optum ABA clinical team 1-866-830-0325 — whether 97153 by telehealth is approvable and whether POS 10 applies to 97155/97156.',
-        blocker: 'per-case',
       },
       authTurnaround: {
         value: 'Optum publishes no ABA decision clock; continued-care requests go in "no more than 30 days prior to the current approvals on file expiring," and reviews run every 4–6 months. The regulator’s clock applies: DMHC plans (including Optum’s California entity), H&S § 1367.01(h) — "not to exceed five business days" from receipt of the information reasonably necessary, 72 hours urgent; CDI policies, Ins. § 10123.135(h), the same; self-funded ERISA plans, 29 CFR 2560.503-1 — 15 days pre-service, one 15-day extension, 72 hours urgent.',
@@ -3688,16 +3689,18 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Allowed: "When supervision is provided, you may bill concurrently for both Supervisors and Behavior Technicians, billing with 97153 and 97155" — the same for 97154 with 97155, and 97153 with 97156 are "separate and distinct services" that "may be billed concurrently." Team meetings are billable only as supervision with the member, supervisor and technician present.',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.”',
         status: 'verified',
         cites: [
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
       dailyLimits: {
-        value: '"For our commercial ABA program MUE’s apply, per the CMS guidelines … Optum allows 32 units per day of 97151." No weekly hour cap in the criteria — hours are justified by clinical need, and CASP says intensity is "independent of the patient’s schedule of activities outside of treatment." Two technicians on the same day combine onto one 97153 line; one copay per date of service.',
+        value: 'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum frequency per day for every code: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs) — and “If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery.” The ABA CPT FAQ confirms “For our commercial ABA program MUE’s apply.” There is no weekly hour cap: hours are authorized on documented clinical need, approved units can be shifted among codes within a cluster, and utilization below 80% of authorized hours over a two-week period is addressed at review. CASP, which Optum posts as its California commercial criteria, says intensity is “independent of the patient’s schedule of activities outside of treatment.” Two technicians on the same day combine onto one 97153 line; one copay per date of service.',
         status: 'verified',
         cites: [
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: 'CASP ABA Practice Guidelines for the Treatment of ASD, 3rd ed. (posted by Optum as California Commercial ABA criteria)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/welcomeNtwk/CA/ca_hpc_aba_guidelines.pdf' },
         ],
@@ -3732,6 +3735,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare cover ABA therapy in California?', a: 'Yes — through Optum Behavioral Health, for autism, with prior authorization on every ABA service. Fully insured California plans also fall under the state mandate and Optum’s California-specific criteria.' },
       { q: 'Can UHC deny ABA because the child has an IEP?', a: 'Not on that basis alone for California commercial members: Optum’s California State Mandates entry and H&S § 1374.72(h) bar limiting coverage because special education, an IEP or Medicaid could provide the service.' },
       { q: 'Does UnitedHealthcare have a Medi-Cal plan in California?', a: 'No — no UnitedHealthcare Medi-Cal plan operates in any county in 2026. Medi-Cal ABA runs through the county Medi-Cal plan.' },
+      { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On fully insured California plans the treatment plan must be “reviewed no less than once every six months” by the qualified autism service provider.' },
     ],
   },
 };

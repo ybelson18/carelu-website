@@ -77,6 +77,16 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'How fast care must start: the AHCCCS behavioral health appointment clock',
+        body: [
+          'AHCCCS sets its own timeliness standard for behavioral health, and it is the one to design an ABA intake around. ACOM Policy 417 (effective October 1, 2025), which binds the ACC, ACC-RBHA, ALTCS E/PD and DDD contractors, requires the \u201cInitial assessment \u2013 Within seven calendar days after the initial referral or request for behavioral health services\u201d; then the \u201cInitial appointment \u2013 Within timeframes indicated by clinical need\u201d but, \u201cFor members under the age of 18 years old, no later than 21 days after the initial assessment\u201d (23 calendar days for members 18 and older); and \u201cSubsequent behavioral health services \u2013 Within the timeframes according to the needs of the person, but no longer than 45 calendar days from identification of need.\u201d Urgent need is 24 hours. Children in Department of Child Safety custody and adopted children run on a separate, faster track under A.R.S. 8-512.01: screening and evaluation within seven calendar days, the initial appointment no later than 21 calendar days after it, and subsequent services no later than 21 calendar days after any screening and assessment.',
+          'These are standards the health plan must meet through its network, not a claim rule, but they are the numbers a plan uses when it asks whether your agency can take a referral. For ABA the practical sequence is: see the child for the 97151 assessment within about a week of referral (the two largest plans, Mercy Care and UnitedHealthcare Community Plan, need no PA for 97151/97152), then have the treatment authorization decided and 97153 started inside the 21-day window. The plan\'s PA decision clock sits inside that window: 14 calendar days in most AHCCCS plan manuals, 7 calendar days under the federal rule that applies to managed care plans for rating periods starting on or after January 1, 2026 (see the authorization-timing field below).',
+        ],
+        cites: [
+          { title: 'AHCCCS Contractor Operations Manual (ACOM) 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (eff. 10/01/25)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
+        ],
+      },
+      {
         h2: 'Rates: credential-tiered, and on the physician fee schedule',
         body: [
           'AHCCCS converted the ABA codes from by-report to fixed rates effective November 1, 2023, tiered by rendering credential via modifiers: HM = below bachelor\'s (BT/RBT level), HN = bachelor\'s (BCaBA), HO = master\'s (BCBA), HP = doctoral (BCBA-D). Per 15-minute unit: 97151 assessment pays $30.06 / $35.78 / $44.73 at the HN/HO/HP tiers; 97153 direct treatment pays $17.91 / $21.32 / $23.69 (HM/HN/HO-HP); 97155 protocol modification pays $25.05 / $29.82 / $37.28. Home delivery (POS 12) pays roughly a 10% premium on every code — 97153 at home runs $19.96–$26.43. Two traps: the 2023 rate notice did not set a rate for 97156 (family training) — check the AHCCCS physician fee schedule code lookup directly — and the 9715x codes are not on the Behavioral Health Outpatient fee schedule at all; they live on the physician fee schedule. Practices that look up "behavioral health rates" find nothing and assume ABA is unpriced — it isn\'t.',
@@ -124,6 +134,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA provider', desc: 'Post-March-2026, many inbounds are displaced Action Behavior Centers / Centria families — capture the history and any active auths.' },
     ],
     sources: [
+      { title: 'AHCCCS Contractor Operations Manual (ACOM) 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (eff. 10/01/25)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
       { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
       { title: 'AHCCCS — Available Health Plans list', url: 'https://www.azahcccs.gov/Members/Downloads/Resources/ENGLISH_HealthPlanList.pdf' },
@@ -187,7 +198,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       authTurnaround: {
-        value: 'Fee-for-service (AIHP/tribal and other FFS members): since January 1, 2026, 42 CFR 440.230(e) requires state FFS decisions "in no case later than 7 calendar days after receiving the request" for standard and 72 hours for expedited (standard extendable up to 14 calendar days). Health plans: AHCCCS’s own CY2025 prior-authorization metrics report (March 2026) says that "Beginning January 1, 2026" the CMS rule requires Medicaid managed care plans to decide within "7 calendar days for standard requests (non-urgent)" and "72 hours for expedited requests (urgent)"; the federal regulation ties the 7-day ceiling to rating periods starting on or after January 1, 2026. AHCCCS’s contractor policy ACOM 414 (rev. March 2025) still reads "no later than 14 calendar days from receipt of the request for the service, regardless of whether the 14th day falls on a weekend", 72 hours expedited, each extendable up to 14 more calendar days. Expect 7 and confirm with the plan; individual plan manuals still vary (see each plan). No ABA-specific decision clock or reauthorization lead time is published; AMPM 320-S requires progress reports at least every six months, which is what the reauth is built from.',
+        value: 'Fee-for-service (AIHP/tribal and other FFS members): since January 1, 2026, 42 CFR 440.230(e) requires state FFS decisions "in no case later than 7 calendar days after receiving the request" for standard and 72 hours for expedited (standard extendable up to 14 calendar days). Health plans: AHCCCS’s own CY2025 prior-authorization metrics report (March 2026) says that "Beginning January 1, 2026" the CMS rule requires Medicaid managed care plans to decide within "7 calendar days for standard requests (non-urgent)" and "72 hours for expedited requests (urgent)"; the federal regulation ties the 7-day ceiling to rating periods starting on or after January 1, 2026. AHCCCS’s contractor policy ACOM 414 (rev. March 2025) still reads "no later than 14 calendar days from receipt of the request for the service, regardless of whether the 14th day falls on a weekend", 72 hours expedited, each extendable up to 14 more calendar days. Expect 7 and confirm with the plan; individual plan manuals still vary (see each plan). No ABA-specific decision clock or reauthorization lead time is published; AMPM 320-S requires progress reports at least every six months, which is what the reauth is built from. The decision clock sits inside a service-start clock: ACOM 417 (eff. 10/1/2025) requires the behavioral health "Initial assessment – Within seven calendar days after the initial referral" and, for members under 18, the initial appointment "no later than 21 days after the initial assessment" (23 calendar days for adults).',
         status: 'verified',
         cites: [
           { title: '42 CFR 440.230(e) — Medicaid fee-for-service prior authorization timeframes (from 1/1/2026)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-B/section-440.230' },
@@ -195,6 +206,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
           { title: 'AHCCCS ACOM 414 — Requirements for Service Authorization Decisions and NOABD (rev. 3/7/2025)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/414.pdf' },
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'AHCCCS ACOM 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (eff. 10/01/25)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
         ],
       },
       coordinationOfBenefits: {
@@ -267,6 +279,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How soon after an initial assessment must an AHCCCS member start ABA?', a: 'AHCCCS\u2019s behavioral health appointment standard (ACOM 417, eff. 10/1/2025) sets the clock for every ACC, ACC-RBHA, ALTCS E/PD and DDD plan: the initial assessment within seven calendar days of the referral or request, and the initial appointment \u201cno later than 21 days after the initial assessment\u201d for members under 18 (23 calendar days for adults), with later services no more than 45 calendar days from identification of need. For children in DCS custody and adopted children, the initial appointment is due no later than 21 calendar days after screening and evaluation. The standard binds the plan\'s network, so plans refer to agencies that can meet it. The treatment PA decision (14 calendar days in most plan manuals, 7 under the 2026 federal rule) has to fit inside the 21 days.' },
       { q: 'Does AHCCCS cover ABA therapy?', a: 'Yes — under AMPM 320-S, for members with autism spectrum disorder and/or other diagnoses as justified by medical necessity. Coverage runs through the member\'s ACC plan, or through a DDD Health Plan (Mercy Care DD or UHCCP DD) for ALTCS-DD members.' },
       { q: 'Does Arizona Medicaid require an autism diagnosis for ABA?', a: 'No — AMPM 320-S explicitly covers "other diagnoses as justified by medical necessity," and Optum\'s Arizona orientation states verbatim that an ASD diagnosis is not required for AHCCCS members. A qualified Behavioral Health Professional must still recommend the service based on assessment.' },
       { q: 'What does AHCCCS pay for ABA?', a: 'Fixed, credential-tiered rates since 11/1/2023: 97153 pays $17.91 (HM) / $21.32 (HN) / $23.69 (HO/HP) per 15-minute unit, with home delivery about 10% higher. The codes live on the physician fee schedule, not the behavioral-health outpatient one, and 97156 wasn\'t in the 2023 rate notice — look it up directly.' },
@@ -1716,6 +1729,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Other DDD services in place', desc: 'Habilitation and respite hours shape the realistic ABA schedule.' },
     ],
     sources: [
+      { title: 'AHCCCS Contractor Operations Manual (ACOM) 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (eff. 10/01/25)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
       { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
       { title: 'AZA United — navigating the systems of care', url: 'https://azaunited.org/blog/navigating-the-systems-of-care' },
@@ -1877,6 +1891,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How quickly must a DDD member be seen for ABA after the assessment?', a: 'The DDD contractors are bound by AHCCCS\u2019s behavioral health appointment standard (ACOM 417, eff. 10/1/2025): initial assessment within seven calendar days of the referral or request, and the initial appointment \u201cno later than 21 days after the initial assessment\u201d for members under 18 (23 calendar days for adults), with later services no more than 45 calendar days from identification of need. Mercy Care DD and UHCCP DD must meet it through their networks, so plan the treatment authorization request to land well inside that window.' },
       { q: 'How do DDD members get ABA in Arizona?', a: 'Through their chosen DDD Health Plan — Mercy Care DD or UHCCP DD, both statewide — on the same AMPM 320-S clinical rules and the same plan-level ABA PA machinery as those plans\' ACC lines.' },
       { q: 'Can a child get ABA through an ACC plan instead of DDD?', a: 'Yes — children under 21 can get ABA via their ACC plan under EPSDT even without DDD. If the child is ALTCS/DDD-eligible, the DDD path adds bundled services (habilitation, respite); over age 3, ALTCS approval is the gate.' },
       { q: 'Does county matter for DDD members?', a: 'No — both DDD Health Plans are statewide, unlike ACC plans, which are restricted to geographic service areas.' },
@@ -2365,9 +2380,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
     },
     treatmentPA: {
-      value: 'Required — step 2 (treatment auth); reviews every 4–6 months',
+      value: 'Required — a separate treatment authorization after the assessment. “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law,” and continued-care requests go in “no more than 30 days prior to the current approvals on file expiring” (Optum ABA CPT FAQ)',
       status: 'verified',
-      cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
+      cites: [
+        { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+      ],
     },
     dxRequired: {
       value: 'Yes — DSM-5-TR ASD confirmed with a validated tool (ADI-R, ADOS-2, etc.)',
@@ -2458,6 +2476,9 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
       { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
       { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+      { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+      { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2499,13 +2520,13 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
       telehealth: {
-        value:
-          'Optum publishes no ABA telehealth code list in the Supplemental Clinical Criteria; it points providers to CASP\'s Practice Parameters for Telehealth-Implementation of Applied Behavior Analysis, Second Edition, which it describes as a resource for ABA "delivered via telehealth in a broad range of clinical settings (e.g., home, clinic, school)" and as a supplement to, not a replacement for, in-person delivery.',
-        status: 'unverified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum/UnitedHealthcare provider services and the plan\'s telehealth reimbursement policy — confirm which ABA codes are payable remotely and with which POS before scheduling.',
-        blocker: 'per-case',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
       },
       authTurnaround: {
         value: 'UHC’s 2026 commercial administrative guide says standard requests take "up to 15 calendar days" and expedited "72 hours", and asks for requests "at least 15 calendar days in advance, if possible, but must be submitted at least 5 business days before the planned service date"; ABA itself is authorized by Optum Behavioral Health, whose network manual publishes no prospective decision clock (retrospective requests are decided within 30 calendar days). So the governing clock depends on funding. For a fully insured plan issued in Arizona, A.R.S. § 20-3404 governs: urgent requests "not later than five days after the receipt of all necessary information", non-urgent "not later than fourteen days after receipt of all necessary information", with the same five/fourteen days again after the provider completes an incomplete request — and "A prior authorization request is deemed granted if a health care services plan or its utilization review agent fails to comply with the deadlines." A granted authorization cannot be rescinded after services are rendered in good faith, absent fraud. A self-funded employer plan sits outside state law and follows ERISA: a non-urgent pre-service decision "not later than 15 days after receipt of the claim by the plan", extendable once by up to 15 days; an urgent one within 72 hours; the clock starts when the request is filed, whether or not it is complete; and an urgent request to extend an approved course is decided within 24 hours if made "at least 24 hours prior to the expiration" of the current authorization.',
@@ -2557,13 +2578,13 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
       },
       noteSignature: {
-        value:
-          'No signature rule is published, but the documentation burden is explicit where money turns on it: services billed on the same date must be "separate, distinct, and clearly documented in the progress notes," and if documentation does not clearly separate them the claim may be denied. Who signs, and within what window, is not stated.',
-        status: 'unverified',
-        cites: [{ title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
-        verifyVia:
-          'The UnitedHealthcare/Optum provider manual and your participation agreement\'s documentation clause.',
-        blocker: 'document',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -2585,6 +2606,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare cover ABA therapy in Arizona?', a: 'Yes — under Optum\'s national two-step authorization policy for ASD, layered on Steven\'s Law for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Arizona still cap ABA benefits at $50,000 a year?', a: 'No — SB 1590 (signed May 7, 2025) repealed the $50,000/$25,000 annual caps, and Optum\'s own Arizona state-mandate entry (effective January 2026) already reflects the repeal. No annual dollar ceiling remains on any state-regulated group plan.' },
       { q: 'What does UnitedHealthcare pay for ABA in Arizona?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the AHCCCS physician fee schedule and treat rate-setting as part of contracting.' },
+      { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
     ],
   },
 };

@@ -2256,4 +2256,16 @@ export const PAYER_CHANGELOG: PayerChangeEntry[] = [
     ],
     totals: { guides: 266, states: 26 },
   },
+  {
+    date: '2026-09-25',
+    type: 'guides-added',
+    summary:
+      'Closing data gaps from real payer-chat questions. The chat now tags every question answered / partial / not-covered; this change-set closes the gaps in the questions visitors had already asked. NEW STATE: New Hampshire (9 guides: NH Medicaid, AmeriHealth Caritas NH, NH Healthy Families, WellSense NH, Anthem BCBS NH, Harvard Pilgrim NH, Aetna, Cigna, UHC) - a visitor asked about NH and the directory had nothing; NH does not license behavior analysts and RSA 417-E no longer carries age or dollar caps. NEW GUIDE: CareFirst BCBS Maryland (carefirst-maryland) - CareFirst does not contract with RBTs or BCaBAs; their services bill under the supervising BCBA (PP CO 020.01). ADDED: TRICARE East 97151 unit limits (32 initial, 24 per reauth; TOM Ch 18 Sec 3), no retroactive authorization East or West, one treating ABA provider at a time with an overlapping second-opinion assessment allowed; Kansas RBT enrollment (KMAP IIS type 11/404 under the group, then MCO contracting); Aetna Kansas out-of-state BCBAs (Kansas license required, K.S.A. 65-7503); Maryland Carelon eligibility, 6-month referral and old-CDE rules; New York 97153 FFS cut to \$9.63/unit effective 10/1/2026 (Medicaid Update Aug 2026) and the Education Law 8802 six-assistant supervision limit; Optum reauthorization cadence, concurrent billing, per-day unit limits, note signature and telehealth across all 27 unitedhealthcare-<state> guides (resolves VC-039; corrects the "no per-day ceiling" claim on 19 guides); Arizona initial-assessment-to-first-appointment timelines (ACOM 417); Georgia assessment-PA sequencing; Colorado, Missouri and Utah rate FAQs with re-verified 2026 fee schedules. CORRECTION: Colorado 97151-TJ is \$39.61 on both 2026 schedules (was \$40.24). Open items logged as VC-041..VC-044.',
+    guides: ['new-hampshire-medicaid', 'amerihealth-caritas-new-hampshire', 'nh-healthy-families', 'wellsense-new-hampshire', 'anthem-bcbs-new-hampshire', 'harvard-pilgrim-new-hampshire', 'aetna-new-hampshire', 'cigna-new-hampshire', 'unitedhealthcare-new-hampshire', 'carefirst-maryland', 'tricare-east-humana-military', 'tricare-west-triwest', 'kansas-medicaid', 'aetna-kansas', 'maryland-medicaid', 'new-york-medicaid', 'colorado-medicaid', 'missouri-medicaid', 'utah-medicaid', 'arizona-ahcccs', 'georgia-medicaid'],
+    details: [
+      { slug: 'new-york-medicaid', field: 'atGlance, sections, faq, vob rates', change: 'NYS Medicaid FFS 97153 reduced to \$9.63 per unit effective October 1, 2026 (FY2026-27 enacted budget). History: \$19.26 -> \$16.85 (10/1/2025) -> \$14.45 (4/1/2026) -> \$9.63 (10/1/2026).', sourceUrl: 'https://www.health.ny.gov/health_care/medicaid/program/update/2026/no09_2026-08.htm' },
+      { slug: 'colorado-medicaid (vob)', field: 'rates.byCode 97151-TJ', change: 'CORRECTION: \$40.24 -> \$39.61, per the January and July 2026 Health First Colorado fee schedules.', sourceUrl: 'https://hcpf.colorado.gov/sites/hcpf/files/01_CO_Fee%20Schedule_Health%20First%20Colorado_07012026%20v1.3.xlsx' },
+    ],
+    totals: { guides: 276, states: 27 },
+  },
 ];

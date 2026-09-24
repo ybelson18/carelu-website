@@ -3901,7 +3901,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
       { title: 'PA DHS — Pennsylvania Autism Insurance Act (Act 62)', url: 'https://www.pa.gov/agencies/dhs/resources/intellectual-disabilities-autism/autism-services/pa-autism-insurance-act-62' },
       { title: 'PA DHS — Medicaid for Children with Special Needs (PH95)', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/medicaid-children-special-needs-ph95' },
-      { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' }
+      { title: 'PA DHS — Behavioral Health Managed Care Organizations (BH-MCOs) by county', url: 'https://www.pa.gov/agencies/dhs/resources/medicaid/bhc/bhc-mcos' },
+      { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+      { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+      { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3949,14 +3953,13 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       telehealth: {
-        value: 'Not addressed. Optum’s ABA criteria and its Pennsylvania Commercial entry set no telehealth rules, place-of-service codes or modality limits for commercial ABA.',
-        status: 'unverified',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        status: 'verified',
         cites: [
-          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
-          { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, eff. July 2026; Pennsylvania Commercial entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
         ],
-        verifyVia: 'Provider Express or the behavioral health number on the member ID card: ask which ABA codes are payable by telehealth on this plan and with which POS code.',
-        blocker: 'per-case'
       },
       authTurnaround: {
         value: 'Depends on how the plan is funded. Fully insured Pennsylvania plans follow Act 146 of 2022 (Insurance Company Law § 2155, effective January 1, 2024). An urgent request for care not yet started is decided “as soon as possible, but not more than 72 hours” after receipt. An ongoing urgent course asked to continue at least 24 hours before it would be cut back or ended is decided within 24 hours. Every other prior authorization request is decided “within 15 days”; the insurer can extend that only if it promptly flagged missing information, and the provider then has at least 45 days to supply it. Act 146 also makes insurers post their prior-authorization list and offer a peer-to-peer on denial. Self-funded ERISA plans follow 29 CFR 2560.503-1 instead: pre-service decisions within 15 days, one 15-day extension, and 72 hours for urgent care.',
@@ -3994,32 +3997,29 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       concurrentBilling: {
-        value: 'Not addressed. Optum’s ABA criteria and the Pennsylvania entry are medical-necessity documents. Direct supervision is described as happening at the same time as treatment, but whether 97153 and 97155 can be billed for the same minutes is not stated.',
-        status: 'unverified',
-        cites: [
-          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
-          { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, eff. July 2026; Pennsylvania Commercial entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }
-        ],
-        verifyVia: 'Optum Provider Express National Network Manual and the participating-provider agreement, or a written coding determination from Optum.',
-        blocker: 'per-case'
-      },
-      dailyLimits: {
-        value: 'No numeric hour cap. Requested hours must be justified by documented clinical need (impairment, severity, history, response) at the least restrictive appropriate level. Use below 80% of authorized hours over two weeks triggers review. On Act 62 plans the statute bars visit limits, and the Insurance Department expects its CPI-adjusted dollar maximum ($51,908 for 2026 policies) to have no impact under parity.',
+        value: 'Yes, with a single-provider exclusion. Optum’s commercial ABA reimbursement policy: “Can I report 97153 or 97154 with 97155 concurrently? A. Yes, as long as the criteria in the descriptors of both codes are met. A single QHP may not report 97153 or 97154 with 97155 concurrently.” So the overlap has to be two people — a technician on 97153 and an analyst on 97155 directing them with the patient present. Optum’s ABA CPT FAQ adds that 97153 and 97156 “may be billed concurrently” as separate services to different family members by different providers. 97155 and 97156 on the same date pay only if “separate, distinct, and clearly documented in the progress notes” — “A single provider can’t bill for both simultaneously.” Team meetings bill only as supervision with the member, supervisor and technician present, and “CPT codes 97153 and 97155 may not be billed for technician training.”',
         status: 'verified',
         cites: [
-          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
-          { title: 'Act 62 of 2008 (HB 1150, PN 4115) — Insurance Company Law § 635.2 enacted text', url: 'https://www.palegis.us/legislation/bills/text/HTM/2007/0/HB1150/PN4115' },
-          { title: 'PA Insurance Department Notice 2026-06 — Autism coverage CPI-U adjustment and parity reminder (56 Pa.B. 1396)', url: 'https://www.pacodeandbulletin.gov/secure/pabulletin/data/vol56/56-10/352.html' }
-        ]
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      dailyLimits: {
+        value: 'Optum’s commercial ABA reimbursement policy (2022RP501A, updated June 2026) sets a maximum frequency per day for every code: 97151 32 units (8 hrs), 97152 16 (4 hrs), 97153 32 (8 hrs), 97154 18 (4.5 hrs), 97155 24 (6 hrs), 97156 16 (4 hrs), 97157 16 (4 hrs), 97158 16 (4 hrs), 0362T 16 (4 hrs), 0373T 32 (8 hrs) — and “If a provider bills in excess of 32 units per day, claims may be subject to non-reimbursement or recovery.” The ABA CPT FAQ confirms “For our commercial ABA program MUE’s apply.” There is no weekly hour cap: hours are authorized on documented clinical need, approved units can be shifted among codes within a cluster, and utilization below 80% of authorized hours over a two-week period is addressed at review. On Act 62 plans the statute bars visit limits, and the Insurance Department expects its CPI-adjusted dollar maximum ($51,908 for 2026 policies) to have no impact under parity.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
       },
       noteSignature: {
-        value: 'Not addressed. Optum’s ABA criteria set documentation content (progress per target, standardized measures, caregiver involvement, barriers) but not who signs a session note or by when.',
-        status: 'unverified',
+        value: '“Provider signature is required on progress notes. Parent/guardian signatures are not required on progress notes” (Optum ABA CPT FAQ). Each daily session note records place of service, start and stop time, who rendered the service, the specific service, who attended and the interventions. Optum’s ABA documentation protocol (June 1, 2026) requires the “signature of the rendering provider” and “Legible identity of the rendering provider with credentials,” and “The date of signature must reflect the date the note is finalized” — a note signed after the date of service must follow late-entry rules and show the date it was signed. Same-date services must be “separate, distinct, and clearly documented in the progress notes,” or the claim may be denied.',
+        status: 'verified',
         cites: [
-          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
-        verifyVia: 'Optum Provider Express National Network Manual (documentation standards) and the participating-provider agreement.',
-        blocker: 'per-case'
       },
       placeOfService: {
         value: 'ABA is delivered at the least restrictive, most clinically appropriate level, and Optum expects it in multiple settings to support generalization. Not covered: services that are not ABA, such as a 1:1 aide during classroom instruction, or services covered under IDEA. School ABA does cover teacher training, meetings with school staff and school observations, and Optum’s checklist asks for school type, hours and IEP details. On Act 62 plans, coverage cannot hinge on coordination with an IEP.',
@@ -4055,7 +4055,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       {
         q: 'What does UnitedHealthcare pay for ABA in Pennsylvania?',
         a: 'Commercial ABA rates are not published. They are negotiated in your participating-provider agreement.'
-      }
+      },
+      { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On Act 62 plans the insurer may review the treatment plan once every six months unless a different interval is agreed.' },
     ],
   },
 

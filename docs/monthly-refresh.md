@@ -173,6 +173,8 @@ instead of silently dropping the fact or, worse, publishing an unverified one.
 | `hopkinsmedicine.org` PDFs | Cloudflare 403 (HTML pages are fine) | Human retrieval. |
 | `horizonnjhealth.com`, `aetnabetterhealth.com` | ~930-byte stub / 403 on ABA PDFs | Human retrieval. |
 | `providernews.anthem.com` article pages | JS SPA — HTTP 200 with an empty body | Use `files.providernews.anthem.com` PDFs instead. **A 200 here is not a success** — check the body. |
+| `manuals.health.mil` (TRICARE Operations Manual) | r.jina.ai returns only the home page | `curl "https://web.archive.org/web/2026id_/https://manuals.health.mil/pages/DisplayManualHtmlFile/<date>/AsOf/tot5/c18s3.html"` returns the full chapter (learned 2026-09-25). |
+| `gencourt.state.nh.us`, `gc.nh.gov`, `nhmmis.nh.gov`, `dhhs.nh.gov` | 403 "Web Page Blocked" to direct requests | `https://r.jina.ai/<url>` reads them in full (learned 2026-09-25). |
 | `web.archive.org` | WebFetch refuses this host entirely | `curl` works — and this is the single most useful unblock available. `curl "https://web.archive.org/web/2026id_/<original-url>"` retrieves documents from hosts that refuse us directly; it is what recovered the whole Virginia backfill. |
 | `vamedicaid.dmas.virginia.gov` | Connection refused (ECONNREFUSED) to every client | The `web.archive.org/web/2026id_/` curl trick above. |
 | `medicaid-documents.dhhs.utah.gov` | 403 to WebFetch and to curl with a browser UA; `web.archive.org/2026id_/` 404s on every path | **SOLVED** — `https://r.jina.ai/<url>` returns the full current manual as clean text (it retrieved the 28-page January 2026 ASD Services manual, published 13 Apr 2026, that the guide itself recorded as unretrievable). |
