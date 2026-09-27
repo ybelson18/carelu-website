@@ -206,7 +206,7 @@ const EXCELLUS_POLICY = src(
   'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis',
   "Excellus Medical Policy 3.01.11, Applied Behavior Analysis (eff. 6/18/2026) — names 97151-97158, 0362T, 0373T as codes in scope; documentation and licensure tiers (LBA/BCBA, CBAA/BCaBA, RBT) specified; no unit-cap table, POS codes, or billing modifiers published."
 );
-const EXCELLUS_PA_PAGE = src('https://www.excellusbcbs.com/prior-authorization', "Excellus general Prior Authorization guidance — directs providers to check eMedNY for code-level Medicaid coverage before submitting a PA request; no ABA-specific PA list found.");
+const EXCELLUS_PA_PAGE = { url: 'https://www.excellusbcbs.com/prior-authorization', accessDate: '2026-09-27', note: "Excellus general Prior Authorization guidance — directs providers to check eMedNY for code-level Medicaid coverage before submitting a PA request. Re-checked 2026-09-27: the page now posts Clinical Review Preauthorization Lists effective 8/1/2026 (current), 10/1/2026, 11/1/2026 and 1/1/2027; none lists 97151-97158, 0362T or 0373T in any column (Managed Medicaid, CHP and HARP included), but each says it is \"NOT inclusive\" and that some services need PA or notification without clinical review." } as SourceRef;
 const EXCELLUS_TELEHEALTH = src(
   'https://provider.excellusbcbs.com/documents/20152/127460/EXC-PRV-Telehealth_Telemedicine+Corporate+Medical+Policy.pdf',
   "Excellus Telemedicine and Telehealth Corporate Medical Policy (#1.01.49) — does not list any ABA codes in its covered CPT/HCPCS table; ABA-code telehealth reimbursement is unconfirmed."
@@ -813,10 +813,7 @@ const METROPLUS_MANUAL_2024 = src(
   'https://metroplus.org/wp-content/uploads/2024/08/PRV-24.075_MPH_2024-Provider-Manual_FINAL_081224.pdf',
   'MetroPlus 2024 Provider Manual — 183 pages, read in full. p.7 confirms ABA authorization submission to metroplusaba@metroplus.org / 212.908.5182; Appendix XB (Child Health Plus Benefit Summary, p.273) states "Applied Benefit Analysis (ABA) – limited to 680 hours/calendar year"; the equivalent Appendix XA (core Medicaid Managed Care, pp.269-271) covers ABA with no stated hour figure. Zero "Beacon"/"Carelon" hits in the full text.'
 );
-const METROPLUS_BH_HCBS_PA_GRID_2026 = src(
-  'https://metroplus.org/wp-content/uploads/2026/05/2026_MH_BH_HCBS_Provider-PA-Request-Guide_-v1.2_C_FINAL.xlsx',
-  '"2026 MH/BH/HCBS Provider PA Request Guide," v1.2 — read in full. Row 11 on the Medicaid_PIC_Enhanced(HARP) sheet ("CHILDREN Applied Behavior Analysis Treatment (ABA)") shows In-Network Prior Authorization = Yes, repeated identically on the CHP/EP1-4/EP-200-250/QHP/Gold sheets. This is a CATEGORY-level line item — no individual CPT code (97151-97158) is broken out anywhere in the workbook, including its dedicated Telehealth and Modifier-Definitions sheets, both of which have zero ABA-specific entries. The MMC Coding Crosswalk sheet explicitly excludes APG-reimbursed services (which includes ABA) from its scope.'
-);
+const METROPLUS_BH_HCBS_PA_GRID_2026 = { url: 'https://metroplus.org/wp-content/uploads/2026/09/2026_MH_BH_HCBS_Provider-PA-Request-Guide_-v1.3_C_FINAL-1.xlsx', accessDate: '2026-09-27', note: '"2026 MH/BH/HCBS Provider PA Request Guide," v1.3 (posted September 2026; supersedes v1.2, whose findings are carried here). Re-read 2026-09-27: the Medicaid_PIC_Enhanced (HARP) row "CHILDREN Applied Behavior Analysis Treatment (ABA)" still shows In-Network Prior Authorization = Yes, submission by fax 212-908-5182, email MetroPlusABA@Metroplus.org or the provider portal; the same ABA line appears on the CHP/EP1-4/EP-200-250/QHP/Gold sheets. v1.2 notes: Row 11 on the Medicaid_PIC_Enhanced(HARP) sheet ("CHILDREN Applied Behavior Analysis Treatment (ABA)") shows In-Network Prior Authorization = Yes, repeated identically on the CHP/EP1-4/EP-200-250/QHP/Gold sheets. This is a CATEGORY-level line item — no individual CPT code (97151-97158) is broken out anywhere in the workbook, including its dedicated Telehealth and Modifier-Definitions sheets, both of which have zero ABA-specific entries. The MMC Coding Crosswalk sheet explicitly excludes APG-reimbursed services (which includes ABA) from its scope.' } as SourceRef;
 const METROPLUS_2023_NOTICE = src(
   'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/',
   'MetroPlus press notice, published 12/29/2022, on the ABA benefit effective 1/1/2023.'
@@ -851,6 +848,8 @@ const MOLINA_BEACON_TRANSITION_LETTER = src(
   'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ny/medicaid/D-MHNY-Provider-Letter-Beacon-Transition-FINAL.pdf',
   'Molina NY provider letter, dated 12/2/2021: "effective January 1, 2022 Molina Healthcare of New York, Inc. will be administering all behavioral health services...Beacon Health Options will no longer be managing or administrating the behavioral health services..." Includes an attached Provider Quick Reference Guide stating clearinghouse "SSI/Claimsnet" and "Payer ID 16146."'
 );
+const MOLINA_MCP482 = { url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx', accessDate: '2026-09-27', note: 'Molina Clinical Policy MCP 482, Applied Behavioral Analysis for Autism Spectrum Disorder (approved 6/10/2026; effective for Molina NY 9/15/2026 per the 7/14/2026 NY bulletin). Replaces MCG criteria. Telehealth "limited to caregiver training, coaching and supervision, or other indirect service components" within a hybrid in-person plan; >25 direct hrs/wk needs extra documentation; reassessment at least every 6 months. Lists 97151-97158, 0362T, 0373T, H0031, H0032 for reference.' } as SourceRef;
+const MOLINA_WEEKLY_UNITS = { url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ny/medicaid/Provider%20Bulletin%20ABA%20Payment%20Policy%20Change%20Weekly%20Billing%20Notice%20Effective%209152026', accessDate: '2026-09-27', note: 'Molina NY bulletin (7/14/2026): from 9/15/2026 ABA is reimbursed "based on the approved number of units that may be delivered each week"; "Claims exceeding weekly limits will be denied and adjusted." Existing authorizations and those crossing 9/15/2026 unaffected; covered ABA codes unchanged.' } as SourceRef;
 const MOLINA_ABA_PA_NOTICE = src(
   'https://www.molinahealthcare.com/providers/ny/medicaid/comm/-/media/Molina/PublicWebsite/PDF/Providers/ny/medicaid/Prior%20Authorization%20Update_Provider_Notice_for_ABA',
   'Molina NY provider notice, effective 10/1/2021, adding ABA to the MMC benefit package: "Prior authorization will be required for Applied Behavioral Analysis (ABA). The following CPT codes will require prior authorization before the services are rendered: 97151, 97152, 97153, 97155." 97154/97156/97157/97158/0362T/0373T are not named in this notice and no other Molina NY document expands or supersedes the list.'
@@ -995,7 +994,7 @@ const newYorkMedicaidRates: RateTable = {
     '97151': { rate: '$19.26 per 15-min unit', unit: '15min' },
     '97152': { rate: '$19.26 per 15-min unit (no distinct historical effective date published)', unit: '15min' },
     '97153': {
-      rate: '$14.45 per 15-min unit (current, eff. 4/1/2026, through 9/30/2026) — phased down from $19.26 → $16.85 (eff. 10/1/2025) → $14.45 (eff. 4/1/2026); SCHEDULED: $9.63 per unit effective 10/1/2026 (NYS Medicaid Update Aug 2026, FFS; the eMedNY .xls had not yet been reissued when checked 2026-09-25)',
+      rate: '$14.45 per 15-min unit (current, eff. 4/1/2026, through 9/30/2026) — phased down from $19.26 → $16.85 (eff. 10/1/2025) → $14.45 (eff. 4/1/2026); SCHEDULED: $9.63 per unit effective 10/1/2026 (NYS Medicaid Update Aug 2026, FFS; the eMedNY .xls had not yet been reissued when checked 2026-09-27)',
       unit: '15min',
     },
     '97154': { rate: '$3.31 per unit per member (group code)', unit: '15min' },
@@ -1533,15 +1532,15 @@ function molinaEntry(paNamed: boolean): CodeGridEntry {
     paRequired: paNamed
       ? "Required — explicitly named in Molina's 10/1/2021 provider notice: \"The following CPT codes will require prior authorization before the services are rendered: 97151, 97152, 97153, 97155.\""
       : "unverified — NOT named in Molina's 10/1/2021 ABA-benefit provider notice (which named only 97151/97152/97153/97155); no other Molina NY document expands or supersedes that list, so PA status for this code is genuinely unconfirmed rather than assumed exempt.",
-    unitCap: 'unverified — not published in either Molina NY bulletin reviewed',
-    capPeriod: 'unverified',
+    unitCap: 'The approved weekly units on the authorization (from 9/15/2026); no fixed hour limit per the MCP 482 FAQ, with extra documentation above 25 direct hours/week',
+    capPeriod: 'week (from 9/15/2026; previously a total across the authorization period)',
     posAllowed: ['unverified — not published'],
-    telehealth: 'unverified — not published',
+    telehealth: 'MCP 482 (from 9/15/2026) limits telehealth to caregiver training, coaching, supervision and other indirect components inside a hybrid in-person plan; no code list, modifier or POS published',
     modifiers: ['unverified — not published'],
     notes:
-      'Molina NY runs ABA UM in-house since 1/1/2022 (Beacon Health Options previously administered it); a "Codification Matrix" is referenced as the authoritative current PA code list on the plan\'s website but could not be located as a directly fetchable document this pass — its current ABA-specific content is unconfirmed.',
-    fieldStatus: { covered: paNamed ? 'verified' : 'unverified', paRequired: paNamed ? 'verified' : 'unverified', unitCap: 'unverified', posAllowed: 'unverified', telehealth: 'unverified', modifiers: 'unverified' },
-    sources: [MOLINA_ABA_PA_NOTICE, MOLINA_BEACON_TRANSITION_LETTER],
+      'Molina NY runs ABA UM in-house since 1/1/2022 (Beacon Health Options previously administered it); a "Codification Matrix" is referenced as the authoritative current PA code list on the plan\'s website but could not be located as a directly fetchable document this pass — its current ABA-specific content is unconfirmed. From 9/15/2026 medical necessity is reviewed against Molina Clinical Policy MCP 482 (replacing MCG) and claims are paid against approved weekly units.',
+    fieldStatus: { covered: paNamed ? 'verified' : 'unverified', paRequired: paNamed ? 'verified' : 'unverified', unitCap: 'verified', posAllowed: 'unverified', telehealth: 'inferred', modifiers: 'unverified' },
+    sources: [MOLINA_ABA_PA_NOTICE, MOLINA_BEACON_TRANSITION_LETTER, MOLINA_MCP482, MOLINA_WEEKLY_UNITS],
   };
 }
 

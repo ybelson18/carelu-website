@@ -411,13 +411,13 @@ function anthemEntry(code: string): CodeGridEntry {
   return {
     covered: 'Yes — CG-BEH-02 (Adaptive Behavioral Treatment) adopted on the OAC 5160-34 baseline; EPSDT framing for under-21 members',
     paRequired: 'Required — UM via Availity Essentials / Interactive Care Reviewer (per the 10/2025 provider manual). The assessment-vs-treatment PA split is not published — run codes through the PA lookup tool per case.',
-    unitCap: `${MUE[code]} units/day (CMS MUE ceiling — CG-BEH-02 family generally caps total treatment at <=40 hrs/wk; per-code caps not re-extractable from the cited Anthem assets this pass)`,
+    unitCap: `${MUE[code]} units/day (CMS MUE ceiling; no Anthem Ohio Medicaid weekly or per-code cap could be sourced — verify in the PA lookup tool)`,
     capPeriod: 'day',
     posAllowed: ['unverified'],
     telehealth: 'unverified',
     modifiers: ['unverified'],
     notes:
-      'CG-BEH-02 carries the familiar Anthem parameters (<=40 hrs/wk total, ~2 hrs protocol modification per 10 direct hours), but the Ohio-specific published delta is thin and the cited GPP assets did not yield extractable per-code text this pass. Inpatient psychiatric care routes to OhioRISE; ABA stays with Anthem. Verify via: the current CG-BEH-02 guideline text (Carelon/Anthem clinical-guideline index) and the PA lookup at providers.anthem.com/oh.',
+      'Anthem\'s commercial CG-BEH-02 hour parameters could not be re-sourced to any Anthem Ohio Medicaid document, so none are stated here; the Ohio-specific published delta is thin and the cited GPP assets did not yield extractable per-code text this pass. Inpatient psychiatric care routes to OhioRISE; ABA stays with Anthem. Verify via: the current CG-BEH-02 guideline text (Carelon/Anthem clinical-guideline index) and the PA lookup at providers.anthem.com/oh.',
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
@@ -930,7 +930,7 @@ const anthemOhioContact: VobContact = {
     'Is prior authorization the same process for assessment codes (97151/97152/0362T) as for treatment codes, or is there a separate assessment pathway?',
     'What POS codes are approved for ABA (home, school, clinic, telehealth)?',
     'Is telehealth allowed for ABA services, and what modifier/POS number applies?',
-    'Is there a per-code daily unit cap beyond CG-BEH-02\'s general <=40 hrs/wk treatment guideline?',
+    'Does Anthem Ohio Medicaid apply any hours-per-week ceiling or per-code daily unit cap to ABA, and in which current guideline is it written?',
   ],
   sources: [ANTHEM_MANUAL],
 };

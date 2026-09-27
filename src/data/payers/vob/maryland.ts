@@ -136,6 +136,17 @@ const MD_PT_60_26: SourceRef = {
     'MDH Provider Transmittal PT 60-26, "ABA Transmittal No. 9" (issued 2/27/2026, effective 4/1/2026) — read in full. For 97155 (RBT/BCaBA/BT supervision), 97156/97156-U2 (parent training), and 97157 (group parent training), services may no longer be delivered 100% via telehealth: at least 25% of the service must be rendered in person, with up to 75% allowed via telehealth. Supersedes the older PT 11-22 telehealth-continuation guidance for these three codes. Does not change 97153 (never telehealth-eligible) or the fee schedule.',
 };
 
+const MD_FY27_FEE_SCHEDULE: SourceRef = {
+  url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/FY27-ABA-Fee-Schedule-.docx.pdf',
+  accessDate: '2026-09-27',
+  note: 'Carelon Maryland "FY27 - ABA Fee Schedule (Updated 02/01/2026)" — read in full 2026-09-27. Same rates, daily maximums and modifiers as the manual\'s 2/1/2026 schedule (no FY27 rate change); 97156 tiers $20.91 psych/BCBA-D/BCBA and $12.21 BCaBA without the child, $38.34 and $20.91 with the child (U2); notes H2012 terminated 2/1/2026.',
+};
+const MD_PT_76_26: SourceRef = {
+  url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT76-26_ABA_Referring_Provider_Requirements.pdf',
+  accessDate: '2026-09-27',
+  note: 'MDH PT 76-26, "Applied Behavioral Analysis Transmittal No. 10" (April 3, 2026) — for dates of service from 7/1/2026, ABA claims must carry the NPI of an individual referring practitioner in Field 17b (group/facility NPI not reimbursable), and the referring practitioner must be actively enrolled with Maryland Medicaid on the date of service or the claim is denied.',
+};
+
 /* -------------------- Layer 7: contact & channel sources -------------------- */
 
 const CARELON_MD_PROVIDER_CONTACT = src(
@@ -146,6 +157,11 @@ const CARELON_MD_PROVIDERCONNECT_PORTAL = src(
   'https://maryland.carelonbh.com/behavioral-health-providers/',
   'Carelon Behavioral Health of Maryland provider-resources page — names the portal "ProviderConnect," described as "Carelon\'s secure, password-protected portal where participating providers conduct certain online activities directly with Carelon 24 hours a day, seven days a week," with login URL https://providerportal.carelonbehavioralhealth.com/index.html#/login.'
 );
+const AETNA_BH_PRECERT_LIST: SourceRef = {
+  url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  accessDate: '2026-09-27',
+  note: 'Aetna "Participating provider behavioral health precertification list," effective and last updated August 1, 2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T. Submit via Availity or call 1-888-632-3862 (commercial).',
+};
 const AETNA_BH_ABA_PRECERT_FORM = src(
   'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
   'Aetna "Outpatient Behavioral Health (BH) — ABA Treatment Request" form, GR-69017-4 (7-26) — states verbatim "Don\'t use this form for Maryland and Massachusetts," so this document\'s national Precertification Department phone (1-800-424-4047), misdirected-fax numbers (1-800-624-0756 / 1-888-632-3862), and clinical-fax line (833-596-0339) are confirmed NOT to apply to Maryland and ship omitted rather than reused here. Does confirm Aetna\'s general national provider portal is Availity ("Just use our provider portal on Availity. Register today at Availity.com/aetnaproviders") — that portal statement precedes the Maryland/Massachusetts exclusion and is not itself scoped out by it.'
@@ -179,16 +195,16 @@ const marylandMedicaidRates: RateTable = {
     },
     '97155': { rate: '$38.34', unit: '15min', modifierTiers: { GT: '$38.34 — remote direction of a technician, same rate; daily max 24 units' } },
     '97156': {
-      rate: '$20.91 (without child present) / $38.34 (with child present, billed 97156-U2)',
+      rate: '$20.91 psych/BCBA-D/BCBA, $12.21 BCaBA (without child present) / $38.34 psych/BCBA-D/BCBA, $20.91 BCaBA (with child present, billed 97156-U2)',
       unit: '15min',
-      modifierTiers: { U2: '$38.34 — child present variant; daily max 16 units' },
+      modifierTiers: { U2: '$38.34 (psych/BCBA-D/BCBA) or $20.91 (BCaBA) — child present variant; daily max 16 units' },
     },
     '97157': { rate: '$12.91 per family', unit: '15min', modifierTiers: { note: 'Group limited to 2–8 families; daily max 10 units' } },
     '97158': { rate: '$10.45 per ABA participant (psych/BCBA-D/BCBA tier)', unit: '15min', modifierTiers: { note: 'Group limited to 2–8 ABA participants; daily max 10 units' } },
     '0362T': { rate: '$52.28', unit: '15min', modifierTiers: { note: 'Daily max 32 units' } },
     '0373T': { rate: '$52.28', unit: '15min', modifierTiers: { note: 'Daily max 24 units' } },
   },
-  sources: [MD_ABA_MANUAL],
+  sources: [MD_ABA_MANUAL, MD_FY27_FEE_SCHEDULE],
 };
 
 /* -------------------- codeGrid factories -------------------- */
@@ -218,6 +234,7 @@ function mdMedicaidEntry(code: string, unitCap: string, notes?: string): CodeGri
         ? 'Effective 4/1/2026, PT 60-26 ("ABA Transmittal No. 9") ends 100%-telehealth delivery for this code — minimum 25% in person, up to 75% telehealth — superseding the older PT 11-22 telehealth-continuation guidance.'
         : undefined,
       'Credential-tier billing (BCBA/BCaBA/RBT-BT) is paid via separate fee-schedule lines per the manual, not distinct modifier codes — no modifier letters for credential tiers are stated in the manual; verify current billing-modifier convention with Carelon if a claim denies on this basis.',
+      'From 7/1/2026 (PT 76-26) every ABA claim needs the referring practitioner\'s individual NPI in Field 17b, and the referrer must be actively enrolled with Maryland Medicaid on the date of service, or the claim is denied.',
     ]
       .filter(Boolean)
       .join(' '),
@@ -229,30 +246,30 @@ function mdMedicaidEntry(code: string, unitCap: string, notes?: string): CodeGri
       telehealth: 'verified',
       modifiers: 'inferred',
     },
-    sources: telehealthEligible ? [MD_ABA_MANUAL, MD_PT_60_26] : [MD_ABA_MANUAL],
+    sources: telehealthEligible ? [MD_ABA_MANUAL, MD_PT_60_26, MD_PT_76_26] : [MD_ABA_MANUAL, MD_PT_76_26],
   };
 }
 
 function aetnaEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification (form GR-69017-4, per Aetna\'s national CPB 0554 policy)',
+    paRequired: 'Required — Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T; submit via Availity or Aetna precertification. Do NOT use national form GR-69017-4 (7-26), which states "Don\'t use this form for Maryland and Massachusetts"; no Maryland-specific ABA form is published',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
     telehealth: 'unverified',
     modifiers: ['unverified'],
     notes:
-      "Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding/reimbursement policy or Maryland-specific exhibit could be located. Maryland's habilitative-services mandate (COMAR 31.10.39.03) bars denial solely on prescribed hours up to 25/week (ages 18mo–5) or 10/week (6–18) for fully-insured plans — that is a mandate floor, not a payer-published per-code cap, and doesn't resolve this field. QA 2026-07-23: paRequired downgraded verified->unverified — CPB 0554, re-read in full, contains no precertification/prior-authorization language and no form 'GR-69017-4'; the precert requirement is plausibly true via Aetna's national process but is not stated in the cited policy.",
+      "Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding/reimbursement policy could be located; Aetna\'s ABA medical necessity guide carries a Maryland Exhibit A (COMAR 31.10.39 criteria) but no Maryland submission form. Maryland's habilitative-services mandate (COMAR 31.10.39.03) bars denial solely on prescribed hours up to 25/week (ages 18mo–5) or 10/week (6–18) for fully-insured plans — that is a mandate floor, not a payer-published per-code cap, and doesn't resolve this field. QA 2026-07-23: paRequired downgraded verified->unverified — CPB 0554, re-read in full, contains no precertification/prior-authorization language and no form 'GR-69017-4'; the precert requirement is plausibly true via Aetna's national process but is not stated in the cited policy.",
     fieldStatus: {
       covered: 'verified',
-      paRequired: 'unverified',
+      paRequired: 'verified',
       unitCap: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [AETNA_CPB0554, AETNA_CPB0648],
+    sources: [AETNA_CPB0554, AETNA_CPB0648, AETNA_BH_PRECERT_LIST, AETNA_BH_ABA_PRECERT_FORM],
   };
 }
 

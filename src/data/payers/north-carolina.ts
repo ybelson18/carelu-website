@@ -39,7 +39,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { label: 'Covers ABA?', value: 'Yes — RB-BHT under CCP 8F; under 21 via EPSDT, adults 21+ via a 2021 SPA' },
       { label: 'Prior auth', value: 'Required for ALL RB-BHT services, assessment included' },
       { label: 'Auth periods', value: 'Tiered by intensity — up to 180 calendar days at ≤16 hrs/week; up to 90 calendar days at >16 hrs/week (CCP 8F §5.1)' },
-      { label: 'Plan review', value: 'LQASP treatment plan reviewed ≥ every 6 months, rewritten annually' },
+      { label: 'Plan review', value: 'Reviewed per goal target date and on any change in needs, provider or services; short-range goals ≤ 12 months; resubmitted at every 180/90-day reauth ("Annual Rewriting" removed 8/1/2026)' },
+      { label: 'Networks', value: 'Closed for RB-BHT — every health plan must keep a closed RB-BHT network since 7/7/2026 (S.L. 2026-41 §9E.22); ask each plan whether it is contracting' },
       { label: 'Rates (per 15 min)', value: '97151 $30.56 · 97153 $20.81 · 97155 $32.22 · 97156 $23.70' },
       { label: 'Watch', value: 'CCP 8F rewrite finalized & published, effective 8/1/2026 — telehealth removed for 97152/97153/97154, 97155 capped at 50% per 180 days' },
       { label: 'Diagnosis recency', value: 'Under-3 provisional dx must be confirmed within 6 months' },
@@ -61,7 +62,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Authorization & treatment plan',
         body: [
-          'Prior authorization is required for all RB-BHT services — including the assessment. Authorization length is tiered by intensity, which is the detail most often missed: CCP §5.1 gives up to 180 calendar days for treatment plans of 16 hours or fewer per week, but only up to 90 calendar days when the plan exceeds 16 hours a week — so most comprehensive programmes reauthorise quarterly, not twice a year. The reauth must be submitted before the current authorization expires. The treatment plan must be written and reviewed at least every six months by a Licensed Qualified Autism Service Provider (LQASP), rewritten annually, and at least 10% of approved services should be directly observed by the LQASP. As with any long review cadence, the baseline data collected at intake is what every future review is measured against.',
+          'Prior authorization is required for all RB-BHT services — including the assessment. Authorization length is tiered by intensity, which is the detail most often missed: CCP §5.1 gives up to 180 calendar days for treatment plans of 16 hours or fewer per week, but only up to 90 calendar days when the plan exceeds 16 hours a week — so most comprehensive programmes reauthorise quarterly, not twice a year. The reauth must be submitted before the current authorization expires. The treatment plan is developed by a Licensed Qualified Autism Service Provider (LQASP), and the 8/1/2026 rewrite replaced the old fixed review-and-annual-rewrite cycle (subsection 5.3.4 was retitled "Treatment Plan Reviews and Updates" and "Annual Rewriting" removed): the responsible professional must review the plan at each goal\'s target date or expiration — each goal reviewed separately, with short-range goals never exceeding 12 months from the date of the plan — and whenever the beneficiary\'s needs change, the service provider changes, or a new service is added. In practice the plan is also reviewed, modified and resubmitted at every reauthorization (every 180 days at ≤16 hrs/week, every 90 above). At least 10% of all services provided by a paraprofessional must involve observation and direction of that paraprofessional by an LQASP. As with any long review cadence, the baseline data collected at intake is what every future review is measured against.',
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT)', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -76,6 +77,21 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Alliance Health — Standard Rate Schedule (RB-BHT rates, eff. 10/1/2025)', url: 'https://www.alliancehealthplan.org/document-library/97251' },
           { title: 'NCDHHS — BH rate increases & the 100%-of-fee-schedule floor', url: 'https://medicaid.ncdhhs.gov/blog/2023/11/15/nc-medicaid-behavioral-health-services-rate-increases' },
           { title: 'Acuity News — NC ABA rates restored + HB 696 oversight', url: 'https://acuity.news/regulation/nc-medicaid-aba-rates-restored-hb696-oversight-2026/' },
+        ],
+      },
+      {
+        h2: 'Networks: closed for RB-BHT since July 7, 2026',
+        body: [
+          'Are the NC Medicaid plans open or closed to new ABA providers? For RB-BHT the statutory answer changed this summer. Section 9E.22 of the 2026 Current Operations Appropriations Act (S.L. 2026-41, approved July 7, 2026 and effective when it became law) added a "Mandatory Closed Networks" subsection to G.S. 108D-22: "Each PHP shall develop and maintain a closed network, and may exclude providers from that closed network" for peer support services and research-based behavioral health treatment services. "PHP" in Chapter 108D covers both the Standard Plans and an LME/MCO under a capitated contract (the Tailored Plans), and the same section extends the rule to the Children and Families Specialty Plan. Before that, Standard Plans had to run open networks — excluding a provider only for failing objective quality standards or refusing network rates — and S.L. 2026-1 (HB 696) had only allowed a plan to close a designated service category with Department approval.',
+          'What this means at intake and in contracting: a plan may now decline to contract with a new RB-BHT provider, so being enrolled in NCTracks no longer guarantees a network agreement, and a family\'s choice of provider is bounded by who each plan has contracted. No public NC Medicaid guidance on how plans are applying the closed network was found — the July 21, August 5 and August 31, 2026 RB-BHT bulletins do not mention it, the codified G.S. 108D-22 on ncleg.gov did not yet show the new subsection when checked on September 27, 2026, and Trillium\'s provider manual (effective July 20, 2026) still describes an open network. Whether a given plan is accepting new RB-BHT providers today is a per-plan question for its contracting team.',
+        ],
+        cites: [
+          { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+          { title: 'N.C.G.S. § 108D-22 — PHP provider networks (as codified on ncleg.gov)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_108D/GS_108D-22.html' },
+          { title: 'N.C.G.S. § 108D-1 — definitions ("Prepaid health plan or PHP" includes an LME/MCO under a capitated PHP contract)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_108D/GS_108D-1.html' },
+          { title: 'Session Law 2026-1 (HB 696), §3C.12 — PHP provider networks', url: 'https://www.ncleg.gov/Sessions/2025/Bills/House/PDF/H696v5.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'Trillium Health Resources — BH I/DD Tailored Plan/PIHP Provider Manual (eff. 7/20/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Provider-Manual/Trillium-TP-Provider-Manual.pdf' },
         ],
       },
       {
@@ -173,10 +189,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Per code, under Attachment A of the 8/1/2026 policy. Telehealth billable with modifier GT: 97151, with clinical justification recorded in the treatment plan; and 97155, capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period, with clinical justification in the treatment plan if more telehealth units are needed. Not telehealth billable at all: 97152, 97153 and 97154. 97156 and 97157 are telehealth eligible and are additionally the only telephonic (audio-only, modifier KX) services, allowed where the caregiver’s physical or behavioral health status, or an access barrier such as transportation or technology, prevents in-person or telehealth participation. Telehealth and telephonic claims are filed with the provider’s usual place-of-service code, and delivery follows Clinical Coverage Policy 1-H.',
+        value: 'Per code, under Attachment A of the 8/1/2026 policy. Telehealth billable with modifier GT: 97151, with clinical justification recorded in the treatment plan; and 97155, capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period, with clinical justification in the treatment plan if more telehealth units are needed. Not telehealth billable at all: 97152, 97153 and 97154. 97156 and 97157 are telehealth eligible and are additionally the only telephonic (audio-only, modifier KX) services, allowed where the caregiver’s physical or behavioral health status, or an access barrier such as transportation or technology, prevents in-person or telehealth participation. Telehealth and telephonic claims are filed with the provider’s usual place-of-service code, and delivery follows Clinical Coverage Policy 1-H. Supervision by video is allowed within that 97155 cap: observation for modification of intervention and technician direction may be given with the observing provider "in the same room or observing via telehealth" while the paraprofessional delivers in-person treatment. For 97151, what the policy asks for is clinical justification in the beneficiary’s Treatment Plan (the plan must include, if applicable, clinical justification for use of telehealth or telephone); CCP 8F does not separately require the telehealth modality to be named in the prior approval, and 97151 and 97152 need neither a service order nor a Treatment Plan for prior approval. The statute behind the rewrite is stricter on assessments: S.L. 2026-1 §3C.18(a)(5), as amended by S.L. 2026-41, says patient assessments are required to be conducted in person and assessments conducted via telehealth shall not be reimbursed unless exceptions are developed. So document the justification in the plan and ask the plan’s UM whether it wants the modality on the request. NC Medicaid’s bulletin adds that beneficiaries are not required to use telehealth and must be allowed in-person services on request.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Session Law 2026-41 (S.B. 257), §9E.22(a) — amends S.L. 2026-1 §3C.18(a) (in-person assessments; 6-month / 3-month plan reapproval)', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
         ],
       },
       authTurnaround: {
@@ -254,6 +272,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What does NC Medicaid pay for ABA?', a: 'Published per-15-minute rates, effective 10/1/2025: 97151 $30.56, 97153 $20.81, 97155 $32.22, 97156 $23.70 — and every managed-care plan must pay at least 100% of the state fee schedule unless the provider agrees otherwise.' },
       { q: 'What does HB 696 change for ABA providers?', a: 'In-person assessments (telehealth assessments aren\'t reimbursed absent a documented exception); no new out-of-state BCBA/LQASP/C-QP supervisor enrollments, with all LQASPs/C-QPs required to enroll as in-state providers by August 2, 2026; RBT/ABAT certification for paraprofessionals, with a 120-day grace period that started August 1, 2026 for existing uncertified staff as well as new hires (claims for non-certified paraprofessionals aren\'t reimbursed after the window); telehealth removed entirely for 97152, 97153, and 97154; a 50% cap on telehealth for 97155 (per beneficiary, per 180-calendar-day period — not the 20% some earlier reporting described); a codified 10% LQASP observation floor; and a move to 90-day initial-and-reauthorization periods for plans above 16 hours/week. These provisions are codified in the rewritten Clinical Coverage Policy 8F, effective August 1, 2026. Existing prior authorizations aren\'t affected — no action is needed and no existing PA\'s duration will be reduced.' },
       { q: 'Can a young child start before a confirmed diagnosis?', a: 'For children under three, NC Medicaid accepts a provisional ASD diagnosis when services begin, with a definitive diagnosis expected within six months.' },
+      { q: 'Does NC Medicaid allow telehealth for ABA?', a: 'Partly, code by code under CCP 8F (eff. 8/1/2026): 97151 with clinical justification in the treatment plan; 97155 up to 50% of total 97155 billing per beneficiary per 180 days; 97156/97157 by telehealth, and by telephone (KX) only for a documented caregiver health or access barrier. 97152, 97153 and 97154 cannot be billed by telehealth at all. Claims carry modifier GT and the usual place-of-service code.' },
+      { q: 'For 97151, does telehealth have to be approved in the authorization, or only justified in the treatment plan?', a: 'CCP 8F asks for clinical justification in the treatment plan; it does not separately require the modality to be approved in the prior approval, and 97151/97152 need no service order or treatment plan for prior approval. But the underlying statute (S.L. 2026-1 §3C.18, as amended) says assessments are to be in person and telehealth assessments are not reimbursed unless exceptions are developed, so justify it in the plan and ask the member\'s plan UM whether it wants telehealth flagged on the request.' },
+      { q: 'Does NC Medicaid allow telehealth for BCBA supervision?', a: 'Yes, for 97155 (protocol modification / observation and direction), capped at 50% of total 97155 billing per beneficiary per 180-calendar-day period, with clinical justification in the treatment plan to go higher. The observing LQASP may be in the room or observing via telehealth while the technician delivers 97153 in person. Incidental supervision is not billable.' },
+      { q: 'Are the NC Medicaid plans open or closed to new ABA providers?', a: 'Closed by statute for RB-BHT since July 7, 2026: S.L. 2026-41 §9E.22 requires every health plan (Standard Plans, Tailored Plans and the Children and Families Specialty Plan) to maintain a closed RB-BHT network, and lets it exclude providers. NC Medicaid has published no guidance on how plans are applying it, so ask each plan\'s contracting team whether it is accepting new RB-BHT providers.' },
     ],
   },
 
@@ -298,17 +320,18 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { label: 'Clinical rules', value: 'CCP 8F adopted as-is — no plan-specific ABA policy' },
       { label: 'Prior auth', value: 'Required per 8F; PA form + Precert Lookup Tool published' },
       { label: 'Submission', value: 'Availity Essentials / Interactive Care Reviewer' },
-      { label: 'Network note', value: 'RB-BHT exempt from standard time/distance network rules' },
+      { label: 'Network note', value: 'RB-BHT exempt from time/distance standards; network closed for RB-BHT by statute since 7/7/2026' },
       { label: 'Rates', value: '≥100% of the NC Medicaid fee schedule (state floor)' },
     ],
     sections: [
       {
         h2: 'How Healthy Blue administers RB-BHT',
         body: [
-          'The provider manual lists RB-BHT among covered behavioral-health services and adopts NC\'s Clinical Coverage Policies — so the whole clinical picture (PA on everything including assessment, the tiered 180/90-day authorization cadence, LQASP plan reviews) is the CCP 8F baseline covered in the state guide. Submissions run through Availity Essentials\' Interactive Care Reviewer; behavioral-health authorization fax lines are (844) 429-9636 for outpatient and (844) 439-3574 for inpatient, with provider services at (844) 594-5072. Use the plan\'s Precertification Lookup Tool to confirm code-level requirements before submitting.',
-          'One provider-friendly detail from the manual: RB-BHT is explicitly exempt from the plan\'s standard network time/distance standards — an open-network posture that matters if you\'re expanding into new counties.',
+          'The provider manual lists RB-BHT among covered behavioral-health services and adopts NC\'s Clinical Coverage Policies — so the whole clinical picture (PA on everything including assessment, the tiered 180/90-day authorization cadence, and treatment-plan reviews at each goal\'s target date and on any change in needs, provider or services — the 8/1/2026 rewrite dropped the old annual-rewrite rule) is the CCP 8F baseline covered in the state guide. Submissions run through Availity Essentials\' Interactive Care Reviewer; behavioral-health authorization fax lines are (844) 429-9636 for outpatient and (844) 439-3574 for inpatient, with provider services at (844) 594-5072. Use the plan\'s Precertification Lookup Tool to confirm code-level requirements before submitting.',
+          'One detail from the manual: RB-BHT is explicitly exempt from the plan\'s standard network time/distance standards. That is a network-adequacy rule, not an open door — since July 7, 2026, S.L. 2026-41 §9E.22 requires every NC Medicaid health plan to maintain a closed network for RB-BHT and allows it to exclude providers, so confirm with Healthy Blue provider contracting that it is taking new RB-BHT providers before planning an expansion into new counties.',
         ],
         cites: [
+          { title: 'Session Law 2026-41 (S.B. 257, approved 7/7/2026), §9E.22 — mandatory closed RB-BHT networks', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
           { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
@@ -323,7 +346,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     collect: [
       { title: 'Standard Healthy Blue vs. Care Together (CFSP)', desc: 'Child-welfare-involved members are on the specialty plan — confirm which ID the family holds.' },
       { title: 'ASD diagnosis + validated tool', desc: 'Per CCP 8F, with the MD/DO/LP service order.' },
-      { title: 'County / region', desc: 'RB-BHT\'s network-rules exemption makes cross-county serving feasible — capture location anyway for scheduling.' },
+      { title: 'County / region', desc: 'RB-BHT is exempt from the plan\'s time/distance standards, but the RB-BHT network is closed by statute since 7/7/2026 — capture location, and confirm you are contracted, before scheduling.' },
     ],
     sources: [
       { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
@@ -495,7 +518,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How AmeriHealth administers RB-BHT',
         body: [
-          'The clinical rules are the CCP 8F baseline: PA on all RB-BHT services including the assessment, authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), LQASP treatment-plan reviews at least every six months. AmeriHealth\'s own layer is a Clinical Coverage Policy Reference Tool mapping to the state policies, a Behavioral Health Utilization Management Guide (January 2025 edition), and a PA Lookup Tool for code-level checks. One thing to verify directly: AmeriHealth eliminated prior authorization on 240+ physical and behavioral-health codes effective January 1, 2025 — whether any 9715x codes made that list isn\'t publicly confirmed, so run your codes through the Lookup Tool rather than assuming.',
+          'The clinical rules are the CCP 8F baseline: PA on all RB-BHT services including the assessment, authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), treatment-plan reviews at each goal\'s target date (short-range goals no more than 12 months out) and whenever needs, provider or services change — the 8/1/2026 rewrite of subsection 5.3.4 removed the old fixed review-and-annual-rewrite cycle. AmeriHealth\'s own layer is a Clinical Coverage Policy Reference Tool mapping to the state policies, a Behavioral Health Utilization Management Guide (January 2025 edition), and a PA Lookup Tool for code-level checks. One thing to verify directly: AmeriHealth eliminated prior authorization on 240+ physical and behavioral-health codes effective January 1, 2025 — whether any 9715x codes made that list isn\'t publicly confirmed, so run your codes through the Lookup Tool rather than assuming.',
           'Because the plan\'s site blocks automated access, have your team download the current BH UM Guide and the PA Lookup results from the portal directly, and keep dated copies with your payer files.',
         ],
         cites: [
@@ -678,7 +701,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How CCH administers RB-BHT',
         body: [
-          'Clinically, everything is CCP 8F: PA before rendering any RB-BHT service (assessment included), authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), LQASP treatment-plan reviews. Requests go through the provider portal accompanied by the plan\'s ABA Outpatient Treatment Request Checklist — using it as your internal submission template removes back-and-forth. Behavioral health is integrated in-house (clinical training questions go to BH_training@centene.com), and provider services runs at (833) 552-3876, Monday–Saturday 7am–6pm. Carolina Complete Health became a statewide Standard Plan effective April 1, 2026, when WellCare of North Carolina merged into it — so eligibility should no longer be screened by county for this plan. Note also that Partners Health Management\'s Tailored Plan documentation cross-references CCH policies, reflecting shared Centene infrastructure.',
+          'Clinically, everything is CCP 8F: PA before rendering any RB-BHT service (assessment included), authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), treatment-plan reviews at each goal\'s target date and on any change in needs, provider or services. Requests go through the provider portal accompanied by the plan\'s ABA Outpatient Treatment Request Checklist — using it as your internal submission template removes back-and-forth. Behavioral health is integrated in-house (clinical training questions go to BH_training@centene.com), and provider services runs at (833) 552-3876, Monday–Saturday 7am–6pm. Carolina Complete Health became a statewide Standard Plan effective April 1, 2026, when WellCare of North Carolina merged into it — so eligibility should no longer be screened by county for this plan. Note also that Partners Health Management\'s Tailored Plan documentation cross-references CCH policies, reflecting shared Centene infrastructure.',
         ],
         cites: [
           { title: 'Carolina Complete Health — behavioral health provider page', url: 'https://network.carolinacompletehealth.com/resources/behavioral-health.html' },
@@ -1049,7 +1072,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How WellCare administers RB-BHT',
         body: [
-          'WNC.CP.109 mirrors 8F\'s criteria — under-21 coverage via EPSDT, a validated diagnostic tool, provisional diagnosis under age three with definitive diagnosis within six months, LQASP treatment plans reviewed at least every six months — and defers wholesale to CCP 8F Section 6.0 on provider qualifications. Rather than listing PA\'d codes in the policy, WellCare delegates code-level requirements to its Authorization Lookup Tool and Medicaid Behavioral Health Authorization List, so check your specific codes there before each submission cycle. Telehealth for RB-BHT is governed by a separate policy (WNC.CP.193), with telephonic parent training allowed only for documented caregiver health or access barriers — and the state\'s finalized CCP 8F, effective August 1, 2026, now tightens ABA telehealth further statewide: telehealth is removed entirely for 97152, 97153, and 97154, while 97155 is capped at 50% of billing per beneficiary per 180 days (historical note: WellCare of NC merged into Carolina Complete Health effective April 1, 2026, so this policy is kept for reference only).',
+          'WNC.CP.109 mirrors 8F\'s criteria — under-21 coverage via EPSDT, a validated diagnostic tool, provisional diagnosis under age three with definitive diagnosis within six months, LQASP treatment plans reviewed at least every six months (the state policy it mirrored has since changed: the 8/1/2026 CCP 8F removed "Annual Rewriting" and now ties review to each goal\'s target date and to changes in needs, provider or services) — and defers wholesale to CCP 8F Section 6.0 on provider qualifications. Rather than listing PA\'d codes in the policy, WellCare delegates code-level requirements to its Authorization Lookup Tool and Medicaid Behavioral Health Authorization List, so check your specific codes there before each submission cycle. Telehealth for RB-BHT is governed by a separate policy (WNC.CP.193), with telephonic parent training allowed only for documented caregiver health or access barriers — and the state\'s finalized CCP 8F, effective August 1, 2026, now tightens ABA telehealth further statewide: telehealth is removed entirely for 97152, 97153, and 97154, while 97155 is capped at 50% of billing per beneficiary per 180 days (historical note: WellCare of NC merged into Carolina Complete Health effective April 1, 2026, so this policy is kept for reference only).',
         ],
         cites: [
           { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
@@ -1223,10 +1246,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       blocker: 'document',
     },
     dxRequired: {
-      value: 'Yes \u2014 ASD via ADI-R, ADOS-2, CARS-2, or TELE-ASD-PEDS; screeners alone rejected',
+      value: 'Yes \u2014 non-provisional ASD diagnosis via BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (CCP 8F 3.2.4); screening tools alone cannot start services; under-3s may start on a provisional diagnosis',
       status: 'verified',
       cites: [
-        { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       ],
     },
     payer: 'Alliance Health (NC Tailored Plan)',
@@ -1237,13 +1260,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Alliance Health administers NC Medicaid RB-BHT (ABA) — CCP 8F clinical rules, published fee-schedule rates, and the state\'s strictest documented enforcement on diagnostic instruments and service orders.',
     intro: [
-      'Alliance Health is one of NC\'s four Tailored Plans, and for ABA providers it stands out on two fronts: it publishes an actual rate schedule (the clearest public confirmation of the state fee-schedule floor in action), and its February 2026 RB-BHT guidance enforces diagnostic-instrument and service-order requirements more explicitly than any other NC plan. Clinically it\'s straight CCP 8F — but its documentation bar is where referrals get screened out.',
+      'Alliance Health is one of NC\'s four Tailored Plans, and for ABA providers it stands out on two fronts: it publishes an actual rate schedule (the clearest public confirmation of the state fee-schedule floor in action), and its February 2026 RB-BHT guidance spelled out diagnostic-instrument and service-order requirements more explicitly than any other NC plan (that guidance has since been archived; the diagnostic list now to use is the rewritten CCP 8F\'s). Clinically it\'s straight CCP 8F — but its documentation bar is where referrals get screened out.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'NC Tailored Plan (public LME/MCO)' },
       { label: 'Clinical rules', value: 'CCP 8F + operational RB-BHT guidance (Feb 2026)' },
       { label: 'Prior auth', value: 'Required per 8F, with Alliance\'s RB-BHT cover sheet' },
-      { label: 'Diagnostic bar', value: 'ADI-R, ADOS-2, CARS-2, TELE-ASD-PEDS accepted; GARS/M-CHAT/SRS insufficient alone' },
+      { label: 'Diagnostic bar', value: 'State list (CCP 8F 3.2.4): BOSA, Tele-ASD-Peds, ADOS-2, CARS2-ST/HF — ADI-R is not on it; Alliance\'s older list is archived' },
       { label: 'Service order', value: 'MD/DO/LP-signed, assessment-based, valid 1 year, dated before start' },
       { label: 'Rates (per 15 min)', value: '97151 $30.56 · 97153 $20.81 · 97155 $32.22 · 97156 $23.70' },
     ],
@@ -1251,10 +1274,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'The documentation bar',
         body: [
-          'Alliance\'s guidance names the acceptable ASD diagnostic instruments — ADI-R, ADOS-2, CARS-2, and TELE-ASD-PEDS — and explicitly rejects GARS, M-CHAT, and SRS as standalone diagnoses. It\'s equally specific on the service order: signed by an MD, DO, or licensed psychologist, based on a behavioral/adaptive/functional assessment, dated on or before the service start, valid one year — and a bare "medical necessity statement" does not qualify. Screen referral packets against both requirements at intake; sending families back for a qualifying diagnostic evaluation mid-authorization is where NC pipelines stall.',
+          'Diagnostic instruments: go by the state list. The rewritten CCP 8F (eff. 8/1/2026, subsection 3.2.4) requires a non-provisional ASD diagnosis made with BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (or later versions), and says services may not start on screening tools, educational determinations or informal clinical impressions alone. Alliance\'s February 2026 RB-BHT guidance, which predated the rewrite, named ADI-R, ADOS-2, CARS-2 and TELE-ASD-PEDS and rejected GARS, M-CHAT and SRS as standalone diagnoses, but Alliance has since archived that page (it returns 410 "Information Archived" as of September 27, 2026) and no replacement Alliance list was found — so treat a diagnosis resting on ADI-R alone as not meeting the state list. The same archived guidance was specific on the service order: signed by an MD, DO, or licensed psychologist, based on a behavioral/adaptive/functional assessment, dated on or before the service start, valid one year — and a bare "medical necessity statement" does not qualify. Screen referral packets against both requirements at intake; sending families back for a qualifying diagnostic evaluation mid-authorization is where NC pipelines stall.',
         ],
         cites: [
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026; page now returns 410 "Information Archived", checked 9/27/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
         ],
       },
       {
@@ -1268,7 +1292,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       },
     ],
     collect: [
-      { title: 'Diagnostic instrument check', desc: 'Confirm the diagnosis used ADI-R, ADOS-2, CARS-2, or TELE-ASD-PEDS — screeners alone will be rejected.' },
+      { title: 'Diagnostic instrument check', desc: 'Confirm the diagnosis used BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (CCP 8F 3.2.4) — ADI-R alone is not on the state list, and screeners alone cannot start services.' },
       { title: 'Qualifying service order', desc: 'MD/DO/LP-signed, assessment-based, dated on/before start, within 1 year.' },
       { title: 'RB-BHT cover sheet', desc: 'Include Alliance\'s fillable cover sheet with every service request.' },
     ],
@@ -1303,12 +1327,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosticTools: {
-        value: 'Alliance enforces the diagnostic-instrument bar more explicitly than any other NC plan: its February 2026 RB-BHT guidance names ADI-R, ADOS-2, CARS-2 and TELE-ASD-PEDS as acceptable and rejects GARS, M-CHAT and SRS as standalone diagnoses. Note the state rule it sits on has since been rewritten — the finalized CCP 8F (eff. 8/1/2026) names BOSA, Tele-ASD-Peds, ADOS-2 and CARS2-ST/CARS2-HF, and does not list ADI-R — so screen referral packets against both lists and confirm the current Alliance guidance version before relying on ADI-R alone.',
+        value: 'Follows the NC Medicaid rule: the non-provisional ASD diagnosis must be made with BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (or later versions) — ADI-R is not on the state list — and services may not start on screening tools, educational determinations or informal clinical impressions alone. The authorization packet also needs a skills assessment (VB-MAPP, ABLLS-R or ESDM Curriculum Checklist), an FBA where challenging behaviors are targeted, and an adaptive behavior assessment within 3 years (VABS-3, ABAS-3 or DP-4). Alliance\'s February 2026 guidance, which named ADI-R, ADOS-2, CARS-2 and TELE-ASD-PEDS and rejected GARS, M-CHAT and SRS as standalone diagnoses, predated the rewrite and has been archived (the page returns 410 "Information Archived" as of 9/27/2026); no current Alliance-specific instrument list was found.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026; page now returns 410 "Information Archived", checked 9/27/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
         ],
       },
       referral: {
@@ -1401,7 +1424,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does Alliance Health cover ABA therapy?', a: 'Yes — as a Tailored Plan, Alliance administers RB-BHT under CCP 8F, paying the state fee-schedule rates (97153 at $20.81/15-min, 97155 at $32.22/15-min, effective 10/1/2025).' },
-      { q: 'What diagnostic tools does Alliance accept for ABA?', a: 'ADI-R, ADOS-2, CARS-2, and TELE-ASD-PEDS. GARS, M-CHAT, and SRS are explicitly insufficient as standalone diagnoses — a common reason referral packets bounce.' },
+      { q: 'What diagnostic tools does Alliance accept for ABA?', a: 'Go by the state list in CCP 8F (eff. 8/1/2026): BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF. Alliance\'s older February 2026 guidance also named ADI-R, but that guidance has been archived and ADI-R is not on the state list, so do not rely on ADI-R alone. Screening tools such as M-CHAT cannot start services on their own.' },
       { q: 'What makes a valid service order for Alliance?', a: 'Signed by an MD, DO, or licensed psychologist; based on a behavioral, adaptive, or functional assessment; dated on or before the service start date; valid one year. A bare medical-necessity statement doesn\'t qualify.' },
     ],
   },
@@ -1419,13 +1442,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — follows CCP 8F §5.1/5.1.1, which is TIERED by intensity: up to 180 calendar days at 16 hrs/week or fewer, but only up to 90 calendar days above 16 hrs/week, for the initial authorization and every reauthorization alike; reauth before the current authorization expires',
-      status: 'unverified',
+      value: 'Required — TAR on every RB-BHT code, TIERED by intensity: Trillium\'s benefit plan (rev. 8/31/2026) allows initial and reauth requests of up to 180 days for treatment plans of 16 service hours a week or less, or up to 90 days above 16; reauth must be submitted before the initial or concurrent auth expires, with the treatment plan reviewed, modified and resubmitted',
+      status: 'verified',
       cites: [
+        { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 8/31/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
         { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       ],
-      verifyVia: 'Trillium\'s Medicaid Child BH Services Benefit Plan, next revision. This value\'s flat ‘up to 180 days each’ predates the 8/1/2026 CCP 8F rewrite — §5.1 is tiered (up to 180 calendar days at ≤16 hrs/week, up to 90 above it), and this guide\'s own prose already states the tiering. Reconcile the two before relying on either.',
-      blocker: 'document',
     },
     dxRequired: {
       value: 'Yes \u2014 ASD via a validated diagnostic tool; under-3s may start on a provisional diagnosis',
@@ -1442,7 +1464,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Trillium Health Resources administers NC Medicaid RB-BHT (ABA) — its benefit-plan service definition citing CCP 8F, 180-day TAR cycles, adult coverage under the 2021 SPA, and telehealth modifier rules.',
     intro: [
-      'Trillium Health Resources, an eastern-NC Tailored Plan, publishes the single best reference document of the four Tailored Plans: a Medicaid Child Behavioral Health Benefit Plan (revised July 2026) carrying a complete RB-BHT service definition that cites CCP 8F and the 2021 State Plan Amendment as its sources. Nothing in it is clinically distinct from the state baseline — which is exactly what makes it a reliable operational reference for TAR submissions.',
+      'Trillium Health Resources, an eastern-NC Tailored Plan, publishes the single best reference document of the four Tailored Plans: a Medicaid Child Behavioral Health Benefit Plan (revised August 31, 2026) carrying a complete RB-BHT service definition that cites CCP 8F and the 2021 State Plan Amendment as its sources. Nothing in it is clinically distinct from the state baseline — which is exactly what makes it a reliable operational reference for TAR submissions.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'NC Tailored Plan (public LME/MCO, eastern NC)' },
@@ -1457,9 +1479,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'How Trillium runs RB-BHT authorization',
         body: [
           'Every RB-BHT code (97151–97157) requires a TAR — prior authorization — including telephonic and telehealth delivery. The initial request needs the written assessment, diagnosis documentation from a validated tool, and the MD/DO/LP service order; treatment requests add a complete treatment plan signed by the LQASP and the legally responsible person, plus a discharge plan. Under the finalized CCP 8F (effective 8/1/2026), plans at or under 16 hours/week keep 180-day initial and reauthorization periods, while plans above 16 hours/week move to 90-day initial and reauthorization periods; reauth is due before the current one expires either way, and all services are subject to post-payment review. Existing prior authorizations aren\'t affected by the change — no action is needed, and no existing PA\'s duration will be reduced; the new 90-day cadence binds only future reauthorizations. Units run in 15-minute increments with no published unit caps.',
-          'Telehealth mechanics, now finalized under CCP 8F effective August 1, 2026: telehealth is removed entirely — no documented-necessity exception — for the paraprofessional-delivered codes 97152, 97153, and 97154. 97151 retains telehealth eligibility with clinical justification, and 97155 retains it but capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period. 97156/97157 keep their own separate telephonic/KX caregiver-access-barrier exception, unchanged. LOCUS/CALOCUS is no longer required, but a standardized assessment tool is still expected.',
+          'Telehealth mechanics, now finalized under CCP 8F effective August 1, 2026: telehealth is removed entirely — no documented-necessity exception — for the paraprofessional-delivered codes 97152, 97153, and 97154. 97151 retains telehealth eligibility with clinical justification, and 97155 retains it but capped at a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period. 97156/97157 keep their own separate telephonic/KX caregiver-access-barrier exception, unchanged.',
+          'Treatment plans follow the rewritten 8F review rule rather than a fixed calendar: each goal is reviewed at its own target date (short-range goals never more than 12 months out), and the plan is reviewed again whenever the member\'s needs, the provider or the services change — plus the review, modification and resubmission Trillium requires with every reauthorization. On school: Trillium\'s benefit plan lists school-based settings among the places RB-BHT may be delivered, individually justified in the treatment plan with the family, and publishes no Trillium-specific school restriction beyond the state rule — which excludes services that teach academic subjects or substitute for a teacher, teacher\'s aide or tutor, and services available under IDEA or other educational programs that duplicate or supplant the authorized plan, and leaves hours spent in educational settings and receiving IEP services out of the treatment-hour count.',
         ],
         cites: [
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 8/31/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
           { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
@@ -1585,11 +1609,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       placeOfService: {
-        value: 'Follows the NC Medicaid rule: clinic, home, school and community settings are all payable in any combination, individually justified and documented in the treatment plan, with the goal of advancing toward natural settings. IDEA-duplicative school services are excluded, and telehealth or telephonic claims carry the provider’s usual place-of-service code.',
+        value: 'Follows the NC Medicaid rule, restated in Trillium\'s benefit plan (rev. 8/31/2026): place-of-service decisions are documented in the treatment plan and made individually with the family, and settings may include clinic-, home-, school- or community-based settings in any combination, advancing from a structured setting toward the member\'s natural setting. Trillium publishes no school restriction of its own; the state exclusions apply — no services teaching academic subjects or substituting for a teacher, teacher\'s aide or tutor, and nothing available through IDEA or other educational programs that duplicates or supplants the authorized plan. Telehealth or telephonic claims carry the provider’s usual place-of-service code.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
+          { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 8/31/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
         ],
       },
       billAsProvider: {
@@ -1604,6 +1628,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Trillium cover ABA therapy?', a: 'Yes — RB-BHT under CCP 8F, with a TAR (prior authorization) required for every code including telehealth delivery, in 180-day cycles (90-day for plans above 16 hours/week under the finalized 8F, effective 8/1/2026).' },
       { q: 'Does Trillium cover ABA for adults?', a: 'Its benefit plan lists RB-BHT for "Children, Adolescents and Adults," reflecting the 2021 State Plan Amendment that extended NC RB-BHT coverage past age 21.' },
+      { q: 'Does Trillium restrict ABA in school?', a: 'Not beyond the state rule. Trillium\'s benefit plan (rev. 8/31/2026) lists school-based settings among the places RB-BHT may be delivered, justified in the treatment plan with the family. CCP 8F excludes services that teach academic subjects or stand in for a teacher, aide or tutor, and services available through IDEA or other educational programs that duplicate or supplant the authorized plan; hours spent in educational settings and receiving IEP services are not counted in the treatment hours.' },
+      { q: 'Is Trillium\'s ABA network open?', a: 'Trillium\'s provider manual (eff. 7/20/2026) says it operates an open network except for the Tailored-Plan-only closed services in G.S. 108D-23(c). But S.L. 2026-41 §9E.22, approved 7/7/2026, requires every NC Medicaid health plan, LME/MCOs included, to maintain a closed network for RB-BHT, so ask Trillium provider network contracting whether it is taking new RB-BHT providers before you plan on it.' },
       { q: 'Can Trillium ABA services be delivered by telehealth?', a: 'Only in part, under the finalized CCP 8F (effective 8/1/2026): telehealth is removed entirely for 97152, 97153, and 97154; 97151 keeps it with clinical justification; 97155 keeps it capped at 50% of billing per beneficiary per 180 days; 97156/97157 keep their separate telephonic/KX caregiver-barrier exception.' },
     ],
   },
@@ -2697,6 +2723,284 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What does the North Carolina autism mandate require?', a: 'North Carolina’s mandate (effective July 2016) requires covered health benefit plans to cover “adaptive behavior treatment” — the statutory term; ABA itself isn’t named, but board certified behavior analysts are among the eight authorized provider categories, and treatment must be ordered by a licensed physician or licensed psychologist. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does UnitedHealthcare pay for ABA in North Carolina?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the North Carolina Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+    ],
+  },
+  'medcost': {
+    slug: 'medcost',
+    family: '',
+    cardDesc: 'Carolinas self-funded plan administrator and network. The ID card shows whether precert applies; ABA codes 97153–97158 are on its outpatient-review list.',
+    assessmentPA: {
+      value: 'Plan-dependent — precertification exists only if the member\'s plan includes it (shown on the ID card). MedCost\'s Comprehensive Outpatient Review list (January 2025) does not list 97151, 97152 or 0362T',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'MedCost — Precertification (provider page)', url: 'https://www.medcost.com/providers/coverage-and-claims/precertification' },
+        { title: 'MedCost — Comprehensive Outpatient Review Services Requiring Precertification (January 2025)', url: 'https://www.medcost.com/sites/default/files/2025-01/Comprehensive%20Outpatient%20Services%20Requiring%20Precertification%20-%20January%202025.pdf' },
+      ],
+      verifyVia: 'Read the precertification contact and program on the back of the member\'s ID card; if MedCost is listed, call 800-722-2157 option 2.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Plan-dependent — on plans with MedCost\'s Comprehensive Outpatient Review (indicated on the ID card), 97153, 97154, 97155, 97156, 97157, 97158 and 0373T are on the January 2025 list of services that should be pre-certified; plans without that program may carry no precert for ABA',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'MedCost — Precertification (provider page)', url: 'https://www.medcost.com/providers/coverage-and-claims/precertification' },
+        { title: 'MedCost — Comprehensive Outpatient Review Services Requiring Precertification (January 2025)', url: 'https://www.medcost.com/sites/default/files/2025-01/Comprehensive%20Outpatient%20Services%20Requiring%20Precertification%20-%20January%202025.pdf' },
+      ],
+      verifyVia: 'Check the ID card for Comprehensive Outpatient Review; MedCost precert line 800-722-2157 option 2, fax 336-970-2098.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Unverified — MedCost\'s medical policies sit behind its member/employer portals, and the plan\'s Summary Plan Description governs where it conflicts with them',
+      status: 'unverified',
+      cites: [
+        { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+      ],
+      verifyVia: 'MedCost\'s ABA / autism medical policy (Medical Policies, member or employer login) and the member\'s Summary Plan Description.',
+      blocker: 'document',
+    },
+    payer: 'MedCost Benefit Services',
+    state: 'NC', kind: 'commercial',
+    pill: 'Payer Guide · MedCost · North Carolina',
+    h1: 'MedCost ABA coverage in North Carolina: the intake guide.',
+    metaTitle: 'MedCost ABA Coverage in North Carolina: Self-Funded Plans, Precert & Mandate | Carelu',
+    metaDescription:
+      'How ABA works on a MedCost card in North Carolina — a self-funded plan administrator and leased network, where the employer plan document sets the benefit, the ID card shows the precertification program, and the N.C.G.S. § 58-3-192 mandate may not reach the plan.',
+    intro: [
+      'MedCost is a Carolinas benefits company with two businesses that both show up on ID cards: MedCost Benefit Services administers self-funded employer health plans (it says it serves more than 600 employers across the Carolinas and Virginia, pitches itself to self-funded companies with 50 or more employees, and sells a level-funded product to smaller employers), and the MedCost Network is a provider network that other payers lease. So the first intake question is who the payer is. The second is the employer group, because on a self-funded plan the employer\'s plan document, not a MedCost policy, decides whether ABA is covered and on what terms.',
+    ],
+    atGlance: [
+      { label: 'What it is', value: 'Self-funded plan administrator (MedCost Benefit Services) plus a leased provider network (MedCost Network) in NC, SC and VA' },
+      { label: 'Who sets the benefit', value: 'The employer, in the plan document; the Summary Plan Description governs over MedCost medical policy' },
+      { label: 'Precert', value: 'Only if the plan includes it — shown on the ID card. Comprehensive Outpatient Review lists 97153–97158 and 0373T' },
+      { label: 'Precert line', value: '800-722-2157 option 2 · fax 336-970-2098 (when MedCost is the precert contact)' },
+      { label: 'Claims', value: 'EDI payer ID 56162 (NC/SC network) via Availity; 90-day filing limit, 180 days on NC fully insured plans' },
+      { label: 'State mandate', value: 'N.C.G.S. § 58-3-192 — may not reach a self-funded employer plan' },
+      { label: 'Mandate age', value: 'Where it applies, ABA may be limited to 18 and younger (parity-limited)' },
+      { label: 'Mandate caps', value: '$40,000/yr cap, CPI-indexed from 2017 (parity-limited)' },
+      { label: 'Exempt from mandate', value: 'Non-grandfathered individual/small group; the State Health Plan; self-funded ERISA plans' },
+      { label: 'Licensure', value: 'NC Licensed Behavior Analyst (NCBALB)' },
+    ],
+    sections: [
+      {
+        h2: 'Find the payer, then the employer group',
+        body: [
+          'A MedCost logo does not always mean MedCost pays the claim. MedCost says payer partners "lease our provider network in North Carolina, South Carolina, and Virginia" and that "To identify the payer, you will need to consult the member ID card"; its published list of payer partners runs to several dozen third-party administrators and insurers. When MedCost Benefit Services is the payer, benefits, eligibility and claim status are in its provider portal; if you cannot tell who administers an employer\'s plan, MedCost\'s provider contact center (1-800-824-7406) will help identify it.',
+          'When MedCost Benefit Services is the administrator, the plan is almost always self-funded: MedCost describes its clients as self-funded companies with 50 or more employees in NC, SC or VA, and sells a level-funded arrangement (a claims reserve with stop-loss) to smaller employers. MedCost\'s own medical policies "apply only to health benefit plans administered by MedCost Benefit Services", and "In the event of conflicting information between MedCost Medical Policy and a member\'s Summary Plan Description (SPD), the SPD will govern unless language within the SPD explicitly defers to Medical Policy." Capture the employer name and group number at intake and verify against that group: two families holding MedCost cards can have different ABA benefits.',
+        ],
+        cites: [
+          { title: 'MedCost — Payer Partners', url: 'https://www.medcost.com/providers/coverage-and-claims/payer-partners' },
+          { title: 'MedCost — Who We Serve', url: 'https://www.medcost.com/employers/why-medcost/who-we-serve' },
+          { title: 'MedCost — Level Funding', url: 'https://www.medcost.com/employers/benefits-plans/level-funding' },
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+          { title: 'MedCost — Contact Us', url: 'https://www.medcost.com/contact-us' },
+        ],
+      },
+      {
+        h2: 'Precertification: read the ID card',
+        body: [
+          'MedCost says "Some benefit plans include precertification requirements" and "If a member\'s benefit plan includes any precertification requirements, it will be indicated on the member\'s ID card." It runs two outpatient review programs, Advanced Imaging and Comprehensive Outpatient Review. The Comprehensive Outpatient Review list (January 2025) includes the ABA treatment codes 97153, 97154, 97155, 97156, 97157, 97158 and 0373T; the assessment codes 97151, 97152 and 0362T are not on it. Where MedCost is the precertification contact on the card, call 800-722-2157 and select option 2, or fax 336-970-2098. MedCost adds that "Precertification is not a guarantee of payment" — the plan document still decides coverage and limits.',
+        ],
+        cites: [
+          { title: 'MedCost — Precertification (provider page)', url: 'https://www.medcost.com/providers/coverage-and-claims/precertification' },
+          { title: 'MedCost — Comprehensive Outpatient Review Services Requiring Precertification (January 2025)', url: 'https://www.medcost.com/sites/default/files/2025-01/Comprehensive%20Outpatient%20Services%20Requiring%20Precertification%20-%20January%202025.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: payer ID 56162 through Availity',
+        body: [
+          'MedCost\'s provider manual (October 2025) says that however a member reaches the MedCost NC/SC Network — through a TPA that leases it or through MedCost Benefit Services itself — the ID card carries Medical EDI 56162 for electronic claims (54138 for the MedCost Virginia network), and that MedCost NC/SC takes electronic claims through Availity as its exclusive EDI gateway. A card administered by MedCost Benefit Services carries the MBS logo; a leased-network card carries the MedCost Network logo and the other administrator\'s details. Leased-payer claims without a group number are rejected. Network providers file within 90 days of the date of service, extended to 180 days for North Carolina fully insured plans under G.S. 58-3-225. Coordination of benefits is the claim administrator\'s job, and network providers must file claims for all MedCost plans regardless of the order of benefit determination.',
+        ],
+        cites: [
+          { title: 'MedCost — Provider Manual (MedCost Network, October 2025)', url: 'https://www.medcost.com/sites/default/files/2025-10/MedCost%20Provider%20Manual%20Version%20October%202025.pdf' },
+        ],
+      },
+      {
+        h2: 'The North Carolina mandate, and why it may not apply',
+        body: [
+          'N.C.G.S. § 58-3-192 requires health benefit plans to cover the screening, diagnosis and treatment of autism spectrum disorder, including "adaptive behavior treatment", which must be ordered by a licensed physician or licensed psychologist and provided or supervised by one of eight listed professionals (a board certified behavior analyst among them). Adaptive behavior treatment may be capped at $40,000 a year, indexed to CPI from 2017, and may be limited to people 18 or younger. Coverage cannot be denied because treatment is habilitative or educational, and cost sharing may be no less favourable than for substantially all medical services. The mandate does not apply to non-grandfathered individual and small-group plans that must cover essential health benefits, and "health benefit plan" (G.S. 58-3-167) excludes the State Health Plan and reaches other benefit arrangements only "to the extent permitted by" ERISA — so a self-funded private employer plan administered by MedCost generally answers to its own plan document and federal law instead. Government employers are a separate case (ERISA does not govern their plans), so ask rather than assume.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+          { title: 'N.C.G.S. § 58-3-167 — "health benefit plan" defined', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-167.html' },
+        ],
+      },
+      {
+        h2: 'Licensure & rates in North Carolina',
+        body: [
+          'North Carolina licenses behavior analysts through the NC Behavior Analyst Licensure Board: a Licensed Behavior Analyst application needs a current BCBA or QBA certificate, a $250 application fee, a $14 criminal-history-check fee with a fingerprint card, and a Castle Branch background check (package VN90). MedCost publishes no ABA fee schedule publicly — rates for network providers sit behind its provider login — so treat reimbursement as part of network contracting.',
+        ],
+        cites: [
+          { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
+          { title: 'MedCost — Providers', url: 'https://www.medcost.com/providers' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'ID card, front and back', desc: 'Shows who the payer is (MedCost or a network-leasing partner) and whether the plan has a precertification program and who to call.' },
+      { title: 'Employer name and group number', desc: 'The benefit lives in the employer plan document; MedCost\'s medical policy yields to the Summary Plan Description.' },
+      { title: 'Self-funded, level-funded, or insured; private or government employer', desc: 'Decides whether the North Carolina mandate can reach the plan.' },
+      { title: 'Diagnosis report and order', desc: 'ASD diagnosis with the diagnosing clinician\'s credentials; where the mandate applies, ABA must be ordered by a licensed physician or psychologist.' },
+      { title: 'Network status', desc: 'Confirm the practice is in the MedCost Network (or the plan\'s national partner network) for this plan.' },
+      { title: 'Group number for the claim', desc: 'MedCost rejects leased-payer claims without a group number (loop 2000B SBR03).' },
+    ],
+    sources: [
+      { title: 'MedCost — Precertification (provider page)', url: 'https://www.medcost.com/providers/coverage-and-claims/precertification' },
+      { title: 'MedCost — Comprehensive Outpatient Review Services Requiring Precertification (January 2025)', url: 'https://www.medcost.com/sites/default/files/2025-01/Comprehensive%20Outpatient%20Services%20Requiring%20Precertification%20-%20January%202025.pdf' },
+      { title: 'MedCost — Provider Manual (MedCost Network, October 2025)', url: 'https://www.medcost.com/sites/default/files/2025-10/MedCost%20Provider%20Manual%20Version%20October%202025.pdf' },
+      { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+      { title: 'MedCost — Payer Partners', url: 'https://www.medcost.com/providers/coverage-and-claims/payer-partners' },
+      { title: 'MedCost — Who We Serve', url: 'https://www.medcost.com/employers/why-medcost/who-we-serve' },
+      { title: 'MedCost — Network', url: 'https://www.medcost.com/employers/why-medcost/network' },
+      { title: 'MedCost — Level Funding', url: 'https://www.medcost.com/employers/benefits-plans/level-funding' },
+      { title: 'MedCost — Contact Us', url: 'https://www.medcost.com/contact-us' },
+      { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+      { title: 'N.C.G.S. § 58-3-167 — "health benefit plan" defined', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-167.html' },
+      { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
+    ],
+    intakeGates: {
+      ageLimit: {
+        value: 'Set by the employer plan document. MedCost publishes no ABA age limit of its own in anything public. Where North Carolina\'s mandate reaches the plan, it allows adaptive behavior treatment to be limited to people 18 or younger — a quantitative limit that federal parity law constrains on group plans — but a self-funded private employer plan generally sits outside the mandate.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'Benefits check against the employer group (MedCost provider portal, or 1-800-824-7406 to identify the administrator); ask for any ABA age limit in the plan document.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value: 'Unverified. No MedCost ABA medical policy could be opened (the policies sit behind member and employer logins), and the plan\'s Summary Plan Description governs where it differs.',
+        status: 'unverified',
+        cites: [
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'MedCost\'s ABA / autism medical policy and the member\'s SPD; ask at precert whether a diagnostic report must be recent.',
+        blocker: 'document',
+      },
+      diagnosingProviders: {
+        value: 'Unverified at MedCost. Where the state mandate applies, it defines ASD by the current DSM or ICD and requires treatment to be ordered by a licensed physician or licensed psychologist; it does not itself restrict who makes the diagnosis.',
+        status: 'unverified',
+        cites: [
+          { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'MedCost\'s ABA / autism medical policy (behind the Medical Policies login) and the member\'s SPD.',
+        blocker: 'document',
+      },
+      diagnosticTools: {
+        value: 'Unverified — no MedCost statement on required diagnostic instruments was found in its public pages.',
+        status: 'unverified',
+        cites: [
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'MedCost\'s ABA / autism medical policy (behind the Medical Policies login).',
+        blocker: 'document',
+      },
+      referral: {
+        value: 'Plan-dependent. MedCost publishes no referral rule for ABA. On a plan the North Carolina mandate reaches, adaptive behavior treatment must be ordered by a licensed physician or licensed psychologist; a self-funded plan sets its own rule in the plan document.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'Ask at benefits verification whether the plan requires a physician or psychologist order for ABA; collect one regardless.',
+        blocker: 'per-case',
+      },
+      telehealth: {
+        value: 'Unverified — MedCost publishes no ABA telehealth rule in its public pages; telehealth coverage follows the employer plan document.',
+        status: 'unverified',
+        cites: [
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'Ask at benefits verification whether ABA codes are covered by telehealth under this group, and which modifier and place-of-service code to bill.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value: 'MedCost publishes no ABA turnaround, so the clock depends on the plan type. A self-funded private employer plan follows the ERISA claims rule: a pre-service decision "not later than 15 days after receipt of the claim by the plan", extendable once by up to 15 days, and an urgent one "not later than 72 hours after receipt". A fully insured North Carolina policy follows G.S. 58-50-61(f): prospective and concurrent determinations within "three business days after the insurer obtains all necessary information", and in concurrent review the insurer "shall remain liable for health care services until the covered person has been notified of the noncertification." Government employer plans follow their own plan document.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '29 CFR 2560.503-1(f) — ERISA claims procedure: group health plan decision timeframes', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'N.C.G.S. § 58-50-61 — utilization review (prospective/concurrent determinations)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-50-61.html' },
+          { title: 'MedCost — Precertification (provider page)', url: 'https://www.medcost.com/providers/coverage-and-claims/precertification' },
+        ],
+        verifyVia: 'Ask MedCost precert (800-722-2157 option 2) its expected turnaround for ABA and how early it wants the reauthorization request.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value: 'Set by the employer plan document for a self-funded plan. MedCost\'s provider manual says "It is the responsibility of the claim administrator to handle all coordination of benefits" and that network providers "are required to file claims for all MedCost plans regardless of the order of benefit determination" — so file with MedCost even when it may be secondary. Federal program rules still sort government coverage: TRICARE is secondary to other health plans ("secondary payer to all health benefit, insurance and third-party payer plans") but primary to Medicaid; CHAMPVA "is the last payer to" other health insurance; and Medicaid pays after other liable third parties, so a MedCost plan pays before Medicaid for a child with both.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'MedCost — Provider Manual (MedCost Network, October 2025)', url: 'https://www.medcost.com/sites/default/files/2025-10/MedCost%20Provider%20Manual%20Version%20October%202025.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
+          { title: '38 CFR 17.276 — CHAMPVA is the last payer to other health insurance', url: 'https://www.ecfr.gov/current/title-38/section-17.276' },
+          { title: '42 CFR 433.139 — payment of claims involving third-party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+        ],
+        verifyVia: 'Collect both parents\' plans, dates of birth and any custody order at intake; confirm primary/secondary with MedCost customer service before the first claim.',
+        blocker: 'per-case',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value: 'Unverified — no MedCost ABA supervision standard was found in its public pages.',
+        status: 'unverified',
+        cites: [
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'MedCost\'s ABA / autism medical policy (behind the Medical Policies login) and the member\'s SPD.',
+        blocker: 'document',
+      },
+      concurrentBilling: {
+        value: 'Unverified — MedCost publishes no public rule on billing 97153 and 97155 for the same time.',
+        status: 'unverified',
+        cites: [
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'MedCost\'s ABA medical policy or provider reference guide (behind the provider login).',
+        blocker: 'document',
+      },
+      dailyLimits: {
+        value: 'Plan-dependent — any hour, visit or dollar limit on ABA is written into the employer\'s plan document; MedCost publishes none of its own.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'Ask at benefits verification for any ABA hour, visit or dollar limit under this group.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value: 'Unverified — no MedCost documentation standard for ABA session notes was found in its public pages.',
+        status: 'unverified',
+        cites: [
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'MedCost\'s ABA medical policy or provider reference guide (behind the provider login).',
+        blocker: 'document',
+      },
+      placeOfService: {
+        value: 'Plan-dependent — MedCost publishes no ABA place-of-service rule, so covered settings follow the plan document. Where the North Carolina mandate reaches the plan, coverage may not be denied because treatment is habilitative or educational in nature.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
+          { title: 'MedCost — Medical Policies', url: 'https://www.medcost.com/medical-policies' },
+        ],
+        verifyVia: 'Ask at benefits verification whether home, clinic, school and community sessions are covered under this group.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value: 'Unverified — MedCost publishes no public rule on whether technician services bill under the supervising BCBA\'s NPI or the technician\'s own.',
+        status: 'unverified',
+        cites: [
+          { title: 'MedCost — Providers', url: 'https://www.medcost.com/providers' },
+        ],
+        verifyVia: 'MedCost provider reference guide (behind the provider login) or MedCost credentialing.',
+        blocker: 'document',
+      },
+    },
+    faq: [
+      { q: 'Does MedCost cover ABA therapy?', a: 'It depends on the employer plan. MedCost Benefit Services administers mostly self-funded employer plans, and its medical policies yield to the plan\'s Summary Plan Description, so the employer decides whether ABA is covered and on what terms. Verify against the employer group, not the carrier.' },
+      { q: 'Does MedCost require prior authorization for ABA?', a: 'Only if the member\'s plan includes a precertification program, which is shown on the ID card. Under MedCost\'s Comprehensive Outpatient Review (January 2025 list), 97153–97158 and 0373T should be pre-certified; the assessment codes 97151, 97152 and 0362T are not on the list. Call 800-722-2157 option 2 when MedCost is the precert contact.' },
+      { q: 'Does the North Carolina autism mandate apply to a MedCost plan?', a: 'Often not. N.C.G.S. § 58-3-192 applies to "health benefit plans", a term that reaches other benefit arrangements only to the extent ERISA allows, so a self-funded private employer plan generally follows its own plan document. Establish funding type and employer type first.' },
+      { q: 'The card says MedCost, but MedCost is not the payer. Why?', a: 'MedCost leases its provider network to dozens of other administrators and insurers. The ID card shows who the payer is; if it is unclear, MedCost\'s provider contact center (1-800-824-7406) can help identify the claim administrator.' },
     ],
   },
 };

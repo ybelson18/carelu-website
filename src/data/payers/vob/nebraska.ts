@@ -12,8 +12,9 @@
      documents (the bulletin's own table AND the fee schedule's "ABA"
      tab) and match exactly, so they carry fieldStatus 'verified'
      rather than 'inferred'.
-   - The SFY27 fee-schedule URL cited in src/data/payers/nebraska.ts
-     ("MHSUD SFY27 Fee Schedule.xlsx") 404s as of this pass — DHHS's
+   - The SFY27 fee-schedule URL nebraska.ts used to cite
+     ("MHSUD SFY27 Fee Schedule.xlsx") 404s (re-confirmed 2026-09-27;
+     nebraska.ts now cites the REVISED file) — DHHS's
      Provider Rates & Fee Schedules index page now serves it at a
      different filename, "REVISED MHSUD SFY27 Fee Schedule.xlsx".
      Both that file and the July 2025 interim schedule ("Mental
@@ -91,7 +92,7 @@
      brief invited for shared national payer IDs.
    ================================================================ */
 import type { VobExtension, EdiRouting, CodeGridEntry, RateTable, VobContact, SourceRef, FieldStatus, StcMap } from './types.js';
-import { aetnaFamilyStc, cignaFamilyStc, uhcFamilyStc, inheritFamilyStc } from './stc-defaults.js';
+import { aetnaFamilyStc, cignaFamilyStc, uhcFamilyStc, bcbsFamilyStc, inheritFamilyStc } from './stc-defaults.js';
 
 const ACCESS_DATE = '2026-07-23';
 
@@ -99,19 +100,25 @@ function src(url: string, note?: string, staleRisk?: boolean): SourceRef {
   return { url, accessDate: ACCESS_DATE, note, staleRisk };
 }
 
+/* 2026-09-27 weekly refresh: sources re-read that day carry the new access date. */
+const REFRESH_DATE = '2026-09-27';
+function srcR(url: string, note?: string, staleRisk?: boolean): SourceRef {
+  return { url, accessDate: REFRESH_DATE, note, staleRisk };
+}
+
 /* -------------------- shared source refs -------------------- */
 
-const MSD_TREATMENT = src(
+const MSD_TREATMENT = srcR(
   'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf',
-  'NE ABA Medicaid Service Definition (treatment), eff. 2/7/2025 — direct read confirms: settings limited to community/home/office-or-clinic (school ABA routes through the 471 NAC 25 school-based-services program, not independent providers); "Direct ABA service hours...may not exceed 6 hours in a single day or a total of 20 hours per week" (verbatim); staffing ratios per code (97151 1:1 clinician, 97152 1:1 technician, 97153 1:1 technician, 97154 1 technician:2-5 children, 97155 1:1 clinician, 97156 1 clinician:1 family, 97158 1 clinician:2-5 children); "Other ABA treatment services (CPT 97153, 97154, 97158) cannot be provided via telehealth" (verbatim) — 97155/97156 telehealth allowed only under listed conditions; direct supervision by observation required for >=10% of weekly "direct service hours (97153/97154/97155)."'
+  'NE ABA Medicaid Service Definition (treatment) — re-read 2026-09-27 via r.jina.ai (PDF published 15 Jul 2026; the July 1, 2026 edition announced by Provider Bulletin 26-06). Direct read confirms: settings limited to community/home/office-or-clinic (school ABA routes through the 471 NAC 25 school-based-services program, not independent providers); "Direct ABA service hours...may not exceed 6 hours in a single day or a total of 20 hours per week" (verbatim); staffing ratios per code (97151 1:1 clinician, 97152 1:1 technician, 97153 1:1 technician, 97154 1 technician:2-5 children, 97155 1:1 clinician, 97156 1 clinician:1 family, 97158 1 clinician:2-5 children); "Other ABA treatment services (CPT 97153, 97154, 97158) cannot be provided via telehealth" (verbatim) — 97155/97156 telehealth allowed only under listed conditions; direct supervision by observation required for >=10% of weekly "direct service hours (97153/97154/97155)."'
 );
 const MSD_ASSESSMENT = src(
   'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf',
   'NE ABA Behavior Identification Assessment MSD, eff. 2/7/2025 — direct read confirms: 97151 (licensed clinician) "may be completed via audiovisual telehealth if" a listed set of caregiver/environment/documentation conditions hold; 97152 (technician) "cannot be completed via telehealth" (verbatim). Its own "Fee schedule codes for this service are" list oddly repeats 97153-97158 verbatim from the treatment MSD template rather than listing 97151/97152 — treated as a document artifact, not a billing fact (see file header).'
 );
-const PB_25_02 = src(
+const PB_25_02 = srcR(
   'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-02.pdf',
-  'Provider Bulletin 25-02 (Jan 31, 2025; eff. 2/7/2025), "Hours of Service" section — direct read: describes the finalized rule itself as "6 hours of direct patient assessment and treatment per day, up to a total 20-30 hours per week" and "Up to 30 hours per week...was considered a fair balance," i.e., this bulletin\'s OWN text differs from the treatment MSD PDF\'s literal "20 hours per week" cap — an internal DHHS document conflict, not just a DHHS-vs-third-party one.'
+  'Provider Bulletin 25-02 (Jan 31, 2025; eff. 2/7/2025) — re-read 2026-09-27. Its "Hours of Service" section describes the February 2025 definitions as "up to a total 20-30 hours per week" and says "Up to 30 hours per week...was considered a fair balance." SUPERSEDED on hours: Provider Bulletin 26-06 put updated ABA MSDs in force on July 1, 2026, and the current treatment MSD reads a clean "6 hours in a single day or a total of 20 hours per week." Still cited for its statement that PA duration "is based on medical necessity and therefore is variable in duration."',
 );
 const PB_25_14 = src(
   'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf',
@@ -121,13 +128,13 @@ const HPA_25_08 = src(
   'https://dhhs.ne.gov/Guidance%20Docs/Health%20Plan%20Advisory%2025-08%20-%20Applied%20Behavior%20Analysis%20Rates.pdf',
   'Health Plan Advisory 25-08 (July 1, 2025), addressed to "Nebraska Medicaid Managed Care Plans" — directs the same 8/1/2025 rate table (identical 7 codes/figures as PB 25-14) to all three Heritage Health MCOs; no independent MCO-negotiated rate is contemplated.'
 );
-const DHHS_ABA_FACTS = src(
+const DHHS_ABA_FACTS = srcR(
   'https://dhhs.ne.gov/Pages/Applied-Behavior-Analysis.aspx',
-  'DHHS "Applied Behavior Analysis Facts" page — direct read confirms the same 7-code rate table and states "Hours of service up to 30 hours per week, and direct service hours of 6 hours per day, except in cases when more hours are medically necessary." No mention of 97157, 0362T, or 0373T; no telehealth detail.'
+  'DHHS "Applied Behavior Analysis Facts" page — re-read 2026-09-27: still states "Hours of service up to 30 hours per week, and direct service hours of 6 hours per day, except in cases when more hours are medically necessary" and "Increased amount of supervision required for RBTs of 10 to 20%." Both lines summarize the superseded February 2025 definitions (PB 25-02); the July 2026 treatment MSD reads 20 hours/week and a 10% supervision floor. Confirms the 7-code rate table; no mention of 97157, 0362T or 0373T.',
 );
-const MHSUD_FEE_SCHEDULE_SFY27 = src(
+const MHSUD_FEE_SCHEDULE_SFY27 = srcR(
   'https://dhhs.ne.gov/Medicaid%20Practitioner%20Fee%20Schedules/REVISED%20MHSUD%20SFY27%20Fee%20Schedule.xlsx',
-  'Mental Health & Substance Use Disorder fee schedule, "REVISED" SFY27 edition (eff. 7/1/2026) — the actual current URL; the filename cited in src/data/payers/nebraska.ts ("MHSUD SFY27 Fee Schedule.xlsx", no "REVISED" prefix) 404s as of this access. The dedicated "ABA" tab gives, per code: telehealth modifier + POS columns (populated ONLY for 97151/97155/97156, each "95" / "02, 10" — blank for 97152/97153/97154/97158) and per-provider-type rate columns (1 MD, 2 DO, 57 Provisionally Licensed PhD, 67 Licensed Psychologist, 83 BCBA, 84 BCaBA, 85 RBT), with ineligible provider types shown as a flat $0 rather than a lower nonzero figure. Same 7 rates as PB 25-14, confirmed identical for SFY27. No 97157/0362T/0373T row exists on this tab.'
+  'Mental Health & Substance Use Disorder fee schedule, "REVISED" SFY27 edition (eff. 7/1/2026; file republished 21 Sep 2026, re-read 2026-09-27 via r.jina.ai with the same seven ABA rates and the same telehealth modifier 95 / POS 02, 10 columns on 97151, 97155 and 97156 only) — the actual current URL; nebraska.ts now cites it too; the filename cited in src/data/payers/nebraska.ts ("MHSUD SFY27 Fee Schedule.xlsx", no "REVISED" prefix) 404s as of this access. The dedicated "ABA" tab gives, per code: telehealth modifier + POS columns (populated ONLY for 97151/97155/97156, each "95" / "02, 10" — blank for 97152/97153/97154/97158) and per-provider-type rate columns (1 MD, 2 DO, 57 Provisionally Licensed PhD, 67 Licensed Psychologist, 83 BCBA, 84 BCaBA, 85 RBT), with ineligible provider types shown as a flat $0 rather than a lower nonzero figure. Same 7 rates as PB 25-14, confirmed identical for SFY27. No 97157/0362T/0373T row exists on this tab.'
 );
 const MHSUD_FEE_SCHEDULE_JUL2025 = src(
   'https://dhhs.ne.gov/Medicaid%20Practitioner%20Fee%20Schedules/Mental%20Health%20and%20Substance%20July%201%202025%20Updated%207.31.25.xlsx',
@@ -155,9 +162,17 @@ const NTC_FORMS_PAGE = src(
   'https://www.nebraskatotalcare.com/providers/resources/behavioral-health-forms.html',
   'Nebraska Total Care behavioral-health forms page — ABA Form + OTR tip sheets; submission via provider.nebraskatotalcare.com portal or fax 866-593-1955.'
 );
-const MOLINA_PA_PAGE = src(
+const MOLINA_PA_PAGE = srcR(
   'https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx',
-  'Molina NE Medicaid prior-authorization page — Availity Essentials (preferred), fax (833) 832-1015, phone (844) 782-2678; quarterly PA code-change PDFs posted; no Nebraska-specific ABA clinical policy or code-level PA statement published; no BH carve-out vendor named.'
+  'Molina NE Medicaid prior-authorization page (last updated 09/21/2026; re-read 2026-09-27 via r.jina.ai) — Availity Essentials (preferred), fax (833) 832-1015, phone (844) 782-2678; quarterly PA code-change PDFs through Q4 2026 (none names an ABA code); links a PA Code Matrix/Guide on the forms page and a PA look-up tool. The BH Certification of Need form is now on the forms page, not this page. No Nebraska-specific ABA clinical policy; no BH carve-out vendor named.',
+);
+const MOLINA_PA_GUIDE_2026 = srcR(
+  'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ne/NE_PA-Request-Form.pdf',
+  'Molina Healthcare Nebraska Medicaid Pre-Service Review Guide / PA Request Form (effective 01/01/2026) — lists "Applied Behavioral Analysis (ABA) – for treatment of Autism Spectrum Disorder (ASD)" among Behavioral Health services requiring prior authorization; refers to the website or PA Look-Up Tool "for specific codes that require Prior Authorization." No code-level ABA list.',
+);
+const NTC_PA_LIST_0057 = srcR(
+  'https://www.nebraskatotalcare.com/content/dam/centene/medicaid/pdfs/provider/prior-authorization-requirements-metrics/NE_NETotalCare_Medicaid112_PriorAuthReq_R.pdf',
+  'Nebraska Total Care — CMS Final Rule 0057-F Prior Authorization Requirements (Medicaid; list effective 12/31/2025) — Behavioral Health & Substance Use row names 97151, 97152, 97153, 97154, 97155, 97156 and 97158 among codes that "needed pre-approval as of 12/31/2025."',
 );
 const OPTUM_QRG = src(
   'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf',
@@ -425,8 +440,8 @@ const NE_STATE_CODEGRID: Record<string, CodeGridEntry> = {
     paRequired:
       'Required — MCO-administered; the treatment MSD requires the assessment + treatment plan with the initial PA request, and Provider Bulletin 25-02 states PA duration "is based on medical necessity and therefore is variable in duration" (no fixed statewide period). Treatment plan reviewed at least every 90 days regardless of PA duration.',
     unitCap:
-      'Grouped with 97154/97155 under the MSD\'s "direct ABA service hours" definition (the same codes subject to the 10%-of-hours direct-supervision rule): may not exceed 24 units/day (6 hrs) per the treatment MSD\'s literal text, with a weekly cap the state\'s own documents state two different ways — 80 units/week (20 hrs) per the treatment MSD\'s literal text; 120 units/week (30 hrs) per Provider Bulletin 25-02 and the DHHS ABA Facts page. Both figures given deliberately, not resolved by fiat — request against the 20-hr/week reading as the conservative floor and cite the 30-hr materials when clinical need justifies more; either way, hours above 6/day require PA\'d clinical justification.',
-    capPeriod: 'day (verified: 24 units / 6 hrs) and week (conflicting: 80 vs 120 units / 20 vs 30 hrs — see unitCap)',
+      'Grouped with 97154/97155 under the MSD\'s "direct ABA service hours" definition (the same codes subject to the 10%-of-hours direct-supervision rule): direct ABA "may not exceed 6 hours in a single day or a total of 20 hours per week" — 24 units/day, 80 units/week — per the treatment MSD in force since July 1, 2026 (Provider Bulletin 26-06). More requires clinical justification approved through PA. The 30-hour figure in Provider Bulletin 25-02 and on the DHHS ABA Facts page described the superseded February 2025 definitions; do not request against it.',
+    capPeriod: 'day (24 units / 6 hrs) and week (80 units / 20 hrs), combined across 97153/97154/97155 — verified against the July 2026 treatment MSD',
     posAllowed: ['home', 'community', 'office or clinic'],
     telehealth:
       'No — the treatment MSD states verbatim: "Other ABA treatment services (CPT 97153, 97154, 97158) cannot be provided via telehealth."',
@@ -450,8 +465,8 @@ const NE_STATE_CODEGRID: Record<string, CodeGridEntry> = {
     covered: 'Yes',
     paRequired: 'Required — same PA mechanics as 97153 (see that entry).',
     unitCap:
-      'Grouped with 97153/97155 under the MSD\'s "direct ABA service hours" definition — see the 97153 entry for the same 6-hr/day, 20-vs-30-hr/week conflict. Staffing ratio: 1 technician : 2-5 children (group).',
-    capPeriod: 'day (verified: 24 units / 6 hrs, combined w/ 97153/97155) and week (conflicting — see 97153)',
+      'Grouped with 97153/97155 under the MSD\'s "direct ABA service hours" definition — see the 97153 entry for the same 6-hr/day, 20-hr/week cap (July 2026 MSD). Staffing ratio: 1 technician : 2-5 children (group).',
+    capPeriod: 'day (24 units / 6 hrs) and week (80 units / 20 hrs), combined w/ 97153/97155',
     posAllowed: ['home', 'community', 'office or clinic'],
     telehealth:
       'No — the treatment MSD states verbatim: "Other ABA treatment services (CPT 97153, 97154, 97158) cannot be provided via telehealth."',
@@ -473,8 +488,8 @@ const NE_STATE_CODEGRID: Record<string, CodeGridEntry> = {
     covered: 'Yes',
     paRequired: 'Required — same PA mechanics as 97153 (see that entry).',
     unitCap:
-      'Grouped with 97153/97154 under the MSD\'s "direct ABA service hours" definition — see the 97153 entry for the same 6-hr/day, 20-vs-30-hr/week conflict. Staffing ratio: 1 licensed clinician : 1 child.',
-    capPeriod: 'day (verified: 24 units / 6 hrs, combined w/ 97153/97154) and week (conflicting — see 97153)',
+      'Grouped with 97153/97154 under the MSD\'s "direct ABA service hours" definition — see the 97153 entry for the same 6-hr/day, 20-hr/week cap (July 2026 MSD). Staffing ratio: 1 licensed clinician : 1 child.',
+    capPeriod: 'day (24 units / 6 hrs) and week (80 units / 20 hrs), combined w/ 97153/97154',
     posAllowed: ['home', 'community', 'office or clinic', 'telehealth — POS 02 (patient not at home) or POS 10 (patient at home)'],
     telehealth:
       'Yes, conditional — audiovisual only (modifier 95). Allowed only if the individual is receiving 97153 services concurrently, plus environment/safety and documented-necessity conditions from the treatment MSD are met.',
@@ -666,13 +681,13 @@ const nebraskaTotalCareEdi: EdiRouting = {
 
 const nebraskaTotalCareCodeGrid = mcoCodeGrid({
   assessmentPaRequired:
-    'Unverified whether the assessment CPT codes independently require a standalone PA event — NE.CP.BH.105 requires the IDI plus a functional behavior assessment (with direct assessment and data analysis) inside the assessment PACKAGE, but does not state that the assessment codes themselves trigger a separate PA step distinct from the OTR-based treatment request. Verify in the provider portal or with the plan before booking.',
-  assessmentPaFieldStatus: 'unverified',
+    'Required — Nebraska Total Care\'s published Medicaid prior-authorization list (CMS 0057-F, effective 12/31/2025) names 97151 and 97152 among Behavioral Health codes that "needed pre-approval." NE.CP.BH.105 sets the assessment package contents (IDI plus a functional behavior assessment with direct assessment and data analysis).',
+  assessmentPaFieldStatus: 'verified',
   treatmentPaRequired:
     'Required — Outpatient Treatment Request (OTR): the ABA Form via the secure provider portal (provider.nebraskatotalcare.com) or fax 866-593-1955. Must include hours requested per code with clinical justification, billing codes, a titration/discharge plan, a crisis plan, and coordination-of-care attempts logged by date/outcome/contact name.',
   treatmentPaFieldStatus: 'verified',
   clinicalFieldStatus: 'inferred',
-  extraSources: [NTC_POLICY, NTC_FORMS_PAGE],
+  extraSources: [NTC_POLICY, NTC_FORMS_PAGE, NTC_PA_LIST_0057],
   extraNoteByCode: {
     '97154': 'NE.CP.BH.105 sets group adaptive treatment at 2-8 participants — wider than the state MSD\'s own staffing-ratio table (2-5 children). Documented plan-specific variation, not reconciled here.',
     '97158': 'NE.CP.BH.105 sets group adaptive treatment at 2-8 participants — wider than the state MSD\'s own staffing-ratio table (2-5 children). Documented plan-specific variation, not reconciled here.',
@@ -714,10 +729,10 @@ const molinaHealthcareNebraskaCodeGrid = mcoCodeGrid({
     'Unverified — Molina publishes no Nebraska-specific statement on whether the ABA assessment codes require PA. Confirm via Availity Essentials, fax (833) 832-1015, phone (844) 782-2678, or the plan\'s quarterly PA code-list/look-up tool before every new intake cohort.',
   assessmentPaFieldStatus: 'unverified',
   treatmentPaRequired:
-    'Presumed required (state MSD default), but Molina publishes no Nebraska-specific ABA PA policy — submission channels are Availity Essentials (preferred), fax (833) 832-1015, or phone (844) 782-2678, with a BH Certification of Need for Services form for BH services generally. PA code lists change quarterly; re-verify every quarter.',
-  treatmentPaFieldStatus: 'unverified',
+    'Required — Molina\'s 2026 Nebraska Medicaid Pre-Service Review Guide lists "Applied Behavioral Analysis (ABA) – for treatment of Autism Spectrum Disorder (ASD)" among services requiring prior authorization (the state MSD also requires the assessment + treatment plan with the initial request). Channels: Availity Essentials (preferred), fax (833) 832-1015, phone (844) 782-2678; the BH Certification of Need for Services form is on the forms page. Code-level detail lives in the PA look-up tool.',
+  treatmentPaFieldStatus: 'verified',
   clinicalFieldStatus: 'inferred',
-  extraSources: [MOLINA_PA_PAGE],
+  extraSources: [MOLINA_PA_PAGE, MOLINA_PA_GUIDE_2026],
 });
 
 /* ==================== unitedhealthcare-community-plan-nebraska ==================== */
@@ -1036,7 +1051,7 @@ const nebraskaMedicaidContact: VobContact = {
   },
   scriptedQuestions: [
     'Do the assessment codes 97151/97152 require their own standalone prior-authorization submission, or are they always bundled with the initial treatment PA request?',
-    'For this member, is the weekly cap on direct ABA service hours (97153/97154/97155) 20 hours or 30 hours per week?',
+    'The July 2026 service definition caps direct ABA (97153/97154/97155) at 6 hours a day and 20 a week — what clinical justification does the plan need to authorize more for this member?',
     'Is there a specific unit or monthly cap on 97156 (family adaptive behavior treatment guidance), beyond the caregiver-participation-hour guidance?',
     'Does this eligibility response reflect real-time enrollment, or could it lag behind a recent Medicaid managed-care plan change?',
     'Can you confirm ABA benefits are administered directly by Nebraska Medicaid fee-for-service rather than through a separate behavioral health vendor?',
@@ -1050,8 +1065,8 @@ const nebraskaTotalCareContact: VobContact = {
   portal: { name: 'Nebraska Total Care Secure Provider Portal', url: 'https://provider.nebraskatotalcare.com' },
   fax: '866-593-1955 (ABA Form / Outpatient Treatment Request submission)',
   scriptedQuestions: [
-    'Do the assessment codes 97151/97152 require a standalone prior authorization, or are they always bundled into the Outpatient Treatment Request package?',
-    'For this member, is the weekly cap on direct ABA service hours (97153/97154/97155) 20 hours or 30 hours per week?',
+    'Nebraska Total Care lists 97151/97152 as requiring pre-approval — does the assessment need its own OTR, or does it ride on the initial treatment request?',
+    'The July 2026 service definition caps direct ABA (97153/97154/97155) at 6 hours a day and 20 a week — what clinical justification does the plan need to authorize more for this member?',
     'For group adaptive treatment (97154/97158), does Nebraska Total Care apply its own 2-8 participant group size or the state MSD\'s 2-5 ratio for this member\'s authorization?',
     'Is there a specific unit or monthly cap on 97156 (family training) for this member?',
   ],
@@ -1065,7 +1080,7 @@ const molinaHealthcareNebraskaContact: VobContact = {
   scriptedQuestions: [
     'Do the ABA assessment codes (97151/97152) require prior authorization for this member, and if so, through which channel?',
     'Is prior authorization required for the ongoing ABA treatment codes (97153-97158), and what is the current quarterly PA code list?',
-    'For this member, is the weekly direct-service-hour cap 20 hours or 30 hours per week?',
+    'The July 2026 service definition caps direct ABA at 6 hours a day and 20 a week — what clinical justification does Molina need to authorize more for this member?',
     'Can you confirm whether ABA benefits are managed directly by Molina or through a separate behavioral health vendor?',
   ],
   sources: [MOLINA_PA_PAGE],
@@ -1128,6 +1143,201 @@ const unitedhealthcareNebraskaContact: VobContact = {
 
 /* ==================== export ==================== */
 
+/* ==================== bcbs-nebraska + nebraska-total-care-ambetter ====================
+   Ported from the LeadTrap-only copy on 2026-09-27 and rebuilt from primary
+   sources read that day. Two LeadTrap claims were NOT carried over because the
+   sources contradict them: (1) that BCBSNE's ABA policy was unreadable — it is
+   readable (MedPolicy Blue I.178, fetched via the site's own POST
+   /PolicyData/GetAllPolicies search and GET /Policy/32/19); (2) that the
+   Nebraska mandate and its 25 hr/week cap reach Ambetter — § 44-7,106(2)
+   excludes non-grandfathered individual/small-group EHB plans, and the 2026
+   Ambetter Evidence of Coverage says "No limitation exists within the benefits
+   for applied behavior analysis services." */
+
+const BCBSNE_I178 = srcR(
+  'https://medicalpolicy.nebraskablue.com/Policy/32/19',
+  'BCBSNE Medical Policy I.178 — Autism Spectrum Disorders ("Preauthorization Required"; last review 02-04-2026). Code list: 0362T, 0373T, 97151-97158. ABA medically necessary only where a state mandate or the benefit plan covers it; treatment plan 40 hrs/week or less; "Supervision should be 2 hours per 10 hours of direct treatment"; "Services must be delivered in an office setting or through telehealth"; daycare excluded; no PT/OT/ST on top of 40 billed ABA hours.',
+);
+const BCBSNE_PA_LIST = srcR(
+  'https://www.nebraskablue.com/-/media/Files/NebraskaBlueDotCom/Providers/Prior-Authorization/Prior_Authorization_List.pdf',
+  'BCBSNE Prior Authorization List (current as of 8/14/2026) — I.178 Autism Spectrum Disorders under "Medical Policies Requiring Preauthorization."',
+);
+const BCBSNE_GPX014 = srcR(
+  'https://www.nebraskablue.com/Providers/Policies-and-Procedures/General/Preauthorization-and-Precertification',
+  'BCBSNE GP-X-014 Preauthorization and Precertification (last updated Jan. 1, 2026) — NaviNet submission; nonurgent within 7 calendar days, urgent within 72 hours; authorization effective 12 months; no preauthorization when BCBSNE is secondary; out-of-state Blue members follow their home plan.',
+);
+const BCBSNE_GPX016 = srcR(
+  'https://www.nebraskablue.com/en/Providers/Policies-and-Procedures/General/Telehealth',
+  'BCBSNE GP-X-016 Telehealth (last updated July 1, 2026) — the listed codes are the only ones billable with POS 02/10 and modifier 95; ABA codes on the list are 97151 and 97155-97156; "All other procedure codes are not medically appropriate to be performed via telehealth."',
+);
+const NE_PVERIFY_MAR2026 = srcR(
+  'https://pverify.com/wp-content/uploads/2026/03/pVerifyPayers_All-Payers-List-3-2026.pdf',
+  'pVerify payer list (March 2026), re-read 2026-09-27: 00215 "Blue Cross Blue Shield Nebraska" (Elig Yes, Claims Yes, ERA No, Medical); 01328 "AMBETTER" (generic); no Nebraska-specific Ambetter row.',
+);
+const AMB_NE_EOC = srcR(
+  'https://api.centene.com/EOC/2026/13484NE009.pdf',
+  'Ambetter Health (Celtic Insurance Company) 2026 Evidence of Coverage, Nebraska 13484NE009-2026 (13484NE010 reads the same on autism) — Autism Spectrum Disorder Benefits include "Applied behavior analysis therapy"; "No limitation exists within the benefits for applied behavior analysis services. These services are subject to prior authorization to determine medical necessity."',
+);
+const AMB_NE_PREAUTH = srcR(
+  'https://ambetter.nebraskatotalcare.com/provider-resources/manuals-and-forms/pre-auth.html',
+  'Ambetter Nebraska Pre-Auth Needed tool — its JSON endpoint (content.centene.com/content/ambetter-ne/en_us/provider-resources/manuals-and-forms/pre-auth.preauthtool.json?ver=1.0&q=<code>&qualifier=223&productCategory=AMBETTER&apiEnv=PROD) returned "Pre-authorization is required for all providers" (REQUIRED_IND Y) for 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T on 2026-09-27.',
+);
+const AMB_NE_CPBH104 = srcR(
+  'https://www.ambetterhealth.com/content/dam/centene/Nebraska/ambetter/policies/clinical-policies/CP.BH.104.pdf',
+  'Centene CP.BH.104 Applied Behavior Analysis (Ambetter Nebraska copy; last revision 02/26) — 6 hrs/day, 30 hrs/week unless justified; under 20 hrs/week if in school full-time; 97155 at least 2 hrs/week or 10% of direct hours, no more than 20%; settings home/clinic/school/community, modalities in-person/telehealth.',
+);
+const AMB_NE_MANUAL = srcR(
+  'https://www.ambetterhealth.com/content/dam/centene/Nebraska/ambetter/pdf/2026-ne-provider-manual.pdf',
+  'Ambetter Health Nebraska 2026 Provider and Billing Manual — UM phone 1-833-890-0329; secure provider portal preferred; telehealth billed POS 02 or 10; COB claims due 365 days from the primary EOP.',
+);
+
+function neCommercialEntry(e: {
+  paRequired: string; unitCap: string; capPeriod: string; posAllowed: string[]; telehealth: string; modifiers: string[];
+  notes: string; status: Record<string, FieldStatus>; sources: SourceRef[];
+}): CodeGridEntry {
+  return {
+    covered: 'Yes, where the benefit plan covers ABA (see notes)',
+    paRequired: e.paRequired,
+    unitCap: e.unitCap,
+    capPeriod: e.capPeriod,
+    posAllowed: e.posAllowed,
+    telehealth: e.telehealth,
+    modifiers: e.modifiers,
+    notes: e.notes,
+    fieldStatus: e.status,
+    sources: e.sources,
+  };
+}
+
+const BCBSNE_TELE_CODES = ['97151', '97155', '97156'];
+const bcbsNebraskaCodeGrid: Record<string, CodeGridEntry> = Object.fromEntries(
+  ['97151', '97152', '97153', '97154', '97155', '97156', '97157', '97158', '0362T', '0373T'].map((code) => {
+    const tele = BCBSNE_TELE_CODES.includes(code);
+    return [code, neCommercialEntry({
+      paRequired: 'Required — Medical Policy I.178 ("Preauthorization Required") lists this code; submit in NaviNet. Authorization effective 12 months from the decision date.',
+      unitCap: 'No per-code cap. I.178 treatment plans run 40 hours/week or less (no PT/OT/ST on top of 40 billed ABA hours); state-regulated plans under Neb. Rev. Stat. § 44-7,106 cap behavioral health treatment incl. ABA at 25 hours/week to age 21.',
+      capPeriod: 'week',
+      posAllowed: tele ? ['office', 'telehealth — POS 02 or POS 10'] : ['office'],
+      telehealth: tele
+        ? 'Yes — on BCBSNE\'s GP-X-016 telehealth code list; bill POS 02 or 10 with modifier 95. Member cost shares apply.'
+        : 'No — not on BCBSNE\'s GP-X-016 telehealth code list ("All other procedure codes are not medically appropriate to be performed via telehealth").',
+      modifiers: tele ? ['95 (telehealth, with POS 02/10)'] : ['None published'],
+      notes: 'I.178 covers ABA only when a state mandate requires it or the benefit plan explicitly covers it. "Services must be delivered in an office setting or through telehealth"; daycare excluded. Supervision "2 hours per 10 hours of direct treatment." Out-of-state Blue members follow their home plan.',
+      status: { covered: 'plan-dependent', paRequired: 'verified', unitCap: 'verified', posAllowed: 'verified', telehealth: 'verified', modifiers: tele ? 'verified' : 'unverified' },
+      sources: [BCBSNE_I178, BCBSNE_PA_LIST, BCBSNE_GPX014, BCBSNE_GPX016, NE_MANDATE],
+    })];
+  }),
+);
+
+const bcbsNebraskaEdi: EdiRouting = {
+  payerId: { pverify: '00215', availity: 'unverified', changeHealthcare: 'unverified' },
+  supports270271: true,
+  supportsRealtime: 'unverified',
+  bhCarveOut: {
+    administrator: 'unverified',
+    administratorPayerId: 'unverified',
+    abaRidesOn: 'unverified',
+    twoHopRequired: 'unverified',
+  },
+  fieldStatus: {
+    'payerId.pverify': 'verified',
+    supports270271: 'verified',
+    supportsRealtime: 'unverified',
+    'bhCarveOut.administrator': 'unverified',
+  },
+  verifyVia: {
+    supportsRealtime: 'Confirm real-time vs. batch at pVerify onboarding.',
+    'bhCarveOut.administrator':
+      'BCBSNE publishes ABA medical policy (I.178) and takes the preauthorization in NaviNet itself; I.178 also refers to "New Directions\' Provider Manual" for record documentation. Whether a behavioral-health vendor administers any part of ABA was not confirmed — ask on the first call.',
+  },
+  sources: [NE_PVERIFY_MAR2026, BCBSNE_GPX014, BCBSNE_I178],
+};
+
+const bcbsNebraskaContact: VobContact = {
+  portal: { name: 'NaviNet (BCBSNE preauthorization and precertification)', url: 'https://navinet.navimedix.com/plan-central/bcbsnebraska' },
+  scriptedQuestions: [
+    'Is this plan fully insured, self-funded, or an ACA individual/small-group plan? Medical Policy I.178 covers ABA only where the Nebraska mandate applies or the plan explicitly covers ABA.',
+    'Does the benefit plan cover ABA, and is the 25 hr/week mandate cap applied?',
+    'Will ABA be authorized in the home or school? I.178 says services must be delivered in an office setting or through telehealth.',
+    'Does 97155 pay alongside 97153 for the same clock time, and whose NPI should technician time bill under?',
+  ],
+  sources: [BCBSNE_I178, BCBSNE_GPX014],
+};
+
+const AMB_CODES = ['97151', '97152', '97153', '97154', '97155', '97156', '97157', '97158', '0362T', '0373T'];
+const ambetterNebraskaCodeGrid: Record<string, CodeGridEntry> = Object.fromEntries(
+  AMB_CODES.map((code) => [code, neCommercialEntry({
+    paRequired: 'Required — Ambetter Nebraska Pre-Auth Needed tool: "Pre-authorization is required for all providers." Submit via the secure provider portal, UM phone 1-833-890-0329, or the posted fax forms.',
+    unitCap: 'No benefit limit — the 2026 Evidence of Coverage: "No limitation exists within the benefits for applied behavior analysis services." CP.BH.104 medical-necessity guide: 6 hrs/day and 30 hrs/week unless justified (under 20 hrs/week if in school full-time). The Nebraska mandate\'s 25 hr/week cap does not apply to Marketplace plans.',
+    capPeriod: 'day / week (clinical guideline, not a benefit cap)',
+    posAllowed: ['home', 'clinic', 'school', 'community', 'telehealth — POS 02 or POS 10'],
+    telehealth: 'Covered benefit for medically necessary telehealth (same cost sharing as in person outside Virtual 24/7 Care); CP.BH.104 names telehealth as an ABA modality. No ABA telehealth code list published — confirm per code.',
+    modifiers: ['None published'],
+    notes: 'Marketplace product underwritten by Celtic Insurance Company — not the Nebraska Total Care Medicaid plan; do not apply NE.CP.BH.105 or the state MSDs. Cost sharing applies; a separate copay/coinsurance per provider when several serve the same day.',
+    status: { covered: 'verified', paRequired: 'verified', unitCap: 'verified', posAllowed: 'verified', telehealth: 'plan-dependent', modifiers: 'unverified' },
+    sources: [AMB_NE_EOC, AMB_NE_PREAUTH, AMB_NE_CPBH104, AMB_NE_MANUAL, NE_MANDATE],
+  })]),
+);
+
+const ambetterNebraskaEdi: EdiRouting = {
+  payerId: { pverify: 'unverified', availity: 'unverified', changeHealthcare: 'unverified' },
+  supports270271: 'unverified',
+  supportsRealtime: 'unverified',
+  bhCarveOut: {
+    administrator: 'unverified',
+    administratorPayerId: 'unverified',
+    abaRidesOn: 'unverified',
+    twoHopRequired: 'unverified',
+  },
+  fieldStatus: {
+    'payerId.pverify': 'unverified',
+    supports270271: 'unverified',
+    'bhCarveOut.administrator': 'unverified',
+  },
+  verifyVia: {
+    'payerId.pverify':
+      'pVerify has no Nebraska Ambetter row — only a generic "AMBETTER" (01328). Do not use Nebraska Total Care Medicaid id 01205: same brand name, different product and insurer (Celtic). Confirm the Marketplace payer id at EDI onboarding.',
+    'bhCarveOut.administrator':
+      'Ambetter takes ABA prior authorization through its own portal and UM line (1-833-890-0329); no BH vendor is named for ABA in the 2026 manual or EOC. Confirm on the first call.',
+  },
+  sources: [NE_PVERIFY_MAR2026, AMB_NE_MANUAL],
+};
+
+const ambetterNebraskaStc: StcMap = {
+  abaBenefitBucket: 'unverified',
+  deductibleAppliesToAba: 'plan-dependent',
+  costShareType: 'plan-dependent',
+  copayUnit: 'plan-dependent',
+  oopMaxApplies: 'unverified',
+  quality271Score: 'unverified',
+  fieldStatus: {
+    abaBenefitBucket: 'unverified',
+    deductibleAppliesToAba: 'plan-dependent',
+    costShareType: 'plan-dependent',
+    copayUnit: 'plan-dependent',
+    oopMaxApplies: 'unverified',
+    quality271Score: 'unverified',
+  },
+  verifyVia: {
+    abaBenefitBucket: 'No Ambetter Nebraska 270/271 companion guide was located.',
+    deductibleAppliesToAba:
+      'The 2026 EOC applies plan cost sharing to ABA and "a separate copayment and/or coinsurance" per provider when several serve the same day; the amounts vary by plan and metal tier — read them off the 271 or the member\'s Schedule of Benefits.',
+  },
+  sources: [AMB_NE_EOC],
+};
+
+const ambetterNebraskaContact: VobContact = {
+  providerServicesPhone: '1-833-890-0329 (Utilization Management; TTY 711)',
+  portal: { name: 'Ambetter Health secure provider portal (Nebraska)', url: 'https://www.ambetterhealth.com/en/ne/' },
+  scriptedQuestions: [
+    'Is this member on the Ambetter Marketplace product or the Heritage Health Medicaid plan?',
+    'What deductible and coinsurance apply to ABA under this plan and metal tier?',
+    'Is the practice in network for the Ambetter product specifically?',
+    'Which ABA codes will Ambetter authorize by telehealth for this member?',
+  ],
+  sources: [AMB_NE_MANUAL, AMB_NE_EOC],
+};
+
 export const nebraskaVob: Record<string, VobExtension> = {
   'nebraska-medicaid': {
     edi: nebraskaMedicaidEdi,
@@ -1135,7 +1345,7 @@ export const nebraskaVob: Record<string, VobExtension> = {
     rates: neRateTable(false),
     stcMap: nebraskaMedicaidStc,
     vobContact: nebraskaMedicaidContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: REFRESH_DATE,
   },
   'nebraska-total-care': {
     edi: nebraskaTotalCareEdi,
@@ -1143,7 +1353,7 @@ export const nebraskaVob: Record<string, VobExtension> = {
     rates: neRateTable(true),
     stcMap: nebraskaTotalCareStc,
     vobContact: nebraskaTotalCareContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: REFRESH_DATE,
   },
   'molina-healthcare-nebraska': {
     edi: molinaHealthcareNebraskaEdi,
@@ -1151,7 +1361,7 @@ export const nebraskaVob: Record<string, VobExtension> = {
     rates: neRateTable(true),
     stcMap: molinaHealthcareNebraskaStc,
     vobContact: molinaHealthcareNebraskaContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: REFRESH_DATE,
   },
   'unitedhealthcare-community-plan-nebraska': {
     edi: unitedhealthcareCommunityPlanNebraskaEdi,
@@ -1181,5 +1391,22 @@ export const nebraskaVob: Record<string, VobExtension> = {
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no Nebraska-specific override found.'),
     vobContact: unitedhealthcareNebraskaContact,
     lastUpdated: ACCESS_DATE,
+  },
+  'bcbs-nebraska': {
+    edi: bcbsNebraskaEdi,
+    codeGrid: bcbsNebraskaCodeGrid,
+    stcMap: inheritFamilyStc(
+      bcbsFamilyStc,
+      'Inherited from the BCBS family default (docs/vob-build.md Layer 2). Treat as weak: that default is sourced only from Excellus and Highmark New York material, and BCBS Nebraska is an independent licensee. Everything the default leaves unverified stays unverified here.',
+    ),
+    vobContact: bcbsNebraskaContact,
+    lastUpdated: REFRESH_DATE,
+  },
+  'nebraska-total-care-ambetter': {
+    edi: ambetterNebraskaEdi,
+    codeGrid: ambetterNebraskaCodeGrid,
+    stcMap: ambetterNebraskaStc,
+    vobContact: ambetterNebraskaContact,
+    lastUpdated: REFRESH_DATE,
   },
 };

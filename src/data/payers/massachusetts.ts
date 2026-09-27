@@ -159,13 +159,14 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       {
         h2: 'Six administrators, one benefit',
         body: [
-          'MassHealth managed care is a lattice of 15 Accountable Care Partnership Plans, 2 Primary Care ACOs, 2 MCOs, and the PCC Plan (roster per the April 2023 state deck; the current lineup — including Steward Health Choice\'s status after Steward\'s collapse, and the Tufts Health Together MCO\'s discontinuation effective 1/1/2026 — should be re-verified). What matters operationally is who authorizes ABA: PCC Plan, Primary Care ACO, and Health New England BeHealthy members route to MBHP; Fallon\'s ACPPs route to Carelon; WellSense\'s plans (Essential MCO + 8 ACPPs) administer ABA in-house as of January 1, 2026, having insourced from Carelon; Tufts Health Together runs its own internal UM; and Mass General Brigham Health Plan routes to Optum. Nearly all of them use the multi-payer Massachusetts Standard ABA PA Form — request types for initial evaluation, initial services, continued services, and amendments, completed by the LABA rendering or supervising services, with continued authorizations capped at 6 months. The one defector: as of October 2025, Tufts Health Together uses Point32Health\'s own updated ABA PA form instead of the state standard form — so "which plan?" also decides "which form?". Confirmed as of this review: Point32Health\'s own 2026 Public Plans Provider Manual (Behavioral Health chapter) describes Tufts Health Public Plans\' behavioral-health team running BH clinical review, PA, and medical-necessity determinations entirely in-house — no mention anywhere of Carelon, Optum, Beacon, or any external BH vendor for Tufts — corroborating the internal-UM claim with a second, independent Point32Health document.',
+          'MassHealth managed care is a lattice of 15 Accountable Care Partnership Plans, 2 Primary Care ACOs, 2 MCOs, and the PCC Plan (roster per the April 2023 state deck; the current lineup — including Steward Health Choice\'s status after Steward\'s collapse, and the Tufts Health Together MCO\'s discontinuation effective 1/1/2026 — should be re-verified). What matters operationally is who authorizes ABA: PCC Plan, Primary Care ACO, and Health New England BeHealthy members route to MBHP; Fallon\'s ACPPs route to Carelon; WellSense\'s plans (Essential MCO + 8 ACPPs) administer ABA in-house as of January 1, 2026, having insourced from Carelon; Tufts Health Together runs its own internal UM; and Mass General Brigham Health Plan routes to Optum. Nearly all of them use the multi-payer Massachusetts Standard ABA PA Form — request types for initial evaluation, initial services, continued services, and amendments; the form says the BCBA rendering and/or supervising the services "should" complete it, while the requirement that the analyst be a LABA licensed under 262 CMR 10.00 comes from the Carelon/MBHP performance specification, not the form — with continued authorizations capped at 6 months. The one defector: as of October 2025, Tufts Health Together uses Point32Health\'s own updated ABA PA form instead of the state standard form — so "which plan?" also decides "which form?". Confirmed as of this review: Point32Health\'s own 2026 Public Plans Provider Manual (Behavioral Health chapter) describes Tufts Health Public Plans\' behavioral-health team running BH clinical review, PA, and medical-necessity determinations entirely in-house — no mention anywhere of Carelon, Optum, Beacon, or any external BH vendor for Tufts — corroborating the internal-UM claim with a second, independent Point32Health document.',
         ],
         cites: [
           { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
           { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
           { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
           { title: 'Point32Health — Tufts Health Public Plans Provider Manual, Behavioral Health chapter (2026)', url: 'https://www.point32health.org/documents/thpp-08-bh-pm' },
+          { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
         ],
       },
       {
@@ -384,11 +385,12 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       {
         h2: 'How MBHP runs the benefit',
         body: [
-          'MBHP essentially is the state program: it applies MassHealth\'s criteria and the multi-payer Massachusetts Standard ABA PA Form — initial evaluation, initial services, continued services, and amendment request types, completed by the LABA rendering or supervising services — with authorizations in up to 6-month periods. Submissions run through Carelon\'s ProviderConnect portal (providers.masspartnership.com); the provider line is 1-800-495-0086, and Carelon\'s Massachusetts forms-and-guides library holds the current documents. No hour caps are published — requests stand on medical necessity. Note the state\'s own ABA performance-specification document sits behind the provider portal, so onboarding should pull it from ProviderConnect directly.',
+          'MBHP essentially is the state program: it applies MassHealth\'s criteria and the multi-payer Massachusetts Standard ABA PA Form — initial evaluation, initial services, continued services, and amendment request types; the form says the BCBA rendering and/or supervising the services "should" complete it, and MBHP\'s performance specification separately requires that analyst to be a LABA licensed under 262 CMR 10.00 — with authorizations in up to 6-month periods. Submissions run through Carelon\'s ProviderConnect portal (providers.masspartnership.com); the provider line is 1-800-495-0086, and Carelon\'s Massachusetts forms-and-guides library holds the current documents. No hour caps are published — requests stand on medical necessity. Note the state\'s own ABA performance-specification document sits behind the provider portal, so onboarding should pull it from ProviderConnect directly.',
         ],
         cites: [
           { title: 'Carelon Behavioral Health — Massachusetts forms & guides', url: 'https://www.carelonbehavioralhealth.com/providers/forms-and-guides/ma' },
           { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
+          { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
         ],
       },
       {
@@ -581,7 +583,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
     ],
     collect: [
-      { title: 'ACPP name → WellSense', desc: 'Eight ACPPs plus Essential all route to the same Carelon/standard-form flow — map the plan name at intake.' },
+      { title: 'ACPP name → WellSense', desc: 'Eight ACPPs plus Essential all route to the same WellSense in-house BH / standard-form flow (Carelon only for pre-1/1/2026 run-off) — map the plan name at intake.' },
       { title: 'Comprehensive diagnostic evaluation', desc: 'Attaches to the initial-evaluation request; the form also takes the Down syndrome genetic-testing pathway from 1/1/2026.' },
       { title: 'Pages 1–7, complete', desc: 'Continued-services submissions are pages 1–7 of the standard form — incomplete packets stall the 6-month clock.' },
       { title: 'Timeline expectations', desc: 'Initial authorizations cover 3 months; continued run 6 — plan reassessment touchpoints accordingly.' },
@@ -599,7 +601,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does WellSense cover ABA therapy?', a: 'Yes — across the WellSense Essential MCO and its eight MassHealth ACPPs, on the state-baseline benefit: EPSDT under 21, no caps, PA on all services via the Massachusetts Standard ABA PA Form. Behavioral health, including ABA, has been administered in-house by WellSense since January 1, 2026 (previously Carelon).' },
       { q: 'How do I submit an ABA authorization to WellSense?', a: 'Via the HealthTrio Connect portal or ABA PA fax 857-264-2673, using the standard form — initial-evaluation requests attach the diagnostic evaluation and cover 3 months; continued services submit pages 1–7 in 6-month timeframes.' },
-      { q: 'Why isn\'t ABA on WellSense\'s prior-authorization matrix?', a: 'Because the matrix covers medical services — ABA routes through the behavioral-health performance specifications and the Carelon process. PA is still required for all ABA services.' },
+      { q: 'Why isn\'t ABA on WellSense\'s prior-authorization matrix?', a: 'Because the matrix covers medical services — ABA routes through the behavioral-health performance specifications and, since January 1, 2026, WellSense\'s in-house behavioral-health UM (Carelon handled it before then). PA is still required for all ABA services.' },
     ],
   },
 
@@ -607,18 +609,21 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     slug: 'tufts-health-together',
     cardDesc: 'MCO product discontinued 1/1/2026 — only its 2 ACPPs (w/ Cambridge Health Alliance, w/ UMass Memorial) remain.',
     assessmentPA: {
-      value: 'Required — via Point32Health UM on the plan\'s own updated ABA PA form (not the MA standard form)',
-      status: 'unverified',
-      verifyVia:
-        'Point32Health provider services and the Tufts Health Together ABA Medical Necessity Guideline — the October 2025 update names the Point32Health ABA prior-authorization form for Together members but does not say whether the assessment codes themselves are separately authorized. (point32health.org serves HTML in place of its PDFs, so the MNG needs human retrieval.)',
-      blocker: 'document',
+      value: 'Required — the initial evaluation is itself a prior-authorization request: Point32Health\'s ABA PA form (effective Jan. 1, 2026) says ABA services "require one of the following prior authorization approvals," the first being a "Request for Initial Evaluation" (pages 1-3 plus copies of the child\'s IEP and the comprehensive diagnostic evaluation), and 97151 sits on its Tufts Health Together code list',
+      status: 'verified',
+      cites: [
+        { title: 'Point32Health — Applied Behavioral Analysis Prior Authorization Form (effective Jan. 1, 2026; Tufts Health Together)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-form' },
+      ],
     },
     treatmentPA: {
-      value: 'Required — Point32Health\'s own ABA PA form, submitted electronically with the form uploaded, or fax 888-977-0776',
-      status: 'unverified',
-      verifyVia:
-        'Point32Health provider services and the Tufts Health Together ABA Medical Necessity Guideline. NOTE: the October 2025 Point32Health update lists fax 888-977-0776 under Tufts Health DIRECT members and publishes no fax number for Tufts Health Together — confirm the Together submission channel before faxing.',
-      blocker: 'document',
+      value: 'Required — Point32Health\'s own ABA PA form ("Request for Continued Services": pages 1-6), units requested per 6-month period with modifier U2 on Together codes; submit through the MHK portal on the secure Provider portal with the form uploaded, or fax 888-977-0776 (the form: "For Tufts Health Together, fax this form to 888-977-0776"; the same number is the Tufts Health Public Plans behavioral-health fax that Tufts Health Direct also uses); since February 2026 Point32Health wants every ABA PA request submitted under the practice\'s billing (type 2) NPI, not the individual therapist\'s',
+      status: 'verified',
+      cites: [
+        { title: 'Point32Health — Applied Behavioral Analysis Prior Authorization Form (effective Jan. 1, 2026; Tufts Health Together)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-form' },
+        { title: 'Tufts Health Public Plans Provider Manual — Referrals, Prior Authorizations and Notifications chapter (2026)', url: 'https://www.point32health.org/documents/thpp-04-referrals-pa-notification-pm' },
+        { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
+        { title: 'Point32Health — ABA services: authorization and accreditation updates (Feb 2026)', url: 'https://www.point32health.org/provider/aba-services-authorization-and-accreditation-updates-022026' },
+      ],
     },
     dxRequired: {
       value: 'Yes — ASD; covers sole-diagnosis Down syndrome effective 1/1/2026 (incl. Tufts Health Together)',
@@ -646,12 +651,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The standard form names them, and the list is broader than "send them to a developmental pediatrician." For autism it requires "A comprehensive assessment completed by a licensed physician (i.e. PCP, etc.), advanced practice registered nurse, physician\'s assistant, or psychologist experienced in the diagnosis and treatment of ASD with developmental or child/adolescent experience which aligns with DSM criteria across ASD core deficits." For the 1/1/2026 pathway it requires instead "A diagnosis of Down Syndrome (Trisomy 21) confirmed by genetic testing." Note the two signatures are different people: the diagnostician writes the assessment, while the form itself "should" be completed by the BCBA rendering and/or supervising the services — an analyst the performance specification requires to be a LABA licensed under 262 CMR 10.00. That is the MassHealth-wide standard form, which Tufts Health Together does not use — Point32Health\'s own ABA PA form governs here and does not republish the diagnostician list.',
-        status: 'unverified',
-        cites: [{ title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' }, { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' }],
-        verifyVia:
-          'Point32Health provider services / the Tufts Health Public Plans provider manual — Together members use Point32Health\'s own ABA PA form and, from 1/1/2026, InterQual criteria, so the Massachusetts standard-form answers are the floor rather than the rule here.',
-        blocker: 'document',
+          'Point32Health\'s own ABA PA form names them, and its list is narrower than the Massachusetts standard form\'s. The initial-evaluation request must carry a "Comprehensive diagnostic evaluation completed by a neurologist, pediatrician, psychiatrist, psychologist, or other licensed physician experienced in autism or Down syndrome treatment," and the form asks the diagnostician\'s licensure from a fixed list: neurologist/pediatric neurologist, developmental pediatrician, psychiatrist, psychologist, or "other licensed physician experienced in the diagnosis and treatment of autism or Down syndrome." Nurse practitioners and physician assistants, which the MassHealth standard form accepts, are not on it — so an APRN- or PA-made diagnosis is a question to raise with Point32 before submitting. The form itself is the BCBA\'s: "The Board-Certified Behavioral Analyst (BCBA) rendering and/or supervising the autism services should complete this form. Point32Health Plans will not approve the request if completed by a non-BCBA provider."',
+        status: 'verified',
+        cites: [{ title: 'Point32Health — Applied Behavioral Analysis Prior Authorization Form (effective Jan. 1, 2026; Tufts Health Together)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-form' }],
       },
       diagnosticTools: {
         value:
@@ -740,28 +742,30 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { label: 'BH administrator', value: 'Internal — Point32Health UM (no external BH vendor)' },
       { label: 'PA form', value: 'Point32Health\'s OWN ABA PA form — NOT the MA standard form (as of Oct 2025)' },
       { label: 'Clinical criteria', value: 'Point32Health ABA MNG; InterQual + SmartSheets; new MNG effective 1/1/2026' },
-      { label: 'Submission', value: 'Electronic with form uploaded, or precert fax 888-977-0776' },
-      { label: 'Network gate', value: 'ABA provider accreditation requirement rolling out (nationally recognized accrediting body)' },
+      { label: 'Submission', value: 'MHK portal with the form uploaded, or fax 888-977-0776 (Together fax per the Point32 ABA PA form)' },
+      { label: 'Network gate', value: 'ABA accreditation required: MA center-based providers by 1/1/2027; all others by 1/1/2028 (Point32, Feb 2026)' },
     ],
     sections: [
       {
         h2: 'The Point32 machinery',
         body: [
-          'Per the October 2025 provider update, Tufts Health Together adopted InterQual criteria with InterQual SmartSheets for ABA prior-authorization review, with a new ABA medical-necessity guideline effective January 1, 2026 — and moved members onto Point32Health\'s own updated ABA PA form. Requests submit electronically with the form uploaded, or by fax to 888-977-0776. For a practice running one MA workflow, this is the exception to build: a Tufts Together family means the Point32 form and the Point32 portal, and a standard-form packet sent here is a bounce. The benefit itself matches the state baseline — no published hour caps, and sole-diagnosis Down syndrome coverage effective January 1, 2026 explicitly includes Tufts Health Together.',
+          'Per the October 2025 provider update, Tufts Health Together adopted InterQual criteria with InterQual SmartSheets for ABA prior-authorization review, with a new ABA medical-necessity guideline effective January 1, 2026 — and moved members onto Point32Health\'s own updated ABA PA form. Requests submit electronically through the MHK portal on the secure Provider portal with the form uploaded, or by fax to 888-977-0776 — the fax the form itself names for Tufts Health Together ("For Tufts Health Together, fax this form to 888-977-0776"). The October 2025 notice lists that number only under Tufts Health Direct because it is the Tufts Health Public Plans behavioral-health fax both products share. Even the initial evaluation needs approval: the form\'s "Request for Initial Evaluation" (pages 1-3) goes in with copies of the child\'s IEP and the comprehensive diagnostic evaluation, and continued services use pages 1-6, with units requested per 6-month period and modifier U2 on Together codes. For a practice running one MA workflow, this is the exception to build: a Tufts Together family means the Point32 form and the Point32 portal, and a standard-form packet sent here is a bounce. The benefit itself matches the state baseline — no published hour caps, and sole-diagnosis Down syndrome coverage effective January 1, 2026 explicitly includes Tufts Health Together.',
         ],
         cites: [
           { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
           { title: 'MassHealth — All Provider Bulletin 410: Changes to MassHealth\'s ACOs on January 1, 2026', url: 'https://www.mass.gov/doc/all-provider-bulletin-410-changes-to-masshealths-accountable-care-organizations-on-january-1-2026/download' },
           { title: 'Point32Health — Reminder: Tufts Health Together MCO discontinuing as of Jan. 1', url: 'https://www.point32health.org/provider/reminder-tufts-health-together-mco-discontinuing-jan-1-112025' },
+          { title: 'Point32Health — Applied Behavioral Analysis Prior Authorization Form (effective Jan. 1, 2026; Tufts Health Together)', url: 'https://www.point32health.org/documents/applied-behavioral-analysis-form' },
+          { title: 'Tufts Health Public Plans Provider Manual — Referrals, Prior Authorizations and Notifications chapter (2026)', url: 'https://www.point32health.org/documents/thpp-04-referrals-pa-notification-pm' },
         ],
       },
       {
         h2: 'Two gates beyond the auth',
         body: [
-          'Point32Health is rolling out an ABA provider accreditation requirement — accreditation by a nationally recognized ABA accrediting body — across its Harvard Pilgrim and Tufts Health Plan products, making accreditation a network-participation gate, not a quality nicety. Budget the accreditation timeline into any Tufts network strategy. Worth knowing on the enforcement front: Point32Health formally disputed MassHealth\'s 2026 ABA supervision-audit methodology (February 9, 2026) — but the statewide 1:10 expectation still makes supervision staffing the safe operating assumption.',
+          'Point32Health\'s February 2026 provider update states that "all contracted ABA providers must obtain accreditation from a nationally recognized accrediting body specializing in ABA" — a requirement that "supports a MassHealth initiative" and that Point32 extended to all Harvard Pilgrim and Tufts Health Plan products, Tufts Health Together included. The deadlines: center-based ABA providers in Massachusetts and Rhode Island must be accredited by January 1, 2027; all other providers by January 1, 2028, after which every ABA provider, new ones included, must be accredited. That makes accreditation a network-participation gate, not a quality nicety — budget the timeline into any Tufts network strategy. The same update changed how to request authorization: submit ABA PA requests for any Point32Health member under the practice\'s billing (type 2) NPI, not the individual therapist\'s. Worth knowing on the enforcement front: Point32Health formally disputed MassHealth\'s 2026 ABA supervision-audit methodology (February 9, 2026) — but the statewide 1:10 expectation still makes supervision staffing the safe operating assumption.',
         ],
         cites: [
-          { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
+          { title: 'Point32Health — ABA services: authorization and accreditation updates (Feb 2026)', url: 'https://www.point32health.org/provider/aba-services-authorization-and-accreditation-updates-022026' },
           { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
         ],
       },
@@ -769,11 +773,13 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     collect: [
       { title: 'MCO vs. ACPP', desc: 'The Tufts Health Together MCO no longer exists (discontinued 1/1/2026) — confirm the family is on one of the two active ACPPs, not a stale MCO card.' },
       { title: 'The RIGHT form', desc: 'Tufts Health Together takes Point32Health\'s own ABA PA form — not the MA standard form. Flag it in your intake workflow.' },
+      { title: 'IEP copy', desc: 'Point32\'s Request for Initial Evaluation for Tufts Health Together asks for a copy of the child\'s Individualized Education Program alongside the diagnostic evaluation — ask the family for it at intake.' },
       { title: 'ACPP mapping', desc: 'Cambridge Health Alliance and UMass Memorial ACPP members are Tufts Together — route to Point32, not Carelon.' },
       { title: 'Diagnostic evaluation', desc: 'ASD assessment — or the Down syndrome pathway from 1/1/2026, which Point32 confirms includes this plan.' },
-      { title: 'Accreditation status', desc: 'Point32\'s ABA accreditation requirement is a network gate — check where your organization stands before quoting start dates.' },
+      { title: 'Accreditation status', desc: 'Point32\'s ABA accreditation requirement is a network gate (MA center-based providers by 1/1/2027, all others by 1/1/2028) — check where your organization stands before quoting start dates.' },
     ],
     sources: [
+      { title: 'Point32Health — ABA services: authorization and accreditation updates (Feb 2026)', url: 'https://www.point32health.org/provider/aba-services-authorization-and-accreditation-updates-022026' },
       { title: 'MassHealth — All Provider Bulletin 410: Changes to MassHealth\'s ACOs on January 1, 2026', url: 'https://www.mass.gov/doc/all-provider-bulletin-410-changes-to-masshealths-accountable-care-organizations-on-january-1-2026/download' },
       { title: 'Point32Health — Reminder: Tufts Health Together MCO discontinuing as of Jan. 1', url: 'https://www.point32health.org/provider/reminder-tufts-health-together-mco-discontinuing-jan-1-112025' },
       { title: 'Point32Health — ABA policy and coverage updates (Oct 2025)', url: 'https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025' },
@@ -788,8 +794,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Is the Tufts Health Together MCO still active?', a: 'No — MassHealth discontinued the Tufts Health Together MCO product effective January 1, 2026 (All Provider Bulletin 410). Only the two ACPPs, with Cambridge Health Alliance and with UMass Memorial Health, remain active.' },
       { q: 'Does Tufts Health Together cover ABA?', a: 'Yes, through its two active ACPPs — the MassHealth EPSDT benefit with no published hour caps, reviewed by Point32Health\'s internal UM against its own medical-necessity guideline (InterQual + SmartSheets; new MNG effective 1/1/2026).' },
-      { q: 'Does Tufts Health Together use the Massachusetts standard ABA form?', a: 'No — as of the October 2025 update, members use Point32Health\'s own updated ABA PA form, submitted electronically with the form uploaded or faxed to 888-977-0776. It\'s the one MassHealth plan family where the standard form doesn\'t apply.' },
-      { q: 'What is Point32Health\'s ABA accreditation requirement?', a: 'A rolling network-participation requirement that ABA providers hold accreditation from a nationally recognized ABA accrediting body, across Harvard Pilgrim and Tufts Health Plan products — treat it as a contracting prerequisite.' },
+      { q: 'Does Tufts Health Together use the Massachusetts standard ABA form?', a: 'No — as of the October 2025 update, members use Point32Health\'s own updated ABA PA form, submitted through the MHK portal with the form uploaded or faxed to 888-977-0776 (the Together fax printed on the form). Even the initial evaluation is a PA request: pages 1-3 with the child\'s IEP and the comprehensive diagnostic evaluation. It\'s the one MassHealth plan family where the standard form doesn\'t apply.' },
+      { q: 'What is Point32Health\'s ABA accreditation requirement?', a: 'Per Point32Health\'s February 2026 provider update, all contracted ABA providers must be accredited by a nationally recognized accrediting body specializing in ABA, across Harvard Pilgrim and Tufts Health Plan products. Center-based providers in Massachusetts and Rhode Island must be accredited by January 1, 2027; all other providers by January 1, 2028 — treat it as a contracting prerequisite.' },
     ],
   },
 
@@ -1321,9 +1327,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
     family: 'aetna',
     cardDesc: 'CPB 0554/0648 + ARICA (no caps, any age) + Aetna\'s own hosted MA Standard ABA form.',
     assessmentPA: {
-      value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
+      value: 'Required — precertification, per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule. Aetna\'s national ABA precert form GR-69017-4 (7-26) says not to use it in Massachusetts',
       status: 'verified',
-      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }],
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26): "Don\'t use this form for Maryland and Massachusetts" (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
     },
     treatmentPA: {
       value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
@@ -1473,7 +1479,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       {
         h2: 'The national policy, applied in Massachusetts',
         body: [
-          'Aetna covers ABA for autism spectrum disorder under its national clinical policy CPB 0554 (paired with CPB 0648 for ASD), and considers ABA experimental for anything else. Precertification is required for both the assessment and treatment — form GR-69017-4, submitted via Availity or phone — with reauthorization commonly on a roughly 6-month cadence. That clinical policy is national — what changes in Massachusetts is the legal floor underneath it: ARICA governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our Aetna guide; this page covers what changes in Massachusetts.',
+          'Aetna covers ABA for autism spectrum disorder under its national clinical policy CPB 0554 (paired with CPB 0648 for ASD), and considers ABA experimental for anything else. Precertification is required for both the assessment and treatment, submitted via Availity or phone (Aetna\'s national ABA precert form GR-69017-4 says not to use it in Massachusetts) — with reauthorization commonly on a roughly 6-month cadence. That clinical policy is national — what changes in Massachusetts is the legal floor underneath it: ARICA governs what fully-insured plans must cover, while self-funded employer plans answer to ERISA and federal parity instead. Plan funding type is therefore the first fact to establish on every benefits check. The full national policy breakdown lives in our Aetna guide; this page covers what changes in Massachusetts.',
         ],
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
@@ -1503,10 +1509,11 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       {
         h2: 'Licensure & rates in Massachusetts',
         body: [
-          'Massachusetts licenses behavior analysts as Licensed Applied Behavior Analysts (LABA), with an assistant tier (LAABA), through the Board of Registration of Allied Mental Health and Human Services Professions — under M.G.L. c. 112 as amended by Chapter 429 of the Acts of 2012, with requirements at 262 CMR 10.00, built on BCBA certification. The state\'s payers key the ABA benefit to the LABA: the standard PA form itself is completed by the LABA rendering or supervising services. On rates: Aetna does not publish commercial ABA fee schedules for Massachusetts (none of the national carriers do) — rates are contract-negotiated and live in your participating-provider agreement. The MassHealth schedule (97153 at $16.37/unit) is the in-state floor to benchmark against, knowing providers regard it as low.',
+          'Massachusetts licenses behavior analysts as Licensed Applied Behavior Analysts (LABA), with an assistant tier (LAABA), through the Board of Registration of Allied Mental Health and Human Services Professions — under M.G.L. c. 112 as amended by Chapter 429 of the Acts of 2012, with requirements at 262 CMR 10.00, built on BCBA certification. The state\'s payers key the ABA benefit to the LABA: the standard PA form says the BCBA rendering and/or supervising the services "should" complete it, and the LABA license under 262 CMR 10.00 is what lets that analyst practice in Massachusetts at all. On rates: Aetna does not publish commercial ABA fee schedules for Massachusetts (none of the national carriers do) — rates are contract-negotiated and live in your participating-provider agreement. The MassHealth schedule (97153 at $16.37/unit) is the in-state floor to benchmark against, knowing providers regard it as low.',
         ],
         cites: [
           { title: '262 CMR 10.00 — LABA/LAABA licensure requirements (mass.gov)', url: 'https://www.mass.gov/regulations/262-CMR-1000-requirements-for-licensure-as-an-applied-behavior-analyst-and-assistant-applied-behavior-analyst' },
+          { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
         ],
       },
     ],

@@ -6,11 +6,11 @@ export const nationalPayers: Record<string, PayerConfig> = {
     cardDesc: 'CPB 0554 \u2014 ASD-only coverage, precert form GR-69017-4, telehealth codes.',
     family: 'aetna',
     assessmentPA: {
-      value: 'Required — precertification (form GR-69017-4, eff. 1/1/2026)',
+      value: 'Required — precertification via Availity or the precert line; clinical detail on form GR-69017-4 (7-26, eff. 8/1/2026)',
       status: 'verified',
       cites: [
         { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       ],
     },
     treatmentPA: {
@@ -18,7 +18,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       ],
     },
     dxRequired: {
@@ -44,7 +44,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — for ASD (F84.0–F84.9) only' },
       { label: 'Policy', value: 'CPB 0554 (ABA) + CPB 0648 (ASD)' },
-      { label: 'Precert', value: 'Required — form GR-69017-4 (eff. 1/1/2026), via Availity or phone' },
+      { label: 'Precert', value: 'Required — via Availity or phone; form GR-69017-4 (7-26, eff. 8/1/2026) carries the clinical detail (not for MD/MA)' },
       { label: 'Provider bar', value: 'BACB certification or state BA licensure' },
       { label: 'Telehealth', value: 'Covered for 97151, 97153, 97155, 97156, 97157' },
       { label: 'Reauth cadence', value: 'Commonly ~6 months (verify per plan)' },
@@ -52,9 +52,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
     sections: [
       {
         h2: 'What Aetna requires for precertification',
-        cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
         body: [
-          'As of January 1, 2026, a single form — GR-69017-4 — replaces Aetna\'s previous ABA precert forms, submitted through Availity\'s two-step process (precert add + clinical questionnaire) or by phone. The information it demands is exactly what a good intake process should have already collected:',
+          'The current revision of form GR-69017-4 is stamped 7-26 and states: "Effective August 1, 2026, this form replaces all other Applied Behavior Health Analysis (ABA) precertification information request documents and forms." The form does not start a request. You initiate on Availity (Authorization/Precertification Add, then a short questionnaire if asked) or by calling the Precertification Department, and attach the completed form to the case. The form says "Don\'t use this form for Maryland and Massachusetts." It also asks for results of a standardized assessment (e.g., Vineland, ABAS, VB-MAPP) completed within the past 12 months. The rest of what it asks for is what a good intake process should already have collected:',
         ],
         list: [
           { title: 'Diagnosis details', desc: 'DSM-5 diagnosis code(s), the diagnosing provider, and their credentials.' },
@@ -97,7 +97,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
     deliveryRules: {
@@ -159,9 +159,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'No recency rule is published. CPB 0554 does not state how recent the ASD diagnostic evaluation must be, and the precertification form (GR-69017-4, eff. 1/1/2026) asks for the evaluation\'s diagnosis code, the diagnosing provider and their credentials without a date test. Capture the evaluation date at intake regardless \u2014 it is on the form, and any plan-level rule will be applied against it.',
+          'No recency rule is published. CPB 0554 does not state how recent the ASD diagnostic evaluation must be, and the precertification form (GR-69017-4, 7-26 revision, eff. 8/1/2026) asks for the diagnosis code, the diagnosing provider and their credentials without a date test. The form\'s date test is on the standardized assessment instead: results "completed within the past 12 months," with a repeat validated assessment every 6\u201312 months. Capture the evaluation date at intake regardless \u2014 it is on the form, and any plan-level rule will be applied against it.',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
         verifyVia: 'The precertification submission itself \u2014 Availity\'s two-step precert add plus clinical questionnaire, or the precert phone line. Ask whether an evaluation of this age is acceptable before booking the assessment.',
         blocker: 'per-case',
       },
@@ -181,9 +181,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'CPB 0554 imposes no referral or physician-order requirement of its own; what it imposes is precertification, required for both the assessment and treatment, on form GR-69017-4 since January 1, 2026, submitted through Availity\'s two-step process or by phone, with reauthorization commonly on a roughly six-month cadence. Where a state autism mandate applies to a fully-insured plan, that mandate may add a prescription or physician-order requirement of its own \u2014 Maryland and Missouri both do \u2014 so check the state layer before assuming none exists.',
+          'CPB 0554 imposes no referral or physician-order requirement of its own; what it imposes is precertification, required for both the assessment and treatment, initiated on Availity or by phone, with form GR-69017-4 (7-26 revision, eff. 8/1/2026) supplying the clinical information, with reauthorization commonly on a roughly six-month cadence. Where a state autism mandate applies to a fully-insured plan, that mandate may add a prescription or physician-order requirement of its own \u2014 Maryland and Missouri both do \u2014 so check the state layer before assuming none exists.',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
       },
       telehealth: {
         value:
@@ -217,7 +217,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does Aetna cover ABA therapy?', a: 'Yes — for autism spectrum disorder (ICD-10 F84.0–F84.9) under clinical policy CPB 0554, with precertification. Aetna considers ABA experimental for non-ASD indications.' },
-      { q: 'Does Aetna require prior authorization for ABA?', a: 'Yes. As of 1/1/2026, precertification uses form GR-69017-4, submitted via Availity or by phone, with diagnosis details, requested hours per CPT code, the supervising clinician, and concurrent services.' },
+      { q: 'Does Aetna require prior authorization for ABA?', a: 'Yes. Precertification is initiated on Availity or by phone, and form GR-69017-4 (7-26 revision, eff. 8/1/2026) supplies diagnosis details, requested hours per CPT code, the supervising clinician, and concurrent services.' },
       { q: 'Does Aetna cover ABA by telehealth?', a: 'Yes, for codes 97151, 97153, 97155, 97156, and 97157 (not 97152) — but the policy has shifted before, so confirm the current rule during each benefits verification.' },
     ],
   },
@@ -644,6 +644,458 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare require prior authorization for ABA?', a: 'Yes — a two-step process via Optum\'s Provider Express portal: an assessment authorization first, then a treatment authorization, generally under Optum\'s Supplemental Clinical Criteria unless state law specifies otherwise.' },
       { q: 'How often does Optum review ABA authorizations?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'What happens if a family uses fewer hours than authorized?', a: 'Utilization below 80% of authorized hours over a two-week period draws scrutiny at review. Intake should capture realistic availability so the requested intensity matches what the family can actually attend.' },
+    ],
+  },
+  'meritain-health': {
+    slug: 'meritain-health',
+    cardDesc: 'Aetna-owned TPA for self-funded employer plans — the employer\'s plan document, not Meritain, sets the ABA benefit.',
+    family: 'aetna',
+    assessmentPA: {
+      value: 'Plan-dependent — Meritain tells members to "consult your benefits guide" for which services need precertification; the employer plan sets the list',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' },
+        { title: 'Meritain Health — About us (self-funded employee benefit plans)', url: 'https://www.meritain.com/about-us/' },
+      ],
+      verifyVia: 'The employer\'s plan document, readable in the Meritain provider portal (account.meritain.com), or Meritain Medical Management at 1-800-242-1199 — ask whether 97151/97152 need precertification on this group.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Plan-dependent — set by the employer\'s plan document and administered by Meritain; ask per group, never per carrier',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' },
+      ],
+      verifyVia: 'The plan document in the Meritain provider portal, or Meritain Medical Management (1-800-242-1199) — ask whether ABA treatment codes need precertification and how requests are submitted for this group.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Plan-dependent — the diagnosis requirement is whatever the sponsor\'s plan document and adopted medical policy say; Meritain publishes no ABA policy of its own that we could find',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Meritain Health — About us (self-funded employee benefit plans)', url: 'https://www.meritain.com/about-us/' },
+      ],
+      verifyVia: 'The plan document (Meritain provider portal) — ask which medical-necessity criteria the plan applies to ABA and which diagnoses qualify.',
+      blocker: 'per-case',
+    },
+    payer: 'Meritain Health',
+    state: 'US', kind: 'commercial',
+    pill: 'Payer Guide · Meritain Health',
+    h1: 'Meritain Health ABA coverage: the intake guide.',
+    metaTitle: 'Meritain Health ABA Coverage — Self-Funded Plans & Prior Auth | Carelu',
+    metaDescription:
+      'Why a Meritain Health card is not a coverage answer: Meritain administers self-funded employer plans, so the employer\'s plan document decides ABA benefits and precertification, state autism mandates may not reach the plan, and verification runs per employer group.',
+    intro: [
+      'Meritain Health is a benefits administrator, not an insurer. It calls itself one of the nation\'s largest third-party administrators, a subsidiary of Aetna and CVS Health, serving self-funded employee benefit plans. That changes how intake should read the card: the employer funds the claims and writes the plan, including which services need precertification. The useful questions are which employer sponsors the plan and what that plan document says about ABA, not what Meritain\'s ABA policy is.',
+      'Two things follow. A self-funded ERISA plan is not treated as an insurer under state insurance law, so the state autism mandate a family has read about may not reach it. And two Meritain members can have different ABA benefits because they work for different employers. Verify each employer group separately.',
+    ],
+    atGlance: [
+      { label: 'What it is', value: 'Third-party administrator for self-funded employer plans; a subsidiary of Aetna and CVS Health' },
+      { label: 'Who sets the benefit', value: 'The employer plan sponsor, in the plan document' },
+      { label: 'Precert', value: 'Plan-dependent; Meritain Medical Management 1-800-242-1199' },
+      { label: 'State autism mandates', value: 'May not apply; ERISA self-funded plans are not deemed insurers under state law' },
+      { label: 'Network', value: 'Sponsor\'s choice; over 90% offer Aetna Choice POS II, others use regional networks' },
+      { label: 'Provider line', value: 'Card number, or 1-800-566-9311 (24-hour automated benefits and claims)' },
+      { label: 'Eligibility (EDI)', value: 'Optum (formerly Change Healthcare) or SSI; Availity for claim submission only' },
+    ],
+    sections: [
+      {
+        h2: 'A TPA card tells you who pays claims, not what is covered',
+        cites: [
+          { title: 'Meritain Health — About us (self-funded employee benefit plans)', url: 'https://www.meritain.com/about-us/' },
+          { title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' },
+          { title: 'Meritain Health — Provider services', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-provider-services/' },
+        ],
+        body: [
+          'A Meritain card tells you who processes the claim. It does not tell you what is covered. Meritain administers self-funded employee benefit plans, so the benefit design comes from the employer. Meritain\'s own precertification page tells members that "to read more about what services require precertification under your health care benefits plan, consult your benefits guide." Intake should capture the employer name and group number as first-class fields.',
+          'The plan document is easier to get than it is on most TPA cards. Meritain\'s provider portal (account.meritain.com) lists "Plan documents" and "Eligibility and benefits" among what a registered provider can view, along with claims history, EOBs, the patient\'s ID card and accumulators. To register you need your tax ID, provider name and address exactly as on the W-9 you submitted, plus your NPI and phone number. For a new ABA family, read the plan document there before quoting coverage.',
+        ],
+      },
+      {
+        h2: 'Settle the funding question before quoting a mandate',
+        cites: [
+          { title: '29 U.S.C. § 1144 — ERISA preemption, including the “deemer” clause at (b)(2)(B)', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1144&num=0&edition=prelim' },
+          { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1003&num=0&edition=prelim' },
+        ],
+        body: [
+          'State autism mandates regulate insurance. Under ERISA\'s "deemer" clause, an employee benefit plan "shall [not] be deemed to be an insurance company or other insurer … for purposes of any law of any State purporting to regulate insurance companies, insurance contracts." In practice, a self-funded employer plan is generally outside the state mandate\'s direct reach, so the mandate a family cites for their state may not apply to their plan. Some sponsors still choose to cover ABA and some do not. The plan document is the only answer.',
+          'There is one exception to watch for. ERISA "shall not apply" to governmental plans or to most church plans (29 U.S.C. § 1003(b)), so a city, county, school-district or church plan administered by Meritain is not an ERISA plan. Its rules come from its own plan terms and whatever state law reaches it. Ask who the employer is before relying on either framework.',
+        ],
+      },
+      {
+        h2: 'The Aetna connection: the network, not the policy',
+        cites: [
+          { title: 'Meritain Health — Network solutions', url: 'https://www.meritain.com/network-solutions/' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+        body: [
+          'Meritain says that "over 90 percent of our plan sponsors choose to offer the Aetna Choice POS II network" and that it is "the only TPA able to offer access to this network." It also offers regional and combined networks, so the network is a sponsor choice too. Confirm which one this group uses before treating an Aetna-participating provider as in network.',
+          'Network access is not clinical policy. Aetna\'s ABA precertification form GR-69017-4 (7-26) lists the plans it "applies to": Aetna plans, Innovation Health plans, Allina Health | Aetna and Banner | Aetna. Meritain is not on that list. Do not assume Aetna\'s CPB 0554 criteria or Aetna\'s precert workflow govern a Meritain member unless the plan says so.',
+        ],
+      },
+      {
+        h2: 'Running eligibility on a Meritain card',
+        cites: [
+          { title: 'Meritain Health — Electronic transaction vendors', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-electronic-transaction-vendors/' },
+          { title: 'Meritain Health — Provider services', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-provider-services/' },
+        ],
+        body: [
+          'Meritain\'s clearinghouse table lists which vendors handle which transactions. Optum (formerly Change Healthcare) and SSI (ClaimsNet) handle eligibility, claim status and claim submission. Availity handles claims submission only. An eligibility check routed through Availity is therefore the wrong channel for Meritain. For a person, call the toll-free number on the back of the patient\'s ID card, or 1-800-566-9311 for 24-hour automated benefits and claims information.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Employer name and group number', desc: 'The benefit lives in the employer\'s plan document. Without the group, a Meritain benefit check has nothing to look up.' },
+      { title: 'Plan type', desc: 'Self-funded ERISA, governmental or church plan? This decides whether ERISA\'s timelines and the state mandate apply. Never quote a mandate before this is known.' },
+      { title: 'The plan document\'s ABA terms', desc: 'Coverage, precertification, hour or dollar limits and any age limit, read from the plan document in the Meritain provider portal.' },
+      { title: 'Which network the group uses', desc: 'Most sponsors use Aetna Choice POS II, but some use regional networks. Confirm before treating Aetna participation as in network.' },
+      { title: 'Member ID, card photo and the card\'s phone numbers', desc: 'Meritain tells providers to call the number on the back of the ID card, and the precertification number is often printed there too.' },
+      { title: 'Other coverage', desc: 'The other parent\'s plan, Medicaid, TRICARE or CHAMPVA. The plan document\'s order-of-benefits terms and federal payer-order rules decide who pays first.' },
+    ],
+    sources: [
+      { title: 'Meritain Health — About us (self-funded employee benefit plans)', url: 'https://www.meritain.com/about-us/' },
+      { title: 'Meritain Health — For providers (provider portal)', url: 'https://www.meritain.com/resources-for-providers-meritain-health-provider-portal/' },
+      { title: 'Meritain Health — Provider services', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-provider-services/' },
+      { title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' },
+      { title: 'Meritain Health — Network solutions', url: 'https://www.meritain.com/network-solutions/' },
+      { title: 'Meritain Health — Electronic transaction vendors', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-electronic-transaction-vendors/' },
+      { title: '29 U.S.C. § 1144 — ERISA preemption', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1144&num=0&edition=prelim' },
+      { title: '29 CFR § 2560.503-1 — ERISA claims procedure', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'Nothing Meritain publishes sets a supervision requirement for ABA. Supervision terms come from the medical policy the plan sponsor adopts and the plan document, and they can differ between Meritain groups.',
+        status: 'unverified',
+        cites: [{ title: 'Meritain Health — About us (self-funded employee benefit plans)', url: 'https://www.meritain.com/about-us/' }],
+        verifyVia: 'Meritain Medical Management (1-800-242-1199) or the plan document in the provider portal — ask which ABA medical policy the group applies and what it requires of BCBA supervision.',
+        blocker: 'per-case',
+      },
+      concurrentBilling: {
+        value: 'Not published by Meritain. Whether 97153 and 97155 may be billed for the same clock time depends on the plan\'s adopted payment and claim-editing rules.',
+        status: 'unverified',
+        cites: [{ title: 'Meritain Health — Provider services', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-provider-services/' }],
+        verifyVia: 'The number on the back of the member\'s ID card — ask specifically whether 97153 and 97155 may overlap and which claim-editing rules the group uses.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'Not published by Meritain. Any hour, visit or dollar limit on ABA is written into the employer\'s plan document.',
+        status: 'unverified',
+        cites: [{ title: 'Meritain Health — Provider services', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-provider-services/' }],
+        verifyVia: 'The plan document and accumulators in the Meritain provider portal — read any ABA limit and how much of it has already been used.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value: 'Not published by Meritain. Documentation standards for ABA session notes are set by the plan\'s adopted medical policy and provider agreement.',
+        status: 'unverified',
+        cites: [{ title: 'Meritain Health — Provider services', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-provider-services/' }],
+        verifyVia: 'The number on the member\'s ID card — ask which documentation standard applies at audit for this group.',
+        blocker: 'per-case',
+      },
+      placeOfService: {
+        value: 'Not published by Meritain. Whether home, clinic, school or telehealth ABA is payable is a plan-document question for each employer group.',
+        status: 'unverified',
+        cites: [{ title: 'Meritain Health — Provider services', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-provider-services/' }],
+        verifyVia: 'Benefits verification on the specific group — ask which places of service are payable for ABA and whether school-based delivery is excluded.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value: 'Not published by Meritain. Whose NPI carries a technician-delivered 97153 claim, and which modifiers are required, depends on the network contract and the plan\'s billing rules.',
+        status: 'unverified',
+        cites: [{ title: 'Meritain Health — Electronic transaction vendors', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-electronic-transaction-vendors/' }],
+        verifyVia: 'The number on the member\'s ID card, plus the network the group uses (Aetna Choice POS II or a regional network) — confirm rendering-versus-billing NPI and modifiers before the first claim.',
+        blocker: 'per-case',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'Set by the plan document. Because a self-funded ERISA plan is generally outside state insurance mandates, a mandate\'s age band may not apply. A governmental or church plan is outside ERISA and has to be checked on its own terms.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '29 U.S.C. § 1144 — ERISA preemption', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1144&num=0&edition=prelim' },
+          { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1003&num=0&edition=prelim' },
+        ],
+        verifyVia: 'The plan document in the Meritain provider portal — read any ABA age limit directly.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value: 'Not published by Meritain. Any rule on how recent the diagnostic evaluation must be comes from the medical policy the plan adopts.',
+        status: 'unverified',
+        cites: [{ title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' }],
+        verifyVia: 'Meritain Medical Management (1-800-242-1199) — ask whether an evaluation of this age is accepted before booking the assessment.',
+        blocker: 'per-case',
+      },
+      diagnosingProviders: {
+        value: 'Not published by Meritain. Which credentials may make the ASD diagnosis depends on the plan\'s adopted ABA criteria.',
+        status: 'unverified',
+        cites: [{ title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' }],
+        verifyVia: 'Meritain Medical Management (1-800-242-1199) — ask which diagnosing credentials the group\'s ABA criteria accept.',
+        blocker: 'per-case',
+      },
+      diagnosticTools: {
+        value: 'Not published by Meritain. Whether a named instrument (ADOS-2 or similar) is required depends on the plan\'s adopted criteria. Collect the instrument, date and score anyway.',
+        status: 'unverified',
+        cites: [{ title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' }],
+        verifyVia: 'Meritain Medical Management (1-800-242-1199) — ask whether a specific diagnostic instrument is required for this group.',
+        blocker: 'per-case',
+      },
+      referral: {
+        value: 'Plan-dependent. Meritain\'s precertification guidance says the provider calls to precertify, reviewers check the treatment plan "against standard quality of care guidelines," and members should "consult your benefits guide" for which services need it. Whether ABA needs a physician referral or order, precertification, or neither is set by the group\'s plan. Medical Management: 1-800-242-1199.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' }],
+        verifyVia: 'The plan document in the provider portal, or Meritain Medical Management (1-800-242-1199) — ask whether ABA needs a referral, an order or precertification for this group.',
+        blocker: 'per-case',
+      },
+      telehealth: {
+        value: 'Not published by Meritain for ABA. Meritain\'s network page names telehealth among the care options on its Aetna networks, but whether any ABA code is payable by telehealth is a plan-document question.',
+        status: 'unverified',
+        cites: [{ title: 'Meritain Health — Network solutions', url: 'https://www.meritain.com/network-solutions/' }],
+        verifyVia: 'Benefits verification on the specific group — ask which ABA codes, if any, are payable by telehealth and with which place-of-service code or modifier.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value: 'Meritain publishes no decision clock, so the governing law decides. For a self-funded ERISA plan, a pre-service claim is decided "not later than 15 days after receipt of the claim by the plan." That can be extended once "for up to 15 days" for matters beyond the plan\'s control. Urgent care is decided within "72 hours after receipt of the claim." Governmental and church plans are outside ERISA and follow their own plan terms.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '29 CFR § 2560.503-1 — ERISA claims procedure (decision deadlines)', url: 'https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XXV/subchapter-F/part-2560/section-2560.503-1' },
+          { title: '29 U.S.C. § 1003 — ERISA coverage and exceptions (governmental and church plans)', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section1003&num=0&edition=prelim' },
+        ],
+        verifyVia: 'Benefits verification: confirm the plan type (ERISA, governmental or church), and ask Meritain Medical Management how early a continued-service request may be filed.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value: 'Between two commercial plans, including the birthday rule for a child covered by both parents, the order comes from the plan document\'s coordination-of-benefits terms, which Meritain administers but does not publish. Three federal rules hold regardless. Medicaid pays after other coverage: when third-party liability is established, the state "must reject the claim and return it to the provider." Congress intended "TRICARE be the secondary payer to all health benefit, insurance and third-party payer plans." CHAMPVA pays first only against Medicaid, IHS, state victims-of-crime programs and CHAMPVA supplements; otherwise "CHAMPVA will pay secondary."',
+        status: 'plan-dependent',
+        cites: [
+          { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+          { title: 'VA — CHAMPVA Guidebook (PDF)', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
+        ],
+        verifyVia: 'The plan document\'s coordination-of-benefits section (Meritain provider portal), or the number on the ID card — ask the order-of-benefits rule for dependent children and the secondary-payment method.',
+        blocker: 'per-case',
+      },
+    },
+    faq: [
+      { q: 'Does Meritain Health cover ABA therapy?', a: 'It depends on the employer. Meritain administers self-funded employer plans, so the employer\'s plan document decides whether ABA is covered and whether it needs precertification. Meritain\'s own guidance tells members to consult their benefits guide. Registered providers can read the plan document in Meritain\'s provider portal.' },
+      { q: 'Is Meritain Health the same as Aetna?', a: 'No. Meritain is a subsidiary of Aetna and CVS Health, and most of its plan sponsors (over 90%, per Meritain) use the Aetna Choice POS II network. It administers employer-funded plans rather than insuring them, though, and Aetna\'s ABA precertification form does not list Meritain among the plans it applies to. Confirm the group\'s medical policy rather than assuming Aetna\'s.' },
+      { q: 'Does my state\'s autism mandate apply to a Meritain plan?', a: 'Often not directly. State autism mandates regulate insurance, and ERISA says a self-funded employer plan is not deemed an insurer for purposes of state insurance law. Governmental and church plans are outside ERISA and have to be checked separately. Find out the plan type before relying on a mandate.' },
+    ],
+  },
+
+  'humana': {
+    slug: 'humana',
+    cardDesc: 'Humana finished leaving employer group medical in 2025 — route a bare "Humana" card to Medicaid, Medicare Advantage or TRICARE East first.',
+    family: 'humana',
+    assessmentPA: {
+      value: 'Depends on the Humana line — Healthy Horizons Medicaid plans set PA by state; ABA codes are not on Humana\'s Medicare Advantage/D-SNP PA list (eff. 7/1/2026); TRICARE East runs through Humana Military',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+        { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
+      ],
+      verifyVia: 'Identify the line of business from the card, then use the matching guide: the state Healthy Horizons guide, the TRICARE East (Humana Military) guide, or, for Medicare Advantage, Humana provider services via Availity to confirm ABA is a covered benefit at all.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Depends on the Humana line — state-specific for Healthy Horizons Medicaid; not on the Medicare Advantage/D-SNP PA list; TRICARE East under Humana Military',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+        { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
+      ],
+      verifyVia: 'Route by line of business first; the state Healthy Horizons PA list or the TRICARE East guide carries the operative rule.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Line-of-business dependent — Humana\'s medical coverage policy library carries ABA policies only for Medicaid (Oklahoma, South Carolina, Louisiana); no national or Medicare Advantage ABA policy is published',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
+      ],
+      verifyVia: 'The state Healthy Horizons guide for a Medicaid member; for any other Humana line, ask Humana provider services which criteria govern ABA on that plan.',
+      blocker: 'per-case',
+    },
+    payer: 'Humana',
+    state: 'US', kind: 'commercial',
+    pill: 'Payer Guide · Humana',
+    h1: 'Humana ABA coverage: which Humana is this?',
+    metaTitle: 'Humana ABA Coverage & Prior Auth — Which Humana Plan Is It? | Carelu',
+    metaDescription:
+      'Humana finished exiting employer group commercial medical coverage in 2025. A Humana card on a child today usually means Medicaid (Healthy Horizons), Medicare Advantage, or TRICARE East via Humana Military. How intake should route a bare Humana card.',
+    intro: [
+      'A card that just says "Humana" no longer means what it used to. On Feb. 23, 2023, Humana announced it was leaving the Employer Group Commercial Medical Products business, "which includes all fully insured, self-funded and Federal Employee Health Benefit medical plans," phased over 18 to 24 months. Its FY2025 10-K confirms that "during 2025, we finalized our exit." So the first intake question on a Humana card is which Humana plan this is, not what Humana covers.',
+      'What remains, per the 10-K: Medicare (individual and group Medicare Advantage, stand-alone drug plans, Medicare Supplement); Medicaid through state-based contracts; the military business, chiefly the TRICARE East Region contract; and specialty dental, vision, life and disability benefits. Each line handles ABA differently. This guide is the router for them.',
+    ],
+    atGlance: [
+      { label: 'Employer group medical', value: 'Gone — exit announced Feb. 2023, finalized during 2025 (fully insured, self-funded and FEHB)' },
+      { label: 'Remaining lines', value: 'Medicare Advantage, Medicare Supplement/PDP, Medicaid (state contracts), TRICARE East, specialty' },
+      { label: 'Medicaid states (10-K)', value: 'FL, KY, IL, IN, LA, OH, OK, SC, VA, WI' },
+      { label: 'Medicare Advantage PA list', value: 'No ABA codes (eff. 7/1/2026, rev. 9/1/2026)' },
+      { label: 'ABA medical policy', value: 'Medicaid only (OK, SC, LA); no national or MA ABA policy' },
+      { label: 'TRICARE East', value: 'Humana Military, T-5 contract since 1/1/2025 — use the TRICARE East guide' },
+    ],
+    sections: [
+      {
+        h2: 'Who a "Humana commercial" card actually belongs to now',
+        cites: [
+          { title: 'Humana Inc. — Form 10-K for fiscal year 2025 (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm' },
+          { title: 'Humana — Humana to Exit Employer Group Commercial Medical Products Business (Feb. 23, 2023)', url: 'https://humana.gcs-web.com/news-releases/news-release-details/humana-exit-employer-group-commercial-medical-products-business' },
+          { title: 'Humana — Commercial Summary of Medical Preauthorization and Notification List Changes (last updated Nov. 5, 2024) (PDF)', url: 'https://assets.humana.com/is/content/humana/Commercial%20SOCpdf' },
+        ],
+        body: [
+          'In Humana\'s FY2025 10-K, the medical membership table has columns for individual and group Medicare Advantage, stand-alone PDP, Medicare Supplement, state-based contracts and military services. There is no commercial medical column. The only employer products Humana still lists are specialty ones: "dental, vision, life and disability to employer groups." A family that says their child has Humana through a parent\'s employer is therefore describing one of three things: a specialty card (dental or vision, which carries no ABA benefit), a group Medicare Advantage retiree card, or a card from a plan the employer has since moved to another carrier. Ask for the family\'s current medical card before running anything.',
+          'Claims from the wind-down years can still come up. On Humana\'s last commercial list, ABA codes 97151–97158, 0362T and 0373T (with H0031, H0032, H2012, H2019 and 90889) were "removed from the preauthorization list eff. Aug. 9, 2024." Humana\'s provider site posts no commercial prior-authorization list after July 2024.',
+        ],
+      },
+      {
+        h2: 'Route by line of business',
+        cites: [
+          { title: 'Humana Inc. — Form 10-K for fiscal year 2025 (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm' },
+          { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
+          { title: 'Humana Military — Applied Behavior Analysis (ABA) provider FAQ (PDF)', url: 'https://assets.humana.com/is/content/humana/aba-provider-faqpdf-1' },
+        ],
+        body: [
+          'Medicaid (Humana Healthy Horizons) is the most likely match for a child. The 10-K names Medicaid contracts in "Florida, Kentucky, Illinois, Indiana, Louisiana, Ohio, Oklahoma, South Carolina, Virginia and Wisconsin." Each is a state contract with its own ABA policy and PA list, so never read one state\'s rules across to another. This directory has Healthy Horizons guides for Florida, Ohio, Oklahoma and Virginia. Humana\'s medical coverage policy library carries its own ABA policies for Oklahoma, South Carolina and Louisiana Medicaid.',
+          'TRICARE East is a different payer. Humana Military administers the T-5 East Region contract, which "commenced on January 1, 2025 and comprises 24 states, and Washington D.C." ABA there runs under the TRICARE Autism Care Demonstration, so use the TRICARE East (Humana Military) guide, not this one.',
+          'Medicare Advantage covers people 65 and over and "some disabled persons under the age of 65," so it is rare on a child. Humana\'s coverage policy library lists no Medicare Advantage ABA policy.',
+        ],
+      },
+      {
+        h2: 'Medicare Advantage and D-SNP: what the PA list says',
+        cites: [
+          { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+        ],
+        body: [
+          'Humana\'s Medicare Advantage and D-SNP prior authorization list (effective July 1, 2026, revised Sept. 1, 2026) has a behavioral health category with two entries: partial hospitalization and transcranial magnetic stimulation. No ABA code (97151–97158, 0362T, 0373T) appears on it. That tells you ABA is not on the PA list. It does not tell you ABA is a covered Medicare Advantage benefit. The list itself says "certain services may not be covered under the member\'s plan" and points to an Advance Coverage Determination for services whose coverage is uncertain. It also notes that, from Jan. 1, 2026, CMS requires prior authorization decisions within 7 days for certain medical items and services.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'The product name on the card, verbatim', desc: '"Healthy Horizons" means a state Medicaid plan, a Medicare Advantage product name means Medicare, and a TRICARE marking means Humana Military. The bare word "Humana" is not enough to route.' },
+      { title: 'State of residence', desc: 'Decides which Healthy Horizons contract and policy apply. Humana\'s Medicaid ABA rules are state-specific.' },
+      { title: 'Whether the card is medical or specialty', desc: 'Humana still sells dental, vision, life and disability to employers. A specialty card carries no ABA benefit.' },
+      { title: 'Where the coverage came from', desc: 'If the family says an employer, ask for the current medical card. Humana finished leaving employer group medical coverage in 2025.' },
+      { title: 'Member ID and date of birth', desc: 'Needed for eligibility on whichever line the card turns out to be.' },
+    ],
+    sources: [
+      { title: 'Humana Inc. — Form 10-K for fiscal year 2025 (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm' },
+      { title: 'Humana — Humana to Exit Employer Group Commercial Medical Products Business (Feb. 23, 2023)', url: 'https://humana.gcs-web.com/news-releases/news-release-details/humana-exit-employer-group-commercial-medical-products-business' },
+      { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
+      { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
+      { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+      { title: 'Humana — Commercial Summary of Medical Preauthorization and Notification List Changes (last updated Nov. 5, 2024) (PDF)', url: 'https://assets.humana.com/is/content/humana/Commercial%20SOCpdf' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'Humana publishes no national ABA supervision rule. Its coverage-policy library has ABA policies only for Oklahoma, South Carolina and Louisiana Medicaid, and those are state policies that must not be read across. Supervision rules come from the line of business: the state Healthy Horizons policy, or TRICARE for Humana Military.',
+        status: 'unverified',
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        verifyVia: 'Route to the state Healthy Horizons guide or the TRICARE East guide once the line of business is known.',
+        blocker: 'per-case',
+      },
+      concurrentBilling: {
+        value: 'No national Humana rule. Whether 97153 and 97155 may overlap is set by the state Medicaid program for Healthy Horizons members, or by TRICARE for Humana Military.',
+        status: 'unverified',
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'No national Humana rule. Unit ceilings come from the state Medicaid fee schedule and PA for Healthy Horizons members, or from TRICARE for Humana Military.',
+        status: 'unverified',
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value: 'No national Humana rule. Documentation standards follow the state Medicaid program or TRICARE.',
+        status: 'unverified',
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
+        blocker: 'per-case',
+      },
+      placeOfService: {
+        value: 'No national Humana rule. Payable settings follow the state Medicaid program or TRICARE.',
+        status: 'unverified',
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value: 'No national Humana rule. Rendering-versus-billing NPI conventions follow the state Medicaid program or TRICARE.',
+        status: 'unverified',
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
+        blocker: 'per-case',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'Depends on the line. Healthy Horizons Medicaid follows the state\'s program. TRICARE follows the Autism Care Demonstration. Medicare Advantage covers people 65 and over and "some disabled persons under the age of 65," so it is rarely a child\'s plan. There is no national Humana age rule.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Humana Inc. — Form 10-K for fiscal year 2025 (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm' },
+          { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
+        ],
+        verifyVia: 'Route by line of business, then read the age rule in the state Healthy Horizons guide or the TRICARE East guide.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value: 'No national Humana rule. Recency requirements are set by the state Medicaid ABA policy or by TRICARE.',
+        status: 'unverified',
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
+        blocker: 'per-case',
+      },
+      diagnosingProviders: {
+        value: 'No national Humana rule. Who may diagnose is set by the state Medicaid ABA policy or by TRICARE\'s ASD-diagnosing-provider rules.',
+        status: 'unverified',
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
+        blocker: 'per-case',
+      },
+      diagnosticTools: {
+        value: 'No national Humana rule. Required instruments are set by the state Medicaid ABA policy or by TRICARE.',
+        status: 'unverified',
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
+        blocker: 'per-case',
+      },
+      referral: {
+        value: 'Depends on the line. On Medicare Advantage HMO and PPO plans "the full list of prior authorization requirements applies," but no ABA code is on that list (eff. 7/1/2026). Medicaid referral and PA rules are state-specific, and TRICARE East follows TRICARE\'s rules through Humana Military.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' }],
+        verifyVia: 'Route by line of business; the state Healthy Horizons guide or the TRICARE East guide carries the referral rule.',
+        blocker: 'per-case',
+      },
+      telehealth: {
+        value: 'No national Humana rule. Telehealth ABA follows the state Medicaid program or TRICARE.',
+        status: 'unverified',
+        cites: [{ title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-09-27)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' }],
+        verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East).',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value: 'Depends on the line. For Medicare Advantage, Humana\'s PA list notes that "effective Jan. 1, 2026, CMS requires prior authorization decisions within 7 days for certain medical items/services requests." Medicaid decision clocks are set by each state contract, and TRICARE by its own rules.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' }],
+        verifyVia: 'The line-of-business guide (state Healthy Horizons or TRICARE East) for the decision clock that applies.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value: 'Depends on which Humana line is involved. Two federal rules decide most cases. A Healthy Horizons Medicaid plan pays after any other coverage: where third-party liability is established, the state "must reject the claim and return it to the provider." TRICARE, including TRICARE East via Humana Military, is intended to "be the secondary payer to all health benefit, insurance and third-party payer plans." Get the other plan\'s card before billing Humana.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '42 CFR § 433.139 — Medicaid payment of claims involving third party liability', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+          { title: '32 CFR § 199.8 — TRICARE double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/part-199/section-199.8' },
+        ],
+        verifyVia: 'Benefits verification on each plan the child holds; confirm which is primary before the first claim.',
+        blocker: 'per-case',
+      },
+    },
+    faq: [
+      { q: 'Does Humana cover ABA therapy?', a: 'It depends on which Humana plan the child is on. Humana finished leaving employer group medical coverage in 2025. Its remaining lines are Medicaid (Healthy Horizons, state by state), Medicare Advantage, and TRICARE East via Humana Military, and each handles ABA under its own rules. Identify the line first.' },
+      { q: 'Can my child still have Humana through a parent\'s employer?', a: 'Not as a medical plan. Humana announced in Feb. 2023 that it was leaving all employer group commercial medical products (fully insured, self-funded and FEHB) and finalized the exit during 2025. Humana still sells dental, vision, life and disability to employers, so an employer-issued Humana card today is most likely a specialty card with no ABA benefit. Ask for the family\'s current medical card.' },
+      { q: 'Is Humana Healthy Horizons the same as Humana?', a: 'Healthy Horizons is Humana\'s Medicaid product, contracted state by state (FL, KY, IL, IN, LA, OH, OK, SC, VA and WI per Humana\'s 2025 10-K). Each state has its own ABA policy and PA list. Use the state Healthy Horizons guide, not this national one.' },
     ],
   },
 };

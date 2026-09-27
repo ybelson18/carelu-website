@@ -1208,7 +1208,7 @@
     {
       "id": "VC-001",
       "priority": 1,
-      "status": "open",
+      "status": "resolved",
       "slug": "anthem-bcbs-georgia",
       "claim": "The guide presents CG-BEH-02 (Adaptive Behavioral Treatment) as Anthem's live ABA medical-necessity criteria.",
       "challenge": "Research on 2026-09-17 found Anthem commercial transitioned ABA reviews from CG-BEH-02 and MCG W0153 to MCG B-806-T for dates of service on or after 2024-06-01, evidenced by a signed Anthem regional-officer letter (Colorado version) and doc code MULTI-BCBS-CM-047274-23 in five other states. NOT independently re-verified — anthem.com and providernews.anthem.com are JS-rendered and were unreachable at verification time.",
@@ -1217,72 +1217,88 @@
         "src/data/payers/vob/georgia.ts",
         "src/data/payers/vob/ohio.ts",
         "src/data/payers/vob/carveouts.ts"
-      ]
+      ],
+      "resolvedAt": "2026-09-27",
+      "resolution": "CONFIRMED and applied. Anthem Georgia Commercial provider news of 2/1/2024 (MULTI-BCBS-CM-047274-23, read via r.jina.ai) replaces CG-BEH-02 with MCG B-806-T for DOS from 6/1/2024. anthem-bcbs-georgia now presents MCG B-806-T (licensed; blocker 'licensed' on the diagnosis fields); vob/georgia code grid no longer marks CG-BEH-02 caps verified. vob/ohio.ts CG-BEH-02 refs are Anthem Ohio MEDICAID (the notice is commercial only) - unchanged; its unsourced hour parameters were removed. Source: https://providernews.anthem.com/georgia/articles/mcg-care-guidelines-27th-edition-update-17867-17867"
     },
     {
       "id": "VC-002",
       "priority": 1,
-      "status": "open",
+      "status": "resolved",
       "slug": "anthem-bcbs-georgia",
       "claim": "Cites the October 2024 multi-state ABA Provider Resource Guide.",
       "challenge": "A June 2025 edition (MULTI-BCBS-CM-084583-25-CPN83931) appears to supersede it, covering CT/GA/IN/KY/ME/MO/NV/NH/NY/OH/VA. Colorado is excluded and has its own state guide (COBCBS-CM-084607-25).",
-      "resolve": "Confirm the June 2025 edition and reprint the citation."
+      "resolve": "Confirm the June 2025 edition and reprint the citation.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "CONFIRMED. June 2025 edition MULTI-BCBS-CM-084583-25-CPN83931 (8 pp., covers CT/GA/IN/KY/ME/MO/NV/NH/NY/OH/VA) is at https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf; all GA cites and the vob/carveouts Anthem GA row re-pointed. The old files.providernews URL still serves Oct 2024."
     },
     {
       "id": "VC-003",
       "priority": 2,
-      "status": "open",
+      "status": "resolved",
       "slug": "georgia-medicaid",
       "claim": "States Georgia reimburses 97151-97158 in 15-minute units with U1-U5 practitioner modifiers.",
       "challenge": "The publicly posted Part II ASD manual (Jan 2018) contains ZERO occurrences of 97151-97158 and 147 of the retired Category III set (0359T-0374T), priced in 90- and 30-minute units. The modern code set is almost certainly what Georgia actually pays, but the claim is currently unsourced because the live fee schedule sits inside GAMMIS. Two further claims ('8 hours per 6-month period' assessment cap; 'telehealth within 50 miles of the border') also appear nowhere in the posted manual.",
       "resolve": "Blocked on DR-001. Do not 'correct' the guide to the legacy codes — the posted manual is the stale artifact, not the guide.",
-      "update_2026_09_17": "PARTIAL UNBLOCK found. The GA DCH Part II Telehealth Guidance (version date 10/1/2025) publishes a CURRENT Category I ABS code table — 97151-97158, 0362T, 0373T in 15-minute units with GT plus U1-U5 practitioner modifiers and rates — from a live DCH document, without needing GAMMIS. That corroborates the guide's modern code set and contradicts the posted Jan-2018 ASD manual. Re-verify and re-cite georgia-medicaid's code-set claim against the Telehealth Guidance; the assessment-hours and 50-mile claims remain unresolved."
+      "update_2026_09_17": "PARTIAL UNBLOCK found. The GA DCH Part II Telehealth Guidance (version date 10/1/2025) publishes a CURRENT Category I ABS code table — 97151-97158, 0362T, 0373T in 15-minute units with GT plus U1-U5 practitioner modifiers and rates — from a live DCH document, without needing GAMMIS. That corroborates the guide's modern code set and contradicts the posted Jan-2018 ASD manual. Re-verify and re-cite georgia-medicaid's code-set claim against the Telehealth Guidance; the assessment-hours and 50-mile claims remain unresolved.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "RESOLVED. The current Part II ASD manual (version date July 1, 2026, 54 pp.) is fetchable by plain curl from GAMMIS and prices 97151-97158 in 15-minute units; every GA cite of the 2018 URL now points to it. Source: https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf"
     },
     {
       "id": "VC-004",
       "priority": 1,
-      "status": "open",
+      "status": "resolved",
       "slug": "georgia-medicaid",
       "claim": "'Telehealth is billable only if the rendering provider is in Georgia or within 50 miles of the border', cited to the Part II ASD Policy Manual.",
       "challenge": "That manual has NO telehealth section — neither 'telehealth' nor 'telemedicine' appears in it. The current DCH Part II Telehealth Guidance (10/1/2025) does not carry the rule either: its distant-site definition turns on Georgia practice authority (O.C.G.A. 43-34-31), and its only 50-mile reference is about ambulance transportation. CareSource MM-0212 does assert the rule and attributes it to that guidance.",
-      "resolve": "Either find the version CareSource is restating, or drop the claim. The citation is wrong either way."
+      "resolve": "Either find the version CareSource is restating, or drop the claim. The citation is wrong either way.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "Claim dropped from georgia-medicaid. The July 2026 manual's revision log shows DCH added a Georgia-or-within-50-miles 'Telemed' note in 07/2024 and removed it; the surviving 50-mile rule is ENROLLMENT (practitioner must reside in GA or within 50 miles). caresource-georgia keeps CareSource's own restatement (MM-0212, 7/1/2026) as unverified with verifyVia. Source: https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf"
     },
     {
       "id": "VC-005",
       "priority": 1,
-      "status": "open",
+      "status": "resolved",
       "slug": "anthem-bcbs-georgia",
       "claim": "'Standardized developmental assessments at minimum every 2 years' and 'protocol modification up to 2 hours per 10 direct hours, max 8/week', both cited to the Anthem ABA Provider Resource Guide (Oct 2024).",
       "challenge": "That PDF was read in full and contains NEITHER statement. It says only that documentation must show the treatment plan was reviewed and/or updated at least every six months, and defers unit limits to CMS MUEs. Both facts likely come from CG-BEH-02, which is not public at the cited URL.",
       "resolve": "Re-source both or remove them. Pairs with VC-001 (the CG-BEH-02 retirement question).",
-      "evidence_2026_09_17": "CONFIRMED and widened. The cited PDF was downloaded (HTTP 200, 388KB, real PDF) and pdftotext'd in full: ZERO occurrences of 'prior authorization', 'precertification' or 'preauthoriz'; ZERO of '20 hours'; ZERO of 'CG-BEH', 'MCG' or any ASD-diagnosis criterion. So anthem-bcbs-georgia's assessmentPA, treatmentPA and dxRequired are ALSO unsourced by it, not just the two facts originally flagged. All three are now status 'unverified' with blocker 'document'. SEPARATE LEAD: the PDF's cover lists 11 states (CT GA IN KY ME MO NV NH NY OH VA), which is the June 2025 edition's state list per VC-002 — the old doc-code URL may already be serving the newer edition."
+      "evidence_2026_09_17": "CONFIRMED and widened. The cited PDF was downloaded (HTTP 200, 388KB, real PDF) and pdftotext'd in full: ZERO occurrences of 'prior authorization', 'precertification' or 'preauthoriz'; ZERO of '20 hours'; ZERO of 'CG-BEH', 'MCG' or any ASD-diagnosis criterion. So anthem-bcbs-georgia's assessmentPA, treatmentPA and dxRequired are ALSO unsourced by it, not just the two facts originally flagged. All three are now status 'unverified' with blocker 'document'. SEPARATE LEAD: the PDF's cover lists 11 states (CT GA IN KY ME MO NV NH NY OH VA), which is the June 2025 edition's state list per VC-002 — the old doc-code URL may already be serving the newer edition.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "Both claims (assessments every 2 years; 2 hrs per 10 direct, max 8/week) plus the 20-hour assessment cap and 40 hrs/week ceiling no longer appear as current Anthem rules; they are named only as parameters of the retired CG-BEH-02. assessmentPA/treatmentPA re-verified from GABCBS-CM-096930-25 (weekly approved units from 1/1/2026)."
     },
     {
       "id": "VC-006",
       "priority": 2,
-      "status": "open",
+      "status": "resolved",
       "slug": "humana-healthy-horizons-florida",
       "claim": "Non-participating claims 'default-pay at a percentage of the Florida Medicaid allowable fee schedule'; pre-existing Acentra authorizations auto-extended 120 days.",
       "challenge": "The current flyer (1025703FL0626) says non-par pay is the LESSER of the amount specified in the authorization request form or 100% of the applicable Medicaid fee schedule — 100%, and a lesser-of test — and that continuity runs up to 90 days, not 120. The guide cites the older 675204FL0225 edition, so it may have been right at carve-in.",
-      "resolve": "Re-verify against the current flyer edition and update both figures."
+      "resolve": "Re-verify against the current flyer edition and update both figures.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "CORRECTED on humana-healthy-horizons-florida: non-par pay is the LESSER of the amount on Humana's authorization form (which sets 80%) or 100% of the Medicaid fee schedule; continuity is 'up to 90 days' for members changing plans (flyer 1025703FL0626). The 120-day claim is removed (only in the superseded 675204FL0225 edition)."
     },
     {
       "id": "VC-007",
       "priority": 3,
-      "status": "open",
+      "status": "resolved",
       "slug": "caresource-georgia",
       "claim": "Cites CareSource MM-0212 effective 1/1/2025 throughout.",
       "challenge": "A newer edition effective 7/1/2026 is published at .../medicaid-ga-policy-medical-mm-0212-20260701.",
-      "resolve": "Re-verify against the 7/1/2026 edition and reprint citations."
+      "resolve": "Re-verify against the 7/1/2026 edition and reprint citations.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "All CareSource GA cites re-pointed to MM-0212 eff. 7/1/2026 (https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20260701). That edition defers to the state manual; corrections: parent/guardian signature now on the treatment record at review (daily-note signature removed 3/12/2025), 8 hrs/6 months assessment cap is CareSource's own; the '80% of fee schedule from 5/11/2026' claim was not in either edition and is now labelled as reported by a secondary source."
     },
     {
       "id": "VC-008",
       "priority": 3,
-      "status": "open",
+      "status": "resolved",
       "slug": "amerigroup-georgia",
       "claim": "deliveryRules is incomplete — placeOfService and billAsProvider are absent.",
       "challenge": "Left untouched during the Georgia backfill because that file's delivery rules were out of scope for the agent that filled its intake gates.",
-      "resolve": "Fill both fields next cycle."
+      "resolve": "Fill both fields next cycle.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "FILLED. amerigroup-georgia placeOfService and billAsProvider verified by inheritance from the July 2026 state manual after checking Amerigroup's CG-BEH-02 and March 2026 manual carry no ABA rule of their own. Source: https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf"
     },
     {
       "id": "VC-009",
@@ -1298,38 +1314,46 @@
     {
       "id": "VC-010",
       "priority": 1,
-      "status": "open",
+      "status": "resolved",
       "slug": "north-carolina-medicaid + Healthy Blue, AmeriHealth, Trillium, WellCare NC",
       "claim": "'Treatment plans are reviewed at least every 6 months and rewritten annually.'",
       "challenge": "The 8/1/2026 CCP 8F revision retitled subsection 5.3.4 and REMOVED 'Annual Rewriting'. Review now triggers on each goal's target date, a change in needs, a change in provider, or a new service, with short-range goals never exceeding 12 months.",
-      "resolve": "Re-read CCP 8F 5.3.4 and update the four MCO guides plus the state guide."
+      "resolve": "Re-read CCP 8F 5.3.4 and update the four MCO guides plus the state guide.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "CORRECTED on north-carolina-medicaid, Healthy Blue, AmeriHealth, Carolina Complete Health and Trillium: review at each goal's target date (short-range goals <= 12 months), on a change in needs/provider/services, and at each 180/90-day reauth. WellCare keeps its historical WNC.CP.109 text with a note. Source: CCP 8F (amended 8/1/2026) 5.3.4, https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open"
     },
     {
       "id": "VC-011",
       "priority": 2,
-      "status": "open",
+      "status": "resolved",
       "slug": "alliance-health-north-carolina",
       "claim": "dxRequired names 'ADI-R, ADOS-2, CARS-2, or TELE-ASD-PEDS' as accepted instruments.",
       "challenge": "That list comes from Alliance's Feb 2026 guidance, which predates the rewrite. Finalized CCP 8F 3.2.4 names BOSA, Tele-ASD-Peds, ADOS-2 and CARS2-ST/CARS2-HF — ADI-R is NOT on the state list.",
-      "resolve": "Confirm whether Alliance still accepts ADI-R above the state floor, or align to 8F."
+      "resolve": "Confirm whether Alliance still accepts ADI-R above the state floor, or align to 8F.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "Aligned alliance-health-north-carolina to CCP 8F 3.2.4 (BOSA, Tele-ASD-Peds, ADOS-2, CARS2-ST/HF; no ADI-R). The Feb 2026 Alliance guidance now returns HTTP 410 'Information Archived'; no replacement Alliance list found."
     },
     {
       "id": "VC-012",
       "priority": 2,
-      "status": "open",
+      "status": "resolved",
       "slug": "north-carolina-medicaid",
       "claim": "'At least 10% of approved services should be directly observed by the LQASP.'",
       "challenge": "CCP 8F 6.3(a) says 10% of services PROVIDED BY A PARAPROFESSIONAL — a materially different (and smaller) denominator.",
-      "resolve": "Correct the denominator."
+      "resolve": "Correct the denominator.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "CORRECTED: 'at least 10% of all services provided by a paraprofessional' (CCP 8F 6.3(a))."
     },
     {
       "id": "VC-013",
       "priority": 1,
-      "status": "open",
+      "status": "resolved",
       "slug": "kansas-medicaid, sunflower-health-plan-kansas, unitedhealthcare-community-plan-kansas, healthy-blue-kansas",
       "claim": "'Both Sunflower and Optum/UHC require diagnosis validation within the last 6 months', and KMAP 26140 'layers on top of rather than replacing' that rule.",
       "challenge": "Bulletin 26140 states the opposite: once diagnosed by a qualified diagnostician, members are eligible 'without the need for a re-evaluation of their autism spectrum disorder diagnosis. There is also no time limit on how soon they begin autism treatment.' Optum's July-2026 State Mandates supplement reproduces that verbatim for Kansas and no longer carries any 6-month language. Only Sunflower's KS.CP.01 still has it — last reviewed 06/2019, and it concedes state Medicaid provisions take precedence on conflict.",
-      "resolve": "Human decision needed on the prose. The dxRecency fields already state both rules and the conflict. NOTE: the 26140 effective date was corrected 2026-09-17 from 9/1/2026 to 11/1/2026 (bulletin reissued 8/31/2026) — verified against the live page."
+      "resolve": "Human decision needed on the prose. The dxRecency fields already state both rules and the conflict. NOTE: the 26140 effective date was corrected 2026-09-17 from 9/1/2026 to 11/1/2026 (bulletin reissued 8/31/2026) — verified against the live page.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "Prose corrected across the Kansas guides after reading KMAP Bulletin 26140 in full (portal.kmap-state-ks.us with a cookie jar): 26140 REPLACES the recency clock (no re-evaluation, no time limit). Optum/UHC follows it; Healthy Blue publishes no rule of its own (June 2026 manual); Sunflower shown as a cited three-way conflict (KS.CP.01 6 months / 26140 none / CP.BH.104 3 years) - see VC-059."
     },
     {
       "id": "VC-014",
@@ -1348,7 +1372,8 @@
       "slug": "multiple (Optum-citing guides)",
       "claim": "Cites 'Optum ABA State Mandates BH803ABASTM12026, effective January 2026' and 'BH803ABASCC'.",
       "challenge": "Live documents at the same URLs are BH803ABASTM72026 (effective July 2026) and BH803ABASCC082025 (interim review April 2026). Substance unchanged for AZ and CO.",
-      "resolve": "Refresh the document identifiers and dates."
+      "resolve": "Refresh the document identifiers and dates.",
+      "update_2026_09_27": "Current Optum SCC is BH803ABASCC082025 (annual review Aug 2025, interim review Apr 2026; PDF byte-identical to last week). Identifier refresh across guides not yet done."
     },
     {
       "id": "VC-016",
@@ -1373,47 +1398,57 @@
     {
       "id": "VC-018",
       "priority": 2,
-      "status": "open",
+      "status": "resolved",
       "slug": "nebraska-medicaid",
       "claim": "The FAQ says 'The state's documents conflict: the MSD caps direct service at 6 hrs/day and 20 hrs/week, while DHHS summaries describe up to 30 hours/week.'",
       "challenge": "The page's own body section says the conflict was resolved in the MSD's favour, and the current live MSD reads 20 cleanly with no 30-hour alternate. The June 2025 archived MSD did read '20-30', which is where the ambiguity came from — but it is gone. The FAQ now contradicts the body of its own page.",
-      "resolve": "Reword the FAQ to match the body."
+      "resolve": "Reword the FAQ to match the body.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "Superseded by VC-028, resolved the same day."
     },
     {
       "id": "VC-019",
       "priority": 3,
-      "status": "open",
+      "status": "resolved",
       "slug": "massachusetts guides (several)",
       "claim": "Prose says the standard PA form is 'completed by the LABA rendering or supervising services.'",
       "challenge": "The form says 'The Board-Certified Behavioral Analyst (BCBA) rendering and/or supervising the services SHOULD complete this form' — 'should', not 'must', and BCBA, not LABA. The LABA requirement comes from the Carelon/MBHP performance spec (262 CMR 10.00), not the form.",
-      "resolve": "Attribute each half to the right document."
+      "resolve": "Attribute each half to the right document.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "Attributed: the MassHealth standard ABA PA form (WellSense-hosted edition updated 3/12/2026) says the BCBA 'should complete this form' (Aetna hosts a Sept 2023 edition that says LABA 'should'); the LABA licence requirement (262 CMR 10.00) comes from the MBHP performance spec https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf."
     },
     {
       "id": "VC-020",
       "priority": 1,
-      "status": "open",
+      "status": "resolved",
       "slug": "unitedhealthcare-community-plan-kansas (+ kansas-medicaid FAQ, atGlance, collect)",
       "claim": "dxRequired asserts 'ASD validated within the last 6 months by a licensed psychologist or MD'.",
       "challenge": "The SAME guide's dxRecency field, already status 'verified', records that Optum's current State Mandates supplement (BH803ABASTM72026, July 2026) reproduces KMAP Bulletin 26140 verbatim and no longer contains any 6-month validation language. This is not the Sunflower-vs-state conflict — it is a live funnel value contradicted by the carrier's own current document, inside one guide. Also present in that guide's atGlance row and collect item, and in the kansas-medicaid FAQ answer 'Both Sunflower and Optum/UHC require...'.",
-      "resolve": "Highest-priority Kansas fix. Re-read BH803ABASTM72026 and correct the value, atGlance, collect and the FAQ together."
+      "resolve": "Highest-priority Kansas fix. Re-read BH803ABASTM72026 and correct the value, atGlance, collect and the FAQ together.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "CORRECTED. Optum BH803ABASTM72026 (fetched with ?__tracked=1, read in full) contains no 6-month validation rule. unitedhealthcare-community-plan-kansas dxRequired, atGlance, collect, prose and FAQ plus kansas-medicaid FAQ/atGlance/collect now follow KMAP 26140."
     },
     {
       "id": "VC-021",
       "priority": 2,
-      "status": "open",
+      "status": "resolved",
       "slug": "highmark-western-new-york",
       "claim": "A $45,000 per calendar year ABA benefit maximum, status 'verified', cited to the plan's Medicaid/CHPlus provider manual.",
       "challenge": "That is a hard dollar cap on an EPSDT benefit for under-21 Medicaid members, which is unusual on its face — and $45,000 is exactly the figure New York's COMMERCIAL mandate carried in 2011 before the (since-repealed) 680-hour cap replaced it. Possible contamination from the commercial mandate history. The manual was not re-fetched.",
-      "resolve": "Fetch the Highmark manual and confirm the cap is real, current and applies to the Medicaid line."
+      "resolve": "Fetch the Highmark manual and confirm the cap is real, current and applies to the Medicaid line.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "STANDS. The $45,000 per calendar year maximum is verbatim in the current Highmark WNY manual (c) March 2026, last line of the section 'Autism Spectrum Disorder (ASD) Screening, Diagnosis and Treatment: Medicaid Managed Care, HARP & CHPlus' - Highmark's own Medicaid text. Caveat added that the state manual sets no cap; enforcement tracked as VC-068. Source: https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_ProviderManual.pdf"
     },
     {
       "id": "VC-022",
       "priority": 3,
-      "status": "open",
+      "status": "resolved",
       "slug": "unitedhealthcare-community-plan-tennessee",
       "claim": "Not a contradiction — a gap.",
       "challenge": "The UHC TN Level of Care Guidelines carry an in-state service-location rule, 'ABA services must be located in TN', which no structured field captures.",
-      "resolve": "Add it to placeOfService next cycle."
+      "resolve": "Add it to placeOfService next cycle.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "Already present: unitedhealthcare-community-plan-tennessee placeOfService says 'ABA services must be located in TN', re-read verbatim in the current UHC TN Level of Care Guidelines (last revised 12/13/2024)."
     },
     {
       "id": "VC-023",
@@ -1429,11 +1464,13 @@
     {
       "id": "VC-024",
       "priority": 1,
-      "status": "open",
+      "status": "resolved",
       "slug": "tufts-health-together",
       "claim": "Submit authorizations by fax 888-977-0776 (in treatmentPA, atGlance, prose and an FAQ).",
       "challenge": "The guide's own cited Point32Health source lists 888-977-0776 under Tufts Health DIRECT, and publishes no fax number for Tufts Health Together. A Together packet sent there plausibly bounces.",
-      "resolve": "Find Together's actual submission route and correct all four places."
+      "resolve": "Find Together's actual submission route and correct all four places.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "STANDS, now verified: Point32's ABA PA form (eff. 1/1/2026) says 'For Tufts Health Together, fax this form to 888-977-0776' - the Public Plans BH fax shared with Direct. MHK portal channel added; diagnosingProviders corrected from the same form. Source: https://www.point32health.org/documents/applied-behavioral-analysis-form"
     },
     {
       "id": "VC-025",
@@ -1447,11 +1484,13 @@
     {
       "id": "VC-026",
       "priority": 2,
-      "status": "open",
+      "status": "resolved",
       "slug": "select-health-utah",
       "claim": "Eleven fields open with 'ABA is carved out of every Utah Medicaid ACO to state fee-for-service.'",
       "challenge": "The January 2026 Utah ASD manual carves out ASD-related MEDICAL services (PT/OT/ST) and the diagnostic evaluation to FFS — not ABA therapy itself. Not a refutation, but the manual does not carry the claim.",
-      "resolve": "Source the ABA carve-out specifically or soften the eleven values."
+      "resolve": "Source the ABA carve-out specifically or soften the eleven values.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "STANDS, now sourced: Utah Medicaid Section I (Sept 2026) ch. 2-6 lists 'Autism Spectrum Disorder services' among carve-outs not covered by any MCE; cite added to all 11 fields. Source: https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf"
     },
     {
       "id": "VC-027",
@@ -1460,25 +1499,30 @@
       "slug": "unitedhealthcare-* commercial (NC, NM, OH, and others)",
       "claim": "'Reviews every 4-6 months' reauthorization cadence, and a 'two-step assessment-then-treatment' structure.",
       "challenge": "Optum ABA Supplemental Clinical Criteria (BH803ABASCC) was read in full by two independent agents. It states 'Prior authorization is required for ABA' and mentions 'within a 6-month period' only for inadequate progress. Neither the 4-6 month cadence nor the two-step structure appears anywhere in it.",
-      "resolve": "Re-source or drop both claims wherever they appear."
+      "resolve": "Re-source or drop both claims wherever they appear.",
+      "update_2026_09_27": "Re-read BH803ABASCC082025: 'within a 6-month period' appears only in the inadequate-progress clause; no 4-6 month cadence, no two-step structure. arizona.ts UHC commercial sources the cadence to an 'Optum ABA CPT FAQ' (abaCPT-FAQs.pdf) - read that next."
     },
     {
       "id": "VC-028",
       "priority": 3,
-      "status": "open",
+      "status": "resolved",
       "slug": "nebraska-medicaid",
       "claim": "FAQ cites PB 25-02 as a live source describing 'up to 30 hours/week'.",
       "challenge": "PB 25-02 does say 30 hours — but it was SUPERSEDED by PB 26-06 (eff. 7/1/2026), which sets 20 hrs/week cleanly. The guide body and the verified dailyLimits field are right; the FAQ quotes a superseded bulletin as if current.",
-      "resolve": "Update the FAQ to name only the DHHS 'ABA Facts' page as the stale source. Supersedes VC-018."
+      "resolve": "Update the FAQ to name only the DHHS 'ABA Facts' page as the stale source. Supersedes VC-018.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "FAQ corrected: 6 hrs/day and 20 hrs/week under the 2026 ABA service definition, which PB 26-06 puts in force on 7/1/2026 (the 20-hour text is in the definition, not the bulletin); PB 25-02 named as the source of the old 30-hour figure; DHHS 'ABA Facts' page flagged as stale (still says 30 on 9/27/2026). Same fix in vob/nebraska.ts caps and call script."
     },
     {
       "id": "VC-029",
       "priority": 3,
-      "status": "open",
+      "status": "resolved",
       "slug": "utah-medicaid",
       "claim": "dxRecency value opens 'No recency window could be sourced'.",
       "challenge": "It is now sourced — the January 2026 manual (reached via r.jina.ai) confirms no recency window exists, and the field is status 'verified'. The wording is a leftover from when it was unreachable.",
-      "resolve": "Wording pass: say the manual sets no recency window, not that we could not find one."
+      "resolve": "Wording pass: say the manual sets no recency window, not that we could not find one.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "Reworded: 'None - the ASD manual sets no recency window.'"
     },
     {
       "id": "VC-030",
@@ -1492,11 +1536,13 @@
     {
       "id": "VC-031",
       "priority": 3,
-      "status": "open",
+      "status": "resolved",
       "slug": "aetna (national) + per-state Aetna guides",
       "claim": "assessmentPA says 'form GR-69017-4, eff. 1/1/2026'.",
       "challenge": "The form Aetna currently publishes is stamped GR-69017-4 (7-26) — a July 2026 revision. The form number matches; the date label looks stale.",
-      "resolve": "Confirm the current revision date and update the label."
+      "resolve": "Confirm the current revision date and update the label.",
+      "resolvedAt": "2026-09-27",
+      "resolution": "Current revision is GR-69017-4 (7-26), eff. 8/1/2026 ('replaces all other ABA precertification ... forms'; 'Don't use this form for Maryland and Massachusetts'). Label fixed on national aetna, aetna-indiana, aetna-missouri, aetna-maryland (form no longer presented as MD's), aetna-massachusetts, vob/national. Source: https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf"
     },
     {
       "id": "VC-032",
@@ -1507,40 +1553,47 @@
       "challenge": "IC 27-1-37.5-26(b) (eff. 7/1/2025; reaches Medicaid risk-based managed care via -5(a)(3)): an authorization 'shall be valid for at least one (1) year'. CareSource's July 2025 IHCP Works deck: 'Approved Authorization — Valid for 365 calendar days'. But the IHCP Behavioral Health Services module (PROMOD00039 v4.4, 7/23/2026), which covers FFS and managed care ABA, still says 'Each PA request for ABA therapy services is limited to up to six months'. Unsettled whether -26 overrides the ABA 6-month request span or only governs validity. indiana-medicaid (FFS) is out of the statute's scope and stands.",
       "resolve": "Written answer from FSSA/OMPP (or an IHCP bulletin) on IC 27-1-37.5-26 vs the ABA 6-month PA limit for MCEs, plus an ABA-specific statement from each MCE's UM.",
       "sourceUrl": "https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf",
-      "addedAt": "2026-09-23"
+      "addedAt": "2026-09-23",
+      "update_2026_09_27": "IHCP bulletin BT2026136 (8/18/2026), addressed to the MCEs and FFS contractor, still describes a 'standard six-month authorization period'; no bulletin through 9/24/2026 reconciles it with IC 27-1-37.5-26(b). The five MCO guides now state both with cites; Anthem/CareSource/MDwise treatmentPA set plan-dependent/per-case."
     },
     {
       "id": "VC-033",
       "priority": 2,
-      "status": "open",
+      "status": "resolved",
       "slug": "masshealth-massachusetts-medicaid",
       "claim": "WellSense BH in-house since 1/1/2026 (was Carelon) — atGlance 'Administered by' and sections.",
       "challenge": "Carelon's current MA Addendum (114_0526 rev.) still says WellSense 'has contracted with Carelon Behavioral Health to manage ... all WellSense Health Plan members', including service authorization. WellSense's 2026 manual refers to 'Behavioral Health Insourcing', supporting the guide; the addendum may be stale.",
       "resolve": "Confirm with WellSense provider relations or a WellSense BH-insourcing notice who receives MassHealth ABA PA requests from 1/1/2026; if Carelon, correct both lines.",
       "sourceUrl": "https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ma/massachusetts-provider-addendum.pdf",
-      "addedAt": "2026-09-23"
+      "addedAt": "2026-09-23",
+      "resolvedAt": "2026-09-27",
+      "resolution": "STANDS. WellSense's live BH-insourcing FAQ: BH for all products incl. MassHealth moved in-house 1/1/2026; MA BH auth fax 857-264-2673. The Carelon addendum is stale; two leftover Carelon mentions removed. Source: https://www.wellsense.org/providers/behavioral-health-insourcing/faqs"
     },
     {
       "id": "VC-034",
       "priority": 2,
-      "status": "open",
+      "status": "resolved",
       "slug": "cms-health-plan-florida (also sunshine-health-florida)",
       "claim": "BA determinations within 7 calendar days for CMS Health Plan.",
       "challenge": "AHCA SMMC Attachment II §V.6 requires MMA plans to decide standard requests within 5 days, and says the CMS Plan 'must meet all other plan requirements for the MMA program'; the CMS Health Plan manual (© 2025) says 7. Now cited to that manual; the CMS Plan's own contract was not read.",
       "resolve": "Read the CMS Plan's single statewide AHCA contract, service-authorization section; if 5 days, correct and note the manual lags.",
       "sourceUrl": "https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/CMS-PRO-PE-Manual.pdf",
-      "addedAt": "2026-09-23"
+      "addedAt": "2026-09-23",
+      "resolvedAt": "2026-09-27",
+      "resolution": "SUPERSEDED. The CMS Plan moved from Sunshine to Molina on 10/1/2026 (AHCA CMS Plan Transition page). AHCA Exhibit II-C (CMS Plan, July 2026) V.6 sets standard decisions at no more than three (3) days; cms-health-plan-florida rebuilt around Molina. Source: https://ahca.myflorida.com/medicaid/statewide-medicaid-managed-care/2025-2030-smmc-plans/cms-plan-transition.html"
     },
     {
       "id": "VC-035",
       "priority": 3,
-      "status": "open",
+      "status": "resolved",
       "slug": "community-care-plan-florida",
       "claim": "'Fastest published turnarounds' of the nine Florida plans (5 calendar days standard / 2 expedited) — cardDesc, FAQ, intro.",
       "challenge": "Aetna Better Health of Florida's manual (8/7/2026) states routine PA 'within four (4) calendar days of receipt' and urgent within 48 hours, which is faster.",
       "resolve": "Re-read the ABHFL manual 'Timeliness of authorizations' and reword or drop 'fastest'.",
       "sourceUrl": "https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/provider/pdf/abhfl_medicaid_comprehensive_ltc_provider_manual.pdf",
-      "addedAt": "2026-09-23"
+      "addedAt": "2026-09-23",
+      "resolvedAt": "2026-09-27",
+      "resolution": "'Fastest' removed: Aetna Better Health of Florida's manual (8/7/2026) states routine PA within 4 calendar days, urgent within 48 hours."
     },
     {
       "id": "VC-036",
@@ -1551,29 +1604,34 @@
       "challenge": "Still unsourced (status unverified); only the decision clock was sourced and corrected on 2026-09-23.",
       "resolve": "Read the ACOH BH PA guidance or the January 2026 provider manual (reachable via r.jina.ai) for channel, phone and auth period.",
       "sourceUrl": "https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf",
-      "addedAt": "2026-09-23"
+      "addedAt": "2026-09-23",
+      "update_2026_09_27": "Channel/phone/fax verified (Jiva via NaviNet, fax 1-833-329-6411, UM 1-833-735-7700) from https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth.html; the unsourced 6-month period removed. Still open: ACOH publishes no ABA auth-period length or code-level PA list; assessmentPA remains unverified (ask UM)."
     },
     {
       "id": "VC-037",
       "priority": 1,
-      "status": "open",
+      "status": "resolved",
       "slug": "georgia-medicaid (and every GA guide citing the DCH ASD manual URL)",
       "claim": "Assessment findings accepted if 'conducted/dated no more than six (6) months prior to the treatment PA request submission' (dxRecency; cited ASD manual).",
       "challenge": "The cited URL serves the January 1, 2018 Part II ASD manual. CareSource GA MCD-MM-0212 and Peach State GA.CP.BH.504 cite the July 1, 2023 Part II and require the assessment dated 'no more than 2 months prior to the treatment services PA effective date'. The published 6-month fact may be stale.",
       "resolve": "Human retrieval of the current Part II ASD manual from GAMMIS (not in web.archive.org under any HANDBOOKS filename) via carelu.com/sources or DCH; check the recency windows and version date, then replace the cited URL.",
       "sourceUrl": "https://medicaid.georgia.gov/document/publication/asd-policy-manual/download",
-      "addedAt": "2026-09-23"
+      "addedAt": "2026-09-23",
+      "resolvedAt": "2026-09-27",
+      "resolution": "RESOLVED. Current manual (July 1, 2026): the Behavioral Assessment must be dated no more than two (2) months before the Treatment PA effective date; re-evaluation may be required >5 years from initial diagnosis with no ongoing assessment/treatment; minimum two assessment tools. The 6-month rule is gone; all GA cites repointed. Source: https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf"
     },
     {
       "id": "VC-038",
       "priority": 1,
-      "status": "open",
+      "status": "resolved",
       "slug": "presbyterian-health-plan-new-mexico",
       "claim": "assessmentPA: no separate Presbyterian rule, 97151/97152/0362T 'Prior Auth: NO'; treatmentPA '(state 97153-only PA baseline)'; collect 'book the assessment; no PA'.",
       "challenge": "Presbyterian Provider Prior Authorization Guide 09.01.2026 (PEL_00179220) lists 97151, 97152, 97154-97158 and 0362T on the Applied Behavior Analysis row for 'Turquoise Care • Turquoise Care Expansion ABP • Commercial' and says table services 'require a prior authorization'. Text extraction flattens the table; unclear whether the full list applies to Turquoise Care or only Commercial.",
       "resolve": "Open PEL_00179220 page 48 in a browser (onbaseext.phs.org refuses curl) and read the ABA row per line of business, or ask Presbyterian Turquoise Care BH UM ((505) 923-5757, option 4 then 2).",
       "sourceUrl": "https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220",
-      "addedAt": "2026-09-23"
+      "addedAt": "2026-09-23",
+      "resolvedAt": "2026-09-27",
+      "resolution": "CORRECTED. Presbyterian PA Guide 09.01.2026 (PEL_00179220, p.48; direct curl now works) lists 97151, 97152, 97153-97158, 0362T, 0373T, H2019, H0031, H0032 on one ABA row for Turquoise Care, Expansion ABP and Commercial with no carve-out; assessmentPA/treatmentPA now 'Required'. Source: https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220"
     },
     {
       "id": "VC-039",
@@ -1608,7 +1666,8 @@
       "challenge": "No Sunflower or Healthy Blue provider-manual text found on technician-level (RBT) credentialing or roster requirements.",
       "resolve": "Read the current Sunflower and Healthy Blue Kansas provider manuals (credentialing chapters) or ask each plan's network team; add the answer to each guide's billAsProvider/supervision field with cites.",
       "sourceUrl": "https://www.sunflowerhealthplan.com/newsroom/kmap-21013.html",
-      "addedAt": "2026-09-25"
+      "addedAt": "2026-09-25",
+      "update_2026_09_27": "Healthy Blue KS: its June 2026 manual limits credentialing to independently practising licensed/certified practitioners - technicians are not credentialed (added). Sunflower: manual says KMAP enrollment then plan credentialing, nothing on technicians - still open; ask Sunflower network team 1-877-644-4623."
     },
     {
       "id": "VC-042",
@@ -1619,7 +1678,8 @@
       "challenge": "(1) Aetna's Network Participation Criteria PDF could not be located (guessed URLs 404). (2) No BSRB statement on whether video ABA delivered from another state to a child located in Kansas is practice 'in this state' requiring a Kansas LBA.",
       "resolve": "Find Aetna's Network Participation Criteria document (aetna.com join-the-network pages) and ask the Kansas BSRB (785-296-3240) for its position on interstate telehealth by out-of-state behavior analysts; update aetna-kansas intakeGates.telehealth and the out-of-state section.",
       "sourceUrl": "https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html",
-      "addedAt": "2026-09-25"
+      "addedAt": "2026-09-25",
+      "update_2026_09_27": "Part 1 resolved: Aetna Network Participation Criteria (5/26) require telehealth providers be licensed in every state where the member is located; supervision 1 hr per 10 + 1 hr onsite monthly (added to aetna-kansas). Part 2 (Kansas BSRB position on interstate video ABA) still needs a call to 785-296-3240."
     },
     {
       "id": "VC-043",
@@ -1630,18 +1690,329 @@
       "challenge": "Medical Policy 3.01.015 and Operating Procedure 8.01.011A do not separate 97151 from treatment PA; PP CO 200.02 and 2.01.072A list no ABA telehealth codes; PP CO 020.01 states no certification rule for staff under a BCBA.",
       "resolve": "Check 97151-97158 in the CareFirst Provider Portal prior-auth lookup (PAL, login required) and ask CareFirst provider services about ABA telehealth codes and technician credential requirements; update carefirst-maryland assessmentPA, intakeGates.telehealth and deliveryRules.supervision.",
       "sourceUrl": "https://provider.carefirst.com",
-      "addedAt": "2026-09-25"
+      "addedAt": "2026-09-25",
+      "update_2026_09_27": "Both visitor questions now answered as far as public documents allow: COMAR 10.58.16.02 allows a non-RBT paraprofessional under a licensed behavior analyst (whether CareFirst pays for one is unstated; RBT stays the safe standard); new FAQ on switching agencies (CareFirst silent - questions to ask; CHP MD children follow Carelon's rule, no discharge needed). Still open: 97151 PA (PAL login) and CareFirst ABA telehealth codes."
     },
     {
       "id": "VC-044",
       "priority": 3,
-      "status": "open",
+      "status": "resolved",
       "slug": "harvard-pilgrim / point32 guides in massachusetts.ts",
       "claim": "The Massachusetts Point32Health/Harvard Pilgrim guide attributes an ABA accreditation requirement to Point32Health's October 2025 notice.",
       "challenge": "While building New Hampshire (2026-09-25) the agent read that October 2025 notice and found no accreditation requirement in it, so the claim's citation does not support it.",
       "resolve": "Re-read the Point32Health October 2025 ABA notice and the current Point32 ABA guideline; keep the claim only with a source that states it, otherwise mark it unverified.",
       "sourceUrl": "https://www.point32health.org/provider/applied-behavioral-analysis-policy-and-coverage-updates-102025",
-      "addedAt": "2026-09-25"
+      "addedAt": "2026-09-25",
+      "resolvedAt": "2026-09-27",
+      "resolution": "Re-cited: the accreditation requirement is in Point32's February 2026 notice (MA/RI center-based by 1/1/2027; all others by 1/1/2028), not October 2025. Source: https://www.point32health.org/provider/aba-services-authorization-and-accreditation-updates-022026"
+    },
+    {
+      "id": "VC-045",
+      "priority": 3,
+      "status": "open",
+      "slug": "anthem-healthkeepers-plus",
+      "claim": "Anthem VA Medicaid ABA grid (Feb 2023) lists GT on 97151/97152.",
+      "challenge": "The DMAS Telehealth Services Supplement (rev. 1/5/2026) allows 97151/97152 by telemedicine for reassessments only; initial assessments must be in person (DMAS bulletin 12/16/2025). Guide carries a caveat.",
+      "resolve": "Find a current Anthem VA ABA grid or ask Anthem provider services 800-901-0020.",
+      "sourceUrl": "https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-046",
+      "priority": 3,
+      "status": "open",
+      "slug": "tufts-health-together",
+      "claim": "97152, 97158, 0362T and 0373T are flagged 'not on the Together code list - confirm'.",
+      "challenge": "Point32's ABA PA form lists only H0031, 97151, 97153-97157 for Together.",
+      "resolve": "Confirm coverage of the four codes with Point32 provider services.",
+      "sourceUrl": "https://www.point32health.org/documents/applied-behavioral-analysis-form",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-047",
+      "priority": 3,
+      "status": "open",
+      "slug": "sentara-community-plan",
+      "claim": "Sentara BH authorization fax (844) 895-3231 / (757) 963-9620.",
+      "challenge": "Not re-verified this cycle: the fax-numbers PDF resolves to an SVG through curl.",
+      "resolve": "Open the Sentara 'Behavioral Health Authorization Fax Numbers and Forms' PDF in a browser.",
+      "sourceUrl": "https://www.sentarahealthplans.com/en/providers/updates/behavioral-health-authorization-fax-numbers-and-forms",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-048",
+      "priority": 2,
+      "status": "open",
+      "slug": "Ohio guides citing OAC 5160-34-02",
+      "claim": "Ohio ABA rule cited as OAC 5160-34-02.",
+      "challenge": "codes.ohio.gov (via r.jina.ai) reports no rule 5160-34-01/-02/-03; ODM clearance memo ERF188422B (May 2025, DRAFT - NOT YET FILED) proposes new 5160-34-01/-03.",
+      "resolve": "Ask Rules@Medicaid.Ohio.gov or check JCARR RuleWatch for the filed rewrite and effective date; re-cite.",
+      "sourceUrl": "https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Stakeholders,%20Partners/LegalandContracts/Rules/ERF188422B.pdf",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-049",
+      "priority": 3,
+      "status": "open",
+      "slug": "aetna-maryland",
+      "claim": "Aetna Maryland ABA precert detail form.",
+      "challenge": "Aetna's national form GR-69017-4 (7-26) says not to use it in Maryland; Aetna publishes an MA form but none for MD found.",
+      "resolve": "Ask Aetna BH precert (1-888-632-3862) what Maryland ABA precert submissions attach.",
+      "sourceUrl": "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-050",
+      "priority": 3,
+      "status": "open",
+      "slug": "humana",
+      "claim": "Whether Humana Medicare Advantage covers ABA at all.",
+      "challenge": "Humana's MA/D-SNP PA list (eff. 7/1/2026) lists no ABA codes, which does not prove coverage; MA rarely covers children.",
+      "resolve": "Ask Humana provider services per member plan.",
+      "sourceUrl": "https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorizations-lists",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-051",
+      "priority": 2,
+      "status": "open",
+      "slug": "alliance-health-north-carolina",
+      "claim": "Referral ('a bare medical-necessity statement doesn't qualify'), cover-sheet facts and treatmentPA rest on Alliance's Feb 2026 RB-BHT guidance.",
+      "challenge": "That page now returns HTTP 410 'Information Archived'.",
+      "resolve": "Find Alliance's current RB-BHT guidance / benefit plan (a PA cover sheet is at /document-library/89018/) and re-source or mark unverified.",
+      "sourceUrl": "https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-052",
+      "priority": 2,
+      "status": "open",
+      "slug": "north-carolina-medicaid + NC PHPs",
+      "claim": "Visitor question (payer chat): \"are the MCOs in NC open or closed currently?\" - answered at statute level (S.L. 2026-41 s.9E.22: every PHP must keep a CLOSED network for RB-BHT from 7/7/2026).",
+      "challenge": "How each plan is applying it (keeping current providers? accepting new?) is unpublished; Trillium's 7/20/2026 manual still says 'open network'; no DHB implementation guidance found.",
+      "resolve": "Ask each PHP's network team / DHB; record per-plan status.",
+      "sourceUrl": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-053",
+      "priority": 3,
+      "status": "open",
+      "slug": "medcost",
+      "claim": "pVerify payer ID 00439 (vob), carried unverified.",
+      "challenge": "From LeadTrap's credentialed pVerify harvest; pverify.com is Cloudflare-walled to automation.",
+      "resolve": "Confirm in the pVerify payer list with a login.",
+      "sourceUrl": "https://www.medcost.com",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-054",
+      "priority": 2,
+      "status": "open",
+      "slug": "amerigroup-georgia",
+      "claim": "Amerigroup GA ABA medical necessity rests on its 2017/2018 CG-BEH-02 guideline.",
+      "challenge": "Anthem commercial moved to MCG B-806-T from 6/1/2024; unknown whether the Medicaid affiliate did too.",
+      "resolve": "Check Amerigroup GA's current clinical UM guideline list / provider news.",
+      "sourceUrl": "https://providernews.anthem.com/georgia/articles/mcg-care-guidelines-27th-edition-update-17867-17867",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-055",
+      "priority": 2,
+      "status": "open",
+      "slug": "caresource-georgia",
+      "claim": "authTurnaround says ASD PAs go through the state GAMMIS portal.",
+      "challenge": "MM-0212 (7/1/2026) says PAs are submitted to CareSource.",
+      "resolve": "Re-read MM-0212 and CareSource GA's PA page; correct the channel.",
+      "sourceUrl": "https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20260701",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-056",
+      "priority": 3,
+      "status": "open",
+      "slug": "georgia guides citing the DCH Telehealth Guidance",
+      "claim": "Citation title still says 'GAMMIS blocks automated access'.",
+      "challenge": "GAMMIS Handbooks now answer plain curl.",
+      "resolve": "Fetch the current Part II Telehealth Guidance from GAMMIS Handbooks and retitle/re-cite.",
+      "sourceUrl": "https://www.mmis.georgia.gov/portal/",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-057",
+      "priority": 2,
+      "status": "open",
+      "slug": "peach-state-health-plan-georgia",
+      "claim": "Peach State GA.CP.BH.504 restates the July 2023 state manual.",
+      "challenge": "The state manual was reissued July 1, 2026 (2-month assessment window, two-tool minimum, dropped supervisee cap).",
+      "resolve": "Re-read GA.CP.BH.504 against the July 2026 manual; update Peach State fields.",
+      "sourceUrl": "https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-058",
+      "priority": 1,
+      "status": "open",
+      "slug": "sunflower-health-plan-kansas",
+      "claim": "The whole Sunflower guide is built on clinical policy KS.CP.01 (6-month diagnosis validation).",
+      "challenge": "Sunflower's clinical-policy index (9/27/2026) no longer lists KS.CP.01; under Medicaid BH it lists Centene CP.BH.104 (rev. 02/26: diagnostic evaluation within 3 years). KS.CP.01's PDF is still hosted.",
+      "resolve": "Ask Sunflower provider services which policy governs KanCare ABA, then rebuild the guide's fields.",
+      "sourceUrl": "https://www.sunflowerhealthplan.com/providers/resources/clinical-payment-policies.html",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-059",
+      "priority": 2,
+      "status": "open",
+      "slug": "anthem-bcbs-indiana",
+      "claim": "Weekly-units section cites providernews article 28211 as a commercial notice.",
+      "challenge": "The article carries Indiana Medicaid boilerplate and doc code INBCBS-CDCM-097205-25 - may be a Medicaid notice.",
+      "resolve": "Re-read the article (r.jina.ai) and confirm its line of business.",
+      "sourceUrl": "https://providernews.anthem.com/indiana",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-060",
+      "priority": 2,
+      "status": "open",
+      "slug": "florida-community-care",
+      "claim": "FCC's ABA PA form asks for ASD diagnosis documentation within the last 24 months (MD/PhD/PsyD) for members under 21.",
+      "challenge": "AHCA's BA policy requires no diagnosis; the form also has 21-and-over H2019 (ICMC/APD) sections.",
+      "resolve": "Ask FCC UM whether the 24-month rule is enforced and whether adults are covered.",
+      "sourceUrl": "https://fcchealthplan.com/wp-content/uploads/2025/01/2M2524-FCC-ABA-PriorAuthForm-Final.pdf",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-061",
+      "priority": 2,
+      "status": "open",
+      "slug": "molina-healthcare-florida, cms-health-plan-florida",
+      "claim": "Molina FL decision clock.",
+      "challenge": "QRG says business days, the CMS BA training deck says calendar days, the March 2026 manual says 7 calendar days.",
+      "resolve": "Ask Molina FL UM which clock applies per line.",
+      "sourceUrl": "https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-062",
+      "priority": 3,
+      "status": "open",
+      "slug": "cms-health-plan-florida",
+      "claim": "97157 on the CMS line.",
+      "challenge": "Molina's CMS deck lists 97157 among PA-required codes; AHCA's BA fee schedule omits 97157.",
+      "resolve": "Confirm with Molina whether 97157 is payable for CMS members.",
+      "sourceUrl": "https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/09-03-26-MHFL-CMS-Plan-BA-Training-508.pdf",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-063",
+      "priority": 3,
+      "status": "open",
+      "slug": "molina-healthcare-florida",
+      "claim": "Weekly unit limits from 11/1/2026.",
+      "challenge": "Unclear whether this covers Molina MMA or only the CMS Plan.",
+      "resolve": "Ask Molina FL provider services.",
+      "sourceUrl": "https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/09-25-26-MHFL-CMS-Transition-FAQs-508.ashx",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-064",
+      "priority": 2,
+      "status": "open",
+      "slug": "molina-healthcare-new-york",
+      "claim": "MCP 482 (eff. 9/15/2026): 'initiation age is 18 months or older'; Rett syndrome without ASD excluded.",
+      "challenge": "Both conflict with NY Medicaid's under-21 ASD/Rett ABA benefit; guide flags the conflict.",
+      "resolve": "Ask Molina NY UM (877-872-4716) how MCP 482 is applied to NY Medicaid members.",
+      "sourceUrl": "https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-065",
+      "priority": 3,
+      "status": "open",
+      "slug": "mvp-health-plan-new-york",
+      "claim": "ageLimit ages 0-20.",
+      "challenge": "MVP's 4/1/2026 payment policy says Medicaid members have ABA 'regardless of age'.",
+      "resolve": "Ask MVP provider services; align.",
+      "sourceUrl": "https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-066",
+      "priority": 3,
+      "status": "open",
+      "slug": "highmark-western-new-york",
+      "claim": "$45,000 annual ABA maximum (Medicaid/CHPlus).",
+      "challenge": "Real and current in Highmark's manual, but unusual for an EPSDT benefit; enforcement unknown.",
+      "resolve": "Ask Highmark WNY UM whether the cap is applied to under-21 Medicaid/CHPlus members (per-case).",
+      "sourceUrl": "https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_ProviderManual.pdf",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-067",
+      "priority": 2,
+      "status": "open",
+      "slug": "arizona-medicaid, mercy-care, unitedhealthcare-community-plan-arizona, arizona-complete-health",
+      "claim": "March 2026 network termination (ABC/Centria, ~1,000 children, 11 families sued).",
+      "challenge": "Rests solely on an azfamily.com news report.",
+      "resolve": "Find an AHCCCS notice or the court filing; otherwise label as reported.",
+      "sourceUrl": "https://www.azfamily.com/2026/03/05/nearly-1k-arizona-children-with-autism-lose-aba-therapy-coverage/",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-068",
+      "priority": 3,
+      "status": "open",
+      "slug": "select-health-utah (commercial section)",
+      "claim": "Cites Select Health February 2026 Policy Update Bulletin and Medical Policy #630.",
+      "challenge": "Both URLs now 404 (bulletins moved slugs; 0226 not found).",
+      "resolve": "Find the current bulletin/policy URL (or a Wayback capture) and re-cite.",
+      "sourceUrl": "https://selecthealth.org/providers/policies/policy-update-bulletins/policy-update-0226",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-069",
+      "priority": 3,
+      "status": "open",
+      "slug": "molina-healthcare-nebraska",
+      "claim": "'UM in-house with LBA care reviewers' (removed 2026-09-27: its cited source does not support it).",
+      "challenge": "No Molina NE document found stating who performs ABA UM.",
+      "resolve": "Ask Molina NE provider services; re-add only with a source.",
+      "sourceUrl": "https://www.molinahealthcare.com/providers/ne/medicaid/Claims/priorauth.aspx",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-070",
+      "priority": 3,
+      "status": "open",
+      "slug": "nebraska-medicaid",
+      "claim": "DHHS 'ABA Facts' page still describes up to 30 hours/week.",
+      "challenge": "The 2026 service definition (in force 7/1/2026 via PB 26-06) sets 20 hrs/week; the Facts page is stale.",
+      "resolve": "Ask DHHS to update the page; re-check next rotation.",
+      "sourceUrl": "https://dhhs.ne.gov",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-071",
+      "priority": 3,
+      "status": "open",
+      "slug": "bcbs-nebraska",
+      "claim": "BCBSNE Medical Policy I.178 limits ABA to 'office setting or through telehealth'.",
+      "challenge": "Unusual restriction (home/community excluded); confirm how it is applied.",
+      "resolve": "Ask BCBSNE BH UM whether home-based ABA is ever authorized.",
+      "sourceUrl": "https://www.nebraskablue.com",
+      "addedAt": "2026-09-27"
+    },
+    {
+      "id": "VC-072",
+      "priority": 3,
+      "status": "open",
+      "slug": "bluecross-blueshield-of-tennessee",
+      "claim": "BCBST requires a BCBA-D for individual ABA credentialing (per its commercial manual).",
+      "challenge": "Unusual; confirm whether BCBA groups are the normal route.",
+      "resolve": "Ask BCBST provider network.",
+      "sourceUrl": "https://www.bcbst.com",
+      "addedAt": "2026-09-27"
     }
   ],
   "documentRequests": [
@@ -1651,7 +2022,10 @@
       "for": "GAMMIS current ASD manual + live fee schedule",
       "why": "Gates georgia-medicaid concurrentBilling, dailyLimits and the whole code-set question (VC-003).",
       "url": "https://mmis.georgia.gov",
-      "blocker": "Connection refused to all automated clients."
+      "blocker": "Connection refused to all automated clients.",
+      "status": "resolved",
+      "resolvedAt": "2026-09-27",
+      "resolution": "GAMMIS static Handbooks files now answer plain curl; current ASD manual (July 1, 2026) retrieved: https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf"
     },
     {
       "id": "DR-002",
@@ -1694,6 +2068,22 @@
       "issue": "Blocker classification for licensed proprietary criteria (MCG B-806-T, InterQual, internal UM guidelines).",
       "impact": "Filing them as blocker 'document' creates permanent debt that no human retrieval can ever close, and implies the payer is withholding something it could publish. A new blocker value 'licensed' was added 2026-09-17 for exactly this case; the page renders it as 'Licensed criteria' / 'In licensed criteria:'.",
       "resolve": "Reclassify existing MCG/InterQual-blocked facts from 'document' to 'licensed', and never open document requests for them."
+    },
+    {
+      "id": "HY-003",
+      "priority": 2,
+      "status": "open",
+      "issue": "Duplicate Anthem commercial Indiana pages: 'anthem-indiana' (ported from LeadTrap 2026-09-27, slug kept) and 'anthem-bcbs-indiana' cover the same payer and line.",
+      "impact": "Two pages for one payer can drift apart.",
+      "resolve": "Human decision: canonical + redirect, or retire one (LeadTrap references anthem-indiana)."
+    },
+    {
+      "id": "HY-004",
+      "priority": 3,
+      "status": "open",
+      "issue": "About 11 Florida cites point to the Oct 2025 AHCA SMMC Attachment II; the July 2026 file carries identical V.6 text.",
+      "impact": "Cosmetic.",
+      "resolve": "Re-point to the July 2026 Attachment II."
     }
   ],
   "coverageBaseline": {

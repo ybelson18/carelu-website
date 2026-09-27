@@ -49,12 +49,13 @@ export const utahPayers: Record<string, PayerConfig> = {
       {
         h2: 'The carve-out: your ACO card doesn\'t matter for ABA',
         body: [
-          'Utah\'s four ACOs handle physical health, and for autism-diagnosed members they also handle ASD-related PT, OT, and speech — but ABA and the autism diagnostic evaluation are carved out to state fee-for-service. The manual states that mental health evaluations and psychological testing for diagnosing developmental disorders are carved out of the managed-care entities and reimbursed fee-for-service, and the state\'s own family-facing FAQ confirms that ABA PA requests go to the Medicaid agency and providers bill Medicaid directly. Practically: intake never needs to route an ABA request by plan. Capture the ACO name only for coordinating PT/OT/ST — for ABA, every Utah Medicaid family follows the identical state workflow, and there is no per-plan portal, form, or criteria variation to track.',
+          'Utah\'s four ACOs handle physical health, and for autism-diagnosed members they also handle ASD-related PT, OT, and speech — but ABA and the autism diagnostic evaluation are carved out to state fee-for-service. Section I of the provider manual (updated September 2026) lists "Autism Spectrum Disorder services" among the carve-out services "not covered by any of the MCEs" and paid by the state directly, and the ASD manual counts ABA therapy among those services. The manual states that mental health evaluations and psychological testing for diagnosing developmental disorders are carved out of the managed-care entities and reimbursed fee-for-service, and the state\'s own family-facing FAQ confirms that ABA PA requests go to the Medicaid agency and providers bill Medicaid directly. Practically: intake never needs to route an ABA request by plan. Capture the ACO name only for coordinating PT/OT/ST — for ABA, every Utah Medicaid family follows the identical state workflow, and there is no per-plan portal, form, or criteria variation to track.',
         ],
         cites: [
           { title: 'Accessing Medicaid Autism Related Services — FAQ for Parents and Families (2024-07 V2.0, archived)', url: 'https://web.archive.org/web/20260106200503/https://medicaid-documents.dhhs.utah.gov/Documents/pdfs/Accessing%20ASD%20Services%20FAX%20V2,%207-15-24.pdf' },
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (July 2023, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'Utah Medicaid Managed Care page (ACO list)', url: 'https://medicaid.utah.gov/managed-care/' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
       },
       {
@@ -197,7 +198,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'No recency window could be sourced. The ASD manual\'s initial prior-authorization checklist requires a copy of the written ASD diagnosis and the screening or evaluation instruments used, but states no maximum age for that diagnosis; what the manual does date is the ABA order (renewed annually) and the reassessment cadence (assessments generally at initiation and every six months thereafter).',
+          'None — the ASD manual sets no recency window. Its initial prior-authorization checklist requires a copy of the written ASD diagnosis and the screening or evaluation instruments used, but states no maximum age for that diagnosis; what the manual does date is the ABA order (renewed annually) and the reassessment cadence (assessments generally at initiation and every six months thereafter).',
         status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — ASD Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
@@ -232,9 +233,10 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Covered for supervision of an assistant behavior analyst or behavior technician and for parent training when clinically appropriate (per Utah Administrative Rule R414-42), synchronous only — real-time two-way video and audio — with the provider delivering or supervising only one member or one group session at a time and documentation substantiating clinical appropriateness. Not covered by telehealth: adaptive behavior treatment administered by a technician, group adaptive behavior treatment administered by a technician, and group adaptive behavior treatment with protocol modification administered by a QHP. Remote services report Place of Service 02 on the CMS-1500, and the treatment plan must describe the settings including hours delivered via remote technology.',
+          'Covered for supervision of an assistant behavior analyst or behavior technician and for parent training when clinically appropriate (per Utah Administrative Rule R414-42), synchronous only — real-time two-way video and audio — with the provider delivering or supervising only one member or one group session at a time and documentation substantiating clinical appropriateness. Not covered by telehealth: adaptive behavior treatment administered by a technician, group adaptive behavior treatment administered by a technician, and group adaptive behavior treatment with protocol modification administered by a QHP. Remote services report Place of Service 02 on the CMS-1500, and the treatment plan must describe the settings including hours delivered via remote technology. Coming change: from January 1, 2027, Medicaid Information Bulletin item 26-89 requires modifier 95 (real-time audio and video) or 93 (audio-only) on services delivered via telehealth — since ABA telehealth must be two-way video and audio, that means 95 alongside POS 02.',
         status: 'verified',
         cites: [
+          { title: 'Utah Medicaid Information Bulletin, September 2026 — item 26-89 Telehealth Modifiers Update', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Information+Bulletins/Traditional+Medicaid+Program/2026/September2026-MIB.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
         ],
@@ -401,6 +403,7 @@ export const utahPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
         blocker: 'document',
@@ -412,6 +415,7 @@ export const utahPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
         blocker: 'document',
@@ -423,6 +427,7 @@ export const utahPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
         verifyVia: 'A live benefits verification — annual maximums and any plan-level hour limits are plan-specific, and Policy #630 could not be retrieved.',
         blocker: 'per-case',
@@ -434,6 +439,7 @@ export const utahPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
         blocker: 'document',
@@ -445,6 +451,7 @@ export const utahPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
         blocker: 'document',
@@ -456,6 +463,7 @@ export const utahPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
         blocker: 'document',
@@ -470,6 +478,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
           { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
           { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
         verifyVia: 'A live benefits verification of the member\'s market segment (individual, small-group, large-group or self-funded) — the mandate\'s protections do not reach small-group or self-funded business.',
         blocker: 'per-case',
@@ -493,6 +502,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
       },
       diagnosticTools: {
@@ -502,6 +512,7 @@ export const utahPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
         blocker: 'document',
@@ -513,6 +524,7 @@ export const utahPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
         blocker: 'document',
@@ -525,6 +537,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
         verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
         blocker: 'document',

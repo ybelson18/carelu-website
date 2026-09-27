@@ -407,9 +407,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'The 2026 changes (verify before relying)',
+        h2: 'The 2026 changes: H0032 retired, and a commercial-only policy revision',
         body: [
-          'Horizon has announced two 2026-era changes we could not fully verify against primary policy text — treat both as "confirm in the portal" items. First, a medical-policy revision effective January 1, 2026 revising criteria for prior authorization and pre-service and post-service medical-necessity reviews (search excerpts reference standardized-instrument testing no more often than every 6 months). Second, H0032 is retired for ABA on authorizations and claims effective July 15, 2026 — use the 97151–97158 / 0362T / 0373T set only — with Horizon stating that authorization requirements for ABA treatment hours are not changing as part of that move. Neither announcement could be confirmed against the live policy documents at research time, so verify the current text with Horizon before building process around the details.',
+          'Both 2026 Horizon announcements have now been read in full, and only one of them reaches this plan. H0032 is retired for ABA: "Effective July 15, 2026, HCPCS code H0032 will no longer be used to represent Applied Behavioral Analysis (ABA) services on authorizations or claims," and the notice says in terms that "This change applies to members enrolled in Horizon NJ Health NJ FamilyCare (Medicaid) and Horizon NJ TotalCare (HMO D-SNP) plans." Bill 97151–97158 and 0362T/0373T instead. The transition is soft: Horizon "will continue to honor authorizations created up through July 14, 2026 that include H0032" and keeps paying H0032 on claims for authorized services rendered between July 15, 2026 and January 14, 2027 — so any H0032 line still in flight must be re-coded before January 15, 2027. Horizon also states it is "not changing authorization requirements for ABA treatment hours." The January 1, 2026 ABA medical-policy revision (revised documentation standards for prior authorization and pre- and post-service medical-necessity reviews) is a different matter: it is scoped to "members enrolled in Horizon commercial plans and members enrolled in Administrative Services Only (ASO) group employer plans" that follow the New Jersey autism mandate, so it does not govern NJ FamilyCare members on this plan.',
         ],
         cites: [
           { title: 'Horizon: Medical Policy Changes — ABA (eff. 1/1/2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/medical-policy-changes-applied-behavior-analysis' },
@@ -445,7 +445,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Horizon NJ Health cover ABA therapy?', a: 'Yes — it administers the NJ FamilyCare ABA benefit under EPSDT, with its own medical policy and MCG-based review layered on the state code set. Both assessment and treatment require prior authorization via NaviNet.' },
       { q: 'How fast is Horizon\'s ABA assessment authorization?', a: 'Fast — once eligibility, an ASD diagnosis, and a QHP script are confirmed, Horizon issues a 32-unit 97151 authorization valid for 30 days without a full clinical review. Treatment requests then get MCG review within 14 days, in 6-month spans.' },
-      { q: 'Is Horizon changing its ABA policy in 2026?', a: 'Two announced changes: revised PA and medical-necessity review criteria effective January 1, 2026, and retirement of H0032 for ABA effective July 15, 2026 (use 97151–97158/0362T/0373T). We could not verify the full policy text — confirm current details with Horizon directly.' },
+      { q: 'Is Horizon changing its ABA policy in 2026?', a: 'For NJ FamilyCare members, one change: H0032 is retired for ABA effective July 15, 2026 — use 97151–97158/0362T/0373T. Authorizations created through July 14, 2026 with H0032 are honored, and H0032 is still paid on authorized services rendered through January 14, 2027. Horizon\'s January 1, 2026 ABA medical-policy revision applies to its commercial and ASO plans, not to Horizon NJ Health Medicaid members.' },
     ],
   },
 
@@ -640,9 +640,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Fidelis Care NJ — Authorizations', url: 'https://www.fideliscarenj.com/providers/medicaid/authorizations.html' }],
     },
     treatmentPA: {
-      value: 'Required — state baseline; outpatient auth requests via provider.fideliscarenj.com or fax (888) 339-2677',
+      value: 'Required — state baseline; outpatient auth requests via provider.fideliscarenj.com or fax (888) 339-2677, and clinical documentation must now accompany every PA request',
       status: 'verified',
-      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Fidelis Care NJ — Authorizations', url: 'https://www.fideliscarenj.com/providers/medicaid/authorizations.html' }],
+      cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Fidelis Care NJ — Authorizations', url: 'https://www.fideliscarenj.com/providers/medicaid/authorizations.html' }, { title: 'DMAHS BH Integration Points of Contact V3.1 (4/30/2026) — Fidelis outpatient auth fax', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' }],
     },
     dxRequired: {
       value: 'Yes — ASD (F84.0–F84.9) by a qualified healthcare professional (state baseline)',
@@ -770,20 +770,22 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       {
         h2: 'A state-baseline plan — and what that means in practice',
         body: [
-          'No Fidelis-specific ABA clinical policy, fee schedule, or hour-cap document has been published — the plan appears to defer to the state criteria (unverified). Practically, plan requests against the NJ FamilyCare baseline: an ASD diagnosis from a QHP, an MCO-authorized assessment, and treatment contingent on treatment-plan approval, with the state\'s daily unit guide as the likely claim-edit surface. Outpatient authorization requests go through the provider portal at provider.fideliscarenj.com or by fax to (888) 339-2677, with progress reports uploaded via the portal or faxed. Because nothing ABA-specific is published, confirm assessment-request format, authorization spans, and unit handling with the plan\'s UM contact before your first submission rather than after your first denial.',
+          'No Fidelis-specific ABA clinical policy, fee schedule, or hour-cap document has been published — the plan appears to defer to the state criteria (unverified). Practically, plan requests against the NJ FamilyCare baseline: an ASD diagnosis from a QHP, an MCO-authorized assessment, and treatment contingent on treatment-plan approval, with the state\'s daily unit guide as the likely claim-edit surface. Outpatient authorization requests go through the provider portal at provider.fideliscarenj.com (Fidelis calls it the fastest route) or by fax to (888) 339-2677 per the state\'s contact sheet, with progress reports uploaded via the portal or faxed. One recent tightening: "In preparation for the end of Phase 1 Flexibility for BHI, providers are now required to submit clinical documentation along with all prior authorization request[s]" — send the clinicals with the first request, not on request. Because nothing ABA-specific is published, confirm assessment-request format, authorization spans, and unit handling with the plan\'s UM contact before your first submission rather than after your first denial.',
         ],
         cites: [
           { title: 'Fidelis Care NJ — Authorizations', url: 'https://www.fideliscarenj.com/providers/medicaid/authorizations.html' },
+          { title: 'DMAHS BH Integration Points of Contact V3.1 (4/30/2026) — Fidelis outpatient auth fax', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
           { title: 'DMAHS Provider Newsletter Vol 30 No 06 — the state baseline', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
         ],
       },
       {
         h2: 'Contacts and identity housekeeping',
         body: [
-          'The state\'s BH integration contact sheet — which still titles the plan "Fidelis Care (Formerly Wellcare)" — names the ABA UM/PA contact as Amber Johnson (770-809-7313, Amber.Johnson@centene.com) and the ABA contracting contact as Michael Czajkowski (862-702-6529, Michael.Czajkowski@fideliscarenj.com). Provider services runs at 1-888-453-2534; claims route through Availity under payor ID 14163, and claims disputes mail to Tampa, FL (Centene shared services). Watch the rebrand at intake: families, cards, and stale directory listings may still say WellCare — it\'s the same plan.',
+          'The state\'s BH integration contact sheet — which still titles the plan "Fidelis Care (Formerly Wellcare)" — names the ABA UM/PA contact as Amber Johnson (770-809-7313, Amber.Johnson@centene.com) and the ABA contracting contact as Michael Czajkowski (862-702-6529, Michael.Czajkowski@fideliscarenj.com). Provider services runs at 1-888-453-2534; claims route through Availity under payor ID 14163, and claims disputes mail to Tampa, FL (Centene shared services). Watch the rebrand at intake: families, cards, and stale directory listings may still say WellCare — it\'s the same plan. Fidelis\'s own July 2026 Medicaid Quick Reference Guide names a different pair "For Autism Services including prior authorization": April Hames, Sr. Director, Clinical Operations (AHAMES@centene.com), and Stephanie Ryan, Manager, Clinical BH Utilization Management (Stephanie.C.Ryan@centene.com) — the plan\'s own document is the more current of the two.',
         ],
         cites: [
           { title: 'DMAHS BH Integration Points of Contact V3.1 — Fidelis ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
+          { title: 'Fidelis Care NJ — Medicaid Provider Quick Reference Guide (July 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/ProviderQRG/NJ_Caid_Provider_Quick_Reference_Guide_2026_R.pdf' },
         ],
       },
     ],

@@ -107,15 +107,15 @@ const HORIZON_ABA_OVERVIEW = src(
 );
 const HORIZON_H0032_RETIRE = src(
   'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/horizon-to-stop-using-h0032-for-aba-services',
-  'Horizon — H0032 retired for ABA on authorizations and claims effective 7/15/2026; use the 97151–97158 / 0362T / 0373T set only. Authorization requirements for ABA treatment hours stated as unchanged.'
+  'Horizon — H0032 retired for ABA on authorizations and claims effective 7/15/2026 for Horizon NJ Health NJ FamilyCare (Medicaid) and NJ TotalCare (HMO D-SNP); use the 97151–97158 / 0362T / 0373T set only. Authorizations created through 7/14/2026 with H0032 are honored and H0032 is reimbursed on authorized services rendered 7/15/2026–1/14/2027. Authorization requirements for ABA treatment hours stated as unchanged.'
 );
 const HORIZON_MEDICAL_POLICY_2026 = src(
   'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/medical-policy-changes-applied-behavior-analysis',
-  'Horizon — Medical Policy Changes (ABA), eff. 1/1/2026: revised PA and pre-/post-service medical-necessity review criteria (search excerpts reference standardized-instrument testing no more often than every 6 months). Full policy text could not be verified against the live document during the prose build — treat as "confirm in the portal."'
+  'Horizon — Medical Policy Changes (ABA), eff. 1/1/2026 (published 11/24/2025; read in full via r.jina.ai 2026-09-27): revised documentation standards for PA and pre-/post-service medical-necessity reviews, scoped to Horizon commercial plans and ASO groups that follow the NJ autism mandate — it does NOT apply to Horizon NJ Health NJ FamilyCare (Medicaid) members.'
 );
 const FIDELIS_NJ_AUTH = src(
   'https://www.fideliscarenj.com/providers/medicaid/authorizations.html',
-  'Fidelis Care NJ — Authorizations: outpatient authorization requests via provider.fideliscarenj.com or fax (888) 339-2677. No Fidelis-specific ABA clinical policy, fee schedule, or unit-cap document is published — the plan defers to the NJ FamilyCare state baseline (unverified).'
+  'Fidelis Care NJ — Authorizations (re-read 2026-09-27): the Provider Portal (provider.fideliscarenj.com) is the preferred route; fax requests go "to the fax number listed on the form" (the page itself no longer prints a number — (888) 339-2677 for outpatient requests is from the DMAHS BH Integration Points of Contact V3.1, 4/30/2026); clinical documentation is now required with every PA request ahead of the end of BHI Phase 1 flexibility. No Fidelis-specific ABA clinical policy, fee schedule, or unit-cap document is published — the plan defers to the NJ FamilyCare state baseline (unverified).'
 );
 const WELLPOINT_NJ_EDI = src(
   'https://www.provider.wellpoint.com/new-jersey-provider/claims/electronic-data-interchange',
@@ -349,7 +349,7 @@ const horizonCodeGrid: Record<string, CodeGridEntry> = (() => {
     if (code === '97151') continue;
     g[code] = njBaselineEntry(
       code,
-      'Horizon enforces the state daily MUE unit limits ("shall not consider for reimbursement units exceeding the daily maximum") — claims above authorized units are not reimbursed. Treatment: post-assessment ABA Request Form via NaviNet, MCG review within 14 days, 6-month authorizations. Two announced 2026 changes to confirm in the portal: revised PA / medical-necessity review criteria eff. 1/1/2026, and H0032 retired for ABA eff. 7/15/2026 (use the 97151–97158 / 0362T / 0373T set).',
+      'Horizon enforces the state daily MUE unit limits ("shall not consider for reimbursement units exceeding the daily maximum") — claims above authorized units are not reimbursed. Treatment: post-assessment ABA Request Form via NaviNet, MCG review within 14 days, 6-month authorizations. H0032 retired for ABA eff. 7/15/2026 (use the 97151–97158 / 0362T / 0373T set; H0032 still paid on authorized services through 1/14/2027). Horizon\'s 1/1/2026 ABA medical-policy revision is commercial/ASO only and does not apply to NJ FamilyCare.',
       [HORIZON_ABA_OVERVIEW, HORIZON_H0032_RETIRE, HORIZON_MEDICAL_POLICY_2026]
     );
   }
@@ -828,7 +828,7 @@ const horizonContact: VobContact = {
   portal: { name: 'Availity Essentials', url: 'https://apps.availity.com/web/onboarding/availity-fr-ui/#/login' },
   fax: '732-938-1444',
   scriptedQuestions: [
-    'Are the January 2026 medical-policy changes to PA / medical-necessity review criteria already in effect for this member\'s plan?',
+    'Is this member on NJ FamilyCare/TotalCare or a Horizon commercial/ASO plan? (The January 2026 ABA medical-policy revision applies only to commercial/ASO; the H0032 retirement applies to NJ FamilyCare and TotalCare.)',
     'What is today\'s paid rate for the ABA codes — Horizon aligned BH fees to the state\'s 3/1/2024 rate increase, but we don\'t have it broken out by code?',
     'Which places of service are approved under this member\'s authorization (home, office, school, community, telehealth)?',
     'Is eligibility checking real-time or batch through your clearinghouse?',

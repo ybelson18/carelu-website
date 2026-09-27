@@ -149,7 +149,7 @@ function aetnaEntry(code: string): CodeGridEntry {
       : 'Yes — for ASD (F84.0–F84.9) only, per national policy CPB 0554 (paired with CPB 0648)',
     paRequired: is99366
       ? 'unverified — not addressed in CPB 0554/0648'
-      : 'Required — precertification (form GR-69017-4, eff. 1/1/2026), submitted via Availity or phone; reauthorization commonly ~6 months (verify per plan)',
+      : 'Required — precertification (form GR-69017-4 (7-26), eff. 8/1/2026; not for MD/MA), submitted via Availity or phone; reauthorization commonly ~6 months (verify per plan)',
     unitCap: 'plan-dependent — CPB 0554 sets no numeric unit or hour cap; self-funded/ERISA plans, fully-insured plan documents, and state mandates each set their own limits',
     capPeriod: 'plan-dependent',
     posAllowed: ['plan-dependent'],

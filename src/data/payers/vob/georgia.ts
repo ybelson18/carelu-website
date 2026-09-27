@@ -20,6 +20,12 @@
      guidance (official medicaid.georgia.gov URL for that document
      currently serves a stale March 2020 letter, so the citation below
      points to a mirror whose content matches DCH's own formatting).
+   - UPDATE 2026-09-27: the CURRENT Part II ASD manual (version date
+     July 1, 2026) is now fetched directly from GAMMIS (plain curl works
+     on its static Handbooks URL) and is cited as DCH_ASD_MANUAL_2026. Its
+     Appendix A carries the Category I code set with U1-U7/GT modifiers
+     and the CMS daily-maximum table, so the Jan 2018 manual is no longer
+     cited anywhere in this layer.
    - Amerigroup's published CG-BEH-02 guideline (2017/2018) predates
      97151-97158 entirely and contains zero code-level billing detail
      in any known revision — its codeGrid entries are marked 'inferred'
@@ -39,6 +45,7 @@ import type { VobExtension, EdiRouting, CodeGridEntry, SourceRef, StcMap, VobCon
 import { cignaFamilyStc, uhcFamilyStc, aetnaFamilyStc, inheritFamilyStc, CAQH_CORE_STC_VOCAB } from './stc-defaults.js';
 
 const ACCESS_DATE = '2026-07-23';
+const REFRESH_DATE = '2026-09-27';
 
 function src(url: string, note?: string, staleRisk?: boolean): SourceRef {
   return { url, accessDate: ACCESS_DATE, note, staleRisk };
@@ -59,11 +66,11 @@ const AVAILITY_PAYER_LIST = src(
   'Availity Essentials public payer list (837/270-271 payer IDs) — QA re-check (2026-07-23): the fetchable copy itself carries an "As of 08/08/2012" footer on every page (same document/finding already applied to aetna-florida). Row-level extraction confirms 77034=GAMEDICAID, 26375=Amerigroup - Ft. Worth (TX, NOT Georgia), 60054=AETNA, 87726=UNITEDHEALTHCARE, 62308=CIGNA, 00601=ANTHEM as of that 2012 snapshot.',
   true
 );
-const DCH_ASD_MANUAL = src(
-  'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download',
-  'GA DCH Part II ASD Policy Manual, dated 2018-01-01 — codes table still uses the pre-2019 Category III set (0359T-0374T), not current 97151-97158; used here only for the assessment recency/hours-cap facts already verified elsewhere in this guide.',
-  true
-);
+const DCH_ASD_MANUAL_2026: SourceRef = {
+  url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf',
+  accessDate: REFRESH_DATE,
+  note: 'GA DCH Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date July 1, 2026 (current GAMMIS manual). Appendix A: 97151-97158, 0362T, 0373T in 15-minute units with U1-U5 practitioner and U6 in-clinic / U7 out-of-clinic / GT telemed location modifiers, and the "Daily Max Units per Procedure code as Mandated by CMS, effective 7/1/2021" table (97151=32, 97152=16, 97153=32, 97154=18, 97155=24, 97156=16, 97157=16, 97158=16, 0362T=16, 0373T=32). 601.1.2: supervising BCBA is the rendering provider for RBT/BCaBA services. Appendix E: consolidated ongoing PAs (all assessment + treatment codes on one PA after the initial assessment), up to 7 calendar days for a decision.',
+};
 const DCH_2023_PRESENTATION = src(
   'https://www.mmis.georgia.gov/portal/portals/0/staticcontent/public/all/notices/autism%20spectrum%20disorder%202023%20(002)%2020230209200139.pdf',
   'Gainwell/GA DCH "Georgia Medicaid Autism Services Presentation," Feb 2023, p.13 — current CMS max-daily-units table for all 10 codes (97151-97158, 0362T, 0373T); notes 97151/97152 and 97153/97154/97155 are billed as "families of codes" in GAMMIS PA requests.',
@@ -73,11 +80,11 @@ const DCH_TELEHEALTH_GUIDANCE = src(
   'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf',
   'GA DCH Division of Medical Assistance Plans, "Part II Policies and Procedures for Telehealth Guidance," version date 2025-10-01, §614 (ASD Services) and §605 (general telehealth billing) — mirror copy; the official medicaid.georgia.gov URL for this document currently serves a stale March 2020 COVID letter instead of the current version.'
 );
-const CARESOURCE_MM0212 = src(
-  'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20250101',
-  'CareSource GA MCD-MM-0212, effective 2025-01-01, §VII — max-daily-units table for all 10 codes (matches the DCH 2023 presentation); telehealth/setting-modifier mechanics are explicitly deferred to the GA DCH ASD manual, not restated here.',
-  true
-);
+const CARESOURCE_MM0212: SourceRef = {
+  url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20260701',
+  accessDate: REFRESH_DATE,
+  note: 'CareSource GA MCD-MM-0212, effective 2026-07-01 (supersedes the 2025-01-01 edition). Defers codes, modifiers, provider types, eligibility and PA documentation to the DCH ASD Services Manual and no longer carries the max-daily-units table (payment terms were split into reimbursement policy PY-1634, not publicly posted). Own rules kept: comprehensive BAs <= 8 hrs per 6 months; some services allocated in 28-day periods with no carryover; telehealth "only billable if the provider is in GA or within 50 miles of the GA border" and not the primary method of treatment.',
+};
 const PEACH_STATE_POLICY = src(
   'https://www.pshpgeorgia.com/content/dam/centene/peachstate/policies/clinical-policies/GA.CP.BH.504.pdf',
   "Peach State GA.CP.BH.504, last revised 10/25 — lists all 10 codes as covered with standard CPT descriptions; no unit-cap table or POS codes published in-document (only generic 'home/clinic/school/community, in-person/telehealth' language)."
@@ -87,11 +94,21 @@ const AMERIGROUP_CGBEH02 = src(
   'Amerigroup GA CG-BEH-02, current effective date 2017-09-27, form GAPEC-2437-18 (June 2018) — codes table lists only the legacy Category III set (0359T-0374T); no 97151-97158, no unit caps, no POS/telehealth billing mechanics in any known revision of this guideline family (checked against a newer same-numbered CG-BEH-02 template used for other Anthem-affiliated plans, which is also code-list-free).',
   true
 );
-const ANTHEM_ABA_GUIDE = src(
-  'https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf',
-  "Anthem ABA Provider Resource Guide, Oct 2024, p.7 — general POS list for \"ABA services\" (not broken out per code); defers unit caps to \"the current CMS MUE list\" and telehealth billing mechanics to a separate Virtual Visits reimbursement policy / CPT Appendix P.",
-  true
-);
+const ANTHEM_ABA_GUIDE: SourceRef = {
+  url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf',
+  accessDate: REFRESH_DATE,
+  note: "Anthem ABA Provider Resource Guide, MULTI-BCBS-CM-084583-25-CPN83931, June 2025 (supersedes the Oct 2024 edition; cover names Georgia; linked from Anthem Georgia Provider News 8/1/2025), pp.6-7 — general POS list for ABA (not per code); \"A physician or other QHP billing for 97155 can only add code 97153 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician\"; defers unit caps to CMS MUEs and telehealth mechanics to the Virtual Visits reimbursement policy / CPT Appendix P. No prior-authorization or medical-necessity criteria in the document.",
+};
+const ANTHEM_GA_WEEKLY_UNITS: SourceRef = {
+  url: 'https://providernews.anthem.com/georgia/articles/important-changes-to-applied-behavioral-analysis-claim-proce-27736',
+  accessDate: REFRESH_DATE,
+  note: 'Anthem Provider News, Georgia, Commercial (GABCBS-CM-096930-25, December 2025 newsletter): effective 1/1/2026 ABA reimbursement is "based on weekly approved units rather than total authorized units" for 97151-97158, 0362T and 0373T; claims above the weekly approval "will be adjusted accordingly or otherwise ineligible for reimbursement." The article page is a JS SPA — read via r.jina.ai.',
+};
+const ANTHEM_GA_MCG_B806T: SourceRef = {
+  url: 'https://providernews.anthem.com/georgia/articles/mcg-care-guidelines-27th-edition-update-17867-17867',
+  accessDate: REFRESH_DATE,
+  note: 'Anthem Provider News, Georgia, Commercial (MULTI-BCBS-CM-047274-23, February 2024 newsletter): effective 6/1/2024 Anthem transitions from CG-BEH-02 and MCG W0153 to MCG B-806-T (licensed, not public) for ABA medical-necessity reviews. Read via r.jina.ai.',
+};
 const CIGNA_EN0499 = src(
   'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf',
   'Evernorth/Cigna EN0499, effective 2026-05-15 — all 10 codes listed as medically necessary when criteria are met; pure clinical-necessity policy, contains no unit caps, POS codes, telehealth modifiers, or licensure-tier modifiers.'
@@ -165,7 +182,7 @@ function gaMedicaidEntry(unitCap: number, notes?: string, extraSources?: SourceR
       telehealth: 'verified',
       modifiers: 'verified',
     },
-    sources: [DCH_2023_PRESENTATION, DCH_TELEHEALTH_GUIDANCE, ...(extraSources ?? [])],
+    sources: [DCH_ASD_MANUAL_2026, DCH_2023_PRESENTATION, DCH_TELEHEALTH_GUIDANCE, ...(extraSources ?? [])],
   };
 }
 
@@ -181,23 +198,24 @@ function careSourceEntry(unitCap: number, notes?: string): CodeGridEntry {
       'telehealth (POS 02 or 10, GT modifier, per DCH manual)',
     ],
     telehealth:
-      "Deferred to GA DCH's telehealth guidance (GT modifier, POS 02/10) — MM-0212 doesn't restate the mechanics itself.",
-    modifiers: ['U1', 'U2', 'U3', 'U4', 'U5 (defined directly in MM-0212)', 'U6 (deferred to DCH manual)', 'U7 (deferred to DCH manual)', 'GT (deferred to DCH manual)'],
+      "Deferred to GA DCH's telehealth guidance (GT modifier, POS 02/10) — MM-0212 (7/1/2026) doesn't restate the mechanics; it adds that telehealth is not to be the primary method of treatment and repeats a GA-or-within-50-miles provider-location clause that DCH's own documents no longer state as a telehealth rule.",
+    modifiers: ['U1–U5 (deferred to DCH manual)', 'U6 (deferred to DCH manual)', 'U7 (deferred to DCH manual)', 'GT (deferred to DCH manual)'],
     notes: [
       notes,
-      'Verify via: CareSource provider portal — confirm no CareSource-specific override of the DCH setting/telehealth mechanics MM-0212 defers to.',
+      'Daily cap = the DCH manual Appendix A CMS maximum; MM-0212 (7/1/2026) no longer restates it and moved payment terms to PY-1634 (not public).',
+      'Verify via: CareSource provider portal — confirm no CareSource-specific override of the DCH setting/telehealth mechanics or daily maximums MM-0212 defers to (PY-1634).',
     ]
       .filter(Boolean)
       .join(' '),
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
-      unitCap: 'verified',
+      unitCap: 'inferred',
       posAllowed: 'inferred',
       telehealth: 'inferred',
       modifiers: 'inferred',
     },
-    sources: [CARESOURCE_MM0212, DCH_TELEHEALTH_GUIDANCE],
+    sources: [CARESOURCE_MM0212, DCH_ASD_MANUAL_2026, DCH_TELEHEALTH_GUIDANCE],
   };
 }
 
@@ -249,7 +267,7 @@ function amerigroupEntry(unitCap: number): CodeGridEntry {
       telehealth: 'inferred',
       modifiers: 'inferred',
     },
-    sources: [AMERIGROUP_CGBEH02, DCH_2023_PRESENTATION],
+    sources: [AMERIGROUP_CGBEH02, DCH_ASD_MANUAL_2026, DCH_2023_PRESENTATION],
   };
 }
 
@@ -257,8 +275,8 @@ function anthemEntry(paRequired: string, notes?: string): CodeGridEntry {
   return {
     covered: 'Yes',
     paRequired,
-    unitCap: 'unverified',
-    capPeriod: 'unverified',
+    unitCap: 'Weekly approved units per authorization (from 1/1/2026); per-day ceiling = CMS MUE, number not published by Anthem',
+    capPeriod: 'week (authorization)',
     posAllowed: [
       '12 = Home',
       '11 = Office/Clinic',
@@ -272,7 +290,7 @@ function anthemEntry(paRequired: string, notes?: string): CodeGridEntry {
     modifiers: ["HM (less than bachelor's)", "HN (bachelor's)", "HO (master's)"],
     notes: [
       notes,
-      "Verify via: CMS's current MUE list (unit caps — the guide defers to it) and Anthem's Virtual Visits reimbursement policy / CPT Appendix P (telehealth mechanics).",
+      "Verify via: the authorization's weekly approved units, CMS's current MUE list (per-day ceiling — the guide defers to it) and Anthem's Virtual Visits reimbursement policy / CPT Appendix P (telehealth mechanics). Medical-necessity criteria since 6/1/2024 are MCG B-806-T (licensed, not public).",
     ]
       .filter(Boolean)
       .join(' '),
@@ -284,7 +302,7 @@ function anthemEntry(paRequired: string, notes?: string): CodeGridEntry {
       telehealth: 'unverified',
       modifiers: 'verified',
     },
-    sources: [ANTHEM_ABA_GUIDE],
+    sources: [ANTHEM_ABA_GUIDE, ANTHEM_GA_WEEKLY_UNITS, ANTHEM_GA_MCG_B806T],
   };
 }
 
@@ -403,8 +421,7 @@ const georgiaMedicaidEdi: EdiRouting = {
 const georgiaMedicaidCodeGrid: Record<string, CodeGridEntry> = {
   '97151': gaMedicaidEntry(
     32,
-    'Billed as a family with 97152 in GAMMIS PA requests — entering one code sends both for authorization. Comprehensive assessment generally capped at 8 hrs per 6-month period.',
-    [DCH_ASD_MANUAL]
+    'Billed as a family with 97152 in GAMMIS PA requests — entering one code sends both for authorization. After the initial assessment PA, every ongoing PA is one consolidated request carrying all assessment and treatment codes (DCH ASD manual July 2026, Appendix E). The 8-hrs-per-6-months comprehensive-assessment cap is CareSource\'s rule (MCD-MM-0212), not in the DCH manual.'
   ),
   '97152': gaMedicaidEntry(16, 'Billed as a family with 97151 in GAMMIS PA requests.'),
   '97153': gaMedicaidEntry(32, 'Billed as a family with 97154/97155 in GAMMIS PA requests.'),
@@ -416,7 +433,7 @@ const georgiaMedicaidCodeGrid: Record<string, CodeGridEntry> = {
   '0362T': gaMedicaidEntry(16),
   '0373T': gaMedicaidEntry(
     32,
-    'Extra-technician / intensifying protocol; DCH-aligned CMO policies generally require a titration plan back toward 97153 and a BCBA onsite and immediately available.'
+    'Extra-technician / intensifying protocol; the DCH manual (Appendix D) requires a titration plan back toward 97153 and a BCBA onsite and immediately available.'
   ),
 };
 
@@ -583,19 +600,19 @@ const anthemEdi: EdiRouting = {
 };
 
 const anthemCodeGrid: Record<string, CodeGridEntry> = {
-  '97151': anthemEntry('Required — part of the ≤20-combined-hour initial behavior-identification assessment'),
-  '97152': anthemEntry('Required — part of the ≤20-combined-hour initial behavior-identification assessment'),
-  '97153': anthemEntry('Required — treatment plan, reviewed every 6 months'),
-  '97154': anthemEntry('Required — treatment plan, reviewed every 6 months'),
+  '97151': anthemEntry('Required — authorized; paid against weekly approved units from 1/1/2026'),
+  '97152': anthemEntry('Required — authorized; paid against weekly approved units from 1/1/2026'),
+  '97153': anthemEntry('Required — authorized; paid against weekly approved units from 1/1/2026; treatment plan reviewed at least every 6 months'),
+  '97154': anthemEntry('Required — authorized; paid against weekly approved units from 1/1/2026'),
   '97155': anthemEntry(
-    'Required — treatment plan, reviewed every 6 months',
-    "Billable alongside 97153 only when the technician and the QHP are both face-to-face and the QHP is directing (per the ABA Provider Resource Guide, which contains an apparent typo — \"971555\" — in this rule)."
+    'Required — authorized; paid against weekly approved units from 1/1/2026',
+    "A physician or other QHP billing 97155 can add 97153 only when the technician and the QHP are both face-to-face with the patient and the QHP is directing (June 2025 ABA Provider Resource Guide; directed services fall under Anthem's Incident To Services and Billing policy)."
   ),
-  '97156': anthemEntry('Required — protocol modification, up to 2 hrs per 10 direct hours, max 8/week'),
-  '97157': anthemEntry('Required — treatment plan, reviewed every 6 months'),
-  '97158': anthemEntry('Required — treatment plan, reviewed every 6 months'),
-  '0362T': anthemEntry('Required — part of the ≤20-combined-hour initial behavior-identification assessment'),
-  '0373T': anthemEntry('Required — treatment plan, reviewed every 6 months'),
+  '97156': anthemEntry('Required — authorized; paid against weekly approved units from 1/1/2026'),
+  '97157': anthemEntry('Required — authorized; paid against weekly approved units from 1/1/2026'),
+  '97158': anthemEntry('Required — authorized; paid against weekly approved units from 1/1/2026'),
+  '0362T': anthemEntry('Required — authorized; paid against weekly approved units from 1/1/2026'),
+  '0373T': anthemEntry('Required — authorized; paid against weekly approved units from 1/1/2026'),
 };
 
 /* ==================== aetna-georgia (commercial) ==================== */
@@ -794,11 +811,6 @@ const GAMMIS_2023_PRESENTATION_CONTACT_PAGE = src(
   'Gainwell/GA DCH "Georgia Medicaid Autism Services Presentation," Feb 2023, "Contact Us" slide (p.32) — states verbatim: "Our Provider Services Contact Center (PSCC) can be reached at 800-766-4456 and is available 7 a.m. to 7 p.m. EST Monday through Friday (except state holidays) for service inquiries. Please note the Web Portal is available 24/7." Cross-confirmed by the Peach State GA Provider Integration QRG (2021), which separately lists "DXC Technology Provider Call Center at 1-800-766-4456" for the same GAMMIS centralized authorization portal.',
   true
 );
-const GA_ASD_MANUAL_FAX = src(
-  'https://medicaid.georgia.gov/document/publication/asd-policy-manual/download',
-  'GA DCH Part II ASD Policy Manual, 2018-01-01, §601.4 (Attestation) — states verbatim: "The attestation may be downloaded, completed, and submitted by facsimile to the Attention of DCH ABS Enrollment to 404-656-8366." Narrowly scoped to ABS provider/staff attestation-form submissions, not a general provider-services fax.',
-  true
-);
 const AMERIGROUP_GA_CONTACT_US = src(
   'https://provider.amerigroup.com/georgia-provider/contact-us',
   'Amerigroup Georgia provider "Contact Us" page, fetched 2026-07-23 — lists Provider Services 1-800-454-3730 (fax 1-800-964-3627) for prior authorization/notification, member eligibility, claims, behavioral health, pharmacy, and case management, Monday-Friday 7 a.m.-7 p.m.; provider portal named as Availity Essentials.'
@@ -838,7 +850,6 @@ const georgiaMedicaidContact: VobContact = {
   providerServicesPhone: '800-766-4456',
   hours: '7 a.m.–7 p.m. ET, Monday–Friday (except state holidays); GAMMIS web portal available 24/7',
   portal: { name: 'GAMMIS Web Portal', url: 'https://www.mmis.georgia.gov' },
-  fax: '404-656-8366 (DCH ABS Enrollment — ASD/ABS provider attestation submissions specifically, not general provider services)',
   scriptedQuestions: [
     'What Change Healthcare payer ID should we use for GA Medicaid eligibility checks — pVerify lists two conflicting candidates (SKGA0 and 12K05)?',
     'Can you confirm 77034 is still the correct Availity payer ID for GA Medicaid — our cited source is a 2012 snapshot?',
@@ -848,7 +859,7 @@ const georgiaMedicaidContact: VobContact = {
     'Is the ABA cost share a copay or coinsurance, and is it charged per visit or per day?',
     'Which service-type-code bucket does GAMMIS return ABA benefit detail under, and does the deductible or out-of-pocket max apply to it?',
   ],
-  sources: [GAMMIS_2023_PRESENTATION_CONTACT_PAGE, GA_ASD_MANUAL_FAX],
+  sources: [GAMMIS_2023_PRESENTATION_CONTACT_PAGE],
 };
 
 const amerigroupContact: VobContact = {
@@ -1000,16 +1011,16 @@ const anthemGeorgiaStc: StcMap = {
 /* ==================== export ==================== */
 
 export const georgiaVob: Record<string, VobExtension> = {
-  'georgia-medicaid': { edi: georgiaMedicaidEdi, codeGrid: georgiaMedicaidCodeGrid, stcMap: georgiaMedicaidStc, vobContact: georgiaMedicaidContact, lastUpdated: ACCESS_DATE },
-  'amerigroup-georgia': { edi: amerigroupEdi, codeGrid: amerigroupCodeGrid, stcMap: amerigroupStc, vobContact: amerigroupContact, lastUpdated: ACCESS_DATE },
-  'caresource-georgia': { edi: caresourceEdi, codeGrid: caresourceCodeGrid, stcMap: caresourceStc, vobContact: caresourceContact, lastUpdated: ACCESS_DATE },
+  'georgia-medicaid': { edi: georgiaMedicaidEdi, codeGrid: georgiaMedicaidCodeGrid, stcMap: georgiaMedicaidStc, vobContact: georgiaMedicaidContact, lastUpdated: REFRESH_DATE },
+  'amerigroup-georgia': { edi: amerigroupEdi, codeGrid: amerigroupCodeGrid, stcMap: amerigroupStc, vobContact: amerigroupContact, lastUpdated: REFRESH_DATE },
+  'caresource-georgia': { edi: caresourceEdi, codeGrid: caresourceCodeGrid, stcMap: caresourceStc, vobContact: caresourceContact, lastUpdated: REFRESH_DATE },
   'peach-state-georgia': { edi: peachStateEdi, codeGrid: peachStateCodeGrid, stcMap: peachStateStc, vobContact: peachStateContact, lastUpdated: ACCESS_DATE },
   'anthem-bcbs-georgia': {
     edi: anthemEdi,
     codeGrid: anthemCodeGrid,
     stcMap: anthemGeorgiaStc,
     vobContact: anthemContact,
-    lastUpdated: ACCESS_DATE,
+    lastUpdated: REFRESH_DATE,
   },
   'aetna-georgia': {
     edi: aetnaEdi,

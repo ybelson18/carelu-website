@@ -486,18 +486,20 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
   'presbyterian-health-plan-new-mexico': {
     slug: 'presbyterian-health-plan-new-mexico',
     assessmentPA: {
-      value: 'No separate Presbyterian rule published — the state baseline governs, and the New Mexico fee schedule marks 97151, 97152 and 0362T "Prior Auth: NO". Verify current requirements in myPRES if in doubt',
+      value: 'Required — stricter than the state baseline. Presbyterian\'s own Provider Prior Authorization Guide (09.01.2026), which its Turquoise Care manual names as the complete list of services requiring prior authorization, lists 97151, 97152 and 0362T on its Applied Behavior Analysis row for Turquoise Care, Turquoise Care Expansion ABP and Commercial, with no carve-out for any line of business. The state fee schedule marks those codes "Prior Auth: NO", but Presbyterian\'s list is the one its UM applies — get the assessment authorized before booking, and confirm with Turquoise Care BH UM at (505) 923-5757, option 4 then 2',
       status: 'verified',
       cites: [
+        { title: 'Presbyterian Provider Prior Authorization Guide (09.01.2026), p. 48 — Applied Behavior Analysis', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220' },
+        { title: 'Presbyterian Turquoise Care Practitioner and Provider Manual (2026)', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=OB_000000001114' },
         { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
-        { title: 'Presbyterian Health Plan — Authorizations for Providers', url: 'https://www.phs.org/providers/authorizations' },
       ],
     },
     cardDesc: 'State criteria with its own Stage 3 review forms; Medicaid BH fax (505) 843-3019 — not Magellan.',
     treatmentPA: {
-      value: 'Stage 3 ABA Clinical Review Form to Presbyterian Turquoise Care BH — fax (505) 843-3019 or the online Turquoise Care portal (state 97153-only PA baseline)',
+      value: 'Required on every ABA treatment code — Presbyterian\'s PA Guide lists 97153-97158, 0373T, H2019, H0031 and H0032 for Turquoise Care, not just the state\'s 97153/0373T. Submit the Stage 3 ABA Clinical Review Form to Presbyterian Turquoise Care BH — fax (505) 843-3019 or the online Turquoise Care portal; BH UM line (505) 923-5757, option 4 then 2',
       status: 'verified',
       cites: [
+        { title: 'Presbyterian Provider Prior Authorization Guide (09.01.2026), p. 48 — Applied Behavior Analysis', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220' },
         { title: 'Presbyterian Health Plan — Authorizations for Providers', url: 'https://www.phs.org/providers/authorizations' },
         { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
       ],
@@ -522,6 +524,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
     atGlance: [
       { label: 'Plan type', value: 'Turquoise Care MCO (in-house BH UM for Medicaid)' },
       { label: 'Clinical rules', value: 'State ABA criteria and stage model (NMAC 8.321.2 / Supplement 24-13)' },
+      { label: 'Assessment auth', value: 'REQUIRED — Presbyterian\'s PA Guide lists 97151/97152/0362T (stricter than the state fee schedule)' },
       { label: 'Treatment request', value: 'Presbyterian\'s own Stage 3 ABA Clinical Review Form' },
       { label: 'Submission', value: 'Fax (505) 843-3019 or the Turquoise Care online submission; myPRES portal' },
       { label: 'Routing trap', value: 'Magellan = Presbyterian Medicare/commercial BH only — NOT Medicaid' },
@@ -531,10 +534,11 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Presbyterian runs ABA authorization',
         body: [
-          'Clinically, expect the state baseline: the ASD-or-at-risk eligibility, no-PA assessment, the 97153 treatment PA, and the service-authorization-plus-6-month-PA cadence all come from the state program (see the New Mexico Medicaid guide). Presbyterian\'s contribution is its paperwork: Stage 3 treatment requests go on Presbyterian\'s own ABA Clinical Review Form (with a separate Specialty Care version), submitted by fax to (505) 843-3019 or through the dedicated Turquoise Care online submission channel; day-to-day provider work runs through the myPRES portal. The plan mirroring the state\'s "Stage 3" and "Specialty Care" vocabulary on its forms is a strong signal of state-criteria deference — no distinct Presbyterian clinical policy for ABA has been published. No plan-specific hour caps have been published either; treat the state criteria as the operative limits and verify current form versions in myPRES before submitting.',
+          'Clinically, expect the state baseline: the ASD-or-at-risk eligibility and the service-authorization-plus-6-month-PA cadence come from the state program (see the New Mexico Medicaid guide). Prior authorization is where Presbyterian is stricter: its Provider Prior Authorization Guide (09.01.2026) lists every ABA code for Turquoise Care — 97151, 97152 and 0362T assessment codes included, plus 97153-97158, 0373T, H2019, H0031 and H0032 — where the state fee schedule gates only 97153 and 0373T. Book the assessment only after it is authorized. Presbyterian\'s contribution is its paperwork: Stage 3 treatment requests go on Presbyterian\'s own ABA Clinical Review Form (with a separate Specialty Care version), submitted by fax to (505) 843-3019 or through the dedicated Turquoise Care online submission channel; day-to-day provider work runs through the myPRES portal. The plan mirroring the state\'s "Stage 3" and "Specialty Care" vocabulary on its forms is a strong signal of state-criteria deference — no distinct Presbyterian clinical policy for ABA has been published. No plan-specific hour caps have been published either; treat the state criteria as the operative limits and verify current form versions in myPRES before submitting.',
         ],
         cites: [
           { title: 'Presbyterian Health Plan — Authorizations for Providers (ABA Stage 3 + Specialty Care forms)', url: 'https://www.phs.org/providers/authorizations' },
+          { title: 'Presbyterian Provider Prior Authorization Guide (09.01.2026), p. 48 — Applied Behavior Analysis', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220' },
         ],
       },
       {
@@ -549,7 +553,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
     ],
     collect: [
       { title: 'Line of business', desc: 'Presbyterian Medicaid (Turquoise Care, in-house BH) vs. commercial/Medicare (Magellan) — it decides where the auth goes.' },
-      { title: 'Diagnosis or at-risk documentation', desc: 'State rule: ASD dx within 3 years of referral, or the at-risk pathway — then book the assessment; no PA.' },
+      { title: 'Diagnosis or at-risk documentation', desc: 'State rule: ASD dx within 3 years of referral, or the at-risk pathway — then request the assessment authorization; Presbyterian\'s PA Guide gates 97151/97152 too.' },
       { title: 'Stage 3 form package', desc: 'Presbyterian\'s own ABA Clinical Review Form (Stage 3) — pull the current version from myPRES/phs.org before each request.' },
       { title: 'Planned weekly intensity', desc: 'The state\'s under-20-hrs/week comprehensive-treatment PA quirk applies here too — plan hours deliberately.' },
     ],
@@ -697,7 +701,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Presbyterian Health Plan cover ABA under Turquoise Care?', a: 'Yes — on the state\'s ABA criteria and stage model. Treatment requests use Presbyterian\'s own Stage 3 ABA Clinical Review Form, faxed to (505) 843-3019 or submitted through the Turquoise Care online channel.' },
       { q: 'Do I send Presbyterian Medicaid ABA authorizations to Magellan?', a: 'No — Magellan handles Presbyterian\'s Medicare and commercial behavioral health only. Turquoise Care (Medicaid) BH is in-house: use the Medicaid fax (505) 843-3019 or the Turquoise Care portal.' },
-      { q: 'Does Presbyterian require PA on the ABA assessment?', a: 'No separate Presbyterian rule has been published — the state baseline applies, and the state fee schedule marks 97151/97152/0362T PA-free. Verify current requirements in myPRES if in doubt.' },
+      { q: 'Does Presbyterian require PA on the ABA assessment?', a: 'Yes. Presbyterian\'s Provider Prior Authorization Guide (09.01.2026) lists 97151, 97152 and 0362T on its Applied Behavior Analysis row for Turquoise Care, Turquoise Care Expansion ABP and Commercial — stricter than the state fee schedule, which marks those codes PA-free. Confirm with Turquoise Care BH UM at (505) 923-5757, option 4 then 2.' },
     ],
   },
 

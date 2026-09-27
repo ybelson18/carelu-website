@@ -331,7 +331,7 @@ const ANTHEM_ROWS: CarveoutRow[] = [
     abaAdministeredOn: 'unverified',
     notes:
       'fieldStatus: inferred. Confirm whether ABA claims route to Carelon Behavioral Health (candidate payer IDs: BHOVO per Availity, or CHCBH per Optum-adjacent ERA lists — neither confirmed) or bill directly under Anthem\'s own medical payer ID (00601). The Anthem ABA Provider Resource Guide itself describes standard CMS-1500 billing with no carve-out named.',
-    sources: [src('https://files.providernews.anthem.com/5585/MULTI-BCBS-CM-072378-24-CPN72366-EXPRESS-ABA-prov-resource-gd-FINAL-V3.pdf', 'Anthem ABA Provider Resource Guide (Oct 2024).')],
+    sources: [src('https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf', 'Anthem ABA Provider Resource Guide (MULTI-BCBS-CM-084583-25, June 2025).')],
   },
   {
     family: 'anthem',

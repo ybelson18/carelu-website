@@ -87,6 +87,11 @@ const ACCESS_DATE = '2026-07-23';
    corpus-compile ACCESS_DATE above, which is left untouched for sources
    not re-verified this cycle. */
 const REFRESH_ACCESS_DATE_202609 = '2026-09-01';
+/* Weekly-refresh date (2026-09-27) for sources re-read this pass: CCP 8F
+   subsections 5.3.4 / 6.3 / 3.2.4, the Alliance rate schedule and archived
+   RB-BHT guidance, Trillium's 8/31/2026 benefit plan, S.L. 2026-41, and the
+   MedCost pages behind the medcost entry. */
+const REFRESH_ACCESS_DATE_20260927 = '2026-09-27';
 
 function src(url: string, note?: string, staleRisk?: boolean): SourceRef {
   return { url, accessDate: ACCESS_DATE, note, staleRisk };
@@ -227,16 +232,16 @@ function ncMedicaidCoveredEntry(code: string, assessmentCode: boolean): CodeGrid
     modifiers = [];
   } else if (cappedTelehealth) {
     telehealthNote =
-      'Yes, but capped — modifier GT (inferred; video), limited to a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period, per the finalized CCP 8F (Amended Date: August 1, 2026), corroborated by NC Medicaid\'s 8/31/2026 bulletin. NC Health News (7/15/2026, quoting DHHS) had reported this cap as 20% — the finalized policy sets it at 50%, not 20%; treat the 20% figure as superseded.';
-    modifiers = ['GT (inferred)'];
+      'Yes, but capped — modifier GT (named in CCP 8F Attachment A), limited to a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period, per the finalized CCP 8F (Amended Date: August 1, 2026), corroborated by NC Medicaid\'s 8/31/2026 bulletin. NC Health News (7/15/2026, quoting DHHS) had reported this cap as 20% — the finalized policy sets it at 50%, not 20%; treat the 20% figure as superseded.';
+    modifiers = ['GT'];
   } else if (kxEligible) {
     telehealthNote =
-      'Yes — modifier GT (inferred; video); ALSO telephonic-billable with modifier KX (inferred; audio-only) under documented caregiver-access-barrier criteria — unchanged by the finalized CCP 8F (Amended Date: August 1, 2026).';
-    modifiers = ['GT (inferred)', 'KX (inferred, audio-only, conditional)'];
+      'Yes — modifier GT; ALSO telephonic-billable with modifier KX (audio-only) under documented caregiver-access-barrier criteria — both modifiers named in CCP 8F Attachment A (Amended Date: August 1, 2026).';
+    modifiers = ['GT', 'KX (audio-only, conditional)'];
   } else {
     telehealthNote =
-      'Yes — modifier GT (inferred; video), with clinical justification required, per the finalized CCP 8F (Amended Date: August 1, 2026).';
-    modifiers = ['GT (inferred, clinical justification required)'];
+      'Yes — modifier GT, with clinical justification in the beneficiary\'s Treatment Plan, per CCP 8F Attachment A (Amended Date: August 1, 2026). 8F does not separately require the modality on the prior approval (97151/97152 need no service order or Treatment Plan for PA), but S.L. 2026-1 §3C.18(a)(5), as amended by S.L. 2026-41, says assessments are to be in person and telehealth assessments are not reimbursed unless exceptions are developed.';
+    modifiers = ['GT (clinical justification in Treatment Plan)'];
   }
 
   return {
@@ -248,7 +253,7 @@ function ncMedicaidCoveredEntry(code: string, assessmentCode: boolean): CodeGrid
     telehealth: telehealthNote,
     modifiers,
     notes:
-      'No confirmed general unit-cap, cap-period, or POS-code table was located for this code in the current CCP 8F PDF or the NCTracks Fee Schedules Portal (a dynamic search tool, not a fetchable static document) this pass. Verify via: NCTracks Fee Schedules Portal / CCP 8F Attachment A. Telehealth eligibility/caps (this cell) ARE confirmed this cycle from the finalized, published CCP 8F (Amended Date 8/1/2026) — see the telehealth field above; exact modifier LETTER codes (GT/KX) remain inferred from plan-level documents rather than quoted verbatim from 8F itself.',
+      'No confirmed general unit-cap, cap-period, or POS-code table was located for this code in the current CCP 8F PDF or the NCTracks Fee Schedules Portal (a dynamic search tool, not a fetchable static document) this pass. Verify via: NCTracks Fee Schedules Portal / CCP 8F Attachment A. Telehealth eligibility/caps (this cell) ARE confirmed from the finalized, published CCP 8F (Amended Date 8/1/2026), and the modifier letters are quoted from its Attachment A ("Modifier GT must be appended…"; "Modifier KX must be appended…" for telephonic) — re-read 2026-09-27.',
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
@@ -256,7 +261,7 @@ function ncMedicaidCoveredEntry(code: string, assessmentCode: boolean): CodeGrid
       capPeriod: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'verified',
-      modifiers: 'inferred',
+      modifiers: 'verified',
     },
     sources: assessmentCode
       ? [CCP_8F_CURRENT, NC_MEDICAID_8F_BULLETIN_083126, HB696_BILL_TEXT, NC_MEDICAID_8F_BLOG_072126]
@@ -844,13 +849,15 @@ const CCP_8F = src(
   'https://medicaid.ncdhhs.gov/documents/files/8f-1/open',
   'NC Medicaid Clinical Coverage Policy 8F (RB-BHT) — Section D/Attachment A: the CPT code table (telehealth-eligible with GT; telephonic-eligible with KX only for 97156/97157 under caregiver-barrier criteria in §3.1.2/3.2.5) stops at 97157. Section F (Place of Service) is narrative only — no POS numeric codes given. Retrieved and full-text extracted directly, not summarized from a mirror.'
 );
-const ALLIANCE_RATE_SCHEDULE_NCB = src(
+const ALLIANCE_RATE_SCHEDULE_NCB = srcAt(
   'https://www.alliancehealthplan.org/document-library/97251',
-  "Alliance Health — Standard Rate Schedule, \"FY26 - Updated June 2026 V2 Format Revision/RB-BHT\" — RB-BHT line items (97151-97157) at $30.56/$61.73/$20.81/$11.37/$32.22/$23.70/$11.51 per 15-min unit, effective 10/1/2025. Retrieved and full-text extracted directly; no 97158, 0362T, or 0373T line items exist in the document."
+  REFRESH_ACCESS_DATE_20260927,
+  "Alliance Health — Standard Rate Schedule, re-read 2026-09-27 at its \"FY27 - Updated September 2026\" version (the September/August/July 2026 updates touched H0038, H2022, TBI and outpatient codes only; the RB-BHT block last changed in \"FY26 - Updated June 2026 V2 Format Revision/RB-BHT\") — RB-BHT line items (97151-97157) at $30.56/$61.73/$20.81/$11.37/$32.22/$23.70/$11.51 per 15-min unit, effective 10/1/2025. Retrieved and full-text extracted directly; no 97158, 0362T, or 0373T line items exist in the document."
 );
-const ALLIANCE_RBBHT_GUIDANCE = src(
+const ALLIANCE_RBBHT_GUIDANCE = srcAt(
   'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/',
-  'Alliance Health — Guidance for RB-BHT Providers (Feb 2026) — diagnostic-instrument and service-order requirements; already cited in the base corpus prose.'
+  REFRESH_ACCESS_DATE_20260927,
+  'Alliance Health — Guidance for RB-BHT Providers (Feb 2026). As of 2026-09-27 the page returns HTTP 410 with Alliance\'s "Information Archived" notice, so its instrument list (ADI-R, ADOS-2, CARS-2, TELE-ASD-PEDS) is no longer a live source; the diagnostic bar now comes from CCP 8F subsection 3.2.4.'
 );
 const TRILLIUM_RATE_TABLE = src(
   'https://www.trilliumhealthresources.org/sites/default/files/docs/Billing-Codes-Rates/Trillium-Rate-Table-FY-26-27.pdf',
@@ -860,9 +867,10 @@ const TRILLIUM_CLAIMS_PROTOCOL = src(
   'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Medicaid-Direct-Tailored-Plan-Claims-Submission-Protocol.pdf',
   'Trillium — Tailored Plan & Medicaid Direct Claims Submission Protocol (rev. 9/23/2025) — states verbatim: Behavioral Health clearinghouse claims use Change Healthcare (payer ID 56089) or The SSI Group (payer ID 43071); Physical Health claims route to Carolina Complete Health via payer ID 68069 (a Centene delegation, confirmed separately on the Availity list). Retrieved and full-text extracted directly.'
 );
-const TRILLIUM_BENEFIT_PLAN = src(
+const TRILLIUM_BENEFIT_PLAN = srcAt(
   'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf',
-  'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026) — already cited in the base corpus prose; source for the GT/KX telehealth-modifier language restated here.'
+  REFRESH_ACCESS_DATE_20260927,
+  'Trillium — 2026-2027 Medicaid Child BH Services Benefit Plan, re-read at "Revised: 08-31-2026" — RB-BHT page: TAR required including telephonic and telehealth; initial and reauth up to 180 days at 16 service hrs/week or less, up to 90 days above 16; per-code GT/KX telehealth rules matching CCP 8F Attachment A (97151 GT with Tx Plan justification, 97155 GT up to 50% per 180 days, 97156/97157 GT plus KX on caregiver barrier; no telehealth line for 97152-97154); school-based settings listed.'
 );
 const VAYA_AUTH_GUIDELINES = src(
   'https://providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf',
@@ -922,8 +930,8 @@ const AETNA_CPB0648 = src(
 
 /* NC Medicaid's CCP 8F billable RB-BHT set is 97151-97157 ONLY (verified —
    see file header). This factory carries the shared, state-level facts
-   (telehealth/telephonic modifier eligibility, place-of-service language,
-   180-day auth-cycle framing) that are identical across all four Tailored
+   (telehealth/telephonic modifier eligibility per the 8/1/2026 Attachment A,
+   place-of-service language, tiered 180/90-day auth periods) that are identical across all four Tailored
    Plans; each call layers in the plan's own authorization mechanism. */
 function ncTailoredPlanEntry(opts: {
   code: string;
@@ -935,11 +943,12 @@ function ncTailoredPlanEntry(opts: {
   extraSources?: SourceRef[];
 }): CodeGridEntry {
   const kxEligible = opts.code === '97156' || opts.code === '97157';
+  const telehealthRemoved = opts.code === '97152' || opts.code === '97153' || opts.code === '97154';
   return {
     covered: 'Yes',
     paRequired: opts.paRequired,
     unitCap: opts.unitCap,
-    capPeriod: '180 days (initial + reauth, per CCP 8F auth cycle)',
+    capPeriod: 'Per authorization period (CCP 8F §5.1/5.1.1, eff. 8/1/2026): up to 180 days at 16 hrs/week or fewer, up to 90 days above 16 hrs/week — initial and reauth alike',
     posAllowed: [
       'home (primary private residence)',
       'office/clinic',
@@ -948,11 +957,17 @@ function ncTailoredPlanEntry(opts: {
       '(CCP 8F Section F is narrative only — no POS numeric codes given)',
     ],
     telehealth: kxEligible
-      ? "Yes — GT modifier for telehealth (audio-visual). Telephonic (audio-only, KX modifier) also allowed, but ONLY when the caregiver's physical/behavioral health status or an access barrier (transportation, technology) prevents in-person or telehealth participation (CCP 8F §3.1.2/3.2.5)."
-      : 'Yes — GT modifier for telehealth (audio-visual). Telephonic (KX) delivery is not permitted for this code per CCP 8F’s Attachment A code table.',
+      ? "Yes — GT modifier for telehealth (audio-visual). Telephonic (audio-only, KX modifier) also allowed, but ONLY when the caregiver's physical/behavioral health status or an access barrier (transportation, technology) prevents in-person or telehealth participation (CCP 8F §3.1.2 and Attachment A, eff. 8/1/2026)."
+      : telehealthRemoved
+        ? 'No — telehealth was removed for 97152, 97153 and 97154 by the CCP 8F rewrite effective 8/1/2026 (Attachment A: not telehealth billable, not telephonic billable).'
+        : opts.code === '97155'
+          ? 'Yes, capped — GT modifier; telehealth may be used up to a maximum of 50% of total 97155 billing per beneficiary per 180-calendar-day period, with clinical justification in the Treatment Plan for more (CCP 8F Attachment A, eff. 8/1/2026). The observing provider may observe via telehealth while the technician delivers in person.'
+          : 'Yes — GT modifier, with clinical justification in the beneficiary’s Treatment Plan (CCP 8F Attachment A, eff. 8/1/2026). Not telephonic.',
     modifiers: kxEligible
       ? ['GT (telehealth)', 'KX (telephonic, caregiver-barrier criteria only)']
-      : ['GT (telehealth)'],
+      : telehealthRemoved
+        ? []
+        : ['GT (telehealth)'],
     notes: opts.notes,
     fieldStatus: {
       covered: 'verified',
@@ -962,7 +977,7 @@ function ncTailoredPlanEntry(opts: {
       telehealth: 'verified',
       modifiers: 'verified',
     },
-    sources: [CCP_8F, ...(opts.extraSources ?? [])],
+    sources: [CCP_8F_CURRENT, CCP_8F, ...(opts.extraSources ?? [])],
   };
 }
 
@@ -1091,10 +1106,10 @@ function allianceCodeGrid(): Record<string, CodeGridEntry> {
   return {
     '97151': ncTailoredPlanEntry({
       code: '97151', paRequired: cover, paFieldStatus: 'verified',
-      unitCap: 'unverified — no Alliance-specific or statewide per-code unit cap document located (180-day auth cycle is the governing limit)',
+      unitCap: 'unverified — no Alliance-specific or statewide per-code unit cap document located (the CCP 8F authorization period — up to 180 days at ≤16 hrs/week, up to 90 above — is the governing limit)',
       unitCapFieldStatus: 'unverified',
-      notes: 'Diagnostic-instrument bar applies at this step: ADI-R, ADOS-2, CARS-2, or TELE-ASD-PEDS required (Alliance Feb-2026 guidance); GARS/M-CHAT/SRS rejected as standalone.',
-      extraSources: [ALLIANCE_RBBHT_GUIDANCE],
+      notes: 'Diagnostic-instrument bar applies at this step: a non-provisional ASD diagnosis made with BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (CCP 8F 3.2.4, eff. 8/1/2026); ADI-R is not on the state list. Alliance\'s Feb-2026 guidance that named ADI-R has been archived (HTTP 410 as of 2026-09-27).',
+      extraSources: [CCP_8F_CURRENT, ALLIANCE_RBBHT_GUIDANCE],
     }),
     '97152': ncTailoredPlanEntry({ code: '97152', paRequired: cover, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
     '97153': ncTailoredPlanEntry({ code: '97153', paRequired: cover, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
@@ -1162,26 +1177,26 @@ const trilliumEdi: EdiRouting = {
 };
 
 function trilliumCodeGrid(): Record<string, CodeGridEntry> {
-  const tar = 'Required — TAR (initial + reauth up to 180 days each, telehealth included); reauth due before current auth expires';
+  const tar = 'Required — TAR (initial + reauth up to 180 days at 16 service hrs/week or less, up to 90 days above 16, per Trillium\'s benefit plan rev. 8/31/2026; telehealth and telephonic included); reauth due before current auth expires';
   return {
     '97151': ncTailoredPlanEntry({
       code: '97151', paRequired: tar, paFieldStatus: 'verified',
       unitCap: 'unverified — no Trillium-specific per-code unit cap document located',
       unitCapFieldStatus: 'unverified',
       notes: 'No published unit caps (per the base corpus prose); units run in 15-minute increments. Inferred from Vaya’s statewide pattern: other Tailored Plans notify-approve up to 32 units/6 months before requiring medical-necessity review.',
-      extraSources: [VAYA_AUTH_GUIDELINES],
+      extraSources: [TRILLIUM_BENEFIT_PLAN, VAYA_AUTH_GUIDELINES],
     }),
-    '97152': ncTailoredPlanEntry({ code: '97152', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
-    '97153': ncTailoredPlanEntry({ code: '97153', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
-    '97154': ncTailoredPlanEntry({ code: '97154', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
+    '97152': ncTailoredPlanEntry({ code: '97152', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [TRILLIUM_BENEFIT_PLAN] }),
+    '97153': ncTailoredPlanEntry({ code: '97153', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [TRILLIUM_BENEFIT_PLAN] }),
+    '97154': ncTailoredPlanEntry({ code: '97154', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [TRILLIUM_BENEFIT_PLAN] }),
     '97155': ncTailoredPlanEntry({
       code: '97155', paRequired: tar, paFieldStatus: 'verified',
       unitCap: 'Inferred from Vaya’s statewide-pattern passthrough: up to 1 hour per 10 hours of 97153/97154 (10%); above that, medical-necessity review. Not confirmed as a Trillium-specific rule.',
       unitCapFieldStatus: 'inferred',
-      extraSources: [VAYA_RBBHT_GUIDANCE],
+      extraSources: [TRILLIUM_BENEFIT_PLAN, VAYA_RBBHT_GUIDANCE],
     }),
-    '97156': ncTailoredPlanEntry({ code: '97156', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
-    '97157': ncTailoredPlanEntry({ code: '97157', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }, ),
+    '97156': ncTailoredPlanEntry({ code: '97156', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [TRILLIUM_BENEFIT_PLAN] }),
+    '97157': ncTailoredPlanEntry({ code: '97157', paRequired: tar, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified', extraSources: [TRILLIUM_BENEFIT_PLAN] }),
     '97158': ncCodeNotInStateSet('97158'),
     '0362T': ncCodeNotInStateSet('0362T'),
     '0373T': ncCodeNotInStateSet('0373T'),
@@ -1901,6 +1916,133 @@ const unitedhealthcareContactNC: VobContact = {
    other session's entries. All 13 North Carolina VOB-enriched guide
    slugs are covered.
    ================================================================ */
+/* ==================== medcost (ported from LeadTrap 2026-09-27) ====================
+   MedCost Benefit Services is a Carolinas administrator of SELF-FUNDED employer
+   plans, and the MedCost Network is leased to other administrators. The plan
+   sponsor writes the benefit, so most cells are plan-dependent by nature. Every
+   value below was re-read this pass: medcost.com pages via r.jina.ai (direct
+   fetches return a client-rendered shell), the January 2025 Comprehensive
+   Outpatient Review precert list and the October 2025 Provider Manual as PDFs.
+   The LeadTrap copy's pVerify id 00439 came from a credentialed GetAllPayers
+   harvest (2026-08-17) that could not be repeated here, so it is carried as
+   unverified rather than dropped. */
+const MEDCOST_PROVIDER_MANUAL = srcAt(
+  'https://www.medcost.com/sites/default/files/2025-10/MedCost%20Provider%20Manual%20Version%20October%202025.pdf',
+  REFRESH_ACCESS_DATE_20260927,
+  'MedCost Provider Manual, MedCost Network, October 2025. Member Identification: the ID card for the MedCost NC/SC Network carries "Medical EDI 56162 for electronic claims submission" whether the member reaches the network through a leasing TPA or through MedCost Benefit Services (54138 for MedCost Virginia). Filing Your Claims Electronically: "MedCost NC/SC receives electronic claims via Availity as our exclusive EDI gateway"; payer ID 56162; leased-payer claims without a group number are rejected. Timely filing 90 days (180 days for NC fully insured plans under G.S. 58-3-225). COB is the claim administrator\'s responsibility; providers file for all MedCost plans regardless of order of benefit determination. No ABA-specific content.'
+);
+const MEDCOST_PRECERT = srcAt(
+  'https://www.medcost.com/providers/coverage-and-claims/precertification',
+  REFRESH_ACCESS_DATE_20260927,
+  'MedCost Precertification page (read via r.jina.ai): precertification applies only where the member\'s benefit plan includes it, "it will be indicated on the member\'s ID card"; programs are Advanced Imaging and Comprehensive Outpatient Review; when MedCost is the precert contact call 800-722-2157 option 2 or fax 336-970-2098.'
+);
+const MEDCOST_COMP_OPR = srcAt(
+  'https://www.medcost.com/sites/default/files/2025-01/Comprehensive%20Outpatient%20Services%20Requiring%20Precertification%20-%20January%202025.pdf',
+  REFRESH_ACCESS_DATE_20260927,
+  'MedCost Comprehensive Outpatient Review Services Requiring Precertification, January 2025 (17 pages, full text extracted). Lists 0373T, 97153, 97154, 97155, 97156, 97157 and 97158; does not list 97151, 97152 or 0362T.'
+);
+const MEDCOST_MEDICAL_POLICIES = srcAt(
+  'https://www.medcost.com/medical-policies',
+  REFRESH_ACCESS_DATE_20260927,
+  'MedCost Medical Policies page (read via r.jina.ai): policies "apply only to health benefit plans administered by MedCost Benefit Services" and the SPD governs on conflict unless it defers to Medical Policy. The policies themselves open only through member/employer portal links, so no ABA policy text was read.'
+);
+const MEDCOST_PAYER_PARTNERS = srcAt(
+  'https://www.medcost.com/providers/coverage-and-claims/payer-partners',
+  REFRESH_ACCESS_DATE_20260927,
+  'MedCost Payer Partners page (read via r.jina.ai): payer partners lease the MedCost network in NC, SC and VA; consult the ID card to identify the payer; MedCost Benefit Services provider portal secure.healthx.com/mbsprovider.aspx; Customer Service Contact Center 1-800-824-7406.'
+);
+
+const medcostEdi: EdiRouting = {
+  payerId: { pverify: '00439', availity: '56162', changeHealthcare: 'unverified' },
+  supports270271: 'unverified',
+  supportsRealtime: 'unverified',
+  bhCarveOut: {
+    administrator: 'plan-dependent',
+    administratorPayerId: 'unverified',
+    abaRidesOn: 'unverified',
+    twoHopRequired: 'unverified',
+  },
+  fieldStatus: {
+    'payerId.pverify': 'unverified',
+    'payerId.availity': 'verified',
+    supports270271: 'unverified',
+    supportsRealtime: 'unverified',
+    'bhCarveOut.administrator': 'plan-dependent',
+  },
+  verifyVia: {
+    'payerId.pverify': 'pVerify GetAllPayers directory (credentialed API; LeadTrap PayerDirectoryService). LeadTrap harvested 00439 "MedCost Benefit Services" on 2026-08-17; pverify.com/payer-list is Cloudflare-walled to this refresh.',
+    'payerId.availity': 'Claims payer ID per the October 2025 Provider Manual — confirm Availity also routes 270/271 eligibility on 56162.',
+    supports270271: 'Ask Availity or MedCost whether 270/271 eligibility runs on 56162; MedCost\'s own eligibility tool is the MBS provider portal (healthx).',
+    'bhCarveOut.administrator': 'Not a research gap: whether behavioral health is carved out, and to whom, is the employer plan sponsor\'s decision. Ask per group.',
+  },
+  sources: [MEDCOST_PROVIDER_MANUAL, MEDCOST_PAYER_PARTNERS],
+};
+
+function medcostEntry(code: string): CodeGridEntry {
+  const onCompOpr = ['97153', '97154', '97155', '97156', '97157', '97158', '0373T'].includes(code);
+  return {
+    covered: 'plan-dependent',
+    paRequired: onCompOpr
+      ? 'plan-dependent — on plans with MedCost Comprehensive Outpatient Review (shown on the ID card) this code is on the January 2025 precertification list; call 800-722-2157 option 2 or fax 336-970-2098 when MedCost is the precert contact'
+      : 'plan-dependent — not on MedCost\'s January 2025 Comprehensive Outpatient Review list; precert only if the employer plan document requires it',
+    unitCap: 'plan-dependent',
+    capPeriod: 'plan-dependent',
+    posAllowed: ['plan-dependent'],
+    telehealth: 'plan-dependent',
+    modifiers: ['unverified'],
+    notes:
+      'Verify per employer group, not per carrier: MedCost medical policy yields to the member\'s Summary Plan Description. N.C.G.S. 58-3-192 generally does not reach a self-funded private employer plan. A MedCost Network logo may sit on another administrator\'s card — the ID card names the payer.',
+    fieldStatus: {
+      covered: 'plan-dependent',
+      paRequired: 'plan-dependent',
+      unitCap: 'plan-dependent',
+      posAllowed: 'plan-dependent',
+      telehealth: 'plan-dependent',
+      modifiers: 'unverified',
+    },
+    sources: [MEDCOST_PRECERT, MEDCOST_COMP_OPR, MEDCOST_MEDICAL_POLICIES],
+  };
+}
+
+const medcostCodeGrid: Record<string, CodeGridEntry> = Object.fromEntries(
+  ['97151', '97152', '97153', '97154', '97155', '97156', '97157', '97158', '0362T', '0373T'].map((c) => [c, medcostEntry(c)]),
+);
+
+const medcostStc: StcMap = {
+  abaBenefitBucket: 'unverified',
+  deductibleAppliesToAba: 'plan-dependent',
+  costShareType: 'plan-dependent',
+  copayUnit: 'plan-dependent',
+  oopMaxApplies: 'unverified',
+  quality271Score: 'unverified',
+  fieldStatus: {
+    abaBenefitBucket: 'unverified',
+    deductibleAppliesToAba: 'plan-dependent',
+    costShareType: 'plan-dependent',
+    copayUnit: 'plan-dependent',
+    oopMaxApplies: 'unverified',
+    quality271Score: 'unverified',
+  },
+  verifyVia: {
+    abaBenefitBucket: 'No MedCost 270/271 companion guide was located.',
+    deductibleAppliesToAba: 'Self-funded plan designs vary by employer; read the cost share off the 271 or the Summary Plan Description per member.',
+  },
+  sources: [MEDCOST_MEDICAL_POLICIES],
+};
+
+const medcostContact: VobContact = {
+  providerServicesPhone: '1-800-824-7406',
+  portal: { name: 'MedCost Benefit Services provider portal (healthx)', url: 'https://secure.healthx.com/mbsprovider.aspx' },
+  fax: '336-970-2098 (precertification, when MedCost is the precert contact on the ID card)',
+  scriptedQuestions: [
+    'Who is the claim administrator on this card — MedCost Benefit Services or a partner leasing the MedCost Network?',
+    'Which employer group sponsors this plan, and is it self-funded, level-funded or fully insured?',
+    'Does this group carry Comprehensive Outpatient Review, and do 97153-97158 need precertification?',
+    'What ABA hour, visit, age or dollar limits does the plan document apply, and is telehealth covered?',
+  ],
+  sources: [MEDCOST_PAYER_PARTNERS, MEDCOST_PRECERT],
+};
+
 export const northCarolinaVob: Record<string, VobExtension> = {
   // ---- SPLIT A: NC Medicaid Direct + Standard Plans ----
   'north-carolina-medicaid': {
@@ -2004,5 +2146,12 @@ export const northCarolinaVob: Record<string, VobExtension> = {
     stcMap: inheritFamilyStc(uhcFamilyStc, 'Inherited from the UnitedHealthcare/Optum family default (docs/vob-build.md Layer 2) — national companion guide, no North Carolina-specific override found.'),
     vobContact: unitedhealthcareContactNC,
     lastUpdated: ACCESS_DATE,
+  },
+  medcost: {
+    edi: medcostEdi,
+    codeGrid: medcostCodeGrid,
+    stcMap: medcostStc,
+    vobContact: medcostContact,
+    lastUpdated: REFRESH_ACCESS_DATE_20260927,
   },
 };

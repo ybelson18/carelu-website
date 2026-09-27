@@ -985,7 +985,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { label: 'Plan type', value: 'Ohio Next Generation MCO' },
       { label: 'Clinical rules', value: 'CG-BEH-02 adopted (per the plan\'s Clinical UM Guidelines list)' },
       { label: 'Prior auth', value: 'Via Availity Essentials / Interactive Care Reviewer' },
-      { label: 'Hour parameters', value: 'CG-BEH-02 family: ≤40 hrs/wk; ~2 hrs protocol modification per 10 direct' },
+      { label: 'Hour parameters', value: 'Not published for Anthem Ohio Medicaid — confirm with Anthem UM' },
       { label: 'EPSDT', value: 'Under-21 services may exceed adult limits when medically necessary' },
       { label: 'OhioRISE', value: 'Inpatient psych routes to OhioRISE — ABA stays with Anthem' },
     ],
@@ -993,7 +993,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Anthem administers the benefit',
         body: [
-          'Anthem\'s Ohio Medicaid Clinical UM Guidelines list confirms CG-BEH-02 (and CG-BEH-15 for activity therapy) as the adopted criteria for adaptive behavioral treatment, layered on the OAC 5160-34 baseline. The CG-BEH-02 family of guidelines carries the familiar Anthem parameters — total requested treatment at or under 40 hours/week, protocol modification around 2 hours per 10 direct hours — though the Ohio-specific published delta is thinner than at CareSource or Buckeye, so verify current hour rules in the guideline text or the PA lookup tool at providers.anthem.com/oh before finalizing a request. UM submissions run through Availity Essentials\' Interactive Care Reviewer, per the October 2025 provider manual, which also confirms the EPSDT framing and that under-21 inpatient psychiatric care routes to OhioRISE while ABA remains Anthem\'s responsibility.',
+          'Anthem\'s Ohio Medicaid Clinical UM Guidelines list confirms CG-BEH-02 (and CG-BEH-15 for activity therapy) as the adopted criteria for adaptive behavioral treatment, layered on the OAC 5160-34 baseline. No hour parameters (weekly ceiling, protocol-modification ratio) could be sourced to a current Anthem Ohio document, and the Ohio-specific published delta is thinner than at CareSource or Buckeye, so confirm hour rules with Anthem UM or the PA lookup tool at providers.anthem.com/oh before finalizing a request. UM submissions run through Availity Essentials\' Interactive Care Reviewer, per the October 2025 provider manual, which also confirms the EPSDT framing and that under-21 inpatient psychiatric care routes to OhioRISE while ABA remains Anthem\'s responsibility.',
         ],
         cites: [
           { title: 'Anthem OH Medicaid — Clinical UM Guidelines list (CG-BEH-02)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_FEB23CUMG.pdf' },
@@ -1004,7 +1004,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     collect: [
       { title: 'PA lookup check', desc: 'The assessment-vs-treatment PA split isn\'t published — run the codes through the lookup tool per case.' },
       { title: 'ASD diagnosis (DSM-5-TR)', desc: 'Comprehensive evaluation per the state baseline.' },
-      { title: 'Requested hours + justification', desc: 'CG-BEH-02\'s hour parameters reward requests framed against severity and history.' },
+      { title: 'Requested hours + justification', desc: 'Frame requested hours against severity and history; Anthem Ohio publishes no hour parameters of its own, so ask UM what it applies.' },
       { title: 'OhioRISE status', desc: 'Psychiatric services may route to OhioRISE, but ABA bills to Anthem — keep the paths straight.' },
     ],
     sources: [
@@ -1098,7 +1098,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Follows the Ohio framework (OAC 4783-6-02 COBA supervision plan, consultation before initiation and modification, periodic direct observation, no fixed ratio), with the CG-BEH-02 family’s parameter of roughly 2 hours of protocol modification per 10 direct hours layered on. Confirm the current guideline text before relying on the ratio.',
+        value: 'Follows the Ohio framework (OAC 4783-6-02 COBA supervision plan, consultation before initiation and modification, periodic direct observation, no fixed ratio). No Anthem Ohio document we could read adds a protocol-modification or supervision ratio of its own, so none is stated here — confirm with Anthem UM before relying on any ratio.',
         status: 'verified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1120,8 +1120,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'Anthem applies the CG-BEH-02 family parameters on top of the state framework: total requested treatment at or under 40 hours a week, with protocol modification around 2 hours per 10 direct hours. The Ohio-specific published delta is thinner than at CareSource or Buckeye, so verify the current hour rules in the guideline text or the PA lookup tool at providers.anthem.com/oh before finalising a request.',
-        status: 'verified',
+        value: 'Not published in any current Anthem Ohio Medicaid document we could read. Anthem\'s Ohio Medicaid Clinical UM Guidelines list names CG-BEH-02 as the adopted criteria for adaptive behavioral treatment, but no Anthem Ohio document states an hours-per-week ceiling, a protocol-modification ratio or a per-day unit cap, so none is stated here.',
+        status: 'unverified',
+        verifyVia: 'Anthem Ohio Medicaid UM (Availity Essentials Interactive Care Reviewer) or the PA lookup tool at providers.anthem.com/oh — ask for the current adaptive behavioral treatment guideline text and any hours-per-week or per-day limits it applies.',
+        blocker: 'document',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
           { title: 'Anthem OH Medicaid — Clinical UM Guidelines list (CG-BEH-02)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_FEB23CUMG.pdf' },
@@ -1383,15 +1385,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
     assessmentPA: {
       value: 'Required before ABA begins, per the state framework; code-level detail is not publicly retrievable — pull the current behavioral-health PA guidance from NaviNet',
       status: 'unverified',
-      verifyVia: 'AmeriHealth Caritas Ohio\'s behavioral-health prior-authorization guidance, downloaded from NaviNet — the plan\'s public site blocks automated retrieval, and the state rule behind it (OAC 5160-34-02) is itself unreachable.',
+      verifyVia: 'AmeriHealth Caritas Ohio\'s BH prior-authorization page and January 2026 manual list "Behavioral Analysis Therapy for Autism Spectrum Disorder" as requiring prior authorization but publish no code-level list, so whether 97151/97152 are included is not stated — ask UM at 1-833-735-7700 or check the searchable PA tool; the state rule behind it (OAC 5160-34-02) is itself unreachable.',
       blocker: 'document',
     },
     treatmentPA: {
-      value: 'Required — 6-month authorization periods, requested through the Jiva UM system via NaviNet; UM at (833) 735-7700. Decision clock: the January 2026 manual says standard decisions come “no later than 10 calendar days after AmeriHealth Caritas Ohio receives the request” (expedited: 48 hours), but OAC 5160-26-03.1 (eff. 1/1/2026) binds Ohio MCOs to “no later than seven calendar days following receipt of the request for service”',
-      status: 'unverified',
-      cites: [{ title: 'AmeriHealth Caritas Ohio — Provider Manual (January 2026, version six)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' }, { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' }],
-      verifyVia: 'The decision clock is sourced (manual + OAC 5160-26-03.1); the Jiva/NaviNet channel, UM phone line and 6-month period still need AmeriHealth Caritas Ohio\'s behavioral-health prior-authorization guidance, via NaviNet or carelu.com/sources.',
-      blocker: 'document',
+      value: 'Required — "Behavioral Analysis Therapy for Autism Spectrum Disorder" is on AmeriHealth Caritas Ohio\'s list of behavioral health services requiring prior authorization. Submit online through Jiva via the NaviNet portal, by fax to 1-833-329-6411, or by phone to UM at 1-833-735-7700 (8 a.m.-5 p.m. weekdays; 1-833-764-7700 after hours). The plan publishes no ABA authorization-period length. Decision clock: the January 2026 manual says standard decisions come “no later than 10 calendar days after AmeriHealth Caritas Ohio receives the request” (expedited: 48 hours), but OAC 5160-26-03.1 (eff. 1/1/2026) binds Ohio MCOs to “no later than seven calendar days following receipt of the request for service”',
+      status: 'verified',
+      cites: [{ title: 'AmeriHealth Caritas Ohio — Behavioral health prior authorizations', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth.html' }, { title: 'AmeriHealth Caritas Ohio — Provider Manual (January 2026, version six)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' }, { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' }],
     },
     family: 'amerihealth',
     cardDesc: 'State-rule-driven UM; NaviNet/Jiva workflow — thinnest public ABA paper trail of the OH plans.',
@@ -1409,13 +1409,13 @@ export const ohioPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How AmeriHealth Caritas Ohio administers Medicaid ABA — state-rule-driven criteria, the NaviNet/Jiva authorization workflow, UM contacts, and what to verify directly in the portal.',
     intro: [
-      'AmeriHealth Caritas Ohio — the newest of Ohio\'s Next Generation plans — publishes no distinct ABA clinical policy, so expect utilization management driven by the state rule (OAC 5160-34). Like its North Carolina sibling, the plan\'s site blocks automated access, which makes its portal the source of truth: this guide covers the verified structure and flags what to confirm directly.',
+      'AmeriHealth Caritas Ohio — the newest of Ohio\'s Next Generation plans — publishes no distinct ABA clinical policy, so expect utilization management driven by the state rule (OAC 5160-34). Its public pages name ABA as a prior-authorization service and give the submission channels, but publish no code-level list or authorization-period length, so the NaviNet portal and the UM line remain the source of truth for those: this guide covers the verified structure and flags what to confirm directly.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'Ohio Next Generation MCO (newest entrant)' },
       { label: 'Clinical rules', value: 'State OAC 5160-34 framework — no distinct plan policy found' },
-      { label: 'Prior auth', value: 'Required before ABA begins; 6-month auth periods' },
-      { label: 'UM contact', value: '(833) 735-7700' },
+      { label: 'Prior auth', value: 'Required — ABA is on the BH prior-auth list (period length not published)' },
+      { label: 'UM contact', value: '(833) 735-7700 · PA fax (833) 329-6411' },
       { label: 'Portal', value: 'Jiva via NaviNet' },
       { label: 'Decision time', value: '7 calendar days standard / 48 hours expedited (OAC 5160-26-03.1); plan manual still prints 10 calendar days' },
     ],
@@ -1427,7 +1427,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'AmeriHealth Caritas OH — BH prior authorization (access via portal; site blocks automated retrieval)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
+          { title: 'AmeriHealth Caritas Ohio — Behavioral health prior authorizations', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth.html' },
           { title: 'AmeriHealth Caritas Ohio — Provider Manual (January 2026, version six)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
           { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
         ],
@@ -1583,7 +1583,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does AmeriHealth Caritas Ohio cover ABA therapy?', a: 'Yes — under the Ohio Medicaid framework, with prior authorization before services begin and 6-month authorization periods, managed through Jiva via NaviNet.' },
+      { q: 'Does AmeriHealth Caritas Ohio cover ABA therapy?', a: 'Yes — under the Ohio Medicaid framework. "Behavioral Analysis Therapy for Autism Spectrum Disorder" is on the plan\'s prior-authorization list; submit through Jiva via NaviNet, fax 1-833-329-6411, or call UM at 1-833-735-7700. The plan does not publish its authorization-period length.' },
       { q: 'How long do AmeriHealth Caritas Ohio ABA authorizations take?', a: 'Standard decisions are due “no later than seven calendar days following receipt of the request for service” under OAC 5160-26-03.1 (effective 1/1/2026), and expedited decisions within 48 hours. The plan’s January 2026 provider manual still prints “no later than 10 calendar days” — treat 7 as the binding outer limit.' },
     ],
   },

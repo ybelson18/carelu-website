@@ -111,7 +111,7 @@ const SUNFLOWER_KS_CP01 = src(
 );
 const OPTUM_KS_MEDICAID_CRITERIA = src(
   'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf',
-  'Optum ABA State Mandates supplemental criteria, "For Kansas Medicaid member" section — 40 hrs/week individualized-plan ceiling, 6-month diagnosis validation, monthly CCTS progress review, 6-month renewal, exclusion list. No per-code unit-cap/modifier table.'
+  'Optum ABA State Mandates supplemental criteria (BH803ABASTM72026, July 2026), "For Kansas Medicaid member" section — 40 hrs/week individualized-plan ceiling, KMAP Bulletin 26140 diagnostician rule (no re-evaluation, no time limit; the earlier 6-month validation rule is gone), monthly CCTS progress review, 6-month renewal, exclusion list. No per-code unit-cap/modifier table.'
 );
 const UHC_KS_GETTING_STARTED = src(
   'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf',

@@ -1259,7 +1259,7 @@ const molinaContact: VobContact = {
 const communityFirstContact: VobContact = {
   providerServicesPhone: '1-800-434-2347',
   hours: '8:30 a.m.–5 p.m., Monday–Friday',
-  portal: { name: 'Community First Provider Portal (HealthTrio Connect)', url: 'https://cfhpprovider.healthtrioconnect.com/' },
+  portal: { name: 'Community First Provider Portal (HealthTrio Connect; replaced by Availity on January 2, 2027)', url: 'https://cfhpprovider.healthtrioconnect.com/' },
   ivrPath: 'Prior-authorization-specific line: 210-358-6050 (local), same toll-free/hours as above.',
   scriptedQuestions: [
     'Which payer ID is correct for Community First eligibility checks — pVerify 01390 or 06106?',
@@ -1271,6 +1271,7 @@ const communityFirstContact: VobContact = {
   sources: [
     src('https://medicaid.communityfirsthealthplans.com/contact-us/', 'Community First Health Plans (Medicaid) Contact Us page, fetched this pass — Provider Relations 210-358-6294, STAR/CHIP toll-free 1-800-434-2347, hours 8:30 a.m.–5 p.m. Monday–Friday; Provider Portal at cfhpprovider.healthtrioconnect.com.'),
     src('https://medicaid.communityfirsthealthplans.com/provider-prior-authorizations/', 'Community First Health Plans prior-authorization page, fetched this pass — PA assistance line 210-358-6050 local / 1-800-434-2347 toll-free, same 8:30 a.m.–5 p.m. Monday–Friday hours; portal named HealthTrio Connect.'),
+    src('https://communityfirsthealthplans.com/provider-news/coming-soon-a-better-provider-experience-with-the-new-community-first-health-plans-provider-portal-powered-by-availity/', 'Community First Provider News, September 24, 2026, fetched 2026-09-27 — Availity becomes the Community First Provider Portal platform "launching January 2, 2027"; existing Availity logins will work; "No action is required at this time"; Provider Relations 210-358-6030.'),
   ],
 };
 
@@ -1521,8 +1522,8 @@ const rightcareCodeGrid: Record<string, CodeGridEntry> = tmppmCodeGrid({
 /* ==================== dell-childrens-health-plan ==================== */
 
 const DELL_PROVIDER_MANUAL = src(
-  'https://dellchildrenshealthplan.com/wp-content/uploads/2024/11/Provider-Manual-102024_web.pdf',
-  "Dell Children's Health Plan — STAR Medicaid and CHIP Provider Manual (Oct 2024); already cited in texas.ts — explicitly lists Applied Behavior Analysis (ABA) therapy as a covered STAR behavioral-health service; behavioral health (ABA included) is delegated to Magellan Healthcare."
+  'https://dellchildrenshealthplan.com/wp-content/uploads/2026/08/FY27-Provider-Manual.pdf',
+  "Dell Children's Health Plan — CHIP and STAR Provider Manual (FY27, September 2026; supersedes the Oct 2024 edition); already cited in texas.ts — explicitly lists Applied Behavior Analysis (ABA) therapy as a covered STAR behavioral-health service; behavioral health (ABA included) is delegated to Magellan Healthcare."
 );
 const DELL_BH_PAGE = src(
   'https://dellchildrenshealthplan.com/manage-your-health/behavioral-health/',

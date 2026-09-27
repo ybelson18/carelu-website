@@ -86,6 +86,16 @@ const DMAS_BRAVO_FAQ = src(
   'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf',
   'DMAS — Project BRAVO ABA FAQ: confirms the assessment-codes-need-no-SA rule and the initial-assessment-in-person requirement.'
 );
+const DMAS_TELEHEALTH_SUPPLEMENT: SourceRef = {
+  url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-01/Telehealth%20Services%20Supplement%20(updated%201.5.26)_Final.pdf',
+  accessDate: '2026-09-27',
+  note: 'DMAS Telehealth Services Supplement, rev. 1/5/2026, Table 2 (mental health services authorized for telemedicine): the ABA row lists 97151-97158 with the limitation "97151 and 97152 may be provided through telemedicine for reassessments only." 0362T and 0373T are not on the list. Distant-site providers bill modifier GT; POS 02/10 per originating site.',
+};
+const DMAS_ABA_CLARIFICATIONS_2025: SourceRef = {
+  url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-and-regulatory-clarifications',
+  accessDate: '2026-09-27',
+  note: 'DMAS bulletin, ABA Policy and Regulatory Clarifications (last updated 12/16/2025): "Initial assessments must be conducted in person by an LBA, LABA or LMHP in order for ABA services to be reimbursable by Medicaid"; telemedicine ABA requires ISP documentation (telemedicine vs in-person schedule, clinical evidence, in-person fallback). Addressed to FFS (Acentra) and the Cardinal Care MCOs as service-authorization contractors.',
+};
 const DMAS_SA_ACENTRA = src(
   'https://www.dmas.virginia.gov/for-providers/service-authorization/',
   'DMAS — service authorization page: FFS ABA authorizations run through Acentra Health\'s Atrezzo (ANG) system; MCO members follow their plan\'s UM process. NOTE: the direct-login access path this page describes was superseded effective 6/1/2026 — see DMAS_SSO_BULLETIN below.'
@@ -258,7 +268,7 @@ function dmasAssessmentEntry(notes?: string, extraSources: SourceRef[] = []): Co
     unitCap: 'No hard cap — EPSDT medical necessity governs; comprehensive assessment typically authorized in a bounded window per the treatment request',
     capPeriod: 'n/a (no SA on assessment codes)',
     posAllowed: ['home', 'office/clinic (11)', 'school (03)', 'community', 'telehealth (GT)'],
-    telehealth: 'Yes — GT modifier, per DMAS state telehealth policy (initial assessment must be conducted in person).',
+    telehealth: 'Reassessments only — the DMAS Telehealth Services Supplement (rev. 1/5/2026) allows 97151 and 97152 by telemedicine (GT) "for reassessments only." The initial assessment, including any follow-up observation or caregiver session billed under 97151/97152 to complete it, must be in person with the youth and caregivers; only care coordination, data analysis and treatment-plan preparation without the youth present (billed under 97151 at the initial assessment) need not be face to face.',
     modifiers: ['no modifier = technician', 'HN = LABA', 'TF = LMHP', 'HO = LBA'],
     notes,
     fieldStatus: {
@@ -269,7 +279,7 @@ function dmasAssessmentEntry(notes?: string, extraSources: SourceRef[] = []): Co
       telehealth: 'verified',
       modifiers: 'verified',
     },
-    sources: [DMAS_APPENDIX_D, DMAS_BRAVO_FAQ, ...extraSources],
+    sources: [DMAS_APPENDIX_D, DMAS_BRAVO_FAQ, DMAS_TELEHEALTH_SUPPLEMENT, DMAS_ABA_CLARIFICATIONS_2025, ...extraSources],
   };
 }
 
@@ -295,6 +305,19 @@ function dmasTreatmentEntry(notes?: string, extraSources: SourceRef[] = []): Cod
   };
 }
 
+/* 0362T/0373T are absent from the Telehealth Services Supplement's ABA row (97151-97158),
+   and Appendix D requires the QHP on site for both. */
+const TEAM_CODE_TELEHEALTH = 'No — not on the DMAS Telehealth Services Supplement\'s telemedicine list (rev. 1/5/2026 lists 97151-97158 only), and Appendix D requires the QHP on site with two or more technicians.';
+function dmasTeamCode(entry: CodeGridEntry): CodeGridEntry {
+  return {
+    ...entry,
+    posAllowed: entry.posAllowed.filter((p) => !p.startsWith('telehealth')),
+    telehealth: TEAM_CODE_TELEHEALTH,
+    fieldStatus: { ...entry.fieldStatus, telehealth: 'verified' },
+    sources: (entry.sources ?? []).includes(DMAS_TELEHEALTH_SUPPLEMENT) ? entry.sources : [...(entry.sources ?? []), DMAS_TELEHEALTH_SUPPLEMENT],
+  };
+}
+
 /* Standard DMAS grid shared by FFS + the Cardinal Care MCOs that pass DMAS
    through unchanged (Aetna, Sentara, UHC-VA). MCO-specific deviations
    (Anthem's published POS/telehealth grid, Humana's 0362T PA quirk) get their
@@ -303,14 +326,14 @@ function dmasCodeGrid(extraTreatmentSources: SourceRef[] = [], extraAssessmentSo
   return {
     '97151': dmasAssessmentEntry('Behavior-identification assessment (QHP). No service authorization — book the assessment on an ASD diagnosis; build the treatment request from it.', extraAssessmentSources),
     '97152': dmasAssessmentEntry('Supporting assessment (technician-adjunct). No service authorization.', extraAssessmentSources),
-    '0362T': dmasAssessmentEntry('Behavior-identification supporting assessment (extended/destructive-behavior). No service authorization under the DMAS baseline (note: Humana Healthy Horizons flags 0362T as PA-required — see that guide).', extraAssessmentSources),
+    '0362T': dmasTeamCode(dmasAssessmentEntry('Behavior-identification supporting assessment (extended/destructive-behavior). No service authorization under the DMAS baseline (note: Humana Healthy Horizons flags 0362T as PA-required — see that guide).', extraAssessmentSources)),
     '97153': dmasTreatmentEntry('Direct one-on-one adaptive-behavior treatment by a technician. Per-code units on the preservice form since 10/15/2025.', extraTreatmentSources),
     '97154': dmasTreatmentEntry('Group adaptive-behavior treatment. SA required.', extraTreatmentSources),
     '97155': dmasTreatmentEntry('Adaptive-behavior treatment with protocol modification (QHP). SA required; billable alongside 97153 when the QHP directs face-to-face.', extraTreatmentSources),
     '97156': dmasTreatmentEntry('Family adaptive-behavior treatment guidance (QHP). SA required.', extraTreatmentSources),
     '97157': dmasTreatmentEntry('Multiple-family group guidance. SA required.', extraTreatmentSources),
     '97158': dmasTreatmentEntry('Group adaptive-behavior treatment with protocol modification. SA required.', extraTreatmentSources),
-    '0373T': dmasTreatmentEntry('Extended/destructive-behavior treatment protocol (extra-technician). SA required.', extraTreatmentSources),
+    '0373T': dmasTeamCode(dmasTreatmentEntry('Extended/destructive-behavior treatment protocol (extra-technician). SA required.', extraTreatmentSources)),
   };
 }
 
@@ -426,7 +449,7 @@ function anthemHkpAssessmentEntry(code: string, telehealthGt: boolean, schoolPos
     capPeriod: 'n/a (no SA on assessment codes)',
     posAllowed: pos,
     telehealth: telehealthGt
-      ? 'Yes — GT telehealth combination payable on this code per Anthem\'s published grid.'
+      ? 'Reassessments only. Anthem\'s Feb 2023 grid (issued during the COVID public health emergency) lists a GT combination on this code, but the current DMAS Telehealth Services Supplement (rev. 1/5/2026) allows 97151/97152 by telemedicine "for reassessments only," and DMAS\'s 12/16/2025 ABA clarifications bulletin — addressed to Acentra and the Cardinal Care MCOs — makes an in-person initial assessment a condition of Medicaid reimbursement. Do not bill a GT initial assessment.'
       : 'Per DMAS state telehealth policy; this code is not listed among Anthem\'s explicitly GT-payable ABA codes.',
     modifiers: ['no modifier = technician', 'HN = LABA', 'TF = LMHP', 'HO = LBA'],
     notes: 'Anthem HealthKeepers Plus publishes the state\'s clearest ABA code/modifier/POS grid (Feb 2023 bulletin). The initial SA form requires an LMHP-level attestation and a 12-month prior-ABA-episode history.',
@@ -438,7 +461,7 @@ function anthemHkpAssessmentEntry(code: string, telehealthGt: boolean, schoolPos
       telehealth: telehealthGt ? 'verified' : 'inferred',
       modifiers: 'verified',
     },
-    sources: [ANTHEM_VA_ABA_GRID, ANTHEM_VA_INITIAL_SA],
+    sources: telehealthGt ? [ANTHEM_VA_ABA_GRID, ANTHEM_VA_INITIAL_SA, DMAS_TELEHEALTH_SUPPLEMENT, DMAS_ABA_CLARIFICATIONS_2025] : [ANTHEM_VA_ABA_GRID, ANTHEM_VA_INITIAL_SA],
   };
 }
 
@@ -518,7 +541,7 @@ const humanaVaEdi: EdiRouting = {
 const humanaVaCodeGrid: Record<string, CodeGridEntry> = {
   '97151': dmasAssessmentEntry('97151 is PA-free on Humana\'s VA PA list (effective 7/1/2025), consistent with the DMAS baseline.', [HUMANA_VA_PAL]),
   '97152': dmasAssessmentEntry('97152 is PA-free on Humana\'s VA PA list, consistent with the DMAS baseline.', [HUMANA_VA_PAL]),
-  '0362T': {
+  '0362T': dmasTeamCode({
     covered: 'Yes',
     paRequired: 'Required — PLAN QUIRK: Humana\'s VA PA and notification list (eff. 7/1/2025) flags 0362T as PA-required, unlike the DMAS baseline where 0362T is an authorization-free assessment code. Request the auth rather than litigating the discrepancy; note the DMAS rule in the request.',
     unitCap: 'No hard cap — EPSDT medical necessity',
@@ -536,14 +559,15 @@ const humanaVaCodeGrid: Record<string, CodeGridEntry> = {
       modifiers: 'verified',
     },
     sources: [HUMANA_VA_PAL, DMAS_APPENDIX_D],
-  },
+  }),
+
   '97153': dmasTreatmentEntry('PA required on 97153–97158 and 0373T per Humana\'s VA PA list (eff. 7/1/2025).', [HUMANA_VA_PAL]),
   '97154': dmasTreatmentEntry('PA required per Humana\'s VA PA list.', [HUMANA_VA_PAL]),
   '97155': dmasTreatmentEntry('PA required per Humana\'s VA PA list.', [HUMANA_VA_PAL]),
   '97156': dmasTreatmentEntry('PA required per Humana\'s VA PA list.', [HUMANA_VA_PAL]),
   '97157': dmasTreatmentEntry('PA required per Humana\'s VA PA list.', [HUMANA_VA_PAL]),
   '97158': dmasTreatmentEntry('PA required per Humana\'s VA PA list.', [HUMANA_VA_PAL]),
-  '0373T': dmasTreatmentEntry('PA required per Humana\'s VA PA list.', [HUMANA_VA_PAL]),
+  '0373T': dmasTeamCode(dmasTreatmentEntry('PA required per Humana\'s VA PA list.', [HUMANA_VA_PAL])),
 };
 
 /* ==================== sentara-community-plan ==================== */

@@ -281,6 +281,19 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
         ],
       },
+      {
+        h2: 'Telehealth and the fee schedule',
+        body: [
+          'Telehealth: yes, for every ABA code, subject to the authorization. Since October 1, 2024 BlueCare pays telehealth only for codes on its Telehealth Approved Code List, and the list updated March 10, 2026 carries 97151 through 97158, 0362T and 0373T as approved for both POS 02 (telehealth outside the home) and POS 10 (telehealth in the home). Bill the POS code; modifiers such as 95 and GT are informational only. The hours still have to be requested as telehealth, code by code, on the universal request form.',
+          'Fee schedule: there is no public one for ABA. TennCare publishes no ABA rate table, and BlueCare pays under the fee schedule in your BlueCare provider agreement \u2014 its telehealth guide says payment for many telehealth services "will be consistent with your BlueCare Tennessee fee schedule," with a 15% reduction only on audio-only codes. For rates, go to your contract or BlueCare network management. If the family\'s card is a commercial BlueCross BlueShield of Tennessee plan rather than BlueCare, see the BlueCross BlueShield of Tennessee (commercial) guide.',
+        ],
+        cites: [
+          { title: 'BlueCare Tennessee — Telehealth Approved Code List (updated 3-10-26)', url: 'https://content.bcbst.com/api/public/content/telehealth_approved_code_list.pdf' },
+          { title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026)', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
+          { title: 'Managing Telehealth for BlueCare Tennessee Patients — provider guide (updated Jan. 2025)', url: 'https://content.bcbst.com/api/public/content/bluecare_tennessee_telehealth_guide.pdf' },
+          { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'BlueCare vs. TennCareSelect vs. CoverKids', desc: 'Same BCBST machinery, different fax lines — confirm the exact program.' },
@@ -290,6 +303,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'BlueCare Tennessee Provider Administration Manual', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
+      { title: 'BlueCare Tennessee — Telehealth Approved Code List (updated 3-10-26)', url: 'https://content.bcbst.com/api/public/content/telehealth_approved_code_list.pdf' },
+      { title: 'Managing Telehealth for BlueCare Tennessee Patients — provider guide (updated Jan. 2025)', url: 'https://content.bcbst.com/api/public/content/bluecare_tennessee_telehealth_guide.pdf' },
       { title: 'BlueCare — Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' },
       { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' },
       { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
@@ -330,9 +345,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Follows the TennCare rule: telehealth hours are requested and authorized per code on the universal tri-MCO form, which carries an \u201cIndicate if Hours are telehealth\u201d checkbox on every ABA code and lists Telehealth among the places of service. No BlueCare-specific ABA telehealth policy was located \u2014 its own initiation/continuation and assessment forms collect proposed service locations without a telehealth rule of their own \u2014 so the shared program description\u2019s caution about clinical appropriateness, HIPAA-compliant technology and provider competence is the operative standard.',
+          'Two layers, both published. Authorization: telehealth hours are requested per code on the universal tri-MCO form, which carries an \u201cIndicate if Hours are telehealth\u201d checkbox on every ABA code row and lists Telehealth among the places of service; the shared program description adds its cautions on clinical appropriateness, HIPAA-compliant technology and provider competence. Claims: since October 1, 2024 BlueCare pays telehealth only for codes on its Telehealth Approved Code List, and the current list (updated 3-10-26) marks every ABA code \u2014 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T \u2014 \u201cYes\u201d for both POS 02 and POS 10. The manual says telehealth modifiers such as GT and 95 are \u201cfor informational purposes\u201d but claims \u201cmust be billed with the correct place of services (POS) 10: Telehealth Provided in Patient\u2019s Home or POS 02: Telehealth Provider Other than in Patient\u2019s Home.\u201d Payment for many telehealth services \u201cwill be consistent with your BlueCare Tennessee fee schedule\u201d; the 15% reduction applies only to audio-only codes.',
         status: 'verified',
-        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+        cites: [{ title: 'BlueCare Tennessee — Telehealth Approved Code List (updated 3-10-26)', url: 'https://content.bcbst.com/api/public/content/telehealth_approved_code_list.pdf' }, { title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' }, { title: 'Managing Telehealth for BlueCare Tennessee Patients — provider guide (updated Jan. 2025)', url: 'https://content.bcbst.com/api/public/content/bluecare_tennessee_telehealth_guide.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
       },
       authTurnaround: {
         value:
@@ -366,12 +381,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Not answered. BlueCare publishes no same-clock-time rule for 97153 with 97155, and the shared program description addresses only two other situations \u2014 more than one licensed analyst serving a member \u201cduring a specific time interval\u201d and ABA delivered simultaneously with OT, speech, PT or psychotherapy. What BlueCare does say is the converse for scheduling: \u201cthe hours per week authorized aren\u2019t inclusive of other services being provided (e.g. occupational therapy, physical therapy),\u201d so a full therapy calendar does not shrink the ABA request.',
-        status: 'unverified',
-        cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
-        verifyVia:
-          'BlueCare behavioral health \u2014 BHABA@bcbst.com or (423) 535-5717, option 2 \u2014 and the BlueCare Tennessee Provider Administration Manual\u2019s ABA and claim-editing sections.',
-        blocker: 'per-case',
+          'Yes, when a protocol is actually modified. BlueCare\u2019s July 2026 manual: "Providers should bill in a manner consistent with the CPT code descriptions. In addition, if the BCBA is directing an RBT, the client is present, and one or more protocols have been modified then 97155 may be billed concurrently with the RBT codes." Without a protocol change the default rule applies: "When the Board Certified/Licensed BCBA is physically present with the Member (with or without the Registered Behavior Technician (RBT) being present) then the procedure code for the claim would be the applicable service the BCBA provides." The shared program description still bars two different overlaps \u2014 more than one licensed analyst serving a member \u201cduring a specific time interval\u201d and ABA delivered simultaneously with OT, speech, PT or psychotherapy \u2014 and the BCBST initiation form notes that \u201cthe hours per week authorized aren\u2019t inclusive of other services being provided.\u201d',
+        status: 'verified',
+        cites: [{ title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
       },
       dailyLimits: {
         value:
@@ -381,12 +393,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'No session-note co-signature rule is published. Both BlueCare forms end with a provider signature, printed name and credentials, and the attestation that \u201cby submitting this request, you\u2019re confirming that you\u2019ve provided all clinical information available pertinent to this request and you\u2019re requesting the decision be made based on information provided in your submission\u201d \u2014 a request-level attestation, not a note-level rule.',
-        status: 'unverified',
-        cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
-        verifyVia:
-          'The BlueCare Tennessee Provider Administration Manual\u2019s record-documentation section, or BlueCare provider relations at (800) 468-9736.',
-        blocker: 'document',
+          'BlueCare\u2019s July 2026 manual sets the rule at the record level for every behavioral health provider. Treatment records need "Progress notes for each service contact documenting the date and time of service, duration/end time of service, the type of service provided, a summary of treatment interventions used, the treatment plan goals and objectives addressed in the session, and the name and credentials of rendering service Provider," and the manual\u2019s record-keeping standards require that "Each recorded chart entry must be dated and identified by the author. Stamped signatures aren\u2019t acceptable." Treatment plans are due within 30 days of the start of service and updated every six months, and each plan and review must be "signed by a Member, family member, or legally appointed representative." The ABA request forms add a request-level attestation that all pertinent clinical information was supplied. No signing deadline for session notes is published.',
+        status: 'verified',
+        cites: [{ title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
       },
       placeOfService: {
         value:
@@ -405,6 +414,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Does BlueCare Tennessee cover ABA therapy?', a: 'Yes — BlueCare administers the TennCare ABA benefit under the shared tri-MCO program description: EPSDT members under 21, prior authorization on assessment and treatment, TN LBA licensure for direct ABA.' },
       { q: 'How do I submit an ABA prior authorization to BlueCare?', a: 'Through Availity (or provider.bcbst.com), or by fax to (800) 292-5311 for BlueCare/TennCareSelect — using the universal tri-MCO ABA request form, plus BlueCare\'s initiation/continuation form for treatment. Standard decisions come within 7 calendar days of receipt (72 hours if expedited).' },
       { q: 'Is BlueCare\'s ABA policy different from TennCare\'s?', a: 'Clinically, no — the rules are the shared TennCare baseline. The differences are mechanical: BlueCare\'s portal, fax lines, supplemental form, and UM timelines.' },
+      { q: 'Does BlueCare Tennessee (BCBST) allow ABA by telehealth?', a: 'Yes. BlueCare\'s Telehealth Approved Code List (updated March 10, 2026) lists every ABA code — 97151-97158, 0362T and 0373T — as payable with POS 02 or POS 10. Telehealth hours must still be requested per code on the universal ABA request form. For a commercial BCBST plan, see the BlueCross BlueShield of Tennessee guide.' },
+      { q: 'What is BlueCare Tennessee\'s fee schedule for ABA?', a: 'There is no public ABA fee schedule. TennCare publishes none, and BlueCare pays according to the fee schedule in your BlueCare provider agreement; its telehealth guide says telehealth payment for many services is consistent with that same fee schedule. Your contract, or BlueCare network management, is the source for rates.' },
     ],
   },
 
@@ -565,12 +576,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'No session-note signature rule is published in the Level of Care Guidelines, and the shared program description sets none either \u2014 it requires BACB-standard record storage and retention and a treatment plan within 30 days of admission reviewed every 6 months, but names no signer. The universal request form\u2019s signature block is the only published signature requirement, and it covers the authorization request rather than the session note.',
-        status: 'unverified',
-        cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
-        verifyVia:
-          'The UnitedHealthcare Community Plan of Tennessee Care Provider Manual\u2019s medical-records standards, or the TN ABA line (800) 690-1606.',
-        blocker: 'document',
+          'UnitedHealthcare\u2019s 2026 Tennessee manual sets it for every behavioral health record: "All entries in the treatment record include the responsible clinician\u2019s name, professional degree, license, and relevant ID number," "The record is in blue or black ink," and "Any error must be lined through so that it can still be read, then dated, and initialed by the person." Its medical-record review also scores "Entries dated and the author identified" and "Legible entries." The Level of Care Guidelines and the shared program description add no session-note rule of their own (the program description requires a treatment plan within 30 days of admission, reviewed every 6 months). No signing deadline is published.',
+        status: 'verified',
+        cites: [{ title: 'UnitedHealthcare Community Plan of Tennessee — TennCare Care Provider Manual (2026), Chapter 11: Medical records', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TN-TennCare-Care-Provider-Administrative-Manual.pdf' }, { title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' }],
       },
       placeOfService: {
         value:
@@ -746,12 +754,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'No session-note signature rule is published. The universal form Wellpoint hosts requires a provider signature \u2014 \u201cthis may be the signature of the person completing the form; however, it should note that is on behalf of the current treating provider. Or the actual recommending current treating provider may sign\u201d \u2014 with an attestation that all the information is in the member\u2019s medical record. That is a request-level rule; the program description otherwise relies on BACB documentation standards.',
-        status: 'unverified',
-        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
-        verifyVia:
-          'Wellpoint TN provider services (833) 731-2154 and the Wellpoint Tennessee provider manual\u2019s medical-record documentation standards.',
-        blocker: 'document',
+          'Wellpoint\u2019s Tennessee provider manual (December 2025) adopts the NCQA record standards: "All entries in the medical record contain the author\u2019s identification. Author identification may be a handwritten signature, unique electronic identifier or initials," "All entries are dated," and "The record is legible to someone other than the writer." The universal request form Wellpoint hosts adds a request-level rule \u2014 the signature \u201cmay be the signature of the person completing the form; however, it should note that is on behalf of the current treating provider\u201d \u2014 with an attestation that all the information is in the member\u2019s medical record. No session-note signing deadline is published.',
+        status: 'verified',
+        cites: [{ title: 'Wellpoint Tennessee Provider Manual (December 2025), Medical Records', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_ProviderManual.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
       },
       placeOfService: {
         value:
@@ -916,9 +921,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Follows the TennCare rule: telehealth hours are requested per code on the universal tri-MCO form, which carries a telehealth checkbox on every ABA code row and lists Telehealth among the places of service. No TennCare Select-specific ABA telehealth policy was located \u2014 the BCBST forms collect proposed service locations without a telehealth rule of their own \u2014 so the shared program description\u2019s appropriateness, HIPAA and competence cautions govern.',
+          'TennCareSelect runs on BlueCare\u2019s rules here. Two layers, both published. Authorization: telehealth hours are requested per code on the universal tri-MCO form, which carries an \u201cIndicate if Hours are telehealth\u201d checkbox on every ABA code row and lists Telehealth among the places of service; the shared program description adds its cautions on clinical appropriateness, HIPAA-compliant technology and provider competence. Claims: since October 1, 2024 BlueCare pays telehealth only for codes on its Telehealth Approved Code List, and the current list (updated 3-10-26) marks every ABA code \u2014 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T and 0373T \u2014 \u201cYes\u201d for both POS 02 and POS 10. The manual says telehealth modifiers such as GT and 95 are \u201cfor informational purposes\u201d but claims \u201cmust be billed with the correct place of services (POS) 10: Telehealth Provided in Patient\u2019s Home or POS 02: Telehealth Provider Other than in Patient\u2019s Home.\u201d Payment for many telehealth services \u201cwill be consistent with your BlueCare Tennessee fee schedule\u201d; the 15% reduction applies only to audio-only codes.',
         status: 'verified',
-        cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+        cites: [{ title: 'BlueCare Tennessee — Telehealth Approved Code List (updated 3-10-26)', url: 'https://content.bcbst.com/api/public/content/telehealth_approved_code_list.pdf' }, { title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' }, { title: 'Managing Telehealth for BlueCare Tennessee Patients — provider guide (updated Jan. 2025)', url: 'https://content.bcbst.com/api/public/content/bluecare_tennessee_telehealth_guide.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
       },
       authTurnaround: {
         value:
@@ -952,12 +957,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Not answered for 97153 with 97155. The shared program description bars only more than one licensed analyst serving a member during a specific time interval and ABA delivered simultaneously with OT, speech, PT or psychotherapy; BlueCare\u2019s own form states the converse for scheduling \u2014 \u201cthe hours per week authorized aren\u2019t inclusive of other services being provided.\u201d',
-        status: 'unverified',
-        cites: [{ title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
-        verifyVia:
-          'TennCare Select prior auth 1-800-711-4104 or (423) 535-5717 option 2, and the BlueCare Tennessee Provider Administration Manual\u2019s ABA and claim-editing sections.',
-        blocker: 'per-case',
+          'Yes, when a protocol is actually modified. The BlueCare Tennessee manual, which also governs TennCareSelect (July 2026): "Providers should bill in a manner consistent with the CPT code descriptions. In addition, if the BCBA is directing an RBT, the client is present, and one or more protocols have been modified then 97155 may be billed concurrently with the RBT codes." Without a protocol change the default rule applies: "When the Board Certified/Licensed BCBA is physically present with the Member (with or without the Registered Behavior Technician (RBT) being present) then the procedure code for the claim would be the applicable service the BCBA provides." The shared program description still bars two different overlaps \u2014 more than one licensed analyst serving a member \u201cduring a specific time interval\u201d and ABA delivered simultaneously with OT, speech, PT or psychotherapy \u2014 and the BCBST initiation form notes that \u201cthe hours per week authorized aren\u2019t inclusive of other services being provided.\u201d',
+        status: 'verified',
+        cites: [{ title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
       },
       dailyLimits: {
         value:
@@ -967,12 +969,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'No session-note co-signature rule is published. The BCBST forms close with a provider signature, printed name and credentials plus an attestation that all pertinent clinical information was supplied \u2014 a request-level rule. The program description otherwise relies on BACB record-storage and retention standards, with treatment plans due within 30 days of admission and reviewed every six months.',
-        status: 'unverified',
-        cites: [{ title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
-        verifyVia:
-          'The BlueCare Tennessee Provider Administration Manual\u2019s record-documentation section, or TennCare Select provider services 1-800-276-1978.',
-        blocker: 'document',
+          'The BlueCare Tennessee manual, which also governs TennCareSelect (July 2026), sets the rule at the record level for every behavioral health provider. Treatment records need "Progress notes for each service contact documenting the date and time of service, duration/end time of service, the type of service provided, a summary of treatment interventions used, the treatment plan goals and objectives addressed in the session, and the name and credentials of rendering service Provider," and the manual\u2019s record-keeping standards require that "Each recorded chart entry must be dated and identified by the author. Stamped signatures aren\u2019t acceptable." Treatment plans are due within 30 days of the start of service and updated every six months, and each plan and review must be "signed by a Member, family member, or legally appointed representative." No signing deadline for session notes is published.',
+        status: 'verified',
+        cites: [{ title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' }, { title: 'BlueCare \u2014 Initiation and Continuation of ABA Therapy form (rev. 2/26)', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
       },
       placeOfService: {
         value:
@@ -1190,12 +1189,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not published in the ABA policies. Aetna\u2019s documentation and signature expectations for ABA sit in its general medical-record standards and the participating-provider agreement rather than in CPB 0554 or CPB 0648.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia:
-          'Aetna\u2019s provider manual medical-records standards and your participating-provider agreement.',
-        blocker: 'document',
+          'Aetna sets it in its national provider manual (6/26), which applies to all participating practitioners: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\u2019s signature/initials or electronic identifier." CPB 0554 and CPB 0648 add no ABA-specific signature rule, and no signing deadline is published.',
+        status: 'verified',
+        cites: [{ title: 'Aetna Provider Manual (form 8102800-01-01, 6/26) — Core components for medical records', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
       },
       placeOfService: {
         value:
@@ -1641,6 +1637,233 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'What does the Tennessee autism mandate require?', a: 'Tennessee’s statute is the weakest of the states we cover — it’s a parity rule, not an ABA mandate. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does UnitedHealthcare pay for ABA in Tennessee?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Tennessee Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+    ],
+  },
+  'bluecross-blueshield-of-tennessee': {
+    slug: 'bluecross-blueshield-of-tennessee',
+    family: 'bcbst',
+    cardDesc: 'Tennessee\'s Blue plan (commercial): ABA covered on fully insured plans since 2018, PA required, ABA codes on the CMS telehealth list, rates by contracted fee schedule.',
+    assessmentPA: {
+      value: 'Expected — BCBST\'s Commercial Prior Authorization List names "Applied Behavior Analysis (ABA)" among behavioral health services, and BCBST posts a dedicated ABA Therapy Services Assessment Request Form. The list is not broken down by code, and BCBST says authorization requirements "may vary per plan"',
+      status: 'plan-dependent',
+      cites: [{ title: 'BlueCross BlueShield of Tennessee — Commercial Prior Authorization List (26PED4280100, 04/26)', url: 'https://content.bcbst.com/api/public/content/prov-commercial-prior-auth-list.pdf' }, { title: 'BCBST — ABA Therapy Services Assessment Request Form (3/26)', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }, { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }],
+      verifyVia: 'Availity (benefits and authorization check for the member\'s group) or BCBST at (423) 535-5717, option 2 — confirm whether the group requires PA for 97151/97152 before booking the assessment.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Required on plans that follow BCBST\'s commercial list — ABA is on the Commercial Prior Authorization List; in-state providers request it in Availity, out-of-state providers through Cohere, with the Initiation and Continuation of ABA Therapy form. Continuations are due "at least once every six months." Self-funded groups can differ',
+      status: 'plan-dependent',
+      cites: [{ title: 'BlueCross BlueShield of Tennessee — Commercial Prior Authorization List (26PED4280100, 04/26)', url: 'https://content.bcbst.com/api/public/content/prov-commercial-prior-auth-list.pdf' }, { title: 'BCBST — Initiation and Continuation of ABA Therapy form', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }],
+      verifyVia: 'Availity benefits check for the member\'s group, or BCBST Provider Service 1-800-924-7141 — especially for self-funded groups, whose ABA coverage "may vary."',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes — autism spectrum disorder. BCBST\'s manual: "ABA has been approved for the treatment of Autism Spectrum Disorder." Its ABA forms ask for diagnostic confirmation ("diagnostic reports, doctor\'s orders, etc.") and a severity level',
+      status: 'verified',
+      cites: [{ title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }, { title: 'BCBST — ABA Therapy Services Assessment Request Form (3/26)', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+    },
+    payer: 'Blue Cross Blue Shield Tennessee',
+    state: 'TN', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'BCBST points to the BACB rather than setting its own number: "ABA providers using Registered Behavior Therapists (RBT) are expected to demonstrate compliance with the supervision guidelines outlined by the Behavior Analyst Certification Board." That puts the operative floor at the BACB\'s RBT supervision requirement. BCBST\'s behavioral health program descriptions add that the initial assessment and the behavior support plan each carry the signature of the licensed BCBA who wrote them.',
+        status: 'verified',
+        cites: [{ title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026), Applied Behavior Analysis', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }, { title: 'BCBST — Behavioral Health Levels of Care Program Descriptions (effective Jan. 1, 2018)', url: 'https://content.bcbst.com/api/public/content/prov-behavioral-health-levels-of-care-program-descriptions.pdf' }],
+      },
+      concurrentBilling: {
+        value:
+          'Yes, when a protocol is modified. BCBST\'s commercial manual: "Providers should bill in a manner consistent with the CPT code descriptions. In addition, if the BCBA is directing an RBT, the client is present, and one or more protocols have been modified then 97155 may be billed concurrently with the RBT codes." Without a protocol change, the rule is one code for the time: "When the Board Certified/Licensed BCBA is physically present with the member (with or without the Registered Behavior Technician (RBT) being present) then the procedure code for the claim would be the applicable service the BCBA provides. If the RBT was alone with the member carrying out the service plan, then the code would be for the applicable service the RBT provides."',
+        status: 'verified',
+        cites: [{ title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026), Applied Behavior Analysis', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }],
+      },
+      dailyLimits: {
+        value:
+          'Not published. BCBST\'s manual and ABA forms set no per-day or per-week ABA unit ceiling; the initiation and continuation form asks for requested hours per week per code and, at continuation, hours approved versus hours used. Tennessee\'s statute adds no hour cap either — it only requires ASD benefits no more restrictive than those for other neurological disorders, for insureds under 12.',
+        status: 'unverified',
+        cites: [{ title: 'BCBST — Initiation and Continuation of ABA Therapy form', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }, { title: 'Tenn. Code Ann. § 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
+        verifyVia: 'The member\'s benefit summary in Availity, or BCBST Provider Service 1-800-924-7141 — ask for any visit, hour or dollar limit on ABA for this group.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value:
+          'Published, in two BCBST documents. The commercial manual requires "Progress notes for each service contact documenting the date and time of service, duration/end time of service, the type of service provided, a summary of treatment interventions used, the treatment plan goals and objectives addressed in the session, and the name and credentials of service provider," with each treatment plan and review "signed by a member, family member, or legally appointed representative." BCBST\'s ABA program description is more specific: each service-encounter note should include "Signature, Date, and Credentials of the Servicing Professional (e.g., BCBA or RBT)" and "Signature and Date of Guardian/Caregiver (if training was provided)"; the initial assessment carries the "Signature of the licensed BCBA who completed the assessment"; and the behavior support plan is signed by the BCBA who developed it and by the member or representative. No signing deadline is stated.',
+        status: 'verified',
+        cites: [{ title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026), Treatment Record Requirements', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }, { title: 'BCBST — Behavioral Health Levels of Care Program Descriptions (effective Jan. 1, 2018)', url: 'https://content.bcbst.com/api/public/content/prov-behavioral-health-levels-of-care-program-descriptions.pdf' }],
+      },
+      placeOfService: {
+        value:
+          'Home, clinic, school and community all appear — BCBST\'s ABA program description asks each progress note to record the "Location of Service (e.g., Home, Clinic, School, Community)" — but school has a narrow role: "Service in the school environment should be limited to ensuring consistency in plan implementation across all settings. Service in the school should not include developing a BSP for the school or addressing behavior for academic purposes." ABA organizations are credentialed at an outpatient level: "Services will be provided at an Outpatient Mental Health Clinic level of intensity." Telehealth is covered separately below.',
+        status: 'verified',
+        cites: [{ title: 'BCBST — Behavioral Health Levels of Care Program Descriptions (effective Jan. 1, 2018)', url: 'https://content.bcbst.com/api/public/content/prov-behavioral-health-levels-of-care-program-descriptions.pdf' }, { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026), Credentialing', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }],
+      },
+      billAsProvider: {
+        value:
+          'The code follows who delivered the time. "The RBT service codes can be used by Registered Behavior Technicians, Board Certified Assistant Behavior Analysts (BCaBA) or by a provider who has completed their training in Applied Behavior Analysis and is waiting to take the exam to become a Board Certified Behavior Analyst (BCBA)," and BCBST lists 97153HO for 97153 "administered by a physician or other qualified healthcare professional" (dates of service from 9/1/2019). Credentialing sets who can hold the contract: an individual Behavior Analyst must be "Licensed in the state of Tennessee as a Behavior Analyst" and, per the manual, "board-certified Behavior Analyst-Doctoral (BCBA D)"; an ABA organization must be "Licensed as a Mental Health Outpatient Facility" and "receive oversight from a licensed behavioral health or Behavior Analyst Certification Board (BACB) - certified professional." Which NPI goes in the rendering field is not stated.',
+        status: 'verified',
+        cites: [{ title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }],
+        verifyVia: 'BCBST provider network / credentialing for how a group should enroll its BCBAs, and your participation agreement for the rendering-provider field.',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'BCBST publishes no age limit for ABA. The state layer is thin: Tenn. Code Ann. § 56-7-2367 requires plans that cover neurological disorders to give ASD benefits "at least as comprehensive as those provided for other neurological disorders," and "These benefits and coverage for treatment shall be provided to any person less than twelve (12) years of age" — a parity rule, not an ABA mandate, and it "shall not expand the type or scope of treatment." The age answer for a given child comes from the benefit document.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Tenn. Code Ann. § 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }, { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }],
+        verifyVia: 'Availity benefits check or BCBST Provider Service 1-800-924-7141 for the member\'s group.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value:
+          'No recency window is published. BCBST\'s ABA forms ask for the "Initial/First Date ASD Diagnosed" and for diagnostic confirmation, but set no maximum age on the report.',
+        status: 'unverified',
+        cites: [{ title: 'BCBST — Initiation and Continuation of ABA Therapy form', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
+        verifyVia: 'BCBST behavioral health UM, (423) 535-5717 option 2, when an older diagnostic report is all the family has.',
+        blocker: 'per-case',
+      },
+      diagnosingProviders: {
+        value:
+          'Not published. BCBST\'s commercial manual and ABA forms ask for diagnostic confirmation but name no required diagnosing specialty or license.',
+        status: 'unverified',
+        cites: [{ title: 'BCBST — ABA Therapy Services Assessment Request Form (3/26)', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+        verifyVia: 'BCBST behavioral health UM, (423) 535-5717 option 2.',
+        blocker: 'per-case',
+      },
+      diagnosticTools: {
+        value:
+          'No diagnostic instrument is named. What BCBST does specify is the ABA assessment itself: its program description lists "Graphed Baseline Data for Target Behaviors," a "Functional Assessment," hypotheses about the function of target behaviors "Based on Direct Observations and Interviews," measurable time-limited goals, and service recommendations with units, frequency and expected duration.',
+        status: 'unverified',
+        cites: [{ title: 'BCBST — Behavioral Health Levels of Care Program Descriptions (effective Jan. 1, 2018)', url: 'https://content.bcbst.com/api/public/content/prov-behavioral-health-levels-of-care-program-descriptions.pdf' }],
+        verifyVia: 'BCBST behavioral health UM, (423) 535-5717 option 2 — ask whether a specific ASD instrument is expected in the diagnostic report.',
+        blocker: 'per-case',
+      },
+      referral: {
+        value:
+          'Not stated as a requirement. BCBST\'s ABA forms ask for "diagnostic confirmation like diagnostic reports, doctor\'s orders, etc.," which treats a doctor\'s order as one acceptable piece of evidence rather than a mandatory referral.',
+        status: 'unverified',
+        cites: [{ title: 'BCBST — ABA Therapy Services Assessment Request Form (3/26)', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' }],
+        verifyVia: 'The member\'s benefit summary in Availity — some plan designs require a referral for specialty services.',
+        blocker: 'per-case',
+      },
+      telehealth: {
+        value:
+          'Yes in principle, with a group-level exception. BCBST\'s commercial manual: "We reimburse for services rendered via telehealth in accordance with the Tennessee Telehealth mandate (TCA 56-7-1003)," but "This reimbursement may not apply to certain self-funded groups if telehealth is listed as a coverage exclusion in their contract." Its code rule keys off Medicare: "Any service code not on the current CMS Telehealth qualifying code list … billed by the originating or distant site provider with POS code 02 will be denied as a non-contracted service." Every ABA code — 97151 through 97158, 0362T and 0373T — is on the CMS calendar-year 2026 telehealth list. Claims "must be billed with the correct place of service (POS) 10: Telehealth provided in patient\'s home or POS 02"; modifiers such as 95 are informational. Tennessee\'s statute requires coverage of covered services delivered by provider-based telemedicine "consistent with" in-person coverage, and does not require a prior in-person visit for "a patient who is receiving an initial behavioral health evaluation or assessment." BCBST publishes no ABA-specific telehealth code list for commercial plans.',
+        status: 'plan-dependent',
+        cites: [{ title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026), Telehealth Originating Site Fees and Billing Guidelines', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }, { title: 'CMS — List of Telehealth Services, Calendar Year 2026 (97151–97158, 0362T, 0373T)', url: 'https://www.cms.gov/files/zip/list-telehealth-services-calendar-year-2026.zip' }, { title: 'Tenn. Code Ann. § 56-7-1003 (provider-based telemedicine coverage)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-1003/' }],
+        verifyVia: 'Availity benefits check for the member\'s group — confirm telehealth is not a contract exclusion (self-funded groups) and that the authorization includes telehealth hours.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'BCBST\'s commercial manual: "For urgent care, the decision must be completed as soon as possible based on the clinical situation, but no later than 72 hours of the receipt of the request," and "For non-urgent care, the decision must be made within 15 calendar days or seven (7) days for non-urgent care requests submitted electronically for Fully Insured and Marketplace members." Fully insured plans are also under Tennessee\'s Prior Authorization Fairness Act: a non-urgent request is "deemed approved within seven (7) calendar days" if the carrier fails to decide, ask for the missing information, or flag a medical-necessity question; it gets "an additional five (5) calendar days" after the provider responds, and "the prior authorization request process must not exceed seventeen (17) calendar days." An urgent request is deemed approved after "seventy-two (72) hours plus, if applicable, one (1) additional business day." Self-funded ERISA plans follow 29 CFR 2560.503-1: pre-service decisions "not later than 15 days after receipt of the claim," urgent care "not later than 72 hours after receipt of the claim," and an urgent request to extend care decided within 24 hours if made "at least 24 hours prior to the expiration." Continuations of ABA are due "at least once every six months."',
+        status: 'plan-dependent',
+        cites: [{ title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026), Utilization Management', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }, { title: 'Tenn. Code Ann. 56-7-3705 — Prior Authorization Fairness Act timeframes', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-3705/' }, { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' }, { title: 'BCBST — Initiation and Continuation of ABA Therapy form', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' }],
+        verifyVia: 'Availity: confirm whether the member is fully insured or self-funded, which decides which clock applies, and submit electronically for the 7-day track.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'BCBST: "Claims should be submitted to the primary carrier prior to submission to us. Upon claim submission to us, please provide a copy of the remittance advice from the primary carrier." When BCBST is secondary it uses maintenance of benefits: "If the primary insurance carrier\'s payment amount is the same or more than what we would\'ve paid, we won\'t make any additional payment," and the provider "can\'t bill the member for any amount over the maximum allowable charge." Between two parents\' group plans, Tennessee\'s rule is the birthday rule — "the benefits of the Plan of the parent whose birthday falls earlier in a year are determined before those of the Plan of the parent whose birthday falls later in that year," and on the same birthday the plan that covered the parent longer goes first. If the child also has TennCare, BCBST pays first; Medicaid rejects a claim back to the provider when other coverage is known. TRICARE pays after BCBST ("TRICARE shall be last pay").',
+        status: 'verified',
+        cites: [{ title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026), Coordination of Benefits and Maintenance of Benefits', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' }, { title: 'Tenn. Comp. R. & Regs. 0780-01-53 — Coordination of Benefits (group contracts)', url: 'https://publications.tnsosfiles.com/rules/0780/0780-01/0780-01-53.pdf' }, { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' }, { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' }],
+      },
+    },
+    pill: 'Payer Guide · BlueCross BlueShield · Tennessee',
+    h1: 'BlueCross BlueShield of Tennessee ABA coverage: the intake guide.',
+    metaTitle: 'BlueCross BlueShield of Tennessee ABA Coverage, Telehealth & Fee Schedule | Carelu',
+    metaDescription:
+      'How BlueCross BlueShield of Tennessee (commercial) handles ABA — fully insured coverage since 2018, prior authorization through Availity, 97155 concurrent billing, telehealth for ABA codes, contracted fee schedules, and Tennessee\'s parity-only autism statute.',
+    intro: [
+      'BlueCross BlueShield of Tennessee (BCBST) is the state\'s Blue plan. This guide covers its commercial plans; its TennCare plans, BlueCare and TennCareSelect, have their own guides. BCBST\'s commercial manual says ABA "is covered by the Federal Employee Program (FEP) as of 1/1/2017, by Postal Service Health Benefits (PSHB) as of 1/1/2025, and BCBST fully insured plans as of 1/1/2018," while "Coverage of ABA services for self-funded plans may vary and it is the provider\'s responsibility to verify coverage." So the first intake question is the funding type.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes on fully insured plans (since 1/1/2018), FEP (since 2017) and PSHB (since 2025); self-funded groups vary' },
+      { label: 'Prior auth', value: 'ABA is on BCBST\'s Commercial Prior Authorization List — Availity (in-state) or Cohere (out-of-state)' },
+      { label: 'Telehealth', value: 'Reimbursed under TCA 56-7-1003; codes must be on the CMS telehealth list (all ABA codes are for 2026); POS 02/10; some self-funded groups exclude it' },
+      { label: 'Fee schedule', value: 'Not public — behavioral health pays on your provider-contracted Behavioral Health Fee Schedule' },
+      { label: 'State mandate', value: 'Tenn. Code Ann. § 56-7-2367' },
+      { label: 'Mandate age', value: 'Statute keyed to under-12 (parity-style, not an ABA mandate)' },
+      { label: 'Mandate caps', value: 'No ABA-specific benefit — carrier policy governs' },
+      { label: 'Exempt from mandate', value: 'Plans without neurological-disorder benefits; self-funded ERISA to the extent preempted' },
+      { label: 'Licensure', value: 'TN Licensed Behavior Analyst (Applied Behavior Analyst Licensing Committee, Rules 1180-05)' },
+    ],
+    sections: [
+      {
+        h2: 'Does BCBST allow ABA by telehealth?',
+        body: [
+          'Yes, with two checks. BCBST reimburses telehealth "in accordance with the Tennessee Telehealth mandate (TCA 56-7-1003)," and it denies telehealth claims only for codes that are not on Medicare\'s telehealth list — every ABA code, 97151 through 97158 plus 0362T and 0373T, is on the CMS list for calendar year 2026. Bill POS 10 for telehealth in the home or POS 02 elsewhere; the 95 and GT modifiers are informational. The two checks: some self-funded groups list telehealth as a contract exclusion, and the authorization has to include the telehealth hours. Tennessee\'s telemedicine statute requires coverage "consistent with" in-person coverage, and waives the prior in-person visit for an initial behavioral health evaluation or assessment.',
+        ],
+        cites: [
+          { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' },
+          { title: 'CMS — List of Telehealth Services, Calendar Year 2026', url: 'https://www.cms.gov/files/zip/list-telehealth-services-calendar-year-2026.zip' },
+          { title: 'Tenn. Code Ann. § 56-7-1003 (provider-based telemedicine coverage)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-1003/' },
+        ],
+      },
+      {
+        h2: 'What is BCBST\'s fee schedule for ABA?',
+        body: [
+          'BCBST does not publish a public ABA fee schedule. Its manual says behavioral health services are reimbursed on the "provider-contracted Behavioral Health Fee Schedule," with new codes priced by "RBRVS as defined by the Federal Register, GPCIs for Tennessee, and appropriate network conversion factor," and that the plan "will pay the Maximum Allowable Charge (MAC)" under the reimbursement schedules — "Charges higher than the reimbursement rates aren\'t eligible for reimbursement." Your rates are in your BCBST network attachment; for a quote before contracting, ask BCBST provider network management. Being on the fee schedule is not a guarantee of payment: final reimbursement depends on eligibility, code edits, cost sharing, benefit exclusions and authorization. BlueCare (TennCare) rates are a separate contract — see the BlueCare Tennessee guide.',
+        ],
+        cites: [
+          { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026), Reimbursement', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' },
+        ],
+      },
+      {
+        h2: 'Billing ABA with BCBST',
+        body: [
+          'Bill the code that matches who was delivering the time. When the BCBA is physically present, the claim carries the BCBA\'s service; when the RBT is alone with the member, it carries the RBT\'s service. The exception is 97155: "if the BCBA is directing an RBT, the client is present, and one or more protocols have been modified then 97155 may be billed concurrently with the RBT codes." RBT codes may be billed for RBTs, BCaBAs, or a provider who has finished ABA training and is waiting to sit the BCBA exam, and BCBST recognizes 97153HO when a qualified professional delivers 97153 personally. RBT supervision follows the BACB\'s guidelines.',
+        ],
+        cites: [
+          { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026), Applied Behavior Analysis', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' },
+        ],
+      },
+      {
+        h2: 'The Tennessee mandate: what it guarantees (and doesn\'t)',
+        body: [
+          'Tennessee\'s statute is a parity rule, not an ABA mandate. A plan that "provides benefits for neurological disorders" must cover ASD treatment "at least as comprehensive as those provided for other neurological disorders," for "any person less than twelve (12) years of age," with deductibles, copayments and limits "no more stringent" than for other neurological disorders; it "shall not expand the type or scope of treatment." BCBST\'s own coverage decision goes further than the statute on fully insured plans (ABA covered since 2018), which is why the funding type, not the statute, is the load-bearing intake question.',
+        ],
+        cites: [
+          { title: 'Tenn. Code Ann. § 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' },
+          { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' },
+        ],
+      },
+      {
+        h2: 'Licensure and credentialing',
+        body: [
+          'Tennessee licenses behavior analysts: only a holder of a license from the Applied Behavior Analyst Licensing Committee may use the title "Licensed Behavior Analyst" and practice ABA as defined in T.C.A. § 63-11-302. BCBST\'s credentialing criteria for an individual Behavior Analyst are stricter than the license alone — "Licensed in the state of Tennessee as a Behavior Analyst" and "board-certified Behavior Analyst-Doctoral (BCBA D)" — while an ABA organization credentials as a facility "Licensed as a Mental Health Outpatient Facility" with oversight "from a licensed behavioral health or Behavior Analyst Certification Board (BACB) - certified professional." Most BCBA-level practices therefore contract as an organization.',
+        ],
+        cites: [
+          { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026), Credentialing', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' },
+          { title: 'Rules of the TN Applied Behavior Analyst Licensing Committee, Ch. 1180-05 (rev. May 2025)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Commercial BCBST or BlueCare', desc: 'Same company, different rulebooks — BlueCare and TennCareSelect are TennCare plans with their own guides.' },
+      { title: 'Fully insured or self-funded', desc: 'Fully insured plans have covered ABA since 1/1/2018; self-funded coverage "may vary," and some self-funded groups exclude telehealth.' },
+      { title: 'Diagnosis + severity level', desc: 'BCBST\'s ABA forms ask for diagnostic confirmation (reports, doctor\'s orders) and the severity level (1–3).' },
+      { title: 'Telehealth plans', desc: 'If any hours will be remote, request them as telehealth in the authorization and bill POS 10 or 02.' },
+      { title: 'Other coverage', desc: 'Bill the primary first and attach its remittance advice; BCBST pays secondary only up to what it would have paid.' },
+    ],
+    sources: [
+      { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective July 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' },
+      { title: 'BlueCross BlueShield of Tennessee — Commercial Prior Authorization List (04/26)', url: 'https://content.bcbst.com/api/public/content/prov-commercial-prior-auth-list.pdf' },
+      { title: 'BCBST — ABA Therapy Services Assessment Request Form (3/26)', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' },
+      { title: 'BCBST — Initiation and Continuation of ABA Therapy form', url: 'https://content.bcbst.com/api/public/content/aba_initiation_continuation_for_therapy.pdf' },
+      { title: 'BCBST — Behavioral Health Levels of Care Program Descriptions (effective Jan. 1, 2018)', url: 'https://content.bcbst.com/api/public/content/prov-behavioral-health-levels-of-care-program-descriptions.pdf' },
+      { title: 'CMS — List of Telehealth Services, Calendar Year 2026', url: 'https://www.cms.gov/files/zip/list-telehealth-services-calendar-year-2026.zip' },
+      { title: 'Tenn. Code Ann. § 56-7-1003 (provider-based telemedicine coverage)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-1003/' },
+      { title: 'Tenn. Code Ann. § 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' },
+      { title: 'Tenn. Code Ann. 56-7-3705 — Prior Authorization Fairness Act timeframes', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-3705/' },
+      { title: 'Tenn. Comp. R. & Regs. 0780-01-53 — Coordination of Benefits (group contracts)', url: 'https://publications.tnsosfiles.com/rules/0780/0780-01/0780-01-53.pdf' },
+      { title: 'Rules of the TN Applied Behavior Analyst Licensing Committee, Ch. 1180-05 (rev. May 2025)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
+    ],
+    faq: [
+      { q: 'Does BCBS Tennessee cover ABA therapy?', a: 'Yes on fully insured BlueCross BlueShield of Tennessee plans (since 1/1/2018), FEP and PSHB. Self-funded employer plans "may vary," so verify the member\'s group in Availity. ABA needs prior authorization and an autism spectrum disorder diagnosis.' },
+      { q: 'Does BCBS Tennessee allow telehealth for ABA?', a: 'Yes, generally. BCBST reimburses telehealth under Tennessee\'s telehealth law and denies only codes that are not on Medicare\'s telehealth list; all ABA codes (97151-97158, 0362T, 0373T) are on the 2026 list. Bill POS 10 (home) or 02, and make sure the authorization covers telehealth hours. Some self-funded groups exclude telehealth in their contract. For BlueCare (TennCare), see the BlueCare guide — its approved code list also includes every ABA code.' },
+      { q: 'What is the fee schedule for BCBS Tennessee?', a: 'BCBST does not publish a public ABA fee schedule. Behavioral health services pay on the provider-contracted Behavioral Health Fee Schedule in your BCBST network attachment, with new codes priced from Medicare RVUs and a network conversion factor. Ask BCBST network management for rates before contracting; BlueCare (TennCare) rates are a separate contract.' },
+      { q: 'Can 97155 be billed at the same time as 97153 with BCBST?', a: 'Yes, when the BCBA is directing the RBT, the client is present and at least one protocol is modified — BCBST\'s manual says 97155 "may be billed concurrently with the RBT codes" in that case.' },
     ],
   },
 };

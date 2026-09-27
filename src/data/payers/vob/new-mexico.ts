@@ -222,6 +222,31 @@ function nmMedicaidGrid(planNote?: string): Record<string, CodeGridEntry> {
   };
 }
 
+/* Presbyterian publishes its own PA list (Provider Prior Authorization Guide 09.01.2026,
+   Appendix E of its Turquoise Care manual). Its Applied Behavior Analysis row names
+   Turquoise Care, the Expansion ABP and Commercial in one cell and lists 97151-97158,
+   0362T, 0373T, H2019, H0031 and H0032 with no per-line-of-business split — so the
+   state fee schedule's "Prior Auth: NO" codes are PA-gated at Presbyterian. */
+const PRESBYTERIAN_PA_GUIDE: SourceRef = {
+  url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220',
+  accessDate: '2026-09-27',
+  note: 'Presbyterian Provider Prior Authorization Guide (PPC112006, 09.01.2026), page 48, Behavioral Health Services (Orange Section): Applied Behavior Analysis — Lines of business: Turquoise Care; Turquoise Care Expansion Alternative Benefit Package; Commercial — Codes: 0373T, 97153, H2019, H0031, H0032, 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T. Important Information column blank (no per-line carve-out). Direct curl returned the PDF on 2026-09-27.',
+};
+
+function presbyterianNmGrid(planNote: string): Record<string, CodeGridEntry> {
+  const base = nmMedicaidGrid(planNote);
+  return Object.fromEntries(
+    Object.entries(base).map(([code, e]) => [
+      code,
+      {
+        ...e,
+        paRequired: `Required — Presbyterian\'s Provider Prior Authorization Guide (09.01.2026) lists ${code} on its Applied Behavior Analysis row for Turquoise Care, Turquoise Care Expansion ABP and Commercial. This is stricter than the state fee schedule (LOD #53), which marks ${code} "Prior Auth: ${e.paRequired.startsWith('Required') ? 'YES' : 'NO'}".`,
+        sources: [PRESBYTERIAN_PA_GUIDE, ...(e.sources ?? [])],
+      },
+    ]),
+  );
+}
+
 /* Commercial factories — national clinical policies publish no NM coding
    mechanics; unit caps / POS / telehealth modifiers ship 'unverified'. */
 
@@ -716,7 +741,7 @@ export const newMexicoVob: Record<string, VobExtension> = {
   },
   'presbyterian-health-plan-new-mexico': {
     edi: presbyterianNmEdi,
-    codeGrid: nmMedicaidGrid('State baseline; Presbyterian treatment requests use its own Stage 3 ABA Clinical Review Form (fax (505) 843-3019 or the Turquoise Care portal — NOT Magellan for Medicaid).'),
+    codeGrid: presbyterianNmGrid('State clinical criteria; Presbyterian\'s own PA list gates every ABA code, assessment included. Treatment requests use its own Stage 3 ABA Clinical Review Form (fax (505) 843-3019 or the Turquoise Care portal — NOT Magellan for Medicaid).'),
     rates: nmMcoFloorRates('Presbyterian Health Plan'),
     stcMap: presbyterianNmStc,
     vobContact: presbyterianNmContact,

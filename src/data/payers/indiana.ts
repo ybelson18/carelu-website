@@ -69,7 +69,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         h2: 'What changed in 2026 (and 2027)',
         body: [
           'Effective April 1, 2026, IHCP covers ABA exclusively through the EPSDT benefit; members 21 and older have a transition window through September 30, 2026, and for dates of service on or after October 1, 2026, IHCP will not authorize or reimburse ABA for members 21+ — making age a first-order intake question. Also effective April 1, 2026: comprehensive ABA (16+ hours/week, billed with modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member — 97155 and 97156 are excluded from the allocation, and the IHCP Portal\'s "Limit Details" panel shows usage — while targeted ABA is capped at 15 hours/week but exempt from the lifetime cap. Codes 97151, 97152, 97153, 97154, and 0373T can no longer be billed with telehealth modifier 95.',
-          'Separately, an accreditation mandate now binds every ABA group enrollment — new and existing. Currently enrolled agencies must submit documentation showing accreditation has been initiated with the Autism Commission on Quality (ACQ) or the Behavioral Health Center of Excellence (BHCOE) by August 1, 2026 (to INXIXabaenrollments@gainwelltechnologies.com or via the IHCP Portal) — that deadline is today — and must hold active accreditation by October 1, 2027. Missing either milestone results in enrollment deactivation, not just a warning. IHCP reissued this deadline as a reminder in Bulletin BT2026118 (7/14/2026) with no extension and sharper enforcement language: "Failure to provide documentation will result in the enrollment being deactivated." One footnote worth reading twice: BT202646 states a previous BHCOE accreditation is accepted only "until an agency\'s reaccreditation with ACQ," so agencies choosing an accreditor should plan the reaccreditation path, not just the first credential.',
+          'Separately, an accreditation mandate now binds every ABA group enrollment — new and existing. Currently enrolled agencies must submit documentation showing accreditation has been initiated with the Autism Commission on Quality (ACQ) or the Behavioral Health Center of Excellence (BHCOE) by August 1, 2026 (to INXIXabaenrollments@gainwelltechnologies.com or via the IHCP Portal) — that deadline has now passed, and IHCP\'s bulletin list through BT2026155 (9/24/2026) carries no extension — and must hold active accreditation by October 1, 2027. Missing either milestone results in enrollment deactivation, not just a warning. IHCP reissued this deadline as a reminder in Bulletin BT2026118 (7/14/2026) with no extension and sharper enforcement language: "Failure to provide documentation will result in the enrollment being deactivated." One footnote worth reading twice: BT202646 states a previous BHCOE accreditation is accepted only "until an agency\'s reaccreditation with ACQ," so agencies choosing an accreditor should plan the reaccreditation path, not just the first credential.',
           'A second, separate restriction landed in between: effective June 6, 2026, CMS approved a provider-enrollment moratorium on new ABA agency enrollments and changes of ownership in Indiana Medicaid (initial 6 months, renewable in 6-month increments) — new individual rendering-provider (RBT/BCaBA/BCBA) enrollment is unaffected, and already-accredited agencies can request an exception via OMPPProviderRelations@fssa.in.gov. HHS-OIG\'s own audit-report page confirms the moratorium follows an OIG finding of improperly paid Indiana ABA claims, though the IHCP bulletin itself doesn\'t name the audit. New or expanding ABA agencies should treat this moratorium, not just the accreditation deadline, as the binding constraint on growth in Indiana this year.',
         ],
         cites: [
@@ -82,10 +82,11 @@ export const indianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Rates: published, and stepping down',
         body: [
-          'Indiana publishes its ABA max fees, which makes revenue modeling unusually concrete — including the pain: a 6% reduction on individual ABA codes for dates of service on/after April 1, 2026, and a further 4% on all ABA codes on/after April 1, 2027. Per 15-minute unit: 97153 (technician, U1) $17.06 → $16.04 → $15.39; 97155 (BCBA, U3) $27.63 → $25.97 → $24.93; 97156 (BCBA, U3) $28.23 → $26.54 → $25.47; 97151 assessment (U3) $27.63 → $25.97 → $24.93. From 4/1/2026, 97153 also became billable at the BCaBA/BCBA tiers, and group codes were restratified into group-size tiers with their own rates. MCE-contracted rates are negotiated but the IHCP max fee is the benchmark.',
+          'Indiana publishes its ABA max fees, which makes revenue modeling unusually concrete — including the pain: a 6% reduction on individual ABA codes for dates of service on/after April 1, 2026, and a further 4% on all ABA codes on/after April 1, 2027. Per 15-minute unit: 97153 (technician, U1) $17.06 → $16.04 → $15.39; 97155 (BCBA, U3) $27.63 → $25.97 → $24.93; 97156 (BCBA, U3) $28.23 → $26.54 → $25.47; 97151 assessment (U3) $27.63 → $25.97 → $24.93. From 4/1/2026, 97153 also became billable at the BCaBA/BCBA tiers, and group codes were restratified into group-size tiers with their own rates. MCE-contracted rates are negotiated but the IHCP max fee is the benchmark. The January 1, 2027 rebase of the IHCP Professional Fee Schedule to 100% of Medicare does not touch these: BT2026143 (8/27/2026) lists applied behavior analysis among the services "that will not be affected by these rate changes," so the 4/1/2027 cut is the next ABA rate event.',
         ],
         cites: [
           { title: 'IHCP Bulletin BT202627 — full ABA rate tables (eff. 4/1/2026 & 4/1/2027)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
+          { title: 'IHCP Bulletin BT2026143 — 2027 Professional Fee Schedule changes exclude ABA (8/27/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026143.pdf' },
         ],
       },
       {
@@ -223,7 +224,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Indiana Medicaid cover ABA therapy?', a: 'Yes — IHCP covers medically necessary ABA for autism with prior authorization on all services. Since April 1, 2026 it is covered exclusively through EPSDT, and coverage ends for members 21+ for dates of service on or after October 1, 2026.' },
       { q: 'What is Indiana\'s lifetime cap on ABA?', a: 'Comprehensive ABA (16+ hours/week) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, tracked in the IHCP Portal. 97155 and 97156 don\'t count against it, and targeted ABA (≤15 hrs/week) is exempt.' },
-      { q: 'What does Indiana Medicaid pay for ABA?', a: 'Published max fees, per 15-minute unit — e.g., 97153 at $16.04 (technician tier, DOS on/after 4/1/2026, dropping to $15.39 on 4/1/2027) and 97155 at $25.97 (BCBA tier). MCE rates are contractual but benchmark against the IHCP schedule.' },
+      { q: 'What does Indiana Medicaid pay for ABA?', a: 'Published max fees, per 15-minute unit — e.g., 97153 at $16.04 (technician tier, DOS on/after 4/1/2026, dropping to $15.39 on 4/1/2027) and 97155 at $25.97 (BCBA tier). MCE rates are contractual but benchmark against the IHCP schedule. The 2027 Medicare-based rebase of the Professional Fee Schedule excludes ABA (BT2026143), so the 4/1/2027 4% cut is the next scheduled change.' },
       { q: 'Can Indiana Medicaid ABA be delivered by telehealth?', a: 'Codes 97151, 97152, 97153, 97154, and 0373T can no longer be billed with modifier 95 as of April 1, 2026 — they require in-person delivery. Verify current rules per code before scheduling.' },
     ],
   },
@@ -241,12 +242,17 @@ export const indianaPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — max 6 months; continuation needs updated plan, testing within 2 months of treatment start, progress per goal',
-      status: 'verified',
+      value: 'Required — 6-month maximum per IHCP policy and Anthem\'s guideline (Indiana\'s 1-year authorization-validity statute is unreconciled); continuation needs updated plan, testing within 2 months of treatment start, progress per goal',
+      status: 'plan-dependent',
       cites: [
         { title: 'Anthem — Indiana Medicaid ABA UM Guideline', url: 'https://providers.anthem.com/docs/gpp/IN_CAID_ABAGuidelines.pdf' },
         { title: 'Anthem — Prior Authorization 201 (IHCP Works)', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2022-Anthem-Prior-Authorization-201.pdf' },
+        { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+        { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' },
+        { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' },
       ],
+      verifyVia: 'IHCP\'s ABA rule caps each PA request at six months (BH module; BT2026136, 8/18/2026, still calls it the "standard six-month authorization period"), while IC 27-1-37.5-26(b), which reaches Medicaid managed care, says an authorization "shall be valid for at least one (1) year." No IHCP bulletin or MCE notice reconciles the two. Ask the MCE\'s UM team what authorization span it is issuing for ABA.',
+      blocker: 'per-case',
     },
     dxRequired: {
       value: 'Yes \u2014 ASD coded F84.0, with testing results (Anthem package)',
@@ -268,7 +274,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
     atGlance: [
       { label: 'Plan type', value: 'IHCP MCE (Hoosier Healthwise, HIP, Hoosier Care Connect)' },
       { label: 'Clinical rules', value: 'Anthem UM guideline restating IHCP criteria (AINPEC-3345-21)' },
-      { label: 'Prior auth', value: 'Required for all ABA; max 6-month authorizations' },
+      { label: 'Prior auth', value: 'Required for all ABA; max 6-month authorizations per IHCP (1-year statute unreconciled — ask Anthem)' },
       { label: 'Hours', value: 'Up to 40 hrs/wk; beyond needs additional PA (mirrors IHCP)' },
       { label: 'Submission', value: 'Availity / Interactive Care Reviewer; IHCP universal PA form by fax' },
       { label: 'Caution', value: 'Guideline last reviewed 2021 — 2026 state changes control' },
@@ -328,9 +334,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; each prior authorization is capped at six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level.',
+          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
       },
       placeOfService: {
         value:
@@ -404,7 +410,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does Anthem Indiana Medicaid cover ABA therapy?', a: 'Yes — under Anthem\'s UM guideline, which restates IHCP criteria: all ABA prior-authorized, 6-month max authorizations, up to 40 hours/week requestable, members 20 and younger.' },
+      { q: 'Does Anthem Indiana Medicaid cover ABA therapy?', a: 'Yes — under Anthem\'s UM guideline, which restates IHCP criteria: all ABA prior-authorized, 6-month max authorizations (Indiana\'s IC 27-1-37.5-26 says managed-care authorizations are valid at least a year, and nothing yet reconciles the two), up to 40 hours/week requestable, members 20 and younger.' },
       { q: 'What does Anthem require for an ABA prior authorization?', a: 'The PA form, F84.0 diagnosis, testing results, an intake assessment (functioning, severity, social/life skills), the treatment plan, and the child\'s daily schedule — via Availity\'s Interactive Care Reviewer, fax, or phone.' },
       { q: 'Do the 2026 Indiana ABA changes apply to Anthem members?', a: 'Yes — EPSDT-only coverage, the under-21 cutoff, the 4,000-hour lifetime allocation, and telehealth restrictions are state policy that binds every MCE, even though Anthem\'s published guideline predates them.' },
     ],
@@ -502,9 +508,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; each prior authorization is capped at six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level.',
+          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
       },
       placeOfService: {
         value:
@@ -597,12 +603,18 @@ export const indianaPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — 6-month max per IHCP; continuation needs updated progress/assessment scores',
-      status: 'verified',
+      value: 'Required — 6-month max per IHCP ABA policy, although CareSource\'s July 2025 PA deck states approved authorizations are valid for 365 calendar days; continuation needs updated progress/assessment scores',
+      status: 'plan-dependent',
       cites: [
         { title: 'CareSource — IN Medicaid prior authorization page', url: 'https://www.caresource.com/in/providers/provider-portal/prior-authorization/medicaid/' },
         { title: 'CareSource — archived IN ABA policy MM-0900 (historical reference)', url: 'https://www.caresource.com/documents/medicaid-in-policy-medical-mm-0900-20220601' },
+        { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+        { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' },
+        { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' },
+        { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' },
       ],
+      verifyVia: 'IHCP\'s ABA rule caps each PA request at six months (BH module; BT2026136, 8/18/2026, still calls it the "standard six-month authorization period"), while IC 27-1-37.5-26(b), which reaches Medicaid managed care, says an authorization "shall be valid for at least one (1) year." No IHCP bulletin or MCE notice reconciles the two. Ask the MCE\'s UM team what authorization span it is issuing for ABA.',
+      blocker: 'per-case',
     },
     dxRequired: {
       value: 'Yes \u2014 ASD with a comprehensive diagnostic evaluation (CDE) + physician referral',
@@ -635,7 +647,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How CareSource runs ABA authorization',
         body: [
-          'Submissions go through the CareSource Provider Portal (its stated preference, with "immediate approvals" possible for clean requests), by phone to utilization management at (844) 607-2831, or by fax to (844) 432-8924 — using the Indiana Medicaid universal PA request form; there is no CareSource-specific ABA form. The clinical package mirrors IHCP: ASD diagnosis from a licensed physician, HSPP, or qualified specialist; the comprehensive diagnostic evaluation; a behavior identification assessment and treatment plan before services; 6-month maximum authorizations; and continuation on updated progress and assessment scores.',
+          'Submissions go through the CareSource Provider Portal (its stated preference, with "immediate approvals" possible for clean requests), by phone to utilization management at (844) 607-2831, or by fax to (844) 432-8924 — using the Indiana Medicaid universal PA request form; there is no CareSource-specific ABA form. The clinical package mirrors IHCP: ASD diagnosis from a licensed physician, HSPP, or qualified specialist; the comprehensive diagnostic evaluation; a behavior identification assessment and treatment plan before services; 6-month maximum authorizations under IHCP ABA policy (CareSource\'s own July 2025 PA deck separately says approved authorizations are "Valid for 365 calendar days," matching IC 27-1-37.5-26 — confirm the span on your approval); and continuation on updated progress and assessment scores.',
         ],
         cites: [
           { title: 'CareSource — IN Medicaid prior authorization page', url: 'https://www.caresource.com/in/providers/provider-portal/prior-authorization/medicaid/' },
@@ -685,9 +697,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; each prior authorization is capped at six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level.',
+          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
       },
       placeOfService: {
         value:
@@ -779,12 +791,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — IHCP 6-month max applies; OTR to medical management via the member\'s delivery system',
-      status: 'verified',
+      value: 'Required — IHCP 6-month max applies (Indiana\'s 1-year authorization-validity statute is unreconciled); OTR to medical management via the member\'s delivery system',
+      status: 'plan-dependent',
       cites: [
         { title: 'MDwise — Behavioral Health Reference Guide (historical)', url: 'https://www.mdwise.org/Uploads/Public/Documents/MDwise/BH-Reference-Guide.pdf' },
         { title: 'IHCP — Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+        { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' },
+        { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' },
       ],
+      verifyVia: 'IHCP\'s ABA rule caps each PA request at six months (BH module; BT2026136, 8/18/2026, still calls it the "standard six-month authorization period"), while IC 27-1-37.5-26(b), which reaches Medicaid managed care, says an authorization "shall be valid for at least one (1) year." No IHCP bulletin or MCE notice reconciles the two. Ask the MCE\'s UM team what authorization span it is issuing for ABA.',
+      blocker: 'per-case',
     },
     dxRequired: {
       value: 'Yes \u2014 ASD with a comprehensive diagnostic evaluation (CDE) + physician referral',
@@ -855,9 +871,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; each prior authorization is capped at six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level.',
+          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
       },
       placeOfService: {
         value:
@@ -1037,9 +1053,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; each prior authorization is capped at six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level.',
+          'Follows the Indiana Medicaid limits: up to 40 hours per week may be requested with anything beyond that needing an additional PA; IHCP policy limits each ABA PA request to six months; and since April 1, 2026 comprehensive ABA (16+ hours/week, modifier UA) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, with 97155 and 97156 excluded and targeted ABA (\u226415 hours/week) exempt. No per-day MUE ceiling is published at either level. Open question for managed care: IC 27-1-37.5-26(b), in force since July 1, 2025 and reaching Medicaid risk-based managed care through IC 27-1-37.5-5(a)(3), says an authorization "shall be valid for at least one (1) year after the date the health care provider receives the authorization," and CareSource\'s July 2025 IHCP Works deck lists "Approved Authorization — Valid for 365 calendar days." But IHCP Bulletin BT2026136 (8/18/2026), addressed to the MCOs and the FFS PA-UM contractor alike, still describes ABA as running on a "standard six-month authorization period." No IHCP bulletin or MCE notice we could find reconciles the two, so ask the MCE which span it is issuing before you plan a reauthorization calendar.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT2026136 — minimum caregiver coaching and training for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' }, { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' }, { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' }, { title: 'CareSource — IHCP Works 2025 Prior Authorization 101 deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2025-CareSource-Prior-Authorization-101.pdf' }],
       },
       placeOfService: {
         value:
@@ -1128,7 +1144,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26), eff. 8/1/2026 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       ],
     },
     treatmentPA: {
@@ -1136,7 +1152,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26), eff. 8/1/2026 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       ],
     },
     dxRequired: {
@@ -1221,7 +1237,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Behavior Analyst licensure', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
       { title: 'Ind. Code \u00a7 25-8.5-3-6 \u2014 practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
-      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26), eff. 8/1/2026 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
     ],
     deliveryRules: {
@@ -1291,9 +1307,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The diagnosis must come from a provider qualified to diagnose within their scope \u2014 a licensed psychologist, psychiatrist or physician. Aetna\'s precertification form (GR-69017-4, effective 1/1/2026) asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials. Indiana\'s mandate adds no diagnosing-credential requirement of its own; its only gate is that the treatment be prescribed by the insured\'s treating physician.',
+          'The diagnosis must come from a provider qualified to diagnose within their scope \u2014 a licensed psychologist, psychiatrist or physician. Aetna\'s precertification form (GR-69017-4 (7-26), effective 8/1/2026) asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials. Indiana\'s mandate adds no diagnosing-credential requirement of its own; its only gate is that the treatment be prescribed by the insured\'s treating physician.',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
+        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26), eff. 8/1/2026 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
       },
       diagnosticTools: {
         value:
@@ -1978,14 +1994,18 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'The statute names no credential of its own. Its only gate on who delivers or authorises the service is that the treatment be \u201cprescribed by the insured\'s treating physician in accordance with a treatment plan\u201d \u2014 so the diagnosing-credential requirement comes from the carrier, and Anthem applies the unpublished MCG B-806-T. Anthem\'s commercial ASD Treatment Plan Request Form, which covers ten states, requires for an initial assessment-only request (97151/97152/0362T) or where the member has new coverage a diagnostic evaluation by a doctorate-level clinician or an allowable qualified healthcare provider per state regulations, showing how the patient meets DSM-5-TR criteria.',
-        status: 'verified',
+          'The statute names no credential of its own. Its only gate on who delivers or authorises the service is that the treatment be \u201cprescribed by the insured\'s treating physician in accordance with a treatment plan\u201d \u2014 so the diagnosing-credential requirement comes from the carrier, and Anthem applies the unpublished MCG B-806-T. Anthem\'s commercial ASD Treatment Plan Request Form requires for an initial assessment-only request (97151/97152/0362T) or where the member has new coverage a diagnostic evaluation by a doctorate-level clinician or an allowable qualified healthcare provider per state regulations, showing how the patient meets DSM-5-TR criteria — but the form\'s header lists ten states (GA, KY, ME, MO, NV, NH, NY, OH, VA, WI) and Indiana is not one of them, so treat it as Anthem\'s practice elsewhere, not a published Indiana rule.',
+        status: 'unverified',
+        verifyVia: 'Anthem Indiana provider services or Availity Essentials: ask which diagnosing credentials Anthem accepts for an Indiana commercial ABA request and whether an Indiana-specific request form applies.',
+        blocker: 'per-case',
         cites: [{ title: 'Anthem \u2014 Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 \u2014 group coverage', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-4/' }],
       },
       diagnosticTools: {
         value:
-          'Anthem\'s commercial ASD Treatment Plan Request Form asks the diagnostic evaluation to name the standardized tools used, giving ADI-R, ADOS-2 and CARS-2 as examples rather than as a closed list. The statute names none \u2014 it defines autism spectrum disorder as \u201ca neurological condition, including Asperger\'s syndrome and autism, as defined in the Diagnostic and Statistical Manual of Mental Disorders.\u201d Ask the family for the full evaluation report, not the one-line diagnosis letter.',
-        status: 'verified',
+          'Anthem\'s commercial ASD Treatment Plan Request Form asks the diagnostic evaluation to name the standardized tools used, giving ADI-R, ADOS-2 and CARS-2 as examples rather than as a closed list — but Indiana is not among the ten states on that form\'s header. The statute names none \u2014 it defines autism spectrum disorder as \u201ca neurological condition, including Asperger\'s syndrome and autism, as defined in the Diagnostic and Statistical Manual of Mental Disorders.\u201d Ask the family for the full evaluation report, not the one-line diagnosis letter.',
+        status: 'unverified',
+        verifyVia: 'Anthem Indiana provider services or Availity Essentials; MCG B-806-T is licensed and unpublished, so the reviewer is the only source for an instrument requirement.',
+        blocker: 'per-case',
         cites: [{ title: 'Anthem \u2014 Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' }, { title: 'Ind. Code \u00a7 27-8-14.2-3 \u2014 definition of autism spectrum disorder', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-3/' }],
       },
       referral: {
@@ -2027,6 +2047,492 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does ABA prior authorization in Indiana go to Carelon?', a: 'No. Anthem\'s five-state precertification list names Anthem as the responsible party for ABA, and Carelon Behavioral Health does not appear in it at all — Anthem even told Indiana providers that a 2023 Carelon Behavioral Health assignment letter was an Ohio matter sent to them in error. Carelon Medical Benefits Management, which does appear, handles imaging, genetics, musculoskeletal and oncology programmes, not ABA.' },
       { q: 'Does Indiana license behavior analysts?', a: 'Yes, since 2025. The Indiana Professional Licensing Agency\'s Behavior Analyst Licensing Board issues Licensed Behavior Analyst and Licensed Assistant Behavior Analyst credentials, applications went live on May 13, 2025, and practising applied behavior analysis without a licence is prohibited. Licensure requires current BACB certification plus a national background check. Indiana does not license RBTs — technicians work under a statutory exception while directed by a licensed analyst.' },
       { q: 'Which criteria does Anthem use for ABA in Indiana?', a: 'MCG B-806-T. Anthem notified Indiana commercial providers that effective June 1, 2024 it would transition from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and unpublished.' },
+    ],
+  },
+
+  'anthem-indiana': {
+    slug: 'anthem-indiana',
+    payer: 'Anthem Blue Cross and Blue Shield Indiana (commercial)',
+    state: 'IN', kind: 'commercial',
+    family: 'anthem',
+    cardDesc: 'Anthem commercial in Indiana: ABA precert stays with Anthem, not Carelon Behavioral Health; uncapped IC 27-8-14.2 mandate.',
+    assessmentPA: {
+      value: 'Yes — applied behavioral analysis is on Anthem\'s Indiana commercial preapproval list with Anthem as the responsible party; the list names the category, not individual CPT codes',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+      ],
+      verifyVia: 'The list applies to local fully insured members and to self-insured (ASO) members only where the group bought the medical-management program ("If the program has not been purchased, preapproval is not required, and clinical review will not be performed"); on National Accounts, ABA precertification "applies unless the group specifically opts out of clinical review for this benefit." Confirm funding type and program purchase on the benefits call or in Availity Essentials.',
+      blocker: 'per-case',
+    },
+    treatmentPA: {
+      value: 'Yes — Anthem is the responsible party for ABA preapproval on Indiana Blues products, reviewed under MCG B-806-T since June 1, 2024',
+      status: 'plan-dependent',
+      cites: [
+        { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        { title: 'Anthem Indiana — MCG care guidelines 27th edition update (Commercial; CG-BEH-02 to MCG B-806-T for ABA, eff. June 1, 2024)', url: 'https://providernews.anthem.com/indiana/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+        { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+      ],
+      verifyVia: 'Same scope limits as the assessment: fully insured members, and ASO members only where the group bought medical management; National Accounts groups may opt out of clinical review, and "Retrospective review is allowed." Confirm on the benefits call.',
+      blocker: 'per-case',
+    },
+    dxRequired: {
+      value: 'Yes — autism spectrum disorder as defined in the DSM, and the mandated coverage is limited to treatment "prescribed by the insured\'s treating physician in accordance with a treatment plan"',
+      status: 'verified',
+      cites: [
+        { title: 'Ind. Code § 27-8-14.2-3 — definition of autism spectrum disorder', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-3/' },
+        { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' },
+      ],
+    },
+    pill: 'Payer Guide · Anthem · Indiana commercial',
+    h1: 'Anthem commercial ABA in Indiana: who reviews it, and which rules apply.',
+    metaTitle: 'Anthem BCBS Indiana Commercial ABA: Prior Auth, Carelon Question & Mandate | Carelu',
+    metaDescription:
+      'How Anthem\'s Indiana commercial plans handle ABA: Anthem (not Carelon Behavioral Health) owns the preapproval, the uncapped IC 27-8-14.2 mandate and who it misses, Indiana LBA licensure, and the claim rules in Anthem\'s ABA resource guide.',
+    intro: [
+      'This guide is for Anthem Blue Cross and Blue Shield commercial members in Indiana. Anthem also runs Indiana Medicaid plans, which follow IHCP rules and have their own guide (anthem-indiana-medicaid); settle the line of business before anything else.',
+      'The question intake teams ask most is whether an Anthem ABA request goes to Carelon Behavioral Health. For Indiana commercial it does not. Anthem\'s Indiana preapproval list names Anthem as the responsible party for ABA. The only Carelon companies on that list are Carelon Medical Benefits Management and CarelonRx, which handle imaging, specialty programs and pharmacy. When a 2023 Carelon Behavioral Health contract letter reached Indiana providers, Anthem told them it was an Ohio matter sent "in error." What decides whether review happens at all is how the plan is funded.',
+    ],
+    atGlance: [
+      { label: 'Line of business', value: 'Commercial (Anthem Insurance Companies, Inc.) — not the anthem-indiana-medicaid guide' },
+      { label: 'Who reviews ABA', value: 'Anthem — responsible party on the IN/KY/MO/OH/WI preapproval list; Carelon Behavioral Health is not on it' },
+      { label: 'Criteria', value: 'MCG B-806-T (licensed, unpublished) — replaced CG-BEH-02 on June 1, 2024' },
+      { label: 'Precert scope', value: 'Fully insured members; ASO groups only if they bought medical management; National Accounts may opt out' },
+      { label: 'State mandate', value: 'IC 27-8-14.2 — group policies must cover, individual policies must offer; IC 27-13-7-14.7 for HMOs' },
+      { label: 'Mandate caps', value: 'None — no dollar, age, visit or hour limit; cost-share parity with physical illness' },
+      { label: 'Outside the mandate', value: 'Self-funded ERISA plans; short-term, student, specified-disease and other excepted policies' },
+      { label: 'Licensure', value: 'Indiana LBA / LABA (applications live since May 13, 2025); technicians work under a statutory exception' },
+    ],
+    sections: [
+      {
+        h2: 'Anthem owns the ABA review, not Carelon Behavioral Health',
+        cites: [
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+          { title: 'Anthem Indiana — Carelon Behavioral Health assignment mailing sent in error to non-Ohio providers (Commercial)', url: 'https://providernews.anthem.com/indiana/articles/important-information-regarding-the-recent-carelon-behaviora-1-13957' },
+          { title: 'Anthem Indiana — MCG care guidelines 27th edition update (Commercial; CG-BEH-02 to MCG B-806-T for ABA, eff. June 1, 2024)', url: 'https://providernews.anthem.com/indiana/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+        ],
+        body: [
+          'Anthem\'s commercial preapproval list, updated January 1, 2026, is shared by Indiana, Kentucky, Missouri, Ohio and Wisconsin. Under behavioral health services it lists "Applied behavioral analysis (ABA)" for "OH, IN, KY Blues products," and the responsible party is Anthem. A separate "Treatment for autism spectrum disorder" row also sits on the list. The Carelon companies named in the document are Carelon Medical Benefits Management ("an independent company providing utilization management services") and CarelonRx (pharmacy). Carelon Behavioral Health does not appear.',
+          'Anthem said so directly to Indiana commercial providers when a Carelon Behavioral Health contract-assignment letter went out in 2023: "If you are not an Ohio contracted provider, please be aware this letter was sent to you in error and may be disregarded." The review criteria are Anthem\'s too: "Effective June 1, 2024, Anthem will transition from CG-BEH-02 (Adaptive Behavioral Treatment) and MCG W0153 … to MCG B-806-T Behavioral Health Care Applied Behavioral Analysis (Original MCG Guideline), for medical necessity/clinical appropriateness reviews." MCG criteria are licensed and not published. If a denial letter still cites CG-BEH-02, raise that on appeal.',
+        ],
+      },
+      {
+        h2: 'Funding decides whether there is a review at all',
+        cites: [
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+          { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+          { title: 'Ind. Code § 27-8-14.2-1 — policies excluded from the chapter', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-1/' },
+        ],
+        body: [
+          'The preapproval list says it applies "to local fully insured Anthem members and select members who are covered under self-insured (ASO) benefit plans with services medically managed as part of a purchased program," and that "If the program has not been purchased, preapproval is not required, and clinical review will not be performed." It does not apply to BlueCard, Medicare Advantage, Medicaid, Medicare Supplement or FEP. On Anthem National Accounts business the rule is softer: "Precertification for ABA is recommended and applies unless the group specifically opts out of clinical review for this benefit. Retrospective review is allowed."',
+          'Funding also decides whether Indiana\'s mandate applies. IC 27-8-14.2 regulates insurers\' accident and sickness policies. It excludes accident-only, dental, vision, Medicare supplement, long-term care and disability income coverage, specified-disease and indemnity policies, qualifying short-term plans, supplemental plans and student health plans. A self-funded employer plan that Anthem only administers is not an insurance policy, so the plan document and federal parity law govern it instead. Ask the funding question before you tell a family what the law guarantees.',
+        ],
+      },
+      {
+        h2: 'Indiana\'s mandate: group must cover, individual must offer, nothing capped',
+        cites: [
+          { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' },
+          { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
+          { title: 'Ind. Code § 27-13-7-14.7 — HMO coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-13-7-14-7/' },
+          { title: 'Ind. Code § 27-8-14.2-3 — definition of autism spectrum disorder', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-3/' },
+        ],
+        body: [
+          'A group accident and sickness policy "must provide coverage for the treatment of an autism spectrum disorder of an insured," limited "to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan." An insurer issuing individual policies "must offer to provide" the same coverage, so an individual plan may lawfully lack it. Group and individual HMO contracts follow the same pattern under IC 27-13-7-14.7.',
+          'The statute sets no age, hour, visit or dollar cap. Its only limit language is parity: coverage "may not be subject to dollar limits, deductibles, or coinsurance provisions that are less favorable to an insured than" those for physical illness generally (the HMO section adds copayments). Insurers also may not refuse, terminate or restrict coverage "solely because the individual is diagnosed with an autism spectrum disorder." The chapter defines autism spectrum disorder as "a neurological condition, including Asperger\'s syndrome and autism, as defined in the Diagnostic and Statistical Manual of Mental Disorders."',
+        ],
+      },
+      {
+        h2: 'Indiana licenses behavior analysts',
+        cites: [
+          { title: 'Indiana PLA — Behavior Analyst', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
+          { title: 'Ind. Code § 25-8.5-3-1 — licensure requirements', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-1/' },
+          { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+        ],
+        body: [
+          'The Indiana Professional Licensing Agency posted on May 13, 2025 that "Licensed Behavior Analyst and Licensed Assistant Behavior Analyst applications are now live." A behavior analyst license requires BCBA certification from the BACB or another approved entity and a national criminal history background check. Since then an individual may not "practice applied behavior analysis" or use the initials LBA or LABA without a license.',
+          'The exceptions matter for staffing. A licensed or certified health care professional may use ABA within their own scope. So may a student or trainee, and a non-resident who works in Indiana no more than 5 days a month and 15 days a year while authorized at home. So may "an applied behavior analysis direct contact technician" or a family member implementing a plan at home, "who acts under the extended authority and direction of a behavior analyst or assistant behavior analyst licensed under this chapter." Technicians therefore work under the supervising analyst\'s Indiana license, not a state credential of their own.',
+        ],
+      },
+      {
+        h2: 'Claim and documentation rules in Anthem\'s ABA resource guide',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — commercial, 11 states incl. Indiana (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+        body: [
+          'Anthem\'s commercial ABA provider resource guide (June 2025) lists Indiana among its eleven states. It covers billing, coding and documentation, not authorization. Its approved rendering providers include psychiatrists, psychologists, LCSWs, LPCs and LMFTs with ABA training or experience, BCBAs and BCBA-Ds, "providers practicing under the direction and supervision of the BCBA," and other state-licensed providers the plan recognizes. Technician and paraprofessional claims must show the supervising BCBA or other QHP in box 31 of the CMS-1500, with modifiers HM, HN or HO for the rendering staff\'s degree level.',
+          'On concurrent billing, a QHP billing 97155 "can only add code 97153 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician." Records need total treatment time plus start and stop times, author identification on every entry, and a signature date within 30 days of service. Treatment plans must show review or update at least every 6 months.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Commercial or Medicaid', desc: 'Anthem runs both lines in Indiana and they follow different rulebooks. A Hoosier Healthwise, HIP, Hoosier Care Connect or PathWays card belongs in the Medicaid guide.' },
+      { title: 'Funding type and program purchase', desc: 'Fully insured, self-funded (ASO) with or without Anthem\'s medical-management program, or a National Account. This decides whether precert applies and whether IC 27-8-14.2 applies.' },
+      { title: 'Group or individual policy', desc: 'Group policies must cover ABA. Individual-policy insurers only have to offer it, so check the individual plan\'s benefit.' },
+      { title: 'Treating physician\'s prescription and treatment plan', desc: 'The mandate covers treatment "prescribed by the insured\'s treating physician in accordance with a treatment plan." Capture both.' },
+      { title: 'Diagnostic report', desc: 'DSM-based ASD diagnosis, the diagnosing clinician and credentials, the instruments used and the evaluation date. The full report, not a one-line letter.' },
+      { title: 'Indiana LBA/LABA licence numbers', desc: 'For every analyst on the case. Technicians need a named licensed supervisor on the claim (box 31).' },
+    ],
+    sources: [
+      { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+      { title: 'Anthem National Accounts 2026 standard prior authorization requirements', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/general/ANA_SPL.pdf' },
+      { title: 'Anthem ABA Provider Resource Guide — commercial, 11 states incl. Indiana (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+      { title: 'Anthem Indiana — MCG care guidelines 27th edition update (Commercial; CG-BEH-02 to MCG B-806-T for ABA, eff. June 1, 2024)', url: 'https://providernews.anthem.com/indiana/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+      { title: 'Anthem Indiana — Carelon Behavioral Health assignment mailing sent in error to non-Ohio providers (Commercial)', url: 'https://providernews.anthem.com/indiana/articles/important-information-regarding-the-recent-carelon-behaviora-1-13957' },
+      { title: 'Ind. Code § 27-8-14.2-1 — policies excluded from the chapter', url: 'https://law.justia.com/codes/indiana/title-27/article-8/chapter-14-2/section-27-8-14-2-1/' },
+      { title: 'Ind. Code § 27-8-14.2-3 — definition of autism spectrum disorder', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-3/' },
+      { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' },
+      { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
+      { title: 'Ind. Code § 27-13-7-14.7 — HMO coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-13-7-14-7/' },
+      { title: 'Ind. Code § 25-8.5-3-1 — licensure requirements', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-1/' },
+      { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Behavior Analyst', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'Anthem names who may render rather than a ratio: psychiatrists, psychologists, LCSWs, LPCs and LMFTs with ABA training or experience, BCBAs and BCBA-Ds, "providers practicing under the direction and supervision of the BCBA," and other state-licensed providers the plan recognizes. It publishes no supervision-hours floor. In Indiana, direct-contact technicians are exempt from licensure only while acting "under the extended authority and direction of a behavior analyst or assistant behavior analyst licensed under this chapter."',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — commercial, 11 states incl. Indiana (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'A physician or other QHP billing 97155 "can only add code 97153 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician." Supervised or directed services billed with a QHP-performed procedure also fall under Anthem\'s Incident To Services and Billing reimbursement policy.',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — commercial, 11 states incl. Indiana (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      dailyLimits: {
+        value: 'No Indiana-specific per-day unit ceiling is published, and IC 27-8-14.2 sets no hour or visit limit. Anthem says "ABA codes may have associated MUE limits," which it administers as NCCI edits under its Code and Clinical Editing Guidelines policy, aligned to CMS MUE updates. The working ceiling is the units on the authorization.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — commercial, 11 states incl. Indiana (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' },
+        ],
+      },
+      noteSignature: {
+        value: 'Every medical-record entry needs author identification (handwritten signature, unique electronic identifier or initials) and rendering-provider credentials. Entries are due at the time of service or shortly after and "should not exceed 30 days," with a "Signature date within 30 days of the date of service." Timed codes need total treatment time plus start and stop times, and treatment plans must show review or update "at a min of every 6 months."',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — commercial, 11 states incl. Indiana (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      placeOfService: {
+        value: 'POS codes Anthem lists as frequently used for ABA: 12 home, 11 office/clinic, 99 community, 03 school, 10 telehealth with the member at home, 02 telehealth with the member elsewhere — "Subject to the member\'s coverage and reviews by the plan."',
+        status: 'verified',
+        cites: [{ title: 'Anthem ABA Provider Resource Guide — commercial, 11 states incl. Indiana (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }],
+      },
+      billAsProvider: {
+        value: '"ABA therapy performed by therapy assistants/behavioral technicians/paraprofessionals must show the supervising BCBA or other QHP in box 31 of the CMS claim form," with degree-level modifiers HM (less than bachelor\'s), HN (bachelor\'s) or HO (master\'s) for the rendering staff. In Indiana the supervising analyst must hold an LBA or LABA license.',
+        status: 'verified',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — commercial, 11 states incl. Indiana (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+        ],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'None in the statute. IC 27-8-14.2 sets no age, hour, visit or dollar limit on the autism benefit; its only limit language is parity with physical illness for dollar limits, deductibles and coinsurance (copayments too, for HMOs). The fork that matters is group, individual or self-funded, not age.',
+        status: 'verified',
+        cites: [
+          { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' },
+          { title: 'Ind. Code § 27-13-7-14.7 — HMO coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-13-7-14-7/' },
+        ],
+      },
+      dxRecency: {
+        value: 'Not published. Neither IC 27-8-14.2 nor any Anthem Indiana commercial document we read states how recent the diagnostic evaluation must be. Anthem reviews ABA under MCG B-806-T, which is licensed and unpublished. What is published is the treatment-plan cadence: review or update at least every 6 months.',
+        status: 'unverified',
+        cites: [
+          { title: 'Anthem Indiana — MCG care guidelines 27th edition update (Commercial; CG-BEH-02 to MCG B-806-T for ABA, eff. June 1, 2024)', url: 'https://providernews.anthem.com/indiana/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+          { title: 'Anthem ABA Provider Resource Guide — commercial, 11 states incl. Indiana (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+        verifyVia: 'Ask Anthem UM (Availity Essentials or the number on the member card) what evaluation age MCG B-806-T accepts for this request, and ask for the criteria in writing if a denial turns on it.',
+        blocker: 'licensed',
+      },
+      diagnosingProviders: {
+        value: 'Not published for Indiana. The statute names no diagnosing credential; it requires only that treatment be prescribed by the treating physician under a treatment plan. Anthem\'s commercial Treatment Plan Request Form for ASD asks for a diagnostic report "completed by a doctorate level clinician or allowable qualified healthcare provider (QHCP) per state regulations," but that form\'s header lists ten states and Indiana is not one of them.',
+        status: 'unverified',
+        cites: [
+          { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' },
+          { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025; GA, KY, ME, MO, NV, NH, NY, OH, VA, WI)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+        ],
+        verifyVia: 'Anthem Indiana provider services or Availity Essentials: ask which diagnosing credentials Anthem accepts for an Indiana commercial ABA request and whether an Indiana-specific request form applies.',
+        blocker: 'per-case',
+      },
+      diagnosticTools: {
+        value: 'Not published for Indiana. The statute defines ASD by reference to the DSM and names no instrument. Anthem\'s ten-state commercial request form (which does not list Indiana) asks for "Standardized diagnostic tools (for example, … ADI-R; … ADOS-2; … CARS-2)." Send the full evaluation report with the instruments and scores either way.',
+        status: 'unverified',
+        cites: [
+          { title: 'Ind. Code § 27-8-14.2-3 — definition of autism spectrum disorder', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-3/' },
+          { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025; GA, KY, ME, MO, NV, NH, NY, OH, VA, WI)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+        ],
+        verifyVia: 'Anthem Indiana provider services or Availity Essentials. MCG B-806-T is licensed and unpublished, so the reviewer is the only source for any instrument requirement.',
+        blocker: 'per-case',
+      },
+      referral: {
+        value: 'Yes, by statute on insured plans: coverage "is limited to treatment that is prescribed by the insured\'s treating physician in accordance with a treatment plan" (group policies must cover; individual-policy insurers must offer). Self-funded plans follow their plan document.',
+        status: 'verified',
+        cites: [
+          { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' },
+          { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
+        ],
+      },
+      telehealth: {
+        value: 'Anthem lists telehealth POS 10 (member at home) and 02 (member elsewhere) for ABA but no national list of telehealth-eligible ABA codes: "Allowed codes may vary. Refer to the Allowed virtual services in addition to CPT Appendix P to obtain codes that are eligible for reimbursement in your state." A non-resident analyst may practice in Indiana only within the 5-days-a-month, 15-days-a-year exception unless Indiana-licensed.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Anthem ABA Provider Resource Guide — commercial, 11 states incl. Indiana (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+        ],
+        verifyVia: 'Anthem\'s Virtual Visits reimbursement policy and its Indiana allowed-virtual-services list, or Anthem provider services, before scheduling remote hours.',
+        blocker: 'document',
+      },
+      authTurnaround: {
+        value: 'Depends on funding. A fully insured Indiana policy or HMO is a "health plan" under IC 27-1-37.5-5, so IC 27-1-37.5-23 applies: urgent requests answered "not later than twenty-four (24) hours," all others "not later than forty-eight (48) hours," excluding weekends and state and federal holidays; a missed deadline means the service "shall be automatically deemed authorized" (IC 27-1-37.5-28). A self-funded ERISA plan follows 29 CFR 2560.503-1: urgent "not later than 72 hours after receipt of the claim," pre-service within a reasonable time "but not later than 15 days after receipt of the claim," and an urgent request to extend ongoing treatment made "at least 24 hours prior to the expiration" is decided within 24 hours. ASO groups without Anthem\'s medical-management program have no preapproval, so no clock. Anthem publishes no reauthorization lead time.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' },
+          { title: 'Ind. Code 27-1-37.5-5 — “health plan” definition', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' },
+          { title: 'Ind. Code 27-1-37.5-28 — missed deadline = deemed authorized', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-28/' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        ],
+        verifyVia: 'On the benefits call, ask whether the plan is fully insured and issued in Indiana (24/48-hour state clock) or self-funded (federal 72-hour / 15-day clock), and what turnaround Anthem quotes for ABA.',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value: 'For fully insured Indiana plans, 760 IAC 1-38.1 sets the order. For a child whose parents are married or living together, "the plan of the parent whose birthday falls earlier in a calendar year" is primary (same birthday: the plan covering that parent longest). For divorced, separated or never-cohabiting parents without a court decree, the order is the custodial parent\'s plan, then the custodial parent\'s spouse\'s, then the noncustodial parent\'s. Self-funded plans follow their plan document. TRICARE is "last pay" (32 CFR 199.8). If the child also has Indiana Medicaid, this plan pays first; the provider "must also obtain PA from the appropriate IHCP PA contractor," and IHCP will not pay for services this plan denied as out-of-network.',
+        status: 'plan-dependent',
+        cites: [
+          { title: '760 IAC 1-38.1-13 — dependent child, parents not separated or divorced', url: 'https://www.law.cornell.edu/regulations/indiana/760-IAC-1-38.1-13' },
+          { title: '760 IAC 1-38.1-14 — dependent child, separated or divorced parents', url: 'https://www.law.cornell.edu/regulations/indiana/760-IAC-1-38.1-14' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+          { title: 'IHCP — Prior Authorization module (PROMOD00012)', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' },
+          { title: 'IHCP — Third-Party Liability module (PROMOD00017)', url: 'https://www.in.gov/medicaid/providers/files/modules/third-party-liability.pdf' },
+        ],
+        verifyVia: 'Collect every coverage the child has, both parents\' birthdays and any custody decree at intake, then ask each carrier whether its plan is fully insured or self-funded and which it shows as primary.',
+        blocker: 'per-case',
+      },
+    },
+    faq: [
+      { q: 'Does an Anthem ABA request in Indiana go to Carelon Behavioral Health?', a: 'Not for Indiana commercial members. Anthem\'s January 2026 preapproval list for Indiana, Kentucky, Missouri, Ohio and Wisconsin names Anthem as the responsible party for ABA, and Carelon Behavioral Health is not on it. Anthem told Indiana providers that a 2023 Carelon Behavioral Health assignment letter was an Ohio matter sent to them in error. Submit through Availity Essentials.' },
+      { q: 'Is this the same as Anthem Indiana Medicaid?', a: 'No. Anthem\'s Medicaid plans (Hoosier Healthwise, HIP, Hoosier Care Connect, PathWays) follow IHCP ABA rules and have their own guide. This guide covers Anthem commercial plans.' },
+      { q: 'Does Indiana\'s autism mandate cap ABA?', a: 'No. IC 27-8-14.2 sets no dollar, age, visit or hour limit. Its only limit is parity: dollar limits, deductibles and coinsurance can be no less favorable than for physical illness. Group policies must cover ABA; individual-policy insurers only have to offer it; self-funded employer plans are outside the statute.' },
+      { q: 'Which criteria does Anthem use?', a: 'MCG B-806-T since June 1, 2024, replacing CG-BEH-02 and MCG W0153. MCG criteria are licensed and not published, so ask the reviewer for the specific criterion when a request is denied.' },
+      { q: 'Do technicians need an Indiana license?', a: 'No. Indiana licenses behavior analysts (LBA/LABA), not technicians. A direct-contact technician is exempt while acting under the direction of an Indiana-licensed analyst, and Anthem requires the supervising BCBA or QHP in box 31 of the claim.' },
+    ],
+  },
+
+  'caresource-indiana-marketplace': {
+    slug: 'caresource-indiana-marketplace',
+    payer: 'CareSource Indiana Marketplace',
+    state: 'IN', kind: 'commercial',
+    family: 'caresource',
+    cardDesc: 'CareSource\'s Indiana exchange plan: ABA has no benefit limit in the 2026 EOC, PA every 6 months, new ABA policy MP-MM-1329 from 10/1/2026.',
+    assessmentPA: {
+      value: 'Yes — applied behavioral analysis is on CareSource\'s 2026 Indiana Marketplace prior authorization list, and medical necessity review is required "for all ABA services initially with a baseline"',
+      status: 'verified',
+      cites: [
+        { title: 'CareSource — 2026 Indiana Marketplace Prior Authorization List (PA-INMP(2026))', url: 'https://www.caresource.com/documents/2026-in-marketplace-prior-authorization-list.pdf' },
+        { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Yes — review at baseline and "again, every 6 months"; continuation requests go in every 6 months with updated progress and assessment scores',
+      status: 'verified',
+      cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
+    },
+    dxRequired: {
+      value: 'Yes — a "definitive, primary diagnosis of ASD and the ASD level" from a child and adolescent psychiatrist, clinical psychologist, child neurologist or developmental pediatrician, independent of the ABA provider',
+      status: 'verified',
+      cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
+    },
+    pill: 'Payer Guide · CareSource · Indiana Marketplace',
+    h1: 'CareSource Indiana Marketplace ABA coverage: the intake guide.',
+    metaTitle: 'CareSource Indiana Marketplace (Exchange) ABA Coverage & Prior Auth | Carelu',
+    metaDescription:
+      'How CareSource\'s Indiana Marketplace plan covers ABA: no benefit limit in the 2026 EOC, prior authorization every 6 months, the specialist-diagnosis rule in policy MP-MM-1329, cost sharing, and how it differs from CareSource Indiana Medicaid.',
+    intro: [
+      'CareSource sells an Indiana Marketplace (ACA exchange) plan as well as the Indiana Medicaid plan in its own guide (caresource-indiana). They share a brand, not a rulebook. The Medicaid plan follows IHCP criteria. The Marketplace plan follows its Evidence of Coverage and CareSource\'s Marketplace ABA policy, MP-MM-1329, which covers Georgia, Indiana, Ohio and West Virginia and takes effect in its current form on October 1, 2026.',
+      'The 2026 Indiana Marketplace EOC lists "Adaptive Behavior Treatment, including Applied Behavioral Analysis (ABA)" under Autism Spectrum Disorder Services with the benefit limit "None." Unlike Medicaid, the family pays the deductible, copayment and coinsurance shown in their Schedule of Benefits. The diagnosis rule is stricter than most: MP-MM-1329 accepts a diagnosis only from four named specialist types, independent of the ABA provider.',
+    ],
+    atGlance: [
+      { label: 'Product', value: 'ACA Marketplace (exchange), Indiana — not the caresource-indiana Medicaid plan' },
+      { label: 'ABA benefit limit', value: 'None — 2026 EOC, Autism Spectrum Disorder Services' },
+      { label: 'Cost sharing', value: 'Deductible, copayment and coinsurance per the Schedule of Benefits, no less favorable than for physical illness' },
+      { label: 'Prior auth', value: 'Required — ABA is on the 2026 Indiana Marketplace PA list; review at baseline and every 6 months' },
+      { label: 'Criteria', value: 'MP-MM-1329 (eff. 10/1/2026); CareSource uses MCG for ABA medical necessity' },
+      { label: 'Who may diagnose', value: 'Child/adolescent psychiatrist, clinical psychologist, child neurologist or developmental pediatrician, independent of the ABA provider' },
+      { label: 'State mandate', value: 'IC 27-8-14.2 — individual policies must offer ASD coverage (group policies must cover); no age, hour or dollar cap' },
+      { label: 'Decision clock', value: 'Urgent 24 hours, pre-service 48 hours (EOC; IC 27-1-37.5-23)' },
+    ],
+    sections: [
+      {
+        h2: 'Same brand, different product',
+        cites: [
+          { title: 'CareSource — Indiana Marketplace 2026 Evidence of Coverage (POLMP-IN(2026))', url: 'https://www.caresource.com/documents/marketplace-2026-in-basic-eoc.pdf' },
+          { title: 'CareSource — 2026 Indiana Marketplace Prior Authorization List (PA-INMP(2026))', url: 'https://www.caresource.com/documents/2026-in-marketplace-prior-authorization-list.pdf' },
+          { title: 'CareSource — Indiana Marketplace provider prior authorization page', url: 'https://www.caresource.com/in/providers/provider-portal/prior-authorization/marketplace/' },
+        ],
+        body: [
+          'A CareSource card in Indiana tells you little until you know the product. The Marketplace plan has its own EOC, prior authorization list, network and cost sharing. Being in network for CareSource Medicaid does not make a practice in network for the Marketplace plan, and the Medicaid ABA rules do not carry across.',
+          'The Marketplace prior authorization list (PA-INMP(2026)) includes "Applied behavioral analysis (ABA)." Services from a non-network provider need prior authorization for everything, not just listed services. Requests go through the CareSource Provider Portal ("the preferred and faster method"), by phone at 1-833-230-2101, or in writing on the Medical Prior Authorization Request Form to CareSource, P.O. Box 1307, Dayton, OH 45401-1307.',
+        ],
+      },
+      {
+        h2: 'What the 2026 EOC promises',
+        cites: [
+          { title: 'CareSource — Indiana Marketplace 2026 Evidence of Coverage (POLMP-IN(2026))', url: 'https://www.caresource.com/documents/marketplace-2026-in-basic-eoc.pdf' },
+          { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
+        ],
+        body: [
+          'The EOC says "The Plan provides Benefits for Covered Persons to diagnose and treat Autism Spectrum Disorders," covering "Medically Necessary evidence-based treatment" prescribed or ordered for a diagnosed individual. In its benefit table, adaptive behavior treatment including ABA carries the benefit limit "None." Physical, speech and occupational therapy for autism are "Included in Habilitative Benefits," which the same EOC caps at 20 visits each. ABA must be "provided as prescribed by or under the supervision of a professional who is licensed; certified; or registered by an appropriate agency of this state to perform the services in accordance with a treatment plan."',
+          'Cost sharing applies: "Deductible, Copayment, and Coinsurance amounts are listed in the Schedule of Benefits." Under the EOC\'s behavioral health parity clause, those amounts can be no less favorable than the ones for a physical sickness. For an individual policy, Indiana\'s mandate (IC 27-8-14.2-5) only requires the insurer to offer autism coverage, so the EOC is the document that puts ABA in this plan. Quote the family\'s deductible status and coinsurance along with the benefit.',
+        ],
+      },
+      {
+        h2: 'The diagnosis and assessment rules in MP-MM-1329',
+        cites: [
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
+        ],
+        body: [
+          'CareSource "uses MCG Health for the review of medical necessity criteria for ABA" and adds documentation rules of its own. To start ABA it needs a "definitive, primary diagnosis of ASD and the ASD level" from a child and adolescent psychiatrist, clinical psychologist, child neurologist or developmental pediatrician. That clinician must evaluate "independent of the ABA provider and with a relationship with the member." It also needs the standardized diagnostic tools used (for example ADOS, ADI-R or CARS-2). If the diagnostic evaluation is more than 24 months old, add a description of clinical symptoms present within the past year.',
+          'A licensed ABA practitioner then completes a behavioral assessment (generally no more than 8 hours every 6 months) and a treatment plan before services start. The assessment must be no more than 2 months old when treatment is requested. The initial plan generally runs 26 weeks and must include biopsychosocial history, IEP/504 information, school placement and hours, SMART goals, requested weekly hours, a discharge plan and a parent/caregiver training plan signed by the caregiver.',
+          'Caregiver coaching is required in every ABA request: at least 2 hours a month or 12 hours per standard 6-month authorization, and up to 18. If the minimum is not met, "other authorized ABA units may be reduced in subsequent authorization periods." Continuation requests go in every 6 months. Two successive 6-month periods without meaningful progress on standardized assessments is a discontinuation criterion.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Marketplace or Medicaid', desc: 'Decides which CareSource rulebook applies. A Hoosier Healthwise or HIP card belongs in the caresource-indiana Medicaid guide.' },
+      { title: 'Deductible status and coinsurance', desc: 'ABA has no benefit limit, but deductible, copay and coinsurance apply per the Schedule of Benefits. The family needs the number, not just a yes.' },
+      { title: 'Who made the diagnosis', desc: 'Child/adolescent psychiatrist, clinical psychologist, child neurologist or developmental pediatrician, independent of your practice. Get the ASD level and the tools used (ADOS, ADI-R, CARS-2).' },
+      { title: 'Evaluation date', desc: 'Older than 24 months needs a clinician\'s description of symptoms within the past year.' },
+      { title: 'IEP/504 and school schedule', desc: 'The policy requires IEP/504 information and weekly school hours in the treatment plan, and excludes services duplicating school services.' },
+      { title: 'Caregiver availability', desc: 'At least 12 hours of caregiver coaching per 6-month authorization is expected; missed minimums can cut later authorizations.' },
+    ],
+    sources: [
+      { title: 'CareSource — Indiana Marketplace 2026 Evidence of Coverage (POLMP-IN(2026))', url: 'https://www.caresource.com/documents/marketplace-2026-in-basic-eoc.pdf' },
+      { title: 'CareSource — 2026 Indiana Marketplace Prior Authorization List (PA-INMP(2026))', url: 'https://www.caresource.com/documents/2026-in-marketplace-prior-authorization-list.pdf' },
+      { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
+      { title: 'CareSource — Indiana Marketplace provider prior authorization page', url: 'https://www.caresource.com/in/providers/provider-portal/prior-authorization/marketplace/' },
+      { title: 'Ind. Code § 27-8-14.2-4 — group coverage', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' },
+      { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
+      { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' },
+      { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'MP-MM-1329: "Services delivered by a BCaBA must be supervised by a BCBA, BCBA-D, or a licensed psychologist who tested in ABA and is certified by the American Board of Professional Psychology in Behavioral and Cognitive Psychology," and a BCaBA must be enrolled in the Marketplace program and affiliated with the employing organization. Paraprofessionals must be "supervised appropriately according to applicable state regulations"; in Indiana a direct-contact technician must act "under the extended authority and direction of" an Indiana-licensed behavior analyst. No supervision-hours ratio is published.',
+        status: 'verified',
+        cites: [
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
+          { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'MP-MM-1329 excludes "concurrent, overlapping billing (eg, speech therapy, occupational therapy, physical therapy) occurring during the provision of ABA services" ("Services must be distinct in time, scope and provider"), and services "provided simultaneously by more than 1 ABA provider, unless determined to be medically necessary, prior authorized and indicated in the approved behavior plan." Whether 97155 may be billed alongside 97153 is not addressed; payment rules sit in a separate reimbursement policy we did not locate.',
+        status: 'unverified',
+        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
+        verifyVia: 'CareSource\'s Marketplace "Applied Behavior Analysis for Autism Spectrum Disorder – Reimbursement Policy" (named in MP-MM-1329), or Provider Services at 1-833-230-2101.',
+        blocker: 'document',
+      },
+      dailyLimits: {
+        value: 'No per-day unit ceiling and no annual ABA benefit limit (EOC: "None"). Hours are set per member: "requested number of ABA hours per week based on the member\'s specific needs, not on a general program structure." Behavioral assessments "are not to exceed 8 hours every 6 months unless additional justification is provided," and caregiver coaching is authorized at up to 18 hours per 6-month period.',
+        status: 'verified',
+        cites: [
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
+          { title: 'CareSource — Indiana Marketplace 2026 Evidence of Coverage (POLMP-IN(2026))', url: 'https://www.caresource.com/documents/marketplace-2026-in-basic-eoc.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'Not published in the medical policy. MP-MM-1329 requires the treatment record to be "completed by the provider or practitioner and submitted to CareSource prior to claim submission," the treatment plan to be signed by the parent/guardian (or the member if 18 or older), and reserves the right to request documentation, "particularly related to telehealth services or supervision." Session-note signature timing is not stated.',
+        status: 'unverified',
+        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
+        verifyVia: 'CareSource\'s Marketplace ABA reimbursement policy and its medical-record documentation standards, or Provider Services at 1-833-230-2101.',
+        blocker: 'document',
+      },
+      placeOfService: {
+        value: 'No POS list is published. MP-MM-1329 excludes "any program or service performed in nonconventional settings, even if performed by a licensed provider," education services available under IDEA, and "services provided by a healthcare provider located in-state when an individual receiving ABA services is out of state." Treatment plans must include school transition plans and IEP/504 information to avoid duplicating school services.',
+        status: 'plan-dependent',
+        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
+        verifyVia: 'Ask CareSource Provider Services (1-833-230-2101) which POS codes it pays for ABA in home, clinic, community and school.',
+        blocker: 'document',
+      },
+      billAsProvider: {
+        value: 'Not published in the medical policy. MP-MM-1329 requires "Documentation that a licensed or certified behavior analyst will be providing ABA services" and that a BCaBA be enrolled in the Marketplace program and affiliated with the organization, but does not say whose NPI renders technician time.',
+        status: 'unverified',
+        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
+        verifyVia: 'CareSource\'s Marketplace ABA reimbursement policy, or Provider Services at 1-833-230-2101: ask whether RBT time bills under the supervising BCBA or the RBT\'s own NPI.',
+        blocker: 'document',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'None published. The 2026 EOC sets no age limit on autism services, MP-MM-1329 sets none (it says ABA "should begin early in life, ideally by the age of 2, typically lasting 3 to 4 years"), and IC 27-8-14.2 has no age cap.',
+        status: 'verified',
+        cites: [
+          { title: 'CareSource — Indiana Marketplace 2026 Evidence of Coverage (POLMP-IN(2026))', url: 'https://www.caresource.com/documents/marketplace-2026-in-basic-eoc.pdf' },
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
+          { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
+        ],
+      },
+      dxRecency: {
+        value: 'An older diagnosis is accepted with an update: if "the diagnostic evaluation was completed more than 24 months from the date of the request," add a "description of clinical symptoms (eg, provider letter) present within the past year that require treatment." Separately, the behavioral assessment "should not be older than 2 months when requesting an authorization for treatment services."',
+        status: 'verified',
+        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
+      },
+      diagnosingProviders: {
+        value: 'One of four specialists, "upon evaluation independent of the ABA provider and with a relationship with the member": a child and adolescent psychiatrist, a clinical psychologist, a child neurologist or a developmental pediatrician. A general pediatrician or the ABA agency\'s own clinician does not qualify under the policy text.',
+        status: 'verified',
+        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
+      },
+      diagnosticTools: {
+        value: '"Standardized diagnostic assessment tools used as part of a referral for services (eg, Autism Diagnostic Observation Schedule [ADOS], Autism Diagnostic Interview Revised [ADI-R], Childhood Autism Rating Scale, 2nd edition [CARS-2])." The treatment plan also needs a standardized skills assessment such as VB-MAPP or ABLLS-R.',
+        status: 'verified',
+        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
+      },
+      referral: {
+        value: 'The EOC covers ASD treatment "prescribed or ordered for an individual diagnosed with an Autism Spectrum Disorder," and ABA is provided "as prescribed by or under the supervision of" a state-licensed, certified or registered professional under a treatment plan. MP-MM-1329 expects the diagnostic tools "as part of a referral for services." No separate PCP referral form is named.',
+        status: 'verified',
+        cites: [
+          { title: 'CareSource — Indiana Marketplace 2026 Evidence of Coverage (POLMP-IN(2026))', url: 'https://www.caresource.com/documents/marketplace-2026-in-basic-eoc.pdf' },
+          { title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' },
+        ],
+      },
+      telehealth: {
+        value: '"Telehealth services may be provided when appropriate in instances deemed medically necessary with supporting documentation that provides a plan for the provision of service delivery, primarily adaptive behavior treatment with protocol modification or family adaptive behavior treatment guidance" — the 97155 and 97156 services. No code list or POS is published, and services from an in-state provider while the member is out of state are excluded.',
+        status: 'plan-dependent',
+        cites: [{ title: 'CareSource — Applied Behavior Analysis for Autism Spectrum Disorder, MP-MM-1329 (GA, IN, OH, WV Marketplace; eff. 10/01/2026)', url: 'https://www.caresource.com/documents/marketplace-oh-policy-medical-mm-1329-20261001' }],
+        verifyVia: 'Include the telehealth delivery plan in the PA request and confirm payable codes with CareSource Provider Services (1-833-230-2101).',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value: 'The 2026 EOC lists urgent care reviews "Within twenty-four (24) hours from the receipt of request" and preservice reviews "Within forty-eight (48) hours from the receipt of the request." That matches IC 27-1-37.5-23, which excludes weekends and state and federal holidays; a missed deadline means the service "shall be automatically deemed authorized" (IC 27-1-37.5-28). Continuation requests are due every 6 months.',
+        status: 'verified',
+        cites: [
+          { title: 'CareSource — Indiana Marketplace 2026 Evidence of Coverage (POLMP-IN(2026))', url: 'https://www.caresource.com/documents/marketplace-2026-in-basic-eoc.pdf' },
+          { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' },
+          { title: 'Ind. Code 27-1-37.5-28 — missed deadline = deemed authorized', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-28/' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'The EOC\'s COB section follows the birthday rule for a child whose parents are married or living together: "The Health Plan of the parent whose birthday falls earlier in the calendar year is the Primary Health Plan" (same birthday: the plan covering that parent longest), unless a court decree says otherwise. If the child also has Indiana Medicaid, this plan pays first; the provider "must also obtain PA from the appropriate IHCP PA contractor," and IHCP will not pay for services this plan denied as out-of-network. TRICARE is "last pay" (32 CFR 199.8).',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'CareSource — Indiana Marketplace 2026 Evidence of Coverage (POLMP-IN(2026))', url: 'https://www.caresource.com/documents/marketplace-2026-in-basic-eoc.pdf' },
+          { title: 'IHCP — Prior Authorization module (PROMOD00012)', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' },
+          { title: 'IHCP — Third-Party Liability module (PROMOD00017)', url: 'https://www.in.gov/medicaid/providers/files/modules/third-party-liability.pdf' },
+          { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
+        ],
+        verifyVia: 'Collect every coverage the child has, both parents\' birthdays and any custody decree at intake; confirm primacy with CareSource and the other carrier.',
+        blocker: 'per-case',
+      },
+    },
+    faq: [
+      { q: 'Does CareSource Indiana Marketplace cover ABA?', a: 'Yes. The 2026 Indiana Marketplace EOC lists adaptive behavior treatment including ABA under Autism Spectrum Disorder Services with no benefit limit, subject to prior authorization and the deductible, copay and coinsurance in the member\'s Schedule of Benefits.' },
+      { q: 'Is this the same as CareSource Indiana Medicaid?', a: 'No. The Medicaid plan follows IHCP ABA rules and has its own guide. The Marketplace plan follows its own EOC, prior authorization list and policy MP-MM-1329, with its own network and cost sharing.' },
+      { q: 'Who can diagnose autism for a CareSource Marketplace ABA request?', a: 'Under MP-MM-1329, a child and adolescent psychiatrist, clinical psychologist, child neurologist or developmental pediatrician, evaluating independently of the ABA provider. The request also needs the ASD level and the standardized tools used, such as ADOS, ADI-R or CARS-2.' },
+      { q: 'How long does an authorization last?', a: 'Medical necessity is reviewed at baseline and every 6 months; the initial treatment plan generally runs 26 weeks and continuation requests are due every 6 months.' },
+      { q: 'Will the family owe cost sharing?', a: 'Yes, usually. The EOC applies the deductible, copayment and coinsurance from the Schedule of Benefits, no less favorable than for physical illness. Check deductible status before quoting.' },
     ],
   },
 };

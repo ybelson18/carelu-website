@@ -45,7 +45,10 @@ async function fetchHash(url) {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), 45000);
   try {
-    const r = await fetch(url, { headers: { 'user-agent': UA, accept: '*/*' }, redirect: 'follow', signal: ctrl.signal });
+    // Optum's DAM serves a JS "Preparing your download" shell (~4KB) unless the
+    // ?__tracked=1 redirect target is requested; hashing the shell flags a false change.
+    const target = /^https:\/\/public\.providerexpress\.com\/.*\.pdf$/.test(url) ? `${url}?__tracked=1` : url;
+    const r = await fetch(target, { headers: { 'user-agent': UA, accept: '*/*' }, redirect: 'follow', signal: ctrl.signal });
     clearTimeout(t);
     if (!r.ok) return { status: r.status };
     const buf = Buffer.from(await r.arrayBuffer());

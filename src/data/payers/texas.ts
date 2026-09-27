@@ -311,7 +311,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Superior runs the benefit',
         body: [
-          'Superior announced the ABA benefit at its February 2022 launch with prior authorization required on every service code — 97151 for the evaluation, then 97153, 97154, 97155, 97156, 97158, and 99366 for treatment and team meetings — and its notices defer to the TMPPM for medical-necessity criteria, so the state\'s 3-year diagnosis recency, 90/90/180 cadence, and 8-hour daily cap all apply unchanged. Requests go through Superior\'s provider portal, with the plan\'s Prior Authorization Requirements page as the code-level reference. And the PA posture is stable: Superior\'s January 1, 2026 PA-removal list touched no ABA codes (the Medicaid removals were 36471, A6216, and A6218 only), so plan on full PA for the foreseeable future.',
+          'Superior announced the ABA benefit at its February 2022 launch with prior authorization required on every service code — 97151 for the evaluation, then 97153, 97154, 97155, 97156, 97158, and 99366 for treatment and team meetings — and its notices defer to the TMPPM for medical-necessity criteria, so the state\'s 3-year diagnosis recency, 90/90/180 cadence, and 8-hour daily cap all apply unchanged. Requests go through Superior\'s provider portal, with the plan\'s Prior Authorization Requirements page as the code-level reference. And the PA posture is stable: Superior\'s January 1, 2026 PA-removal list touched no Medicaid ABA codes (the Medicaid removals were 36471, A6216, and A6218 only; its one ABA code, 97157, was dropped from PA for Ambetter Marketplace members, not Medicaid), so plan on full PA for the foreseeable future.',
         ],
         cites: [
           { title: 'Superior — New Medicaid Benefit for ABA Services, PA Required (eff. 2/1/2022)', url: 'https://www.superiorhealthplan.com/newsroom/effective-0201222-new-medicaid-benefit-for-aba-services-prior-auth-required.html' },
@@ -3712,7 +3712,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { label: 'ABA covered?', value: 'Yes — explicitly listed for STAR; CHIP-specific coverage of ABA is not explicitly confirmed (see below)' },
       { label: 'BH administration', value: 'Delegated to Magellan Healthcare — phone 1-800-424-1764' },
       { label: 'Prior auth', value: 'Required — 97151, 97153–97156, 97158, 99366 (and 97157 — see note) all PA-required' },
-      { label: 'Value-added benefit', value: 'GoManda learning app (ages 2–8, autism/speech delay), free 1-year subscription with referral' },
+      { label: 'Value-added benefit', value: 'GoManda autism & speech development app (ages 2–8, physician dx of autism or speech delay), no cost, via the member\'s Service Coordinator' },
     ],
     sections: [
       {
@@ -3721,7 +3721,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           'Dell Children\'s Health Plan\'s own provider manual states it plainly: "Dell Children\'s Health Plan has been an administrator of CHIP since 2000 and was selected to administer the CHIP Perinatal and STAR programs in Central Texas beginning March 1, 2012." It currently publishes actively-maintained documents dated into 2026 (a Prior Authorization list effective 6/1/2026, provider directories dated 3/2026), and independent reporting describes it as serving 40,000+ lives across 8 counties. The plan\'s email domains (@seton.org, @ascension.org) and homepage both tie it to the Seton/Ascension health system that also runs Dell Children\'s Medical Center — though we could not locate a single primary-source document stating the exact legal entity structure (e.g., a specific "Seton Health Plan d/b/a" formulation), so treat the precise corporate relationship as indicative rather than a verbatim-confirmed fact.',
         ],
         cites: [
-          { title: 'Dell Children\'s Health Plan — STAR Medicaid and CHIP Provider Manual (Oct 2024)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2024/11/Provider-Manual-102024_web.pdf' },
+          { title: 'Dell Children\'s Health Plan — CHIP and STAR Provider Manual (FY27, September 2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/08/FY27-Provider-Manual.pdf' },
         ],
       },
       {
@@ -3730,7 +3730,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           'The plan\'s STAR Member Handbook and provider manual both explicitly list "Applied Behavior Analysis (ABA) therapy" as a covered STAR behavioral-health service, and the member-facing behavioral-health page states ABA "is now a benefit for STAR members as a covered benefit through Texas Medicaid," requiring prior ASD diagnostic testing "by a developmental pediatrician, a neurologist, a psychiatrist, a licensed psychologist, or an autism diagnosis team." The plan\'s Prior Authorization List (effective 6/1/2026) confirms PA is required (marked "Yes") for 97151, 97153, 97154, 97155, 97156, 97158, and 99366, each cross-referenced to the TMPPM Children\'s Services Handbook. One discrepancy worth flagging rather than silently resolving: the same PA list also shows code 97157 with PA=Yes, even though 97157 is confirmed absent from Texas Medicaid\'s actual THSteps-CCP Autism Services billable code set per TMHP\'s own fee schedule and handbook — treat 97157\'s status with this plan as needing direct confirmation. Separately, the provider manual\'s STAR-covered-services list explicitly names ABA, but the CHIP-specific covered-behavioral-health-services bullet list in the same manual does not repeat ABA by name (it lists inpatient/outpatient mental health and substance-use-disorder services only) — this is genuinely ambiguous in the plan\'s own document, so confirm ABA coverage for standard CHIP (non-STAR, non-Perinatal) members directly with the plan rather than assuming either way.',
         ],
         cites: [
-          { title: 'Dell Children\'s Health Plan — STAR Medicaid and CHIP Provider Manual (Oct 2024)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2024/11/Provider-Manual-102024_web.pdf' },
+          { title: 'Dell Children\'s Health Plan — CHIP and STAR Provider Manual (FY27, September 2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/08/FY27-Provider-Manual.pdf' },
           { title: 'Dell Children\'s Health Plan — Behavioral Health (member page)', url: 'https://dellchildrenshealthplan.com/manage-your-health/behavioral-health/' },
           { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
         ],
@@ -3738,18 +3738,18 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'Behavioral health rides on Magellan',
         body: [
-          'Unlike some Texas MCOs that handle BH in-house, Dell Children\'s Health Plan delegates behavioral-health services — including ABA-related prior authorization and referrals — to Magellan Healthcare. The member-facing behavioral-health page tells families to "self-refer directly by calling Magellan toll-free at 1-800-424-1764," and the provider manual lists dedicated Magellan-branded forms (Behavioral Health Prior Auth Form, Initial Review Form, Concurrent Review Form, Discharge Assistance, Provider Search) accessed through the Magellan member/provider portal. The dedicated BH PA fax is (866) 354-8758, distinct from the plan\'s general medical PA fax (844-981-3329). General Provider Services runs at 1-844-781-2343; the plan\'s provider portal for eligibility, PA status, and claims is the HealthX Provider Portal.',
+          'Unlike some Texas MCOs that handle BH in-house, Dell Children\'s Health Plan delegates behavioral-health services — including ABA-related prior authorization and referrals — to Magellan Healthcare. The member-facing behavioral-health page tells families to "self-refer directly by calling Magellan toll-free at 1-800-424-1764," and the plan\'s Manuals & Forms page lists dedicated Magellan-branded forms (Behavioral Health Prior Auth Form, Initial Review Form, Concurrent Review Form, Discharge Assistance, Provider Search) accessed through the Magellan member/provider portal. The dedicated BH PA fax is (866) 354-8758, distinct from the plan\'s general medical PA fax (844-981-3329). General Provider Services runs at 1-844-781-2343; the plan\'s provider portal for eligibility, PA status, and claims is the HealthX Provider Portal.',
         ],
         cites: [
           { title: 'Dell Children\'s Health Plan — Behavioral Health (member page)', url: 'https://dellchildrenshealthplan.com/manage-your-health/behavioral-health/' },
-          { title: 'Dell Children\'s Health Plan — STAR Medicaid and CHIP Provider Manual (Oct 2024)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2024/11/Provider-Manual-102024_web.pdf' },
+          { title: 'Dell Children\'s Health Plan — CHIP and STAR Provider Manual (FY27, September 2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/08/FY27-Provider-Manual.pdf' },
           { title: 'Dell Children\'s Health Plan — Manuals & Forms', url: 'https://dellchildrenshealthplan.com/for-providers/manuals-forms/' },
         ],
       },
       {
         h2: 'A pediatric-specific extra: the GoManda benefit',
         body: [
-          'Dell Children\'s Health Plan lists a value-added benefit directly relevant to autism families: the GoManda learning app, free for one year to CHIP/STAR members ages 2 to 8 with autism or speech delay, available with a referral. It\'s not a substitute for ABA, but it\'s worth mentioning at intake as a no-cost supplement families may not know they have access to. No dedicated autism specialty clinic or autism-specific clinical program beyond the standard ABA benefit and GoManda was found in the plan\'s published materials. No plan-specific ABA fee schedule is published — the PA list\'s references point back to the TMPPM/TMHP baseline already covered in our Texas Medicaid guide.',
+          'Dell Children\'s Health Plan lists a value-added benefit directly relevant to autism families: the GoManda "Autism and Speech Development App," a mobile learning app for STAR and CHIP members ages 2 through 8 with a physician diagnosis of autism or speech delay (not CHIP Perinate). Families request it through their Service Coordinator (or Member Services, 1-855-921-6284) and receive "a secure GoManda link by email at no cost." It\'s not a substitute for ABA, but it\'s worth mentioning at intake as a no-cost supplement families may not know they have access to. No dedicated autism specialty clinic or autism-specific clinical program beyond the standard ABA benefit and GoManda was found in the plan\'s published materials. No plan-specific ABA fee schedule is published — the PA list\'s references point back to the TMPPM/TMHP baseline already covered in our Texas Medicaid guide.',
         ],
         cites: [
           { title: 'Dell Children\'s Health Plan — Value-Added Services', url: 'https://dellchildrenshealthplan.com/for-members/value-added-services/' },
@@ -3761,10 +3761,10 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnostic report + diagnosing provider credentials', desc: 'The plan names specific qualifying diagnosers (developmental pediatrician, neurologist, psychiatrist, licensed psychologist, or autism diagnosis team).' },
       { title: 'Route through Magellan for BH', desc: 'Behavioral health — including ABA — is delegated to Magellan Healthcare, not handled by the plan directly; use Magellan\'s forms and portal.' },
       { title: 'County of residence', desc: 'Confirm coverage in the Travis SDA\'s 8 counties (Bastrop, Burnet, Caldwell, Fayette, Hays, Lee, Travis, Williamson).' },
-      { title: 'GoManda eligibility', desc: 'Ages 2–8 with autism or speech delay qualify for a free 1-year subscription with referral — flag for families as a no-cost extra.' },
+      { title: 'GoManda eligibility', desc: 'Ages 2–8 with a physician diagnosis of autism or speech delay qualify at no cost via the Service Coordinator — flag for families as a no-cost extra.' },
     ],
     sources: [
-      { title: 'Dell Children\'s Health Plan — STAR Medicaid and CHIP Provider Manual (Oct 2024)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2024/11/Provider-Manual-102024_web.pdf' },
+      { title: 'Dell Children\'s Health Plan — CHIP and STAR Provider Manual (FY27, September 2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/08/FY27-Provider-Manual.pdf' },
       { title: 'Dell Children\'s Health Plan — Behavioral Health (member page)', url: 'https://dellchildrenshealthplan.com/manage-your-health/behavioral-health/' },
       { title: 'Dell Children\'s Health Plan — STAR/CHIP Prior Authorization List (eff. 6/1/2026)', url: 'https://dellchildrenshealthplan.com/wp-content/uploads/2026/04/Dell-Childrens-Prior-Authorization-List-Final-Effective-6_1_2026.xlsx-DCHP-PA-List-2.pdf' },
       { title: 'Dell Children\'s Health Plan — Manuals & Forms', url: 'https://dellchildrenshealthplan.com/for-providers/manuals-forms/' },

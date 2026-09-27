@@ -127,6 +127,11 @@ const TUFTS_270_271_CG = src(
   'Point32Health/Tufts Health Plan 270-271 companion guide, cover-dated "May 2017." Documents a direct SOAP/CORE connection (ReceiverID 170558746, CORERuleVersion 2.2.0) — a CAQH CORE connection identifier, NOT the same namespace as the 04298 clearinghouse payer ID found via Availity; both recorded distinctly. No ABA-specific or behavioral-health carve-out language found in this generic X12 companion guide.',
   true
 );
+const TUFTS_TOGETHER_ABA_PA_FORM: SourceRef = {
+  url: 'https://www.point32health.org/documents/applied-behavioral-analysis-form',
+  accessDate: '2026-09-27',
+  note: 'Point32Health Applied Behavioral Analysis Prior Authorization Form (effective Jan. 1, 2026; PDF dated Sept 2025). "For Tufts Health Together, fax this form to 888-977-0776." Request for Initial Evaluation = pages 1-3 + IEP + comprehensive diagnostic evaluation; Continued Services = pages 1-6; units requested per 6-month period, not per week. Together code list (page 3): H0031-U2, 97151, 97153, 97154, 97155, 97156, 97157, with the note "For Tufts Health Together members, use the modifier U2."',
+};
 const MGB_CLAIMS_PAGE = src(
   'https://massgeneralbrighamhealthplan.org/providers/claims',
   "Mass General Brigham Health Plan's own claims page (first-party). Medical claims payer ID 04293. States behavioral health providers submit claims to Optum, payer ID 87726 — confirming the medical/BH carve-out split at the EDI level for this plan specifically."
@@ -263,26 +268,31 @@ function wellsenseEntry(code: string): CodeGridEntry {
   return base;
 }
 
-function tuftsEntry(): CodeGridEntry {
+const TUFTS_TOGETHER_FORM_CODES = ['H0031', '97151', '97153', '97154', '97155', '97156', '97157'];
+
+function tuftsEntry(code: string): CodeGridEntry {
+  const onForm = TUFTS_TOGETHER_FORM_CODES.includes(code);
   return {
-    covered: 'Yes',
-    paRequired: 'Required — via Point32Health\'s own updated ABA PA form and internal UM (not the Massachusetts Standard ABA PA form, not the Carelon/MBHP performance spec)',
+    covered: onForm ? 'Yes' : 'unverified',
+    paRequired: 'Required — on Point32Health\'s own ABA PA form (not the Massachusetts Standard ABA PA Form); even the initial evaluation is a "Request for Initial Evaluation" (pages 1-3 + IEP + diagnostic evaluation). Submit via the MHK portal with the form uploaded, or fax 888-977-0776.',
     unitCap: 'unverified',
-    capPeriod: 'unverified',
+    capPeriod: 'Units requested per 6-month authorization period (the form: "Please do NOT request units per week, instead request units per authorization period")',
     posAllowed: ['unverified'],
     telehealth: 'unverified',
-    modifiers: ['unverified'],
-    notes:
-      "Point32Health self-manages ABA UM against its own medical-necessity guideline (InterQual + SmartSheets, new MNG eff. 1/1/2026) rather than the state-baseline Carelon/MBHP mechanics used by every other MassHealth administrator — no code-level unit-cap/POS/modifier detail was retrieved from Point32's own MNG or ABA PA form this pass. Verify via: Point32Health provider services, or the Tufts Health Together ABA Medical Necessity Guideline PDF (point32health.org).",
+    modifiers: onForm ? ['U2 (required on Tufts Health Together codes per the Point32 ABA PA form)'] : ['unverified'],
+    notes: onForm
+      ? "On the Tufts Health Together code list of Point32Health's ABA PA form (eff. 1/1/2026). Unit caps, POS and telehealth are not stated on the form; Point32Health reviews against its own MNG (InterQual + SmartSheets)."
+      : "NOT on the Tufts Health Together code list of Point32Health's ABA PA form (eff. 1/1/2026: H0031-U2, 97151, 97153-97157). The form lists this code only for Commercial products — confirm with Point32Health provider services (888-257-1985) before requesting it for a Together member.",
     fieldStatus: {
-      covered: 'verified',
+      covered: onForm ? 'verified' : 'unverified',
       paRequired: 'verified',
       unitCap: 'unverified',
+      capPeriod: 'verified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
-      modifiers: 'unverified',
+      modifiers: onForm ? 'verified' : 'unverified',
     },
-    sources: [TUFTS_270_271_CG],
+    sources: [TUFTS_TOGETHER_ABA_PA_FORM, TUFTS_270_271_CG],
   };
 }
 
@@ -312,7 +322,7 @@ function mgbEntry(unitCap: string, modifiers: string[]): CodeGridEntry {
 function aetnaEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification (form GR-69017-4, per Aetna\'s national CPB 0554 policy)',
+    paRequired: 'Required — precertification via Availity or phone (Aetna BH precertification list); the national form GR-69017-4 (7-26) excludes Massachusetts',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
@@ -617,7 +627,7 @@ const tuftsEdi: EdiRouting = {
   sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, TUFTS_270_271_CG],
 };
 
-const tuftsCodeGrid = buildGrid(() => tuftsEntry());
+const tuftsCodeGrid = buildGrid((code) => tuftsEntry(code));
 
 /* ==================== mass-general-brigham-health-plan ==================== */
 

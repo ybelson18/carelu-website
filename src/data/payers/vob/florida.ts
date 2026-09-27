@@ -117,7 +117,7 @@
      schedules can be found on the AHCA website... Rule 59G-4.002") —
      the cleanest, most explicit deferral statement found in this
      split, cited verbatim in the Humana codeGrid entries. Humana's PA
-     form (MCD 466) also gives a concrete, previously-unpublished
+     form (MCD 466, now reissued as 1023905FL0616) also gives a concrete, previously-unpublished
      number: non-par providers are reimbursed at 80% of the Florida
      Medicaid fee schedule absent a controlling legal requirement or
      Letter of Agreement — replacing the vague "a percentage of..."
@@ -219,10 +219,11 @@ const AHCA_FEE_SCHEDULE_2025 = src(
   'https://ahca.myflorida.com/content/download/26138/file/2025%20Behavior%20Analysis%20Fee%20Schedule.pdf',
   'AHCA "Behavior Analysis Fee Schedule January 1, 2025" — retrieved directly (AHCA blocks a default WebFetch User-Agent with 403 but not a browser-spoofed request). Full per-code rate table, all effective 2025-01-01.'
 );
-const AHCA_FEE_SCHEDULE_2026 = src(
-  'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf',
-  'AHCA "Behavior Analysis Fee Schedule 2026" — retrieved directly. Rates are IDENTICAL to the 2025 schedule (no increase); CPT 97157 is absent from this schedule too, confirming the omission is not a 2025-only oversight.'
-);
+const AHCA_FEE_SCHEDULE_2026: SourceRef = {
+  url: 'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf',
+  accessDate: '2026-09-27',
+  note: 'AHCA "Behavior Analysis Fee Schedule 2026" (PDF created 2026-01-28) — re-retrieved with curl and a browser user agent and re-read 2026-09-27; every rate in floridaMedicaidRates re-checked against it and unchanged. Rates are IDENTICAL to the 2025 schedule (no increase); CPT 97157 is absent from this schedule too, confirming the omission is not a 2025-only oversight.',
+};
 const AHCA_BA_COVERAGE_POLICY = src(
   'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf',
   'Florida Medicaid Behavior Analysis Services Coverage Policy, Dec 2024, incorporated by reference in Rule 59G-4.125, F.A.C. (effective 2025-02-10) — retrieved and read in full. Contains NO CPT code table itself (§8.3 defers to Rule 59G-4.002/the fee schedule); §1.2 binds all MMA plans to this policy\'s floor/ceiling; §4.2.2 sets the 40 hrs/week aggregate cap, 6-participant group cap, and the 97156-only 2 hrs/week telemedicine allowance (GT modifier, Rule 59G-1.057, F.A.C.); §8.2 sets the 8-minute billing rule; §7.2 requires IEP/504 (or documented explanation) for school-based authorization.'
@@ -289,14 +290,16 @@ const OPTUM_FLABA_QRG = src(
   'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf',
   'Optum Provider Express — Florida ABA QRG, doc BH01355-1-25-QRG_07162025 (newer revision than the UHC-branded QRG above, but identical scope/content) — retrieved and read in full. Same finding: no code-level coding/reimbursement detail.'
 );
-const HUMANA_ABA_FLYER = src(
-  'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf',
-  'Humana Healthy Horizons FL — Behavior Analysis Informational Flyer (675204FL0225) — retrieved and read in full. States verbatim: "Procedure codes and the latest published fee schedules can be found on the AHCA website: Rule 59G-4.002, Provider Reimbursement Schedules and Billing Codes" — an explicit, written deferral to AHCA for code-level mechanics. Payer ID 61101 for FFS claims via Availity Essentials (preferred), Waystar/ZirMed, TriZetto, SSI Group; PA channels Availity Essentials, IVR 800-523-0023 (24/7), fax 813-321-7220.'
-);
-const HUMANA_PA_FORM_MCD466 = src(
-  'https://assets.humana.com/is/content/humana/ABA_PA_Formpdf',
-  'Humana FL — ABA PA Form (MCD 466) — retrieved and read in full. Page 3 states verbatim: "Absent a controlling legal requirement or Letter of Agreement, nonparticipating providers will be reimbursed at 80% of the Medicaid Fee Schedule." POS field is categorical only (Home / Office-Center / School / Other checkboxes) — no numeric POS codes, no telehealth checkbox, no HN/HO/HM/HP fields anywhere on the form.'
-);
+const HUMANA_ABA_FLYER: SourceRef = {
+  url: 'https://assets.humana.com/is/content/humana/ABA_Informational_Flyer_AHCApdf',
+  accessDate: '2026-09-27',
+  note: 'Humana Healthy Horizons FL — Behavior Analysis Informational Flyer, current edition 1025703FL0626 (PDF modified 2026-08-14; replaced the 675204FL0225 edition at the same URL) — re-retrieved and read in full 2026-09-27. States verbatim: "Procedure codes and the latest published fee schedules can be found on the AHCA website at Rule 59G-4.002, Provider Reimbursement Schedules and Billing Codes" — an explicit, written deferral to AHCA for code-level mechanics. Payer ID 61101 for FFS claims via Availity Essentials (preferred), Waystar/ZirMed, TriZetto, SSI Group; PA channels Availity Essentials, IVR 800-523-0023 (24/7), fax 813-321-7220. Non-par: "limited to the lesser of" the amount specified in the authorization request form or "100% of the applicable Medicaid fee schedule"; continuity for members changing plans "up to 90 days."',
+};
+const HUMANA_PA_FORM_MCD466: SourceRef = {
+  url: 'https://assets.humana.com/is/content/humana/ABA_PA_Formpdf',
+  accessDate: '2026-09-27',
+  note: 'Humana FL — "Behavioral analysis authorization" form, current edition 1023905FL0616 (PDF modified 2026-07-20; formerly MCD 466 at the same URL) — re-retrieved and read in full 2026-09-27. Page 3 still states verbatim: "Absent a controlling legal requirement or Letter of Agreement, nonparticipating providers will be reimbursed at 80% of the Medicaid Fee Schedule." POS field is categorical only (Home / Office-Center / School / Other checkboxes) — no numeric POS codes, no telehealth checkbox, no HN/HO/HM/HP fields anywhere on the form. Authorization inquiries 866-856-8974.',
+};
 const HUMANA_FL_PAL = src(
   'https://assets.humana.com/is/content/humana/FL%20MCD%20PAL%20Cpdf',
   'Humana Florida Medicaid Prior Authorization List, "PAL C," effective 2025-07-01, revised 2026-06-26 — retrieved and read in full (page 3: "Behavioral health — Managed by Humana — Applied behavioral analysis (ABA) therapy: 0362T, 0373T, 97151, 97152, 97153, 97154, 97155, 97156, 97158"). CPT 97157 is absent from this list (full-text-searched across both the Nov-2025 "PAL B" and this June-2026 "PAL C" revision); 97151-TS is not listed as a distinct line item — only base 97151 appears.'
@@ -605,6 +608,22 @@ const floridaMedicaidRates: RateTable = {
   sources: [AHCA_FEE_SCHEDULE_2025, AHCA_FEE_SCHEDULE_2026],
 };
 
+const MOLINA_FL_BA_QRG_2026: SourceRef = {
+  url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx',
+  accessDate: '2026-09-27',
+  note: 'Molina Healthcare of Florida — "Behavioral Analysis Services: Authorization & Documentation Guide, Comprehensive Provider Quick Reference Guide," effective July 2026 (PDF created 2026-08-06), 20 pages — retrieved with curl and a browser user agent and read in full 2026-09-27. Covers Molina Healthcare of Florida AND the CMS Plan. BA Procedure Codes table (Section 9): 97151 "No" prior authorization; 97153, 97154, 97155, 97156 "Yes"; FAQ: "The exception is code 97151." Services "authorized based on a weekly hour total"; 8-minute rule; "Modifiers, including telehealth modifiers, should follow the current Medicaid Fee Schedule"; claims via Availity or EDI Payer ID 51062; standard decisions MMA 4 business days, CMS Title 19/21 3 business days; reauthorization 30 to 10 days before the end date.',
+};
+const MOLINA_CMS_TRANSITION_FAQ: SourceRef = {
+  url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/09-25-26-MHFL-CMS-Transition-FAQs-508.ashx',
+  accessDate: '2026-09-27',
+  note: 'Molina — Children\'s Medical Services (CMS) Plan Transition FAQs (PDF dated 2026-09-25) — read in full 2026-09-27. Go-live October 1, 2026; continuity of care up to 240 days (through May 29, 2027) for members moving from the Sunshine-operated CMS Plan; "Submit Claims to Molina through your EDI clearinghouse using Payer ID 51062"; PA via 278 transactions, Availity Essentials or (855) 322-4076; "Current contracts with Sunshine Health Plan will not transfer to Molina Healthcare."',
+};
+const MOLINA_CMS_BA_TRAINING: SourceRef = {
+  url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/09-03-26-MHFL-CMS-Plan-BA-Training-508.pdf',
+  accessDate: '2026-09-27',
+  note: 'CMS Plan by Molina Healthcare — Provider Orientation: Behavior Analysis Services (August 2026), 102 slides with outlined (non-extractable) text, rendered and read page by page 2026-09-27. Eligibility and benefits verified through Availity or (855) 322-4076; EDI payer ID 51062 for all lines of business; non-participating providers reimbursed at 100% of the Medicaid rate unless a single-case agreement applies; "New Weekly Unit Structure for ABA Reimbursement — effective November 1, 2026" (weekly units replace authorization totals; over-limit hours denied or adjusted).',
+};
+
 /* ==================== sunshine-health-florida & cms-health-plan-florida ====================
    CMS Health Plan is operated BY Sunshine Health and uses Sunshine's BA process end to end
    (confirmed in research) — the codeGrid below is shared between both guides; EDI differs
@@ -639,8 +658,8 @@ const sunshineEdi: EdiRouting = {
 };
 
 const cmsHealthPlanEdi: EdiRouting = {
-  payerId: { pverify: 'unverified', availity: 'unverified', changeHealthcare: 'unverified' },
-  supports270271: 'unverified',
+  payerId: { pverify: 'unverified', availity: '51062', changeHealthcare: '51062' },
+  supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: {
     administrator: 'none',
@@ -650,21 +669,20 @@ const cmsHealthPlanEdi: EdiRouting = {
   },
   fieldStatus: {
     'payerId.pverify': 'unverified',
-    'payerId.availity': 'unverified',
-    'payerId.changeHealthcare': 'unverified',
-    supports270271: 'unverified',
+    'payerId.availity': 'verified',
+    'payerId.changeHealthcare': 'inferred',
+    supports270271: 'inferred',
     supportsRealtime: 'unverified',
-    'bhCarveOut.administrator': 'inferred',
+    'bhCarveOut.administrator': 'verified',
   },
   verifyVia: {
     'payerId.pverify':
-      'No distinct CMS Health Plan entry was found in pVerify\'s or Availity\'s public payer lists — CMS Health Plan is operated by Sunshine Health and its BA program rides on Sunshine\'s process end to end (per Sunshine\'s BA QRG), but whether CMS Health Plan uses Sunshine\'s own EDI payer ID (68069) or requires separate enrollment was not confirmed. Confirm via Sunshine/CMS Health Plan provider relations.',
-    'payerId.availity': 'Same as pverify — not independently confirmed.',
-    'payerId.changeHealthcare': 'Same as pverify — not independently confirmed.',
-    supports270271: 'Not stated in any CMS Health Plan or Sunshine document reviewed.',
-    supportsRealtime: 'Not stated.',
+      'From October 1, 2026 the CMS Plan is operated by Molina Healthcare of Florida (Sunshine Health through September 30, 2026). pVerify lists Molina Healthcare of Florida as 00300, but no CMS-Plan-specific pVerify entry was found — confirm with pVerify that 00300 returns CMS Plan members.',
+    'payerId.changeHealthcare': 'Molina\'s CMS materials name payer ID 51062 for EDI claims through any clearinghouse and Change Healthcare/ECHO for payments; a Change Healthcare eligibility directory entry was not checked.',
+    supports270271: 'Molina\'s CMS training directs eligibility and benefits checks to Availity (or (855) 322-4076); a 270/271 companion guide for the CMS Plan was not reviewed.',
+    supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding for payer ID 51062.',
   },
-  sources: [SUNSHINE_BA_QRG],
+  sources: [MOLINA_CMS_TRANSITION_FAQ, MOLINA_CMS_BA_TRAINING, MOLINA_FL_BA_QRG_2026],
 };
 
 const sunshineCodeGrid: Record<string, CodeGridEntry> = {
@@ -945,7 +963,7 @@ const humanaEdi: EdiRouting = {
 };
 
 const humanaExtraNote =
-  "Humana's own materials explicitly defer coding mechanics to AHCA in writing: \"Procedure codes and the latest published fee schedules can be found on the AHCA website... Rule 59G-4.002.\" Non-par providers are reimbursed at 80% of the Florida Medicaid fee schedule, absent a controlling legal requirement or Letter of Agreement (MCD 466 PA form, p.3) — a concrete figure, not the vague \"a percentage of...\" previously on file.";
+  "Humana's own materials explicitly defer coding mechanics to AHCA in writing: \"Procedure codes and the latest published fee schedules can be found on the AHCA website... Rule 59G-4.002.\" Non-par providers are reimbursed at 80% of the Florida Medicaid fee schedule, absent a controlling legal requirement or Letter of Agreement (Behavior Analysis Authorization form 1023905FL0616, p.3) — a concrete figure, not the vague \"a percentage of...\" previously on file.";
 
 const humanaCodeGrid: Record<string, CodeGridEntry> = {
   '97151': mcoEntry('97151', {
@@ -1151,7 +1169,16 @@ const molinaFlEdi: EdiRouting = {
 };
 
 const molinaFlCodeGrid: Record<string, CodeGridEntry> = {
-  '97151': mcoEntry('97151', { planName: 'Molina Healthcare of Florida', confirmed: ['covered', 'paRequired'], extraSources: [MOLINA_FL_HANDBOOK] }),
+  '97151': {
+    ...mcoEntry('97151', {
+      planName: 'Molina Healthcare of Florida',
+      confirmed: ['covered', 'paRequired'],
+      extraNote:
+        "Molina's July 2026 BA guide exempts this code: \"Code 97151 (Behavior Identification Assessment) does not require prior authorization. All other BA service codes listed above require prior authorization before services begin.\" Run the code through Molina's Prior Authorization Code Lookup Tool before relying on it.",
+      extraSources: [MOLINA_FL_BA_QRG_2026],
+    }),
+    paRequired: 'Not required — Molina\'s BA guide lists 97151 as the one BA code without prior authorization (confirm in the PA Code Lookup Tool).',
+  },
   '97152': mcoEntry('97152', { planName: 'Molina Healthcare of Florida', confirmed: ['covered', 'paRequired'], extraSources: [MOLINA_FL_HANDBOOK] }),
   '0362T': mcoEntry('0362T', { planName: 'Molina Healthcare of Florida', confirmed: ['covered', 'paRequired'], extraSources: [MOLINA_FL_HANDBOOK] }),
   '97153': mcoEntry('97153', { planName: 'Molina Healthcare of Florida', confirmed: ['covered', 'paRequired'], extraSources: [MOLINA_FL_HANDBOOK] }),
@@ -1162,11 +1189,44 @@ const molinaFlCodeGrid: Record<string, CodeGridEntry> = {
     planName: 'Molina Healthcare of Florida',
     confirmed: ['covered'],
     extraNote:
-      "Molina's own 213-page Medicaid Provider Handbook contains zero mentions of Behavior Analysis or any BA code — BA-specific rules live only in Molina's separate, access-restricted BA Quick Reference Guide, not reviewed this pass.",
-    extraSources: [MOLINA_FL_HANDBOOK],
+      "Molina's own 213-page Medicaid Provider Handbook contains zero mentions of Behavior Analysis or any BA code. Molina's July 2026 BA guide (read in full 2026-09-27) lists only 97151 and 97153-97156 in its code table — 97157 does not appear there either.",
+    extraSources: [MOLINA_FL_HANDBOOK, MOLINA_FL_BA_QRG_2026],
   }),
   '97158': mcoEntry('97158', { planName: 'Molina Healthcare of Florida', confirmed: ['covered', 'paRequired'], extraSources: [MOLINA_FL_HANDBOOK] }),
   '0373T': mcoEntry('0373T', { planName: 'Molina Healthcare of Florida', confirmed: ['covered', 'paRequired'], extraSources: [MOLINA_FL_HANDBOOK] }),
+};
+
+
+/* cms-health-plan-florida — Molina Healthcare of Florida operates the CMS Plan from
+   2026-10-01 (Sunshine through 2026-09-30), so the plan no longer shares Sunshine's grid.
+   Molina's July 2026 BA guide explicitly covers "Molina Healthcare of Florida and the
+   Children's Medical Services (CMS) Plan". */
+const cmsPlanMolinaNote =
+  "CMS Plan by Molina Healthcare from October 1, 2026: BA is authorized as a weekly hour total, and Molina's CMS BA training announces weekly units replacing authorization totals effective November 1, 2026 (hours above the weekly limit are denied or adjusted). Existing Sunshine authorizations are honored during continuity of care, up to 240 days (through May 29, 2027).";
+const cmsPlanMolinaCodeGrid: Record<string, CodeGridEntry> = {
+  '97151': {
+    ...mcoEntry('97151', {
+      planName: 'CMS Plan (Molina Healthcare of Florida)',
+      confirmed: ['covered', 'paRequired'],
+      extraNote: "Molina's July 2026 BA guide: \"Code 97151 (Behavior Identification Assessment) does not require prior authorization.\" Non-participating providers need authorization for all services and codes (Molina CMS BA training).",
+      extraSources: [MOLINA_FL_BA_QRG_2026, MOLINA_CMS_BA_TRAINING],
+    }),
+    paRequired: 'Not required for participating providers — Molina\'s BA guide exempts 97151; non-participating providers need authorization for all services and codes.',
+  },
+  '97152': mcoEntry('97152', { planName: 'CMS Plan (Molina Healthcare of Florida)', confirmed: ['covered'], extraSources: [MOLINA_FL_BA_QRG_2026] }),
+  '0362T': mcoEntry('0362T', { planName: 'CMS Plan (Molina Healthcare of Florida)', confirmed: ['covered'], extraSources: [MOLINA_FL_BA_QRG_2026] }),
+  '97153': mcoEntry('97153', { planName: 'CMS Plan (Molina Healthcare of Florida)', confirmed: ['covered', 'paRequired'], extraNote: cmsPlanMolinaNote, extraSources: [MOLINA_FL_BA_QRG_2026, MOLINA_CMS_BA_TRAINING] }),
+  '97154': mcoEntry('97154', { planName: 'CMS Plan (Molina Healthcare of Florida)', confirmed: ['covered', 'paRequired'], extraNote: cmsPlanMolinaNote, extraSources: [MOLINA_FL_BA_QRG_2026, MOLINA_CMS_BA_TRAINING] }),
+  '97155': mcoEntry('97155', { planName: 'CMS Plan (Molina Healthcare of Florida)', confirmed: ['covered', 'paRequired'], extraNote: cmsPlanMolinaNote, extraSources: [MOLINA_FL_BA_QRG_2026, MOLINA_CMS_BA_TRAINING] }),
+  '97156': mcoEntry('97156', { planName: 'CMS Plan (Molina Healthcare of Florida)', confirmed: ['covered', 'paRequired'], extraNote: cmsPlanMolinaNote, extraSources: [MOLINA_FL_BA_QRG_2026, MOLINA_CMS_BA_TRAINING] }),
+  '97157': mcoEntry('97157', {
+    planName: 'CMS Plan (Molina Healthcare of Florida)',
+    confirmed: ['covered'],
+    extraNote: "Not on the AHCA BA fee schedule. Molina's CMS BA training slide on prior authorization groups 97156 and 97157 under caregiver training, but its July 2026 BA guide's code table omits 97157 — confirm with Molina before billing it.",
+    extraSources: [MOLINA_FL_BA_QRG_2026, MOLINA_CMS_BA_TRAINING],
+  }),
+  '97158': mcoEntry('97158', { planName: 'CMS Plan (Molina Healthcare of Florida)', confirmed: ['covered', 'paRequired'], extraNote: cmsPlanMolinaNote, extraSources: [MOLINA_CMS_BA_TRAINING] }),
+  '0373T': mcoEntry('0373T', { planName: 'CMS Plan (Molina Healthcare of Florida)', confirmed: ['covered'], extraSources: [MOLINA_FL_BA_QRG_2026] }),
 };
 
 /* ==================== community-care-plan-florida ==================== */
@@ -1657,19 +1717,18 @@ const sunshineContact: VobContact = {
 };
 
 const cmsHealthPlanContact: VobContact = {
-  providerServicesPhone: '1-844-477-8313',
-  hours: 'Shared Sunshine Health machinery — same Provider Services / UM line, Monday–Friday 8 a.m.–8 p.m. Eastern (CMS Health Plan’s own determination clock runs 7 calendar days rather than Sunshine’s 5, per florida.ts prose, but the contact channel is identical).',
-  fax: '1-844-208-9113',
-  portal: { name: 'Sunshine Health Secure Provider Portal', url: 'https://www.sunshinehealth.com/login.html' },
+  providerServicesPhone: '(855) 322-4076',
+  hours: 'Molina Provider Services, Utilization Management and Behavioral Health share one line, Monday–Friday 8 a.m.–7 p.m. Eastern. The CMS Plan moved from Sunshine Health to Molina on October 1, 2026; Sunshine\'s line no longer handles it.',
+  fax: '(866) 440-9791',
+  portal: { name: 'Availity Essentials (Molina Healthcare of Florida)', url: 'https://provider.molinahealthcare.com/' },
   scriptedQuestions: [
-    'Does CMS Health Plan use its own EDI payer ID, or does it ride on Sunshine Health’s payer ID (68069) for 270/271 eligibility checks? Do you support real-time checks?',
+    'Is this child a CMS Plan member moved over from Sunshine, and does the Sunshine authorization number show in Availity under the member\'s Molina ID?',
+    'Does a CMS Plan eligibility check run on payer ID 51062 in Availity, and is 270/271 real-time or batch?',
     'Which service-type code do you return ABA benefit details under?',
-    'Does the deductible apply to ABA services, and is the cost share a copay or coinsurance?',
-    'Is any copay charged per visit or per day for ABA codes?',
-    'Does the member’s out-of-pocket maximum apply to ABA benefits?',
-    'For telehealth-delivered 97156, should claims use the GT modifier or POS 02 with no modifier?',
+    'Is the authorization written as weekly hours, and what is the weekly unit limit per code from November 1, 2026?',
+    'Is 97151 billable without authorization for our contract status (participating vs. non-participating)?',
   ],
-  sources: [SUNSHINE_BA_QRG],
+  sources: [MOLINA_CMS_BA_TRAINING, MOLINA_CMS_TRANSITION_FAQ],
 };
 
 const simplyContact: VobContact = {
@@ -1847,7 +1906,7 @@ const unitedhealthcareFlContact: VobContact = {
 export const floridaVob: Record<string, VobExtension> = {
   'florida-medicaid': { edi: floridaMedicaidEdi, codeGrid: floridaMedicaidCodeGrid, rates: floridaMedicaidRates, stcMap: floridaMedicaidStc, vobContact: floridaMedicaidContact, lastUpdated: ACCESS_DATE },
   'sunshine-health-florida': { edi: sunshineEdi, codeGrid: sunshineCodeGrid, stcMap: flMcoUnverifiedStc('Sunshine Health'), vobContact: sunshineContact, lastUpdated: ACCESS_DATE },
-  'cms-health-plan-florida': { edi: cmsHealthPlanEdi, codeGrid: sunshineCodeGrid, stcMap: flMcoUnverifiedStc('CMS Health Plan'), vobContact: cmsHealthPlanContact, lastUpdated: ACCESS_DATE },
+  'cms-health-plan-florida': { edi: cmsHealthPlanEdi, codeGrid: cmsPlanMolinaCodeGrid, stcMap: flMcoUnverifiedStc('CMS Plan (Molina Healthcare of Florida)'), vobContact: cmsHealthPlanContact, lastUpdated: '2026-09-27' },
   'simply-healthcare-florida': { edi: simplyEdi, codeGrid: simplyCodeGrid, stcMap: flMcoUnverifiedStc('Simply Healthcare'), vobContact: simplyContact, lastUpdated: ACCESS_DATE },
   'unitedhealthcare-community-plan-florida': { edi: uhcCommunityPlanEdi, codeGrid: uhcCodeGrid, stcMap: flMcoUnverifiedStc('UnitedHealthcare Community Plan of Florida'), vobContact: uhcCommunityPlanContact, lastUpdated: ACCESS_DATE },
   'humana-healthy-horizons-florida': { edi: humanaEdi, codeGrid: humanaCodeGrid, stcMap: flMcoUnverifiedStc('Humana Healthy Horizons'), vobContact: humanaContact, lastUpdated: ACCESS_DATE },
