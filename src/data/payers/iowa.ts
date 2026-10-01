@@ -133,6 +133,30 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Iowa Admin. Code ch. 441—78 — Amount, duration and scope of medical and remedial services (IAC 9/2/26)', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.78.pdf' },
         ],
       },
+      {
+        h2: 'Does Iowa Medicaid require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Not at the state level, in any document we could read. Iowa\'s rules name the ABA provider types (441—77.31) and pay ABA from a fee schedule (441—79.1), and Informational Letter 2431-MC-FFS defines the ABA codes and modifiers. None of them says what a treatment plan must contain, and none mentions a DSM-5 goal structure. The goal format comes from the member\'s MCO. Iowa Total Care\'s CP.BH.104 requires skill-acquisition and behavior-reduction goals with baseline data and mastery criteria. Molina\'s Clinical Policy 482 requires measurable goals tied to the ASD diagnosis and functional deficits. Wellpoint has published no ABA criteria. For fee-for-service members, any state requirement would be in the ABA letter IL 1976, which we could not retrieve.',
+        ],
+        cites: [
+          { title: 'Iowa Admin. Code r. 441—77.31 — Behavioral health services providers (ARC 0314D, eff. 7/1/2026)', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.77.pdf' },
+          { title: 'Iowa Admin. Code ch. 441—79 (rules 79.1, 79.3, 79.9; IAC 9/2/26)', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.79.pdf' },
+          { title: 'Iowa Medicaid Informational Letter 2431-MC-FFS — ABA Code Update (eff. 4/1/2023)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/ViewDocument.aspx?viewdocument=497e2fa3-f199-4f95-bdad-461a28ff9d83' },
+          { title: 'Iowa Total Care CP.BH.104 — Applied Behavior Analysis (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Molina Clinical Policy 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
+        ],
+      },
+      {
+        h2: 'Does Iowa Medicaid require parent training, and how many hours?',
+        body: [
+          'At the state level, parent training is a covered code, not a quota. IL 2431-MC-FFS (effective 4/1/2023) added 97157. It defines 97156 as family adaptive behavior treatment guidance "with or without the patient present, face-to-face with guardian(s)/caregiver(s)," and 97157 as multiple-family group guidance "without the patient present." It lists rates for 97156 at the HN and HO/HP levels and for 97157 at HO and HP. Neither the letter nor rule chapters 77–79 set a minimum or maximum number of parent-training hours. The one published hours expectation for Iowa Medicaid members comes from an MCO, not the state: Iowa Total Care asks for a caregiver-training plan "ideally for a minimum of two hours per month."',
+        ],
+        cites: [
+          { title: 'Iowa Medicaid Informational Letter 2431-MC-FFS — ABA Code Update (eff. 4/1/2023)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/ViewDocument.aspx?viewdocument=497e2fa3-f199-4f95-bdad-461a28ff9d83' },
+          { title: 'Iowa Admin. Code ch. 441—79 (rules 79.1, 79.3, 79.9; IAC 9/2/26)', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.79.pdf' },
+          { title: 'Iowa Total Care CP.BH.104 — Applied Behavior Analysis (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.104.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which payer actually owns this child', desc: 'Commercial mandate, Medicaid, or the Autism Support Program. Iowa\'s three tiers have different front doors, and the ASP one closes at age 14.' },
@@ -157,6 +181,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Iowa Code § 514C.31 — Applied behavior analysis for treatment of autism spectrum disorder', url: 'https://www.legis.iowa.gov/docs/code/514C.31.pdf' },
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'Iowa Total Care CP.BH.104 — Applied Behavior Analysis (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.104.pdf' },
+      { title: 'Molina Clinical Policy 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
     ],
     deliveryRules: {
       supervision: {
@@ -305,6 +331,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'How fast must an Iowa Medicaid plan decide an ABA authorization?', a: 'Within 7 calendar days of a complete standard request and 72 hours for an urgent one, under the uniform state form 470-5595 and the federal managed-care rule. For fee-for-service requests, Iowa Admin. Code 441—79.9 approves any request still undecided 60 days after receipt.' },
       { q: 'What does Iowa Medicaid pay for ABA?', a: 'Per 15 minutes, on the fee schedule effective 7/1/2024 and still current in September 2026: 97153 $17.16 by a technician (HN) or $28.59 by a BCBA (HO/HP); 97151 $35.73; 97155 $36.81; 97156 $17.16 or $28.59.' },
       { q: 'What if a child has no ABA coverage at all in Iowa?', a: 'The state Autism Support Program funds ABA for children under 14 with an autism diagnosis made within the previous 24 months by a child psychiatrist, developmental pediatrician, or clinical psychologist, whose household income is at or below 500% of the federal poverty level and who are not eligible for ABA through Medicaid or private insurance. It pays up to $36,000 a year for up to 24 months.' },
+      { q: 'Does Iowa Medicaid require ABA goals to be organized by DSM-5 criteria?', a: 'Not in the state rules or ABA code letter we could read. The member\'s MCO sets the format. Iowa Total Care (CP.BH.104) wants skill-acquisition and behavior-reduction goals with baseline data and mastery criteria. Molina (Clinical Policy 482) wants measurable goals tied to the ASD diagnosis and functional deficits. Neither policy asks for goals to be grouped by DSM-5 criteria.' },
+      { q: 'Does Iowa Medicaid require a set number of parent training hours?', a: 'No state minimum or cap was found. 97156 and 97157 are covered codes (IL 2431-MC-FFS). Iowa Total Care expects a caregiver-training plan "ideally for a minimum of two hours per month"; other plans set hours on the authorization.' },
     ],
   },
 
@@ -397,6 +425,30 @@ export const iowaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Iowa Total Care — Provider Manual Update for BHIS and ABA (Hawki correction)', url: 'https://www.iowatotalcare.com/providers/provider-alerts/2022provider-manual-update-bhis-aba.html' },
           { title: 'Iowa HHS Comm. 519 — Comparison of Medicaid Basic Benefits (03/2026)', url: 'https://hhs.iowa.gov/media/6643/download' },
+        ],
+      },
+      {
+        h2: 'Does Iowa Total Care require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Iowa Total Care sets a format, but it is not organized by DSM-5 criteria. CP.BH.104 (rev. 02/26) requires the treatment plan to include "Individualized goals with measurable, targeted outcomes, and timelines, including transition/discharge planning." The goals must be identified with the member, family and community providers. They are split into "Skill acquisition goals including baseline data and mastery criteria" and "Behavior reduction goals including baseline data, operational definition/topography of behavior, treatment strategies and graphs." Interventions must focus on "active core symptoms," with an emphasis on generalization: spontaneous social communication, adaptive skills and appropriate behaviors. The plan also needs two to four caregiver goals (below), titration and discharge goals, and, for school-based hours, goals and graphs for the school setting. DSM-5 appears in the policy\'s diagnosis requirement (a current-DSM ASD diagnosis), not in how goals are organized. CP.BH.105 then requires session notes to record progress toward the identified goals, with cumulative graphs.',
+        ],
+        cites: [
+          { title: 'Iowa Total Care CP.BH.104 — Applied Behavior Analysis (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Iowa Total Care CP.BH.105 — ABA Documentation Requirements (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.105.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Iowa Total Care require parent training, and how many hours?',
+        body: [
+          'Yes, with a stated target. CP.BH.104 requires "Parent/Caregiver training that is performance based and caregiver-driven," including:',
+          '• "Two to four parent/caregiver training goals within the treatment plan including baseline data, expected behavior, and mastery criteria."',
+          '• "A documented plan for parent/caregiver training, ideally for a minimum of two hours per month, with clinical documentation justifying the need for fewer hours."',
+          '• An assessment of barriers to family engagement.',
+          'For continued treatment it asks for "Documented family participation in treatment, ideally for two hours per month at minimum, or there are documented attempts to engage caregivers." Requested hours must incorporate supervision and caregiver training. If attendance falls below 80% of the hours authorized in the treatment plan and caregiver training plan, continuation needs supporting documentation. CP.BH.105 requires 97156/97157 notes to show caregiver participation, or the barriers to engagement and a plan to address them, and recommends a caregiver signature on those notes.',
+        ],
+        cites: [
+          { title: 'Iowa Total Care CP.BH.104 — Applied Behavior Analysis (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Iowa Total Care CP.BH.105 — ABA Documentation Requirements (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.105.pdf' },
         ],
       },
     ],
@@ -552,6 +604,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'How recent must the autism evaluation be for Iowa Total Care?', a: 'Within three years to start ABA, or three to five years old with a diagnostic interview done within 12 months of the request. For continuing treatment, within five years. The ABA behavioral assessment must be no more than two months old at the start of the first authorization.' },
       { q: 'How many hours will Iowa Total Care authorize?', a: 'CP.BH.104 treats six hours a day and 30 hours a week as the level that needs no extra justification, and expects under 20 hours a week for a child in school full-time. More is possible with documented severity and a clinical rationale.' },
       { q: 'How do I submit an ABA authorization to Iowa Total Care?', a: 'Through the Secure Provider Web Portal or Availity, or by fax to Behavioral Health at 1-844-908-1170 on the state\'s uniform form 470-5595. Standard decisions come within 7 calendar days.' },
+      { q: 'Does Iowa Total Care require ABA goals to be organized by DSM-5 criteria?', a: 'No. CP.BH.104 requires measurable, individualized goals with timelines, split into skill-acquisition goals (baseline and mastery criteria) and behavior-reduction goals (baseline, operational definition, strategies, graphs), plus 2–4 caregiver goals. DSM-5 governs the diagnosis, not how goals are grouped.' },
+      { q: 'How many parent training hours does Iowa Total Care expect?', a: '"Ideally for a minimum of two hours per month," with 2–4 measurable caregiver goals in the plan. If you plan fewer hours, document the clinical reason or your attempts to engage caregivers (CP.BH.104).' },
     ],
   },
 
@@ -629,6 +683,27 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Wellpoint Iowa — Clinical UM Guidelines adopted (Nov. 2025 list)', url: 'https://www.provider.wellpoint.com/docs/gpp/IA_CAID_Nov25CUMG.pdf' },
         ],
       },
+      {
+        h2: 'Does Wellpoint Iowa require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Wellpoint has not published an answer. Its September 2026 IA Health Link and Hawki manual lists ABA only as a benefit, under behavioral health intervention services (covered for IA Health Link, not for Hawki). Its adopted clinical UM guideline list (November 2025) has no ABA guideline: the only autism entry is CG-BEH-15, Activity Therapy for Autism Spectrum Disorders and Rett Syndrome. No Iowa ABA treatment-plan request form could be found on Wellpoint\'s provider site, and Iowa\'s rules set no goal format either. Before submitting, ask Wellpoint Provider Services (833-731-2143) which ABA criteria and treatment-plan template the reviewer applies.',
+        ],
+        cites: [
+          { title: 'Wellpoint Iowa IA Health Link and Hawki Provider Manual (Sept. 1, 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/IA_WLP_CAID_ProviderManual.pdf?v=202608101953' },
+          { title: 'Wellpoint Iowa — Clinical UM Guidelines adopted (Nov. 2025 list)', url: 'https://www.provider.wellpoint.com/docs/gpp/IA_CAID_Nov25CUMG.pdf' },
+          { title: 'Iowa Medicaid Informational Letter 2431-MC-FFS — ABA Code Update (eff. 4/1/2023)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/ViewDocument.aspx?viewdocument=497e2fa3-f199-4f95-bdad-461a28ff9d83' },
+        ],
+      },
+      {
+        h2: 'Does Wellpoint Iowa require parent training, and how many hours?',
+        body: [
+          'Wellpoint has not published a parent-training requirement or hours figure for Iowa. The state covers family guidance as its own codes: IL 2431-MC-FFS defines 97156 (with or without the patient present) and 97157 (multiple-family group). How many hours Wellpoint expects or approves is set on the authorization. Ask Provider Services, and request 97156/97157 explicitly in the treatment request.',
+        ],
+        cites: [
+          { title: 'Wellpoint Iowa IA Health Link and Hawki Provider Manual (Sept. 1, 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/IA_WLP_CAID_ProviderManual.pdf?v=202608101953' },
+          { title: 'Iowa Medicaid Informational Letter 2431-MC-FFS — ABA Code Update (eff. 4/1/2023)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/ViewDocument.aspx?viewdocument=497e2fa3-f199-4f95-bdad-461a28ff9d83' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid line vs. Hawki', desc: 'Wellpoint\'s manual lists ABA as not covered for Hawki members.' },
@@ -643,6 +718,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Wellpoint Iowa — Clinical UM Guidelines adopted (Nov. 2025 list)', url: 'https://www.provider.wellpoint.com/docs/gpp/IA_CAID_Nov25CUMG.pdf' },
       { title: 'Carelon Behavioral Health — Provider Quick Reference Guide, Wellpoint, Inc. (Iowa Medicaid)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ia/provider-quick-reference-guide-caid-ia.pdf' },
       { title: 'Iowa Admin. Code r. 441—77.31 — Behavioral health services providers', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.77.pdf' },
+      { title: 'Iowa Medicaid Informational Letter 2431-MC-FFS — ABA Code Update (eff. 4/1/2023)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/ViewDocument.aspx?viewdocument=497e2fa3-f199-4f95-bdad-461a28ff9d83' },
     ],
     deliveryRules: {
       supervision: {
@@ -757,6 +833,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'Does Wellpoint Iowa cover ABA therapy?', a: 'Yes for IA Health Link Medicaid and Iowa Health and Wellness Plan members: its September 2026 manual lists behavioral health intervention services "including applied behavior analysis" as covered (may require prior authorization). Not for Hawki members.' },
       { q: 'Is Wellpoint Iowa the same as Amerigroup Iowa?', a: 'Yes. Wellpoint is the current brand for the plan formerly called Amerigroup Iowa, and both names still appear on cards and in payer directories.' },
       { q: 'Where do ABA authorizations go for Wellpoint Iowa?', a: 'By phone, by fax to the Medicaid behavioral health outpatient line 1-844-451-2826, or through Interactive Care Reviewer in Availity. Check PLUTO for which codes need authorization.' },
+      { q: 'Does Wellpoint Iowa require ABA goals to be organized by DSM-5 criteria?', a: 'Wellpoint has published no ABA criteria or treatment-plan template for Iowa. Ask Provider Services (833-731-2143) which criteria the reviewer applies.' },
+      { q: 'Does Wellpoint Iowa set required parent training hours?', a: 'None published. 97156/97157 are covered codes under Iowa Medicaid; the hours are set on the authorization.' },
     ],
   },
 
@@ -831,6 +909,28 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Iowa — Medicaid 2026 Provider Manual', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Medicaid-Provider-Manual-2026.ashx' },
           { title: 'Molina Healthcare of Iowa — PA Code Update, July 1, 2026', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/ia/2026-Medicaid/News-and-Updates-Page/MHIA-Provider-Notice_PA-Code-Updated-List_July-2026.ashx' },
           { title: 'Iowa HHS — Provider Quick Reference Guide, Molina Healthcare of Iowa (June 2023)', url: 'https://hhs.iowa.gov/media/7599/download' },
+        ],
+      },
+      {
+        h2: 'Does Molina Iowa require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Molina sets what goals must contain, not a DSM-5 template. Molina Clinical Policy 482 (approved 6/10/2026) requires the individualized plan to have "Clearly defined measurable goals and objectives... designed to target identified functional deficits, with progress tracked using clinically appropriate tools (e.g., Verbal Behavior Milestones and Assessment Placement Program [VB-MAPP])." Goals must be "appropriate and reasonable given the Member\'s age and level of functioning with measurable defined outcomes" and "directly related to the Member\'s ASD diagnosis and associated functional deficits/symptoms." Interventions must not primarily address academic instruction or replace IEP services. DSM-5 or DSM-5-TR criteria govern the diagnosis. The goals are anchored to functional impairment in communication, adaptive behavior, social interaction or safety, not grouped under DSM-5 criteria.',
+        ],
+        cites: [
+          { title: 'Molina Clinical Policy 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
+        ],
+      },
+      {
+        h2: 'Does Molina Iowa require parent training, and how many hours?',
+        body: [
+          'Molina Clinical Policy 482 makes caregiver involvement a condition throughout but sets no hours figure:',
+          '• Initial criteria require that "Structured parent or caregiver participation is documented."',
+          '• The plan must include "expected participation of the Member\'s parent/caregiver, if applicable," or documented alternative strategies when barriers limit participation.',
+          '• Continued care requires "ongoing parent and/or caregiver training with clinically appropriate supervision by a qualified behavioral analyst, consistent with the authorized treatment plan."',
+          'Insufficient caregiver participation, after documented efforts fail, is a discharge criterion. Telehealth is limited to caregiver training, coaching, supervision and other indirect components. The 97156/97157 units come from the authorization.',
+        ],
+        cites: [
+          { title: 'Molina Clinical Policy 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
         ],
       },
     ],
@@ -972,6 +1072,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'Does Molina Healthcare of Iowa cover ABA therapy?', a: 'Yes for IA Health Link Medicaid and Iowa Health and Wellness Plan members; its 2026 manual lists behavioral health intervention services including applied behavior analysis as covered. Not for Hawki members.' },
       { q: 'What criteria does Molina use for ABA in Iowa?', a: 'Molina Clinical Policy 482 (approved June 10, 2026): start age 18 months or older, a DSM-5 diagnosis by a multidisciplinary team with at least one validated tool, PCP documentation, BCBA-developed plan, reassessment every six months, and extra review above 25 direct hours a week. Iowa Medicaid rules take precedence where they differ.' },
       { q: 'How do I submit a prior authorization to Molina Healthcare of Iowa?', a: 'Through Availity Essentials (encouraged) or by fax to the Molina Iowa UM line (877) 319-6828. Standard decisions come within seven calendar days of a complete request.' },
+      { q: 'Does Molina Iowa require ABA goals to be organized by DSM-5 criteria?', a: 'No DSM-5 grouping is asked for. Clinical Policy 482 requires measurable goals targeting functional deficits, tracked with tools like the VB-MAPP and directly related to the ASD diagnosis; DSM-5/DSM-5-TR governs the diagnosis.' },
+      { q: 'Does Molina Iowa set required parent training hours?', a: 'No hours figure. Clinical Policy 482 requires documented, structured caregiver participation at the start and ongoing caregiver training for continued care; the units are set on the authorization.' },
     ],
   },
 
@@ -1055,6 +1157,26 @@ export const iowaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Iowa Code chapter 154D — Behavioral science (§§ 154D.1, 154D.2A, 154D.4)', url: 'https://www.legis.iowa.gov/docs/code/154D.pdf' },
           { title: 'Iowa Code § 514F.8 — Prior authorizations (Iowa Code 2026)', url: 'https://www.legis.iowa.gov/docs/code/514F.8.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Wellmark require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Wellmark has not published one. Its public medical-policy index has no ABA policy. The page says InterQual criteria are used "to evaluate whether a medical procedure or equipment is medically necessary." Behavioral health rules sit in the provider-only Behavioral Health and Chemical Dependency section of the Wellmark Provider Guide (updated August 2026), which returned no public copy. Iowa\'s ABA mandate (§ 514C.31) defines a treatment plan by who writes it and on what evaluation, not by goal format. Ask Wellmark which criteria and treatment-plan template the reviewer applies.',
+        ],
+        cites: [
+          { title: 'Wellmark — Medical policies for providers', url: 'https://www.wellmark.com/provider/medical-policies-authorizations/medical-policies' },
+          { title: 'Wellmark — Provider Guide (section list and update dates)', url: 'https://www.wellmark.com/provider/resources/wellmark-provider-guide' },
+        ],
+      },
+      {
+        h2: 'Does Wellmark require parent training, and how many hours?',
+        body: [
+          'No Wellmark parent-training requirement or hours figure is public, for the same reason: the behavioral health section of the Provider Guide is provider-only, and the medical-policy index has no ABA policy. Confirm with Wellmark whether 97156/97157 are authorized separately and in what amount.',
+        ],
+        cites: [
+          { title: 'Wellmark — Medical policies for providers', url: 'https://www.wellmark.com/provider/medical-policies-authorizations/medical-policies' },
+          { title: 'Wellmark — Provider Guide (section list and update dates)', url: 'https://www.wellmark.com/provider/resources/wellmark-provider-guide' },
         ],
       },
     ],
@@ -1214,6 +1336,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'Does Wellmark cover ABA therapy in Iowa?', a: 'For large-group (more than 50 FTEs) and public-employee plans, Iowa law requires ABA coverage for autism under Iowa Code § 514C.31 or § 514C.28. For individual, small-group and self-funded plans, the plan document decides. Wellmark\'s ABA policy is not public, so verify each member.' },
       { q: 'Does the Iowa autism mandate still have age limits or dollar caps?', a: 'Not for plans issued or renewed on or after January 1, 2026. H.F. 330 (2025) removed the under-19 and under-21 age limits and the $36,000 / $25,000 / $12,500 annual ABA maximums, and barred annual or lifetime limits on autism benefits. Plans that have not renewed since then may still apply the old caps until renewal.' },
       { q: 'How fast must Wellmark decide an ABA prior authorization?', a: 'For fully insured plans, Iowa Code 514F.8 requires 48 hours for urgent and 10 calendar days for non-urgent requests (15 for complex cases), and an approval lasts at least 90 days. Self-funded plans follow ERISA: 15 days, or 72 hours if urgent.' },
+      { q: 'Does Wellmark require ABA goals to be organized by DSM-5 criteria?', a: 'Wellmark publishes no ABA policy or treatment-plan template. Its behavioral health rules are in a provider-only Provider Guide section, so confirm the format with Wellmark.' },
+      { q: 'Does Wellmark set required parent training hours?', a: 'None published. Confirm with Wellmark whether 97156/97157 are authorized and in what amount.' },
     ],
   },
 
@@ -1289,6 +1413,26 @@ export const iowaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Iowa Code chapter 154D — Behavioral science (§§ 154D.1, 154D.2A, 154D.4)', url: 'https://www.legis.iowa.gov/docs/code/154D.pdf' },
           { title: 'Iowa Medicaid fee schedule — Provider Type 62 Behavioral Health', url: 'https://secureapp.dhs.state.ia.us/MedicaidFeeSched/C62.csv' },
+        ],
+      },
+      {
+        h2: 'Does Aetna require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Aetna sets the content of the plan, not a DSM-5 template. Its ABA Medical Necessity Guide (©2026) requires a DSM-5 ASD diagnosis and a treatment plan whose "specific identified target behaviors related to the condition" are "clearly defined: frequency, rate, symptom intensity or duration, or other objective measures of baseline levels are recorded, and quantifiable criteria for progress are established," with the intervention techniques, reinforcers, generalization strategies, and transition, titration and discharge criteria spelled out. Hours are sized from severity in three areas — maladaptive behavior, social communication and self-care — rather than from DSM criteria. Precertification form GR-69017-4 (7-26) asks for a "time-limited, individualized treatment plan" with "baseline, interim and current data for all goals." Neither document asks for goals to be grouped under DSM-5 criteria.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Aetna require parent training, and how many hours?',
+        body: [
+          'Caregiver participation is a criterion, but Aetna publishes no hour minimum. The Medical Necessity Guide requires "engagement and commitment from parent(s) (or guardians) to participate in treatment to generalize gains," and says that, based on impairment and severity, additional authorization may be provided "for QHP protocol modification and direction at 1 to 2 hours per 10 hours of treatment by protocol, as well as authorization for caregiver training" — no caregiver-training amount is stated. Form GR-69017-4 asks you to request 97156 and 97157 in hours per week and to show that "Primary caregiver(s) have measurable goals that work to reinforce interventions and generalize gains." The approved caregiver-training hours are whatever the precertification letter grants.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
     ],
@@ -1439,6 +1583,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in Iowa?', a: 'Commercial rates are negotiated in your participation agreement and not published. Iowa Medicaid\'s fee schedule ($28.59 per 15 minutes for 97153 by a BCBA; $17.16 by a technician) is a public benchmark.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
       { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
+      { q: 'Does Aetna require ABA goals to be organized by DSM-5 criteria in Iowa?', a: 'No DSM-5 grouping is asked for. Aetna wants a DSM-5 ASD diagnosis and a plan with clearly defined target behaviors, baseline data and quantifiable progress criteria; GR-69017-4 asks for baseline, interim and current data for all goals.' },
+      { q: 'Does Aetna set required parent training hours in Iowa?', a: 'No published minimum or cap. Parent commitment to participate is a medical-necessity criterion; request 97156/97157 in hours per week on GR-69017-4 and show measurable caregiver goals — the authorization sets the hours.' },
     ],
   },
 
@@ -1522,6 +1668,24 @@ export const iowaPayers: Record<string, PayerConfig> = {
           'Evernorth Behavioral Health, which runs Cigna\'s ABA network, says it "is committed to expanding our network of autism providers." It requires providers to be certified by a national governing body or a state licensing board (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral health licensure). Individual providers complete the Evernorth Behavioral Provider Information Form; autism clinics and large group practices complete the Evernorth Screening Application for Autism Clinics. An application can take up to 90 days, and once a clinic contract is signed each certified or licensed provider must also be credentialed, which "can take an additional 60 to 90 days." Providers must be fully credentialed to render in-network services. "Evernorth does not credential nonlicensed/noncertified staff": technician services are billed under the supervising provider.',
         ],
         cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      {
+        h2: 'Does Cigna require treatment-plan goals tied to DSM-5 criteria?',
+        body: [
+          'Yes — this is the closest any commercial payer in the state comes to a DSM-5 structure. EN0499 (effective 5/15/2026) requires "Clearly defined and measurable goals designed to target specific behaviors and skills across all settings," each naming the target behavior, the measurement method and the mastery standard, and requires that "Treatment goals are directly related to the individual\'s diagnosis of ASD and the symptoms of ASD defined by the DSM-5-TR (e.g., social communication and social interaction; restricted, repetitive patterns of behavior, interest, or activities)." Goals must come from the full ABA assessment, be developmentally appropriate, and carry dated quantitative baseline data and mastery criteria. The policy ties each goal to the DSM-5-TR symptom domains; it does not prescribe a template that groups them under headings.',
+        ],
+        cites: [
+          { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Cigna require parent training, and how many hours?',
+        body: [
+          'EN0499 requires a "Stakeholder Training" component in the treatment plan but sets no hour minimum or cap. Stakeholder (parent/caregiver, relative, teacher) training "will be conducted by a BCBA®, LBA, or a mental health professional who is licensed to practice independently" and must have "clearly defined, measurable stakeholder goals with mastery criteria," baseline data, a plan to collect progress data, separately documented data for each stakeholder group, and the trainer\'s name and credentials. Planned group stakeholder training needs its own measurable goals. For continued care, Cigna wants baseline, interim and current data showing stakeholders "continue to actively participate in the treatment" and are progressing toward their goals. The hours approved are set case by case on the authorization.',
+        ],
+        cites: [
+          { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1660,6 +1824,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'How much supervision does Cigna expect?', a: 'One to two hours of case supervision per ten hours of direct treatment, and at least one to two hours a week when direct treatment is ten hours or less.' },
       { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
+      { q: 'Does Cigna require ABA goals to follow DSM-5 criteria in Iowa?', a: 'EN0499 requires every treatment goal to be "directly related to" the ASD diagnosis and the DSM-5-TR symptoms (social communication/interaction; restricted, repetitive behavior), with measurable targets, baseline data and mastery criteria.' },
+      { q: 'Does Cigna set required parent training hours in Iowa?', a: 'No hour figure is published. EN0499 requires measurable stakeholder (parent/caregiver) training goals with mastery criteria and progress data, delivered by a BCBA or licensed clinician; the hours are set on the authorization.' },
     ],
   },
 
@@ -1737,6 +1903,26 @@ export const iowaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
           { title: 'Iowa Code chapter 154D — Behavioral science', url: 'https://www.legis.iowa.gov/docs/code/154D.pdf' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare (Optum) require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Optum sets goal content and priorities, not a DSM-5 template. Its ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026) require "Treatment goals and objectives that are comprehensive and clearly stated," "Outcome-oriented interventions targeting specific baseline behaviors," and behaviors "tied to objective and quantifiable treatment goals that have baseline data, measurable progress, and projected timeframes for completion." Goals are to be "prioritized to address behaviors that threaten the safety of the client or others or create a barrier to quality of life," then skills fundamental to health and social inclusion; when goals are met, "new goals should be identified based on targeted symptoms and behaviors." DSM-5-TR appears in the diagnosis requirement, not as a way to organize goals.',
+        ],
+        cites: [
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare (Optum) require parent training, and how many hours?',
+        body: [
+          'Optum says parent training is required but sets no number. Its CPT-code FAQ (BH00083-24-FAQ, 01/2024): "Is parent training covered? Parent training is required. Bill 97156 or 97157 depending on the format of parent training," and, asked "Is there a minimum or maximum of what can be billed for parent training?", answers "It is based on the treatment plan and goals provided." The Supplemental Clinical Criteria call for a "systematic, individualized curriculum on ABA fundamental concepts" — "not accomplished by simply having the caregiver or guardian present during treatment" — and for the plan to describe parent goals with progress and "the percentage of planned sessions attended." The only numeric ceiling is the commercial reimbursement policy\'s maximum frequency per day: 16 units (4 hours) each for 97156 and 97157.',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A; history entry February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
     ],
@@ -1885,6 +2071,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'How many hours a day of 97153 will Optum pay?', a: 'Up to 32 units (8 hours) a day under the commercial ABA reimbursement policy; claims above that may be denied or recovered.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On fully insured Iowa plans the mandate limits treatment-plan reviews to once every three months in the first year and every six months after.' },
       { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
+      { q: 'Does UnitedHealthcare require ABA goals to be organized by DSM-5 criteria in Iowa?', a: 'No DSM-5 grouping is asked for. Optum wants clearly stated, measurable goals with baseline data and timeframes, prioritized by safety and quality-of-life risk, with new goals based on targeted symptoms and behaviors.' },
+      { q: 'Does UnitedHealthcare set required parent training hours in Iowa?', a: 'Optum says "Parent training is required" (97156/97157) but sets no minimum or maximum — "It is based on the treatment plan and goals provided." Commercial claims are capped at 16 units (4 hours) per day for each of 97156 and 97157.' },
     ],
   },
 };

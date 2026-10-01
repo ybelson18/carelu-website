@@ -120,6 +120,25 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
+      {
+        h2: 'Does New Mexico Medicaid require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'MAD Supplement 24-13 (9/17/2024) is the state\'s ABA guidance. After the 97151 assessment, the BA "must select goals for intervention and determine how these goals will be measured." Goal development covers a list of skill areas: "adaptive and self-care skills, attending and social referencing, cognitive functioning, community participation, coping and tolerance skills, emotional development, family relationships, language and communication, play and leisure skills, pre-academic skills, self-advocacy and independence, self-management, social relationships, and vocational skills." Baseline performance should be measured and "treatment goals should be developed for each critical domain and specified in terms that are observable and measurable" (3.14.3). Targets are prioritized by risk to safety, independence and health (3.14.2). The required treatment-plan elements (3.19.1) include a Family Set goal, baseline data on each target behavior/symptom, interventions with approximate units per target, goals with objective progress measures for the authorization period, and measurable discharge criteria. The domains are developmental skill areas, not DSM-5 criteria. DSM or ICD is used for eligibility, and the ASD support level (Level 2/3) informs dosage. 8.321.2.13 NMAC makes the BA responsible for "selection and measurement of goals."',
+        ],
+        cites: [
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+          { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
+        ],
+      },
+      {
+        h2: 'Does New Mexico Medicaid require parent training, and how many hours?',
+        body: [
+          'Yes, and the guidance gives numbers. Supplement 24-13 says "Every Treatment Plan must include ample units of ABA Stage 3 97156 and 97157" (3.17.1(C)). Every plan must "Include a goal of working with the Family Set" and be "Family Set-focused... with a focus on family engagement, training, and support" (3.19.1). If family members cannot attend in person, the BA must offer alternatives such as telemedicine. 97156 needs no prior authorization, with a "Maximum number of units per 97156 for entire Family Set: thirty-two 15-minute units per week," billed once for the whole Family Set. The CMS Medicaid MUE limits 97156 to sixteen 15-minute units per day, and 97157 (also no PA) to "up to sixteen 15-minute units or four hours per day." Adult recipients may receive up to thirty-two units of either code when medically warranted. Family Sets may start 97156/97157 once the recipient\'s assessment is scheduled. If the family cannot attend at the agreed level, "inadequate family participation" is a listed reason for poor response, and the BA must offer alternatives.',
+        ],
+        cites: [
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Turquoise Care MCO (or FFS)', desc: 'BCBSNM, Molina, Presbyterian, UHC Community Plan, or FFS/TPA — same clinical criteria, different submission machinery.' },
@@ -144,6 +163,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'BCBSNM Turquoise Care BH Provider Training (roster enrollment process)', url: 'https://www.bcbsnm.com/docs/provider/nm/education/training/tc-bh-provider-training.pdf' },
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
       { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
+      { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -269,6 +289,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth in New Mexico Medicaid?', a: 'Yes. MAD Supplement 24-13 allows and encourages telemedicine for ABA services, real-time audio and video per 8.310.2 NMAC, and expressly lets 97155 supervision be delivered remotely with the recipient present (store-and-forward in documented no-broadband cases). The BA also bills indirect 97151 for family interviews and treatment-plan discussions held by telemedicine. Confirm POS and modifier with the MCO or TPA.' },
       { q: 'What happens when a family is switching ABA providers in New Mexico Medicaid?', a: 'The supplement covers termination, not transfer: a terminating agency gives at least 30 days\' written notice and may refer the family to another agency, and a restart means a new Stage 2 assessment and a new 6-month prior authorization. Ask the MCO or TPA whether an existing authorization can move.' },
       { q: 'Do ABA technicians need RBT certification for New Mexico Medicaid?', a: 'Not at the start. New Mexico Medicaid lets a non-certified behavior technician render ABA if they are 18 or older, have a high-school diploma, pass the New Mexico criminal background registry check, complete 4 hours of ASD training and at least 20 of the 40 RBT/BCAT training hours before serving, and then hold an RBT or BCAT certificate within their first six continuous months. If they miss that deadline they must stop until certified.' },
+      { q: 'Does New Mexico Medicaid require ABA goals to be organized by DSM-5 criteria?', a: 'No. Supplement 24-13 asks for observable, measurable goals for each critical domain — developmental skill areas such as language and communication, adaptive and self-care, social relationships, coping and tolerance — prioritized by safety risk. DSM/ICD governs eligibility, not the goal structure.' },
+      { q: 'How much parent training does New Mexico Medicaid require?', a: 'Every treatment plan "must include ample units" of 97156 and 97157 and a Family Set goal. 97156 needs no PA, up to 32 units (8 hours) per week for the whole Family Set and 16 units per day; 97157 is up to 16 units (4 hours) per day.' },
     ],
   },
 
@@ -337,6 +359,30 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'MAD Supplement 24-13 — ABA Guidance (adult benefit)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
+      {
+        h2: 'Does BCBSNM (Turquoise Care) require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'BCBSNM\'s ABA Clinical Service Request Form has its own goal layout. The "Member Treatment Plan" section asks for counts of skill-acquisition goals ("focusing on the development of spontaneous social communications, adaptive skills and appropriate behaviors"): new goals, goals carried over, goals on hold, and goals mastered in the previous authorization period. It also asks for current maladaptive behaviors with frequencies, assessment-instrument scores, and a measurable fade/transition and discharge plan. The form does not organize goals by DSM-5 criteria.',
+          'The state standard applies to every Turquoise Care MCO. MAD Supplement 24-13 (9/17/2024) is the state\'s ABA guidance. After the 97151 assessment, the BA "must select goals for intervention and determine how these goals will be measured." Goal development covers a list of skill areas: "adaptive and self-care skills, attending and social referencing, cognitive functioning, community participation, coping and tolerance skills, emotional development, family relationships, language and communication, play and leisure skills, pre-academic skills, self-advocacy and independence, self-management, social relationships, and vocational skills." Baseline performance should be measured and "treatment goals should be developed for each critical domain and specified in terms that are observable and measurable" (3.14.3). Targets are prioritized by risk to safety, independence and health (3.14.2). The required treatment-plan elements (3.19.1) include a Family Set goal, baseline data on each target behavior/symptom, interventions with approximate units per target, goals with objective progress measures for the authorization period, and measurable discharge criteria. The domains are developmental skill areas, not DSM-5 criteria. DSM or ICD is used for eligibility, and the ASD support level (Level 2/3) informs dosage. 8.321.2.13 NMAC makes the BA responsible for "selection and measurement of goals."',
+        ],
+        cites: [
+          { title: 'BCBSNM ABA Clinical Service Request Form', url: 'https://www.bcbsnm.com/docs/provider/nm/education/forms/aba-clinical-service-request.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+          { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
+        ],
+      },
+      {
+        h2: 'Does BCBSNM (Turquoise Care) require parent training, and how many hours?',
+        body: [
+          'BCBSNM\'s form makes parent hours an explicit entry. Its "Parent Involvement" section reads "The parent/caregiver is expected to participate in training sessions ____ hours per week," followed by a table of "Measurable Parent Training Goals" with baseline, current progress and expected mastery date. BCBSNM\'s coding policy CPCP011 (effective 3/20/2026) adds: "parent education is authorized per week for the authorization period (typically 26 weeks) for a total of 26 hours. Requests greater than one hour per week should include supporting clinical documentation." CPCP011 applies "unless otherwise provided in the member\'s benefit." For Turquoise Care members, the state guidance below (no PA for 97156, up to 32 units per week) is the governing Medicaid rule. Confirm with BCBSNM how the two interact on a Medicaid authorization.',
+          'The state standard, which applies to every Turquoise Care MCO: Supplement 24-13 says "Every Treatment Plan must include ample units of ABA Stage 3 97156 and 97157" (3.17.1(C)). Every plan must "Include a goal of working with the Family Set" and be "Family Set-focused... with a focus on family engagement, training, and support" (3.19.1). If family members cannot attend in person, the BA must offer alternatives such as telemedicine. 97156 needs no prior authorization, with a "Maximum number of units per 97156 for entire Family Set: thirty-two 15-minute units per week," billed once for the whole Family Set. The CMS Medicaid MUE limits 97156 to sixteen 15-minute units per day, and 97157 (also no PA) to "up to sixteen 15-minute units or four hours per day." Adult recipients may receive up to thirty-two units of either code when medically warranted. Family Sets may start 97156/97157 once the recipient\'s assessment is scheduled. If the family cannot attend at the agreed level, "inadequate family participation" is a listed reason for poor response, and the BA must offer alternatives.',
+        ],
+        cites: [
+          { title: 'BCBSNM ABA Clinical Service Request Form', url: 'https://www.bcbsnm.com/docs/provider/nm/education/forms/aba-clinical-service-request.pdf' },
+          { title: 'BCBSNM CPCP011 Applied Behavioral Analysis coding policy (eff. 3/20/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Realistic start date', desc: 'The request form must land at least 2 weeks (and no more than 60 days) before treatment starts — work backwards from the family\'s target.' },
@@ -352,6 +398,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'MAD Supplement 24-13 — ABA Guidance (adult benefit)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
       { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
+      { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -492,6 +539,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What does BCBSNM pay for ABA?', a: 'At least the state FFS fee schedule — LOD #53 makes the published ABA rates (e.g., $32.31 per 15-min 97153 unit for a BCBA) a contractual minimum for every Turquoise Care MCO and its sub-vendors.' },
       { q: 'Do ABA technicians need RBT certification for BCBSNM (New Mexico Medicaid)?', a: 'Follows the state rule. Not at the start. New Mexico Medicaid lets a non-certified behavior technician render ABA if they are 18 or older, have a high-school diploma, pass the New Mexico criminal background registry check, complete 4 hours of ASD training and at least 20 of the 40 RBT/BCAT training hours before serving, and then hold an RBT or BCAT certificate within their first six continuous months. If they miss that deadline they must stop until certified.' },
       { q: 'Can BCBA supervision (97155) be done by telehealth for BCBSNM members?', a: 'Yes, under the state rule in MAD Supplement 24-13: 97155 may be delivered by real-time telemedicine with the recipient present, and by store-and-forward only where the agency documents no real-time option.' },
+      { q: 'Does BCBSNM require ABA goals to be organized by DSM-5 criteria for Turquoise Care?', a: 'No. BCBSNM\'s request form counts skill-acquisition goals (social communication, adaptive skills, appropriate behaviors) by status and asks for maladaptive-behavior frequencies. The state standard (Supplement 24-13) wants measurable goals for each critical developmental domain.' },
+      { q: 'How many parent training hours does BCBSNM expect?', a: 'Its request form asks how many hours per week the caregiver will train, with measurable parent goals. CPCP011 defaults to one hour per week (26 hours per 26-week authorization) and asks for documentation above that. For Turquoise Care, the state guidance allows 97156 without PA up to 32 units per week, so confirm which applies.' },
     ],
   },
 
@@ -562,6 +611,28 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Presbyterian Health Plan — Authorizations for Providers', url: 'https://www.phs.org/providers/authorizations' },
         ],
       },
+      {
+        h2: 'Does Presbyterian (Turquoise Care) require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Presbyterian publishes no ABA goal format of its own. Its Turquoise Care practitioner manual describes the ABA benefit only in general terms, and its Prior Authorization Guide (09.01.2026) lists the ABA codes without treatment-plan criteria. The state standard below governs.',
+          'The state standard applies to every Turquoise Care MCO. MAD Supplement 24-13 (9/17/2024) is the state\'s ABA guidance. After the 97151 assessment, the BA "must select goals for intervention and determine how these goals will be measured." Goal development covers a list of skill areas: "adaptive and self-care skills, attending and social referencing, cognitive functioning, community participation, coping and tolerance skills, emotional development, family relationships, language and communication, play and leisure skills, pre-academic skills, self-advocacy and independence, self-management, social relationships, and vocational skills." Baseline performance should be measured and "treatment goals should be developed for each critical domain and specified in terms that are observable and measurable" (3.14.3). Targets are prioritized by risk to safety, independence and health (3.14.2). The required treatment-plan elements (3.19.1) include a Family Set goal, baseline data on each target behavior/symptom, interventions with approximate units per target, goals with objective progress measures for the authorization period, and measurable discharge criteria. The domains are developmental skill areas, not DSM-5 criteria. DSM or ICD is used for eligibility, and the ASD support level (Level 2/3) informs dosage. 8.321.2.13 NMAC makes the BA responsible for "selection and measurement of goals."',
+        ],
+        cites: [
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+          { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
+        ],
+      },
+      {
+        h2: 'Does Presbyterian (Turquoise Care) require parent training, and how many hours?',
+        body: [
+          'Presbyterian publishes no parent-training hours of its own. Its Prior Authorization Guide (09.01.2026, p. 48) lists 97156 and 97157 among the ABA codes in its Applied Behavior Analysis entry, for Turquoise Care, Turquoise Care Expansion and Commercial. Check the guide or the authorization line for whether a Medicaid 97156 request is needed, since the state guidance makes 97156 PA-free.',
+          'The state standard, which applies to every Turquoise Care MCO: Supplement 24-13 says "Every Treatment Plan must include ample units of ABA Stage 3 97156 and 97157" (3.17.1(C)). Every plan must "Include a goal of working with the Family Set" and be "Family Set-focused... with a focus on family engagement, training, and support" (3.19.1). If family members cannot attend in person, the BA must offer alternatives such as telemedicine. 97156 needs no prior authorization, with a "Maximum number of units per 97156 for entire Family Set: thirty-two 15-minute units per week," billed once for the whole Family Set. The CMS Medicaid MUE limits 97156 to sixteen 15-minute units per day, and 97157 (also no PA) to "up to sixteen 15-minute units or four hours per day." Adult recipients may receive up to thirty-two units of either code when medically warranted. Family Sets may start 97156/97157 once the recipient\'s assessment is scheduled. If the family cannot attend at the agreed level, "inadequate family participation" is a listed reason for poor response, and the BA must offer alternatives.',
+        ],
+        cites: [
+          { title: 'Presbyterian Provider Prior Authorization Guide (09.01.2026), p. 48 — Applied Behavior Analysis', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Line of business', desc: 'Presbyterian Medicaid (Turquoise Care, in-house BH) vs. commercial/Medicare (Magellan) — it decides where the auth goes.' },
@@ -577,6 +648,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
       { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
+      { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -714,6 +786,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does Presbyterian require PA on the ABA assessment?', a: 'Yes. Presbyterian\'s Provider Prior Authorization Guide (09.01.2026) lists 97151, 97152 and 0362T on its Applied Behavior Analysis row for Turquoise Care, Turquoise Care Expansion ABP and Commercial — stricter than the state fee schedule, which marks those codes PA-free. Confirm with Turquoise Care BH UM at (505) 923-5757, option 4 then 2.' },
       { q: 'Do ABA technicians need RBT certification for Presbyterian (New Mexico Medicaid)?', a: 'Follows the state rule. Not at the start. New Mexico Medicaid lets a non-certified behavior technician render ABA if they are 18 or older, have a high-school diploma, pass the New Mexico criminal background registry check, complete 4 hours of ASD training and at least 20 of the 40 RBT/BCAT training hours before serving, and then hold an RBT or BCAT certificate within their first six continuous months. If they miss that deadline they must stop until certified.' },
       { q: 'Can BCBA supervision (97155) be done by telehealth for Presbyterian members?', a: 'Yes, under the state rule in MAD Supplement 24-13: 97155 may be delivered by real-time telemedicine with the recipient present, and by store-and-forward only where the agency documents no real-time option.' },
+      { q: 'Does Presbyterian require ABA goals to be organized by DSM-5 criteria for Turquoise Care?', a: 'Presbyterian publishes no format of its own; the state standard (Supplement 24-13) applies — measurable goals for each critical developmental domain, prioritized by safety risk, not DSM-5 criteria.' },
+      { q: 'How much parent training does Presbyterian expect for Turquoise Care?', a: 'Presbyterian publishes no figure; the state rule applies — every plan "must include ample units" of 97156/97157, with 97156 up to 32 units per week for the Family Set. Presbyterian\'s PA guide lists 97156/97157 among its ABA codes, so confirm whether a request is needed.' },
     ],
   },
 
@@ -784,6 +858,29 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'MAD Supplement 24-13 — ABA Guidance (state criteria)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
+      {
+        h2: 'Does Molina New Mexico (Turquoise Care) require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Molina\'s Turquoise Care manual restates the state ABA criteria rather than adding a goal template. The most recent edition we could open is the 2024 edition (last updated May 2024), served from Molina\'s own media path; the 2025 manual URL now returns 404. Its admission criteria require "a reasonable expectation that ABA services will result in measurable improvement in the acquisition of functional, adaptive skills, and/or the reduction of non-functional, maladaptive behavior," and continued authorization rests on quantitative data from the ABA provider. It sets no DSM-5 goal structure.',
+          'The state standard applies to every Turquoise Care MCO. MAD Supplement 24-13 (9/17/2024) is the state\'s ABA guidance. After the 97151 assessment, the BA "must select goals for intervention and determine how these goals will be measured." Goal development covers a list of skill areas: "adaptive and self-care skills, attending and social referencing, cognitive functioning, community participation, coping and tolerance skills, emotional development, family relationships, language and communication, play and leisure skills, pre-academic skills, self-advocacy and independence, self-management, social relationships, and vocational skills." Baseline performance should be measured and "treatment goals should be developed for each critical domain and specified in terms that are observable and measurable" (3.14.3). Targets are prioritized by risk to safety, independence and health (3.14.2). The required treatment-plan elements (3.19.1) include a Family Set goal, baseline data on each target behavior/symptom, interventions with approximate units per target, goals with objective progress measures for the authorization period, and measurable discharge criteria. The domains are developmental skill areas, not DSM-5 criteria. DSM or ICD is used for eligibility, and the ASD support level (Level 2/3) informs dosage. 8.321.2.13 NMAC makes the BA responsible for "selection and measurement of goals."',
+        ],
+        cites: [
+          { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://medicare.centralhealthplan.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+          { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
+        ],
+      },
+      {
+        h2: 'Does Molina New Mexico (Turquoise Care) require parent training, and how many hours?',
+        body: [
+          'Molina\'s 2024 Turquoise Care manual makes caregiver participation an admission criterion: "The eligible Member\'s caregivers are able to participate and commit meaningfully to ABA interventions and activities to be conducted outside the formal treatment environment." It lists "Family/caregiver is unable to participate in the treatment plan" among the exclusion criteria. It sets no hours of its own.',
+          'The state standard, which applies to every Turquoise Care MCO: Supplement 24-13 says "Every Treatment Plan must include ample units of ABA Stage 3 97156 and 97157" (3.17.1(C)). Every plan must "Include a goal of working with the Family Set" and be "Family Set-focused... with a focus on family engagement, training, and support" (3.19.1). If family members cannot attend in person, the BA must offer alternatives such as telemedicine. 97156 needs no prior authorization, with a "Maximum number of units per 97156 for entire Family Set: thirty-two 15-minute units per week," billed once for the whole Family Set. The CMS Medicaid MUE limits 97156 to sixteen 15-minute units per day, and 97157 (also no PA) to "up to sixteen 15-minute units or four hours per day." Adult recipients may receive up to thirty-two units of either code when medically warranted. Family Sets may start 97156/97157 once the recipient\'s assessment is scheduled. If the family cannot attend at the agreed level, "inadequate family participation" is a listed reason for poor response, and the BA must offer alternatives.',
+        ],
+        cites: [
+          { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://medicare.centralhealthplan.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Availity Essentials access', desc: 'Molina mandates electronic PA submission — confirm your organization\'s Availity registration covers Molina NM before the first case.' },
@@ -798,6 +895,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+      { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://medicare.centralhealthplan.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
+      { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -936,6 +1035,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does Molina Healthcare of New Mexico cover ABA?', a: 'Yes — as a Turquoise Care MCO it administers the state ABA benefit under the shared Level of Care Guidelines and NMAC criteria. Molina has published no NM-specific ABA policy, so verify code-level PA requirements in Availity Essentials.' },
       { q: 'How do I submit an ABA prior authorization to Molina NM?', a: 'Electronically through Availity Essentials — Molina\'s mandated primary submission channel. Since no ABA-specific PA list is published, confirm which codes require authorization in the portal and keep the answer on file.' },
       { q: 'What does Molina pay for ABA in New Mexico?', a: 'At least the state FFS ABA fee schedule — LOD #53 makes the published rates a minimum for all Turquoise Care MCOs and their sub-vendors, retroactive to January 1, 2025.' },
+      { q: 'Does Molina New Mexico require ABA goals to be organized by DSM-5 criteria?', a: 'No DSM-5 template. Molina follows the state standard — measurable goals for each critical developmental domain (Supplement 24-13) — and wants measurable skill gains or reductions in maladaptive behavior.' },
+      { q: 'How much parent training does Molina New Mexico expect?', a: 'Molina requires caregivers able to "participate and commit meaningfully" to ABA; the hours follow the state rule — "ample units" of 97156/97157 in every plan, with 97156 up to 32 units per week without PA.' },
     ],
   },
 
@@ -1002,6 +1103,31 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'NM Turquoise Care ABA Network Quick Reference Guide (BH0000747_12162024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf' },
         ],
       },
+      {
+        h2: 'Does UnitedHealthcare Community Plan (Turquoise Care) require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'UnitedHealthcare Community Plan publishes no ABA goal format of its own for New Mexico. Its 2026 care provider manual lists ABA only among covered behavioral health services, and Optum\'s Turquoise Care ABA quick reference guide covers network and billing logistics, not treatment-plan content. The state standard below governs.',
+          'The state standard applies to every Turquoise Care MCO. MAD Supplement 24-13 (9/17/2024) is the state\'s ABA guidance. After the 97151 assessment, the BA "must select goals for intervention and determine how these goals will be measured." Goal development covers a list of skill areas: "adaptive and self-care skills, attending and social referencing, cognitive functioning, community participation, coping and tolerance skills, emotional development, family relationships, language and communication, play and leisure skills, pre-academic skills, self-advocacy and independence, self-management, social relationships, and vocational skills." Baseline performance should be measured and "treatment goals should be developed for each critical domain and specified in terms that are observable and measurable" (3.14.3). Targets are prioritized by risk to safety, independence and health (3.14.2). The required treatment-plan elements (3.19.1) include a Family Set goal, baseline data on each target behavior/symptom, interventions with approximate units per target, goals with objective progress measures for the authorization period, and measurable discharge criteria. The domains are developmental skill areas, not DSM-5 criteria. DSM or ICD is used for eligibility, and the ASD support level (Level 2/3) informs dosage. 8.321.2.13 NMAC makes the BA responsible for "selection and measurement of goals."',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of New Mexico Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NM-UHCCP-Provider-Manual.pdf' },
+          { title: 'NM Turquoise Care ABA Network Quick Reference Guide (BH0000747_12162024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+          { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare Community Plan (Turquoise Care) require parent training, and how many hours?',
+        body: [
+          'UnitedHealthcare Community Plan publishes no parent-training hours of its own for New Mexico (2026 care provider manual; Optum Turquoise Care ABA quick reference guide). The state rule applies.',
+          'The state standard, which applies to every Turquoise Care MCO: Supplement 24-13 says "Every Treatment Plan must include ample units of ABA Stage 3 97156 and 97157" (3.17.1(C)). Every plan must "Include a goal of working with the Family Set" and be "Family Set-focused... with a focus on family engagement, training, and support" (3.19.1). If family members cannot attend in person, the BA must offer alternatives such as telemedicine. 97156 needs no prior authorization, with a "Maximum number of units per 97156 for entire Family Set: thirty-two 15-minute units per week," billed once for the whole Family Set. The CMS Medicaid MUE limits 97156 to sixteen 15-minute units per day, and 97157 (also no PA) to "up to sixteen 15-minute units or four hours per day." Adult recipients may receive up to thirty-two units of either code when medically warranted. Family Sets may start 97156/97157 once the recipient\'s assessment is scheduled. If the family cannot attend at the agreed level, "inadequate family participation" is a listed reason for poor response, and the BA must offer alternatives.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of New Mexico Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NM-UHCCP-Provider-Manual.pdf' },
+          { title: 'NM Turquoise Care ABA Network Quick Reference Guide (BH0000747_12162024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis or at-risk documentation', desc: 'State rule: ASD dx within 3 years of referral, or the at-risk pathway — then book the assessment; no PA on 97151.' },
@@ -1017,6 +1143,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
       { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
+      { title: 'UnitedHealthcare Community Plan of New Mexico Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NM-UHCCP-Provider-Manual.pdf' },
+      { title: '8.321.2.13 NMAC — Applied Behavior Analysis (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.321.0002.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1158,6 +1286,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What is the claims deadline for UHC NM ABA?', a: 'Six months from the date of service, on a CMS-1500 to Payer ID 87726 (ERA 86047), or on paper to Optum, PO Box 31348, Salt Lake City, UT 84131-0348.' },
       { q: 'Do ABA technicians need RBT certification for UnitedHealthcare Community Plan (New Mexico Medicaid)?', a: 'Follows the state rule. Not at the start. New Mexico Medicaid lets a non-certified behavior technician render ABA if they are 18 or older, have a high-school diploma, pass the New Mexico criminal background registry check, complete 4 hours of ASD training and at least 20 of the 40 RBT/BCAT training hours before serving, and then hold an RBT or BCAT certificate within their first six continuous months. If they miss that deadline they must stop until certified.' },
       { q: 'Can BCBA supervision (97155) be done by telehealth for UnitedHealthcare Community Plan members?', a: 'Yes, under the state rule in MAD Supplement 24-13: 97155 may be delivered by real-time telemedicine with the recipient present, and by store-and-forward only where the agency documents no real-time option.' },
+      { q: 'Does UnitedHealthcare Community Plan require ABA goals to be organized by DSM-5 criteria in New Mexico?', a: 'It publishes no format of its own; the state standard (Supplement 24-13) applies — measurable goals for each critical developmental domain, prioritized by safety risk, not DSM-5 criteria.' },
+      { q: 'How much parent training does UnitedHealthcare Community Plan expect in New Mexico?', a: 'No plan-specific figure; the state rule applies — every plan "must include ample units" of 97156/97157, with 97156 PA-free up to 32 units per week for the Family Set.' },
     ],
   },
 
@@ -1249,6 +1379,27 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'BACB — U.S. Licensure of Behavior Analysts (NM has no licensure law)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
         ],
       },
+      {
+        h2: 'Does Aetna require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Aetna sets the content of the plan, not a DSM-5 template. Its ABA Medical Necessity Guide (©2026) requires a DSM-5 ASD diagnosis and a treatment plan whose "specific identified target behaviors related to the condition" are "clearly defined: frequency, rate, symptom intensity or duration, or other objective measures of baseline levels are recorded, and quantifiable criteria for progress are established," with the intervention techniques, reinforcers, generalization strategies, and transition, titration and discharge criteria spelled out. Hours are sized from severity in three areas — maladaptive behavior, social communication and self-care — rather than from DSM criteria. Precertification form GR-69017-4 (7-26) asks for a "time-limited, individualized treatment plan" with "baseline, interim and current data for all goals." Neither document asks for goals to be grouped under DSM-5 criteria. New Mexico\'s mandate requires the treatment plan to include "the anticipated outcomes stated as goals," along with the diagnosis, proposed treatment by type, frequency and duration, update frequency and the treating physician\'s signature (NMSA § 59A-22-49(F)).',
+        ],
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'NMSA § 59A-22-49 — autism coverage (FindLaw)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' },
+        ],
+      },
+      {
+        h2: 'Does Aetna require parent training, and how many hours?',
+        body: [
+          'Caregiver participation is a criterion, but Aetna publishes no hour minimum. The Medical Necessity Guide requires "engagement and commitment from parent(s) (or guardians) to participate in treatment to generalize gains," and says that, based on impairment and severity, additional authorization may be provided "for QHP protocol modification and direction at 1 to 2 hours per 10 hours of treatment by protocol, as well as authorization for caregiver training" — no caregiver-training amount is stated. Form GR-69017-4 asks you to request 97156 and 97157 in hours per week and to show that "Primary caregiver(s) have measurable goals that work to reinforce interventions and generalize gains." The approved caregiver-training hours are whatever the precertification letter grants.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1267,6 +1418,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1394,6 +1546,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in New Mexico?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New Mexico\'s mandate (NMSA § 59A-22-49) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the New Mexico autism mandate require?', a: 'Coverage of ASD screening and treatment — including ABA — per a physician-prescribed plan, with no age-based denial and no annual or lifetime dollar limits since 2019\'s HB 322 repealed the old caps. Self-funded ERISA and limited-benefit plans are exempt.' },
       { q: 'What does Aetna pay for ABA in New Mexico?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against New Mexico\'s published Medicaid fee schedule (LOD #53), which functions as a public rate floor on the Medicaid side.' },
+      { q: 'Does Aetna require ABA goals to be organized by DSM-5 criteria in New Mexico?', a: 'No DSM-5 grouping is asked for. Aetna wants a DSM-5 ASD diagnosis and a plan with clearly defined target behaviors, baseline data and quantifiable progress criteria; GR-69017-4 asks for baseline, interim and current data for all goals.' },
+      { q: 'Does Aetna set required parent training hours in New Mexico?', a: 'No published minimum or cap. Parent commitment to participate is a medical-necessity criterion; request 97156/97157 in hours per week on GR-69017-4 and show measurable caregiver goals — the authorization sets the hours.' },
     ],
   },
 
@@ -1490,6 +1644,26 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Cigna require treatment-plan goals tied to DSM-5 criteria?',
+        body: [
+          'Yes — this is the closest any commercial payer in the state comes to a DSM-5 structure. EN0499 (effective 5/15/2026) requires "Clearly defined and measurable goals designed to target specific behaviors and skills across all settings," each naming the target behavior, the measurement method and the mastery standard, and requires that "Treatment goals are directly related to the individual\'s diagnosis of ASD and the symptoms of ASD defined by the DSM-5-TR (e.g., social communication and social interaction; restricted, repetitive patterns of behavior, interest, or activities)." Goals must come from the full ABA assessment, be developmentally appropriate, and carry dated quantitative baseline data and mastery criteria. The policy ties each goal to the DSM-5-TR symptom domains; it does not prescribe a template that groups them under headings.',
+          'New Mexico\'s mandate requires the treatment plan to include "the anticipated outcomes stated as goals," along with the diagnosis, proposed treatment by type, frequency and duration, update frequency and the treating physician\'s signature (NMSA § 59A-22-49(F)).',
+        ],
+        cites: [
+          { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'NMSA § 59A-22-49 — autism coverage (FindLaw)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' },
+        ],
+      },
+      {
+        h2: 'Does Cigna require parent training, and how many hours?',
+        body: [
+          'EN0499 requires a "Stakeholder Training" component in the treatment plan but sets no hour minimum or cap. Stakeholder (parent/caregiver, relative, teacher) training "will be conducted by a BCBA®, LBA, or a mental health professional who is licensed to practice independently" and must have "clearly defined, measurable stakeholder goals with mastery criteria," baseline data, a plan to collect progress data, separately documented data for each stakeholder group, and the trainer\'s name and credentials. Planned group stakeholder training needs its own measurable goals. For continued care, Cigna wants baseline, interim and current data showing stakeholders "continue to actively participate in the treatment" and are progressing toward their goals. The hours approved are set case by case on the authorization.',
+        ],
+        cites: [
+          { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
     ],
@@ -1630,6 +1804,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna\'s ABA fee schedule in New Mexico?', a: 'There is no public one. Cigna pays in-network ABA at the rates in your Evernorth agreement; Evernorth directs rate and contract questions to your Provider Relations representative.' },
       { q: 'Is Cigna accepting new ABA providers in New Mexico?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
       { q: 'Does Cigna pay for ABA delivered at school in New Mexico?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
+      { q: 'Does Cigna require ABA goals to follow DSM-5 criteria in New Mexico?', a: 'EN0499 requires every treatment goal to be "directly related to" the ASD diagnosis and the DSM-5-TR symptoms (social communication/interaction; restricted, repetitive behavior), with measurable targets, baseline data and mastery criteria.' },
+      { q: 'Does Cigna set required parent training hours in New Mexico?', a: 'No hour figure is published. EN0499 requires measurable stakeholder (parent/caregiver) training goals with mastery criteria and progress data, delivered by a BCBA or licensed clinician; the hours are set on the authorization.' },
     ],
   },
 
@@ -1725,6 +1901,28 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare (Optum) require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Optum sets goal content and priorities, not a DSM-5 template. Its ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026) require "Treatment goals and objectives that are comprehensive and clearly stated," "Outcome-oriented interventions targeting specific baseline behaviors," and behaviors "tied to objective and quantifiable treatment goals that have baseline data, measurable progress, and projected timeframes for completion." Goals are to be "prioritized to address behaviors that threaten the safety of the client or others or create a barrier to quality of life," then skills fundamental to health and social inclusion; when goals are met, "new goals should be identified based on targeted symptoms and behaviors." DSM-5-TR appears in the diagnosis requirement, not as a way to organize goals.',
+          'New Mexico\'s mandate requires the treatment plan to include "the anticipated outcomes stated as goals," along with the diagnosis, proposed treatment by type, frequency and duration, update frequency and the treating physician\'s signature (NMSA § 59A-22-49(F)).',
+        ],
+        cites: [
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'NMSA § 59A-22-49 — autism coverage (FindLaw)', url: 'https://codes.findlaw.com/nm/chapter-59a-insurance-code/nm-st-sect-59a-22-49/' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare (Optum) require parent training, and how many hours?',
+        body: [
+          'Optum says parent training is required but sets no number. Its CPT-code FAQ (BH00083-24-FAQ, 01/2024): "Is parent training covered? Parent training is required. Bill 97156 or 97157 depending on the format of parent training," and, asked "Is there a minimum or maximum of what can be billed for parent training?", answers "It is based on the treatment plan and goals provided." The Supplemental Clinical Criteria call for a "systematic, individualized curriculum on ABA fundamental concepts" — "not accomplished by simply having the caregiver or guardian present during treatment" — and for the plan to describe parent goals with progress and "the percentage of planned sessions attended." The only numeric ceiling is the commercial reimbursement policy\'s maximum frequency per day: 16 units (4 hours) each for 97156 and 97157.',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A; history entry February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
     ],
@@ -1872,6 +2070,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in New Mexico?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in New Mexico?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
+      { q: 'Does UnitedHealthcare require ABA goals to be organized by DSM-5 criteria in New Mexico?', a: 'No DSM-5 grouping is asked for. Optum wants clearly stated, measurable goals with baseline data and timeframes, prioritized by safety and quality-of-life risk, with new goals based on targeted symptoms and behaviors.' },
+      { q: 'Does UnitedHealthcare set required parent training hours in New Mexico?', a: 'Optum says "Parent training is required" (97156/97157) but sets no minimum or maximum — "It is based on the treatment plan and goals provided." Commercial claims are capped at 16 units (4 hours) per day for each of 97156 and 97157.' },
     ],
   },
 };
