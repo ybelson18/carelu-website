@@ -3,6 +3,7 @@ import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
 import { Nav, ChannelsHub, ChecklistVisual, HandoffVisual, ProductPeek } from './Landing';
 import SiteFooter from '../components/SiteFooter';
+import ProductGate from '../components/product/ProductGate';
 import { integrationCatalog } from '../data/integrationCatalog';
 import ChannelHub from '../components/product/ChannelHub';
 import SpeedTimeline from '../components/product/SpeedTimeline';
@@ -194,6 +195,7 @@ export default function ProductPage() {
         </div>
       </section>
 
+      <ProductGate>
       {/* The problem */}
       <section style={SECTION}>
         <div style={W}>
@@ -384,6 +386,8 @@ export default function ProductPage() {
           <div className="rv d2"><DemoButton /></div>
         </div>
       </section>
+
+      </ProductGate>
 
       <SiteFooter />
 
