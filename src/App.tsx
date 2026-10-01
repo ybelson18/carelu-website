@@ -9,6 +9,7 @@ import SegmentPage from './pages/SegmentPage'
 import BrandProposal from './pages/BrandProposal'
 import Gateway from './pages/Gateway'
 import SolutionsPage from './pages/SolutionsPage'
+import ProductPage from './pages/ProductPage'
 import TermsPage from './pages/TermsPage'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import CookiePolicy from './pages/CookiePolicy'
@@ -85,6 +86,7 @@ export default function App() {
         <Route path="/verify" element={<Verify />} />
         <Route path="/demo" element={<Demo />} />
         <Route path="/for/:slug" element={<SegmentPage />} />
+        <Route path="/product" element={<ProductPage />} />
         <Route path="/solutions/:slug" element={<SolutionsPage />} />
         {/* Static resource pages must precede the :slug catch-all (static wins in v6 ranking anyway) */}
         <Route path="/resources/pediatrician-referral-contacts" element={<ReferralContactsPage />} />
