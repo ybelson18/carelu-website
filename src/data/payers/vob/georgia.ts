@@ -67,7 +67,7 @@ const AVAILITY_PAYER_LIST = src(
   true
 );
 const DCH_ASD_MANUAL_2026: SourceRef = {
-  url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf',
+  url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf',
   accessDate: REFRESH_DATE,
   note: 'GA DCH Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date July 1, 2026 (current GAMMIS manual). Appendix A: 97151-97158, 0362T, 0373T in 15-minute units with U1-U5 practitioner and U6 in-clinic / U7 out-of-clinic / GT telemed location modifiers, and the "Daily Max Units per Procedure code as Mandated by CMS, effective 7/1/2021" table (97151=32, 97152=16, 97153=32, 97154=18, 97155=24, 97156=16, 97157=16, 97158=16, 0362T=16, 0373T=32). 601.1.2: supervising BCBA is the rendering provider for RBT/BCaBA services. Appendix E: consolidated ongoing PAs (all assessment + treatment codes on one PA after the initial assessment), up to 7 calendar days for a decision.',
 };
@@ -463,7 +463,7 @@ const georgiaMedicaidEdi: EdiRouting = {
 const georgiaMedicaidCodeGrid: Record<string, CodeGridEntry> = {
   '97151': gaMedicaidEntry(
     32,
-    'Billed as a family with 97152 in GAMMIS PA requests — entering one code sends both for authorization. After the initial assessment PA, every ongoing PA is one consolidated request carrying all assessment and treatment codes (DCH ASD manual July 2026, Appendix E). The 8-hrs-per-6-months comprehensive-assessment cap is CareSource\'s rule (MCD-MM-0212), not in the DCH manual.'
+    'Billed as a family with 97152 in GAMMIS PA requests — entering one code sends both for authorization. After the initial assessment PA, every ongoing PA is one consolidated request carrying all assessment and treatment codes (DCH ASD manual October 2026, Appendix E). The 8-hrs-per-6-months comprehensive-assessment cap is CareSource\'s rule (MCD-MM-0212), not in the DCH manual.'
   ),
   '97152': gaMedicaidEntry(16, 'Billed as a family with 97151 in GAMMIS PA requests.'),
   '97153': gaMedicaidEntry(32, 'Billed as a family with 97154/97155 in GAMMIS PA requests.'),

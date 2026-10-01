@@ -3090,4 +3090,19 @@ export const PAYER_CHANGELOG: PayerChangeEntry[] = [
     ],
     totals: { guides: 285, states: 27 },
   },
+  {
+    date: '2026-10-01',
+    type: 'correction',
+    summary:
+      'Georgia Medicaid ASD manual, October 1, 2026 edition (published Oct 1, after that day\'s refresh ran): residence rule removed, telehealth readiness and audit thresholds added, in-person supervision required, progress-note rules expanded. Georgia guides updated from the full manual.',
+    guides: ['georgia-medicaid', 'caresource-georgia', 'peach-state-georgia', 'amerigroup-georgia', 'anthem-bcbs-georgia', 'aetna-georgia', 'cigna-georgia', 'unitedhealthcare-georgia'],
+    details: [
+      { slug: 'georgia-medicaid + caresource-georgia + peach-state-georgia + amerigroup-georgia', field: 'enrollment / out-of-state sections / FAQs / network notes', change: 'CORRECTION. Removed the Georgia Medicaid requirement to live in Georgia or within 50 miles of its border (16 statements). The October 1, 2026 ASD manual, 601.1.2, deleted it; enrolling BCBA/BCBA-Ds now need active BACB certification and a Georgia Behavior Analyst Licensing Board license. CareSource MCD-MM-0212 still prints its own 50-mile telehealth clause; that quote stays and the guide says to ask CareSource.', sourceUrl: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf' },
+      { slug: 'georgia-medicaid + MCO telehealth sections', field: 'deliveryRules.telehealth', change: 'Added section 903.3 (new October 2026): the Telehealth Readiness Checklist (Appendix D, general + per-CPT sections) must be submitted with the PA; member/caregiver must actively participate; more than 25% of assessments or 50% of units by telehealth draws more frequent audits.', sourceUrl: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf' },
+      { slug: 'georgia-medicaid + caresource-georgia + peach-state-georgia + amerigroup-georgia', field: 'supervision', change: '601.3.1 now requires in-person supervision at a frequency that ensures quality (previously no in-person requirement). Removed the 10-20%-of-direct-hours supervision guide, which the October 2026 Appendix F treatment-plan template dropped.', sourceUrl: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf' },
+      { slug: 'georgia-medicaid + caresource-georgia', field: 'documentation', change: '602.3.3 (expanded October 2026): progress notes completed within one business day, not backdated or copied, with required elements; not submitted with routine PAs. Reauthorization: skill-acquisition line graphs now required for continued requests (803.10). IEP/504 not required for private-school or homeschooled members (804.12). PA package lists the Telehealth Readiness Checklist.', sourceUrl: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf' },
+      { slug: 'all georgia guides + vob/georgia', field: 'cites', change: 'Re-pointed 65 citations from the July 2026 ASD manual (its URL now returns 404) to the October 1, 2026 edition; unchanged facts re-read against the new edition (rates, PA clocks, caseload, school rules are unchanged).', sourceUrl: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf' },
+    ],
+    totals: { guides: 285, states: 27 },
+  },
 ];
