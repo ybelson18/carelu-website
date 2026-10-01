@@ -47,6 +47,25 @@ ends with the LeadTrap copy in sync. Each weekly run does, in order:
    api/ask.ts STATE_NAMES. A gap you could not close goes in the worklist with the question
    quoted. List every gap and what you did about it in the report.
 
+   **Fan every gap out across the whole directory (added 2026-10-01).** A visitor's question
+   tells us what people want to know, not only where. When a question exposes a gap for one
+   payer or state, generalise it to its topic (telehealth rules, fee schedule / rates, PA for the
+   assessment, diagnosis age limits, RBT requirements, switching agencies, school-based ABA,
+   open vs closed network, ...) and close that same topic for EVERY other guide that is missing
+   it: other plans in the same state first, then the same payer in other states, then every
+   other state and payer (Medicaid, MCOs, commercial). Use `scripts/payer-coverage.mjs` and a
+   grep of the guides to list which guides have no answer, or only an `unverified` one, for that
+   topic. Example: a question about NC telehealth for 97151 that we could not answer means
+   checking 97151 telehealth for every guide, not only NC's.
+   Verified-only still holds for each guide: one guide's answer never becomes another's. Look it
+   up in that payer's own source. What you cannot verify becomes a worklist item tagged with the
+   topic (`"topic": "telehealth"`) and the visitor question that started it, so the next run picks
+   it up. When a topic would touch more guides than one run can verify, do the states and payers
+   visitors ask about most first. Carry the rest in the worklist, and say in the report how many
+   are left.
+   In the report, list each gap topic with: the question that started it, how many guides were
+   missing it, how many were filled this run, and how many are left in the worklist.
+
 The directory: payer guides in `src/data/payers/*.ts` plus VOB enrichment layers in
 `src/data/payers/vob/` (see `docs/vob-build.md`). Every fact carries cites/sources of
 `{title,url}` to primary sources. Editorial rule: **VERIFIED-ONLY** — publish a claim only if a
