@@ -30,7 +30,7 @@ function Frame({ step }: { step: JourneyStep }) {
   if (step.device === 'phone') {
     return (
       <div style={{ width: 'min(300px, 78%)', margin: '0 auto', borderRadius: 40, background: FOREST, padding: 10, boxShadow: '0 24px 60px rgba(26,46,31,0.25)' }}>
-        <div style={{ borderRadius: 31, overflow: 'hidden', background: '#fff', aspectRatio: '390 / 780' }}>
+        <div style={{ borderRadius: 31, overflow: 'hidden', background: '#fff', aspectRatio: '390 / 844' }}>
           <img src={step.img} alt={step.alt} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
         </div>
       </div>
@@ -42,7 +42,7 @@ function Frame({ step }: { step: JourneyStep }) {
         {['#E5A39A', '#E8CF8C', '#A9CF9B'].map(c => <span key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
         <span style={{ marginLeft: 10, fontSize: 11, color: 'rgba(43,42,38,0.5)' }}>app.carelu.com</span>
       </div>
-      <img src={step.img} alt={step.alt} loading="lazy" style={{ width: '100%', display: 'block' }} />
+      <img src={step.img} alt={step.alt} loading="lazy" style={{ width: '100%', display: 'block', maxHeight: 'min(68vh, 600px)', objectFit: 'cover', objectPosition: 'top' }} />
     </div>
   );
 }
