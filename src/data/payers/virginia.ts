@@ -130,6 +130,17 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 455.434 — criminal background checks', url: 'https://www.law.cornell.edu/cfr/text/42/455.434' },
         ],
       },
+      {
+        h2: 'Switching ABA providers: what happens to the authorization?',
+        body: [
+          'DMAS\'s ABA rules say nothing about moving an authorization from one agency to another. Three rules in the Mental Health Services manual decide most handoffs. First, choice: every record must hold "a document signed by the individual verifying freedom of choice of provider was offered and this provider was chosen." Second, gaps: "If there is a lapse in service for more than 31 consecutive calendar days, the provider must discharge the youth from services and notify the FFS service authorization contractor or MCO. If services resume after a break of more than 31 consecutive calendar days, a new service authorization request including a new assessment and ISP must be submitted." Third, readmission: providers "must follow MCO and FFS service authorization contractor guidelines for initial service authorization or registration if individuals are readmitted to a service after the provider has discharged the individual."',
+          'In practice: avoid a gap longer than 31 days between the outgoing and incoming agency, or the family starts over with a new assessment, ISP and authorization. Ask Acentra (FFS) or the family\'s Cardinal Care MCO whether the incoming agency needs its own authorization. Some Cardinal Care MCOs publish their own steps for a change of provider or supervisor; see each MCO\'s guide.',
+        ],
+        cites: [
+          { title: 'DMAS — Mental Health Services Manual, Chapter IV (rev. 7/17/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Chapter%204%20%28updated%207.17.25%29_Final.pdf' },
+          { title: 'DMAS — Mental Health Services Manual, Appendix D (rev. 7/17/2025), Applied Behavior Analysis', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID & Cardinal Care MCO', desc: 'Aetna, Anthem, Humana, Sentara, or UHC (or FFS) — same clinical rules, different submission machinery.' },
@@ -159,6 +170,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'VirginiaABA — July 1, 2025 Medicaid changes (Molina exit, Humana entry)', url: 'https://virginiaaba.org/july-1st-medicaid-changes-what-providers-need-to-know/' },
       { title: 'VirginiaABA — October 2025 Medicaid changes (per-code SAs)', url: 'https://virginiaaba.org/october-2025-medicaid-changes-what-providers-need-to-know/' },
       { title: 'DMAS — ABA billing guidance (modifier tiers)', url: 'https://virginiaaba.org/wp-content/uploads/2021/11/ABA-Billing-Guidance-from-DMAS-Nov21.pdf' },
+      { title: 'DMAS — Mental Health Services Manual, Chapter IV (rev. 7/17/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Chapter%204%20%28updated%207.17.25%29_Final.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -309,6 +321,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'How do I log in to submit a Virginia Medicaid FFS ABA service authorization?', a: 'As of August 1, 2026, through DMAS Identity, Credentials and Access Management (ICAM) to reach Acentra\'s Atrezzo Next Generation (ANG) system — legacy/direct ANG access ended July 31, 2026. (That followed an earlier move: from June 1, 2026 through July 31, 2026, FFS requests ran through the MES portal\'s "FFS Service Authorization" tile, after direct login at portal.kepro.com was retired on May 31, 2026.) MCO members still submit through their own plan\'s portal.' },
       { q: 'How fast must Virginia Medicaid decide an ABA prior-authorization request?', a: 'Under the CMS Interoperability and Prior Authorization Final Rule (effective 1/1/2026), DMAS FFS and every Cardinal Care MCO must decide expedited requests within 72 hours and standard requests within 7 calendar days — extendable to 14 days only if the member/provider requests it, or DMAS/the MCO needs more evidence in the member\'s interest.' },
       { q: 'Is Virginia Medicaid about to cap ABA at 20 hours a week or require an autism diagnosis?', a: 'Not yet. The 2026 Appropriation Act (Item 291.WW.2) directs DMAS to add a 20-hour/week cumulative cap (exceedable for documented medical necessity under EPSDT) and an ASD-diagnosis requirement (a one-year provisional diagnosis allowed under 6), but DMAS\'s own SPA notice says the changes are pending CMS approval and that the effective date "will be announced in a subsequent notice." As of October 1, 2026 no effective date has been published, so the current rules — no hard hour cap, no diagnosis restriction — still apply. Check back before assuming either one.' },
+      { q: 'What happens to the authorization when switching ABA providers in Virginia Medicaid?', a: 'DMAS publishes no transfer rule. If services lapse for more than 31 consecutive days, the provider must discharge the youth and notify Acentra or the MCO, and resuming needs a new service authorization with a new assessment and ISP. A readmitted youth follows the contractor\'s or MCO\'s initial-authorization rules. Ask Acentra or the MCO whether the new agency needs its own authorization.' },
     ],
   },
 
@@ -541,6 +554,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna Better Health of Virginia cover ABA?', a: 'Yes — on DMAS\'s EPSDT criteria and standardized forms (Aetna\'s commercial CPB 0554 policy doesn\'t apply). Assessment codes need no authorization; treatment codes do, via Availity or fax.' },
       { q: 'What happens if our supervising BCBA changes mid-authorization?', a: 'The authorization is tied to the rendering LBA/LMHP\'s NPI — a change closes the existing auth and requires a new one. Request it before the transition to avoid denied claims.' },
       { q: 'How do I join Aetna Better Health VA\'s network?', a: 'Enroll with DMAS via the PRSS portal, select Aetna, then email AetnaBetterHealth-VAProviderRelations@Aetna.com to start credentialing.' },
+      { q: 'What happens to the authorization when switching ABA providers on Aetna Better Health of Virginia?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask Aetna Better Health of Virginia whether the incoming agency needs its own authorization. Aetna Better Health also ties the authorization to the rendering LBA/LMHP NPI, so a change of supervising clinician needs a new authorization.' },
     ],
   },
 
@@ -774,6 +788,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Anthem HealthKeepers Plus cover ABA?', a: 'Yes — Virginia\'s Cardinal Care ABA benefit on DMAS criteria and standardized forms: no authorization on assessment codes, SA on treatment codes 97153–97158 and 0373T, submitted via Availity\'s Interactive Care Reviewer.' },
       { q: 'Does Anthem HealthKeepers Plus cover ABA by telehealth or in schools?', a: 'Its published grid pays GT telehealth combinations on 97151, 97153, 97155, and 97156, and allows school as a place of service (POS 03) for 97151, 97155, and 97156. The grid dates from February 2023; under the current DMAS Telehealth Services Supplement, 97151 and 97152 may be delivered by telemedicine for reassessments only — the initial assessment must be in person.' },
+      { q: 'What happens to the authorization when switching ABA providers on Anthem HealthKeepers Plus?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask Anthem HealthKeepers Plus whether the incoming agency needs its own authorization.' },
     ],
   },
 
@@ -1007,6 +1022,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Humana Healthy Horizons in Virginia cover ABA?', a: 'Yes — it administers the Cardinal Care ABA benefit on DMAS criteria and standardized forms, having entered Virginia on July 1, 2025 as Molina\'s replacement.' },
       { q: 'What happened to Molina members in Virginia?', a: 'DMAS terminated Molina\'s contract effective June 30, 2025; members auto-transitioned to Humana with a 90-day plan-change window and authorizations honored at least 30 days. Verify plan identity on any inquiry that mentions Molina.' },
       { q: 'Does Humana require PA on ABA assessments?', a: 'Not on 97151/97152 — but unlike DMAS, its PA list flags 0362T as PA-required. Request the auth for 0362T rather than assuming the state rule carries.' },
+      { q: 'What happens to the authorization when switching ABA providers on Humana Healthy Horizons in Virginia?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask Humana Healthy Horizons in Virginia whether the incoming agency needs its own authorization.' },
     ],
   },
 
@@ -1234,6 +1250,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Sentara Community Plan cover ABA?', a: 'Yes — Virginia\'s Cardinal Care ABA benefit on DMAS criteria and forms: no authorization on assessment codes, treatment authorized with units per CPT code on the new DMAS preservice form.' },
       { q: 'Is Optima Family Care the same as Sentara Community Plan?', a: 'Yes — Optima Family Care and Virginia Premier merged into Sentara Community Plan under the Cardinal Care rebrand. Anything still labeled Optima is stale.' },
       { q: 'How do I change the supervising BCBA on a Sentara authorization?', a: 'Use the plan\'s dedicated BCBA Change Request Form (updated March 2026) — a standing administrative workflow rather than a new authorization.' },
+      { q: 'What happens to the authorization when switching ABA providers on Sentara Community Plan?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask Sentara Community Plan whether the incoming agency needs its own authorization. For a change of supervising BCBA within the same agency, Sentara uses its BCBA Change Request Form.' },
     ],
   },
 
@@ -1459,6 +1476,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan of Virginia cover ABA?', a: 'Yes — on DMAS criteria and service-specific forms, with the behavioral benefit administered by Optum. Assessment codes need no authorization; treatment authorizations go by fax or Provider Express.' },
       { q: 'Do I use the standard UHC portal for Virginia ABA authorizations?', a: 'No — the plan\'s PA list routes ABA specifically to fax or Optum\'s Provider Express, unlike its other services.' },
       { q: 'What credentialing does UHC Virginia ABA require?', a: 'Optum behavioral-network credentialing via providerexpress.com plus DMAS PRSS enrollment — a different path than UHC medical.' },
+      { q: 'What happens to the authorization when switching ABA providers on UnitedHealthcare Community Plan of Virginia?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask UnitedHealthcare Community Plan of Virginia whether the incoming agency needs its own authorization.' },
     ],
   },
 
@@ -1560,6 +1578,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — Virginia state-regulated coverage', url: 'https://www.autismspeaks.org/virginia-state-regulated-insurance-coverage' },
       { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
       { title: '18VAC85-150-120 — supervisory responsibilities', url: 'https://www.law.cornell.edu/regulations/virginia/18VAC85-150-120' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1679,11 +1699,12 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA, and the Virginia mandate is silent on modality.',
+          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA, and the Virginia mandate is silent on modality. Aetna’s June 2026 provider manual says only that "Aetna Behavioral Health offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services," and points to Aetna.com for approved telehealth services. It does not say which ABA codes, including the 97151/97152 assessment and 97155 supervision, may be billed remotely.',
         status: 'unverified',
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
         verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
         blocker: 'per-case',
@@ -1719,6 +1740,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Virginia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Virginia\'s mandate (Va. Code § 38.2-3418.17) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Virginia autism mandate require?', a: 'Virginia’s mandate covers individual and group policies and HMO plans, and since January 1, 2020 it applies at any age — the old age caps were removed by 2019’s HB 2577. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Virginia?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Virginia Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s ABA medical necessity guide does not require a technician credential. Services must be provided directly or billed by a licensed behavior analyst (where the state licenses them), a BCBA or a licensed psychologist. Where plans or state law allow services by people who are not licensed or BACB-certified, they must be supervised and directed in line with practice standards. State law or the plan can require more.' },
     ],
   },
 
@@ -1769,6 +1791,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '$35,000/yr ABA cap in statute (parity-limited)' },
       { label: 'Exempt from mandate', value: 'Short-term/limited policies; self-funded ERISA' },
       { label: 'Licensure', value: 'VA Licensed Behavior Analyst (Board of Medicine)' },
+      { label: 'Fee schedule', value: 'Not public — your rates and the list of reimbursable ASD services are in Exhibit A of your Evernorth provider agreement' },
     ],
     sections: [
       {
@@ -1809,6 +1832,27 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
         ],
       },
+      {
+        h2: 'What is Cigna\'s fee schedule for ABA?',
+        body: [
+          'Cigna\'s behavioral health arm, Evernorth, publishes no ABA rate table. Its September 2026 Administrative Guidelines tell contracted providers: "For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement." Fee schedule and contract questions go to Evernorth Provider Services at 800.926.2273.',
+          'Billing follows the AMA codes only: "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," in 15-minute units, under Evernorth payer ID 62308.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Is Cigna\'s ABA network open to new providers?',
+        body: [
+          'Evernorth says it "is committed to expanding our network of autism providers." Providers must be certified by a national governing agency or a state licensing board (BCBA, BCBA-D, BCaBA, licensed behavior analyst, licensed behavior specialist or other behavioral health licensure). Individual providers complete the Evernorth Behavioral Provider Information Form; autism clinics and large groups complete the Evernorth Screening Application for Autism Clinics.',
+          'Timing: "It may take up to 90 days for an application to be processed," and after a clinic contract is signed each certified or licensed provider must be credentialed, which "can take an additional 60 to 90 days." Providers must be fully credentialed to render in-network services. Questions go to BehavioralContracting@Evernorth.com or Provider Services at 800.926.2273.',
+        ],
+        cites: [
+          { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1822,6 +1866,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
       { title: 'Autism Speaks — Virginia state-regulated coverage', url: 'https://www.autismspeaks.org/virginia-state-regulated-insurance-coverage' },
       { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+      { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1939,11 +1984,12 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Virginia is the one state EN0499 carves out — the policy states that Virginia fully-insured business is not subject to it. For a fully-insured Virginia member the plan document and the state mandate govern; for self-funded (ASO) plans EN0499 still applies, so funding type decides which rulebook you are reading. EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the line-of-sight and close-proximity requirement on direct treatment expressly not applying to telehealth. The Virginia mandate is silent on modality.',
+          'Virginia is the one state EN0499 carves out — the policy states that Virginia fully-insured business is not subject to it. For a fully-insured Virginia member the plan document and the state mandate govern; for self-funded (ASO) plans EN0499 still applies, so funding type decides which rulebook you are reading. EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the line-of-sight and close-proximity requirement on direct treatment expressly not applying to telehealth. The Virginia mandate is silent on modality. Evernorth’s national autism resource guide (March 2025) states that "All ABA CPT codes are covered telehealth services" — which would include the assessment codes 97151/97152 and supervision (97155) — and points to EN0499 for detail; because EN0499 excludes Virginia fully insured business, confirm telehealth terms for a fully insured Virginia member with the plan.',
         status: 'plan-dependent',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
+          { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
         verifyVia: 'A live benefits verification — for fully-insured Virginia members the plan document, not EN0499, sets modality terms.',
         blocker: 'per-case',
@@ -1978,7 +2024,9 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Cigna cover ABA therapy in Virginia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Virginia\'s mandate (Va. Code § 38.2-3418.17) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Virginia autism mandate require?', a: 'Virginia’s mandate covers individual and group policies and HMO plans, and since January 1, 2020 it applies at any age — the old age caps were removed by 2019’s HB 2577. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
-      { q: 'What does Cigna pay for ABA in Virginia?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Virginia Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'What does Cigna pay for ABA in Virginia?', a: 'Evernorth (Cigna behavioral health) publishes no ABA rate table. Its administrative guidelines say your fee schedule and the list of reimbursable autism services are in Exhibit A of your Evernorth provider agreement; call Provider Services at 800.926.2273 with fee schedule questions.' },
+      { q: 'Is Cigna (Evernorth) accepting new ABA providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Individuals file the Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; processing can take up to 90 days, plus 60 to 90 days of credentialing per provider after a clinic contract.' },
+      { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth\'s autism resource guide does not name a technician credential. It says Evernorth "does not credential nonlicensed/noncertified staff" and that their services "must be billed under the supervising provider." Case supervision must come from a BCBA, LBA or independently licensed clinician with ABA training. State licensure rules can add requirements.' },
     ],
   },
 
@@ -2025,6 +2073,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '$35,000/yr ABA cap in statute (parity-limited)' },
       { label: 'Exempt from mandate', value: 'Short-term/limited policies; self-funded ERISA' },
       { label: 'Licensure', value: 'VA Licensed Behavior Analyst (Board of Medicine)' },
+      { label: 'Fee schedule', value: 'Not public — bill the codes and charges on your contracted Optum ABA fee schedule; paid at your contracted rate' },
     ],
     sections: [
       {
@@ -2068,6 +2117,26 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
       { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
+        ],
+      },
+      {
+        h2: 'What is UnitedHealthcare\'s fee schedule for ABA?',
+        body: [
+          'Optum, which runs UnitedHealthcare\'s commercial ABA network, publishes no ABA rate table. Its ABA CPT FAQ: "FOR COMMERCIAL MEMBERS, you should bill your contracted billing codes and customary charges as outlined on your Fee Schedule after receiving appropriate authorization. You will be reimbursed based on your contracted rate." Participating groups bill on the Form 1500 "with the billing codes indicated on your contracted fee schedule." A provider that is not yet contracted should call the behavioral health number on the member\'s card to obtain approvals before billing.',
+          'MUEs apply to the commercial ABA program, except that Optum allows 32 units a day of 97151 so assessments can run in longer sessions. Your rates are in your Optum agreement; there is no public lookup.',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      {
+        h2: 'Is UnitedHealthcare\'s ABA network open to new providers?',
+        body: [
+          'Optum describes how to join rather than whether the network is open. Its ABA FAQ lists the credentialing criteria: an individual behavior analyst needs BACB certification as a BCBA, state licensure or certification where the state requires it, at least six months of supervised ABA experience, and $1 million/$1 million professional liability coverage. A group needs analysts who meet those standards, an analyst or licensed clinician on staff providing program oversight, and $1 million/$3 million professional liability plus general or supplemental liability coverage. Apply through the "Join Our Autism/ABA Network" section of the Autism/ABA page on Provider Express.',
+          'Timing: "Solo Behavior Analysts/Specialists and Group credentialing can take from 45 to 120 days," and "an audit is required for all new ABA Agencies and normally it can take up to 90 days to schedule." Optum publishes no statement on whether it is adding ABA providers in a given area; its Provider Service Line (1-877-614-0484) handles network questions.',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
     ],
@@ -2196,7 +2265,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” The Virginia mandate is silent on modality.',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” The Virginia mandate is silent on modality. For assessments, that list matters: 97151 and 97152 are not among the three telehealth codes, so Optum’s guide gives no telehealth path for the initial assessment or a reassessment on commercial plans. BCBA supervision of the technician (97155) is one of the three, as is caregiver training (97156, 97157).',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -2236,8 +2305,11 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Virginia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Virginia\'s mandate (Va. Code § 38.2-3418.17) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Virginia autism mandate require?', a: 'Virginia’s mandate covers individual and group policies and HMO plans, and since January 1, 2020 it applies at any age — the old age caps were removed by 2019’s HB 2577. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
-      { q: 'What does UnitedHealthcare pay for ABA in Virginia?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Virginia Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'What does UnitedHealthcare pay for ABA in Virginia?', a: 'Optum publishes no ABA rate table. Contracted providers bill the codes and customary charges on their Optum fee schedule after authorization and are "reimbursed based on your contracted rate." Rates are set in your participating-provider agreement, so ask Optum network management before you contract.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On plans the Virginia mandate reaches, the insurer may review the treatment plan not more than once every 12 months unless the insurer and the child’s physician or psychologist agree to more often.' },
+      { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers?', a: 'Optum publishes its ABA credentialing criteria and an application route ("Join Our Autism/ABA Network" on Provider Express), not an open or closed status. Credentialing takes 45 to 120 days, and new agencies also need an Optum audit, which can take up to 90 days to schedule. Ask the Provider Service Line (1-877-614-0484) about need in your area.' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'Yes, or an equivalent. Optum\'s ABA FAQ says technicians working directly with children 1:1 must be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT) or a certified Applied Behavior Analysis Technician (ABAT), or hold another certification approved by network management. State rules may add to or override this.' },
+      { q: 'Can the ABA assessment or BCBA supervision be done by telehealth with UnitedHealthcare?', a: 'On commercial plans Optum allows ABA telehealth only for 97155, 97156 and 97157. That covers BCBA supervision of the technician (97155), but not the assessment codes 97151 and 97152. The provider must have completed Optum\'s virtual-visits attestation, and claims carry POS 02 or POS 10.' },
     ],
   },
 

@@ -84,6 +84,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         body: [
           'Are the NC Medicaid plans open or closed to new ABA providers? For RB-BHT the statutory answer changed this summer. Section 9E.22 of the 2026 Current Operations Appropriations Act (S.L. 2026-41, approved July 7, 2026 and effective when it became law) added a "Mandatory Closed Networks" subsection to G.S. 108D-22: "Each PHP shall develop and maintain a closed network, and may exclude providers from that closed network" for peer support services and research-based behavioral health treatment services. "PHP" in Chapter 108D covers both the Standard Plans and an LME/MCO under a capitated contract (the Tailored Plans), and the same section extends the rule to the Children and Families Specialty Plan. Before that, Standard Plans had to run open networks — excluding a provider only for failing objective quality standards or refusing network rates — and S.L. 2026-1 (HB 696) had only allowed a plan to close a designated service category with Department approval.',
           'What this means at intake and in contracting: a plan may now decline to contract with a new RB-BHT provider, so being enrolled in NCTracks no longer guarantees a network agreement, and a family\'s choice of provider is bounded by who each plan has contracted. No public NC Medicaid guidance on how plans are applying the closed network was found — the July 21, August 5 and August 31, 2026 RB-BHT bulletins do not mention it, the codified G.S. 108D-22 on ncleg.gov did not yet show the new subsection when checked on September 27, 2026, and Trillium\'s provider manual (effective July 20, 2026) still describes an open network. Whether a given plan is accepting new RB-BHT providers today is a per-plan question for its contracting team.',
+          'What the plans themselves have published (checked October 1, 2026): Trillium\'s Provider Communication 005 (July 9, 2026) says that "Trillium will be maintaining a closed network" for RB-BHT and peer support, which supersedes its manual\'s open-network language for these services. Vaya Health (bulletin of July 8, 2026) and Partners Health Management (provider alert of July 8, 2026) use the same wording: only contracted providers within the approved closed network may deliver RB-BHT, current providers "should continue operating as contracted and approved," and each plan "will evaluate new requests to provide RB-BHT and PSS on a case-by-case basis against our selection criteria, which includes a network need." Alliance Health lists RB-BHT among its mandatory closed-network services and says providers interested in delivering them "must go through Alliance\'s specific contracting and credentialing processes"; they are "not available through our standard network participation agreements." No equivalent notice was found from the four Standard Plans (AmeriHealth Caritas, Carolina Complete Health, Healthy Blue, UnitedHealthcare Community Plan), which are bound by the same statute.',
         ],
         cites: [
           { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
@@ -92,6 +93,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Session Law 2026-1 (HB 696), §3C.12 — PHP provider networks', url: 'https://www.ncleg.gov/Sessions/2025/Bills/House/PDF/H696v5.pdf' },
           { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
           { title: 'Trillium Health Resources — BH I/DD Tailored Plan/PIHP Provider Manual (eff. 7/20/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Provider-Manual/Trillium-TP-Provider-Manual.pdf' },
+          { title: 'Trillium Health Resources — Provider Communication 005 (July 9, 2026): Mandatory Closed Network for Peer Support and RB-BHT Services', url: 'https://www.trilliumhealthresources.org/article/provider-communication-005' },
+          { title: 'Vaya Health — Provider Communication Bulletin, Issue 3 (July 8, 2026): Important Changes to RB-BHT and Peer Support Services', url: 'https://providers.vayahealth.com/wp-content/uploads/2026/07/PCB_Issue_3_20260708.pdf' },
+          { title: 'Partners Health Management — Provider Alert: Changes to RB-BHT and Peer Support Services (issued July 8, 2026)', url: 'https://providers.partnersbhm.org/changes-to-rb-bht-and-peer-support-services/' },
+          { title: 'Alliance Health — Provider Enrollment (Closed Network section)', url: 'https://www.alliancehealthplan.org/providers/network/become-a-provider/provider-enrollment/' },
         ],
       },
       {
@@ -125,6 +130,16 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
         ],
       },
+      {
+        h2: 'Switching ABA providers: what happens to the authorization?',
+        body: [
+          'What happens when a family changes ABA providers? CCP 8F does not say that an existing authorization moves to a new agency. What it does set out: one of its transition-or-discharge criteria is that "the beneficiary and the treatment team determine that a different RB-BHT provider agency is needed to attain the goals as identified in the Treatment Plan," and when a family moves out of the area the current provider is expected to have "facilitated the referral to either a new RB-BHT provider or other appropriate service" and "assisted the beneficiary in the transition process." The Treatment Plan must be reviewed on a "change in service provider," and prior approval is "based on review of a beneficiary\'s Treatment Plan at the time of authorization request" — services delivered without prior authorization are not paid.',
+          'Two other rules shape the handoff. Medicaid does not cover a service that "duplicates another provider\'s procedure, product, or service," so two agencies cannot bill the same RB-BHT service for the same period. Within an agency, "staffing changes require the individual responsible to consent to treatment for the beneficiary," and the Treatment Plan must name the providers responsible for delivery. Ask the family\'s health plan UM team whether the incoming agency needs a new prior approval (expect to submit its own Treatment Plan) and an end date on the outgoing agency\'s authorization.',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID & health plan', desc: 'Standard Plan, Tailored Plan, CFSP, or NC Medicaid Direct — it decides the portal, forms, and UM contacts.' },
@@ -151,6 +166,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Tailored Plans', url: 'https://medicaid.ncdhhs.gov/tailored-plans' },
       { title: 'Acuity News — NC ABA rates restored + HB 696 oversight', url: 'https://acuity.news/regulation/nc-medicaid-aba-rates-restored-hb696-oversight-2026/' },
       { title: 'NCTracks — CCP 8F public-comment notice (5/2026)', url: 'https://www.nctracks.nc.gov/content/public/providers/provider-communications/2026----Announcements/Public-Comment-Notice--Policy-8F---Research-Based-Behavioral-Health-Treatment-for-Autism-Spectrum-Disorder.html' },
+      { title: 'Trillium Health Resources — Provider Communication 005 (July 9, 2026): Mandatory Closed Network for Peer Support and RB-BHT Services', url: 'https://www.trilliumhealthresources.org/article/provider-communication-005' },
+      { title: 'Vaya Health — Provider Communication Bulletin, Issue 3 (July 8, 2026): Important Changes to RB-BHT and Peer Support Services', url: 'https://providers.vayahealth.com/wp-content/uploads/2026/07/PCB_Issue_3_20260708.pdf' },
+      { title: 'Partners Health Management — Provider Alert: Changes to RB-BHT and Peer Support Services (issued July 8, 2026)', url: 'https://providers.partnersbhm.org/changes-to-rb-bht-and-peer-support-services/' },
+      { title: 'Alliance Health — Provider Enrollment (Closed Network section)', url: 'https://www.alliancehealthplan.org/providers/network/become-a-provider/provider-enrollment/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -275,7 +294,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does NC Medicaid allow telehealth for ABA?', a: 'Partly, code by code under CCP 8F (eff. 8/1/2026): 97151 with clinical justification in the treatment plan; 97155 up to 50% of total 97155 billing per beneficiary per 180 days; 97156/97157 by telehealth, and by telephone (KX) only for a documented caregiver health or access barrier. 97152, 97153 and 97154 cannot be billed by telehealth at all. Claims carry modifier GT and the usual place-of-service code.' },
       { q: 'For 97151, does telehealth have to be approved in the authorization, or only justified in the treatment plan?', a: 'CCP 8F asks for clinical justification in the treatment plan; it does not separately require the modality to be approved in the prior approval, and 97151/97152 need no service order or treatment plan for prior approval. But the underlying statute (S.L. 2026-1 §3C.18, as amended) says assessments are to be in person and telehealth assessments are not reimbursed unless exceptions are developed, so justify it in the plan and ask the member\'s plan UM whether it wants telehealth flagged on the request.' },
       { q: 'Does NC Medicaid allow telehealth for BCBA supervision?', a: 'Yes, for 97155 (protocol modification / observation and direction), capped at 50% of total 97155 billing per beneficiary per 180-calendar-day period, with clinical justification in the treatment plan to go higher. The observing LQASP may be in the room or observing via telehealth while the technician delivers 97153 in person. Incidental supervision is not billable.' },
-      { q: 'Are the NC Medicaid plans open or closed to new ABA providers?', a: 'Closed by statute for RB-BHT since July 7, 2026: S.L. 2026-41 §9E.22 requires every health plan (Standard Plans, Tailored Plans and the Children and Families Specialty Plan) to maintain a closed RB-BHT network, and lets it exclude providers. NC Medicaid has published no guidance on how plans are applying it, so ask each plan\'s contracting team whether it is accepting new RB-BHT providers.' },
+      { q: 'Are the NC Medicaid plans open or closed to new ABA providers?', a: 'Closed by statute for RB-BHT since July 7, 2026: S.L. 2026-41 §9E.22 requires every health plan (Standard Plans, Tailored Plans and the Children and Families Specialty Plan) to maintain a closed RB-BHT network, and lets it exclude providers. NC Medicaid has published no guidance on how plans are applying it. Trillium, Vaya, Partners and Alliance have each confirmed a closed RB-BHT network: current contracted providers continue, and Vaya and Partners review new requests case by case against network need. The Standard Plans have published nothing yet, so ask each plan\'s contracting team whether it is accepting new RB-BHT providers.' },
+      { q: 'What happens to the authorization when switching ABA agencies in NC Medicaid?', a: 'CCP 8F does not say an authorization transfers. It treats "a different RB-BHT provider agency is needed" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and bases prior approval on the Treatment Plan submitted with the request. It also bars paying two providers for duplicate services. Ask the family\'s health plan whether the new agency needs its own prior approval before its first session.' },
+      { q: 'Can NC Medicaid ABA (RB-BHT) be delivered at school?', a: 'Yes, school is one of the payable settings, chosen with the family and clinically justified in the Treatment Plan. CCP 8F excludes services available through IDEA or other educational programs that duplicate or supplant the authorized Treatment Plan, teaching academic subjects, and acting as a substitute for a teacher, aide or tutor.' },
     ],
   },
 
@@ -342,6 +363,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           'Since December 1, 2025, child-welfare-involved members are auto-enrolled in the statewide Children & Families Specialty Plan ("Healthy Blue Care Together"), also operated by Blue Cross NC — a separate plan from standard Healthy Blue with its own member IDs. For intake, this means a foster or kinship placement family saying "we have Healthy Blue" needs one more verification question before you pick the submission path.',
         ],
       },
+      {
+        h2: 'Is Healthy Blue\'s ABA network open or closed?',
+        body: [
+          'Closed by statute for RB-BHT. Session Law 2026-41 §9E.22 (approved July 7, 2026) amended G.S. 108D-22 so that "each PHP shall develop and maintain a closed network, and may exclude providers from that closed network" for peer support services and research-based behavioral health treatment services. That binds Healthy Blue as an NC Medicaid Standard Plan. Being enrolled in NCTracks therefore no longer guarantees a contract.',
+          'As of October 1, 2026 no Healthy Blue notice on how it is applying the closed network was found. The Tailored Plans that have published one (Trillium, Vaya, Partners, Alliance) keep current contracted providers and review new applicants against network need. Ask Healthy Blue provider contracting whether it is accepting new RB-BHT providers in your counties before you plan on it.',
+        ],
+        cites: [
+          { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+          { title: 'N.C.G.S. § 108D-22 — PHP provider networks (as codified on ncleg.gov)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_108D/GS_108D-22.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Standard Healthy Blue vs. Care Together (CFSP)', desc: 'Child-welfare-involved members are on the specialty plan — confirm which ID the family holds.' },
@@ -352,6 +384,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Healthy Blue NC — Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
       { title: 'Healthy Blue NC — prior authorization page', url: 'https://provider.healthybluenc.com/north-carolina-provider/prior-authorization' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -464,6 +497,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does Healthy Blue NC cover ABA therapy?', a: 'Yes — Healthy Blue administers NC Medicaid\'s RB-BHT benefit by adopting Clinical Coverage Policy 8F: PA on all services including assessment, authorization cycles tiered by intensity (180 calendar days at ≤16 hrs/week, 90 days above), LQASP treatment-plan reviews.' },
       { q: 'How do I submit an RB-BHT authorization to Healthy Blue?', a: 'Via Availity Essentials\' Interactive Care Reviewer, or fax (844) 429-9636 for outpatient behavioral health. Check the Precertification Lookup Tool for code-level requirements first.' },
       { q: 'What is Healthy Blue Care Together?', a: 'The separate Children & Families Specialty Plan (launched December 2025) for child-welfare-involved members, also run by Blue Cross NC. Foster families\' "Healthy Blue" cards may actually be CFSP — verify before submitting.' },
+      { q: 'Is Healthy Blue accepting new ABA providers?', a: 'For RB-BHT, NC law has required a closed network since July 7, 2026 (S.L. 2026-41 §9E.22), so Healthy Blue may decline new providers. It had published no notice on how it is applying this as of October 1, 2026; ask its provider contracting team directly.' },
+      { q: 'What happens to the authorization when switching ABA agencies on Healthy Blue?', a: 'Healthy Blue applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, bases prior approval on the Treatment Plan submitted with the request, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Healthy Blue utilization management.' },
     ],
   },
 
@@ -526,6 +561,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (pull manually; bot-blocked)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
         ],
       },
+      {
+        h2: 'Is AmeriHealth Caritas North Carolina\'s ABA network open or closed?',
+        body: [
+          'Closed by statute for RB-BHT. Session Law 2026-41 §9E.22 (approved July 7, 2026) amended G.S. 108D-22 so that "each PHP shall develop and maintain a closed network, and may exclude providers from that closed network" for peer support services and research-based behavioral health treatment services. That binds AmeriHealth Caritas North Carolina as an NC Medicaid Standard Plan. Being enrolled in NCTracks therefore no longer guarantees a contract.',
+          'As of October 1, 2026 no AmeriHealth Caritas North Carolina notice on how it is applying the closed network was found. The Tailored Plans that have published one (Trillium, Vaya, Partners, Alliance) keep current contracted providers and review new applicants against network need. Ask AmeriHealth Caritas North Carolina provider contracting whether it is accepting new RB-BHT providers in your counties before you plan on it.',
+        ],
+        cites: [
+          { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+          { title: 'N.C.G.S. § 108D-22 — PHP provider networks (as codified on ncleg.gov)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_108D/GS_108D-22.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID + plan confirmation', desc: 'Standard AmeriHealth Caritas NC vs. other channels — verify at (888) 738-0004 if in doubt.' },
@@ -536,6 +582,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'AmeriHealth Caritas NC — prior authorization resources (bot-blocked; access via portal)', url: 'https://www.amerihealthcaritasnc.com/provider/resources/physical-prior-auth' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (pull manually; bot-blocked)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
+      { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -650,6 +697,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does AmeriHealth Caritas NC cover ABA therapy?', a: 'Yes — as a Standard Plan it administers NC Medicaid\'s RB-BHT benefit under Clinical Coverage Policy 8F, with prior authorization per the state baseline. Confirm code-level rules in the plan\'s PA Lookup Tool.' },
       { q: 'How do I reach AmeriHealth Caritas NC utilization management?', a: 'UM runs at (888) 738-0004; the provider workflow uses NaviNet and the PA Lookup Tool at amerihealthcaritasnc.com. The January 2025 Behavioral Health UM Guide has the current details — pull it from the portal.' },
+      { q: 'Is AmeriHealth Caritas North Carolina accepting new ABA providers?', a: 'For RB-BHT, NC law has required a closed network since July 7, 2026 (S.L. 2026-41 §9E.22), so AmeriHealth Caritas North Carolina may decline new providers. It had published no notice on how it is applying this as of October 1, 2026; ask its provider contracting team directly.' },
+      { q: 'What happens to the authorization when switching ABA agencies on AmeriHealth Caritas NC?', a: 'AmeriHealth Caritas NC applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, bases prior approval on the Treatment Plan submitted with the request, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with AmeriHealth Caritas NC utilization management.' },
     ],
   },
 
@@ -709,6 +758,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
         ],
       },
+      {
+        h2: 'Is Carolina Complete Health\'s ABA network open or closed?',
+        body: [
+          'Closed by statute for RB-BHT. Session Law 2026-41 §9E.22 (approved July 7, 2026) amended G.S. 108D-22 so that "each PHP shall develop and maintain a closed network, and may exclude providers from that closed network" for peer support services and research-based behavioral health treatment services. That binds Carolina Complete Health as an NC Medicaid Standard Plan. Being enrolled in NCTracks therefore no longer guarantees a contract.',
+          'As of October 1, 2026 no Carolina Complete Health notice on how it is applying the closed network was found. The Tailored Plans that have published one (Trillium, Vaya, Partners, Alliance) keep current contracted providers and review new applicants against network need. Ask Carolina Complete Health provider contracting whether it is accepting new RB-BHT providers in your counties before you plan on it.',
+        ],
+        cites: [
+          { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+          { title: 'N.C.G.S. § 108D-22 — PHP provider networks (as codified on ncleg.gov)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_108D/GS_108D-22.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member plan history', desc: 'Members transitioning from WellCare of North Carolina land here after the 4/1/2026 merger — confirm which card/ID the family currently holds.' },
@@ -719,6 +779,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Carolina Complete Health — behavioral health page (8F deference, checklist)', url: 'https://network.carolinacompletehealth.com/resources/behavioral-health.html' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
+      { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -834,6 +895,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Carolina Complete Health cover ABA therapy?', a: 'Yes — RB-BHT per NC Clinical Coverage Policy 8F, which the plan defers to explicitly. PA is required before any RB-BHT service, submitted through the provider portal with the plan\'s ABA treatment-request checklist.' },
       { q: 'Is Carolina Complete Health available statewide?', a: 'Yes, as of April 1, 2026 — it absorbed WellCare of North Carolina and now operates statewide as a Standard Plan, rather than the smaller regional footprint it held before the merger.' },
+      { q: 'Is Carolina Complete Health accepting new ABA providers?', a: 'For RB-BHT, NC law has required a closed network since July 7, 2026 (S.L. 2026-41 §9E.22), so Carolina Complete Health may decline new providers. It had published no notice on how it is applying this as of October 1, 2026; ask its provider contracting team directly.' },
+      { q: 'What happens to the authorization when switching ABA agencies on Carolina Complete Health?', a: 'Carolina Complete Health applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, bases prior approval on the Treatment Plan submitted with the request, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Carolina Complete Health utilization management.' },
     ],
   },
 
@@ -892,6 +955,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
+      {
+        h2: 'Is UnitedHealthcare Community Plan of North Carolina\'s ABA network open or closed?',
+        body: [
+          'Closed by statute for RB-BHT. Session Law 2026-41 §9E.22 (approved July 7, 2026) amended G.S. 108D-22 so that "each PHP shall develop and maintain a closed network, and may exclude providers from that closed network" for peer support services and research-based behavioral health treatment services. That binds UnitedHealthcare Community Plan of North Carolina as an NC Medicaid Standard Plan. Being enrolled in NCTracks therefore no longer guarantees a contract.',
+          'As of October 1, 2026 no UnitedHealthcare Community Plan of North Carolina notice on how it is applying the closed network was found. The Tailored Plans that have published one (Trillium, Vaya, Partners, Alliance) keep current contracted providers and review new applicants against network need. Ask UnitedHealthcare Community Plan of North Carolina provider contracting whether it is accepting new RB-BHT providers in your counties before you plan on it.',
+        ],
+        cites: [
+          { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+          { title: 'N.C.G.S. § 108D-22 — PHP provider networks (as codified on ncleg.gov)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_108D/GS_108D-22.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID + plan confirmation', desc: 'UHC Community Plan members route through Optum — different portal and forms than every other NC plan.' },
@@ -903,6 +977,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Optum Provider Express — NC Medicaid ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaCAMediCal12.html' },
       { title: 'UHC Community Plan NC — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/north-carolina-health-plans/nc-comm-plan-home/nc-cp-prior-auth.html' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1017,6 +1092,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan of NC cover ABA?', a: 'Yes — RB-BHT under the CCP 8F baseline, administered through Optum, which has managed the plan\'s ABA network since July 2021, with UHC\'s own supplemental clinical criteria on top.' },
       { q: 'How is UHC\'s NC authorization process different?', a: 'It\'s a two-step flow on Provider Express: a separate authorization for the assessment, then a second for treatment — unlike the single-request flow at most other NC plans.' },
       { q: 'What credentialing do I need for UHC NC ABA?', a: 'NC Medicaid enrollment via NCTracks first, then Optum ABA network credentialing — plan for both in your timeline.' },
+      { q: 'Is UnitedHealthcare Community Plan of North Carolina accepting new ABA providers?', a: 'For RB-BHT, NC law has required a closed network since July 7, 2026 (S.L. 2026-41 §9E.22), so UnitedHealthcare Community Plan of North Carolina may decline new providers. It had published no notice on how it is applying this as of October 1, 2026; ask its provider contracting team directly.' },
     ],
   },
 
@@ -1274,7 +1350,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'The documentation bar',
         body: [
-          'Diagnostic instruments: go by the state list. The rewritten CCP 8F (eff. 8/1/2026, subsection 3.2.4) requires a non-provisional ASD diagnosis made with BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (or later versions), and says services may not start on screening tools, educational determinations or informal clinical impressions alone. Alliance\'s February 2026 RB-BHT guidance, which predated the rewrite, named ADI-R, ADOS-2, CARS-2 and TELE-ASD-PEDS and rejected GARS, M-CHAT and SRS as standalone diagnoses, but Alliance has since archived that page (it returns 410 "Information Archived" as of September 27, 2026) and no replacement Alliance list was found — so treat a diagnosis resting on ADI-R alone as not meeting the state list. The same archived guidance was specific on the service order: signed by an MD, DO, or licensed psychologist, based on a behavioral/adaptive/functional assessment, dated on or before the service start, valid one year — and a bare "medical necessity statement" does not qualify. Screen referral packets against both requirements at intake; sending families back for a qualifying diagnostic evaluation mid-authorization is where NC pipelines stall.',
+          'Diagnostic instruments: go by the state list. The rewritten CCP 8F (eff. 8/1/2026, subsection 3.2.4) requires a non-provisional ASD diagnosis made with BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (or later versions), and says services may not start on screening tools, educational determinations or informal clinical impressions alone. Alliance\'s February 2026 RB-BHT guidance, which predated the rewrite, named ADI-R, ADOS-2, CARS-2 and TELE-ASD-PEDS and rejected GARS, M-CHAT and SRS as standalone diagnoses, but Alliance has since archived that page (it returns 410 "Information Archived" as of September 27, 2026) and no replacement Alliance list was found — so treat a diagnosis resting on ADI-R alone as not meeting the state list. The same archived guidance was specific on the service order: signed by an MD, DO, or licensed psychologist, based on a behavioral/adaptive/functional assessment, dated on or before the service start, valid one year — and a bare "medical necessity statement" does not qualify. Alliance\'s current RB-BHT cover sheet, which must go with every prior authorization request, repeats the service-order elements (MD/DO/psychologist, under one year old, on or before the start of service, based on a behavioral, adaptive or functional assessment) but not the medical-necessity-statement wording. Screen referral packets against both requirements at intake; sending families back for a qualifying diagnostic evaluation mid-authorization is where NC pipelines stall.',
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
@@ -1290,6 +1366,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Alliance Health — Standard Rate Schedule (RB-BHT)', url: 'https://www.alliancehealthplan.org/document-library/97251' },
         ],
       },
+      {
+        h2: 'Is Alliance Health\'s ABA network open or closed?',
+        body: [
+          'Closed. Alliance lists research-based behavioral health treatment among the services "subject to the mandatory closed network," citing Senate Bill 257 (S.L. 2026-41): "each Prepaid Health Plan (PHP) will be required to develop and maintain a mandatory closed network" for these services and "may exclude providers from their closed networks." For providers: "Providers interested in delivering these services must go through Alliance\'s specific contracting and credentialing processes. These services are not available through our standard network participation agreements." Alliance points applicants to its current service needs list, and questions go to NetworkRelations@AllianceHealthPlan.org.',
+          'Every applicant also has to be enrolled in NCTracks before applying to Alliance.',
+        ],
+        cites: [
+          { title: 'Alliance Health — Provider Enrollment (Closed Network section)', url: 'https://www.alliancehealthplan.org/providers/network/become-a-provider/provider-enrollment/' },
+          { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnostic instrument check', desc: 'Confirm the diagnosis used BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (CCP 8F 3.2.4) — ADI-R alone is not on the state list, and screeners alone cannot start services.' },
@@ -1300,6 +1387,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
       { title: 'Alliance Health — Standard Rate Schedule', url: 'https://www.alliancehealthplan.org/document-library/97251' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      { title: 'Alliance Health — Provider Enrollment (Closed Network section)', url: 'https://www.alliancehealthplan.org/providers/network/become-a-provider/provider-enrollment/' },
+      { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+      { title: 'Alliance Health — Research-Based Behavioral Health Treatment (RB-BHT) cover sheet (Word form, document library 97990)', url: 'https://www.alliancehealthplan.org/document-library/97990/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1335,12 +1425,12 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'Alliance is the strictest documented enforcer of the state service-order rule: signed by an MD, DO or licensed psychologist, based on a behavioral, adaptive or functional assessment, dated on or before the service start, valid one year — and a bare "medical necessity statement" does not qualify. Alliance’s fillable RB-BHT cover sheet accompanies each service request.',
+        value: 'Alliance checks the state service-order rule on its RB-BHT cover sheet, which every prior authorization request must include. The service order must be completed, signed and dated by a licensed MD, DO or psychologist, be less than one year old, be in place on or before the day services start, and be based on a behavioral, adaptive or functional assessment. The cover sheet has a checkbox confirming the order\'s text "includes evidence the Service Order was based on a Behavioral, Adaptive, or Functional Assessment." (CCP 8F §3.2.6 sets the same elements.)',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
-          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
+          { title: 'Alliance Health — Research-Based Behavioral Health Treatment (RB-BHT) cover sheet (Word form, document library 97990)', url: 'https://www.alliancehealthplan.org/document-library/97990/' },
         ],
       },
       telehealth: {
@@ -1425,7 +1515,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Alliance Health cover ABA therapy?', a: 'Yes — as a Tailored Plan, Alliance administers RB-BHT under CCP 8F, paying the state fee-schedule rates (97153 at $20.81/15-min, 97155 at $32.22/15-min, effective 10/1/2025).' },
       { q: 'What diagnostic tools does Alliance accept for ABA?', a: 'Go by the state list in CCP 8F (eff. 8/1/2026): BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF. Alliance\'s older February 2026 guidance also named ADI-R, but that guidance has been archived and ADI-R is not on the state list, so do not rely on ADI-R alone. Screening tools such as M-CHAT cannot start services on their own.' },
-      { q: 'What makes a valid service order for Alliance?', a: 'Signed by an MD, DO, or licensed psychologist; based on a behavioral, adaptive, or functional assessment; dated on or before the service start date; valid one year. A bare medical-necessity statement doesn\'t qualify.' },
+      { q: 'What makes a valid service order for Alliance?', a: 'Completed, signed and dated by a licensed MD, DO or psychologist; under one year old; in place on or before the first day of service; and visibly based on a behavioral, adaptive or functional assessment. Alliance\'s RB-BHT cover sheet asks you to confirm each of these, and CCP 8F §3.2.6 sets the same rule.' },
+      { q: 'Is Alliance Health accepting new ABA providers?', a: 'Closed. RB-BHT is on Alliance\'s mandatory closed-network list under S.L. 2026-41, and Alliance says providers who want to deliver it must go through its specific contracting and credentialing process, not a standard participation agreement. Check its current service needs list and email NetworkRelations@AllianceHealthPlan.org.' },
+      { q: 'What happens to the authorization when switching ABA agencies on Alliance Health?', a: 'Alliance Health applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Alliance Health utilization management.' },
     ],
   },
 
@@ -1489,6 +1581,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
         ],
       },
+      {
+        h2: 'Is Trillium\'s ABA network open or closed?',
+        body: [
+          'Closed. Trillium\'s Provider Communication 005 (July 9, 2026) says North Carolina\'s 2026 budget act "requires each Prepaid Health Plan (PHP) to establish a mandatory closed network" for peer support and research-based behavioral health treatment, "with the authority to determine which providers participate," and that "Trillium will be maintaining a closed network for both services." That notice replaces the open-network wording in Trillium\'s provider manual (effective July 20, 2026) for RB-BHT.',
+          'Trillium did not say how it will handle new applicants. Ask Trillium provider network contracting before planning on a new Trillium RB-BHT contract.',
+        ],
+        cites: [
+          { title: 'Trillium Health Resources — Provider Communication 005 (July 9, 2026): Mandatory Closed Network for Peer Support and RB-BHT Services', url: 'https://www.trilliumhealthresources.org/article/provider-communication-005' },
+          { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Assessment + service order', desc: 'Written assessment, validated-tool diagnosis documentation, and the MD/DO/LP order — all required at the initial TAR.' },
@@ -1500,6 +1603,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Trillium — Medicaid Child BH Services Benefit Plan', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+      { title: 'Trillium Health Resources — Provider Communication 005 (July 9, 2026): Mandatory Closed Network for Peer Support and RB-BHT Services', url: 'https://www.trilliumhealthresources.org/article/provider-communication-005' },
+      { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1629,8 +1734,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does Trillium cover ABA therapy?', a: 'Yes — RB-BHT under CCP 8F, with a TAR (prior authorization) required for every code including telehealth delivery, in 180-day cycles (90-day for plans above 16 hours/week under the finalized 8F, effective 8/1/2026).' },
       { q: 'Does Trillium cover ABA for adults?', a: 'Its benefit plan lists RB-BHT for "Children, Adolescents and Adults," reflecting the 2021 State Plan Amendment that extended NC RB-BHT coverage past age 21.' },
       { q: 'Does Trillium restrict ABA in school?', a: 'Not beyond the state rule. Trillium\'s benefit plan (rev. 8/31/2026) lists school-based settings among the places RB-BHT may be delivered, justified in the treatment plan with the family. CCP 8F excludes services that teach academic subjects or stand in for a teacher, aide or tutor, and services available through IDEA or other educational programs that duplicate or supplant the authorized plan; hours spent in educational settings and receiving IEP services are not counted in the treatment hours.' },
-      { q: 'Is Trillium\'s ABA network open?', a: 'Trillium\'s provider manual (eff. 7/20/2026) says it operates an open network except for the Tailored-Plan-only closed services in G.S. 108D-23(c). But S.L. 2026-41 §9E.22, approved 7/7/2026, requires every NC Medicaid health plan, LME/MCOs included, to maintain a closed network for RB-BHT, so ask Trillium provider network contracting whether it is taking new RB-BHT providers before you plan on it.' },
+      { q: 'Is Trillium\'s ABA network open?', a: 'No, not for RB-BHT. Trillium\'s Provider Communication 005 (July 9, 2026) says "Trillium will be maintaining a closed network" for RB-BHT and peer support, as S.L. 2026-41 §9E.22 requires of every NC Medicaid health plan. That overrides the open-network wording in its July 20, 2026 provider manual for these services. Ask Trillium provider network contracting before planning on a new RB-BHT contract.' },
       { q: 'Can Trillium ABA services be delivered by telehealth?', a: 'Only in part, under the finalized CCP 8F (effective 8/1/2026): telehealth is removed entirely for 97152, 97153, and 97154; 97151 keeps it with clinical justification; 97155 keeps it capped at 50% of billing per beneficiary per 180 days; 97156/97157 keep their separate telephonic/KX caregiver-barrier exception.' },
+      { q: 'What happens to the authorization when switching ABA agencies on Trillium?', a: 'Trillium applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Trillium utilization management.' },
     ],
   },
 
@@ -1692,6 +1798,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Vaya Health — RB-BHT Guidance (v1.0, rev. 5/1/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/05/RB_BHT_Guidance_20250522.pdf' },
         ],
       },
+      {
+        h2: 'Is Vaya Health\'s ABA network open or closed?',
+        body: [
+          'Closed since July 7, 2026. Vaya\'s Provider Communication Bulletin of July 8, 2026: as directed by S.L. 2026-41, Vaya "will transition Research-based Behavioral Health Treatment (RB-BHT) and Peer Support Services (PSS) to closed network services. Effective July 7, 2026, only contracted providers within the approved closed network may deliver RB-BHT and PSS."',
+          'Providers already delivering RB-BHT "should continue operating as contracted and approved." New providers can still ask: "Vaya will evaluate new requests to provide RB-BHT and PSS on a case-by-case basis against our selection criteria, which includes a network need." Questions go to provider.info@vayahealth.com.',
+        ],
+        cites: [
+          { title: 'Vaya Health — Provider Communication Bulletin, Issue 3 (July 8, 2026): Important Changes to RB-BHT and Peer Support Services', url: 'https://providers.vayahealth.com/wp-content/uploads/2026/07/PCB_Issue_3_20260708.pdf' },
+          { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member county', desc: 'Vaya\'s footprint is western NC — confirm the county maps to Vaya before intake.' },
@@ -1703,6 +1820,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Vaya Health — RB-BHT Guidance (v1.0, rev. 5/1/2025)', url: 'https://providers.vayahealth.com/wp-content/uploads/2025/05/RB_BHT_Guidance_20250522.pdf' },
       { title: 'Vaya Health — prior authorization page', url: 'https://providers.vayahealth.com/authorization-information/prior-authorization/' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      { title: 'Vaya Health — Provider Communication Bulletin, Issue 3 (July 8, 2026): Important Changes to RB-BHT and Peer Support Services', url: 'https://providers.vayahealth.com/wp-content/uploads/2026/07/PCB_Issue_3_20260708.pdf' },
+      { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1830,6 +1949,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Vaya Health cover ABA therapy?', a: 'Yes — as a Tailored Plan, Vaya administers RB-BHT under CCP 8F, with service authorization requests reviewed by its UM team ((800) 893-6246 ext. 1513, UM@vayahealth.com).' },
       { q: 'Does every Vaya ABA request need a full SAR?', a: 'No — 97151 assessment requests up to 32 units per 6 months and 97155 up to a 1-hour-per-10-hours ratio against direct intervention pass through on notification alone. Above either threshold, a complete SAR (service order, treatment plan, validated diagnosis) is required.' },
+      { q: 'Is Vaya Health accepting new ABA providers?', a: 'Closed since July 7, 2026. Vaya says only contracted providers in its approved closed network may deliver RB-BHT; current providers continue as contracted, and new requests are reviewed case by case against selection criteria that include network need. Email provider.info@vayahealth.com.' },
+      { q: 'What happens to the authorization when switching ABA agencies on Vaya Health?', a: 'Vaya Health applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Vaya Health utilization management.' },
     ],
   },
 
@@ -1889,6 +2010,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Partners — Tailored Plan clinical coverage policies (adopts 8F)', url: 'https://www.partnersbhm.org/tailoredplan/providers/manuals-forms-and-policies/clinical-coverage-policies/' },
         ],
       },
+      {
+        h2: 'Is Partners\'s ABA network open or closed?',
+        body: [
+          'Closed. Partners\' provider alert of July 8, 2026 (updated July 13): under S.L. 2026-41, RB-BHT and peer support "will transition to closed network services. This means that participation in the delivery of these services will be limited to contracted providers within the approved network."',
+          'Providers already delivering RB-BHT "should continue operating as contracted and approved." For newcomers: "Partners will evaluate new requests to provide RB-BHT and PSS on a case-by-case basis against our selection criteria, which includes a network need." Questions go to CredentialingTeam@partnersbhm.org.',
+        ],
+        cites: [
+          { title: 'Partners Health Management — Provider Alert: Changes to RB-BHT and Peer Support Services (issued July 8, 2026)', url: 'https://providers.partnersbhm.org/changes-to-rb-bht-and-peer-support-services/' },
+          { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Treatment-plan alignment', desc: 'The ALL-codes auth only protects billing that matches the approved plan — keep the plan current as services shift.' },
@@ -1899,6 +2031,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Partners — Tailored Plan clinical coverage policies', url: 'https://www.partnersbhm.org/tailoredplan/providers/manuals-forms-and-policies/clinical-coverage-policies/' },
       { title: 'Partners — ALL-codes authorization provider alert', url: 'https://providers.partnersbhm.org/authorizations-for-research-based-behavioral-health-treatment-transition-to-all-codes/' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      { title: 'Partners Health Management — Provider Alert: Changes to RB-BHT and Peer Support Services (issued July 8, 2026)', url: 'https://providers.partnersbhm.org/changes-to-rb-bht-and-peer-support-services/' },
+      { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2026,6 +2160,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does Partners Health Management cover ABA therapy?', a: 'Yes — as a Tailored Plan it adopts CCP 8F for RB-BHT medical-necessity decisions, with prior authorization required per the state baseline.' },
       { q: 'What is the ALL-codes authorization?', a: 'Since October 2023, one Partners authorization on the base code covers all RB-BHT codes and modifiers — no code-by-code requests. Billing must still match the approved treatment plan or risk recoupment.' },
       { q: 'How do I submit an RB-BHT authorization to Partners?', a: 'Through ProAuth: enter the base code as the Primary Procedure Code on the Prescreen, select the Treatment Type from the dropdown. Questions go to UMQuestions@partnersbhm.org.' },
+      { q: 'Is Partners accepting new ABA providers?', a: 'Closed. Partners limits RB-BHT to contracted providers in its approved network; current providers continue as contracted, and new requests are reviewed case by case against selection criteria that include network need. Email CredentialingTeam@partnersbhm.org.' },
+      { q: 'What happens to the authorization when switching ABA agencies on Partners?', a: 'Partners applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Partners utilization management.' },
     ],
   },
 
@@ -2130,6 +2266,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+      { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2176,12 +2313,13 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Not addressed. Neither CPB 0554, CPB 0648 nor the ABA medical necessity guide sets telehealth rules or place-of-service codes for ABA; the behavioral health provider manual covers telemedicine only as a member-facing Teladoc-style offering that self-insured plan sponsors may opt out of.',
+        value: 'Not addressed. Neither CPB 0554, CPB 0648 nor the ABA medical necessity guide sets telehealth rules or place-of-service codes for ABA; the behavioral health provider manual covers telemedicine only as a member-facing Teladoc-style offering that self-insured plan sponsors may opt out of. Aetna’s June 2026 provider manual says only that "Aetna Behavioral Health offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services," and points to Aetna.com for approved telehealth services. It does not say which ABA codes, including the 97151/97152 assessment and 97155 supervision, may be billed remotely.',
         status: 'unverified',
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+          { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
         verifyVia: 'Availity, or the precertification line on the member ID card — ask which ABA codes Aetna will pay via telehealth on this specific plan, and with which POS code and modifier.',
         blocker: 'per-case',
@@ -2267,6 +2405,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in North Carolina?', a: 'Yes — under the carrier\'s national policy for ASD, layered on North Carolina\'s mandate (N.C.G.S. § 58-3-192) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the North Carolina autism mandate require?', a: 'North Carolina’s mandate (effective July 2016) requires covered health benefit plans to cover “adaptive behavior treatment” — the statutory term; ABA itself isn’t named, but board certified behavior analysts are among the eight authorized provider categories, and treatment must be ordered by a licensed physician or licensed psychologist. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in North Carolina?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the North Carolina Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s ABA medical necessity guide does not require a technician credential. Services must be provided directly or billed by a licensed behavior analyst (where the state licenses them), a BCBA or a licensed psychologist. Where plans or state law allow services by people who are not licensed or BACB-certified, they must be supervised and directed in line with practice standards. State law or the plan can require more.' },
     ],
   },
 
@@ -2314,6 +2453,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '$40,000/yr cap, CPI-indexed (parity-limited)' },
       { label: 'Exempt from mandate', value: 'Non-grandfathered individual/small group; self-funded ERISA' },
       { label: 'Licensure', value: 'NC Licensed Behavior Analyst (NCBALB, since 2023)' },
+      { label: 'Fee schedule', value: 'Not public — your rates and the list of reimbursable ASD services are in Exhibit A of your Evernorth provider agreement' },
     ],
     sections: [
       {
@@ -2354,6 +2494,27 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'North Carolina Behavior Analyst Licensure Board', url: 'https://ncbehavioranalystboard.org/' },
         ],
       },
+      {
+        h2: 'What is Cigna\'s fee schedule for ABA?',
+        body: [
+          'Cigna\'s behavioral health arm, Evernorth, publishes no ABA rate table. Its September 2026 Administrative Guidelines tell contracted providers: "For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement." Fee schedule and contract questions go to Evernorth Provider Services at 800.926.2273.',
+          'Billing follows the AMA codes only: "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," in 15-minute units, under Evernorth payer ID 62308.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Is Cigna\'s ABA network open to new providers?',
+        body: [
+          'Evernorth says it "is committed to expanding our network of autism providers." Providers must be certified by a national governing agency or a state licensing board (BCBA, BCBA-D, BCaBA, licensed behavior analyst, licensed behavior specialist or other behavioral health licensure). Individual providers complete the Evernorth Behavioral Provider Information Form; autism clinics and large groups complete the Evernorth Screening Application for Autism Clinics.',
+          'Timing: "It may take up to 90 days for an application to be processed," and after a clinic contract is signed each certified or licensed provider must be credentialed, which "can take an additional 60 to 90 days." Providers must be fully credentialed to render in-network services. Questions go to BehavioralContracting@Evernorth.com or Provider Services at 800.926.2273.',
+        ],
+        cites: [
+          { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2367,6 +2528,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'N.C. Gen. Stat. § 58-3-192 (autism coverage mandate)', url: 'https://codes.findlaw.com/nc/chapter-58-insurance/nc-gen-st-sect-58-3-192/' },
       { title: 'Autism Speaks — North Carolina state-regulated coverage', url: 'https://www.autismspeaks.org/north-carolina-state-regulated-insurance-coverage' },
       { title: 'North Carolina Behavior Analyst Licensure Board', url: 'https://ncbehavioranalystboard.org/' },
+      { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2410,7 +2572,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'All ABA CPT codes are covered telehealth services per the Evernorth autism resource guide, and EN0499 allows delivery in person, via telehealth, or as a hybrid — the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The requirement that the ABA provider remain in line of sight and close proximity to the individual expressly does not apply to telehealth services. Where treatment is delivered in settings with additional behavioral expectations, telehealth included, the plan must document that the service still meets the definition of direct treatment and direct engagement.',
+        value: 'All ABA CPT codes are covered telehealth services per the Evernorth autism resource guide, and EN0499 allows delivery in person, via telehealth, or as a hybrid — the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The requirement that the ABA provider remain in line of sight and close proximity to the individual expressly does not apply to telehealth services. Where treatment is delivered in settings with additional behavioral expectations, telehealth included, the plan must document that the service still meets the definition of direct treatment and direct engagement. That code-level statement covers the assessment codes 97151 and 97152 and BCBA supervision (97155) as well as treatment; neither document sets a cap on the share of supervision delivered remotely.',
         status: 'verified',
         cites: [
           { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
@@ -2492,7 +2654,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Cigna cover ABA therapy in North Carolina?', a: 'Yes — under the carrier\'s national policy for ASD, layered on North Carolina\'s mandate (N.C.G.S. § 58-3-192) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the North Carolina autism mandate require?', a: 'North Carolina’s mandate (effective July 2016) requires covered health benefit plans to cover “adaptive behavior treatment” — the statutory term; ABA itself isn’t named, but board certified behavior analysts are among the eight authorized provider categories, and treatment must be ordered by a licensed physician or licensed psychologist. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
-      { q: 'What does Cigna pay for ABA in North Carolina?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the North Carolina Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'What does Cigna pay for ABA in North Carolina?', a: 'Evernorth (Cigna behavioral health) publishes no ABA rate table. Its administrative guidelines say your fee schedule and the list of reimbursable autism services are in Exhibit A of your Evernorth provider agreement; call Provider Services at 800.926.2273 with fee schedule questions.' },
+      { q: 'Is Cigna (Evernorth) accepting new ABA providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Individuals file the Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; processing can take up to 90 days, plus 60 to 90 days of credentialing per provider after a clinic contract.' },
+      { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth\'s autism resource guide does not name a technician credential. It says Evernorth "does not credential nonlicensed/noncertified staff" and that their services "must be billed under the supervising provider." Case supervision must come from a BCBA, LBA or independently licensed clinician with ABA training. State licensure rules can add requirements.' },
     ],
   },
 
@@ -2539,6 +2703,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '$40,000/yr cap, CPI-indexed (parity-limited)' },
       { label: 'Exempt from mandate', value: 'Non-grandfathered individual/small group; self-funded ERISA' },
       { label: 'Licensure', value: 'NC Licensed Behavior Analyst (NCBALB, since 2023)' },
+      { label: 'Fee schedule', value: 'Not public — bill the codes and charges on your contracted Optum ABA fee schedule; paid at your contracted rate' },
     ],
     sections: [
       {
@@ -2573,6 +2738,26 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
       { title: 'North Carolina Behavior Analyst Licensure Board', url: 'https://ncbehavioranalystboard.org/' },
+        ],
+      },
+      {
+        h2: 'What is UnitedHealthcare\'s fee schedule for ABA?',
+        body: [
+          'Optum, which runs UnitedHealthcare\'s commercial ABA network, publishes no ABA rate table. Its ABA CPT FAQ: "FOR COMMERCIAL MEMBERS, you should bill your contracted billing codes and customary charges as outlined on your Fee Schedule after receiving appropriate authorization. You will be reimbursed based on your contracted rate." Participating groups bill on the Form 1500 "with the billing codes indicated on your contracted fee schedule." A provider that is not yet contracted should call the behavioral health number on the member\'s card to obtain approvals before billing.',
+          'MUEs apply to the commercial ABA program, except that Optum allows 32 units a day of 97151 so assessments can run in longer sessions. Your rates are in your Optum agreement; there is no public lookup.',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      {
+        h2: 'Is UnitedHealthcare\'s ABA network open to new providers?',
+        body: [
+          'Optum describes how to join rather than whether the network is open. Its ABA FAQ lists the credentialing criteria: an individual behavior analyst needs BACB certification as a BCBA, state licensure or certification where the state requires it, at least six months of supervised ABA experience, and $1 million/$1 million professional liability coverage. A group needs analysts who meet those standards, an analyst or licensed clinician on staff providing program oversight, and $1 million/$3 million professional liability plus general or supplemental liability coverage. Apply through the "Join Our Autism/ABA Network" section of the Autism/ABA page on Provider Express.',
+          'Timing: "Solo Behavior Analysts/Specialists and Group credentialing can take from 45 to 120 days," and "an audit is required for all new ABA Agencies and normally it can take up to 90 days to schedule." Optum publishes no statement on whether it is adding ABA providers in a given area; its Provider Service Line (1-877-614-0484) handles network questions.',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
     ],
@@ -2634,7 +2819,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” For assessments, that list matters: 97151 and 97152 are not among the three telehealth codes, so Optum’s guide gives no telehealth path for the initial assessment or a reassessment on commercial plans. BCBA supervision of the technician (97155) is one of the three, as is caregiver training (97156, 97157).',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -2721,8 +2906,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in North Carolina?', a: 'Yes — under the carrier\'s national policy for ASD, layered on North Carolina\'s mandate (N.C.G.S. § 58-3-192) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the North Carolina autism mandate require?', a: 'North Carolina’s mandate (effective July 2016) requires covered health benefit plans to cover “adaptive behavior treatment” — the statutory term; ABA itself isn’t named, but board certified behavior analysts are among the eight authorized provider categories, and treatment must be ordered by a licensed physician or licensed psychologist. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
-      { q: 'What does UnitedHealthcare pay for ABA in North Carolina?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the North Carolina Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'What does UnitedHealthcare pay for ABA in North Carolina?', a: 'Optum publishes no ABA rate table. Contracted providers bill the codes and customary charges on their Optum fee schedule after authorization and are "reimbursed based on your contracted rate." Rates are set in your participating-provider agreement, so ask Optum network management before you contract.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers?', a: 'Optum publishes its ABA credentialing criteria and an application route ("Join Our Autism/ABA Network" on Provider Express), not an open or closed status. Credentialing takes 45 to 120 days, and new agencies also need an Optum audit, which can take up to 90 days to schedule. Ask the Provider Service Line (1-877-614-0484) about need in your area.' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'Yes, or an equivalent. Optum\'s ABA FAQ says technicians working directly with children 1:1 must be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT) or a certified Applied Behavior Analysis Technician (ABAT), or hold another certification approved by network management. State rules may add to or override this.' },
+      { q: 'Can the ABA assessment or BCBA supervision be done by telehealth with UnitedHealthcare?', a: 'On commercial plans Optum allows ABA telehealth only for 97155, 97156 and 97157. That covers BCBA supervision of the technician (97155), but not the assessment codes 97151 and 97152. The provider must have completed Optum\'s virtual-visits attestation, and claims carry POS 02 or POS 10.' },
     ],
   },
   'medcost': {
