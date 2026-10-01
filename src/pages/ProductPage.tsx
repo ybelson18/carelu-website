@@ -3,6 +3,8 @@ import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
 import { Nav } from './Landing';
 import SiteFooter from '../components/SiteFooter';
+import ChannelHub from '../components/product/ChannelHub';
+import SpeedTimeline from '../components/product/SpeedTimeline';
 
 /* ================================================================
    CARELU — PRODUCT
@@ -222,6 +224,25 @@ export default function ProductPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Same family, two paths */}
+      <section style={{ paddingTop: 'clamp(40px, 5vw, 64px)' }}>
+        <div style={W}>
+          <div className="rv"><SpeedTimeline /></div>
+        </div>
+      </section>
+
+      {/* First touch: every channel */}
+      <section style={SECTION}>
+        <div style={W}>
+          <div className="rv" style={{ maxWidth: 760 }}>
+            <Eyebrow>It all starts with the first touch</Eyebrow>
+            <h2 style={H2}>Wherever a family comes in, Carelu is there first</h2>
+            <p style={{ ...BODY, fontSize: 17, marginTop: 18 }}>Chat, your website form, a phone call, a Facebook ad or a doctor’s referral. It doesn’t matter. Every first touch gets the same instant answer and the same path to a finished intake.</p>
+          </div>
+          <div className="rv d2" style={{ marginTop: 40 }}><ChannelHub /></div>
         </div>
       </section>
 
