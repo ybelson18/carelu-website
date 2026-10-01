@@ -134,7 +134,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
@@ -374,7 +374,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
@@ -586,7 +586,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
@@ -813,7 +813,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
@@ -1019,7 +1019,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
@@ -1226,7 +1226,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
@@ -1460,7 +1460,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'Aetna’s own rule is written for telehealth explicitly. Its Network Participation Criteria (form 8100606-01-01, 5/26) bind every Hybrid and Virtual Only provider: “Providers must satisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located. As required by applicable law, providers must also hold licenses, registrations, and certifications in the state(s) in which they are physically located.” The ABA criteria add that BCBAs “must meet the current Aetna® credentialing and recredentialing standards” and that “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” So a BCBA treating a child located in Indiana by video must meet Indiana’s requirements as well as those of the state the BCBA works from, and only codes on Aetna’s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth.',
@@ -1698,7 +1698,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'Evernorth, which manages Cigna’s behavioral benefits, frames it as a compliance duty rather than a member-state rule. Its Administrative Guidelines (September 2026): “Providers must meet all state requirements to provide virtual behavioral services, including any licenses and certifications,” must “comply with their state laws about the use of audio or video-based technology,” and providers who meet the telehealth specialty requirements “may deliver services virtually with no additional credentialing” after attesting on the Attested Specialty Form, when Evernorth adds “telehealth” to the provider profile. The guidelines do not say in terms which state’s license a remote BCBA needs, so read “all state requirements” against Indiana’s licensure law above and confirm with Evernorth before a remote start.',
@@ -1933,10 +1933,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
-          'Optum, which runs UnitedHealthcare’s commercial behavioral network, is explicit. Its National Network Manual (effective September 1, 2026): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service. In addition, providers must comply with all licensing laws and telehealth regulations in the jurisdiction(s) where the provider is licensed and where the member is receiving treatment.” For a child located in Indiana, that means a Indiana license before the first remote session.',
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, is explicit. Its National Network Manual (effective September 1, 2026): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service. In addition, providers must comply with all licensing laws and telehealth regulations in the jurisdiction(s) where the provider is licensed and where the member is receiving treatment.” For a child located in Indiana, that means an Indiana license before the first remote session.',
         ],
         cites: [
           { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
@@ -2206,7 +2206,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'Anthem’s ABA Provider Resource Guide (June 2025) lists BCBAs among approved providers, alongside “other mental health service providers licensed or authorized by the state in which they practice and recognized by the affiliated health plan Anthem to be eligible for reimbursement,” and sends providers to the state-specific Credentialing with Anthem pages; for telehealth it points to Anthem’s Virtual Visits reimbursement policy for the allowed codes. It does not say which state’s license a remote BCBA needs, so confirm with Anthem credentialing before treating a member remotely from another state.',
@@ -2474,7 +2474,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'Anthem’s ABA Provider Resource Guide (June 2025) lists BCBAs among approved providers, alongside “other mental health service providers licensed or authorized by the state in which they practice and recognized by the affiliated health plan Anthem to be eligible for reimbursement,” and sends providers to the state-specific Credentialing with Anthem pages; for telehealth it points to Anthem’s Virtual Visits reimbursement policy for the allowed codes. It does not say which state’s license a remote BCBA needs, so confirm with Anthem credentialing before treating a member remotely from another state.',
@@ -2727,7 +2727,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        h2: 'Can an out-of-state BCBA treat an Indiana member, including by telehealth?',
         body: [
           'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
           'We have not verified CareSource Marketplace’s own credentialing rule for out-of-state BCBAs; ask CareSource provider relations, and expect it to look to Indiana licensure.',
