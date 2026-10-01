@@ -224,6 +224,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' },
         ],
       },
+      {
+        h2: 'Does NJ FamilyCare allow retroactive authorization for ABA?',
+        body: [
+          'ABA is authorized by the child\'s MCO, so the rules for a late authorization request are each MCO\'s (see the plan guides). The state supplies retroactive eligibility instead. Anyone applying for Medicaid or NJ FamilyCare-Plan A "shall be asked if he or she has unpaid medical bills incurred within the three-month period immediately prior to the month of application," and must raise it with the eligibility agency within six months of the application date, or "retroactive eligibility will not be established." For children, "Retroactive eligibility is available to cover unpaid medical bills for up to three months prior to the date of application," but "There is no retroactive eligibility coverage for children eligible for NJ FamilyCare-Children\'s Program-Plan B, C or D." When the state\'s Retroactive Eligibility Unit finds that an SSI/Medicaid member was eligible, providers are notified directly and must submit the claim to the fiscal agent "within 90 days of the date the provider is notified in writing of the retroactive eligibility." Separately, a child still pending MCO assignment is covered fee-for-service with no prior authorization (see above).',
+        ],
+        cites: [
+          { title: 'N.J.A.C. 10:49-2.9 — Medicaid or NJ FamilyCare-Plan A retroactive eligibility (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-2-9' },
+          { title: 'N.J.A.C. 10:79-2.6 — Retroactive eligibility, NJ FamilyCare Plan A only (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-79-2-6' },
+        ],
+      },
     ],
     collect: [
       { title: 'MCO — or pending-enrollment status', desc: 'Horizon, Aetna, Fidelis, UHC, or Wellpoint decides the portal and process; a member still pending MCO assignment can start FFS with NO prior authorization.' },
@@ -251,6 +261,8 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' },
       { title: 'NJ DMAHS — NJ FamilyCare Health Plans (current MCO roster)', url: 'https://nj.gov/humanservices/dmahs/providers-stakeholders/provider-resources/health-plans' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+      { title: 'N.J.A.C. 10:49-2.9 — Medicaid or NJ FamilyCare-Plan A retroactive eligibility (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-2-9' },
+      { title: 'N.J.A.C. 10:79-2.6 — Retroactive eligibility, NJ FamilyCare Plan A only (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-79-2-6' },
     ],
     faq: [
       { q: 'Does NJ FamilyCare cover ABA therapy?', a: 'Yes — under EPSDT for members with autism (roughly 18 months to 21), delivered and prior-authorized through the five NJ FamilyCare MCOs since April 1, 2020.' },
@@ -258,6 +270,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { q: 'What does New Jersey Medicaid pay for ABA?', a: 'FFS rates per 15-minute unit: 97153 $15.00 (raised from $11.20 in February 2022), 97155 $21.25, 97151 and 97156 $25.00, 0362T $25.00, 0373T $16.40. MCOs aren\'t required to match the FFS schedule, though Aetna Better Health published an identical one.' },
       { q: 'Is a comprehensive diagnostic evaluation required for ABA in New Jersey?', a: 'No — per Optum\'s NJ Medicaid criteria, a plain ASD diagnosis (F84.0–F84.9) from a physician or psychologist suffices; a comprehensive diagnostic evaluation is not a prerequisite.' },
       { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
+      { q: 'Does NJ FamilyCare pay for ABA delivered before the child was enrolled?', a: 'Only through retroactive eligibility. Medicaid and NJ FamilyCare Plan A can cover unpaid bills for up to three months before the application month if the family asks within six months of applying; Plans B, C and D have no retroactive coverage. Retroactive authorization once enrolled is up to the child\'s MCO.' },
     ],
   },
 
@@ -427,6 +440,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'DMAHS BH Integration Points of Contact V3.1 — Horizon ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
         ],
       },
+      {
+        h2: 'Does Horizon NJ Health allow retroactive authorization for ABA?',
+        body: [
+          'Yes, within a short window. Horizon NJ Health\'s provider manual (section 11.4.2, Retrospective Review) says Horizon "will accept the clinical review … for prior authorizations including outpatient medical and behavioral health within six business days," and lists "ABA services" among the behavioral health services this covers. Submit it in the Utilization Management Request Tool on Availity Essentials, choosing "Post Service" as the Event Classification; "Horizon NJ Health has up to 30 days to review retrospective requests." Beyond that, "In extenuating circumstances related to eligibility verification/exhaustion of primary benefit, such inquiries will be reviewed on a case-by-case basis and require supporting documentation."',
+        ],
+        cites: [
+          { title: 'Horizon NJ Health — Provider Administrative Manual', url: 'https://www.horizonnjhealth.com/provider-admin-manual' },
+        ],
+      },
     ],
     collect: [
       { title: 'ASD script + diagnosis', desc: 'The QHP\'s ASD script triggers the 32-unit/30-day assessment fast-track — collect it at first contact.' },
@@ -444,12 +466,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+      { title: 'Horizon NJ Health — Provider Administrative Manual', url: 'https://www.horizonnjhealth.com/provider-admin-manual' },
     ],
     faq: [
       { q: 'Does Horizon NJ Health cover ABA therapy?', a: 'Yes — it administers the NJ FamilyCare ABA benefit under EPSDT, with its own medical policy and MCG-based review layered on the state code set. Both assessment and treatment require prior authorization via NaviNet.' },
       { q: 'How fast is Horizon\'s ABA assessment authorization?', a: 'Fast — once eligibility, an ASD diagnosis, and a QHP script are confirmed, Horizon issues a 32-unit 97151 authorization valid for 30 days without a full clinical review. Treatment requests then get MCG review within 14 days, in 6-month spans.' },
       { q: 'Is Horizon changing its ABA policy in 2026?', a: 'For NJ FamilyCare members, one change: H0032 is retired for ABA effective July 15, 2026 — use 97151–97158/0362T/0373T. Authorizations created through July 14, 2026 with H0032 are honored, and H0032 is still paid on authorized services rendered through January 14, 2027. Horizon\'s January 1, 2026 ABA medical-policy revision applies to its commercial and ASO plans, not to Horizon NJ Health Medicaid members.' },
       { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
+      { q: 'Does Horizon NJ Health allow retro authorization for ABA?', a: 'Yes, narrowly. Its manual accepts retrospective review of outpatient behavioral health authorizations, ABA included, within six business days; submit through Availity as "Post Service." Horizon has up to 30 days to decide. Eligibility problems or a primary plan\'s exhausted benefit are reviewed case by case with documentation.' },
     ],
   },
 
@@ -483,9 +507,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Not published. Neither the DMAHS newsletter nor Optum\'s New Jersey entry sets a maximum age for the diagnostic evaluation, and the state\'s written position runs the other way: Optum\'s NJ Medicaid entry says flatly that "A comprehensive diagnostic evaluation is not required to access ABA services," so there is no comprehensive evaluation whose recency could be gated. What is dated in New Jersey is the authorization rather than the diagnosis — Horizon issues 32 units of 97151 valid for 30 days, and treatment authorizations run in 6-month spans.',
+          'Not published. Aetna Better Health of New Jersey\'s provider manual (August 2026) and its behavioral health prior authorization form set no maximum age for the diagnostic report: the form asks for the ICD-10/DSM-5 code, the treatment plan and current clinical data, not a dated evaluation. The state\'s written position runs the same way: Optum\'s NJ Medicaid entry says a "comprehensive diagnostic evaluation is not required to access ABA services." What the plan does date is the authorization: prior authorization numbers "are valid for the date of service authorized. If a date is not specified, service must be initiated within sixty (60) days after the service was authorized," and the member must be eligible on each date of service.',
         status: 'unverified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        cites: [{ title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }, { title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Aetna Better Health of New Jersey provider services (1-855-232-3596) or the plan\'s named ABA clinical contacts on the DMAHS BH integration contact sheet.',
         blocker: 'per-case',
@@ -498,9 +522,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       diagnosticTools: {
         value:
-          'None required — and New Jersey is one of the few states that says so in terms. Optum\'s NJ Medicaid entry: "A comprehensive diagnostic evaluation is not required to access ABA services," with "ABA services … available to any child diagnosed with autism spectrum disorder as defined by ICD-10 diagnoses F84.0 through F84.9." The DMAHS newsletter names no instrument either. That makes this the friendliest diagnostic bar of the three states on this page — intake should not queue a New Jersey family for an ADOS-2 before starting the authorization. Aetna Better Health of New Jersey publishes no deviation from this, and its own material was checked for one.',
+          'None required — and New Jersey is one of the few states that says so in terms. Optum\'s NJ Medicaid entry: "A comprehensive diagnostic evaluation is not required to access ABA services," with "ABA services … available to any child diagnosed with autism spectrum disorder as defined by ICD-10 diagnoses F84.0 through F84.9." The DMAHS newsletter names no instrument either. That makes this the friendliest diagnostic bar of the three states on this page — intake should not queue a New Jersey family for an ADOS-2 before starting the authorization. Aetna Better Health of New Jersey adds none of its own: its behavioral health prior authorization form asks only for the ICD-10/DSM-5 code, and its ABA section asks for request type, treatment setting, clinical symptoms or social barriers and a discharge plan, plus clinical data, progress, compliance and "For ABA Requests, include treatment plan" — no ADOS-2, adaptive scale or other named instrument. The August 2026 provider manual names no ABA diagnostic instrument either.',
         status: 'verified',
-        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        cites: [{ title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' }, { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }],
       },
       referral: {
         value:
@@ -557,11 +581,11 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Neither the state nor Aetna Better Health of New Jersey publishes a session-note signature rule for ABA \u2014 no named signer and no timeframe.',
-        status: 'unverified',
+          'No ABA-specific rule, but the plan\'s minimum medical-record standards for all practitioners apply: "Signatures — entries are signed and dated by the responsible licensed provider; the responsible licensed provider countersigns care rendered by ancillary personnel; alterations of the record are signed and dated," and every entry must identify its author. Read for ABA, a technician\'s session note needs the supervising licensed provider\'s countersignature. No signing deadline is set, but records the plan requests "must be sent to us within 14 days of our request."',
+        status: 'verified',
+        cites: [{ title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }],
         verifyVia:
-          'Aetna Better Health of New Jersey\u2019s provider manual documentation chapter, or DMAHS\u2019s Autism Line (609-588-8522).',
-        blocker: 'document',
+          'Aetna Better Health of New Jersey provider services (1-855-232-3596) — confirm who may countersign technician notes (LBA/BCBA) on audit.',
       },
       placeOfService: {
         value:
@@ -611,6 +635,25 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' },
         ],
       },
+      {
+        h2: 'Does Aetna Better Health of New Jersey allow retroactive authorization for ABA?',
+        body: [
+          'Its provider manual (August 2026) provides for post-service review but does not say when one will be accepted. The decision table includes "Post-service approval of a service for which no pre-service request was received," decided "Within 30 calendar days of the request," and a post-service denial within 30 calendar days of receiving the necessary information. ABA is on the plan\'s authorization list ("ABA/DIR Therapy — Yes authorization"), so treat post-service review as an exception, not a substitute. Two related rules: when other insurance pays first, "prior authorization of a service is not required, unless it is known that the service provided is not covered by the primary payer"; and authorizations are valid for the dates authorized (or 60 days to start if no date is given), with the member "enrolled and eligible on each date of service."',
+        ],
+        cites: [
+          { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
+        ],
+      },
+      {
+        h2: 'What documents does Aetna Better Health of New Jersey require for ABA?',
+        body: [
+          'No ABA-specific template. Requests go through Availity or on the plan\'s behavioral health prior authorization form, whose ABA section asks for the request type (initial or concurrent, and how long the member has been in services), the treatment setting, clinical symptoms or social barriers and an anticipated discharge date. Attach clinical data (psychosocial and behavioral history, mental status, current maladaptive behaviors or skill deficits, co-occurring and medical conditions), progress or lack of it (for initial requests, the response to earlier interventions), compliance with treatment, and "For ABA Requests, include treatment plan." The form must be signed in its attestation section and "completed in its entirety in order to receive a determination." Neither the form nor the manual names a diagnostic instrument or a maximum age for the diagnosis. Session records fall under the plan\'s general medical-record standards, including signature and countersignature of ancillary staff\'s entries.',
+        ],
+        cites: [
+          { title: 'Aetna Better Health NJ — BH prior authorization request form', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_bh_prior_auth_form.pdf' },
+          { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'ASD diagnosis + QHP script', desc: 'The state baseline applies — diagnosis from a physician/psychologist opens the assessment authorization.' },
@@ -627,12 +670,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Autism NJ — Medicaid rate increase for ABA services', url: 'https://autismnj.org/news/autism-new-jerseys-advocacy-leads-to-medicaid-rate-increase-for-aba-services/' },
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+      { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
     ],
     faq: [
       { q: 'Does Aetna Better Health of New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit closest to the state baseline of all five MCOs, with a published rate sheet and unit limits copied from the DMAHS schedule. PA is required, via Availity or the BH prior auth form.' },
       { q: 'What does Aetna Better Health NJ pay for ABA?', a: 'Its published 2020 sheet mirrors the state FFS schedule: $25.00 for 97151/97156, $21.25 for 97155, and $11.20 for 97153. The state raised 97153 to $15.00 in February 2022 — whether Aetna followed is unverified, so confirm in your contract.' },
       { q: 'How fast does Aetna Better Health NJ decide ABA authorizations?', a: 'Urgent requests within 24 hours; routine requests within 7 days. Progress reports go via Availity or fax (844) 404-3972.' },
       { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
+      { q: 'Does Aetna Better Health NJ Medicaid allow retro auth for ABA?', a: 'Its manual lists a post-service review for services with no pre-service request, decided within 30 calendar days, but ABA still requires prior authorization and the manual sets no conditions for accepting a late request. If a commercial plan is primary and covers ABA, Aetna Better Health does not require its own prior authorization.' },
+      { q: 'Does Aetna Better Health of New Jersey have specific document rules for ABA?', a: 'It has a required form, not a template. The BH prior authorization form\'s ABA section asks for request type, treatment setting, clinical symptoms and a discharge plan, with clinical data, progress, compliance and the treatment plan attached. It names no diagnostic instrument and no diagnosis age limit; technician notes need the licensed provider\'s countersignature under its medical-record standards.' },
     ],
   },
 
@@ -794,6 +840,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Fidelis Care NJ — Medicaid Provider Quick Reference Guide (July 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/ProviderQRG/NJ_Caid_Provider_Quick_Reference_Guide_2026_R.pdf' },
         ],
       },
+      {
+        h2: 'Does Fidelis Care New Jersey allow retroactive authorization for ABA?',
+        body: [
+          'Only after retroactive eligibility or an emergency. Fidelis Care\'s 2026 New Jersey Medicaid manual: Fidelis "will review post-service requests for authorization of inpatient admissions or outpatient services only if, at the time of treatment, the Member was not eligible but became eligible with Fidelis Care retroactively or in cases of emergency treatment and the payer is not known at the time of service." The review uses "the same approved medical criteria used for the pre-service decisions," and "All services performed without Prior Authorization are subject to Retrospective Review by Fidelis Care." So ABA delivered before a family\'s Fidelis enrollment was made retroactive can be reviewed; a missed authorization for a member who was already enrolled cannot.',
+        ],
+        cites: [
+          { title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan identity on "WellCare" inquiries', desc: 'WellCare of NJ is now Fidelis Care — same plan, new name; verify the current card.' },
@@ -808,12 +863,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+      { title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
     ],
     faq: [
       { q: 'Does Fidelis Care New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan). No plan-specific ABA policy is published, so the state baseline is the rulebook to plan against.' },
       { q: 'Is Fidelis Care NJ the same as WellCare?', a: 'Yes — WellCare of NJ rebranded to Fidelis Care under Centene. The state\'s own contact documents still carry both names.' },
       { q: 'What does Fidelis Care NJ pay for ABA?', a: 'Unverified — no fee schedule or ABA rate document is published. Your provider contract is the only source of truth; benchmark against the state FFS schedule ($15.00/unit 97153, $21.25 97155, $25.00 97151/97156).' },
       { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
+      { q: 'Does Fidelis Care NJ accept retroactive ABA authorization requests?', a: 'Only when the member became eligible with Fidelis retroactively, or in an emergency where the payer was unknown. Fidelis then reviews the services against the same criteria it uses before services.' },
     ],
   },
 
@@ -986,6 +1043,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
         ],
       },
+      {
+        h2: 'Does UnitedHealthcare Community Plan of New Jersey allow retroactive authorization for ABA?',
+        body: [
+          'Only in unusual circumstances. Behavioral health for this plan, ABA included, runs through Optum, and the NJ Medicaid addendum says providers must follow both the UHC Community Plan manual and the Optum National Network Manual; the addendum lists ABA as "Covered with prior authorization" on every NJ FamilyCare plan. The national manual: "On occasion, emergent or other unusual circumstances will interfere with the prior authorization processes. In those cases, requests for a retrospective review of services must be submitted within 180 calendar days of the date(s) of service, unless otherwise mandated by state law." A request must explain why prior authorization was not obtained and include the medical record; it is processed "at the sole discretion of Optum," decided within 30 calendar days, and requests outside the time frame "will not be processed."',
+        ],
+        cites: [
+          { title: 'Optum — UHC Community Plan of NJ Behavioral Health Provider Network Manual Addendum (2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/welcomeNtwk/nj/njMedicaidManual.pdf' },
+          { title: 'Optum Behavioral Health — National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'ASD diagnosis — any physician/psychologist', desc: 'No comprehensive evaluation needed; a plain dx opens the benefit. Don\'t queue families for a full workup first.' },
@@ -1000,11 +1067,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
       { title: 'NJMMIS \u2014 ABA Treatment Provider FFS enrollment packet (Gainwell)', url: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+      { title: 'Optum — UHC Community Plan of NJ Behavioral Health Provider Network Manual Addendum (2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/welcomeNtwk/nj/njMedicaidManual.pdf' },
+      { title: 'Optum Behavioral Health — National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of New Jersey cover ABA?', a: 'Yes — the NJ FamilyCare ABA benefit, administered by Optum Behavioral Health under Optum\'s criteria plus a dedicated NJ Medicaid entry (revised November 2025). Requests go through Provider Express\'s NJ ABA path.' },
       { q: 'Does UHC NJ Medicaid require a comprehensive diagnostic evaluation for ABA?', a: 'No — Optum\'s NJ entry says so explicitly. An ASD diagnosis (F84.0–F84.9) from any physician or psychologist opens the benefit for members 18 months to 21 years.' },
       { q: 'Can ABA be delivered in schools for UHC NJ members?', a: 'Yes, outside normal school hours — Optum\'s NJ entry permits school-setting services as long as they don\'t occur during the school day, a looser position than the state\'s original 2020 rule.' },
+      { q: 'Does UHC Community Plan NJ allow retro authorization for ABA?', a: 'Only when emergent or unusual circumstances prevented prior authorization. Optum accepts a retrospective review request within 180 days of service, with the reason and the medical record, and decides within 30 days at its discretion.' },
     ],
   },
 
@@ -1165,6 +1235,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'DMAHS BH Integration Points of Contact V3.1 — Wellpoint ABA contacts', url: 'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf' },
         ],
       },
+      {
+        h2: 'Does Wellpoint New Jersey allow retroactive authorization for ABA?',
+        body: [
+          'Wellpoint\'s New Jersey provider manual publishes no retroactive-authorization process. A missing authorization leads to an "administrative denial," which it defines as one made "when a contractual requirement is not met, such as late notification of admissions, lack of prior authorization or failure by the provider to submit clinical when requested." An appeal "must address the reason for the denial such as why prior authorization was not obtained," and if Wellpoint overturns the administrative decision, "the case will be reviewed for medical necessity and if approved, the claim will be reprocessed."',
+        ],
+        cites: [
+          { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan identity on "Amerigroup" inquiries', desc: 'Amerigroup NJ is now Wellpoint — verify the current card.' },
@@ -1178,12 +1257,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+      { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
     ],
     faq: [
       { q: 'Does Wellpoint New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit on the state baseline (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan), with authorization via Availity or (800) 454-3730. No plan-specific ABA criteria are published.' },
       { q: 'Is Wellpoint NJ the same as Amerigroup?', a: 'Yes — Amerigroup New Jersey rebranded to Wellpoint under Elevance. Cards and directories may still carry the old name.' },
       { q: 'How do I join Wellpoint NJ\'s ABA network?', a: 'Through Carelon Behavioral Health (provider.relations.NJ@carelon.com) — a separate contracting funnel from the Wellpoint medical plan. Being contracted for medical services doesn\'t put you in the ABA network.' },
       { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
+      { q: 'Does Wellpoint NJ allow retroactive ABA authorization?', a: 'Its manual has no retro-authorization process. Services without prior authorization get an administrative denial; you can appeal by explaining why authorization was not obtained, and if Wellpoint overturns the denial it reviews medical necessity and may reprocess the claim.' },
     ],
   },
 
@@ -1394,6 +1475,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
       },
+      {
+        h2: 'Does Aetna allow retroactive authorization for ABA in New Jersey?',
+        body: [
+          'Aetna publishes no retroactive-authorization rule for ABA. Its provider manual (6/26) says "Applied behavior analysis (ABA) services require prior authorization" and describes prior authorization as communicating a coverage decision "before the procedure, service or supply." The process does not apply to "behavioral health benefits that we administer but do not control and self-funded plans with plan sponsors that have expressly purchased specific prior authorization requirements." On a fully insured New Jersey plan, the Ensuring Transparency in Prior Authorization Act adds two protections: a payer may not deny a claim for lack of prior authorization if you asked before the service and the payer did not answer within the legal deadline, and when a covered person moves to another payer that payer "shall accept the authorization" issued by the old one, based on its own plan\'s benefits. Self-funded employer plans are outside the Act. Ask Aetna before relying on a late request.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1413,12 +1504,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+      { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA), since New Jersey treats autism as a biologically-based mental illness. In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
       { q: 'What does Aetna pay for ABA in New Jersey?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. NJ FamilyCare\'s fee-for-service schedule (see the New Jersey Medicaid guide) is the public benchmark.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s network criteria do not require the RBT credential by name: technicians may be paraprofessionals supervised by a BCBA or licensed provider, with at least 1 hour of face-to-face supervision per 10 hours of ABA and the supervisor onsite with the child at least 1 hour a month. Technicians must meet any state requirement, so check the state\'s licensure or Medicaid rules too.' },
+      { q: 'Does Aetna allow retro authorization for ABA in New Jersey?', a: 'Aetna publishes no retro-authorization rule; ABA needs precertification before services. On a fully insured NJ plan, state law bars a no-authorization denial if Aetna missed its decision deadline, and requires a new payer to honor an existing authorization.' },
     ],
   },
 
@@ -1625,6 +1718,18 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Does Cigna allow retroactive authorization for ABA in New Jersey?',
+        body: [
+          'Within two weeks, yes. Cigna asks providers to request ABA authorization "up to 30 days in advance of or two weeks after the start date of service. A delay in request may result in a retrospective review and could delay the determination for up to 30 days." Assessment codes 97151, 97152 and 0362T need no prior authorization when the provider is independently licensed or a BCBA and the plan covers ABA. EN0499 applies the same criteria to late requests: "When authorization requests involve coverage of services conducted retrospectively, ALL the criteria from initiation of treatment section (and continued treatment section as applicable) are met, coinciding with the dates of service." For requests outside that, Evernorth\'s administrative guidelines require "an explanation of the extraordinary circumstances responsible for the delay or failure to obtain prior authorization" (for example, wrong insurance information) with the medical records; "The denial decision will be upheld if the provider or facility only submits a medical record and not the explanation." On a fully insured New Jersey plan, the Ensuring Transparency in Prior Authorization Act adds two protections: a payer may not deny a claim for lack of prior authorization if you asked before the service and the payer did not answer within the legal deadline, and when a covered person moves to another payer that payer "shall accept the authorization" issued by the old one, based on its own plan\'s benefits. Self-funded employer plans are outside the Act.',
+        ],
+        cites: [
+          { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1640,12 +1745,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ Board of Applied Behavior Analyst Examiners — FAQ', url: 'https://www.njconsumeraffairs.gov/abae/Pages/FAQ.aspx' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
       { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
     ],
     faq: [
       { q: 'Does Cigna cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national EN0499 policy for ASD (no PA on assessment codes 97151/97152/0362T), layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does EN0499 apply to New Jersey fully-insured plans?', a: 'Yes — unlike Virginia, New Jersey has no carve-out in the current EN0499. NJ fully-insured plans sit under the policy\'s generic state-mandate language, with P.L. 2009, c.115 controlling as the state mandate.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA). In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
       { q: 'What does Cigna pay for ABA in New Jersey?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. NJ FamilyCare\'s fee-for-service schedule (see the New Jersey Medicaid guide) is the public benchmark.' },
+      { q: 'Does Cigna allow retro authorization for ABA?', a: 'Cigna accepts ABA authorization requests up to two weeks after services start (a later request may go to retrospective review, up to 30 days). Assessment codes need no authorization. Beyond that you need to document extenuating circumstances, such as wrong insurance information.' },
     ],
   },
 
@@ -1868,6 +1975,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
+      {
+        h2: 'Does UnitedHealthcare allow retroactive authorization for ABA in New Jersey?',
+        body: [
+          'Only in unusual circumstances. Optum\'s Behavioral Health National Network Manual (effective September 1, 2026): "On occasion, emergent or other unusual circumstances will interfere with the prior authorization processes. In those cases, requests for a retrospective review of services must be submitted within 180 calendar days of the date(s) of service, unless otherwise mandated by state law." A request must give the reason prior authorization was not obtained and include the medical record; it is processed "at the sole discretion of Optum," decided within 30 calendar days, and late requests "will not be processed." On a fully insured New Jersey plan, the Ensuring Transparency in Prior Authorization Act adds two protections: a payer may not deny a claim for lack of prior authorization if you asked before the service and the payer did not answer within the legal deadline, and when a covered person moves to another payer that payer "shall accept the authorization" issued by the old one, based on its own plan\'s benefits. Self-funded employer plans are outside the Act.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health — National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1888,6 +2005,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
       { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national policy for ASD (Optum\'s two-step Provider Express authorization), layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1896,6 +2014,306 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'What does UnitedHealthcare pay for ABA in New Jersey?', a: 'UnitedHealthcare/Optum publishes no ABA rates. You are paid up to the Fee Maximum in your Optum agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) under Optum’s ABA reimbursement policy. Ask Optum network management for your rate sheet. NJ FamilyCare\'s fee-for-service schedule (see the New Jersey Medicaid guide) is the public benchmark.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'For commercial plans, Optum\'s ABA reimbursement policy defines the technician line: the approved rendering provider for the HM modifier (less than a bachelor\'s degree) is "a Registered Behavior Technician (RBT)," and a BCaBA bills HN. The policy notes that state regulatory requirements "may supplement, modify or supersede" it. So plan on RBT-certified technicians for UHC commercial members.' },
+      { q: 'Does UnitedHealthcare allow retro authorization for ABA?', a: 'Optum reviews services after the fact only when emergent or unusual circumstances prevented prior authorization, if asked within 180 days with the reason and records. On fully insured NJ plans, state law also bars a no-authorization denial if the payer missed its decision deadline.' },
+    ],
+  },
+
+  'horizon-bcbs-new-jersey': {
+    slug: 'horizon-bcbs-new-jersey',
+    family: 'bcbs',
+    cardDesc: 'Medical Policy 165 + ABA reimbursement policy: PA on every ABA code, a daily-unit table, and school-hours rules.',
+    assessmentPA: {
+      value: 'Required — "All ABA codes require prior authorization for medical necessity review" (Horizon ABA reimbursement policy, revised 3/26/2026); request through the Utilization Management Request Tool in Availity Essentials with form 40001 attached',
+      status: 'verified',
+      cites: [
+        { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
+        { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — every ABA code; treatment plans are revised every 6 months (concurrent review), with progress reports due at least two weeks and no more than 30 days before the authorization end date',
+      status: 'verified',
+      cites: [
+        { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
+        { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+        { title: 'Horizon BCBSNJ — Applied Behavior Analysis Provider Report Guidelines (August 2024)', url: 'https://www.horizonblue.com/sites/default/files/ABA_Report_Guidelines%208.2024.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — ASD (ICD-10 F84.0–F84.9) diagnosed by a QHP (pediatrician, APN, pediatric neurologist, child psychiatrist or psychologist); ABA for other diagnoses is not medically necessary except as the NJ autism mandate or MHPAEA requires',
+      status: 'verified',
+      cites: [
+        { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
+        { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+      ],
+    },
+    payer: 'Horizon Blue Cross Blue Shield of New Jersey',
+    state: 'NJ', kind: 'commercial',
+    intakeGates: {
+      ageLimit: {
+        value:
+          'Horizon\'s medical policy sets no upper age for commercial members. Its criteria apply to "fully insured plans and … self-funded plans that have opted to follow the New Jersey Autism and Developmental Disabilities Mandate," and the revision effective December 1, 2026 adds guidance on care models "for adults with ASD" and age-banded intensity thresholds (requests above 33 hours a week under age 6, 27 hours for ages 7-12, and 28 hours over 12 need extra clinical justification). The age cap that does exist is the legal layer: the mandate (P.L. 2009, c.115) reaches ABA for individuals under 21, and the individual and small-employer (IHC/SEH) boards extended ABA to adults with autism in amendments adopted in November 2014. A self-funded plan that did not opt in follows its own plan document. Horizon\'s Medicaid line (Horizon NJ Health) is a separate guide with an under-21 limit.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'Horizon BCBSNJ Medical Policy 165 — ASD Treatment Services: ABA and DIR/Floortime (effective 12/1/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/cf5ac712-dd58-45df-11d5-01816106a41e' },
+          { title: 'Autism NJ — Amendments to Insurance Mandate Expand Coverage', url: 'https://autismnj.org/news/amendments-to-insurance-mandate-expand-coverage/' },
+        ],
+        verifyVia: 'Horizon Behavioral Health (1-800-626-2212; SHBP/SEHBP 1-800-991-5579): ask whether the plan is fully insured, a self-funded group that opted into the NJ mandate, or a self-funded group that did not, and whether the plan document has an ABA age limit.',
+        blocker: 'per-case',
+      },
+      dxRecency: {
+        value:
+          'A soft window, not a fixed number. The current policy asks for "a signed, recent diagnosis of Autism Spectrum Disorder (ASD) (e.g., within the last few years) including level of severity" under DSM-5; the December 1, 2026 revision reads "A signed, current (e.g., within the past several years) diagnosis … including DSM‑5‑TR severity level." The adaptive measure has its own clock: a standardized instrument of behavior and adaptive functioning is required as a baseline and repeated "no more frequently than every 6 months in support of the treatment plan unless Horizon and the treating physician agree that a more frequent review is necessary." So an old diagnostic report without a severity level is the thing most likely to be sent back.',
+        status: 'verified',
+        cites: [
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'Horizon BCBSNJ Medical Policy 165 — ASD Treatment Services: ABA and DIR/Floortime (effective 12/1/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/cf5ac712-dd58-45df-11d5-01816106a41e' },
+        ],
+      },
+      diagnosingProviders: {
+        value:
+          'A named list. The medical policy defines the Qualified Health Professional who makes the diagnosis as "a Pediatrician, Advanced Practice Nurses (APNs), Pediatric Neurologist, Child Psychiatrist or Psychologist," and the reimbursement policy repeats it for claims: the ASD code must be "diagnosed by a Qualified Health Professional (QHP) such as a Pediatrician, Pediatric Neurologist, Advanced Practice Nurses (APNs), Child Psychiatrist or Psychologist with Autism Services within their scope of practice." A BCBA writes the treatment plan but is not on the diagnosing list. For initial requests, form 40001 asks for "Proof of autism diagnosis by a Qualified Health Professional."',
+        status: 'verified',
+        cites: [
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value:
+          'Two layers. Diagnosis: the policy wants the ASD diagnosis "made through extended observation and the use of standardized criteria (e.g., DSM-5-TR) or standardized diagnostic tools (e.g., Autism Diagnostic Interview, Revised (ADI-R)\'; Autism Diagnostic Observation Schedule, Second Edition (ADOS-2)" — the ADI-R and ADOS-2 are examples, not a mandate, in the current version. The December 1, 2026 revision tightens this to "Diagnostic evaluation performed using extended observation and a standardized tool." If the diagnosis includes intellectual disability, a psychologist\'s report with standardized intelligence testing is required. Treatment: a "standardized, norm referenced baseline assessment of behavioral and adaptive functioning (e.g., PDDBI, Vineland, ABAS)" plus a functional assessment "using validated behavioral analysis tools," with test scores. Form 40001 asks for the last standardized assessment and any curriculum assessment (ABLLS, AFLS, PEAK, VB-MAPP) with dates and scores.',
+        status: 'verified',
+        cites: [
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'Horizon BCBSNJ Medical Policy 165 — ASD Treatment Services: ABA and DIR/Floortime (effective 12/1/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/cf5ac712-dd58-45df-11d5-01816106a41e' },
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+        ],
+      },
+      referral: {
+        value:
+          'Not published. Horizon\'s ABA medical policy, reimbursement policy and form 40001 require a QHP diagnosis, a BCBA-signed treatment plan ("Signature of the ordering health care provider (i.e., BCBA)") and prior authorization, but state no PCP referral or physician order. Whether an HMO-type plan adds a referral is a plan-document question.',
+        status: 'unverified',
+        cites: [
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+        ],
+        verifyVia: 'Horizon Behavioral Health (1-800-626-2212) or the member\'s plan document: ask whether the member\'s product requires a PCP referral for behavioral health.',
+        blocker: 'per-case',
+      },
+      telehealth: {
+        value:
+          'Covered as telemedicine, with prior approval. Horizon\'s Telemedicine and Telehealth Services reimbursement policy (revised 12/18/2025) lists 97151–97158 among its telemedicine codes and pays real-time audio-video services billed with modifier 95 or GT, POS 10 when the member is at home and POS 02 when the member is in an office or facility; "Any service requiring a medical necessity for a face-to-face visit also requires a medical necessity approval for services provided through telemedicine channels. Request and approval of the medical necessity must be obtained prior to rendering the services." Participating providers are paid "at the same rate as that of the existing Professional Agreement Allowances." The ABA medical policy adds that telehealth services are "held to the same medical necessity criteria as in-person care" and that "Clinical justification for services rendered via telehealth must be included within the treatment plan"; the December 2026 revision makes telehealth one of the treatment locations that needs a submitted clinical rationale. So 97151 assessment and 97155 supervision by telehealth are payable when authorized for telehealth. N.J.S.A. 26:2S-29 (P.L.2021, c.310) requires a carrier to cover telehealth on the same basis as in person.',
+        status: 'verified',
+        cites: [
+          { title: 'Horizon BCBSNJ reimbursement policy — Telemedicine and Telehealth Services (revised 12/18/2025)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/telemedicine-and-telehealth-services' },
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+        ],
+      },
+      authTurnaround: {
+        value:
+          'Depends on how the plan is funded; Horizon publishes no ABA-specific clock. Fully insured New Jersey plans follow the Ensuring Transparency in Prior Authorization Act (in force January 1, 2025): for services such as ABA the payer must answer "no later than 12 days if the request is submitted in paper, or nine days if submitted through an electronic portal provided by the payer," and urgent-care claims no later than 72 hours after receipt; if the provider does not answer a request for more information within 72 hours the request is "deemed withdrawn"; a prior authorization for a chronic or long-term condition "shall remain valid for 180 days" unless a shorter period is needed with notice to the provider. If the payer misses its deadline, the claim "shall not be denied on the basis of a failure to secure prior or concurrent authorization." Self-funded (ERISA) plans follow the federal claims rule: pre-service decisions "not later than 15 days after receipt," one 15-day extension, urgent within 72 hours.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+          { title: 'NJ DOBI Bulletin 24-17 — Ensuring Transparency in Prior Authorization Act', url: 'https://nj.gov/dobi/bulletins/blt24_17.pdf' },
+          { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+        ],
+        verifyVia: 'Benefits verification: fully insured NJ policy (ETPAA 9/12-day clock, 180-day authorizations) vs. self-funded ERISA plan (15 days / 72 hours).',
+        blocker: 'per-case',
+      },
+      coordinationOfBenefits: {
+        value:
+          'For a child on two parents\' plans, New Jersey\'s coordination-of-benefits rule for fully insured group contracts puts first "the plan of the parent whose birthday falls earlier in a year"; "birthday" means month and day only, and if both parents share a birthday the plan that covered the parent longer pays first. Self-funded plans set their order in the plan document. Note that Horizon\'s ABA reimbursement policy and its telemedicine policy both list Coordination of Benefits as out of scope, so when Horizon is secondary, ask how ABA claims and authorizations are handled.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'N.J.A.C. 11:4-28.6 — Rules for coordination of benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-11-4-28-6' },
+          { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
+        ],
+        verifyVia: 'Benefits verification with both plans: which is primary for the child, and whether Horizon requires its own ABA authorization when it is secondary.',
+        blocker: 'per-case',
+      },
+    },
+    deliveryRules: {
+      supervision: {
+        value:
+          'Horizon follows the DOBI position quoted in its medical policy: ABA is eligible for benefits "if administered directly by or under the direct supervision of an individual who is credentialed by the national Behavior Analyst Certification Board as either: A Board Certified Behavior Analyst - Doctoral (BCBA-D); Or a Board Certified Behavior Analyst (BCBA)." Form 40001 describes 97153 as treatment "administered by technician under the direction of BCBA, receiving 1 hour of supervision for every 5 to 10 hours of direct treatment." Session documentation must name everyone working with the member and their designation ("BCBA, BcaBA, RBT, etc."). No published rule requires the RBT credential by name.',
+        status: 'verified',
+        cites: [
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Not stated as a rule. Form 40001 says 97155 "May be used for Direction of Technician (Supervision) face-to-face with one member," and the medical policy requires session records to show "what treatments were performed concurrent/overlapping and whether intervention was with member, caregiver(s), or both." Neither document says in terms whether 97155 and 97153 pay for the same minutes.',
+        status: 'unverified',
+        cites: [
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+        ],
+        verifyVia: 'Horizon Behavioral Health provider line (1-800-626-2212): ask whether 97155 pays alongside 97153 when the BCBA directs the technician face-to-face.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value:
+          'Published. Horizon\'s ABA reimbursement policy "shall apply the maximum daily allowable units" per 15-minute code: 97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16, 0373T 32. Billing above what was authorized "will not be considered for reimbursement," units billed above the daily limits trigger medical-necessity review, and moving the same service to another code to get around the limit "will be denied and/or subject to medical necessity review."',
+        status: 'verified',
+        cites: [{ title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' }],
+      },
+      noteSignature: {
+        value:
+          'Horizon sets note content, not a session-note signer or deadline. The medical policy wants narrative session notes tied to treatment-plan goals, start/stop times (breaks and snacks not billable), who worked with the member and their credential, prompt level, and data per opportunity; session data summaries are "submitted upon request on a case-by-case basis." The treatment plan must carry the "Signature of the ordering health care provider (i.e., BCBA)," and both the assessment report and the progress report end with the "Signature, title, and credential of the author of the report as well as the supervising BCBA, if different than the author."',
+        status: 'unverified',
+        cites: [
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Provider Report Guidelines (August 2024)', url: 'https://www.horizonblue.com/sites/default/files/ABA_Report_Guidelines%208.2024.pdf' },
+        ],
+        verifyVia: 'Your Horizon participation agreement and Horizon\'s record-keeping standards: ask who must sign each session note and by when.',
+        blocker: 'per-case',
+      },
+      placeOfService: {
+        value:
+          'School is the restriction. Until November 30, 2026 the medical policy says "ABA hours provided per this policy will be for time of treatment outside of the school setting (i.e., home or office setting). The school is responsible for ABA provided by an aide throughout the school day," and "Services supplied by the member\'s school district are excluded"; ABA delivered under an NJ Early Intervention plan or a school IEP "is not eligible for coverage by Horizon BCBSNJ." From December 1, 2026 the revised policy allows some school-based ABA: "ABA services delivered during core instructional periods are generally not medically necessary when the requested intervention primarily supports educational participation, classroom instruction, or academic performance. School-based ABA services may be considered medically necessary during non-instructional periods, including lunch, recess, transitions, and other natural social environments," when they target clinically significant deficits and are "not duplicative of supports provided under the member\'s IEP." Any requested location (center, home, school, community, telehealth) needs a clinical rationale. Form 40001 asks for hours per week by setting: member\'s home, facility/clinic, or other. Telehealth bills POS 10 (home) or 02.',
+        status: 'verified',
+        cites: [
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'Horizon BCBSNJ Medical Policy 165 — ASD Treatment Services: ABA and DIR/Floortime (effective 12/1/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/cf5ac712-dd58-45df-11d5-01816106a41e' },
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+          { title: 'Horizon BCBSNJ reimbursement policy — Telemedicine and Telehealth Services (revised 12/18/2025)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/telemedicine-and-telehealth-services' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'The behavior analyst. Horizon "shall only consider applied behavior analysis services for reimbursement when submitted by a Board Certified Behavior Analyst (BCBA®/BCBA-D®) or Licensed Behavioral Analyst," and will not pay ABA claims "submitted by a specialty other than" those. Form 40001 asks for the BCBA certification number, NJ LBA license number, the BCBA\'s NPI and the group TIN/NPI, and says the practitioner information "should match the information that will be submitted on claims." Technicians are not billed under their own NPI.',
+        status: 'verified',
+        cites: [
+          { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+        ],
+      },
+    },
+    pill: 'Payer Guide · Horizon BCBSNJ · New Jersey',
+    h1: 'Horizon Blue Cross Blue Shield of New Jersey ABA coverage: the intake guide.',
+    metaTitle: 'Horizon BCBSNJ ABA Coverage: Prior Auth, School & Mandate Guide | Carelu',
+    metaDescription:
+      'How Horizon Blue Cross Blue Shield of New Jersey covers ABA for commercial members — Medical Policy 165, prior authorization on every ABA code, the daily unit table, school-hours rules before and after December 1, 2026, telehealth, and the P.L. 2009, c.115 mandate.',
+    intro: [
+      'Horizon BCBSNJ is New Jersey\'s Blue plan. For its commercial members ABA runs on two of its own documents: Medical Policy 165, which sets the clinical and documentation criteria (revised effective December 1, 2026), and an ABA reimbursement policy that requires prior authorization for every ABA code and caps daily units. New Jersey\'s autism mandate sits underneath for fully insured plans and for self-funded groups that opted in. Horizon\'s Medicaid plan, Horizon NJ Health, follows NJ FamilyCare rules and has its own guide.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes — for ASD, under Horizon Medical Policy 165' },
+      { label: 'Prior auth', value: 'Required on every ABA code, assessment included' },
+      { label: 'ABA in school', value: 'Outside the school setting only, until 11/30/2026; from 12/1/2026, non-instructional periods may qualify' },
+      { label: 'State mandate', value: 'P.L. 2009, c.115 (N.J.S.A. 17:48-6ii and parallel sections)' },
+      { label: 'Mandate age', value: 'Under 21 in statute; IHC/SEH markets extended ABA to adults (amendments adopted Nov 2014)' },
+      { label: 'Mandate caps', value: '$36,000/yr in statute — DOBI Bulletin 10-02: conflicts with federal parity (MHPAEA) for group plans' },
+      { label: 'Exempt from mandate', value: 'Self-funded groups that did not opt in (plan document governs)' },
+      { label: 'Licensure', value: 'NJ Licensed Behavior Analyst (LBA) or BCBA/BCBA-D bills the claim' },
+      { label: 'Fee schedule', value: 'Not public — paid at your Horizon Professional Agreement Allowances' },
+    ],
+    sections: [
+      {
+        h2: 'What does Horizon need with an ABA authorization request?',
+        body: [
+          'Requests go through the Utilization Management Request Tool in Availity Essentials. Form 40001 (ABA Supplemental Information) goes with it, plus proof of the autism diagnosis by a QHP (initial requests), current symptoms, the treatment plan, the functional assessment tool and, for concurrent requests, a progress summary. The form asks for hours per week by setting and units per code, and for concurrent reviews it asks you to explain any period where units requested were more than units used. Medical Policy 165 lists what the treatment plan must contain: measurable goals with baselines, frequency and duration, caregiver goals and participation, coordination with other providers and educators, the member\'s school supports and "verification of a current Individualized Education Program (IEP)," discharge and fading plans, a norm-referenced baseline (PDDBI, Vineland or ABAS), and the BCBA\'s signature. Treatment plans are revised every 6 months. Horizon\'s ABA Provider Report Guidelines give the outline for the assessment report and the progress report; progress reports are due "at minimum, two weeks prior to, and no more than 30 days, to the authorization end date," with graphed data per goal.',
+        ],
+        cites: [
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Provider Report Guidelines (August 2024)', url: 'https://www.horizonblue.com/sites/default/files/ABA_Report_Guidelines%208.2024.pdf' },
+        ],
+      },
+      {
+        h2: 'Can Horizon pay for ABA in school?',
+        body: [
+          'Until November 30, 2026, no. The current Medical Policy 165 says authorized ABA hours "will be for time of treatment outside of the school setting (i.e., home or office setting). The school is responsible for ABA provided by an aide throughout the school day." Services the school district supplies are excluded, and ABA that is part of an NJ Early Intervention service plan or a school IEP "is not eligible for coverage by Horizon BCBSNJ" (form 40001 repeats this).',
+          'From December 1, 2026, the revised policy opens a narrow door. ABA during "core instructional periods" is generally not medically necessary when it mainly supports classroom instruction or academics. ABA in school "may be considered medically necessary during non-instructional periods, including lunch, recess, transitions, and other natural social environments," when it targets clinically significant deficits in social communication, emotional regulation, adaptive functioning, safety or peer interaction and does not duplicate IEP supports. Every requested location, school included, needs a clinical rationale with the request. Services supplied by the school district stay excluded.',
+        ],
+        cites: [
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'Horizon BCBSNJ Medical Policy 165 — ASD Treatment Services: ABA and DIR/Floortime (effective 12/1/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/cf5ac712-dd58-45df-11d5-01816106a41e' },
+          { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Horizon allow retroactive authorization for ABA?',
+        body: [
+          'Not as a routine path. The ABA reimbursement policy says "All ABA codes require prior authorization" and "Any request without prior authorization will prompt a denial of claims and require medical necessity review upon receipt of medical records." So services delivered without authorization are reviewed after the fact (a post-service medical-necessity review) only once the claim is denied and records are sent; payment is not assured. For telehealth, approval "must be obtained prior to rendering the services."',
+          'New Jersey law protects you in two cases on fully insured plans. Under the Ensuring Transparency in Prior Authorization Act, a payer may not deny a claim for lack of prior authorization if you asked before the service and the payer did not answer within the legal deadline. And if a child changes plans, the new payer "shall accept the authorization" issued by the old one, based on the new plan\'s benefits. Self-funded plans are outside the Act.',
+        ],
+        cites: [
+          { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
+          { title: 'Horizon BCBSNJ reimbursement policy — Telemedicine and Telehealth Services (revised 12/18/2025)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/telemedicine-and-telehealth-services' },
+          { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+        ],
+      },
+      {
+        h2: 'The New Jersey mandate under Horizon\'s policy',
+        body: [
+          'Medical Policy 165 starts from the mandate: P.L. 2009, c.115 requires policies issued or renewed on or after February 9, 2010 to cover "medically necessary behavioral interventions based on the principles of applied behavior analysis and related structural behavioral programs as prescribed by a treatment plan." Horizon applies the mandate and its own criteria to fully insured plans and to self-funded plans that opted to follow the mandate; for self-funded plans that did not, the same medical-necessity criteria apply but "Contract exclusions and/or limitations related to Applied Behavior Analysis(ABA) will determine the available benefit." The statute\'s $36,000 yearly ABA cap is mostly unusable on group plans: DOBI Bulletin 10-02 says the cap on a condition "classified in New Jersey law as a mental illness conflicts with federal provisions prohibiting such limits" under the federal parity law (MHPAEA). The individual and small-employer health benefits boards extended ABA coverage to adults with autism (amendments adopted in November 2014, effective January 2015).',
+        ],
+        cites: [
+          { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+          { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
+          { title: 'Autism NJ — Amendments to Insurance Mandate Expand Coverage', url: 'https://autismnj.org/news/amendments-to-insurance-mandate-expand-coverage/' },
+        ],
+      },
+      {
+        h2: 'What is Horizon\'s fee schedule for ABA?',
+        body: [
+          'Horizon publishes no ABA rate table. Its reimbursement policies make payment subject to "The terms of any applicable provider participation agreement," and the telemedicine policy says participating providers are paid "at the same rate as that of the existing Professional Agreement Allowances." Participating providers may not bill the member beyond cost-sharing ("there shall be no member liability"); a non-participating provider\'s member "may be up to the provider\'s charge." Get rates from your Horizon agreement or Horizon network relations (BHNetworkRelations@HorizonBlue.com). For a public benchmark, see the NJ FamilyCare fee-for-service rates in the New Jersey Medicaid guide.',
+        ],
+        cites: [
+          { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
+          { title: 'Horizon BCBSNJ reimbursement policy — Telemedicine and Telehealth Services (revised 12/18/2025)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/telemedicine-and-telehealth-services' },
+          { title: 'Horizon: Medical Policy Changes — ABA (eff. 1/1/2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/medical-policy-changes-applied-behavior-analysis' },
+        ],
+      },
+      {
+        h2: 'Contacts',
+        body: [
+          'Horizon Behavioral Health runs ABA utilization and care management for commercial members: 1-800-626-2212, or 1-800-991-5579 for the State Health Benefits Program (SHBP) and School Employees\' Health Benefits Program (SEHBP). Horizon also runs an autism care management program. Clinical questions about the policy go to the Medical Policy department (medpol_ask@horizonblue.com, linked from the policy); network questions to BHNetworkRelations@HorizonBlue.com.',
+        ],
+        cites: [
+          { title: 'Horizon BCBSNJ — Horizon Behavioral Health provider resources', url: 'https://www.horizonblue.com/providers/products-programs/horizon-behavioral-health-sm' },
+          { title: 'Horizon BCBSNJ Medical Policy 165 — ASD Treatment Services: ABA and DIR/Floortime (effective 12/1/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/cf5ac712-dd58-45df-11d5-01816106a41e' },
+          { title: 'Horizon: Medical Policy Changes — ABA (eff. 1/1/2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/medical-policy-changes-applied-behavior-analysis' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Plan funding type', desc: 'Fully insured, self-funded that opted into the NJ mandate, or self-funded that did not. It decides which rules apply. SHBP/SEHBP members use a separate phone line.' },
+      { title: 'Line of business', desc: 'Horizon commercial vs. Horizon NJ Health (NJ FamilyCare Medicaid). Different rules and a different guide.' },
+      { title: 'Diagnosis report', desc: 'Signed, recent ASD diagnosis with DSM-5 severity level, from a pediatrician, APN, pediatric neurologist, child psychiatrist or psychologist, ideally with the standardized tool used.' },
+      { title: 'IEP and school schedule', desc: 'Horizon wants to see the current IEP and school supports, and it does not pay school-hours ABA (narrowly allowed in non-instructional periods from 12/1/2026).' },
+      { title: 'Baseline adaptive measure', desc: 'PDDBI, Vineland or ABAS score, repeated no more often than every 6 months.' },
+    ],
+    sources: [
+      { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
+      { title: 'Horizon BCBSNJ Medical Policy 165 — ASD Treatment Services: ABA and DIR/Floortime (effective 12/1/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/cf5ac712-dd58-45df-11d5-01816106a41e' },
+      { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
+      { title: 'Horizon BCBSNJ reimbursement policy — Telemedicine and Telehealth Services (revised 12/18/2025)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/telemedicine-and-telehealth-services' },
+      { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+      { title: 'Horizon BCBSNJ — Applied Behavior Analysis Provider Report Guidelines (August 2024)', url: 'https://www.horizonblue.com/sites/default/files/ABA_Report_Guidelines%208.2024.pdf' },
+      { title: 'Horizon BCBSNJ — Horizon Behavioral Health provider resources', url: 'https://www.horizonblue.com/providers/products-programs/horizon-behavioral-health-sm' },
+      { title: 'Horizon: Medical Policy Changes — ABA (eff. 1/1/2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/medical-policy-changes-applied-behavior-analysis' },
+      { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
+      { title: 'Autism NJ — Amendments to Insurance Mandate Expand Coverage', url: 'https://autismnj.org/news/amendments-to-insurance-mandate-expand-coverage/' },
+      { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+      { title: 'NJ DOBI Bulletin 24-17 — Ensuring Transparency in Prior Authorization Act', url: 'https://nj.gov/dobi/bulletins/blt24_17.pdf' },
+      { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
+      { title: 'N.J.A.C. 11:4-28.6 — Rules for coordination of benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-11-4-28-6' },
+      { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+    ],
+    faq: [
+      { q: 'Does Horizon BCBSNJ cover ABA therapy?', a: 'Yes, for autism spectrum disorder, under Horizon Medical Policy 165 and the New Jersey autism mandate for fully insured plans and self-funded groups that opted in. Every ABA code needs prior authorization.' },
+      { q: 'Does Horizon NJ commercial have any restrictions on ABA in school?', a: 'Yes. Until November 30, 2026, Horizon pays ABA only outside the school setting; the school is responsible for ABA during the school day, and IEP or Early Intervention services are not covered. From December 1, 2026, school-based ABA may be approved during non-instructional periods (lunch, recess, transitions) if it is not duplicative of the IEP and you justify the setting. ABA during core instruction is generally not medically necessary.' },
+      { q: 'Does Horizon allow retroactive authorization for ABA?', a: 'Not routinely. Its ABA reimbursement policy says a service without prior authorization gets a claim denial and then a medical-necessity review once records arrive. On fully insured plans, NJ law bars a no-authorization denial if Horizon missed its decision deadline, and a new payer must honor an existing authorization when a child switches plans.' },
+      { q: 'Can ABA be delivered by telehealth with Horizon?', a: 'Yes, when authorized. Horizon\'s telemedicine policy lists 97151–97158; bill modifier 95 or GT with POS 10 (home) or 02, get medical-necessity approval before the service, and explain the telehealth use in the treatment plan.' },
+      { q: 'Does Horizon require RBT certification?', a: 'Not by name in its published policies. ABA must be delivered by or under the direct supervision of a BCBA or BCBA-D, and the BCBA or NJ Licensed Behavior Analyst bills the claim. Form 40001 expects 1 hour of supervision for every 5 to 10 hours of technician treatment.' },
     ],
   },
 };
