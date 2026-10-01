@@ -275,34 +275,30 @@ export const utahPayers: Record<string, PayerConfig> = {
     slug: 'select-health-utah',
     cardDesc: 'Two different products under one name: Community Care (Medicaid) rides UT FFS; commercial runs its own Policy #630.',
     assessmentPA: {
-      value: 'Community Care (Medicaid) members: none — routes to Utah Medicaid FFS, not Select Health. Commercial members: required — ABA Preauthorization Form, initial request',
-      status: 'unverified',
+      value: 'Community Care (Medicaid) members: none — routes to Utah Medicaid FFS, not Select Health (Section I of the Utah Medicaid manual lists ASD services among the carve-outs "not covered by any of the MCEs"). Commercial members: required — ABA Preauthorization Form, initial request',
+      status: 'verified',
       cites: [
         { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
       ],
-      verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — selecthealth.org returns 403 to every automated client; a human must fetch it via carelu.com/sources. Separately, the Utah Medicaid ASD manual (January 2026, read 9/17/2026) does NOT state that ABA is carved out of the ACOs to fee-for-service: it says only that ASD-related medical services go to the MCE and that diagnostic mental-health evaluations/psychological testing are carved out — confirm the ABA carve-out with the Utah Medicaid PA unit (dmhfmedicalpolicy@utah.gov).',
-      blocker: 'document',
     },
     treatmentPA: {
       value: 'Community Care (Medicaid) members: routes to Utah Medicaid FFS. Commercial members: required — concurrent ABA Preauthorization Form; 14-day decision (Utah)',
-      status: 'unverified',
+      status: 'verified',
       cites: [
         { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
       ],
-      verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — selecthealth.org returns 403 to every automated client; a human must fetch it via carelu.com/sources. Separately, the Utah Medicaid ASD manual (January 2026, read 9/17/2026) does NOT state that ABA is carved out of the ACOs to fee-for-service: it says only that ASD-related medical services go to the MCE and that diagnostic mental-health evaluations/psychological testing are carved out — confirm the ABA carve-out with the Utah Medicaid PA unit (dmhfmedicalpolicy@utah.gov).',
-      blocker: 'document',
     },
     dxRequired: {
-      value: 'Yes — ASD; Medicaid members follow Utah Medicaid\'s diagnostic-tool requirement, commercial members follow Select Health Policy #630 (confirm exact criteria with plan — current policy text not publicly retrievable at review)',
-      status: 'unverified',
+      value: 'Yes — ASD on both sides. Medicaid members follow Utah Medicaid\'s diagnostic-tool requirement (no specific instrument mandated). Commercial members follow Select Health Medical Policy #630 (Applied Behavior Analysis): a DSM-5 diagnosis of ASD (ICD-10/F84.0; F84.3–F84.9) obtained by an appropriate provider per the requirements of the state the provider practices in — in Utah, a physician board-certified in neurology, psychiatry or pediatrics with ASD-diagnosing experience, or an experienced licensed psychologist, with the diagnosis resting on medically necessary assessments, evaluations or tests. Select Health considers ABA experimental/investigational for any indication other than ASD.',
+      status: 'verified',
       cites: [
         { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
-        { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
+        { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
       ],
-      verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — selecthealth.org returns 403 to every automated client; a human must fetch it via carelu.com/sources. Separately, the Utah Medicaid ASD manual (January 2026, read 9/17/2026) does NOT state that ABA is carved out of the ACOs to fee-for-service: it says only that ASD-related medical services go to the MCE and that diagnostic mental-health evaluations/psychological testing are carved out — confirm the ABA carve-out with the Utah Medicaid PA unit (dmhfmedicalpolicy@utah.gov).',
-      blocker: 'document',
     },
     payer: 'Select Health (Utah)',
     state: 'UT', kind: 'medicaid-mco', parent: 'Utah Medicaid',
@@ -338,10 +334,10 @@ export const utahPayers: Record<string, PayerConfig> = {
       {
         h2: 'Commercial members: Select Health\'s own ABA policy',
         body: [
-          'For employer-group, self-funded, and individual/marketplace members, Select Health runs its own numbered medical policy — Policy #630, "Applied Behavior Analysis (ABA)" — which Select Health\'s February 2026 Policy Update Bulletin confirms was revised effective January 1, 2026 (the bulletin describes reorganized medical-necessity criteria and removal of an FEHB-plan exception, but the policy PDF itself returned a maintenance error at every attempt during this review — treat specific diagnostic or hour-based criteria as unverified until confirmed directly with Select Health). What is independently confirmed from Select Health\'s own live 2026 ABA Preauthorization Form: it distinguishes an initial request (diagnostic evaluation report required) from a concurrent/continuation request (updated treatment plan with progress data required), and Utah decisions on commercial plans are due within 14 days absent expedited review. The form also collects a detailed weekly ABA schedule (day, time, setting — office/home/other), school and other-therapy schedules, and IEP/ISP/504/ARD status — build that into your intake packet before submitting.',
+          'For employer-group, self-funded, and individual/marketplace members, Select Health runs its own numbered medical policy — Policy #630, "Applied Behavior Analysis (ABA)" — last revised 1/1/2026 (implementation date 3/14/19; prior revisions 1/15/21, 5/7/21, 2/27/24, 11/13/24, 7/1/25). The policy\'s own medical-necessity criteria, now directly confirmed: target behaviors must impact the member\'s participation in developmentally-appropriate activities or pose a safety risk, treatment cannot be custodial, and the treatment plan needs identified target behaviors with baseline measures, parent/caregiver goals, discharge criteria, and documented collaboration with existing providers or the school district. ABA must be provided directly or supervised by a licensed behavior analyst, BCBA, or licensed psychologist practicing within scope — unless state mandates, plan documents, or contracts say otherwise — with any unlicensed/non-certified staff supervised in line with practice standards. Either focused or comprehensive ABA is allowed, and access "should not be restricted by age, cognitive level, diagnosis, or co-occurring conditions" unless a state mandate says otherwise. Select Health considers ABA experimental/investigational for anything other than ASD. What is independently confirmed from Select Health\'s own live 2026 ABA Preauthorization Form: it distinguishes an initial request (diagnostic evaluation report required) from a concurrent/continuation request (updated treatment plan with progress data required), and Utah decisions on commercial plans are due within 14 days absent expedited review. The form also collects a detailed weekly ABA schedule (day, time, setting — office/home/other), school and other-therapy schedules, and IEP/ISP/504/ARD status — build that into your intake packet before submitting.',
         ],
         cites: [
-          { title: 'Select Health — Policy Update Bulletin, February 2026 (Policy 630 revision)', url: 'https://selecthealth.org/providers/policies/policy-update-bulletins/policy-update-0226' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
         ],
       },
@@ -386,113 +382,114 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Select Health — Medicaid Provider Summary', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/programs/government/medicaid-provider-summary.pdf' },
       { title: 'Select Health — Provider Reference Manual (Commercial & Government)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
       { title: 'Select Health — Medicaid Member Handbook', url: 'https://selecthealth.org/content/dam/selecthealth/Medicaid/PDFs/medicaid-handbook.pdf' },
-      { title: 'Select Health — Policy Update Bulletin, February 2026 (Policy 630 revision)', url: 'https://selecthealth.org/providers/policies/policy-update-bulletins/policy-update-0226' },
+      { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
       { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
       { title: 'Select Health — Preauthorization Forms & Reports', url: 'https://selecthealth.org/providers/preauthorization/forms-reports' },
       { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
       { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
       { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+      { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
       { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
       { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — the QHP must supervise at least 10% of technician or assistant-analyst direct-service time, at least half of it direct supervision. No Select Health commercial supervision standard is publicly retrievable.',
-        status: 'unverified',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — the QHP must supervise at least 10% of technician or assistant-analyst direct-service time, at least half of it direct supervision. For commercial members, Select Health Policy #630 sets its own floor: "Services should be supervised at a minimum of 5% of direct service hours and should be supervised at least monthly," with services delivered directly by or under the supervision of a licensed behavior analyst, BCBA, or licensed psychologist. The policy also authorizes additional billable QHP protocol-modification/direction time — 1 to 2 hours per 10 hours of treatment by protocol — based on functional-impairment severity.',
+        status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
-        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
-        blocker: 'document',
       },
       concurrentBilling: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — 97155 contemplates the QHP simultaneously directing a technician with the member present, while a behavior analyst personally delivering 97153/97154 may not also bill analyst-level services. No Select Health commercial concurrent-billing rule is publicly retrievable.',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — 97155 contemplates the QHP simultaneously directing a technician with the member present, while a behavior analyst personally delivering 97153/97154 may not also bill analyst-level services. Select Health Policy #630 lists the full CPT set it covers (0362T, 0373T, 96202-96203, 97151-97158) and its own code descriptions mirror AMA language — "97155 ... may include simultaneous direction of technician" — but the policy states no explicit rule on billing 97153 and 97155 for overlapping clock time; this is now confirmed as a genuine gap in the retrieved policy, not a missing document.',
         status: 'unverified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
-        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
-        blocker: 'document',
+        verifyVia: 'Select Health UM (commercialUMintake@imail.org, 800-442-4566) — Policy #630 does not state a concurrent-billing rule, so this is plan-level claims-adjudication guidance, not a document gap.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — limits are set per 26-week authorization period, not per day (97153 up to 780 hours; 97155 plus H0032 capped at 84 combined hours). On the commercial side the Utah mandate removed hour caps for individual and large-group plans entered or renewed since 1/1/2020 — the 600-hours-a-year floor survives only on legacy pre-2020 plans — but small-group and self-funded plans sit outside the statute.',
-        status: 'plan-dependent',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — limits are set per 26-week authorization period, not per day (97153 up to 780 hours; 97155 plus H0032 capped at 84 combined hours). On the commercial side the Utah mandate removed hour caps for individual and large-group plans entered or renewed since 1/1/2020 — the 600-hours-a-year floor survives only on legacy pre-2020 plans — but small-group and self-funded plans sit outside the statute. Select Health Policy #630 itself sets no hard unit cap but ties authorized hours to severity: a guide table bands weekly hours by how far maladaptive behavior, social communication, and self-care skills fall below the population mean — "None" (<1 SD) gets 0 hrs/week, "Mild" (>1 SD) 1–4 hrs/week, "Moderate" (>1.5 SD) 4–7 hrs/week, "Severe" (>2 SD) 7–10 hrs/week — plus a separate assessment-units guide (functional analysis 8–16 units, focused treatment 16–24 units, comprehensive treatment 32 units; 1 unit = 15 minutes). Authorization is reviewed for adjustment up or down at least every 6 consecutive months.',
+        status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
-        verifyVia: 'A live benefits verification — annual maximums and any plan-level hour limits are plan-specific, and Policy #630 could not be retrieved.',
-        blocker: 'per-case',
       },
       noteSignature: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — the treatment plan must carry the name and signature of the QHP who conducted the assessment and developed it, with an attestation of medical necessity. No Select Health commercial documentation or signature standard is publicly retrievable.',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — the treatment plan must carry the name and signature of the QHP who conducted the assessment and developed it, with an attestation of medical necessity. Select Health Policy #630 requires the treatment plan to "identify all staff that will work with the member" and date services are scheduled to start, but — now directly confirmed — publishes no specific signature or co-signer rule of its own for commercial members.',
         status: 'unverified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
-        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
-        blocker: 'document',
+        verifyVia: 'Select Health UM (commercialUMintake@imail.org, 800-442-4566) — Policy #630 does not publish a signature standard, so confirm documentation requirements with the plan directly.',
+        blocker: 'per-case',
       },
       placeOfService: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — home, community and clinic settings are payable across the same day, while IEP-listed school services route to the School-Based Skills Development benefit instead. For commercial members, Select Health\'s ABA Preauthorization Form collects a full weekly schedule by setting (office, home, other) plus school and other-therapy schedules and IEP/ISP/504/ARD status, which is how setting is actually adjudicated.',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — home, community and clinic settings are payable across the same day, while IEP-listed school services route to the School-Based Skills Development benefit instead. For commercial members, Select Health\'s ABA Preauthorization Form collects a full weekly schedule by setting (office, home, other) plus school and other-therapy schedules and IEP/ISP/504/ARD status, which is how setting is actually adjudicated; Policy #630 adds only that "community-based treatments are optimized" with documented collaboration among stakeholders including school psychologists, without naming allowed POS codes.',
         status: 'plan-dependent',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
-        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
-        blocker: 'document',
+        verifyVia: 'Select Health UM (commercialUMintake@imail.org, 800-442-4566) — Policy #630 does not publish specific POS codes, so confirm with the plan directly.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — technicians and assistant analysts work under a QHP who is responsible for all work performed, with credential modifiers (HP, HO, HN) on supervision codes and group-size modifiers on group codes; enrolment runs through state PRISM, not Select Health. No Select Health commercial claim-attribution rule is publicly retrievable.',
-        status: 'unverified',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — technicians and assistant analysts work under a QHP who is responsible for all work performed, with credential modifiers (HP, HO, HN) on supervision codes and group-size modifiers on group codes; enrolment runs through state PRISM, not Select Health. For commercial members, Policy #630 requires that "ABA services must be provided directly or supervised by licensed behavior analysts (in states with Behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists ... unless state mandates, plan documents or contracts require otherwise"; where an unlicensed or non-BACB-certified provider delivers the service under an allowed exception, that work must still carry direction and supervision "in line with practice standards." No separate claim-attribution/NPI rule beyond that is published.',
+        status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
-        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
-        blocker: 'document',
       },
     },
     intakeGates: {
       ageLimit: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — no upper age limit, PRISM showing ages 1 and older including adult plans. For Select Health commercial members, the Utah mandate sets the floor where it applies: Utah Code § 31A-22-642 imposes no age limit on individual and large-group plans entered or renewed since 1/1/2020, but small-group plans are not named by the statute and self-funded ERISA plans are exempt.',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — no upper age limit, PRISM showing ages 1 and older including adult plans. For Select Health commercial members, the Utah mandate sets the floor where it applies: Utah Code § 31A-22-642 imposes no age limit on individual and large-group plans entered or renewed since 1/1/2020, but small-group plans are not named by the statute and self-funded ERISA plans are exempt. Select Health\'s own Policy #630 independently backs this up for the plans it does bind: access to both comprehensive and focused ABA "should not be restricted by age, cognitive level, diagnosis, or co-occurring conditions," unless a state mandate says otherwise.',
         status: 'plan-dependent',
         cites: [
           { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
           { title: 'ASD Related Services program page', url: 'https://medicaid.utah.gov/ltc-2/asd/' },
           { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
         verifyVia: 'A live benefits verification of the member\'s market segment (individual, small-group, large-group or self-funded) — the mandate\'s protections do not reach small-group or self-funded business.',
         blocker: 'per-case',
       },
       dxRecency: {
         value:
-          'No recency window is published on either side. Utah Medicaid states none (see our Utah Medicaid guide), and Select Health\'s commercial ABA Preauthorization Form distinguishes an initial request, which requires the diagnostic evaluation report, from a concurrent request, which requires an updated treatment plan with progress data — without dating the diagnosis.',
-        status: 'unverified',
+          'No recency window is published on either side. Utah Medicaid states none (see our Utah Medicaid guide), and Select Health\'s commercial ABA Preauthorization Form distinguishes an initial request, which requires the diagnostic evaluation report, from a concurrent request, which requires an updated treatment plan with progress data — without dating the diagnosis. Policy #630 confirms this directly: it requires the DSM-5/ICD-10 diagnosis "obtained by an appropriate... licensed provider" but states no maximum age for that diagnosis.',
+        status: 'verified',
         cites: [
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
-        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
-        blocker: 'document',
       },
       diagnosingProviders: {
         value:
@@ -507,40 +504,37 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       diagnosticTools: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — no specific instrument is mandated, but the DSM-5 determination must rest on evidence-based standardized measures and the completed tool accompanies the initial PA. For commercial members, Select Health\'s ABA Preauthorization Form requires the diagnostic evaluation report on an initial request; the instrument criteria inside Policy #630 could not be retrieved.',
-        status: 'unverified',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — no specific instrument is mandated, but the DSM-5 determination must rest on evidence-based standardized measures and the completed tool accompanies the initial PA. For commercial members, Select Health\'s ABA Preauthorization Form requires the diagnostic evaluation report on an initial request, and Policy #630\'s Utah-specific rule likewise names no required instrument — just "medically necessary assessments, evaluations, or tests" behind the diagnosis. The policy\'s background section separately lists the M-CHAT-R/F as an example general ASD screening tool and reproduces the full DSM-5 criteria A–E, but does not make any one instrument mandatory for ABA authorization; continuation reviews instead look for progress measured on "validated scales (e.g. Vineland Adaptive Behavior Scales 3 (VABS-3), the Adaptive Behavior Assessment Scale (ABAS), VB-MAPP, or ABLLS)."',
+        status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
-        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
-        blocker: 'document',
       },
       referral: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — an order or prescription for ABA from a licensed clinician authorized to prescribe it is required in the initial packet and renewed annually. For commercial members, Select Health requires preauthorization on its own ABA Preauthorization Form (commercialUMintake@imail.org, fax 801-442-0825), with Utah decisions due within 14 days absent expedited review; no separate physician referral requirement is published.',
-        status: 'plan-dependent',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — an order or prescription for ABA from a licensed clinician authorized to prescribe it is required in the initial packet and renewed annually. For commercial members, Select Health requires preauthorization on its own ABA Preauthorization Form (commercialUMintake@imail.org, fax 801-442-0825), with Utah decisions due within 14 days absent expedited review; Policy #630 — now directly confirmed — publishes no separate physician-referral requirement beyond the diagnosing-provider rule itself.',
+        status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
-        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
-        blocker: 'document',
       },
       telehealth: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — telehealth covers supervision and parent training but not technician-delivered 97153/97154 or QHP-delivered group 97158, synchronous only, POS 02. For commercial members the form collects a weekly ABA schedule by setting (office, home, other) rather than stating a telehealth rule.',
-        status: 'plan-dependent',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — telehealth covers supervision and parent training but not technician-delivered 97153/97154 or QHP-delivered group 97158, synchronous only, POS 02. For commercial members the Preauthorization Form collects a weekly ABA schedule by setting (office, home, other), and Policy #630 — now directly confirmed — states no telehealth-specific modality rule of its own for ABA.',
+        status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'Select Health — ABA Preauthorization Form (2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf' },
           { title: 'Utah Medicaid Provider Manual — Section I: General Information, ch. 2-6 MCE Carve-Out Services (updated September 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+          { title: 'Select Health Medical Policy #630 — Applied Behavior Analysis (rev. 1/1/26; accessed 10/1/2026)', url: 'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf' },
         ],
-        verifyVia: 'Select Health Policy #630 (Applied Behavior Analysis), revised effective 1/1/2026 — the policy PDF returned a maintenance error at every attempt during review; confirm with Select Health UM (commercialUMintake@imail.org, 800-442-4566).',
-        blocker: 'document',
       },
       authTurnaround: {
         value:

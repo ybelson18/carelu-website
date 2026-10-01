@@ -135,6 +135,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { label: 'Rates (per 15 min)', value: '97151 $19.05 · 97153 $12.26 · 97155 $19.17 · 97156 $19.05' },
       { label: 'Administered by', value: 'Nine MMA plans (since 2/1/2025) + Acentra FFS for non-enrolled recipients' },
       { label: 'Staff screening', value: 'Level 2 fingerprint (FDLE + FBI) via the Clearinghouse — every rendering practitioner, employer-renewed every 5 years' },
+      { label: 'Watch for', value: 'Legislative ABA Task Force (HB 5003-E) reviewing auth limits/duration caps — recommendations due to Tallahassee by 12/31/2026' },
     ],
     sections: [
       {
@@ -182,6 +183,15 @@ export const floridaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'A legislative ABA Task Force is reviewing the program',
+        body: [
+          'Section 40 of House Bill 5003-E (2026E Legislature) created an ABA Task Force inside AHCA, chaired by AHCA Secretary Shevaun L. Harris, to evaluate how Behavior Analysis is delivered under Florida Medicaid so that "the program stays financially sustainable and predictable" without disrupting current recipients\' access. The ten-member task force — pediatricians, behavior analysts, administrators, and family advocates, with one family seat still pending gubernatorial appointment — is examining clinical care models, care transitions, quality metrics, service-authorization limits, potential caps on service duration, and provider enrollment/billing standards over five meetings (the first two held August 12 and August 31, 2026; a third and fourth scheduled September 28 and October 5, 2026). Recommendations go to the Governor, the Senate President, and the House Speaker by December 31, 2026, and the task force itself sunsets July 1, 2027. Nothing in current coverage, rates, or authorization rules has changed yet — but hour caps, authorization limits, and enrollment standards are explicitly on the table for 2027. Revisit this guide once the December 2026 report lands.',
+        ],
+        cites: [
+          { title: 'AHCA — ABA Task Force (accessed 10/1/2026)', url: 'https://ahca.myflorida.com/aba-task-force.html' },
+        ],
+      },
+      {
         h2: 'Staffing & credentialing: who you can hire, and what they must clear',
         body: [
           'Florida licenses no behavior analysts: s. 393.17, F.S. instead recognizes certification from a national credentialing board — the BACB — and the FL-CBA is a closed legacy credential (the BACB absorbed the old state program in October 2003; no new FL-CBAs are issued, and a lapsed one requires requalifying as a BCBA). Under the December 2024 coverage policy, technicians must be BACB-credentialed RBTs working under a BCBA or BCaBA, and the Lead Analyst on every case must be a BCBA, an FL-CBA, or a practitioner licensed under chapter 490 or 491. The policy adds no training hours beyond the BACB\'s own RBT requirements (40-hour training, competency assessment, exam, plus the BACB\'s own criminal-background and abuse-registry check within 180 days of applying). The staffing catch is enrollment: every rendering practitioner individually enrolls in Florida Medicaid — Lead Analysts as provider type 392, BCaBAs as 391, RBTs as 390, with 390s and 391s enrollable only as members of an enrolled BA group (type 393). Each application needs a color copy of the BACB certification matching the applicant\'s legal name (black-and-white copies are rejected) and a completed background screening — AHCA says missing screenings and missing tax-ID proof are the two most common causes of BA application delays.',
@@ -217,6 +227,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Acuity News — Florida Medicaid ABA in 2026 (carve-in & rates)', url: 'https://acuity.news/regulation/florida-medicaid-aba-in-2026-managed-care-carve-in-a-refreshed-coverage-policy-and-where-ahca-rates-sit-across-the-southeast/' },
       { title: 'BellMedEx — Florida Medicaid ABA fee schedule rates 2026', url: 'https://bellmedex.com/florida-medicaid-applied-behavior-analysis-fee-schedule-rates/' },
       { title: 'Behavior Analysis Fee Schedule eff. 8/1/2022 (archived AHCA primary)', url: 'https://web.archive.org/web/20241006051746/https://fl.acentra.com/wp-content/uploads/sites/14/2024/03/BA_Services_2022_Fee_Schedule.pdf' },
+      { title: 'AHCA — ABA Task Force (accessed 10/1/2026)', url: 'https://ahca.myflorida.com/aba-task-force.html' },
       { title: 'Florida Statutes s. 393.17 (behavior analyst certification)', url: 'https://www.flsenate.gov/Laws/Statutes/2025/393.17' },
       { title: 'BACB — Florida Certified Behavior Analysts (FL-CBAs)', url: 'https://www.bacb.com/flcba/' },
       { title: 'AHCA — Enrolling as a Florida Medicaid Behavior Analysis Provider (webinar deck + FAQ)', url: 'https://ahca.myflorida.com/content/download/11448/file/Enrolling_as_a_Florida_Medicaid_Behavior_Analysis_Provider.pdf' },
@@ -379,9 +390,12 @@ export const floridaPayers: Record<string, PayerConfig> = {
         h2: 'How Sunshine runs BA authorization',
         body: [
           'Requests go through the Sunshine Health Secure Provider Portal or by fax to the dedicated BA line, 1-844-208-9113, using Sunshine\'s BA PA request form. The documentation requirements are the state stack: Vineland-3 and BASC-3 PRQ scoring reports at the initial assessment and annually, the physician referral/order/CDE gate, and 6-month authorization periods. Sunshine\'s BA page publishes determinations “within 5 calendar days of receipt of request” for the MMA, CW, SMI, LTC and HIV lines. The CMS Health Plan moved to Molina Healthcare on October 1, 2026 and no longer runs on this process. UM questions go to Sunshine\'s in-house department at 1-844-477-8313. Check the authorization on file in the portal before building a renewal packet.',
+          'Two mechanical updates since mid-2026: Sunshine\'s Q4 2025 provider newsletter instructs that "providers should no longer include the HN modifier when submitting authorization requests for CPT codes 97155 and 97156" — Sunshine\'s UM system now applies the credential tier itself rather than the submitter pre-selecting it on the PA request, so build auth-form packets without the HN line going forward. Separately, a March 11, 2026 newsroom notice requires every BA provider (Provider Type 39) to maintain an active National Provider Identifier, effective March 27, 2026: an inactive or missing NPI blocks merging provider accounts and "could delay enrollment and renewals and even result in access to that account being restricted," including loss of Florida Medicaid Secure Portal claim submission.',
         ],
         cites: [
           { title: 'Sunshine Health — BA Provider Quick Reference Guide', url: 'https://www.sunshinehealth.com/providers/Billing-manual/ba.html' },
+          { title: 'Sunshine Health — Q4 2025 Connected In Care newsletter (accessed 10/1/2026)', url: 'https://www.sunshinehealth.com/providers/resources/Newsletters/q4-2025.html' },
+          { title: 'Sunshine Health — Behavior Analysis (BA) Providers Must Have Active NPI, eff. 3/27/2026 (published 3/11/2026, accessed 10/1/2026)', url: 'https://www.sunshinehealth.com/newsroom/ba-npi.html' },
         ],
       },
       {
@@ -419,6 +433,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Referral + order + CDE', desc: 'The state eligibility gate applies unchanged — collect it before the PA.' },
       { title: 'Vineland-3 & BASC-3 scoring reports', desc: 'Required at initial assessment and annually with Sunshine requests.' },
       { title: 'Practitioner enrollment status', desc: 'Sunshine paused adding practitioners to existing BA groups from 10/1/2025 (not Regions A–B; lifted in E–F from 3/1/2026) — verify with your account manager before quoting start dates.' },
+      { title: 'Active NPI on file', desc: 'Required for every BA provider (Type 39) effective 3/27/2026 — an inactive or missing NPI can block account merges and restrict portal/claim access.' },
       { title: 'PCP Acknowledgement and Care Coordination Form', desc: 'Required with every NEW BA authorization request effective 8/1/2026 — the ORIGINAL signed form must accompany each PA request (annual update alone isn\'t enough); missing it means the authorization won\'t be approved.' },
       { title: 'Sunshine Medicaid vs. Ambetter marketplace', desc: 'Ask which card the family holds — Ambetter is Centene\'s ACA marketplace brand, not Florida Medicaid, and follows different coverage rules (ACA/MHPAEA + CP.BH.104, not the state autism mandate or the AHCA BA policy).' },
     ],
@@ -429,6 +444,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Sunshine Health — PCP Acknowledgement and Care Coordination Form, eff. 8/1/2026 (published 7/31/2026)', url: 'https://www.sunshinehealth.com/newsroom/pcp-acknowledgement.html' },
       { title: 'Sunshine Health — Sunshine Health to Temporarily Pause Enrollment of Behavioral Analysis (BA) Providers (9/3/2025)', url: 'https://www.sunshinehealth.com/newsroom/aba-pause.html' },
       { title: 'Sunshine Health — Sunshine Health to Resume Enrolling BA Providers in Regions E and F (2/20/2026)', url: 'https://www.sunshinehealth.com/newsroom/pause-ends.html' },
+      { title: 'Sunshine Health — Q4 2025 Connected In Care newsletter (accessed 10/1/2026)', url: 'https://www.sunshinehealth.com/providers/resources/Newsletters/q4-2025.html' },
+      { title: 'Sunshine Health — Behavior Analysis (BA) Providers Must Have Active NPI, eff. 3/27/2026 (published 3/11/2026, accessed 10/1/2026)', url: 'https://www.sunshinehealth.com/newsroom/ba-npi.html' },
       { title: 'AHCA — CMS Plan Transition', url: 'https://ahca.myflorida.com/medicaid/statewide-medicaid-managed-care/2025-2030-smmc-plans/cms-plan-transition.html' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
       { title: 'Sunshine Health newsroom — Ambetter marketplace description', url: 'https://www.sunshinehealth.com/content/sunshine-new/en_us/newsroom/ambetter-from-sunshine-health-makes-it-easier-than-ever-to-get-health-insurance-coverage.html' },

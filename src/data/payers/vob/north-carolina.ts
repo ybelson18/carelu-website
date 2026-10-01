@@ -857,7 +857,12 @@ const ALLIANCE_RATE_SCHEDULE_NCB = srcAt(
 const ALLIANCE_RBBHT_GUIDANCE = srcAt(
   'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/',
   REFRESH_ACCESS_DATE_20260927,
-  'Alliance Health — Guidance for RB-BHT Providers (Feb 2026). As of 2026-09-27 the page returns HTTP 410 with Alliance\'s "Information Archived" notice, so its instrument list (ADI-R, ADOS-2, CARS-2, TELE-ASD-PEDS) is no longer a live source; the diagnostic bar now comes from CCP 8F subsection 3.2.4.'
+  'Alliance Health — Guidance for RB-BHT Providers (Feb 2026). As of 2026-09-27 the page returns HTTP 410 with Alliance\'s "Information Archived" notice, so its instrument list (ADI-R, ADOS-2, CARS-2, TELE-ASD-PEDS) is no longer a live source; the diagnostic bar now comes from CCP 8F subsection 3.2.4. Confirmed still 410 on 2026-10-01 — see ALLIANCE_RBBHT_COVER_SHEET below for the current Alliance provider-update page (RESOLVES REQ-021), though it covers only the cover-sheet/submission requirement, not a diagnostic-instrument list.'
+);
+const ALLIANCE_RBBHT_COVER_SHEET = srcAt(
+  'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/',
+  '2026-10-01',
+  'Alliance Health — RB-BHT cover sheet provider update (posted 1/8/2026, live/working as of 2026-10-01): providers must complete and attach the RB-BHT cover sheet (https://www.alliancehealthplan.org/document-library/97990/) to all initial and concurrent RB-BHT service-authorization requests, "effective immediately." This is Alliance\'s current RB-BHT provider guidance page; it replaces the archived Feb 2026 "Guidance for RB-BHT Providers" for retrieval purposes but does not restate that page\'s diagnostic-instrument list.'
 );
 const TRILLIUM_RATE_TABLE = src(
   'https://www.trilliumhealthresources.org/sites/default/files/docs/Billing-Codes-Rates/Trillium-Rate-Table-FY-26-27.pdf',
@@ -1109,7 +1114,7 @@ function allianceCodeGrid(): Record<string, CodeGridEntry> {
       unitCap: 'unverified — no Alliance-specific or statewide per-code unit cap document located (the CCP 8F authorization period — up to 180 days at ≤16 hrs/week, up to 90 above — is the governing limit)',
       unitCapFieldStatus: 'unverified',
       notes: 'Diagnostic-instrument bar applies at this step: a non-provisional ASD diagnosis made with BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (CCP 8F 3.2.4, eff. 8/1/2026); ADI-R is not on the state list. Alliance\'s Feb-2026 guidance that named ADI-R has been archived (HTTP 410 as of 2026-09-27).',
-      extraSources: [CCP_8F_CURRENT, ALLIANCE_RBBHT_GUIDANCE],
+      extraSources: [CCP_8F_CURRENT, ALLIANCE_RBBHT_GUIDANCE, ALLIANCE_RBBHT_COVER_SHEET],
     }),
     '97152': ncTailoredPlanEntry({ code: '97152', paRequired: cover, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
     '97153': ncTailoredPlanEntry({ code: '97153', paRequired: cover, paFieldStatus: 'verified', unitCap: 'unverified', unitCapFieldStatus: 'unverified' }),
@@ -1798,7 +1803,7 @@ const allianceContact: VobContact = {
     'Is there a copay or coinsurance for RB-BHT, and if so is it per-visit or per-day?',
     'Since Alliance is the LME-MCO itself, what STC bucket or benefit detail does a 270/271 eligibility check actually return for RB-BHT?',
   ],
-  sources: [ALLIANCE_RBBHT_GUIDANCE],
+  sources: [ALLIANCE_RBBHT_GUIDANCE, ALLIANCE_RBBHT_COVER_SHEET],
 };
 
 /* ==================== trillium-health-resources ==================== */

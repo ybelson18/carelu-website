@@ -243,8 +243,18 @@ const SUNSHINE_BA_QRG = src(
 );
 const SUNSHINE_BA_PA_FORM = src(
   'https://www.sunshinehealth.com/content/dam/centene/Sunshine/pdfs/SH-PRO-BH-BA-PA-Request.pdf',
-  'Sunshine Health BA Prior Authorization Request Form (SH_9518) — retrieved and read in full. Confirms 40 hr/week overall cap language, "telehealth only allowed for 97156 (see fee schedule)," TS modifier row for 97151 reassessment, HN modifier rows for 97155/97156, and a claims-edit FAQ note on XP-modifier ($0.01 minimum charge workaround) for 97153XP/97155XP.'
+  'Sunshine Health BA Prior Authorization Request Form (SH_9518) — retrieved and read in full. Confirms 40 hr/week overall cap language, "telehealth only allowed for 97156 (see fee schedule)," TS modifier row for 97151 reassessment, HN modifier rows for 97155/97156, and a claims-edit FAQ note on XP-modifier ($0.01 minimum charge workaround) for 97153XP/97155XP. UPDATE (2026-10-01): Sunshine\'s Q4 2025 "Connected In Care" newsletter instructs providers to stop including the HN modifier on NEW authorization requests for 97155/97156 — Sunshine\'s UM now applies the credential tier itself rather than the submitter pre-selecting it on the form. This is an auth-SUBMISSION instruction, not a change to the underlying state fee-schedule HN tier/rate captured in floridaMedicaidRates below.'
 );
+const SUNSHINE_Q4_2025_NEWSLETTER: SourceRef = {
+  url: 'https://www.sunshinehealth.com/providers/resources/Newsletters/q4-2025.html',
+  accessDate: '2026-10-01',
+  note: 'Sunshine Health "Connected In Care" Q4 2025 provider newsletter — "Providers should no longer include the HN modifier when submitting authorization requests for CPT codes 97155 and 97156"; also restates that CDEs must follow national evidence-based practice standards (AHCA Medicaid BA Services Policy Handbook).',
+};
+const SUNSHINE_BA_NPI_NOTICE: SourceRef = {
+  url: 'https://www.sunshinehealth.com/newsroom/ba-npi.html',
+  accessDate: '2026-10-01',
+  note: 'Sunshine Health newsroom, published 3/11/2026 — BA providers (Provider Type 39) across MMA, Child Welfare, SMI, and HIV/AIDS specialty lines must have an active NPI effective 3/27/2026; an inactive/missing NPI blocks account merges and "could delay enrollment and renewals and even result in access to that account being restricted," including Secure Portal claim submission and the new AHCA provider-enrollment system.',
+};
 const SUNSHINE_CLINICAL_POLICY_BH500 = src(
   'https://www.sunshinehealth.com/content/dam/centene/Sunshine/policies/clinical-policies/FL.CP.BH.500.pdf',
   'Sunshine Health Clinical Policy FL.CP.BH.500, "Coding Implications — Behavior Analysis Services," rev. 06/24 — retrieved and read in full. Confirms 6-participant group cap for 97154/97158, Lead-Analyst-or-BCaBA-only rendering for 97155/97158 (RBT excluded), 2 hrs/week telemedicine cap for 97156 citing Rule 59G-1.057, and 10–25 hr/wk (Focused) vs. 30–40 hr/wk (Comprehensive) tiering within the 40 hr/wk ceiling. CPT 97157 is absent from this policy\'s coding table.'
@@ -705,8 +715,8 @@ const sunshineCodeGrid: Record<string, CodeGridEntry> = {
     planName: 'Sunshine Health',
     confirmed: ['covered', 'paRequired', 'unitCap', 'telehealth', 'modifiers'],
     extraNote:
-      "Sunshine's own BA QRG confirms an industry-reported network-enrollment pause on adding new practitioners to existing BA provider groups: effective 2025-10-01 in all AHCA regions except A and B (Sunshine newsroom, aba-pause.html), partially lifted in Regions E and F starting 2026-03-01 (pause-ends.html). Verify current status by region with Sunshine provider relations before promising a new hire's start date.",
-    extraSources: [SUNSHINE_BA_PA_FORM, SUNSHINE_CLINICAL_POLICY_BH500, SUNSHINE_PAUSE_NOTICE, SUNSHINE_PAUSE_ENDS_NOTICE],
+      "Sunshine's own BA QRG confirms an industry-reported network-enrollment pause on adding new practitioners to existing BA provider groups: effective 2025-10-01 in all AHCA regions except A and B (Sunshine newsroom, aba-pause.html), partially lifted in Regions E and F starting 2026-03-01 (pause-ends.html). Verify current status by region with Sunshine provider relations before promising a new hire's start date. UPDATE (2026-10-01): every BA provider (Type 39) must also keep an active NPI on file effective 2026-03-27 per Sunshine's ba-npi.html notice — an inactive/missing NPI blocks account merges and can restrict portal/claim access.",
+    extraSources: [SUNSHINE_BA_PA_FORM, SUNSHINE_CLINICAL_POLICY_BH500, SUNSHINE_PAUSE_NOTICE, SUNSHINE_PAUSE_ENDS_NOTICE, SUNSHINE_BA_NPI_NOTICE],
   }),
   '97154': mcoEntry('97154', {
     planName: 'Sunshine Health',
@@ -717,12 +727,16 @@ const sunshineCodeGrid: Record<string, CodeGridEntry> = {
   '97155': mcoEntry('97155', {
     planName: 'Sunshine Health',
     confirmed: ['covered', 'paRequired', 'unitCap', 'telehealth', 'modifiers'],
-    extraSources: [SUNSHINE_BA_PA_FORM, SUNSHINE_CLINICAL_POLICY_BH500],
+    extraNote:
+      "UPDATE (2026-10-01): Sunshine's Q4 2025 \"Connected In Care\" newsletter instructs providers to stop including the HN modifier on NEW authorization REQUESTS for 97155 — the PA form's HN row (still on file as of this pass) reflects the old submission convention; Sunshine's UM now assigns the credential tier itself. This is a request-submission change, not a change to the $15.37 BCaBA/$19.17 Lead Analyst state rate split.",
+    extraSources: [SUNSHINE_BA_PA_FORM, SUNSHINE_CLINICAL_POLICY_BH500, SUNSHINE_Q4_2025_NEWSLETTER],
   }),
   '97156': mcoEntry('97156', {
     planName: 'Sunshine Health',
     confirmed: ['covered', 'paRequired', 'unitCap', 'telehealth', 'modifiers'],
-    extraSources: [SUNSHINE_BA_PA_FORM, SUNSHINE_CLINICAL_POLICY_BH500, SUNSHINE_TELEHEALTH_NOTICE],
+    extraNote:
+      "UPDATE (2026-10-01): same HN-modifier-on-requests change as 97155 — Sunshine's Q4 2025 newsletter says not to include it on new authorization requests for 97156; the rate/tier split itself is unchanged.",
+    extraSources: [SUNSHINE_BA_PA_FORM, SUNSHINE_CLINICAL_POLICY_BH500, SUNSHINE_TELEHEALTH_NOTICE, SUNSHINE_Q4_2025_NEWSLETTER],
   }),
   '97157': mcoEntry('97157', {
     planName: 'Sunshine Health',

@@ -121,7 +121,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'G.S. 122C-80 — criminal history record checks (MH/DD/SA providers)', url: 'https://codes.findlaw.com/nc/chapter-122c-mental-health-developmental-disabilities-and-substance-abuse-act-of-1985/nc-gen-st-sect-122c-80/' },
           { title: 'G.S. 131E-256 — Health Care Personnel Registry', url: 'https://codes.findlaw.com/nc/chapter-131e-health-care-facilities-and-services/nc-gen-st-sect-131e-256/' },
           { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
           { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
         ],
       },
@@ -145,7 +145,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'G.S. 122C-80 — criminal history record checks', url: 'https://codes.findlaw.com/nc/chapter-122c-mental-health-developmental-disabilities-and-substance-abuse-act-of-1985/nc-gen-st-sect-122c-80/' },
       { title: 'G.S. 131E-256 — Health Care Personnel Registry', url: 'https://codes.findlaw.com/nc/chapter-131e-health-care-facilities-and-services/nc-gen-st-sect-131e-256/' },
       { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
-      { title: 'Alliance Health — Guidance for RB-BHT Providers', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+      { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
       { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
       { title: 'Disability Rights NC — autism-related services in NC (incl. 2021 SPA)', url: 'https://disabilityrightsnc.org/resources/autism-related-services-in-nc/' },
       { title: 'NC Medicaid — Tailored Plans', url: 'https://medicaid.ncdhhs.gov/tailored-plans' },
@@ -1233,7 +1233,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-        { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+        { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
       ],
     },
     treatmentPA: {
@@ -1264,7 +1264,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     ],
     atGlance: [
       { label: 'Plan type', value: 'NC Tailored Plan (public LME/MCO)' },
-      { label: 'Clinical rules', value: 'CCP 8F + operational RB-BHT guidance (Feb 2026)' },
+      { label: 'Clinical rules', value: 'CCP 8F + Alliance\'s RB-BHT cover sheet (current provider-update page, verified 10/1/2026)' },
       { label: 'Prior auth', value: 'Required per 8F, with Alliance\'s RB-BHT cover sheet' },
       { label: 'Diagnostic bar', value: 'State list (CCP 8F 3.2.4): BOSA, Tele-ASD-Peds, ADOS-2, CARS2-ST/HF — ADI-R is not on it; Alliance\'s older list is archived' },
       { label: 'Service order', value: 'MD/DO/LP-signed, assessment-based, valid 1 year, dated before start' },
@@ -1278,7 +1278,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026; page now returns 410 "Information Archived", checked 9/27/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       {
@@ -1297,7 +1297,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'RB-BHT cover sheet', desc: 'Include Alliance\'s fillable cover sheet with every service request.' },
     ],
     sources: [
-      { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+      { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
       { title: 'Alliance Health — Standard Rate Schedule', url: 'https://www.alliancehealthplan.org/document-library/97251' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
     ],
@@ -1307,7 +1307,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       dxRecency: {
@@ -1315,7 +1315,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       diagnosingProviders: {
@@ -1323,7 +1323,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       diagnosticTools: {
@@ -1331,7 +1331,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026; page now returns 410 "Information Archived", checked 9/27/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       referral: {
@@ -1339,8 +1339,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       telehealth: {
@@ -1348,7 +1348,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       authTurnaround: {
@@ -1378,7 +1378,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       concurrentBilling: {
@@ -1386,7 +1386,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       dailyLimits: {
@@ -1394,7 +1394,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       noteSignature: {
@@ -1402,7 +1402,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       placeOfService: {
@@ -1410,7 +1410,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
       billAsProvider: {
@@ -1418,7 +1418,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
-          { title: 'Alliance Health — Guidance for RB-BHT Providers (Feb 2026)', url: 'https://www.alliancehealthplan.org/provider-updates/guidance-for-rb-bht-providers/' },
+          { title: 'Alliance Health — RB-BHT cover sheet update (current page; replaces the archived Feb 2026 "Guidance for RB-BHT Providers," which now 410s — verified working 10/1/2026)', url: 'https://www.alliancehealthplan.org/provider-updates/research-based-behavioral-health-treatment-rb-bht-cover-sheet/' },
         ],
       },
     },

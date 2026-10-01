@@ -60,6 +60,12 @@ function src(url: string, note?: string, staleRisk?: boolean): SourceRef {
   return { url, accessDate: ACCESS_DATE, note, staleRisk };
 }
 
+/* 2026-10-01 monthly refresh: sources re-read that day carry the new access date. */
+const REFRESH_DATE = '2026-10-01';
+function srcR(url: string, note?: string, staleRisk?: boolean): SourceRef {
+  return { url, accessDate: REFRESH_DATE, note, staleRisk };
+}
+
 /* -------------------- shared source refs -------------------- */
 
 const KMAP_COMPANION_GUIDE = src(
@@ -82,6 +88,10 @@ const KMAP_BULLETIN_19029 = src(
 const KMAP_BULLETIN_22128 = src(
   'https://www.sunflowerhealthplan.com/newsroom/kmap-221280.html',
   'KMAP Bulletin 22128 — BH Services Rate Increase, eff. 7/1/2022 — explicitly does NOT include the 9715x autism codes.'
+);
+const KMAP_BULLETIN_24125 = srcR(
+  'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html',
+  'KMAP General Bulletin 24125, dated 06/24/24, "Autism Codes - CCTS/IIS Coverage" — re-fetched 2026-10-01 (direct portal.kmap-state-ks.us PDF still 404s/redirects to a generic disclaimer page for this document; the sunflowerhealthplan.com newsroom mirror, the same host already relied on for every other KMAP bulletin in this file, is readable). Effective with dates of service on/after 7/1/2024: CCTS (11/403) may additionally bill 97153, 97154, 97158; IIS (11/404) may additionally bill 97154 (97153 continues to be covered for IIS). States verbatim: "the service rate for code 97153 will be increased for applied behavioral analysis to $65/hour ($16.25 per unit, 15 minutes)." No other CPT code or rate is mentioned anywhere in the bulletin — 97151/97152/97155/97156/97157/97158 are NOT given a rate here. Notes MCO implementation timing may vary.'
 );
 const KMAP_HCBS_FY2025 = src(
   'https://www.sunflowerhealthplan.com/newsroom/kmap-24116.html',
@@ -170,7 +180,7 @@ const UHC_PROVIDER_CONTACT_PAGE = src(
 function kansasMedicaidRates(): RateTable {
   return {
     source:
-      'KMAP interactive fee-schedule lookup is the stated source of truth but is not machine-accessible (SSO wall). Last dated anchor: KMAP Bulletin 18259 set 97151 at $17.50/15-min unit effective 1/1/2019; KMAP Bulletin 19029 raised rates effective 4/1/2019 without publishing amounts; the 7/1/2022 BH increase (Bulletin 22128) explicitly excluded 9715x codes; the FY2024/2025/2026 HCBS rate bulletins (checked this pass) cover only BI/TA/I-DD HCBS waiver services and the separate HCBS Autism waiver code T2040, not State Plan CCTS/IIS. Every code below except 97151 is unverified.',
+      'KMAP interactive fee-schedule lookup is the stated source of truth but is not machine-accessible (SSO wall; re-confirmed blocked 2026-10-01). Last dated anchor for most codes: KMAP Bulletin 18259 set 97151 at $17.50/15-min unit effective 1/1/2019; KMAP Bulletin 19029 raised rates effective 4/1/2019 without publishing amounts; the 7/1/2022 BH increase (Bulletin 22128) explicitly excluded 9715x codes; the FY2024/2025/2026 HCBS rate bulletins (checked this pass) cover only BI/TA/I-DD HCBS waiver services and the separate HCBS Autism waiver code T2040, not State Plan CCTS/IIS. One exception found 2026-10-01: KMAP Bulletin 24125 verifies 97153 at $16.25/15-min unit ($65/hr) effective 7/1/2024 — the one current, dated rate in this table. Every other code remains unverified beyond the stale 2019 anchor.',
     effectiveDate: '2019-01-01',
     byCode: {
       '97151': {
@@ -178,13 +188,13 @@ function kansasMedicaidRates(): RateTable {
         unit: '15min',
       },
       '97152': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
-      '97153': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
+      '97153': { rate: '$16.25 (verified, eff. 7/1/2024 — KMAP Bulletin 24125; equivalent to $65/hr)', unit: '15min' },
       '97154': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
       '97155': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
       '97156': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
       '97158': { rate: 'unverified — pull from the KMAP interactive fee-schedule lookup', unit: '15min' },
     },
-    sources: [KMAP_BULLETIN_18259, KMAP_BULLETIN_19029, KMAP_BULLETIN_22128, KMAP_HCBS_FY2025, KMAP_HCBS_FY2026, KMAP_FEE_LOOKUP],
+    sources: [KMAP_BULLETIN_18259, KMAP_BULLETIN_19029, KMAP_BULLETIN_22128, KMAP_BULLETIN_24125, KMAP_HCBS_FY2025, KMAP_HCBS_FY2026, KMAP_FEE_LOOKUP],
   };
 }
 

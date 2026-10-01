@@ -67,7 +67,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       {
         h2: 'How to tell this plan is administered by Carelon',
         cites: [
-          { title: 'NYS Civil Service — Empire Plan Carriers and Programs', url: 'https://www.cs.ny.gov/employee-benefits/nyship/shared/providers/programs-contact-pa.cfm' },
+          { title: 'NYSHIP — Empire Plan Contact Information (accessed 10/1/2026; cs.ny.gov now 301-redirects here)', url: 'https://nyship.ny.gov/empire-plan-contact-information' },
           { title: 'EmblemHealth Provider Manual Ch. 26 — Behavioral Health Services (4/30/2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/behavioral-health-services.pdf' },
           { title: 'Carelon Behavioral Health Provider Handbook', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' },
         ],
@@ -164,7 +164,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       { title: 'Carelon Massachusetts Medical Necessity Criteria (upd. 4/29/2026)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/massachusetts-medical-necessity-criteria.pdf' },
       { title: 'Carelon Behavioral Health — Forms and Guides', url: 'https://www.carelonbehavioralhealth.com/providers/forms-and-guides' },
       { title: 'Carelon (Beacon) Autism Services Provider Manual — San Francisco Health Plan (rev. June 2021)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/ca/san-francisco-health-plan/autism-aba-provider-manual-sfhp.pdf' },
-      { title: 'NYS Civil Service — Empire Plan Carriers and Programs', url: 'https://www.cs.ny.gov/employee-benefits/nyship/shared/providers/programs-contact-pa.cfm' },
+      { title: 'NYSHIP — Empire Plan Contact Information (accessed 10/1/2026; cs.ny.gov now 301-redirects here)', url: 'https://nyship.ny.gov/empire-plan-contact-information' },
       { title: 'The Empire Plan — Reporting on Mental Health & Substance Use Program (Jan. 2024)', url: 'https://www.cs.ny.gov/employee-benefits/pa-market/shared/publications/reporting-on/2024/reporting-on-mhsu-2024.pdf' },
       { title: 'EmblemHealth Provider Manual Ch. 26 — Behavioral Health Services (4/30/2026)', url: 'https://www.emblemhealth.com/content/dam/emblemhealth/pdfs/provider-manual/behavioral-health-services.pdf' },
     ],

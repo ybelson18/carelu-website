@@ -104,6 +104,11 @@ const CMR_358_FEE_SCHEDULE = src(
   '101 CMR 358.00: Rates for Applied Behavior Analysis, Final Adoption, published in the Mass. Register 2024-09-27 (effective 2024-10-01). The complete fee schedule at 358.03(3) contains exactly 7 priced codes: 97151=$30.73, 97153=$16.37, 97154=$13.91, 97155=$30.73, 97156=$30.73, 97157=$26.12, H0031-U2=$30.73. 97152, 97158, 0362T, 0373T are confirmed ABSENT from the published schedule — 358.03(4)(b) allows "individual consideration" pricing for unlisted codes; no bulletin naming an applied rate for these four was found. No unit caps, POS codes, telehealth mechanics, or modifiers appear anywhere in 358.00-358.05.',
   true
 );
+const CMR_358_PROPOSED_READOPTION_2026 = src(
+  'https://www.mass.gov/doc/proposed-regulation-date-filed-may-22-2026/download',
+  'EOHHS "Proposed Regulation," date filed 5/22/2026, re-adopting 101 CMR 358.00 for dates of service on or after 12/1/2026 — re-read 2026-10-01 via r.jina.ai (direct mass.gov fetch 403s to automation). The proposed text reprints the IDENTICAL 7-code rate table as the 2024 Final Adoption above (97151=$30.73, 97153=$16.37, 97154=$13.91, 97155=$30.73, 97156=$30.73, 97157=$26.12, H0031-U2=$30.73) — no change to any rate. Companion staff testimony presented at the remote public hearing on 6/17/2026 states verbatim: "the proposed amendments maintain all rates established in 101 CMR 358.00 at their existing levels." As of 10/1/2026 this is still proposed/hearing-record status — no final-adoption notice for the 12/1/2026 cycle was located (contrast the 2024 cycle, which has its own "Final Adoption" document at a parallel mass.gov URL). A parallel Secretary of the Commonwealth Notice of Public Hearing (sec.state.ma.us, "6-5-26-NPH-SBIS-101-CMR-358.00x.pdf") corroborates the hearing date independently.',
+  false
+);
 const CARELON_MBHP_PERFSPEC = src(
   'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf',
   'Carelon/MBHP "Performance Specifications — Outpatient Services — Applied Behavior Analysis," updated 2026-02-15 (current). Contains no CPT-level unit caps, POS codes, or telehealth billing modifiers (GT/95, POS 02/10) — a clinical/administrative spec, not a billing manual. Confirms: group instruction up to 4.5 hrs/day in groups of 2-8 members; LABA supervision at ≥10% of direct-service hours (≤25% without documented rationale, ≥1 hr/month if ≤10 hrs/month direct treatment); telehealth allowed at parent/caregiver request when clinically appropriate, must not replace in-person availability, no modifier/POS code specified; services deliverable 7 days/week, 365 days/year as clinically appropriate; 14-calendar-day referral-to-service standard (42 CFR 441.56(e)); home/community-based by default, center-based only with documented clinical justification, school explicitly carved to IEP/DESE and not billed to the health plan.'
@@ -193,7 +198,7 @@ const NOT_IN_SCHEDULE =
   'Not in the published 101 CMR 358.03(3) fee schedule — reimbursed by individual consideration per 358.03(4)(b); no administrative bulletin naming an applied rate for this code was found.';
 
 const massHealthRates: RateTable = {
-  source: '101 CMR 358.00: Rates for Applied Behavior Analysis, Final Adoption (Mass. Register, published 2024-09-27; effective 2024-10-01)',
+  source: '101 CMR 358.00: Rates for Applied Behavior Analysis, Final Adoption (Mass. Register, published 2024-09-27; effective 2024-10-01). EOHHS\'s proposed re-adoption (filed 5/22/2026, hearing 6/17/2026) reprints these same figures unchanged for dates of service on/after 12/1/2026 — still proposed, not yet confirmed final-adopted as of 10/1/2026.',
   effectiveDate: '2024-10-01',
   byCode: {
     '97151': { rate: '$30.73', unit: '15min' },
@@ -208,7 +213,7 @@ const massHealthRates: RateTable = {
     '0373T': { rate: NOT_IN_SCHEDULE, unit: '15min' },
     'H0031-U2': { rate: '$30.73', unit: '15min', modifierTiers: { U2: 'Assessment/case-planning for home services by a licensed professional' } },
   },
-  sources: [CMR_358_FEE_SCHEDULE],
+  sources: [CMR_358_FEE_SCHEDULE, CMR_358_PROPOSED_READOPTION_2026],
 };
 
 /* -------------------- codeGrid factories -------------------- */

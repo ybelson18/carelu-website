@@ -160,9 +160,9 @@ const SELECTHEALTH_PRM = src(
   'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf',
   "Select Health — Provider Reference Manual (Commercial & Government), Appendix B; already cited in utah.ts — states 'Select Health Community Care policies typically align with State of Utah Medicaid policy' and defines a 'Fee-For-Service Medicaid member' as anyone whose needed service is covered by Medicaid rather than the ACO plan — the same carve-out mechanism documented for all four Utah ACOs in the utah-medicaid VOB entry above. Does not explicitly name ABA/autism services on its carved-out-services list (mental-health medications, emergency transportation, LTC, apnea monitors, dental) — the FFS routing is inherited from Utah Medicaid's own carve-out policy, not a Select-Health-authored statement."
 );
-const SELECTHEALTH_POLICY_UPDATE_0226 = src(
-  'https://selecthealth.org/providers/policies/policy-update-bulletins/policy-update-0226',
-  "Select Health — Policy Update Bulletin, February 2026; already cited in utah.ts — confirms Policy #630 ('Applied Behavior Analysis (ABA)') was revised effective 1/1/2026 (reorganized medical-necessity criteria, removed an FEHB-plan exception). The policy PDF itself returned a maintenance error at every attempt this pass — specific diagnostic/hour-based criteria remain unverified pending direct confirmation."
+const SELECTHEALTH_POLICY_630 = src(
+  'https://selecthealth.org/content/dam/selecthealth/Archive%20PDFs/medical-policies/beh-policies.pdf',
+  "Select Health Medical Policy #630 — Applied Behavior Analysis (ABA); fetched and read directly (accessed 10/1/2026) — the Policy Update Bulletin page (policy-update-0226) now 404s, but the compiled Behavioral Health Policies PDF resolves REQ-023. Confirms: implementation 3/14/19, revisions through 1/1/26 (1/1/26 revision removed an FEHB-plan exception and reorganized medical-necessity section headers, matching the prior bulletin summary). DSM-5 dx of ASD (ICD-10/F84.0; F84.3-F84.9) by an appropriate provider per state requirements (Utah: board-certified neurologist/psychiatrist/pediatrician with ASD experience, or an experienced licensed psychologist, per Utah Code 31A-22-642). Supervision floor: minimum 5% of direct service hours, at least monthly; services must be provided directly by or supervised by a licensed behavior analyst/BCBA/licensed psychologist unless state mandates/plan/contract differ. Assessment units guide: functional analysis 8-16 units, focused 16-24 units, comprehensive 32 units (1 unit=15 min). Hour bands by severity (SD below population mean): None <1SD = 0 hrs/wk, Mild >1SD = 1-4 hrs/wk, Moderate >1.5SD = 4-7 hrs/wk, Severe >2SD = 7-10 hrs/wk, plus 1-2 add'l QHP-direction hours per 10 hrs of treatment. CPT/HCPCS set covered: 0362T, 0373T, 96202, 96203, 97151-97158. No telehealth-specific rule, no POS code list, no explicit concurrent-billing or signature rule published — confirmed gaps, not retrieval failures. ABA for non-ASD diagnoses is experimental/investigational. Continuation reviewed at least every 6 months."
 );
 const SELECTHEALTH_ABA_PREAUTH_FORM = src(
   'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/forms/sh-aba-pre-auth-form.pdf',
@@ -679,25 +679,25 @@ const selectHealthUtahEdi: EdiRouting = {
 
 function selectHealthCommercialEntry(): CodeGridEntry {
   return {
-    covered: 'Yes — commercial members only, under Select Health\'s own Policy #630 ("Applied Behavior Analysis (ABA)," revised eff. 1/1/2026). NOT applicable to Community Care (Medicaid) members — see utah-medicaid\'s codeGrid instead; ABA never touches Select Health for those members.',
+    covered: 'Yes — commercial members only, under Select Health\'s own Policy #630 ("Applied Behavior Analysis (ABA)," last revised 1/1/2026). NOT applicable to Community Care (Medicaid) members — see utah-medicaid\'s codeGrid instead; ABA never touches Select Health for those members.',
     paRequired:
       'Required — Select Health\'s own ABA Preauthorization Form: an initial request needs a diagnostic evaluation report; a concurrent/continuation request needs an updated treatment plan with progress data. Decisions on Utah commercial plans are due within 14 days absent expedited review.',
-    unitCap: 'unverified — Policy #630\'s specific medical-necessity/hour criteria could not be retrieved this pass (the policy PDF returned a maintenance error at every attempt); the Preauthorization Form itself gives no numeric unit cap.',
-    capPeriod: 'unverified',
-    posAllowed: ['office', 'home', 'other (per the Preauthorization Form\'s weekly-schedule field — no CMS POS numbers given)'],
-    telehealth: 'unverified — not addressed on the Preauthorization Form or in the retrievable Policy #630 update bulletin.',
-    modifiers: ['unverified'],
+    unitCap: 'No hard unit cap — Policy #630 instead bands authorized hours by severity (SD below population mean): None <1SD = 0 hrs/wk, Mild >1SD = 1-4 hrs/wk, Moderate >1.5SD = 4-7 hrs/wk, Severe >2SD = 7-10 hrs/wk, plus 1-2 add\'l QHP protocol-direction hours per 10 hrs of treatment. Separate assessment-units guide: functional analysis 8-16 units, focused 16-24 units, comprehensive 32 units (1 unit = 15 min).',
+    capPeriod: 'Continuation/reauthorization reviewed at least every 6 consecutive months per Policy #630.',
+    posAllowed: ['office', 'home', 'other (per the Preauthorization Form\'s weekly-schedule field — Policy #630 names no CMS POS numbers)'],
+    telehealth: 'unverified — Policy #630, read directly, states no telehealth-specific modality rule for ABA; not addressed on the Preauthorization Form either. This is a confirmed gap in the policy, not a retrieval failure.',
+    modifiers: ['unverified — Policy #630 lists the CPT/HCPCS set it covers (0362T, 0373T, 96202, 96203, 97151-97158) but publishes no modifier table.'],
     notes:
-      "Verify via: Select Health commercial UM intake (commercialUMintake@imail.org, fax 801-442-0825) — Policy #630's full medical-necessity criteria were not retrievable this pass; confirm unit caps, POS, and modifiers directly. The Utah Code 31A-22-642 mandate layer (individual + large group only — NOT small group) governs limits for qualifying plans, not coding mechanics.",
+      "Policy #630 (read directly, accessed 10/1/2026): ABA must be delivered directly by or supervised by a licensed behavior analyst, BCBA, or licensed psychologist (min. 5% of direct service hours, at least monthly) unless state mandates/plan/contract differ; ASD dx per Utah's own statutory definition (board-certified neurologist/psychiatrist/pediatrician with ASD experience, or an experienced licensed psychologist); ABA for non-ASD diagnoses is experimental/investigational. Verify via: Select Health commercial UM intake (commercialUMintake@imail.org, fax 801-442-0825) for POS codes, modifiers, and telehealth, none of which the policy itself specifies. The Utah Code 31A-22-642 mandate layer (individual + large group only — NOT small group) governs limits for qualifying plans, not coding mechanics.",
     fieldStatus: {
       covered: 'verified',
       paRequired: 'verified',
-      unitCap: 'unverified',
+      unitCap: 'verified',
       posAllowed: 'inferred',
-      telehealth: 'unverified',
+      telehealth: 'verified',
       modifiers: 'unverified',
     },
-    sources: [SELECTHEALTH_POLICY_UPDATE_0226, SELECTHEALTH_ABA_PREAUTH_FORM, UT_31A_22_642_CURRENT],
+    sources: [SELECTHEALTH_POLICY_630, SELECTHEALTH_ABA_PREAUTH_FORM, UT_31A_22_642_CURRENT],
   };
 }
 
@@ -712,6 +712,8 @@ const selectHealthUtahCodeGrid: Record<string, CodeGridEntry> = {
   '97158': selectHealthCommercialEntry(),
   '0362T': selectHealthCommercialEntry(),
   '0373T': selectHealthCommercialEntry(),
+  '96202': selectHealthCommercialEntry(),
+  '96203': selectHealthCommercialEntry(),
 };
 
 const selectHealthUtahRates: RateTable = {
@@ -724,7 +726,7 @@ const selectHealthUtahRates: RateTable = {
     '97155': { rate: 'unverified — commercial is contract-negotiated; Community Care members bill Utah Medicaid FFS directly (see utah-medicaid: $37.51/unit)', unit: 'unverified' },
     '97156': { rate: 'unverified — commercial is contract-negotiated; Community Care members bill Utah Medicaid FFS directly (see utah-medicaid: $37.51/unit)', unit: 'unverified' },
   },
-  sources: [UT_PRISM_FEE_CSV, SELECTHEALTH_POLICY_UPDATE_0226],
+  sources: [UT_PRISM_FEE_CSV, SELECTHEALTH_POLICY_630],
 };
 
 const selectHealthUtahContact: VobContact = {
@@ -733,9 +735,9 @@ const selectHealthUtahContact: VobContact = {
   portal: { name: 'Select Health Preauth & Care Plan Tool', url: 'https://selecthealth.org/providers/preauthorization/forms-reports' },
   scriptedQuestions: [
     'Confirm which product this family is on — SelectHealth Community Care (Medicaid, routes ABA to Utah Medicaid FFS entirely) vs. Select Health commercial (Policy #630, its own PA process) — since the two have completely different ABA workflows.',
-    'For commercial members: what are Policy #630\'s actual unit caps, POS restrictions, and modifier requirements — the policy PDF itself was not retrievable this pass?',
+    'For commercial members: what POS codes and billing modifiers apply — Policy #630 (now read directly) gives severity-based hour bands and a 6-month review cycle but names no CMS POS numbers or modifier table.',
     'For commercial members: what market segment is this plan (individual/large-group vs. small-group/self-funded), since only the first two are protected by the Utah Code 31A-22-642 mandate?',
-    'Is telehealth allowed for any ABA codes under the commercial Policy #630, and if so which ones?',
+    'Is telehealth allowed for any ABA codes under the commercial Policy #630? The policy itself states no telehealth-specific rule — confirm directly with UM.',
     'What EDI payer ID should be used for a commercial member\'s 270/271 eligibility check — SX107 or HT006873-001 — neither was independently confirmed against readable primary-source text this pass?',
   ],
   sources: [SELECTHEALTH_PREAUTH_FORMS_PAGE, SELECTHEALTH_ABA_PREAUTH_FORM],

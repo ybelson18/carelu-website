@@ -7,19 +7,19 @@ export const ohioPayers: Record<string, PayerConfig> = {
     assessmentPA: {
       value: 'Required — PA on all covered ABA codes under the current rule (a pending rewrite would exempt the first 10 assessment hours per 180 days)',
       status: 'unverified',
-      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      verifyVia: 'OAC 5160-34-02 does not exist as an in-force rule: codes.ohio.gov returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026), the chapter is absent from the Title 5160 index, and ODM’s draft rewrite (ERF188422B) is still marked “DRAFT — NOT FOR FILING” with no JCARR filing (per ODM’s 7/30/2026 stakeholder presentation). Confirm current practice with Rules@Medicaid.Ohio.gov or JCARR, or the member’s MCO.',
       blocker: 'document',
     },
     treatmentPA: {
       value: 'Required — with medical-necessity review at baseline and every 6 months',
       status: 'unverified',
-      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      verifyVia: 'OAC 5160-34-02 does not exist as an in-force rule: codes.ohio.gov returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026), the chapter is absent from the Title 5160 index, and ODM’s draft rewrite (ERF188422B) is still marked “DRAFT — NOT FOR FILING” with no JCARR filing (per ODM’s 7/30/2026 stakeholder presentation). Confirm current practice with Rules@Medicaid.Ohio.gov or JCARR, or the member’s MCO.',
       blocker: 'document',
     },
     dxRequired: {
       value: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
       status: 'unverified',
-      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      verifyVia: 'OAC 5160-34-02 does not exist as an in-force rule: codes.ohio.gov returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026), the chapter is absent from the Title 5160 index, and ODM’s draft rewrite (ERF188422B) is still marked “DRAFT — NOT FOR FILING” with no JCARR filing (per ODM’s 7/30/2026 stakeholder presentation). Confirm current practice with Rules@Medicaid.Ohio.gov or JCARR, or the member’s MCO.',
       blocker: 'document',
     },
     payer: 'Ohio Medicaid',
@@ -119,7 +119,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     ],
     intakeGates: {
       ageLimit: {
-        value: 'No age bound could be verified at the state level. OAC 5160-34-02 covers adaptive behavior services for the assessment and treatment of ASD without an age term we could read, and Ohio’s ABA benefit runs through the Next Generation MCOs, whose manuals frame under-21 services under EPSDT — Anthem’s Ohio Medicaid provider manual states that medically necessary services for members under 21 may exceed adult plan limits. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No age bound could be verified at the state level. OAC 5160-34-02 covers adaptive behavior services for the assessment and treatment of ASD without an age term we could read, and Ohio’s ABA benefit runs through the Next Generation MCOs, whose manuals frame under-21 services under EPSDT — Anthem’s Ohio Medicaid provider manual states that medically necessary services for members under 21 may exceed adult plan limits. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -129,7 +129,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dxRecency: {
-        value: 'Ohio’s state rule requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no recency window we could verify. In practice the recency rules in Ohio are plan-level and they differ sharply: CareSource requires a provider letter documenting DSM symptoms within the past year where the evaluation is more than 24 months old, while Buckeye accepts a comprehensive diagnostic evaluation conducted within the past five years. Screen against the member’s MCO, not the state rule. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Ohio’s state rule requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no recency window we could verify. In practice the recency rules in Ohio are plan-level and they differ sharply: CareSource requires a provider letter documenting DSM symptoms within the past year where the evaluation is more than 24 months old, while Buckeye accepts a comprehensive diagnostic evaluation conducted within the past five years. Screen against the member’s MCO, not the state rule. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -149,7 +149,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosticTools: {
-        value: 'The state rule names no diagnostic instrument — it requires DSM-5-TR criteria demonstrated through a comprehensive diagnostic evaluation and leaves instrument choice to the evaluator. Ohio’s instrument requirements are therefore plan-level: CareSource requires ADOS, ADI-R or CARS-2; Optum, for UnitedHealthcare Community Plan, requires at least one clinically validated screening tool plus one formal diagnostic tool (ADI-R, ADOS or ADOS-2, or DISCO). codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'The state rule names no diagnostic instrument — it requires DSM-5-TR criteria demonstrated through a comprehensive diagnostic evaluation and leaves instrument choice to the evaluator. Ohio’s instrument requirements are therefore plan-level: CareSource requires ADOS, ADI-R or CARS-2; Optum, for UnitedHealthcare Community Plan, requires at least one clinically validated screening tool plus one formal diagnostic tool (ADI-R, ADOS or ADOS-2, or DISCO). codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -160,7 +160,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       referral: {
-        value: 'No Medicaid-side referral or service-order requirement could be verified. Ohio’s ordering requirement — services prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or a pediatric clinical nurse specialist or certified nurse practitioner — sits in the commercial insurance mandate at R.C. 3923.84, which governs insured plans, not Medicaid. Forward-looking and NOT law: ODM’s paused draft 5160-34-03 would require a diagnosing or referring practitioner independent of (not employed by) the ABA provider; that package is pre-filing with no JCARR filing, so it governs nothing today. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No Medicaid-side referral or service-order requirement could be verified. Ohio’s ordering requirement — services prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or a pediatric clinical nurse specialist or certified nurse practitioner — sits in the commercial insurance mandate at R.C. 3923.84, which governs insured plans, not Medicaid. Forward-looking and NOT law: ODM’s paused draft 5160-34-03 would require a diagnosing or referring practitioner independent of (not employed by) the ABA provider; that package is pre-filing with no JCARR filing, so it governs nothing today. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -212,7 +212,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and none of the Ohio Medicaid MCO policies we could read states one. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and none of the Ohio Medicaid MCO policies we could read states one. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -221,7 +221,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No state-level per-day unit ceiling could be verified; Ohio’s daily limits are plan-level and worth knowing individually. CareSource’s reimbursement policy PY-1638 applies the CMS MUE maxima — 97151 at 32, 97153 at 32, 97155 at 24 and 97156 at 16 daily units, among others — and caps behavioral assessments at roughly 6–10 hours per 6-month period without justification. Buckeye’s CP.BH.104 sets 6 hours a day and 30 hours a week as the ceiling absent detailed clinical justification, with under 20 hours a week expected for children attending school full-time. Anthem applies the CG-BEH-02 family parameters of up to 40 hours a week. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No state-level per-day unit ceiling could be verified; Ohio’s daily limits are plan-level and worth knowing individually. CareSource’s reimbursement policy PY-1638 applies the CMS MUE maxima — 97151 at 32, 97153 at 32, 97155 at 24 and 97156 at 16 daily units, among others — and caps behavioral assessments at roughly 6–10 hours per 6-month period without justification. Buckeye’s CP.BH.104 sets 6 hours a day and 30 hours a week as the ceiling absent detailed clinical justification, with under 20 hours a week expected for children attending school full-time. Anthem applies the CG-BEH-02 family parameters of up to 40 hours a week. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'CareSource — OH MCD reimbursement policy PY-1638 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-reimburse-py-1638-20260901' },
@@ -232,7 +232,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       noteSignature: {
-        value: 'No state-level session-note signature rule could be verified. The plan-level standards are concrete: Optum’s Ohio Medicaid criteria require the clinician’s signature, date of signature and credentials on the service note, with the clinician credentialed to provide everything documented, evidence of clinical supervision where required, and an explicit indication when a service was delivered by telehealth; the initial individualized treatment plan must be signed and dated by the responsible staff member and the supervising clinician (or carry documentation of clinical supervision), and every review must be signed and dated by the staff member completing it and the supervising clinician. CareSource adds an anti-boilerplate rule — generic copy-pasted symptom language is not sufficient documentation — and, distinctively, requires treatment records to reach the plan before claims: claims are not accepted without accompanying treatment documentation. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No state-level session-note signature rule could be verified. The plan-level standards are concrete: Optum’s Ohio Medicaid criteria require the clinician’s signature, date of signature and credentials on the service note, with the clinician credentialed to provide everything documented, evidence of clinical supervision where required, and an explicit indication when a service was delivered by telehealth; the initial individualized treatment plan must be signed and dated by the responsible staff member and the supervising clinician (or carry documentation of clinical supervision), and every review must be signed and dated by the staff member completing it and the supervising clinician. CareSource adds an anti-boilerplate rule — generic copy-pasted symptom language is not sufficient documentation — and, distinctively, requires treatment records to reach the plan before claims: claims are not accepted without accompanying treatment documentation. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
@@ -243,7 +243,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       placeOfService: {
-        value: 'No state-level place-of-service rule for ABA could be verified. The boundary that is confirmed is the school one, from the managed-care side: the MCO is not responsible for payment of services provided through the Medicaid School Program under OAC Chapter 5160-35, 5160-35-04 and 5160-26-03, and Optum separately excludes ABA that is really a 1:1 aide delivered simultaneously during classroom instruction or a service covered under IDEA — while allowing school-based coordination, teacher training, meetings with school personnel and observation in the school setting. Buckeye adds an expectation of under 20 hours a week for children attending school full time. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No state-level place-of-service rule for ABA could be verified. The boundary that is confirmed is the school one, from the managed-care side: the MCO is not responsible for payment of services provided through the Medicaid School Program under OAC Chapter 5160-35, 5160-35-04 and 5160-26-03, and Optum separately excludes ABA that is really a 1:1 aide delivered simultaneously during classroom instruction or a service covered under IDEA — while allowing school-based coordination, teacher training, meetings with school personnel and observation in the school setting. Buckeye adds an expectation of under 20 hours a week for children attending school full time. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
@@ -355,7 +355,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     ],
     intakeGates: {
       ageLimit: {
-        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -449,7 +449,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -590,7 +590,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     ],
     intakeGates: {
       ageLimit: {
-        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -620,7 +620,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosticTools: {
-        value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -685,7 +685,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -706,7 +706,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -763,7 +763,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     dxRequired: {
       value: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
       status: 'unverified',
-      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      verifyVia: 'OAC 5160-34-02 does not exist as an in-force rule: codes.ohio.gov returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026), the chapter is absent from the Title 5160 index, and ODM’s draft rewrite (ERF188422B) is still marked “DRAFT — NOT FOR FILING” with no JCARR filing (per ODM’s 7/30/2026 stakeholder presentation). Confirm current practice with Rules@Medicaid.Ohio.gov or JCARR, or the member’s MCO.',
       blocker: 'document',
     },
     payer: 'Molina Healthcare of Ohio',
@@ -807,7 +807,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     ],
     intakeGates: {
       ageLimit: {
-        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -817,7 +817,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dxRecency: {
-        value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -835,7 +835,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosticTools: {
-        value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -895,7 +895,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       concurrentBilling: {
-        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -905,7 +905,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -915,7 +915,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       noteSignature: {
-        value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -968,7 +968,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     dxRequired: {
       value: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
       status: 'unverified',
-      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      verifyVia: 'OAC 5160-34-02 does not exist as an in-force rule: codes.ohio.gov returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026), the chapter is absent from the Title 5160 index, and ODM’s draft rewrite (ERF188422B) is still marked “DRAFT — NOT FOR FILING” with no JCARR filing (per ODM’s 7/30/2026 stakeholder presentation). Confirm current practice with Rules@Medicaid.Ohio.gov or JCARR, or the member’s MCO.',
       blocker: 'document',
     },
     payer: 'Anthem BCBS Ohio (Medicaid)',
@@ -1025,7 +1025,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       dxRecency: {
-        value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1045,7 +1045,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosticTools: {
-        value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1109,7 +1109,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1132,7 +1132,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       noteSignature: {
-        value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1179,7 +1179,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       cites: [
         { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
       ],
-      verifyVia: 'OAC 5160-34-02 — Optum\'s Ohio Medicaid criteria defer to the state rule for practitioner and PA requirements, and that rule is unreachable: codes.ohio.gov refuses connection, Wayback holds no capture, and the chapter is missing from the Title 5160 index. Request the rule text from Rules@Medicaid.Ohio.gov or via carelu.com/sources.',
+      verifyVia: 'OAC 5160-34-02 — Optum\'s Ohio Medicaid criteria defer to the state rule for practitioner and PA requirements, but that rule does not exist in force: codes.ohio.gov returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) and the chapter is missing from the Title 5160 index. Confirm current practice with Rules@Medicaid.Ohio.gov or JCARR.',
       blocker: 'document',
     },
     treatmentPA: {
@@ -1240,7 +1240,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     ],
     intakeGates: {
       ageLimit: {
-        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1326,7 +1326,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       concurrentBilling: {
-        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1398,7 +1398,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     dxRequired: {
       value: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
       status: 'unverified',
-      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      verifyVia: 'OAC 5160-34-02 does not exist as an in-force rule: codes.ohio.gov returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026), the chapter is absent from the Title 5160 index, and ODM’s draft rewrite (ERF188422B) is still marked “DRAFT — NOT FOR FILING” with no JCARR filing (per ODM’s 7/30/2026 stakeholder presentation). Confirm current practice with Rules@Medicaid.Ohio.gov or JCARR, or the member’s MCO.',
       blocker: 'document',
     },
     payer: 'AmeriHealth Caritas Ohio',
@@ -1444,7 +1444,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     ],
     intakeGates: {
       ageLimit: {
-        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1454,7 +1454,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dxRecency: {
-        value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1472,7 +1472,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosticTools: {
-        value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1534,7 +1534,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       concurrentBilling: {
-        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1544,7 +1544,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1554,7 +1554,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       noteSignature: {
-        value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1609,7 +1609,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     dxRequired: {
       value: 'Yes \u2014 DSM-5-TR ASD per OAC 5160-34-02',
       status: 'unverified',
-      verifyVia: 'OAC 5160-34-02, the in-force Ohio Medicaid ABA rule. codes.ohio.gov refuses connection to every client, Wayback holds no capture of the rule page, and the chapter is absent from the Title 5160 index — request the current rule text from Rules@Medicaid.Ohio.gov or JCARR, or upload it via carelu.com/sources.',
+      verifyVia: 'OAC 5160-34-02 does not exist as an in-force rule: codes.ohio.gov returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026), the chapter is absent from the Title 5160 index, and ODM’s draft rewrite (ERF188422B) is still marked “DRAFT — NOT FOR FILING” with no JCARR filing (per ODM’s 7/30/2026 stakeholder presentation). Confirm current practice with Rules@Medicaid.Ohio.gov or JCARR, or the member’s MCO.',
       blocker: 'document',
     },
     payer: 'Humana Healthy Horizons in Ohio',
@@ -1652,7 +1652,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     ],
     intakeGates: {
       ageLimit: {
-        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Follows the Ohio Medicaid framework, which publishes no verifiable age bound for ABA; under-21 members carry EPSDT protections through the MCO. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1662,7 +1662,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dxRecency: {
-        value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific recency rule found — the Ohio Medicaid framework requires a documented comprehensive diagnostic evaluation demonstrating DSM-5-TR criteria but publishes no verifiable window. Note that two Ohio MCOs do set one (CareSource: a symptom letter where the evaluation is over 24 months old; Buckeye: a CDE within 5 years), so do not assume this plan is silent — confirm in its portal. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1680,7 +1680,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       diagnosticTools: {
-        value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific instrument list found, and the state framework names none. Other Ohio MCOs do publish lists (CareSource: ADOS, ADI-R or CARS-2; Optum for UHC Community Plan: one validated screener plus one formal tool), so confirm in this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1740,7 +1740,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       concurrentBilling: {
-        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'Not resolved. No state-level rule on billing 97153 and 97155 for the same clock time could be verified, and this plan publishes none. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1750,7 +1750,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific per-day unit table found, and no state-level ceiling could be verified. Other Ohio MCOs publish real numbers (CareSource applies the CMS MUE maxima; Buckeye caps at 6 hours a day and 30 hours a week absent justification), so run the codes through this plan’s portal rather than assuming. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
@@ -1760,7 +1760,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       noteSignature: {
-        value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov refused connection on every attempt this cycle and the 5160-34 chapter is still missing from the Title 5160 index, so the in-force rule text could not be read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Note also that ODM’s rewritten 5160-34 package is paused and pre-filing, not adopted, so draft content does not govern.',
+        value: 'No plan-specific session-note signature standard found, and none could be verified at state level. codes.ohio.gov now returns “No Ohio Administrative Code rule number corresponds to ‘5160-34’” (re-confirmed 10/1/2026) rather than refusing the connection, and the chapter remains absent from the Title 5160 index, so no in-force rule text exists to read — confirm with Rules@Medicaid.Ohio.gov or JCARR. Per ODM’s 7/30/2026 provider stakeholder presentation, the rewrite was paused in 2025 for reevaluation (budget pressure, national ABA-spend scrutiny, other-state audit findings) and the draft (ERF188422B) still carries a “DRAFT — NOT FOR FILING” header and no JCARR filing, so draft content does not govern.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },

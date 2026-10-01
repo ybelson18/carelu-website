@@ -704,7 +704,7 @@ const EMEDNY_MEVS_DVS_MANUAL = src(
 );
 const EMEDNY_ABA_FEE_SCHEDULE = src(
   'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls',
-  'eMedNY ABA Fee Schedule (.xls; file metadata "Last Saved" 2/28/2026; sheet header "Effective Date: April 1, 2026") — fetched and read directly (HTTP 200). Only 97151-97158 appear (12 rows); 0362T, 0373T, 99366 are entirely absent.'
+  'eMedNY ABA Fee Schedule (.xls; file metadata "Last Saved" 2/28/2026; sheet header "Effective Date: April 1, 2026") — fetched and read directly (HTTP 200), re-confirmed 10/1/2026 (the code\'s own effective date for the $9.63 cut): the sheet still shows the stale April 1, 2026 header and $14.45 for 97153. Only 97151-97158 appear (12 rows); 0362T, 0373T, 99366 are entirely absent.'
 );
 const EMEDNY_ABA_POLICY_MANUAL = src(
   'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf',
@@ -716,7 +716,7 @@ const NYS_MEDICAID_UPDATE_AUG2025 = src(
 );
 const NYS_MEDICAID_UPDATE_AUG2026 = src(
   'https://www.health.ny.gov/health_care/medicaid/program/update/2026/no09_2026-08.htm',
-  'NYS Medicaid Update, August 2026, Vol. 42 No. 9 — read via the r.jina.ai text proxy (health.ny.gov returns HTTP 403 to direct automated fetches), accessed 2026-09-25. Section "Reimbursement Change for Unlicensed Individuals Providing Applied Behavior Analysis Services": "As authorized by the New York State (NYS) Enacted Budget for Fiscal Year 2026-2027, NYS Medicaid fee-for-service (FFS) will decrease the fee paid for ... CPT code 97153" and "Effective October 1, 2026, the reimbursement for CPT code 97153 will be reduced to $9.63/per unit." Names FFS only; no other ABA code changes; no later change announced in the Jan-Aug 2026 issues.'
+  'NYS Medicaid Update, August 2026, Vol. 42 No. 9 — read via the r.jina.ai text proxy (health.ny.gov returns HTTP 403 to direct automated fetches), accessed 2026-09-25 and re-confirmed 2026-10-01 (still the current issue per the DOH Medicaid Update index, revised September 2026 with no newer number posted). Section "Reimbursement Change for Unlicensed Individuals Providing Applied Behavior Analysis Services": "As authorized by the New York State (NYS) Enacted Budget for Fiscal Year 2026-2027, NYS Medicaid fee-for-service (FFS) will decrease the fee paid for ... CPT code 97153" and "Effective October 1, 2026, the reimbursement for CPT code 97153 will be reduced to $9.63/per unit." Names FFS only; no other ABA code changes; no later change announced through the August 2026 issue (the current one as of this check).'
 );
 const ACUITY_NEWS_RATES = src(
   'https://acuity.news/regulation/new-york-medicaid-aba-reimbursement-rate-reduction-2026/',
@@ -961,7 +961,7 @@ const newYorkMedicaidCodeGrid: Record<string, CodeGridEntry> = {
   ),
   '97153': nyMedicaidFfsEntry(
     '97153',
-    "Technician-delivered direct treatment — the volume code. Rate is being phased down: $19.26 → $16.85/unit (eff. 10/1/2025) → $14.45/unit (eff. 4/1/2026, current through 9/30/2026) → $9.63/unit (eff. 10/1/2026, announced in the August 2026 Medicaid Update under the FY 2026-27 enacted budget; FFS). See rates for the full history.",
+    "Technician-delivered direct treatment — the volume code. Rate has been phased down: $19.26 → $16.85/unit (eff. 10/1/2025) → $14.45/unit (eff. 4/1/2026) → $9.63/unit, current as of 10/1/2026 (announced in the August 2026 Medicaid Update under the FY 2026-27 enacted budget; FFS). The eMedNY fee-schedule .xls still showed the stale $14.45/4-1-2026 figures when re-checked on the 10/1/2026 effective date itself — the Medicaid Update remains the controlling notice until the .xls is reissued. See rates for the full history.",
     [NYS_MEDICAID_UPDATE_AUG2025, NYS_MEDICAID_UPDATE_AUG2026]
   ),
   '97154': nyMedicaidFfsEntry(
@@ -988,13 +988,13 @@ const newYorkMedicaidCodeGrid: Record<string, CodeGridEntry> = {
 
 const newYorkMedicaidRates: RateTable = {
   source:
-    'eMedNY ABA Fee Schedule (.xls, effective 4/1/2026), cross-confirmed for the 97153 phase-down history against the NYS Medicaid Update Aug 2025 (Vol 41 No 8), plus the Aug 2026 Update (Vol 42 No 9) announcing 97153 at $9.63/unit from 10/1/2026 — the FFS fee schedule is a single flat statewide rate per code with no credential tiers, no modifiers, no geographic variation. MMC plans negotiate their own rates (see each MCO guide\'s rates block).',
-  effectiveDate: '2026-04-01',
+    'NYS Medicaid Update, Aug 2026 (Vol 42 No 9) — controlling notice for 97153 effective 10/1/2026 — cross-confirmed against the eMedNY ABA Fee Schedule (.xls, still headered "effective 4/1/2026" when re-checked 10/1/2026) and the Aug 2025 Update (Vol 41 No 8) for the earlier phase-down steps. The FFS fee schedule is a single flat statewide rate per code with no credential tiers, no modifiers, no geographic variation. MMC plans negotiate their own rates (see each MCO guide\'s rates block).',
+  effectiveDate: '2026-10-01',
   byCode: {
     '97151': { rate: '$19.26 per 15-min unit', unit: '15min' },
     '97152': { rate: '$19.26 per 15-min unit (no distinct historical effective date published)', unit: '15min' },
     '97153': {
-      rate: '$14.45 per 15-min unit (current, eff. 4/1/2026, through 9/30/2026) — phased down from $19.26 → $16.85 (eff. 10/1/2025) → $14.45 (eff. 4/1/2026); SCHEDULED: $9.63 per unit effective 10/1/2026 (NYS Medicaid Update Aug 2026, FFS; the eMedNY .xls had not yet been reissued when checked 2026-09-27)',
+      rate: '$9.63 per 15-min unit, current as of 10/1/2026 (NYS Medicaid Update Aug 2026, FFS) — phased down from $19.26 → $16.85 (eff. 10/1/2025) → $14.45 (eff. 4/1/2026) → $9.63 (eff. 10/1/2026). The eMedNY .xls still carried its stale April 1, 2026 header and $14.45 figure when re-checked on the 10/1/2026 effective date itself; treat the Medicaid Update as controlling until the .xls is reissued.',
       unit: '15min',
     },
     '97154': { rate: '$3.31 per unit per member (group code)', unit: '15min' },

@@ -20,10 +20,11 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       ],
     },
     dxRequired: {
-      value: 'NO \u2014 not autism-restricted, and not category-restricted either. DMAS Appendix D admits a youth under 21 who meets criteria for a primary ICD diagnosis correlating to a DSM diagnosis, OR who has a provisional psychiatric diagnosis developed by an LMHP when no definitive diagnosis has been made, plus at least two functional-impairment criteria. The ABA criteria name no diagnostic category list and never mention autism',
+      value: 'NO \u2014 not autism-restricted, and not category-restricted either, under the current Appendix D criteria. DMAS Appendix D admits a youth under 21 who meets criteria for a primary ICD diagnosis correlating to a DSM diagnosis, OR who has a provisional psychiatric diagnosis developed by an LMHP when no definitive diagnosis has been made, plus at least two functional-impairment criteria. The ABA criteria name no diagnostic category list and never mention autism. WATCH: Item 291.WW.2 of the 2026 Appropriation Act directs DMAS to require an ASD diagnosis (or, for children 5 and younger, a one-year provisional ASD diagnosis under a DMAS-designated protocol) before authorizing ABA \u2014 but as of 10/1/2026 this is pending CMS approval and DMAS has not yet announced an effective date or published the implementing manual update, so the current autism-agnostic rule above still governs',
       status: 'verified',
       cites: [
         { title: 'DMAS — MHS manual Appendix D (ABA), Admission Criteria p.24', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        { title: 'DMAS — SPA 26-018, Autism Spectrum Disorder Service Updates notice (Item 291.WW.2; pending CMS approval, accessed 10/1/2026)', url: 'https://dmas.virginia.gov/media/unifn0g3/spa-26-018_autism-spectrum-disorder-service-updates.pdf' },
       ],
     },
     payer: 'Virginia Medicaid (DMAS)',
@@ -42,9 +43,10 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { label: 'Treatment auth', value: 'Required — units per CPT code (eff. 10/15/2025, new DMAS form)' },
       { label: '20-hr threshold', value: 'Requests ≥20 hrs/week need an individualized activity schedule' },
       { label: 'Rates (per 15 min)', value: '97153: $15.00 tech · $23.48 LABA · $46.63 LBA (licensure tiers)' },
-      { label: 'FFS auth vendor', value: 'Acentra Health — access via DMAS MES portal SSO (“FFS Service Authorization” tile) since 6/1/2026; MCOs run their own UM' },
+      { label: 'FFS auth vendor', value: 'Acentra Health — FFS logins moved to DMAS MES SSO (“FFS Service Authorization” tile) 6/1/2026, then to DMAS Identity, Credentials and Access Management (ICAM) 8/1/2026; MCOs run their own UM' },
       { label: 'PA turnaround (CMS rule)', value: 'Since 1/1/2026: 72 hrs expedited / 7 days standard (extendable to 14) — FFS + all Cardinal Care MCOs' },
       { label: 'Staff screening', value: 'RBT NOT required — unlicensed techs under LBA/LABA supervision (18VAC85-150)' },
+      { label: 'Watch', value: 'FY2027 Appropriation Act Item 291.WW.2 would cap ABA at 20 hrs/week (exceedable via EPSDT medical necessity) and require an ASD diagnosis — pending CMS approval, no effective date announced as of 10/1/2026' },
     ],
     sections: [
       {
@@ -62,12 +64,13 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Treatment authorization',
         body: [
-          'All treatment hours require service authorization with a predetermined number of units for each treatment procedure code. Effective for dates of service October 15, 2025 and later, requests — fee-for-service and every Cardinal Care MCO alike — must itemize units per ABA CPT code on the new DMAS standardized preservice form (no more bundling under 97155), so intake and clinical planning need to align on requested intensity code by code. Requests at or above 20 hours/week (80 units) must include an individualized schedule of activities, and continued-stay requests need an updated ISP plus graphical progress data. There is no hard hour cap — EPSDT medical necessity governs. Fee-for-service authorizations still run on Acentra Health\'s Atrezzo Next Generation (ANG) system, but the access path changed: DMAS added an "FFS Service Authorization" tile inside its Medicaid Enterprise System (MES) provider portal effective April 27, 2026, direct login to Atrezzo continued only through May 31, 2026, and effective June 1, 2026 every provider must reach FFS service authorizations through MES single sign-on and that tile rather than a direct Atrezzo/Kepro login (portal.kepro.com/Login/Login is retired for this purpose). DMAS\'s bulletin describes the access mechanism for FFS service authorizations generally rather than naming behavioral health/ABA specifically, but the change applies across all FFS service types, ABA included. MCO members continue to follow their plan\'s own process.',
+          'All treatment hours require service authorization with a predetermined number of units for each treatment procedure code. Effective for dates of service October 15, 2025 and later, requests — fee-for-service and every Cardinal Care MCO alike — must itemize units per ABA CPT code on the new DMAS standardized preservice form (no more bundling under 97155), so intake and clinical planning need to align on requested intensity code by code. Requests at or above 20 hours/week (80 units) must include an individualized schedule of activities, and continued-stay requests need an updated ISP plus graphical progress data. There is no hard hour cap today — EPSDT medical necessity governs (though a pending FY2027 Appropriation Act item would add a 20-hour/week ceiling; see "Watch" below). Fee-for-service authorizations still run on Acentra Health\'s Atrezzo Next Generation (ANG) system, but the access path changed twice in 2026: DMAS added an "FFS Service Authorization" tile inside its Medicaid Enterprise System (MES) provider portal effective April 27, 2026, direct login to Atrezzo continued only through May 31, 2026, and effective June 1, 2026 every provider had to reach FFS service authorizations through MES single sign-on and that tile rather than a direct Atrezzo/Kepro login (portal.kepro.com/Login/Login was retired for this purpose). That tile-based path was then itself superseded: a DMAS bulletin issued July 14, 2026 ended even that direct/legacy access to ANG effective July 31, 2026, and effective August 1, 2026 all FFS providers must log into ANG through DMAS Identity, Credentials and Access Management (ICAM) instead. DMAS\'s bulletins describe the access mechanism for FFS service authorizations generally rather than naming behavioral health/ABA specifically, but the change applies across all FFS service types, ABA included. MCO members continue to follow their plan\'s own process.',
         ],
         cites: [
           { title: 'DMAS bulletin — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
           { title: 'DMAS — MHS manual Appendix D (rev. 7/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
           { title: 'DMAS bulletin — new single sign-on requirement for FFS service authorization requests on the Acentra ANG platform (accessed 9/1/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/new-single-sign-requirement-ffs-service-authorization-requests-acentra-ang-platform' },
+          { title: 'DMAS bulletin — Direct Access to Atrezzo Next Generation (ANG) Ending Effective 7/31/2026 (issued 7/14/2026, accessed 10/1/2026)', url: 'https://vamedicaid.dmas.virginia.gov/node/3785' },
         ],
       },
       {
@@ -77,6 +80,15 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'DMAS bulletin — Interoperability and Prior Authorization Final Rule implementation update (accessed 9/1/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/interoperability-and-prior-authorization-final-rule-implementation-update' },
+        ],
+      },
+      {
+        h2: 'Watch: a pending 20-hour/week ABA cap and diagnosis requirement',
+        body: [
+          'Item 291.WW.2 of Virginia\'s 2026 Appropriation Act directs DMAS to impose a cumulative 20-hour-per-week limit on ABA services per recipient (effective July 1, 2026 as drafted, but exceedable based on documented medical necessity under EPSDT) and to require a diagnosis of autism spectrum disorder before authorizing ABA — with children age 5 and younger allowed a one-year provisional ASD diagnosis under a protocol DMAS will designate. DMAS\'s own SPA notice states plainly that the department is still seeking CMS approval for these changes, and that "the effective date for ABA service changes will be announced in a subsequent notice," with the implementing detail to follow in an update to the Mental Health Services manual. As of October 1, 2026 no such notice or manual update has been published, so none of this is in effect yet — the current Appendix D admission criteria (autism-agnostic, no hard hour cap) remain the operative rule. Treat this as a near-term watch item rather than a live requirement, and re-check before relying on either the current "no diagnosis restriction" or "no hour cap" facts past early 2027.',
+        ],
+        cites: [
+          { title: 'DMAS — SPA 26-018, Autism Spectrum Disorder Service Updates notice (Item 291.WW.2; pending CMS approval, accessed 10/1/2026)', url: 'https://dmas.virginia.gov/media/unifn0g3/spa-26-018_autism-spectrum-disorder-service-updates.pdf' },
         ],
       },
       {
@@ -133,7 +145,9 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
       { title: 'DMAS — service authorization (Acentra Health)', url: 'https://www.dmas.virginia.gov/for-providers/service-authorization/' },
       { title: 'DMAS bulletin — new single sign-on requirement for FFS service authorization requests on the Acentra ANG platform', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/new-single-sign-requirement-ffs-service-authorization-requests-acentra-ang-platform' },
+      { title: 'DMAS bulletin — Direct Access to Atrezzo Next Generation (ANG) Ending Effective 7/31/2026 (issued 7/14/2026)', url: 'https://vamedicaid.dmas.virginia.gov/node/3785' },
       { title: 'DMAS bulletin — Interoperability and Prior Authorization Final Rule implementation update', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/interoperability-and-prior-authorization-final-rule-implementation-update' },
+      { title: 'DMAS — SPA 26-018, Autism Spectrum Disorder Service Updates notice (Item 291.WW.2; pending CMS approval)', url: 'https://dmas.virginia.gov/media/unifn0g3/spa-26-018_autism-spectrum-disorder-service-updates.pdf' },
       { title: 'VirginiaABA — For Medicaid Providers (FAQ)', url: 'https://virginiaaba.org/resources/for-behavior-analysts/for-medicaid-providers/' },
       { title: '18VAC85-150-120 — supervisory responsibilities', url: 'https://www.law.cornell.edu/regulations/virginia/18VAC85-150-120' },
       { title: '18VAC85-150-130 — supervision of unlicensed personnel', url: 'https://law.lis.virginia.gov/admincode/title18/agency85/chapter150/section130/' },
@@ -168,11 +182,12 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'No per-day unit ceiling. Assessment codes 97151, 97152 and 0362T carry no service authorization and no unit limit, but may only be billed as part of an initial assessment or a full reassessment. Since dates of service 10/15/2025 every treatment code is authorized with its own predetermined number of units rather than bundled under 97155. Requests at or above 20 hours (80 units) a week must include an individualized schedule of activities that distinguishes therapeutic from recreational time — a general schedule of clinic-based activities is not sufficient. Group sizes follow CPT guidelines. In Residential Treatment Services settings, including therapeutic group homes and PRTFs, the payable ABA set narrows to 97151, 97154 (with modifier HN, HO or TF only), 97155, 97156 and 97157.',
+          'No per-day unit ceiling today. Assessment codes 97151, 97152 and 0362T carry no service authorization and no unit limit, but may only be billed as part of an initial assessment or a full reassessment. Since dates of service 10/15/2025 every treatment code is authorized with its own predetermined number of units rather than bundled under 97155. Requests at or above 20 hours (80 units) a week must include an individualized schedule of activities that distinguishes therapeutic from recreational time — a general schedule of clinic-based activities is not sufficient. Group sizes follow CPT guidelines. In Residential Treatment Services settings, including therapeutic group homes and PRTFs, the payable ABA set narrows to 97151, 97154 (with modifier HN, HO or TF only), 97155, 97156 and 97157. WATCH: FY2027 Appropriation Act Item 291.WW.2 would add a cumulative 20-hour/week cap (exceedable for documented EPSDT medical necessity), but DMAS says this is pending CMS approval with no effective date announced yet as of 10/1/2026.',
         status: 'verified',
         cites: [
           { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
           { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+          { title: 'DMAS — SPA 26-018, Autism Spectrum Disorder Service Updates notice (Item 291.WW.2; pending CMS approval, accessed 10/1/2026)', url: 'https://dmas.virginia.gov/media/unifn0g3/spa-26-018_autism-spectrum-disorder-service-updates.pdf' },
         ],
       },
       noteSignature: {
@@ -291,8 +306,9 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does every part of a Virginia Medicaid initial ABA assessment have to be in person?', a: 'Yes. Appendix D requires the initial assessment to be conducted in person with the youth and the family or caregivers, and DMAS\'s December 2025 clarifications bulletin makes that a condition of Medicaid reimbursement. The Telehealth Services Supplement (rev. 1/5/2026) allows 97151 and 97152 by telemedicine for reassessments only, and those codes may be billed only as part of the initial assessment or a full reassessment — so follow-up observations and interviews with additional caregivers that complete the initial assessment must be in person too. DMAS sets no separate window that would move them under telehealth rules. Only non-face-to-face work — care coordination, data analysis and treatment-plan preparation without the youth present, billed under 97151 — is exempt. After the initial assessment, QHP observation and protocol work (97155) and caregiver training (97156) may be delivered by telemedicine when the ISP justifies it, and a full reassessment may be too. The same DMAS rule applies to all five Cardinal Care MCOs.' },
       { q: 'What does Virginia Medicaid pay for ABA?', a: 'Licensure-tiered rates per 15-minute unit: 97153 pays $15.00 (technician), $23.48 (LABA), $39.40 (LMHP), or $46.63 (LBA); assessment and QHP codes pay the LABA/LMHP/LBA tiers. Modifiers HN/TF/HO flag the tier.' },
       { q: 'Which MCOs run Virginia Medicaid ABA?', a: 'Aetna Better Health, Anthem HealthKeepers Plus, Humana Healthy Horizons (which replaced Molina on July 1, 2025), Sentara Community Plan, and UnitedHealthcare Community Plan — all on identical DMAS criteria and forms.' },
-      { q: 'How do I log in to submit a Virginia Medicaid FFS ABA service authorization?', a: 'As of June 1, 2026, through DMAS\'s Medicaid Enterprise System (MES) provider portal single sign-on and its "FFS Service Authorization" tile — direct login to Acentra\'s Atrezzo portal (portal.kepro.com) was retired for this purpose after May 31, 2026. MCO members still submit through their own plan\'s portal.' },
+      { q: 'How do I log in to submit a Virginia Medicaid FFS ABA service authorization?', a: 'As of August 1, 2026, through DMAS Identity, Credentials and Access Management (ICAM) to reach Acentra\'s Atrezzo Next Generation (ANG) system — legacy/direct ANG access ended July 31, 2026. (That followed an earlier move: from June 1, 2026 through July 31, 2026, FFS requests ran through the MES portal\'s "FFS Service Authorization" tile, after direct login at portal.kepro.com was retired on May 31, 2026.) MCO members still submit through their own plan\'s portal.' },
       { q: 'How fast must Virginia Medicaid decide an ABA prior-authorization request?', a: 'Under the CMS Interoperability and Prior Authorization Final Rule (effective 1/1/2026), DMAS FFS and every Cardinal Care MCO must decide expedited requests within 72 hours and standard requests within 7 calendar days — extendable to 14 days only if the member/provider requests it, or DMAS/the MCO needs more evidence in the member\'s interest.' },
+      { q: 'Is Virginia Medicaid about to cap ABA at 20 hours a week or require an autism diagnosis?', a: 'Not yet. The 2026 Appropriation Act (Item 291.WW.2) directs DMAS to add a 20-hour/week cumulative cap (exceedable for documented medical necessity under EPSDT) and an ASD-diagnosis requirement (a one-year provisional diagnosis allowed under 6), but DMAS\'s own SPA notice says the changes are pending CMS approval and that the effective date "will be announced in a subsequent notice." As of October 1, 2026 no effective date has been published, so the current rules — no hard hour cap, no diagnosis restriction — still apply. Check back before assuming either one.' },
     ],
   },
 
@@ -1011,7 +1027,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
-        { title: 'Sentara — BH authorization fax numbers and forms update (eff. 8/1/2025)', url: 'https://www.sentarahealthplans.com/en/providers/updates/behavioral-health-authorization-fax-numbers-and-forms' },
+        { title: 'Sentara — BH authorization fax numbers and forms update (eff. 8/1/2025; confirmed 10/1/2026 — ABA listed under Non-Urgent BH Outpatient fax)', url: 'https://www.sentarahealthplans.com/en/providers/updates/behavioral-health-authorization-fax-numbers-and-forms' },
       ],
     },
     dxRequired: {

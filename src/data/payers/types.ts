@@ -112,7 +112,7 @@ export interface PayerConfig {
   intakeGates?: PayerIntakeGates;
 }
 
-export const PAYER_REVIEWED = 'September 2026';
+export const PAYER_REVIEWED = 'October 2026';
 
 // State metadata for the directory + per-state breakdowns on commercial guides.
 export interface StateMeta { code: string; name: string; mandate: string; medicaidSlug: string }

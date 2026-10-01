@@ -104,7 +104,13 @@ const DMAS_SSO_BULLETIN: SourceRef = {
   url: 'https://vamedicaid.dmas.virginia.gov/bulletin/new-single-sign-requirement-ffs-service-authorization-requests-acentra-ang-platform',
   accessDate: '2026-09-01',
   note:
-    'DMAS bulletin — new single sign-on requirement for FFS service-authorization requests on the Acentra ANG platform: effective 4/27/2026 DMAS added an "FFS Service Authorization" tile inside the DMAS Medicaid Enterprise System (MES) provider portal; direct login to Acentra\'s Atrezzo Next Generation (ANG) system at portal.kepro.com/Login/Login continued only through 5/31/2026; effective 6/1/2026 ALL providers must reach FFS service authorizations through MES single sign-on and that tile instead of a direct Atrezzo/Kepro login. The bulletin describes the portal/access mechanism generally — it does not call out behavioral health/ABA by name — so this is applied as "the access mechanism changed for all FFS service types, ABA included," not an ABA-specific confirmation beyond the general portal change.',
+    'DMAS bulletin — new single sign-on requirement for FFS service-authorization requests on the Acentra ANG platform: effective 4/27/2026 DMAS added an "FFS Service Authorization" tile inside the DMAS Medicaid Enterprise System (MES) provider portal; direct login to Acentra\'s Atrezzo Next Generation (ANG) system at portal.kepro.com/Login/Login continued only through 5/31/2026; effective 6/1/2026 ALL providers must reach FFS service authorizations through MES single sign-on and that tile instead of a direct Atrezzo/Kepro login. The bulletin describes the portal/access mechanism generally — it does not call out behavioral health/ABA by name — so this is applied as "the access mechanism changed for all FFS service types, ABA included," not an ABA-specific confirmation beyond the general portal change. SUPERSEDED IN PART — see DMAS_ANG_TERMINATION_BULLETIN below: a further cutover retired even this tile/kepro.com split and moved login to DMAS Identity, Credentials and Access Management (ICAM) effective 8/1/2026.',
+};
+const DMAS_ANG_TERMINATION_BULLETIN: SourceRef = {
+  url: 'https://vamedicaid.dmas.virginia.gov/node/3785',
+  accessDate: '2026-10-01',
+  note:
+    'DMAS bulletin, "Direct Access to Atrezzo Next Generation (ANG) Ending Effective 7/31/2026" (issued 7/14/2026): direct/legacy access to Acentra\'s ANG service-authorization portal terminates effective 7/31/2026; effective 8/1/2026 all FFS providers must log into ANG through DMAS Identity, Credentials and Access Management (ICAM) rather than any prior access path, including the "FFS Service Authorization" MES tile\'s original credential flow. Providers with the AIMS access tile use the same MES/ICAM login as for the DMAS Appeals Information Management System. Login issues route to MES-Assist@dmas.virginia.gov. Like DMAS_SSO_BULLETIN, this is a general FFS-portal-access bulletin, not ABA-specific — applied here as "the access mechanism changed for all FFS service types, ABA included."',
 };
 const VA_MES_270271_CG = src(
   'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-07/MES%20EDI%20270-271%20Companion%20Guide_R100_20220509-PK%202.pdf',
@@ -130,6 +136,12 @@ const SENTARA_VA_SA_FORM = src(
   'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1',
   'Sentara Community Plan — DMAS ABA preservice SA request form (units-per-code version, DOS 9/1/2025+): embeds the DMAS rules — units requested per CPT code, and the 20-hour/80-unit threshold that triggers the individualized activity schedule.'
 );
+const SENTARA_VA_BH_FAX_FORMS: SourceRef = {
+  url: 'https://www.sentarahealthplans.com/en/providers/updates/behavioral-health-authorization-fax-numbers-and-forms',
+  accessDate: '2026-10-01',
+  note:
+    'Sentara Health Plans — "Behavioral Health Authorization Fax Numbers and Forms" (Update #OPSBHFF080125, eff. 8/1/2025, Medicare & Medicaid). Confirmed by fetching the linked PDF directly (the landing page itself renders as an SVG/image to automated tools, but the PDF resolves through a Sitecore Content Hub redirect and extracts cleanly with pdftotext). Two fax lines, by request type: (1) Urgent (ARTS, Inpatient, Crisis, MH PHP/IOP): (844) 348-3719 or (757) 963-9619. (2) Non-Urgent BH Outpatient — explicitly includes "Applied Behavior Analysis (ABA) Initial (97155, Et al.)" and "ABA Continued Stay": (844) 895-3231 or (757) 963-9620. This is the ABA-specific fax pair; it differs from the general Behavioral Health Provider Services fax (757-552-7499) on Sentara\'s generic Contact Us page.',
+};
 const UHC_VA_PA_LIST = src(
   'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/va/prior-authorization-and-notification/VA-UHCCP-Prior-Authorization-Effective-3-1-2025.pdf',
   'UnitedHealthcare Community Plan of Virginia — PA requirements (effective 3/1/2025): ABA is singled out for submission "via fax or Provider Express," bypassing the standard UHC PA&N tool; the DMAS service-specific forms and criteria govern the clinical substance.'
@@ -374,7 +386,7 @@ const virginiaMedicaidEdi: EdiRouting = {
       'DMAS MES EDI support (MESEDISupport@dmas.virginia.gov, or Conduent EDI 1-866-352-0766 / Virginia.EDISupport@Conduent.com): request a production 271 sample and ask specifically where the member\'s Cardinal Care MCO is reported (MSG aid-category vs. a benefit-related-entity loop vs. not returned via the FFS 271).',
     'medicaid271Notes.mcoCarrierCodes': 'Same DMAS MES EDI support — the carrier/MCO code crosswalk is not in the 270/271 guide (likely in the 834 enrollment materials).',
   },
-  sources: [VA_MES_270271_CG, DMAS_SA_ACENTRA, DMAS_SSO_BULLETIN, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
+  sources: [VA_MES_270271_CG, DMAS_SA_ACENTRA, DMAS_SSO_BULLETIN, DMAS_ANG_TERMINATION_BULLETIN, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST],
 };
 
 /* ==================== aetna-better-health-virginia ==================== */
@@ -908,18 +920,18 @@ const uhcCpVaStc = vaMedicaidUnverifiedStc(
 const virginiaMedicaidContact: VobContact = {
   providerServicesPhone: '1-800-552-8627 (in-state) or (804) 786-6273 (local/out-of-state)',
   ivrPath:
-    'General DMAS provider line above is for eligibility/enrollment questions. ABA service-authorization requests and status route through Acentra Health\'s Atrezzo (ANG) line, 1-888-827-2884 (1-888-VAPAUTH) — not the general DMAS number. As of 6/1/2026, portal access itself goes through DMAS MES single sign-on and the "FFS Service Authorization" tile, not a direct Atrezzo/Kepro login (portal.kepro.com/Login/Login was retired for this purpose after 5/31/2026).',
+    'General DMAS provider line above is for eligibility/enrollment questions. ABA service-authorization requests and status route through Acentra Health\'s Atrezzo (ANG) line, 1-888-827-2884 (1-888-VAPAUTH) — not the general DMAS number. Portal access migrated twice in 2026: from 6/1/2026 it went through DMAS MES single sign-on and the "FFS Service Authorization" tile (direct Atrezzo/Kepro login at portal.kepro.com/Login/Login was retired for this purpose after 5/31/2026); then that path itself was retired, and as of 8/1/2026 all FFS providers must log into ANG through DMAS Identity, Credentials and Access Management (ICAM) instead (legacy direct access ended 7/31/2026).',
   hours: 'Atrezzo accepts SA submissions 24/7; phone-support hours for the general DMAS Provider Services line are not published in the cited source.',
-  portal: { name: 'DMAS MES provider portal — "FFS Service Authorization" tile (SSO to Acentra Atrezzo ANG)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/new-single-sign-requirement-ffs-service-authorization-requests-acentra-ang-platform' },
+  portal: { name: 'DMAS MES provider portal — ICAM login to Acentra Atrezzo ANG (eff. 8/1/2026)', url: 'https://vamedicaid.dmas.virginia.gov/node/3785' },
   fax: '1-877-OKBYFAX (652-9329) — Acentra Health service-authorization fax',
   scriptedQuestions: [
     'Which Cardinal Care MCO is this member enrolled in right now? Our eligibility read can\'t reliably map that off the FFS 271.',
     'Is this member\'s ABA benefit currently running through FFS Medicaid, or have they transitioned to one of the five Cardinal Care MCOs?',
     'What places of service are approved under the current authorization — home, school, community?',
     'Can you read me the aid-category / benefit-plan code shown for this member so we can confirm plan assignment?',
-    'Since the MES SSO requirement took effect 6/1/2026, has our office\'s Atrezzo access been migrated to the new "FFS Service Authorization" tile, or do we still need to complete that transition?',
+    'Since legacy Atrezzo access ended 7/31/2026, has our office completed the move to DMAS Identity, Credentials and Access Management (ICAM) for ANG login, or do we still need to complete that transition?',
   ],
-  sources: [DMAS_PROVIDER_CONTACT, DMAS_SA_ACENTRA, DMAS_SSO_BULLETIN],
+  sources: [DMAS_PROVIDER_CONTACT, DMAS_SA_ACENTRA, DMAS_SSO_BULLETIN, DMAS_ANG_TERMINATION_BULLETIN],
 };
 
 const aetnaBetterHealthVaContact: VobContact = {
@@ -960,12 +972,12 @@ const sentaraContact: VobContact = {
   providerServicesPhone: '757-552-7174 or 1-800-648-8420 (Behavioral Health Provider Services)',
   hours: '8 a.m.-6 p.m. Monday-Friday (Medicaid line)',
   portal: { name: 'Availity', url: 'https://www.availity.com' },
-  fax: '757-552-7499 (Behavioral Health)',
+  fax: '(844) 895-3231 or (757) 963-9620 — ABA-specific, Non-Urgent BH Outpatient fax (eff. 8/1/2025); the general Behavioral Health Provider Services fax (757-552-7499) on Sentara\'s Contact Us page is a different line and not the one named for ABA forms',
   scriptedQuestions: [
     'What places of service are approved under this member\'s authorization — home, school, community, or telehealth?',
     'Does Sentara Community Plan pay these ABA codes at the DMAS fee-schedule rate, or is there a plan-specific contracted rate?',
   ],
-  sources: [SENTARA_VA_CONTACT, SENTARA_VA_SA_FORM],
+  sources: [SENTARA_VA_CONTACT, SENTARA_VA_SA_FORM, SENTARA_VA_BH_FAX_FORMS],
 };
 
 const uhcCpVaContact: VobContact = {
