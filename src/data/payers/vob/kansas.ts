@@ -77,6 +77,11 @@ const KMAP_BULLETIN_17129 = src(
   'https://www.sunflowerhealthplan.com/newsroom/kmap-17129.html',
   'KMAP Bulletin 17129 — Additional State Plan Services (CCTS/IIS under EPSDT, eff. 1/1/2017); CCTS billed 97151/97152/97155/97156, IIS billed 97153.'
 );
+const KMAP_BULLETIN_21234 = src(
+  'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf',
+  'KMAP General Bulletin 21234 — New Place of Service Code 10 (Dec 2021, eff. 1/1/2022): POS 10 (telehealth in patient\'s home) valid alongside POS 02; codes allowed for POS 10 include 97151, 97152, 97153, 97155, 97156 (not 97154/97158). MCO implementation may vary from the bulletin date.'
+);
+const KMAP_TELEHEALTH_CODES = new Set(['97151', '97152', '97153', '97155', '97156']);
 const KMAP_BULLETIN_18259 = src(
   'https://www.sunflowerhealthplan.com/newsroom/kmap-18259.html',
   'KMAP Bulletin 18259 — Mental Health/Autism CPT crosswalk, eff. 1/1/2019: 0359T→97151 at $17.50 per 15-minute unit. Last dated dollar figure located for any Kansas autism-services code.'
@@ -117,7 +122,7 @@ const AVAILITY_PAYER_LIST = src(
 );
 const SUNFLOWER_KS_CP01 = src(
   'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf',
-  'Sunflower KS.CP.01 — Applied Behavioral Analysis clinical policy; PA package detail (Autism Authorization Request Form, named assessment instruments, 6-month diagnosis-validation rule, Kan Be Healthy gate); no per-code unit-cap or modifier table published beyond the state CCTS/IIS soft limits.'
+  'Sunflower KS.CP.01 — Applied Behavioral Analysis clinical policy (last reviewed 06/2019; still hosted but no longer listed on Sunflower\'s clinical-policy index as of 10/1/2026, which lists Centene CP.BH.104/CP.BH.105 instead); PA package detail (Autism Authorization Request Form, named assessment instruments, 6-month diagnosis-validation rule, Kan Be Healthy gate); no per-code unit-cap or modifier table published beyond the state CCTS/IIS soft limits.'
 );
 const OPTUM_KS_MEDICAID_CRITERIA = src(
   'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf',
@@ -212,7 +217,9 @@ function kansasMedicaidEntry(code: string, service: 'CCTS' | 'IIS' | 'CCTS or II
     unitCap: `Service-level, not per-code: CCTS soft limit 50 hrs/year; IIS initial authorization up to 25 hrs/week (more available on medical necessity). Billed under ${service}.`,
     capPeriod: 'CCTS: year (soft limit); IIS: week (initial authorization)',
     posAllowed: ['unverified'],
-    telehealth: 'unverified — no telehealth modifier/POS detail published in KMAP bulletins reviewed this pass',
+    telehealth: KMAP_TELEHEALTH_CODES.has(code)
+      ? 'Yes — on KMAP\'s telehealth list (Bulletin 21234, eff. 1/1/2022): bill POS 10 when the child is at home, POS 02 elsewhere; no telehealth modifier named in the bulletin. MCO implementation may vary.'
+      : 'Not on KMAP\'s POS 10 telehealth code list (Bulletin 21234) — treat as in-person only unless the MCO confirms otherwise.',
     modifiers: ['unverified — no KMAP modifier-tier table located (contrast with Indiana, which publishes one)'],
     notes: [
       notes,
@@ -227,10 +234,10 @@ function kansasMedicaidEntry(code: string, service: 'CCTS' | 'IIS' | 'CCTS or II
       paRequired: 'verified',
       unitCap: 'verified',
       posAllowed: 'unverified',
-      telehealth: 'unverified',
+      telehealth: 'verified',
       modifiers: 'unverified',
     },
-    sources: [KMAP_BULLETIN_17129, KMAP_BULLETIN_19029],
+    sources: [KMAP_BULLETIN_17129, KMAP_BULLETIN_19029, KMAP_BULLETIN_21234],
   };
 }
 
@@ -245,7 +252,7 @@ function inferredFromStatePattern(base: CodeGridEntry, verifyViaPortal: string):
       paRequired: 'inferred',
       unitCap: 'inferred',
       posAllowed: 'unverified',
-      telehealth: 'unverified',
+      telehealth: 'inferred',
       modifiers: 'unverified',
     },
   };
