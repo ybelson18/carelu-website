@@ -311,6 +311,31 @@ port new `types.ts` fields / STATE_META rows by hand, keeping any LeadTrap-only 
 Never hand-copy files instead of running the script: a plain copy silently deleted 7 guides'
 worth of LeadTrap-only content in the first attempt of the 2026-09-24 sync.
 
+9b-merge. **Merge three-way, never trust `sync.py` alone (learned 2026-10-01).** `sync.py` only
+detects LeadTrap-only *keys*; it silently overwrites LeadTrap-side *field-level* edits inside shared
+files (the October copy undid two of them). Build base = `sync.py` output of the website commit used
+by the LAST merged sync, applied to LeadTrap as it was before that sync and formatted with LeadTrap's
+prettier; ours = LeadTrap main; theirs = `sync.py` output of the website now. Run `git merge-file`
+per file, resolve conflicts by hand, then check the restore list below.
+
+9b-restore. **Restore checklist — LeadTrap-side edits that must survive every sync** (from #4218,
+re-confirmed in #4333; add to this list whenever LeadTrap makes a new one):
+  1. TennCare "no straight / fee-for-service TennCare" correction (#3880) in `tennessee.ts`:
+     section, FAQ, at-a-glance row, sources, card text.
+  2. No `carelu.com/sources` pointers or Carelu self-references in served guide prose or `verifyVia`
+     (the README requires it); only `changelog.ts`/`types.ts` comments may mention them.
+  3. VOB dialing order: `providerServicesPhone` puts the ABA/BH number first for firstcare-health-plans
+     (digit form, not the vanity "800.431.STAR"), baylor-scott-white-texas, dell-childrens-health-plan,
+     cigna-indiana, sentara-community-plan. No dialed phone may change in the diff.
+  4. `vob/carveouts.ts` keeps the `IOWA_INDIANA_HAWAII_ROWS` block (array spreads, not a keyed Record,
+     so `sync.py` drops it).
+  5. LeadTrap-only `changelog.ts` entries stay, and the LAST entry's `totals` equals the guide count
+     LeadTrap serves (guides outside `AWAITING_VOB`), not the website's count.
+Also: add every new website slug without a VOB layer to `AWAITING_VOB`, keep LeadTrap's looser
+`types.ts` unions, and delete the duplicate "LeadTrap-only guides" comment line `sync.py` adds to
+`vob/indiana.ts` and `vob/national.ts`. Do not edit the sync PR's description while its CI is running:
+the `edited` event starts a CI run that skips every job and cancels the real one.
+
 9c. Verify: `npx tsc --noEmit -p backend/tsconfig.json` in LeadTrap must show ZERO errors under
 `src/data/payer-guides/` (errors elsewhere from a stale local node_modules are not yours — CI is
 authoritative). Then check no slug disappeared: every `'slug': {` key removed by the diff must
