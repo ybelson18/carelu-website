@@ -35,7 +35,7 @@ export interface PayerRuleFact {
   /* Why this isn't verified — the two cases are genuinely different work:
      'document'  the answer IS written down, we just could not open the file
                  (portal-gated, bot-walled, 403). Closeable: a human fetches it
-                 via carelu.com/sources and the next refresh reads it. This is
+                 via LeadTrap's Source documents board and the next refresh reads it. This is
                  real debt and the queue should shrink.
      'per-case'  no document states it, because it varies by plan, contract or
                  member. "Ask the plan" is the FINISHED answer, not a placeholder

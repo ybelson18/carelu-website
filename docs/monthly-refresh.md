@@ -5,7 +5,8 @@ THREE repos are cloned in your workspace:
 
 - **carelu-website** — the site + VOB data + public API; pushes to main auto-deploy via Vercel.
 - **carelu-sources** — PRIVATE repo: `ask-usage/` (payer-chat logs, step 8), `inbox/` and
-  `processed/`. Its `requests.json` / `events.json` and the carelu.com/sources upload page are
+  `processed/`. Its `requests.json` / `events.json` and the carelu.com/sources upload page (now a
+  pointer to LeadTrap; its upload/state APIs are removed) are
   RETIRED for new requests (2026-10-01): requests now live in this repo's
   `src/data/payers/source-requests.ts` and appear on LeadTrap's Source documents board.
 - **LeadTrap** — the product monorepo. Its `backend/src/data/payer-guides/` holds a vendored
