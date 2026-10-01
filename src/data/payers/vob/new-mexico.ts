@@ -185,7 +185,7 @@ function nmMedicaidEntry(pa: string, notes?: string, statusOverrides?: Record<st
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['home', 'clinic / office', 'community', 'school', 'telehealth (modality allowed; NM ABA-specific POS numbers not published in the fee schedule/Supplement)'],
-    telehealth: 'unverified — Supplement 24-13 contemplates the settings above but does not publish ABA-specific telehealth POS/modifier mechanics.',
+    telehealth: 'Allowed as a modality — MAD Supplement 24-13 (3.2.1) "allows and encourages the utilization of telemedicine to deliver MAD ABA services" under 8.310.2 NMAC (real-time audio + video); 97155 explicitly by telemedicine with the recipient present (store-and-forward only in documented no-broadband cases), indirect 97151 family interviews by telemedicine. No ABA-specific POS/modifier is published — confirm with the MCO/TPA.',
     modifiers: ['U5 (Qualifying Psychologist)', 'U4 (BCBA-D)', 'U3 (BCBA)', 'U9 (BCaBA)', 'U1 (Behavior Technician)', 'UA/UB group size (97154/97158)'],
     notes: [notes, 'Verify via: HCA/MCO — per-code daily unit caps are not published in NM primary sources (limits are program-level: comprehensive 30–40 hrs/wk, focused 10–25, the <20-hrs/wk PA quirk).']
       .filter(Boolean)
@@ -195,7 +195,7 @@ function nmMedicaidEntry(pa: string, notes?: string, statusOverrides?: Record<st
       paRequired: 'verified',
       unitCap: 'unverified',
       posAllowed: 'inferred',
-      telehealth: 'unverified',
+      telehealth: 'inferred',
       modifiers: 'verified',
       ...statusOverrides,
     },
@@ -257,10 +257,10 @@ function nmCignaEntry(pa: string): CodeGridEntry {
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
-    telehealth: 'unverified',
+    telehealth: 'Allowed — "All ABA CPT codes are covered telehealth services" (Evernorth autism resource guide, March 2025); no POS/modifier published.',
     modifiers: ['unverified'],
     notes: 'Verify via: Cigna/Evernorth provider services — EN0499 is a medical-necessity policy only; no coding/reimbursement mechanics published. ABA claims route to Evernorth payer ID 62308.',
-    fieldStatus: { covered: 'verified', paRequired: 'verified', unitCap: 'unverified', posAllowed: 'unverified', telehealth: 'unverified', modifiers: 'unverified' },
+    fieldStatus: { covered: 'verified', paRequired: 'verified', unitCap: 'unverified', posAllowed: 'unverified', telehealth: 'verified', modifiers: 'unverified' },
     sources: [CIGNA_AUTISM_GUIDE],
   };
 }

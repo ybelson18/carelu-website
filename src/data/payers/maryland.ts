@@ -134,6 +134,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'BACB — RBT Requirements During the 2026 Transition (upd. 08/2025)', url: 'https://www.bacb.com/wp-content/uploads/2025/07/RBT-2026-Requirements_250723-a.pdf' },
         ],
       },
+      {
+        h2: 'Is the Maryland Medicaid ABA network open to new providers?',
+        body: [
+          'There is no separate network to be admitted to. The MDH ABA Provider Manual says "All ABA providers must first enroll with Maryland Medicaid to receive a Medicaid provider number and then must register with the BHASO" (Carelon), and calls a newly enrolled group "an in-network provider." Carelon\'s ABA page lists the same two steps: enroll in Maryland Medicaid, then register with Carelon. Groups and every individual — psychologist, BCBA-D, BCBA, BCaBA, RBT and BT — enroll. The catch right now is the enrollment system, not a network closure: Maryland Medicaid put ePREP on an application hold and read-only status for its replacement, MPRIME, cut all ePREP access on October 1, 2026, and scheduled MPRIME to launch October 13, 2026 (PT 28-27). New group or individual enrollments wait for MPRIME.',
+        ],
+        cites: [
+          { title: 'MDH ABA Provider Manual (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
+          { title: 'Carelon Behavioral Health of Maryland — ABA providers', url: 'https://maryland.carelonbh.com/aba-providers/' },
+          { title: 'PT 28-27 — Final ePREP Access Deadline and MPRIME Launch Updates (Sept 16, 2026)', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT28-27_Final_ePREP_Access_Deadline_and_MPRIME_Launch_Updates.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid eligibility — not the MCO', desc: 'Verify Medical Assistance eligibility and route everything to Carelon; the HealthChoice MCO on the card is irrelevant for ABA.' },
@@ -272,6 +283,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'Can a new agency assess a child who already has ABA with another Maryland Medicaid provider?', a: 'Yes, and the child does not have to be discharged first. Carelon\'s May 2026 FAQ: "Participants can obtain authorization from an initial assessment while still receiving services from their current provider. The Continuity of Care Form will be required along with a parent/guardian note." The Authorization Guide asks that the note name the change of ABA providers and the last day of services with the current provider, sent to MDH.ABACareCoordinatorsFAX@carelon.com or by phone at 1-800-888-1965. If the first agency has already stopped services, there should be a discharge report or date on file; if the system still shows its authorization as active, the parent\'s note serves as the request to amend it.' },
       { q: 'Does the referring doctor have to be enrolled in Maryland Medicaid?', a: 'Yes, for dates of service from July 1, 2026. PT 76-26 says the referring practitioner "must be enrolled as a Medicaid provider and active on the date of service," and every ABA claim must carry that individual\'s NPI in Field 17b; a group or facility NPI there, or an unenrolled referrer, gets the claim denied. Check the referrer in the Provider Verification System at intake.' },
       { q: 'Can Maryland Medicaid ABA be delivered 100% by telehealth?', a: 'Not for 97155 (RBT/BCaBA/BT supervision), 97156/97156-U2 (parent training), or 97157 (group parent training) — effective April 1, 2026, PT 60-26 ("ABA Transmittal No. 9") requires at least 25% of those three services to be rendered in person, with up to 75% allowed via telehealth. Direct 97153 treatment was never on the telehealth list at all.' },
+      { q: 'Is Maryland Medicaid accepting new ABA providers?', a: 'Yes, there is no closed network: enroll with Maryland Medicaid, then register with Carelon. But new enrollments are waiting on the system change: ePREP is closed (access ended October 1, 2026) and the new portal, MPRIME, is scheduled to open October 13, 2026.' },
     ],
   },
 
@@ -324,6 +336,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { label: 'Licensure', value: 'MD Licensed Behavior Analyst (Board of Professional Counselors & Therapists)' },
       { label: 'Prior auth', value: 'Required for ABA (3.01.015, 8.01.011A); PAL tool or 1-866-PRE-AUTH' },
       { label: 'RBTs / BCaBAs', value: 'Not contracted directly; services paid when supervised by a licensed BCBA and billed under that BCBA\'s name and provider number (PP CO 020.01)' },
+      { label: 'Fee schedule', value: 'Not public — rates are in your CareFirst agreement; BCBA paid 75% of the base physician fee schedule, technicians at the supervising BCBA\'s rate (PP CO 020.01)' },
       { label: 'BCBA rate basis', value: '75% of CareFirst\'s base physician fee schedule (PP CO 020.01); actual amounts are in your contract' },
     ],
     sections: [
@@ -421,6 +434,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'COMAR 10.58.16.12 — Delivery of Service Model (tiered delivery by supervisees)', url: 'https://regs.maryland.gov/us/md/exec/comar/10.58.16.12' },
       { title: 'COMAR 10.58.16.14 — Supervision (behavior analysts)', url: 'https://regs.maryland.gov/us/md/exec/comar/10.58.16.14' },
       { title: 'Carelon Maryland — ABA FAQs (May 2026) — changing providers (Maryland Medicaid only)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-FAQ-May-2026-.pdf' },
+      { title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -507,9 +521,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'CareFirst\'s telemedicine billing rules are published, but no ABA code list is. PP CO 200.02 requires modifier GT or 95 for synchronous audio-video, POS 02 (not in the patient\'s home) or 10 (in the patient\'s home), and says services by telemedicine "must meet all the coding components of a face-to-face visit." "CareFirst will only cover audio-only calls where mandated by law." For fully insured Maryland members that means E/M codes at in-person rates, not ABA codes. Neither PP CO 200.02 nor Medical Policy 2.01.072A says which of 97151–97158 may be delivered remotely.',
+          'CareFirst\'s telemedicine billing rules are published, but no ABA code list is. PP CO 200.02 requires modifier GT or 95 for synchronous audio-video, POS 02 (not in the patient\'s home) or 10 (in the patient\'s home), and says services by telemedicine "must meet all the coding components of a face-to-face visit." "CareFirst will only cover audio-only calls where mandated by law." For fully insured Maryland members that means E/M codes at in-person rates, not ABA codes. Neither PP CO 200.02 nor Medical Policy 2.01.072A says which of 97151–97158 may be delivered remotely. For a fully insured Maryland policy, Insurance § 15-139 requires coverage "for health care services appropriately delivered through telehealth regardless of the location of the patient," bars excluding a service "solely because it is provided through telehealth," requires reimbursement "on the same basis and at the same rate" as in person, and allows preauthorization only if appropriateness is judged "in the same manner" for both. Self-funded employer plans are outside the statute.',
         status: 'plan-dependent',
-        cites: [{ title: 'CareFirst Payment Policy PP CO 200.02 — Telemedicine Services, Professional (rev. 12/31/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }, { title: 'CareFirst Medical Policy Operating Procedure 2.01.072A — Telemedicine (Unified Communications) (eff. 6/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }],
+        cites: [{ title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' }, { title: 'CareFirst Payment Policy PP CO 200.02 — Telemedicine Services, Professional (rev. 12/31/2025)', url: 'https://provider.carefirst.com/providers/medical/payment-policy.page' }, { title: 'CareFirst Medical Policy Operating Procedure 2.01.072A — Telemedicine (Unified Communications) (eff. 6/1/2025)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' }],
         verifyVia: 'CareFirst prior authorization: ask which ABA codes (97151–97158) are approved for telehealth on this member\'s plan before requesting them with GT/95.',
         blocker: 'per-case',
       },
@@ -587,6 +601,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { label: 'Mandate floors', value: 'No denial solely on hours up to 25 hrs/wk (18 mo–5 yrs) or 10 hrs/wk (6–18); no dollar cap' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans; early-intervention/school-delivered services' },
       { label: 'Licensure', value: 'MD Licensed Behavior Analyst (Board of Professional Counselors & Therapists)' },
+      { label: 'Fee schedule', value: 'Not public — Aetna pays the contracted rate in your participation agreement' },
     ],
     sections: [
       {
@@ -627,6 +642,16 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'MDH Board of Professional Counselors & Therapists — Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' },
         ],
       },
+      {
+        h2: 'What is Aetna’s fee schedule for ABA?',
+        body: [
+          'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: “The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies,” and where a provider has both an intermediary contract and a direct agreement, “your direct Aetna rates will apply unless we specifically notify you otherwise.” Even when a member’s benefits run out, the provider “cannot charge them more than the contracted rate.” Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, Maryland Medicaid\'s fee schedule (eff. 2/1/2026, unchanged for FY27) pays 97153 at $24.41 per 15 minutes at the BCBA tier, $20.91 BCaBA and $19.17 RBT/BT.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate + hour floors apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -645,13 +670,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request, form GR-69017-4 (7-26) (PDF) — states "Don\'t use this form for Maryland and Massachusetts"', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' },
+      { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
+      { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Practitioners delivering ABA under CPB 0554 need BACB national certification or state behavior-analyst licensure, with unlicensed staff working under supervision per practice standards. In Maryland that licensure floor is concrete: the Licensed Behavior Analyst credential from the Board of Professional Counselors and Therapists has been required to practice behavior analysis since January 2015, and the mandate\'s COMAR criteria likewise expect licensed delivery. Aetna publishes no numeric supervision ratio for ABA.',
+          'Practitioners delivering ABA under CPB 0554 need BACB national certification or state behavior-analyst licensure, with unlicensed staff working under supervision per practice standards. In Maryland that licensure floor is concrete: the Licensed Behavior Analyst credential from the Board of Professional Counselors and Therapists has been required to practice behavior analysis since January 2015, and the mandate\'s COMAR criteria likewise expect licensed delivery. Aetna publishes no numeric supervision ratio for ABA. Aetna\'s Network Participation Criteria (5/26) spell out the technician tier: services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards."',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'MDH Board of Professional Counselors & Therapists \u2014 Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' }],
+        cites: [{ title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'MDH Board of Professional Counselors & Therapists \u2014 Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' }],
       },
       concurrentBilling: {
         value:
@@ -735,9 +764,16 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Aetna covers telehealth for 97151, 97153, 97155, 97156 and 97157 \u2014 97152 is excluded \u2014 billed with GT, 95 or FR modifiers per its telemedicine payment policy. Treat the answer as perishable: Aetna announced it would end ABA telehealth coverage in late 2023 and rescinded the change within weeks, so confirm the current position on every benefits check rather than reusing last quarter\'s answer. Note that this is the carrier rule; Maryland\'s Medicaid telehealth floor (25 percent in person on 97155/97156/97157) is a different program and does not apply to a commercial Aetna plan.',
-        status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+          'Aetna publishes no current ABA telehealth code list that we could confirm. CPB 0554 does not address telehealth, and the public copy of Aetna\'s Telemedicine and Direct Patient Contact Payment Policy is a June 2021 review that lists no ABA codes. (This guide earlier said Aetna covers 97151, 97153, 97155, 97156 and 97157 by telehealth, but not 97152, with GT, 95 or FR, citing CPB 0554; that source does not say so, so treat that list as unconfirmed.) What Aetna\'s provider manual (6/26) does say: Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services," and providers must hold the licensure state law requires. For a fully insured Maryland policy, Insurance § 15-139 requires coverage "for health care services appropriately delivered through telehealth regardless of the location of the patient," bars excluding a service "solely because it is provided through telehealth," requires reimbursement "on the same basis and at the same rate" as in person, and allows preauthorization only if appropriateness is judged "in the same manner" for both. Self-funded employer plans are outside the statute. Maryland Medicaid\'s telehealth floor (25 percent in person on 97155/97156/97157) belongs to a different program and does not apply to a commercial Aetna plan.',
+        status: 'unverified',
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' },
+          { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (public copy; last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
+          { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        ],
+        verifyVia: 'Aetna\'s current Telemedicine and Direct Patient Contact Payment Policy (Availity, Payer Spaces > Aetna > Resources) for the ABA code list, or Aetna BH precertification (1-888-632-3862): ask which ABA codes are payable by telehealth, with which POS and modifier, and whether the plan is fully insured in Maryland.',
+        blocker: 'document',
       },
       authTurnaround: {
         value:
@@ -759,7 +795,8 @@ export const marylandPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Aetna cover ABA therapy in Maryland?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Maryland\'s habilitative-services mandate (Md. Ins. § 15-835 + COMAR 31.10.39.03) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Maryland mandate require for ABA?', a: 'For fully-insured plans: coverage of habilitative services through at least the month the enrollee turns 19, no denial of ABA solely on prescribed hours up to 25 hrs/week (ages 18 months–5) or 10 hrs/week (ages 6–18), no experimental/investigational denials, and no dollar cap — entered via a comprehensive evaluation plus a physician prescription reviewed annually.' },
-      { q: 'What does Aetna pay for ABA in Maryland?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against Maryland Medicaid\'s February 2026 fee schedule and treat rate-setting as part of contracting.' },
+      { q: 'What does Aetna pay for ABA in Maryland?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. Maryland Medicaid\'s published schedule (97153 $19.17–$24.41 per 15 minutes by credential tier) is the public benchmark.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s network criteria do not require the RBT credential by name: technicians may be paraprofessionals supervised by a BCBA or licensed provider, with at least 1 hour of face-to-face supervision per 10 hours of ABA and the supervisor onsite with the child at least 1 hour a month. Technicians must meet any state requirement, so check the state\'s licensure or Medicaid rules too.' },
     ],
   },
 
@@ -805,6 +842,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { label: 'Mandate floors', value: 'No denial solely on hours up to 25 hrs/wk (18 mo–5 yrs) or 10 hrs/wk (6–18); no dollar cap' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans; early-intervention/school-delivered services' },
       { label: 'Licensure', value: 'MD Licensed Behavior Analyst (Board of Professional Counselors & Therapists)' },
+      { label: 'Fee schedule', value: 'Not public — your ABA fee schedule is Exhibit A of your Evernorth Provider Agreement; fee questions to Evernorth Provider Services, 800.926.2273' },
     ],
     sections: [
       {
@@ -845,6 +883,16 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'MDH Board of Professional Counselors & Therapists — Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' },
         ],
       },
+      {
+        h2: 'What is Cigna’s fee schedule for ABA?',
+        body: [
+          'Cigna publishes no ABA rate table. Evernorth, which runs Cigna’s behavioral health network, puts the rates in the contract: its Administrative Guidelines (September 2026) say the Provider Agreement and the guidelines set the terms, which “include the reimbursement rates applicable to covered services,” and tell ABA providers: “For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement.” Fee-schedule and contract questions go to Provider Services at 800.926.2273. Virtual services are billed with modifier 95, which Evernorth says “will not change the reimbursement.” Non-credentialed technicians are paid only through the supervising provider’s claim. For a public benchmark, Maryland Medicaid\'s fee schedule (eff. 2/1/2026, unchanged for FY27) pays 97153 at $24.41 per 15 minutes at the BCBA tier, $20.91 BCaBA and $19.17 RBT/BT.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate + hour floors apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -858,6 +906,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Md. Insurance Article § 15-835 (Maryland General Assembly)', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-835&enactments=false' },
       { title: 'Optum BH803ABA State Mandates — COMAR 31.10.39.03 criteria (corroborating text)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'MDH Board of Professional Counselors & Therapists — Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' },
+      { title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -940,9 +991,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The most permissive position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model \u2014 in person, telehealth or hybrid \u2014 chosen on the individual\'s needs. Maryland adds nothing here for a commercial plan; the 25 percent in-person floor in PT 60-26 is a Medicaid rule and does not reach a Cigna commercial member.',
+          'The most permissive position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model \u2014 in person, telehealth or hybrid \u2014 chosen on the individual\'s needs. The 25 percent in-person floor in PT 60-26 is a Medicaid rule and does not reach a Cigna commercial member. For a fully insured Maryland policy, Insurance § 15-139 requires coverage "for health care services appropriately delivered through telehealth regardless of the location of the patient," bars excluding a service "solely because it is provided through telehealth," requires reimbursement "on the same basis and at the same rate" as in person, and allows preauthorization only if appropriateness is judged "in the same manner" for both. Self-funded employer plans are outside the statute.',
         status: 'verified',
-        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [{ title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
       authTurnaround: {
         value:
@@ -964,7 +1015,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Cigna cover ABA therapy in Maryland?', a: 'Yes — under the carrier\'s national policy for ASD (EN0499, with no PA on assessment codes), layered on Maryland\'s habilitative-services mandate for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Maryland mandate require for ABA?', a: 'For fully-insured plans: coverage of habilitative services through at least the month the enrollee turns 19, no denial of ABA solely on prescribed hours up to 25 hrs/week (ages 18 months–5) or 10 hrs/week (ages 6–18), no experimental/investigational denials, and no dollar cap — entered via a comprehensive evaluation plus a physician prescription reviewed annually.' },
-      { q: 'What does Cigna pay for ABA in Maryland?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against Maryland Medicaid\'s February 2026 fee schedule and treat rate-setting as part of contracting.' },
+      { q: 'What does Cigna pay for ABA in Maryland?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. Maryland Medicaid\'s published schedule (97153 $19.17–$24.41 per 15 minutes by credential tier) is the public benchmark.' },
     ],
   },
 
@@ -1014,6 +1065,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { label: 'Mandate floors', value: 'No denial solely on hours up to 25 hrs/wk (18 mo–5 yrs) or 10 hrs/wk (6–18); no dollar cap' },
       { label: 'Optum MD criteria', value: 'Published — BH803ABA State Mandates applies COMAR 31.10.39.03 to MD fully-insured plans' },
       { label: 'Licensure', value: 'MD Licensed Behavior Analyst (Board of Professional Counselors & Therapists)' },
+      { label: 'Fee schedule', value: 'Not public — Optum pays up to the “Fee Maximum” in your agreement, by credential level (HM/HN/HO/HP modifiers)' },
     ],
     sections: [
       {
@@ -1062,6 +1114,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'MDH Board of Professional Counselors & Therapists — Behavior Analyst License', url: 'https://health.maryland.gov/bopc/pages/analysts.aspx' },
         ],
       },
+      {
+        h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
+        body: [
+          'UnitedHealthcare publishes no ABA rate table; its behavioral health network, Optum, pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the “Fee Maximum” as “The maximum amount a participating provider may be paid for a specific health care service provided to a member,” adding that “Reimbursement to clinicians is based upon licensure rather than degree.” Optum’s commercial ABA Reimbursement Policy (2022RP501A, updated 06/2026) makes the credential level part of every claim line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensed provider. It also says indirect work has no separate code and is bundled into the direct-service codes. Ask Optum network management for your rate sheet. For a public benchmark, Maryland Medicaid\'s fee schedule (eff. 2/1/2026, unchanged for FY27) pays 97153 at $24.41 per 15 minutes at the BCBA tier, $20.91 BCaBA and $19.17 RBT/BT.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (COMAR floors + Optum\'s MD criteria apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -1082,6 +1145,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' },
+      { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1169,9 +1235,10 @@ export const marylandPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” For a fully insured Maryland policy, Insurance § 15-139 requires coverage "for health care services appropriately delivered through telehealth regardless of the location of the patient," bars excluding a service "solely because it is provided through telehealth," requires reimbursement "on the same basis and at the same rate" as in person, and allows preauthorization only if appropriateness is judged "in the same manner" for both. Self-funded employer plans are outside the statute.',
         status: 'verified',
         cites: [
+          { title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' },
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
@@ -1197,8 +1264,9 @@ export const marylandPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Maryland?', a: 'Yes — under Optum\'s national two-step authorization policy for ASD, and for fully-insured Maryland plans Optum\'s own State Mandates document applies the COMAR 31.10.39.03 criteria, including the 25 and 10 hour/week no-denial floors. Self-funded employer plans follow the standard national policy instead.' },
       { q: 'What does the Maryland mandate require for ABA?', a: 'For fully-insured plans: habilitative-services coverage through at least the month the enrollee turns 19, no denial of ABA solely on prescribed hours up to 25 hrs/week (ages 18 months–5) or 10 hrs/week (ages 6–18), no experimental/investigational denials, and no dollar cap — entered via a comprehensive evaluation plus a physician prescription reviewed annually. Optum reproduces these criteria in its own published document.' },
-      { q: 'What does UnitedHealthcare pay for ABA in Maryland?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against Maryland Medicaid\'s February 2026 fee schedule and treat rate-setting as part of contracting.' },
+      { q: 'What does UnitedHealthcare pay for ABA in Maryland?', a: 'UnitedHealthcare/Optum publishes no ABA rates. You are paid up to the Fee Maximum in your Optum agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) under Optum’s ABA reimbursement policy. Ask Optum network management for your rate sheet. Maryland Medicaid\'s published schedule (97153 $19.17–$24.41 per 15 minutes by credential tier) is the public benchmark.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'For commercial plans, Optum\'s ABA reimbursement policy defines the technician line: the approved rendering provider for the HM modifier (less than a bachelor\'s degree) is "a Registered Behavior Technician (RBT)," and a BCaBA bills HN. The policy notes that state regulatory requirements "may supplement, modify or supersede" it. So plan on RBT-certified technicians for UHC commercial members.' },
     ],
   },
 };

@@ -66,6 +66,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { label: 'Limits', value: 'No age limit, no time limit, no yearly or lifetime dollar cap on ABA' },
       { label: 'Active duty families', value: 'EFMP enrollment plus ECHO registration is a condition of participating' },
       { label: 'Region', value: 'Humana Military administers the East; AR, IL, LA, OK, TX and WI moved to the West Region on Jan. 1, 2025' },
+      { label: 'Fee schedule', value: 'Published by DHA per locality (eff. 5/1/2026), e.g. Alabama 97153 by a technician $16.82/15 min' },
     ],
     sections: [
       {
@@ -162,6 +163,13 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Nothing is back-dated. Humana Military: \u201cABA services must be pre-authorized before services can begin. Humana Military does not accept retrospective referrals and will not backdate late submissions\u201d; its 2026 East Region provider handbook says \u201cAll ABA authorizations must be preauthorized; retrospective authorization is not allowed,\u201d and the DHA manual says \u201cA retroactive referral shall not be accepted.\u201d Reauthorizations may be filed up to 60 days ahead, and filing less than 30 days before expiry \u201cmay result in non-reimbursement.\u201d',
         ],
       },
+      {
+        h2: 'What is TRICARE\'s fee schedule for ABA?',
+        body: [
+          'DHA publishes the Autism Care Demonstration fee schedule. Its ABA Maximum Allowed Amounts file, effective May 1, 2026, sets a maximum per 15-minute unit for 97151, 97153, 97155 and 97156 in each TRICARE locality, split by credential: one rate for 97151 and one for 97156 (BCBA-D, BCBA or assistant behavior analyst), four tiers for 97153 (BCBA-D, BCBA, assistant behavior analyst, behavior technician) and three for 97155 (BCBA-D, BCBA, assistant behavior analyst). A companion table prices 97157 and 97158 at the non-physician, non-facility rate for CPT 90853 divided by three, and lists 99366 and 99368 at their CMAC rates. Earlier years\' files sit on the same DHA page. These are maximums: look up the locality where care is delivered before quoting a family or modelling revenue. Examples from the May 1, 2026 file: Alabama pays 97151 $31.56, 97153 by a behavior technician $16.82 and 97155 by a BCBA $31.25; Boston pays 97151 $37.73, 97153 by a behavior technician $20.11 and 97155 by a BCBA $33.48.',
+        ],
+        cites: [{ title: 'DHA — ABA Maximum Allowed Rates, effective May 1, 2026 (Autism Care Demonstration, by locality)', url: 'https://health.mil/Reference-Center/Publications/2026/04/01/ABA-Rates-2026' }, { title: 'DHA — Applied Behavior Analysis Maximum Allowed Amounts (all years)', url: 'https://health.mil/Military-Health-Topics/Access-Cost-Quality-and-Safety/TRICARE-Health-Plan/Rates-and-Reimbursement/ABA-Max-Allowed-Amounts' }],
+      },
     ],
     collect: [
       { title: 'Sponsor status and plan', desc: 'Active duty vs. retiree vs. Guard/Reserve, and Prime vs. Select vs. USFHP — it drives both eligibility and the copay. Group A or B (sponsor’s service entry before or on/after Jan. 1, 2018) changes the Select amounts.' },
@@ -185,6 +193,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'Humana Military — ACD exclusions', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/exclusions' },
       { title: 'Humana Military — ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' },
       { title: 'Humana Military — Beneficiaries in the new TRICARE contract', url: 'https://www.humanamilitary.com/beneupdates' },
+      { title: 'DHA — ABA Maximum Allowed Rates, effective May 1, 2026 (Autism Care Demonstration, by locality)', url: 'https://health.mil/Reference-Center/Publications/2026/04/01/ABA-Rates-2026' },
+      { title: 'DHA — Applied Behavior Analysis Maximum Allowed Amounts (all years)', url: 'https://health.mil/Military-Health-Topics/Access-Cost-Quality-and-Safety/TRICARE-Health-Plan/Rates-and-Reimbursement/ABA-Max-Allowed-Amounts' },
     ],
     intakeGates: {
       ageLimit: {
@@ -246,6 +256,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'Is there a maximum number of 97151 units for a TRICARE East ABA assessment?', a: 'Yes. Under TRICARE Operations Manual Ch. 18, Sec. 3, the initial assessment and treatment plan are authorized for up to 32 units (eight hours) of 97151, including the PDDBI, and each later reassessment for up to 24 units (six hours) per authorization, which is once every six months. The units must be used within 14 calendar days of the first 97151 date of service or the claim is denied. Outcome measures are authorized separately as 97151 with modifier 99.' },
       { q: 'Will Humana Military back-date or retro-authorize ABA for TRICARE?', a: 'No. Humana Military does not accept retrospective referrals and will not backdate late submissions, and its 2026 provider handbook states that retrospective authorization is not allowed. Get the authorization before the first session, and file reauthorizations 30 to 60 days before the current one expires.' },
       { q: 'Can one ABA agency do an assessment while another agency keeps treating the child under TRICARE East?', a: 'The assessment, yes; treatment, no. DHA allows a second-opinion authorization for 32 units of 97151 to overlap another approved authorization, but two ongoing treatment authorizations for direct services are not permitted. Humana Military approves only one authorized ABA supervisor to provide ABA for a child at a time. If the family moves to the new agency, the new treatment authorization cannot start until the old one ends.' },
+      { q: 'What does TRICARE pay for ABA in the East Region?', a: 'DHA publishes the rates. The ABA Maximum Allowed Amounts file effective May 1, 2026 sets a per-15-minute maximum by locality and credential, for example Alabama: 97151 $31.56, 97153 by a behavior technician $16.82, 97155 by a BCBA $31.25. Look up the locality where care is delivered on health.mil.' },
     ],
     deliveryRules: {
       supervision: {
@@ -348,6 +359,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { label: 'Referral cycle', value: 'Referrals last 2 years; a new DSM-5-TR checklist is required at each renewal' },
       { label: 'Assessment clock', value: 'Assessment must start within 28 days of approval and 97151 completed within 14 days of the first service date' },
       { label: 'Parent training', value: 'Six parent/caregiver sessions every six months; first within 30 days of each treatment authorization' },
+      { label: 'Fee schedule', value: 'Published by DHA per locality (eff. 5/1/2026), e.g. Nebraska 97153 by a technician $23.55/15 min' },
     ],
     sections: [
       {
@@ -436,6 +448,13 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Nothing is back-dated: TriWest states \u201cauthorizations cannot be backdated\u201d and that there is no expedited review, so late submissions \u201cwill not be reviewed and may cause a gap in authorization.\u201d The DHA manual adds that \u201cA retroactive referral shall not be accepted.\u201d',
         ],
       },
+      {
+        h2: 'What is TRICARE\'s fee schedule for ABA?',
+        body: [
+          'DHA publishes the Autism Care Demonstration fee schedule. Its ABA Maximum Allowed Amounts file, effective May 1, 2026, sets a maximum per 15-minute unit for 97151, 97153, 97155 and 97156 in each TRICARE locality, split by credential: one rate for 97151 and one for 97156 (BCBA-D, BCBA or assistant behavior analyst), four tiers for 97153 (BCBA-D, BCBA, assistant behavior analyst, behavior technician) and three for 97155 (BCBA-D, BCBA, assistant behavior analyst). A companion table prices 97157 and 97158 at the non-physician, non-facility rate for CPT 90853 divided by three, and lists 99366 and 99368 at their CMAC rates. Earlier years\' files sit on the same DHA page. These are maximums: look up the locality where care is delivered before quoting a family or modelling revenue. Examples from the May 1, 2026 file: Nebraska pays 97151 $43.99, 97153 by a behavior technician $23.55 and 97155 by a BCBA $31.25; Idaho pays 97151 $32.14, 97153 by a behavior technician $17.13 and 97155 by a BCBA $31.25.',
+        ],
+        cites: [{ title: 'DHA — ABA Maximum Allowed Rates, effective May 1, 2026 (Autism Care Demonstration, by locality)', url: 'https://health.mil/Reference-Center/Publications/2026/04/01/ABA-Rates-2026' }, { title: 'DHA — Applied Behavior Analysis Maximum Allowed Amounts (all years)', url: 'https://health.mil/Military-Health-Topics/Access-Cost-Quality-and-Safety/TRICARE-Health-Plan/Rates-and-Reimbursement/ABA-Max-Allowed-Amounts' }],
+      },
     ],
     collect: [
       { title: 'ZIP code, then region', desc: 'The East/West line is drawn by ZIP and six states moved on Jan. 1, 2025. Confirm West before you route anything to TriWest or Availity.' },
@@ -459,6 +478,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE — Compare Health Plan Costs', url: 'https://tricare.mil/Costs/Compare' },
       { title: 'Humana Military — Beneficiaries in the new TRICARE contract', url: 'https://www.humanamilitary.com/beneupdates' },
       { title: 'Federal Register — Extension of the Comprehensive Autism Care Demonstration (Aug. 4, 2022)', url: 'https://www.govinfo.gov/content/pkg/FR-2022-08-04/html/2022-16742.htm' },
+      { title: 'DHA — ABA Maximum Allowed Rates, effective May 1, 2026 (Autism Care Demonstration, by locality)', url: 'https://health.mil/Reference-Center/Publications/2026/04/01/ABA-Rates-2026' },
+      { title: 'DHA — Applied Behavior Analysis Maximum Allowed Amounts (all years)', url: 'https://health.mil/Military-Health-Topics/Access-Cost-Quality-and-Safety/TRICARE-Health-Plan/Rates-and-Reimbursement/ABA-Max-Allowed-Amounts' },
     ],
     intakeGates: {
       ageLimit: {
@@ -520,6 +541,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'How many 97151 units does TriWest authorize for an ABA assessment?', a: 'Initial assessments are approved for 32 units (eight hours) per authorization period and reassessments for 24 units (six hours), including the PDDBI. The units must be completed within 14 days of the first service date, and 97151 cannot be done by telehealth. Each outcome measure gets one separately authorized 97151 unit billed with modifier 99.' },
       { q: 'Can TriWest back-date an ABA authorization?', a: 'No. TriWest states that authorizations cannot be backdated and there is no expedited review, so a late reauthorization can leave a gap in coverage. File each reauthorization 30 to 60 days before the current one ends.' },
       { q: 'Can a second ABA provider assess a child while the first keeps treating under TRICARE West?', a: 'Yes for the assessment: a second-opinion assessment is allowed within the two-year referral window with no new referral. But only one provider can give treatment at a time, and only one treatment authorization can be active. If the family switches, the first provider\u2019s authorization ends just before the second provider\u2019s starts, and the first provider submits a discharge report.' },
+      { q: 'What does TRICARE pay for ABA in the West Region?', a: 'DHA publishes the rates. The ABA Maximum Allowed Amounts file effective May 1, 2026 sets a per-15-minute maximum by locality and credential, for example Nebraska: 97151 $43.99, 97153 by a behavior technician $23.55, 97155 by a BCBA $31.25. Look up the locality where care is delivered on health.mil.' },
     ],
     deliveryRules: {
       supervision: {

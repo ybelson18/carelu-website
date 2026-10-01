@@ -41,7 +41,7 @@
      Reimbursement Policy (2022RP501A), applied here as 'inferred' since
      no GA-specific override could be confirmed.
    ================================================================ */
-import type { VobExtension, EdiRouting, CodeGridEntry, SourceRef, StcMap, VobContact } from './types.js';
+import type { VobExtension, EdiRouting, CodeGridEntry, SourceRef, StcMap, VobContact, RateTable } from './types.js';
 import { cignaFamilyStc, uhcFamilyStc, aetnaFamilyStc, inheritFamilyStc, CAQH_CORE_STC_VOCAB } from './stc-defaults.js';
 
 const ACCESS_DATE = '2026-07-23';
@@ -76,10 +76,11 @@ const DCH_2023_PRESENTATION = src(
   'Gainwell/GA DCH "Georgia Medicaid Autism Services Presentation," Feb 2023, p.13 — current CMS max-daily-units table for all 10 codes (97151-97158, 0362T, 0373T); notes 97151/97152 and 97153/97154/97155 are billed as "families of codes" in GAMMIS PA requests.',
   true
 );
-const DCH_TELEHEALTH_GUIDANCE = src(
-  'https://setrc.us/wp-content/uploads/2025/11/Telehealth-Guidance-Q4-October-2025.pdf',
-  'GA DCH Division of Medical Assistance Plans, "Part II Policies and Procedures for Telehealth Guidance," version date 2025-10-01, §614 (ASD Services) and §605 (general telehealth billing) — mirror copy; the official medicaid.georgia.gov URL for this document currently serves a stale March 2020 COVID letter instead of the current version.'
-);
+const DCH_TELEHEALTH_GUIDANCE: SourceRef = {
+  url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Telehealth%20Guidance%20Q4%20-%20October%202026%2020260921152812.pdf',
+  accessDate: '2026-10-01',
+  note: 'GA DCH Division of Medical Assistance Plans, "Part II Policies and Procedures for Telehealth Guidance," version date October 1, 2026 (GAMMIS Handbooks; located 2026-10-01 by paging the GAMMIS Provider Manuals list, filename carries upload stamp 20260921152812). Revision log: no substantive change to §605 (GT and/or POS 02/10; modifier 93 for audio-only) or §614 (ASD: telehealth to "assess, diagnose and provide therapies"; GT code table 97151-97158, 0362T, 0373T with U1-U5, 97155-97158 at U1-U3 only) since 10/1/2025. Its §614.5 table still prints pre-10/8/2025 rates (e.g. 97153 U5 GT $15.13) — the ASD manual Appendix A (rates updated 10/8/2025) is the current rate source. Replaces the setrc.us mirror of the 10/1/2025 edition.',
+};
 const CARESOURCE_MM0212: SourceRef = {
   url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20260701',
   accessDate: REFRESH_DATE,
@@ -163,6 +164,31 @@ const ANTHEM_RT_COMPANION_GUIDE = src(
   true
 );
 
+
+/* Layer 4 — GA DCH ABS rate table (fee-for-service), ASD manual Appendix A
+   "2019 Adaptive Behavior Services (ABS) Codes and Rates" in the July 1, 2026
+   manual; the revision log records "10/8/2025 Appendix A Updated rates to
+   reflect increase". Tiers are practitioner level (U1 physician, U2
+   psychologist/BCBA-D, U3 BCBA, U4 BCaBA, U5 RBT) x setting (U6 in-clinic,
+   GT telemed, U7 out-of-clinic). CMOs pay under their own contracts. */
+const georgiaMedicaidRates: RateTable = {
+  source: 'GA DCH Part II Policies and Procedures for ASD Services (version date July 1, 2026), Appendix A — rates updated 10/8/2025',
+  effectiveDate: '2025-10-08',
+  byCode: {
+    '97151': { rate: '$30.91 (U3 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$59.96', 'U2 U6': '$40.14', 'U3 U6': '$30.91', 'U1 GT': '$59.96', 'U2 GT': '$40.14', 'U3 GT': '$30.91', 'U1 U7': '$76.31', 'U2 U7': '$48.16', 'U3 U7': '$37.78' } },
+    '97152': { rate: '$15.58 (U5 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$59.96', 'U2 U6': '$40.14', 'U3 U6': '$30.91', 'U4 U6': '$20.91', 'U5 U6': '$15.58', 'U1 GT': '$59.96', 'U2 GT': '$40.14', 'U3 GT': '$30.91', 'U4 GT': '$20.91', 'U5 GT': '$15.58', 'U1 U7': '$76.31', 'U2 U7': '$48.16', 'U3 U7': '$37.78', 'U4 U7': '$25.09', 'U5 U7': '$18.69' } },
+    '0362T': { rate: '$15.58 (U5 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$59.96', 'U2 U6': '$40.14', 'U3 U6': '$30.91', 'U4 U6': '$20.91', 'U5 U6': '$15.58', 'U1 GT': '$59.96', 'U2 GT': '$40.14', 'U3 GT': '$30.91', 'U4 GT': '$20.91', 'U5 GT': '$15.58', 'U1 U7': '$76.31', 'U2 U7': '$48.16', 'U3 U7': '$37.78', 'U4 U7': '$25.09', 'U5 U7': '$18.69' } },
+    '97153': { rate: '$15.58 (U5 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$59.96', 'U2 U6': '$40.14', 'U3 U6': '$30.91', 'U4 U6': '$20.91', 'U5 U6': '$15.58', 'U1 GT': '$59.96', 'U2 GT': '$40.14', 'U3 GT': '$30.91', 'U4 GT': '$20.91', 'U5 GT': '$15.58', 'U1 U7': '$76.31', 'U2 U7': '$48.16', 'U3 U7': '$37.78', 'U4 U7': '$25.09', 'U5 U7': '$18.69' } },
+    '97154': { rate: '$15.58 (U5 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$59.96', 'U2 U6': '$40.14', 'U3 U6': '$30.91', 'U4 U6': '$20.91', 'U5 U6': '$15.58', 'U1 GT': '$59.96', 'U2 GT': '$40.14', 'U3 GT': '$30.91', 'U4 GT': '$20.91', 'U5 GT': '$15.58', 'U1 U7': '$76.31', 'U2 U7': '$48.16', 'U3 U7': '$37.78', 'U4 U7': '$25.09', 'U5 U7': '$18.69' } },
+    '97155': { rate: '$30.91 (U3 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$59.96', 'U2 U6': '$40.14', 'U3 U6': '$30.91', 'U1 GT': '$59.96', 'U2 GT': '$40.14', 'U3 GT': '$30.91', 'U1 U7': '$76.31', 'U2 U7': '$48.16', 'U3 U7': '$37.78' } },
+    '97156': { rate: '$13.61 (U3 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$22.56', 'U2 U6': '$17.52', 'U3 U6': '$13.61', 'U1 GT': '$22.56', 'U2 GT': '$17.52', 'U3 GT': '$13.61', 'U1 U7': '$27.52', 'U2 U7': '$21.40', 'U3 U7': '$17.01' } },
+    '97157': { rate: '$13.61 (U3 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$26.10', 'U2 U6': '$17.51', 'U3 U6': '$13.61', 'U1 GT': '$26.10', 'U2 GT': '$17.51', 'U3 GT': '$13.61', 'U1 U7': '$31.90', 'U2 U7': '$21.40', 'U3 U7': '$17.01' } },
+    '97158': { rate: '$13.61 (U3 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$26.10', 'U2 U6': '$17.51', 'U3 U6': '$13.61', 'U1 GT': '$26.10', 'U2 GT': '$17.51', 'U3 GT': '$13.61', 'U1 U7': '$31.90', 'U2 U7': '$21.40', 'U3 U7': '$17.01' } },
+    '0373T': { rate: '$15.58 (U5 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$59.96', 'U2 U6': '$40.14', 'U3 U6': '$30.91', 'U4 U6': '$20.91', 'U5 U6': '$15.58', 'U1 GT': '$59.96', 'U2 GT': '$40.14', 'U3 GT': '$30.91', 'U4 GT': '$20.91', 'U5 GT': '$15.58', 'U1 U7': '$76.31', 'U2 U7': '$48.16', 'U3 U7': '$37.78', 'U4 U7': '$25.09', 'U5 U7': '$18.69' } },
+  },
+  sources: [DCH_ASD_MANUAL_2026],
+};
+
 /* -------------------- codeGrid factories -------------------- */
 
 function gaMedicaidEntry(unitCap: number, notes?: string, extraSources?: SourceRef[]): CodeGridEntry {
@@ -177,7 +203,7 @@ function gaMedicaidEntry(unitCap: number, notes?: string, extraSources?: SourceR
       'telehealth (POS 02 patient not at home, or POS 10 patient at home)',
     ],
     telehealth:
-      "Yes — GT modifier, POS 02 or 10 per DCH's Oct 2025 telehealth guidance §605/§614.",
+      "Yes — GT modifier, POS 02 or 10 per DCH's Telehealth Guidance (version date Oct 1, 2026) §605/§614.",
     modifiers: ['U1', 'U2', 'U3', 'U4', 'U5', 'U6', 'U7', 'GT', '93 (audio-only)'],
     notes,
     fieldStatus: {
@@ -1017,7 +1043,7 @@ const anthemGeorgiaStc: StcMap = {
 /* ==================== export ==================== */
 
 export const georgiaVob: Record<string, VobExtension> = {
-  'georgia-medicaid': { edi: georgiaMedicaidEdi, codeGrid: georgiaMedicaidCodeGrid, stcMap: georgiaMedicaidStc, vobContact: georgiaMedicaidContact, lastUpdated: REFRESH_DATE },
+  'georgia-medicaid': { edi: georgiaMedicaidEdi, codeGrid: georgiaMedicaidCodeGrid, stcMap: georgiaMedicaidStc, rates: georgiaMedicaidRates, vobContact: georgiaMedicaidContact, lastUpdated: '2026-10-01' },
   'amerigroup-georgia': { edi: amerigroupEdi, codeGrid: amerigroupCodeGrid, stcMap: amerigroupStc, vobContact: amerigroupContact, lastUpdated: REFRESH_DATE },
   'caresource-georgia': { edi: caresourceEdi, codeGrid: caresourceCodeGrid, stcMap: caresourceStc, vobContact: caresourceContact, lastUpdated: REFRESH_DATE },
   'peach-state-georgia': { edi: peachStateEdi, codeGrid: peachStateCodeGrid, stcMap: peachStateStc, vobContact: peachStateContact, lastUpdated: ACCESS_DATE },

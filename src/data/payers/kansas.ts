@@ -160,6 +160,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Kansas Action for Children — State selects companies to manage KanCare (Aetna → Healthy Blue transition)', url: 'https://www.kac.org/state_selects_companies_to_manage_kancare' },
       { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (Kansas Medicaid section)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+      { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
+      { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -211,12 +213,12 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'No KMAP rule on telehealth delivery of CCTS or IIS could be retrieved. The bulletins that govern these services (17129, 19029, 20147, 21013, 26140) are silent on modality, and the provider manuals Bulletin 26140 points to — the Mental Health Fee-for-Service Provider Manual (pp. 8-47/8-48) and the Professional Fee-for-Service Provider Manual (pp. 8-11/8-12) — sit on portal.kmap-state-ks.us, which did not respond to repeated requests at this review.',
-        status: 'unverified',
-        cites: [{ title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (UPDATED 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' }],
-        verifyVia:
-          'The KMAP Mental Health and Professional Fee-for-Service Provider Manuals named in Bulletin 26140 (portal.kmap-state-ks.us was unreachable at this review), or the member\'s MCO — Sunflower, UnitedHealthcare/Optum or Healthy Blue.',
-        blocker: 'document',
+          'KMAP lists the ABA codes as telehealth-eligible. General Bulletin 21234 made place of service 10 (telehealth in the patient\'s home) valid from 1/1/2022, "in addition to existing POS code 02 (telehealth provided other than in a patient\'s home)," and its list of procedure codes allowed with POS 10 includes 97151, 97152, 97153, 97155 and 97156. So the CCTS assessment (97151/97152), technician IIS (97153), supervision with protocol modification (97155) and family guidance (97156) may be billed as telehealth; 97154, 97157 and 97158 are not on that list. Kansas law sets the floor: the telemedicine act "shall also apply to the Kansas medical assistance program," which may not "exclude an otherwise covered healthcare service from coverage solely because such service is provided through telemedicine" when a healthcare provider delivers it, though it may limit coverage to medically necessary services and may not require a member to use telemedicine instead of in-person care (K.S.A. 40-2,213). The bulletins set no in-person minimum for supervision. KMAP notes that MCO implementation "may vary from the date noted in the KMAP bulletins."',
+        status: 'verified',
+        cites: [
+          { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
+          { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
+        ],
       },
       authTurnaround: {
         value:
@@ -314,23 +316,29 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Who is allowed to make the ASD diagnosis for KanCare members?', a: 'As of KMAP Bulletin 26140 (eff. 11/1/2026), for members age 20 and under the diagnosis must come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity using a validated tool such as ADOS or CARS. Once a qualified diagnostician has made the diagnosis, no re-evaluation is needed; existing members diagnosed by a non-compliant provider get a 2-year window to obtain an updated diagnosis.' },
       { q: 'Does an RBT enroll with KMAP (Kansas Medicaid) or with the KanCare MCOs, or bill under the supervising BCBA?', a: 'The RBT enrolls with KMAP individually — IIS provider type 11, specialty 404, as “Individual within a Group” under an already-enrolled group, once per service location — and claims go out under the RBT\'s own NPI: “when you hire new ABAs or RBTs, you must enroll them through KMAP before you can bill Medicaid under the employee\'s NPI number.” Then the MCO credentials them: for UnitedHealthcare Community Plan, Optum retrieves the KMAP application, credentials within 60 days and contracts within 30. Sunflower and Healthy Blue also require KMAP enrollment first, but neither publishes a technician-level credentialing rule (Healthy Blue\'s manual limits credentialing to independently practicing licensed/certified practitioners), so confirm with their network teams. A non-RBT technician can still enroll with the KDADS letter instead of the RBT certificate.' },
       { q: 'What does Kansas Medicaid pay for ABA?', a: 'Mostly not reliably published. One exception: 97153 is verified at $16.25/15-minute unit ($65/hour) effective 7/1/2024 (KMAP Bulletin 24125). For every other code the last public anchor is $17.50/15-minute unit for 97151 effective 1/1/2019, raised 4/1/2019 without published amounts; the 2022 BH increase skipped the 9715x codes. Pull current figures from the KMAP interactive fee-schedule lookup — the only source of truth for the rest.' },
+      { q: 'Can KanCare ABA (including the 97151 assessment) be done by telehealth?', a: 'Yes. KMAP Bulletin 21234 lists 97151, 97152, 97153, 97155 and 97156 as allowed with POS 10 (telehealth in the home), alongside POS 02 for other locations, from 1/1/2022. Group codes 97154, 97157 and 97158 are not on the list. K.S.A. 40-2,213 bars KMAP from excluding a covered service only because it is delivered by telemedicine. Confirm the modality with the member\'s MCO at authorization.' },
     ],
   },
 
   'sunflower-health-plan-kansas': {
     slug: 'sunflower-health-plan-kansas',
     family: 'centene',
-    cardDesc: 'Autism Auth Request Form, named assessment tools, legacy 6-month dx rule vs KMAP 26140, Kan Be Healthy screen gate.',
+    cardDesc: 'PA on 97151 via the Autism PA form, CP.BH.104 (not KS.CP.01) on the policy index, KMAP telehealth codes, Kan Be Healthy gate.',
     assessmentPA: {
-      value: 'Required — completed Autism Authorization Request Form with physician recommendation, diagnosis validated within 6 months per KS.CP.01 (contradicted by KMAP Bulletin 26140 — see the diagnosis note), plus a standardized assessment and a skills-based assessment',
-      status: 'verified',
-      cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
-    },
-    treatmentPA: {
-      value: 'Required — focused (10–25 h/wk) or comprehensive (25–40 h/wk) plans; 6-month continuation reviews and annual full reassessment; Kan Be Healthy screen within the past year',
+      value: 'Required — 97151 and 97152 are listed on Sunflower\'s Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025). For the initial assessment send comprehensive diagnostic information with standardized measures, an ABA referral dated within one calendar year, and a KAN Be Healthy recommendation within one year (a well-child visit alone does not count; it must include a developmental screen). Sunflower\'s current Medicaid ABA policy on its index is Centene CP.BH.104 (rev. 02/26); the older KS.CP.01 and its 6-month diagnosis rule are no longer listed',
       status: 'verified',
       cites: [
-        { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
+        { title: 'Sunflower Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Autism-Prior-Auth.pdf' },
+        { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
+        { title: 'Sunflower Health Plan — Clinical & Payment Policies index (Medicaid Behavioral Health Clinical Policies)', url: 'https://www.sunflowerhealthplan.com/providers/resources/clinical-payment-policies.html' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required — same form. CP.BH.104 (rev. 02/26) requires a BCBA behavioral assessment completed no more than two months before the initial treatment authorization, an updated assessment and treatment plan at least every six months, and extra clinical justification for more than six hours a day or 30 hours a week. The form adds the initial treatment-plan packet (standardized testing, a criterion-referenced skills assessment, coordination with school/PT/OT/ST, IEP or IFSP if any) and an annual KAN Be Healthy recommendation; information older than 30 days is not accepted. State soft limits (50 h/yr CCTS, 25 h/wk IIS) sit underneath',
+      status: 'verified',
+      cites: [
+        { title: 'Sunflower Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Autism-Prior-Auth.pdf' },
+        { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
         { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (CCTS 50 h/yr, IIS 25 h/wk limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
       ],
     },
@@ -356,24 +364,28 @@ export const kansasPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Sunflower Health Plan (Centene) administers KanCare autism services — the Autism Authorization Request Form, named assessment instruments, the diagnosis-recency conflict with KMAP Bulletin 26140, the Kan Be Healthy screen gate, and 6-month continuation reviews.',
     intro: [
-      'Sunflower Health Plan, Centene\'s KanCare plan, administers the CCTS/IIS autism-services benefit under its own clinical policy KS.CP.01 — which mirrors the state\'s 50 hours/year CCTS and 25 hours/week IIS soft limits but layers real plan-specific requirements on top: a dedicated Autism Authorization Request Form, named assessment instruments, a 6-month diagnosis-validation rule that the newer state bulletin contradicts, and a uniquely Kansas gate — the Kan Be Healthy (EPSDT) screen. Two of those regularly stall authorizations silently, so both belong in the first intake conversation.',
+      'Sunflower Health Plan, Centene\'s KanCare plan, administers the CCTS/IIS autism-services benefit. Its clinical-policy index now lists Centene\'s CP.BH.104 (ABA, revised 02/26) and CP.BH.105 (ABA documentation) as its Medicaid behavioral health ABA policies; the older Kansas-specific KS.CP.01 (last reviewed 06/2019), with its 6-month diagnosis rule, is still hosted but no longer listed. The working document for intake is the Autism (Non-Waiver) Prior Authorization Request Form, which puts the 97151 assessment itself under prior authorization and carries the uniquely Kansas gate — a KAN Be Healthy (EPSDT) recommendation within the past year. That gate regularly stalls authorizations silently, so it belongs in the first intake conversation.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'KanCare MCO (Centene), contracted 2025–2027' },
-      { label: 'Prior auth', value: 'Required — Autism Authorization Request Form + physician recommendation' },
+      { label: 'Prior auth', value: 'Required, including the 97151 assessment — Autism (Non-Waiver) PA form; ABA referral within one calendar year' },
+      { label: 'Clinical policy', value: 'Centene CP.BH.104 + CP.BH.105 (rev. 02/26) on Sunflower\'s policy index; KS.CP.01 (2019) no longer listed' },
       { label: 'Diagnosis recency', value: 'Conflict — KS.CP.01 (2019) says within 6 months; KMAP 26140 says no re-evaluation/no time limit; Sunflower\'s index now lists CP.BH.104 (CDE within 3 years). Ask Sunflower UM' },
       { label: 'Kan Be Healthy gate', value: 'EPSDT screen within the past year required for Medicaid members' },
-      { label: 'Hour tiers', value: 'Focused 10–25 h/wk, comprehensive 25–40 h/wk; state soft limits (50 h/yr CCTS, 25 h/wk IIS) underneath' },
-      { label: 'Review cadence', value: '6-month continuations (updated skills assessment); annual full reassessment' },
+      { label: 'Hours', value: 'CP.BH.104: over 6 h/day or 30 h/wk needs extra justification; state soft limits (50 h/yr CCTS, 25 h/wk IIS) underneath' },
+      { label: 'Telehealth', value: 'KMAP allows 97151, 97152, 97153, 97155, 97156 with POS 10/02; monthly protocol-modification session in person unless state rules allow' },
+      { label: 'Fee schedule', value: 'Not public — lesser of billed charge or Sunflower\'s Medicaid fee schedule; sample of fees on written request' },
+      { label: 'Review cadence', value: 'Updated assessment and treatment plan at least every 6 months; annual KAN Be Healthy recommendation' },
     ],
     sections: [
       {
         h2: 'The authorization packet Sunflower actually wants',
         body: [
-          'KS.CP.01 drives authorization off a fully completed Autism Authorization Request Form with a dated provider signature, and the packet is specific: a physician recommendation or prescription; the original autism diagnosis validated within the last 6 months by an MD or licensed psychologist; a criterion-referenced standardized assessment (Vineland-3, ADOS, CARS, ADI-R, GARS, or ASDS); and a skills-based assessment (VB-MAPP, ABLLS, AFLS, or ASRS). Treatment plans are classified focused (10–25 hours/week) or comprehensive (25–40 hours/week), against the state soft limits of 50 hours/year of CCTS and 25 hours/week of IIS — exceeding them takes additional documentation. Continuation reviews land every 6 months with an updated skills-based assessment; annual reviews require the full standardized-plus-skills battery. One caveat worth knowing: the posted policy version was last reviewed 06/2019, so confirm current requirements through the portal when stakes are high.',
+          'Sunflower\'s Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025) is the packet. It lists 97151 and 97152 as assessment codes needing authorization, and for the initial assessment asks for comprehensive diagnostic information including standardized measures, a referral for ABA services "that is within one calendar year," and a KAN Be Healthy recommendation within one year. The initial treatment plan adds standardized testing (e.g., Vineland, ADOS, WISC-R, CARS), a criterion-referenced skills assessment (ABLLS, AFLS, VB-MAPP), coordination with school, PT, OT and ST, the proposed schedule and who renders it, goals, a parent-training plan, and the IEP or IFSP if there is one. "Information older than 30 days will be considered outdated." Behind the form, Sunflower\'s policy index lists Centene CP.BH.104 (revised 02/26) as its Medicaid ABA policy: the behavioral assessment must be done by a BCBA "no more than two months prior to the start of the initial treatment authorization," assessments and treatment plans are updated at least every six months, and more than six hours a day or 30 hours a week needs added clinical justification. The focused (10–25 h/wk) and comprehensive (25–40 h/wk) tiers and the 6-month diagnosis rule come from KS.CP.01 (last reviewed 06/2019), which is still hosted but no longer on the index.',
           'The state rule now points the other way on recency. KMAP Bulletin 26140, effective 11/1/2026, requires that for members 20 and under the ASD diagnosis come from a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity using a validated diagnostic tool (e.g., ADOS, CARS) — and says that once so diagnosed a member is eligible "without the need for a re-evaluation" with "no time limit on how soon they begin autism treatment." Members already in treatment with a non-compliant diagnostician have two years to obtain an updated diagnosis. Two further facts cut against the 6-month rule above: KS.CP.01 itself says state Medicaid provisions take precedence on conflict, and Sunflower\'s clinical-policy index (checked 9/27/2026) no longer lists KS.CP.01 at all — it lists Centene\'s CP.BH.104 (revised 02/26), which accepts a comprehensive diagnostic evaluation from the past three years. Until Sunflower says which it applies, ask UM before sending a family for a re-evaluation.',
         ],
         cites: [
+          { title: 'Sunflower Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Autism-Prior-Auth.pdf' },
           { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
           { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026; reissued 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
           { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
@@ -383,17 +395,51 @@ export const kansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The Kan Be Healthy gate — and other intake tripwires',
         body: [
-          'Medicaid members must have a current Kan Be Healthy (EPSDT) screen completed within the past year by a physician, APRN, PA, or credentialed RN — and the policy is explicit that this is not the same as a well-child exam (the requirement is waived for Ambetter members). Families often need a PCP visit before ABA can be approved, which makes screen status a day-one intake question rather than a submission-day discovery. Diagnosis age is the open question: KS.CP.01 says 6 months but the state bulletin says no re-evaluation, so if the report is older, ask Sunflower UM which rule applies before the auth rather than after a denial. Sunflower applies this same clinical policy across its KanCare, Medicare, and Ambetter lines, with state Medicaid provisions taking precedence on conflict; submission runs through Sunflower\'s standard secure portal/Availity PA channels — no dedicated ABA portal is named in the policy.',
+          'The KAN Be Healthy recommendation is on the current PA form twice: for the initial assessment, a "KAN Be Healthy recommendation within one year (A general well-child visit does not meet this. It must also include a developmental screen.)," and for later requests an "Annual KAN Be Healthy recommendation for continued services." Families often need a PCP visit before ABA can be approved, which makes screen status a day-one intake question rather than a submission-day discovery. The ABA referral must also be within one calendar year. Diagnosis age is the open question: the KMAP bulletin says no re-evaluation, CP.BH.104 accepts an evaluation from the past three years, and the legacy KS.CP.01 said six months, so if the report is older, ask Sunflower UM which rule applies before the auth rather than after a denial. Submissions go to fax 844-824-7705 on the form, or through Sunflower\'s portal.',
         ],
         cites: [
+          { title: 'Sunflower Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Autism-Prior-Auth.pdf' },
+          { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
           { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
+        ],
+      },
+      {
+        h2: 'What happens when a family switches ABA agencies with Sunflower?',
+        body: [
+          'Sunflower publishes no rule on transferring an authorization from one ABA agency to another. What its documents do say: authorizations are requested per provider — the PA form names the BCBA/CCTS provider NPI and group NPI and asks "Is this an initial request for authorization?" — and if a new agency\'s initial assessment was not requested first, "all items in the initial assessment category also must be included with the initial treatment plan." CP.BH.104 lists "The member/enrollee has transitioned to another provider or community resources for alternative treatment" as a ground for discontinuing services with the old provider, and a discharge summary must record referrals, the reason for discharge, the rendering provider\'s and caregiver\'s signatures and the discharge date (CP.BH.105). Before the new agency submits, ask Sunflower UM (1-877-644-4623) whether it will authorize a new 97151 while another agency holds an active authorization, and whether it needs the first agency\'s discharge date.',
+        ],
+        cites: [
+          { title: 'Sunflower Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Autism-Prior-Auth.pdf' },
+          { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Centene CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.105.pdf' },
+        ],
+      },
+      {
+        h2: 'Is Sunflower\'s ABA network open to new providers?',
+        body: [
+          'Sunflower publishes no ABA network closure or moratorium; its 2026 provider manual describes building "a network of qualified providers/practitioners" to meet KanCare\'s network adequacy requirements, with the contracting department monitoring adequacy. The route in is fixed: "All providers wishing to participate in the Sunflower KanCare network must enroll through KMAP first," KMAP sends the enrollment to the MCOs chosen "for credentialing and contracting," and "KMAP approval does NOT guarantee participation in the Sunflower network." Group applications include a roster or CAQH form "for each practitioner employed by the provider," and Sunflower commits to credential 90 percent of complete applications within 30 days and all within 45. Ask the Contracting department (1-877-644-4623) whether it is adding ABA providers in your area.',
+        ],
+        cites: [
+          { title: 'Sunflower Health Plan Provider Manual (KDHE approved February 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+        ],
+      },
+      {
+        h2: 'What does Sunflower pay for ABA?',
+        body: [
+          'Sunflower publishes no ABA rate table. The sample Medicaid product attachment in its provider manual sets the formula: payment is "the lesser of (i) the billed charge for the particular Covered Service, or (ii) the appropriate amount for such Covered Service under the Company\'s fee schedule in effect on the date of service," and "Upon Provider\'s reasonable written request from time to time, the Company will provide Provider with a representative sample of the fees then in effect." The public state benchmark is KMAP Bulletin 24125: 97153 at $65 per hour ($16.25 per 15-minute unit) from 7/1/2024; the bulletin notes MCO implementation "may vary from the date noted."',
+        ],
+        cites: [
+          { title: 'Sunflower Health Plan Provider Manual (KDHE approved February 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+          { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
         ],
       },
     ],
     collect: [
       { title: 'Diagnosis date + diagnosing clinician', desc: 'KS.CP.01 says validated by an MD or licensed psychologist within the last 6 months; KMAP 26140 (eff. 11/1/2026) says no re-evaluation once a qualified diagnostician has diagnosed. Record the date and diagnostician, and ask Sunflower UM before ordering a refresh.' },
-      { title: 'Kan Be Healthy screen status', desc: 'EPSDT screen within the past year (not a well-child exam) — the silent auth-staller; route the family to their PCP if missing.' },
-      { title: 'Physician recommendation/prescription', desc: 'Required in the Autism Authorization Request packet.' },
+      { title: 'Kan Be Healthy screen status', desc: 'KAN Be Healthy recommendation within the past year, including a developmental screen (a plain well-child visit does not count) — the silent auth-staller; route the family to their PCP if missing.' },
+      { title: 'ABA referral date', desc: 'The PA form wants a referral for ABA dated within one calendar year.' },
+      { title: 'Current ABA provider, if any', desc: 'Sunflower publishes no transfer rule; if another agency holds an authorization, ask Sunflower UM before the new agency requests 97151.' },
+      { title: 'Physician recommendation/prescription', desc: 'The PA form asks for a referral for ABA services within one calendar year.' },
       { title: 'Assessment instruments on file', desc: 'One standardized (Vineland-3, ADOS, CARS, ADI-R, GARS, ASDS) + one skills-based (VB-MAPP, ABLLS, AFLS, ASRS).' },
       { title: 'Requested intensity tier', desc: 'Focused (10–25 h/wk) vs. comprehensive (25–40 h/wk); exceeding the state soft limits needs extra documentation.' },
     ],
@@ -407,6 +453,11 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
       { title: 'Sunflower Health Plan — Clinical & Payment Policies index (Medicaid Behavioral Health Clinical Policies)', url: 'https://www.sunflowerhealthplan.com/providers/resources/clinical-payment-policies.html' },
       { title: 'Sunflower Health Plan Provider Manual (KDHE approved February 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+      { title: 'Sunflower Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Autism-Prior-Auth.pdf' },
+      { title: 'Centene CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.105.pdf' },
+      { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
+      { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
+      { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -451,18 +502,24 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Three documents, not one. KS.CP.01 requires a "doctor recommendation of services/prescription/order to treat"; a fully completed Autism Authorization Request Form "including dated provider signature"; and a current Kan Be Healthy (EPSDT) assessment "completed by a physician, APRN, PA or credentialed RN," within the past year, which the policy states explicitly is not the same assessment as a well-child exam (the Kan Be Healthy requirement does not apply to Ambetter members). Missing the screen is the quiet reason authorizations stall.',
+          'The current PA form wants, for the initial 97151 request, a "referral from provider for ABA services that is within one calendar year" and a "KAN Be Healthy recommendation within one year," adding: "A general well-child visit does not meet this. It must also include a developmental screen." Continued services need an "Annual KAN Be Healthy recommendation," and the rendering provider signs the form. CP.BH.104 asks for a recommendation for ABA from a licensed physician, psychologist or other qualified professional, which "may be included within the CDE." The legacy KS.CP.01 listed the same three pieces (doctor recommendation, a signed Autism Authorization Request Form, and a Kan Be Healthy assessment by a physician, APRN, PA or credentialed RN). Missing the screen is the quiet reason authorizations stall.',
         status: 'verified',
-        cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
+        cites: [
+          { title: 'Sunflower Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Autism-Prior-Auth.pdf' },
+          { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
+        ],
       },
       telehealth: {
         value:
-          'Not addressed. KS.CP.01 covers initiation, continuation and annual review criteria, hour tiers and the required assessments, but says nothing about telehealth delivery of CCTS or IIS, and no KMAP telehealth rule for these services could be retrieved.',
-        status: 'unverified',
-        cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
-        verifyVia:
-          'Sunflower provider services and the Sunflower/Centene payment policies; the KMAP Mental Health Fee-for-Service Provider Manual was unreachable at this review.',
-        blocker: 'document',
+          'Sunflower defers to the state, and the state allows the core codes. CP.BH.104 says ABA may be delivered "in-person, telehealth" and tells providers to "refer to respective state allowances for telehealth services." KMAP General Bulletin 21234 lists 97151, 97152, 97153, 97155 and 97156 among the codes allowed with POS 10 (telehealth in the home) from 1/1/2022, alongside POS 02 for other locations; 97154, 97157 and 97158 are not on it. K.S.A. 40-2,213 bars the Kansas Medicaid program from excluding a covered service solely because it is delivered by telemedicine. Sunflower\'s documentation policy CP.BH.105 adds two telehealth rules: notes for telehealth sessions must show a HIPAA-compliant platform with the rendering provider\'s camera on and working audio, and the at-least-monthly one-on-one protocol-modification session (97155/H0032) must be rendered by the ABA supervisor and "Not delivered via telemedicine/telehealth unless allowed by state guidelines."',
+        status: 'verified',
+        cites: [
+          { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Centene CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.105.pdf' },
+          { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
+          { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
+        ],
       },
       authTurnaround: {
         value:
@@ -487,10 +544,12 @@ export const kansasPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'KS.CP.01 builds supervision into the hour count rather than into a ratio: focused plans run "10 – 25 hours per week including 1:1 direct and indirect, group, supervision and caregiving training," and comprehensive plans "25 - 40 hours per week inclusive of all 1:1 direct and indirect, group, supervision, and caregiver training." No supervision percentage or caseload cap is published, so the state floor governs — IIS technicians work under the direction of a BCBA or other qualified CCTS practitioner, and RBT-credentialed staff carry the BACB minimum.',
+          'CP.BH.104 sets the floor as protocol modification: "Adaptive Behavior Treatment with Protocol Modification occurs for at least two hours per week or 10% of the direct service hours provided (whichever is greater), and no more than 20% of direct service hours provided (unless clinical documentation justifies)," and treatment must be "delivered or supervised by an ABA-credentialed professional." CP.BH.105 makes it a billing rule: 97153/97154 units not supported by that protocol-modification level are "subject to denial of payment or recoupment," and at least monthly the ABA supervisor must deliver a one-on-one session with the member to develop new or modified protocols. On the PA form the rendering provider attests "that all individuals rendering service under the proposed treatment plan have the appropriate training and education required to render services." The technician credential itself is the state\'s: IIS technicians qualify as RBTs under a BCBA, or through the state\'s KDADS-letter route.',
         status: 'verified',
         cites: [
-          { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
+          { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Centene CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.105.pdf' },
+          { title: 'Sunflower Autism (Non-Waiver) Prior Authorization Request Form (KDHE-approved 4/15/2025)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Autism-Prior-Auth.pdf' },
           { title: 'KMAP Bulletin 20147 — Autism CCTS & IIS provider qualification changes (eff. 4/3/2020)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-20147.html' },
         ],
       },
@@ -505,30 +564,31 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'No per-day unit ceiling. Sunflower works in weekly tiers against the state\'s soft limits: focused ABA 10–25 hours per week, comprehensive 25–40, with "soft limit or no more than 50 hours per year of BCBA/Autism Specialist and no more than 25 hours per week of 1:1 support. Additional documentation will be required to exceed those soft limits." Daily intensity is explicitly individualized: "hours of therapy per day are individualized with the goal of increasing or decreasing the intensity of therapy as the member\'s ability to tolerate and participate permits."',
+          'CP.BH.104 sets a soft ceiling: treatment hours "Do not exceed six hours per day up to a total of 30 hours per week" unless clinical documentation justifies more (persistent or escalating severe behaviors, interfering stereotypy, limited functional communication), with signatures from the parent and the direct-care BCBA on the revised plan. It also expects "less than 20 hours per week if attending school full-time." The state soft limits sit underneath: no more than 50 hours/year of CCTS and 25 hours/week of IIS without additional documentation. CP.BH.105 adds that billed units not fully supported by documentation may be denied or recouped.',
         status: 'verified',
         cites: [
-          { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
+          { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Centene CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.105.pdf' },
           { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (CCTS 50 h/yr, IIS 25 h/wk limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
         ],
       },
       noteSignature: {
         value:
-          'The only signature rule KS.CP.01 states sits on the authorization request, not the session note: each initial, 6-month continuation and annual request requires a "fully completed Autism Authorization request form (including dated provider signature)." Who signs a session note, and when, is not addressed.',
-        status: 'unverified',
-        cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
-        verifyVia:
-          'The Sunflower provider manual and your participation agreement\'s documentation clause.',
-        blocker: 'document',
+          'CP.BH.105 (revised 02/26), on Sunflower\'s Medicaid policy index, sets the rule: "Service activity notes for all services rendered are completed prior to claim submission," and each note carries the "Signature of qualified rendering provider/technician," the exact start and end time, pauses, location, and the service code. Documentation is "reviewed and updated at regular intervals" with signatures and printed names of the member, legal guardian, rendering clinician/technician and supervising practitioner as applicable. Addenda need the "Legible name, signature, and credentials of rendering clinician/technician"; a caregiver signature is recommended on notes documenting caregiver participation; and a discharge summary needs signatures of the rendering provider and the caregiver. Treatment plans under CP.BH.104 carry the signature, credentials and role of the responsible BCBA and the parent or guardian.',
+        status: 'verified',
+        cites: [
+          { title: 'Centene CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.105.pdf' },
+          { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
+        ],
       },
       placeOfService: {
         value:
-          'No payable-setting list is published. The policy assumes multiple settings — continuation data must reflect progress across the member\'s activities and the plan must weigh "school attendance requirements" — but names no place-of-service codes and states no school or community rule.',
-        status: 'unverified',
-        cites: [{ title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' }],
-        verifyVia:
-          'Sunflower provider services; the KMAP Mental Health Fee-for-Service Provider Manual was unreachable at this review.',
-        blocker: 'document',
+          'No place-of-service code list is published, but CP.BH.104 sets the school rule. ABA is "not medically necessary" for "Services that are otherwise covered under the Individuals with Disabilities Education Act (IDEA)," with the note: "Unless restricted within a state Medicaid benefit, ABA services can occur in coordination with school services and transition plans." Where it applies, the treatment plan must carry "Detailed school-based plan requirements" — hours, target behaviors, a titration plan showing "when school services can be reduced or stopped," and school-specific graphs — and services that are "in lieu of school" are a ground for discontinuation. Every note must record the location (CP.BH.105). No KMAP rule on school-based CCTS/IIS could be retrieved, so confirm a school location with Sunflower UM at authorization.',
+        status: 'verified',
+        cites: [
+          { title: 'Centene CP.BH.104 — Applied Behavior Analysis (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Centene CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (listed on Sunflower\'s Medicaid BH clinical-policy index; revised 02/26)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/CP.BH.105.pdf' },
+        ],
       },
       billAsProvider: {
         value:
@@ -548,7 +608,13 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Does Sunflower Health Plan cover ABA therapy?', a: 'Yes — as KanCare\'s CCTS/IIS autism-services benefit under EPSDT, with prior authorization via the Autism Authorization Request Form, a physician recommendation, and named standardized plus skills-based assessments.' },
       { q: 'What is the Kan Be Healthy requirement?', a: 'Sunflower requires Medicaid members to have a current Kan Be Healthy (EPSDT) screen completed within the past year by a physician, APRN, PA, or credentialed RN — explicitly not the same as a well-child exam. Missing it silently stalls the authorization.' },
       { q: 'How recent must the autism diagnosis be for Sunflower?', a: 'Sunflower\'s documents conflict. Its KS.CP.01 policy (last reviewed 06/2019) says validated within the last 6 months by an MD or licensed psychologist. KMAP Bulletin 26140 (eff. 11/1/2026) says a member diagnosed by a qualified diagnostician — a Kansas BSRB-licensed clinical psychologist or qualified physician using a validated tool — needs no re-evaluation and faces no time limit, and KS.CP.01 itself says state Medicaid rules take precedence. Sunflower\'s policy index now lists Centene\'s CP.BH.104 (evaluation within three years) instead of KS.CP.01. Ask Sunflower UM which rule it applies before sending a family for a re-evaluation.' },
-      { q: 'How many ABA hours does Sunflower authorize?', a: 'Plans run focused (10–25 hours/week) or comprehensive (25–40 hours/week), on top of the state soft limits — 50 hours/year of CCTS and 25 hours/week of IIS — which can be exceeded with additional documentation.' },
+      { q: 'How many ABA hours does Sunflower authorize?', a: 'Hours are individualized. CP.BH.104, the policy now on Sunflower\'s index, needs extra clinical justification above six hours a day or 30 hours a week, and expects under 20 hours a week for a child in school full-time. The state soft limits — 50 hours/year of CCTS and 25 hours/week of IIS — can be exceeded with additional documentation. The focused/comprehensive tiers came from the older KS.CP.01.' },
+      { q: 'Does the ABA assessment (97151) need prior authorization with Sunflower?', a: 'Yes. Sunflower\'s Autism (Non-Waiver) PA form lists 97151 and 97152. For the initial assessment send comprehensive diagnostic information with standardized measures, an ABA referral dated within one calendar year, and a KAN Be Healthy recommendation within one year that includes a developmental screen.' },
+      { q: 'Can Sunflower ABA be delivered by telehealth?', a: 'Yes for the codes KMAP allows: 97151, 97152, 97153, 97155 and 97156 with POS 10 (home) or 02 (elsewhere), per KMAP Bulletin 21234; Sunflower\'s CP.BH.104 defers to state allowances. Keep the monthly one-on-one protocol-modification session in person unless state guidance allows it remotely (CP.BH.105), and document the platform and camera use on telehealth notes.' },
+      { q: 'Does Sunflower require RBT certification for ABA technicians?', a: 'Sunflower adds no credential of its own. The KanCare rule applies: IIS technicians qualify as RBTs under a BCBA or through the state\'s KDADS-letter route, and each must be KMAP-enrolled. The rendering provider attests on the PA form that everyone on the plan has the required training, and CP.BH.104 requires treatment delivered or supervised by an ABA-credentialed professional. Whether Sunflower credentials each technician individually is not published; ask its network team.' },
+      { q: 'Can a child switch ABA agencies with Sunflower?', a: 'Sunflower publishes no transfer rule. Authorizations are requested per provider, and a new agency that skips the initial assessment request must send all the assessment items with its first treatment plan. Ask Sunflower UM (1-877-644-4623) before the new agency submits whether it needs the old agency\'s discharge date.' },
+      { q: 'What does Sunflower pay for ABA?', a: 'No public ABA rate table. Sunflower\'s sample Medicaid agreement pays the lesser of billed charges or its Medicaid fee schedule and offers a sample of fees on written request. The state benchmark for 97153 is $16.25 per 15 minutes (KMAP Bulletin 24125).' },
+      { q: 'Is Sunflower accepting new ABA providers?', a: 'Sunflower publishes no ABA moratorium. Enroll with KMAP first and pick Sunflower; KMAP sends the file for credentialing and contracting, which Sunflower aims to finish within 30–45 days of a complete application. Ask Contracting (1-877-644-4623) about need in your area.' },
     ],
   },
 
@@ -633,6 +699,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'KMAP Bulletin 17129 — Additional State Plan Services (CCTS/IIS under EPSDT, eff. 1/1/2017)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-17129.html' },
       { title: 'KMAP Bulletin 20147 — Autism CCTS & IIS provider qualification changes (eff. 4/3/2020)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-20147.html' },
       { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (CCTS 50 h/yr, IIS 25 h/wk limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
+      { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
+      { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -682,12 +750,14 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Not addressed. Optum\'s Kansas Medicaid entry sets diagnosis, treatment and exclusion criteria but is silent on telehealth modality, and no KMAP telehealth rule for CCTS/IIS could be retrieved.',
-        status: 'unverified',
-        cites: [{ title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
-        verifyVia:
-          'Optum\'s Kansas ABA network team (contracting line 1-877-614-0484) and the Optum KanCare Provider Manual on Provider Express.',
-        blocker: 'document',
+          'Optum\'s Kansas Medicaid entry, KanCare ASD getting-started guide and KanCare ABA training publish no telehealth rule of their own, so the state rule applies. KMAP lists the ABA codes as telehealth-eligible. General Bulletin 21234 made place of service 10 (telehealth in the patient\'s home) valid from 1/1/2022, "in addition to existing POS code 02 (telehealth provided other than in a patient\'s home)," and its list of procedure codes allowed with POS 10 includes 97151, 97152, 97153, 97155 and 97156. So the CCTS assessment (97151/97152), technician IIS (97153), supervision with protocol modification (97155) and family guidance (97156) may be billed as telehealth; 97154, 97157 and 97158 are not on that list. Kansas law sets the floor: the telemedicine act "shall also apply to the Kansas medical assistance program," which may not "exclude an otherwise covered healthcare service from coverage solely because such service is provided through telemedicine" when a healthcare provider delivers it, though it may limit coverage to medically necessary services and may not require a member to use telemedicine instead of in-person care (K.S.A. 40-2,213). The bulletins set no in-person minimum for supervision. KMAP notes that MCO implementation "may vary from the date noted in the KMAP bulletins."',
+        status: 'verified',
+        cites: [
+          { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
+          { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
+          { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
+        ],
       },
       authTurnaround: {
         value:
@@ -766,6 +836,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'How is UHC different from the other KanCare MCOs?', a: 'It publishes explicit Kansas criteria: the 40 h/wk plan ceiling, monthly progress reviews (strictest cadence of the three), a written exclusion list, and a commitment to pay the Kansas Medicaid autism-services rates.' },
       { q: 'Who can make the ASD diagnosis for a UHC Kansas Medicaid member?', a: 'Since KMAP Bulletin 26140 (eff. 11/1/2026), for members 20 and under, a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity using a validated diagnostic tool (e.g., ADOS, CARS). There is no diagnosis-recency rule: Optum\'s July 2026 Kansas criteria say no re-evaluation is needed and there is no time limit on starting treatment. Existing non-compliant diagnoses get a 2-year window.' },
       { q: 'How do I join the UHC KanCare ABA network?', a: 'Enroll in KMAP first — Optum retrieves your application from KMAP to start credentialing (~60 days). CCTS credentialing requires BACB certification proof plus your Kansas BSRB license number; contracting line 1-877-614-0484.' },
+      { q: 'Can ABA for this plan\'s KanCare members be delivered by telehealth?', a: 'Under the state rule, yes. KMAP Bulletin 21234 allows 97151, 97152, 97153, 97155 and 97156 with POS 10 (telehealth in the home), alongside POS 02 elsewhere; group codes 97154, 97157 and 97158 are not listed. The plan publishes no ABA telehealth rule of its own, so confirm the modality at authorization.' },
     ],
   },
 
@@ -853,6 +924,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'KMAP Bulletin 20147 — Autism CCTS & IIS provider qualification changes (eff. 4/3/2020)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-20147.html' },
       { title: 'KMAP Bulletin 21013 — CCTS/IIS provider enrollment clarification', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-21013.html' },
       { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (CCTS 50 h/yr, IIS 25 h/wk limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
+      { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
+      { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -904,12 +977,13 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Not published for ABA. The plan\'s ASD Testing request form does ask whether "services [are] being rendered in person or via telehealth," which shows telehealth is contemplated for the testing, but Healthy Blue publishes no telehealth rule for the CCTS/IIS codes and no KMAP rule could be retrieved.',
-        status: 'unverified',
-        cites: [{ title: 'Healthy Blue KS — ASD Testing request form (KSHB-CD-066296-24)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/behavioral-health/KSHB-CD-066296-24-SRS66052%20BH%20Autism%20Testing%20Request%20Form_FINAL_v2%20FILLABLE.pdf' }],
-        verifyVia:
-          'Healthy Blue\'s ABA line at 877-563-9347, or Availity Essentials; the KMAP Mental Health Fee-for-Service Provider Manual was unreachable at this review.',
-        blocker: 'document',
+          'Healthy Blue publishes no telehealth rule for the CCTS/IIS codes; its ASD Testing request form asks whether "services [are] being rendered in person or via telehealth," so the state rule applies. KMAP lists the ABA codes as telehealth-eligible. General Bulletin 21234 made place of service 10 (telehealth in the patient\'s home) valid from 1/1/2022, "in addition to existing POS code 02 (telehealth provided other than in a patient\'s home)," and its list of procedure codes allowed with POS 10 includes 97151, 97152, 97153, 97155 and 97156. So the CCTS assessment (97151/97152), technician IIS (97153), supervision with protocol modification (97155) and family guidance (97156) may be billed as telehealth; 97154, 97157 and 97158 are not on that list. Kansas law sets the floor: the telemedicine act "shall also apply to the Kansas medical assistance program," which may not "exclude an otherwise covered healthcare service from coverage solely because such service is provided through telemedicine" when a healthcare provider delivers it, though it may limit coverage to medically necessary services and may not require a member to use telemedicine instead of in-person care (K.S.A. 40-2,213). The bulletins set no in-person minimum for supervision. KMAP notes that MCO implementation "may vary from the date noted in the KMAP bulletins."',
+        status: 'verified',
+        cites: [
+          { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
+          { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
+          { title: 'Healthy Blue KS — ASD Testing request form (KSHB-CD-066296-24)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/behavioral-health/KSHB-CD-066296-24-SRS66052%20BH%20Autism%20Testing%20Request%20Form_FINAL_v2%20FILLABLE.pdf' },
+        ],
       },
       authTurnaround: {
         value:
@@ -994,6 +1068,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Does Healthy Blue Kansas cover ABA therapy?', a: 'Yes — it administers the KanCare CCTS/IIS autism-services benefit under EPSDT, with prior authorization via Availity, phone, or fax. Plan-specific hour rules aren\'t published, so the state baseline plus portal verification governs.' },
       { q: 'What happened to Aetna Better Health of Kansas members?', a: 'Aetna lost its KanCare contract; members auto-transitioned to Healthy Blue on 1/1/2025 (extended change deadline 4/4/2025) with continuity-of-care authorizations honored. Any listing showing Aetna Better Health as an active KanCare MCO is outdated.' },
       { q: 'How do I submit an ABA authorization to Healthy Blue Kansas?', a: 'Availity is preferred (Patient Registration > Authorizations & Referrals); behavioral-health outpatient fax is 1-866-852-8978, and the plan lists an ABA line at 877-563-9347. Assessment requests use the dedicated ASD Testing form KSHB-CD-066296-24.' },
+      { q: 'Can ABA for this plan\'s KanCare members be delivered by telehealth?', a: 'Under the state rule, yes. KMAP Bulletin 21234 allows 97151, 97152, 97153, 97155 and 97156 with POS 10 (telehealth in the home), alongside POS 02 elsewhere; group codes 97154, 97157 and 97158 are not listed. The plan publishes no ABA telehealth rule of its own, so confirm the modality at authorization.' },
     ],
   },
 
@@ -1045,6 +1120,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '1,300 hrs/yr × 4 yrs (dx by age 5), else 520 hrs/yr — exceedable with prior approval; parity-questioned' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA; small employers (2–50) via waiver; limited-benefit plans' },
       { label: 'Licensure', value: 'KS Licensed Behavior Analyst (BSRB), required since 7/1/2016' },
+      { label: 'Fee schedule', value: 'Not public — Aetna pays the contracted rate in your participation agreement' },
     ],
     sections: [
       {
@@ -1105,6 +1181,16 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Kansas BSRB — LaBA/LBA application (June 2026)', url: 'https://www.ksbsrb.ks.gov/home/showpublisheddocument/64/639159023771900000' },
         ],
       },
+      {
+        h2: 'What is Aetna’s fee schedule for ABA?',
+        body: [
+          'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: “The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies,” and where a provider has both an intermediary contract and a direct agreement, “your direct Aetna rates will apply unless we specifically notify you otherwise.” Even when a member’s benefits run out, the provider “cannot charge them more than the contracted rate.” Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, KanCare pays 97153 at $16.25 per 15 minutes since 7/1/2024 (KMAP Bulletin 24125); the other autism codes are in the KMAP fee-schedule lookup.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1127,6 +1213,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
       { title: 'K.S.A. 48-3406 — expedited licensure for holders of another state\'s license', url: 'https://www.ksrevisor.gov/statutes/chapters/ch48/048_034_0006.html' },
       { title: 'Kansas BSRB — LaBA/LBA application (June 2026)', url: 'https://www.ksbsrb.ks.gov/home/showpublisheddocument/64/639159023771900000' },
+      { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1167,14 +1255,15 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Not published. Aetna\'s ABA Medical Necessity Guide and CPB 0554 set medical-necessity criteria and precertification requirements but say nothing about which ABA codes may be delivered remotely, or with which place-of-service code. What is published is the licensure condition. Aetna\'s Network Participation Criteria (5/26) require telehealth providers to \u201csatisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located,\u201d and to hold the licenses the law requires where they are physically located. Only codes on Aetna\'s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth unless law requires otherwise. The provider manual adds that telehealth providers \u201cmust act within the scope of their license and ensure that they have the proper licensure based on state requirements,\u201d and Kansas requires a BSRB license to \u201cpractice applied behavior analysis in this state\u201d (K.S.A. 65-7503) \u2014 so a BCBA outside Kansas needs a Kansas LBA before treating a Kansas child by video.',
-        status: 'unverified',
+          'Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services" (provider manual, 6/26), but no ABA telehealth code list is published. For a fully insured Kansas plan issued or renewed on or after 1/1/2019, K.S.A. 40-2,213 bars excluding "an otherwise covered healthcare service from coverage solely because such service is provided through telemedicine" when a healthcare provider (which the act defines to include anyone licensed by the BSRB) delivers it, and lets the carrier set telemedicine payment "in the same manner" as in person; it does not reach self-funded ERISA plans.  Aetna\'s ABA Medical Necessity Guide and CPB 0554 set medical-necessity criteria and precertification requirements but say nothing about which ABA codes may be delivered remotely, or with which place-of-service code. What is published is the licensure condition. Aetna\'s Network Participation Criteria (5/26) require telehealth providers to \u201csatisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located,\u201d and to hold the licenses the law requires where they are physically located. Only codes on Aetna\'s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth unless law requires otherwise. The provider manual adds that telehealth providers \u201cmust act within the scope of their license and ensure that they have the proper licensure based on state requirements,\u201d and Kansas requires a BSRB license to \u201cpractice applied behavior analysis in this state\u201d (K.S.A. 65-7503) \u2014 so a BCBA outside Kansas needs a Kansas LBA before treating a Kansas child by video.',
+        status: 'plan-dependent',
         cites: [
           { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
           { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+          { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
         ],
         verifyVia:
           'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy for the payable code list, and Aetna provider services at the number on the member\'s ID card — confirm before scheduling remote 97155 or 97156. Whether an out-of-state BCBA treating a child in Kansas by video is practicing "in this state" is a Kansas BSRB question (785-296-3240).',
@@ -1259,7 +1348,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'What does the Kansas autism mandate require?', a: 'For large-group (51+) fully-insured plans: coverage for members under 12, with ABA capped at 1,300 hours/year for 4 years when diagnosed by age 5, otherwise 520 hours/year — exceedable with prior approval when medically necessary. Federal parity analysis questions whether the age limit and hour caps are enforceable, so treat cap denials as appealable.' },
       { q: 'Is Aetna a KanCare (Medicaid) plan in Kansas?', a: 'Not anymore — Aetna Better Health of Kansas lost the KanCare 3.0 contract and its members moved to Healthy Blue Kansas on 1/1/2025. Aetna cards in Kansas today are commercial.' },
       { q: 'Will Aetna credential or pay an out-of-state BCBA for a Kansas member, including by telehealth?', a: 'Aetna publishes no Kansas-specific rule either way. Its provider manual requires network credentialing, BACB certification or a behavior-analyst license “in the state in which they practice,” and, for telehealth, “the proper licensure based on state requirements.” Kansas requires a BSRB license to “practice applied behavior analysis in this state” (K.S.A. 65-7503), the mandate pays only providers “licensed or exempt from licensure under the applied behavior analysis licensure act” (K.S.A. 40-2,194), and the telemedicine-parity law protects only BSRB-licensed providers. Aetna\'s Network Participation Criteria (5/26) go further for telehealth: providers must meet the license requirements "for all states in which members to whom they are providing Telehealth services are located." Get a Kansas LBA before treating a Kansas child remotely, then confirm with Aetna Credentialing Customer Service (1-800-353-1232) that the Kansas license is on your credentialing file.' },
-      { q: 'What does Aetna pay for ABA in Kansas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. The Medicaid benchmark is only available via the KMAP interactive fee-schedule lookup, so pull current figures there before contracting conversations.' },
+      { q: 'What does Aetna pay for ABA in Kansas?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. KanCare\'s 97153 rate ($16.25 per 15 minutes, KMAP Bulletin 24125) is the public benchmark.' },
     ],
   },
 
@@ -1305,6 +1394,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '1,300 hrs/yr × 4 yrs (dx by age 5), else 520 hrs/yr — exceedable with prior approval; parity-questioned' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA; small employers (2–50) via waiver; limited-benefit plans' },
       { label: 'Licensure', value: 'KS Licensed Behavior Analyst (BSRB), required since 7/1/2016' },
+      { label: 'Fee schedule', value: 'Not public — your ABA fee schedule is Exhibit A of your Evernorth Provider Agreement; fee questions to Evernorth Provider Services, 800.926.2273' },
     ],
     sections: [
       {
@@ -1346,6 +1436,16 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'K.S.A. 65-7502 — ABA licensure act definitions', url: 'https://ksrevisor.gov/statutes/chapters/ch65/065_075_0002.html' },
         ],
       },
+      {
+        h2: 'What is Cigna’s fee schedule for ABA?',
+        body: [
+          'Cigna publishes no ABA rate table. Evernorth, which runs Cigna’s behavioral health network, puts the rates in the contract: its Administrative Guidelines (September 2026) say the Provider Agreement and the guidelines set the terms, which “include the reimbursement rates applicable to covered services,” and tell ABA providers: “For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement.” Fee-schedule and contract questions go to Provider Services at 800.926.2273. Virtual services are billed with modifier 95, which Evernorth says “will not change the reimbursement.” Non-credentialed technicians are paid only through the supervising provider’s claim. For a public benchmark, KanCare pays 97153 at $16.25 per 15 minutes since 7/1/2024 (KMAP Bulletin 24125); the other autism codes are in the KMAP fee-schedule lookup.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1360,6 +1460,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: '2023 Session Laws Ch. 3, SB 24', url: 'https://sos.ks.gov/publications/sessionlaws/2023/Chapter-03-SB-24.html' },
       { title: 'K.S.A. 65-7502 — ABA licensure act definitions', url: 'https://ksrevisor.gov/statutes/chapters/ch65/065_075_0002.html' },
       { title: 'Autism Legal Resource Center — Kansas (parity analysis)', url: 'https://www.autismlegalresourcecenter.com/resources/autism-healthcare-info/kansas/' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1487,7 +1589,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Cigna cover ABA therapy in Kansas?', a: 'Yes — under the carrier\'s national EN0499 policy for ASD (no prior auth on assessment codes; PA at the treatment step), layered on Kansas\'s mandate (K.S.A. 40-2,194) for fully-insured large-group plans. Self-funded plans are exempt from the mandate, so verify funding type first.' },
       { q: 'What does the Kansas autism mandate require?', a: 'For large-group (51+) fully-insured plans: coverage for members under 12, with ABA capped at 1,300 hours/year for 4 years when diagnosed by age 5, otherwise 520 hours/year — exceedable with prior approval when medically necessary. Federal parity analysis questions the age limit and hour caps, so treat cap denials as appealable.' },
-      { q: 'What does Cigna pay for ABA in Kansas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. The Medicaid benchmark exists only via the KMAP interactive fee-schedule lookup.' },
+      { q: 'What does Cigna pay for ABA in Kansas?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. KanCare\'s 97153 rate ($16.25 per 15 minutes, KMAP Bulletin 24125) is the public benchmark.' },
     ],
   },
 
@@ -1530,6 +1632,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '1,300 hrs/yr × 4 yrs (dx by age 5), else 520 hrs/yr — exceedable with prior approval; parity-questioned' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA; small employers (2–50) via waiver; limited-benefit plans' },
       { label: 'Licensure', value: 'KS Licensed Behavior Analyst (BSRB), required since 7/1/2016' },
+      { label: 'Fee schedule', value: 'Not public — Optum pays up to the “Fee Maximum” in your agreement, by credential level (HM/HN/HO/HP modifiers)' },
     ],
     sections: [
       {
@@ -1576,6 +1679,17 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'K.S.A. 65-7502 — ABA licensure act definitions', url: 'https://ksrevisor.gov/statutes/chapters/ch65/065_075_0002.html' },
         ],
       },
+      {
+        h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
+        body: [
+          'UnitedHealthcare publishes no ABA rate table; its behavioral health network, Optum, pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the “Fee Maximum” as “The maximum amount a participating provider may be paid for a specific health care service provided to a member,” adding that “Reimbursement to clinicians is based upon licensure rather than degree.” Optum’s commercial ABA Reimbursement Policy (2022RP501A, updated 06/2026) makes the credential level part of every claim line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensed provider. It also says indirect work has no separate code and is bundled into the direct-service codes. Ask Optum network management for your rate sheet. For a public benchmark, KanCare pays 97153 at $16.25 per 15 minutes since 7/1/2024 (KMAP Bulletin 24125); the other autism codes are in the KMAP fee-schedule lookup.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+          { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1595,6 +1709,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1635,12 +1751,13 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” For a fully insured Kansas plan issued or renewed on or after 1/1/2019, K.S.A. 40-2,213 bars excluding "an otherwise covered healthcare service from coverage solely because such service is provided through telemedicine" when a healthcare provider (which the act defines to include anyone licensed by the BSRB) delivers it, and lets the carrier set telemedicine payment "in the same manner" as in person; it does not reach self-funded ERISA plans. Ask Optum how it applies the three-code list to a fully insured Kansas plan.',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
         ],
       },
       authTurnaround: {
@@ -1720,7 +1837,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare cover ABA therapy in Kansas?', a: 'Yes — under Optum\'s national two-step authorization policy for ASD, layered on Kansas\'s mandate (K.S.A. 40-2,194) for fully-insured large-group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Kansas autism mandate require?', a: 'For large-group (51+) fully-insured plans: coverage for members under 12, with ABA capped at 1,300 hours/year for 4 years when diagnosed by age 5, otherwise 520 hours/year — exceedable with prior approval when medically necessary. Federal parity analysis questions the age limit and hour caps, so treat cap denials as appealable.' },
       { q: 'Does Optum have Kansas-specific ABA criteria?', a: 'Yes, but only for Medicaid: its State Mandates supplement carries a "For Kansas Medicaid member" section (KanCare CCTS/IIS rules). Commercial Kansas members follow the national Supplemental Clinical Criteria.' },
-      { q: 'What does UnitedHealthcare pay for ABA in Kansas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. The Medicaid benchmark exists only via the KMAP interactive fee-schedule lookup.' },
+      { q: 'What does UnitedHealthcare pay for ABA in Kansas?', a: 'UnitedHealthcare/Optum publishes no ABA rates. You are paid up to the Fee Maximum in your Optum agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) under Optum’s ABA reimbursement policy. Ask Optum network management for your rate sheet. KanCare\'s 97153 rate ($16.25 per 15 minutes, KMAP Bulletin 24125) is the public benchmark.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
     ],
   },

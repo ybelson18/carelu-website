@@ -108,6 +108,24 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'Healthfirst — ABA supervision requirements', url: 'https://hfproviders.org/resource-posts/applied-behavior-analysis-supervision-requirements' },
         ],
       },
+      {
+        h2: 'Is New York Medicaid open to new ABA providers?',
+        body: [
+          'At the fee-for-service layer the conditions are licensure and enrollment, not a network decision. “LBAs must be licensed, and CBAAs must be certified, by the NYS Department of Education (NYSED) to enroll and participate in the NYS Medicaid FFS program,” and “an LBA must be enrolled with the NYS Medicaid FFS program to receive reimbursement for ABA services provided to a NYS Medicaid FFS or MMC member.” The ABA manual states no enrollment cap or moratorium; enrollment is revalidated every 5 years. Managed care is a separate door: providers serving an MMC member “must contact the MMC member’s specific MMC plan for coverage, billing, and reimbursement guidance,” so whether a plan’s ABA network is taking new groups is that plan’s contracting decision — with eMedNY enrollment the precondition for both.',
+        ],
+        cites: [
+          { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
+        ],
+      },
+      {
+        h2: 'Switching ABA providers: what carries over?',
+        body: [
+          'On fee-for-service there is no authorization to transfer, because the manual requires none. The gate is a referral “for ABA services” that is “valid for no more than two years”; the manual does not tie it to a named LBA and sets no one-provider-at-a-time rule. What it does require is continuity paperwork: every treatment plan must include a “plan for coordination with other providers” and “plans for transition and discharge of services,” and initial plans and updates “should be shared with the referring provider.” For a managed-care member the authorization sits with the plan, and the state manual leaves transfers to each plan — ask the plan whether the existing authorization can move to the new provider or a new request is needed.',
+        ],
+        cites: [
+          { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'FFS or which MMC plan', desc: 'The single fact that decides whether there\'s a PA at all — get the card, not the family\'s guess.' },
@@ -171,7 +189,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Allowed on the same footing as in-person care, with no ABA-specific code list. The NYS Medicaid Telehealth Policy Manual (updated July 2026) adds \u201cProviders licensed or certified by the New York State Education Department (NYSED) to provide Applied Behavioral Analysis (ABA) therapy\u201d to the telehealth-provider definition under 18 NYCRR Part 538, and states that providers \u201cwho are authorized to provide in-person services, are authorized to provide such services via telehealth if such telehealth services are appropriate to meet the needs of the patient and are within the scope of practice of the provider.\u201d The limit is the code itself: \u201cProviders must meet all elements of the procedure code via telehealth.\u201d Bill with modifier 95 or GT for audio-video and place of service 02, 10 (the member\u2019s home) or 11 \u2014 the manual encourages POS 11 where the in-person visit would have been POS 11, because payment parity (Public Health Law \u00a7 2999-dd, in effect until April 1, 2028) pays telehealth at the in-person rate. The ABA manual adds the supervision rule: supervision \u201cmay be conducted via a synchronous interactive audio and video telecommunication system,\u201d but the two required monthly contacts must be face-to-face and real time and \u201cmay not occur telephonically, via email or text messaging.\u201d Managed-care plans publish their own overlays (UHC Community Plan allows 97155, 97156 and 97157 at POS 02 for approved virtual-visits providers).',
+          'Allowed on the same footing as in-person care, with no ABA-specific code list. The NYS Medicaid Telehealth Policy Manual (updated July 2026) adds \u201cProviders licensed or certified by the New York State Education Department (NYSED) to provide Applied Behavioral Analysis (ABA) therapy\u201d to the telehealth-provider definition under 18 NYCRR Part 538, and states that providers \u201cwho are authorized to provide in-person services, are authorized to provide such services via telehealth if such telehealth services are appropriate to meet the needs of the patient and are within the scope of practice of the provider.\u201d The limit is the code itself: \u201cProviders must meet all elements of the procedure code via telehealth.\u201d That includes the assessment codes: the manual\u2019s definition says services provided via telehealth \u201cinclude assessment, diagnosis, consultation, treatment, education, care management and/or self-management,\u201d and its Section 10 list of service-specific restrictions (in-person-only initial assessments in adult care facilities, adult day health, home health and hospice; OMH, OPWDD, school-based health center and other carve-outs) names no ABA restriction. So 97151 and 97152 (initial or reassessment) may be delivered by audio-video when every element of the code can be met remotely; 97152 is defined as \u201cface-to-face with the patient,\u201d so plan for a technician on site or in-person delivery where that cannot be done by video. Bill with modifier 95 or GT for audio-video and place of service 02, 10 (the member\u2019s home) or 11 \u2014 the manual encourages POS 11 where the in-person visit would have been POS 11, because payment parity (Public Health Law \u00a7 2999-dd, in effect until April 1, 2028) pays telehealth at the in-person rate. The ABA manual adds the supervision rule: supervision \u201cmay be conducted via a synchronous interactive audio and video telecommunication system,\u201d but the two required monthly contacts must be face-to-face and real time and \u201cmay not occur telephonically, via email or text messaging.\u201d Managed-care plans publish their own overlays (UHC Community Plan allows 97155, 97156 and 97157 at POS 02 for approved virtual-visits providers).',
         status: 'verified',
         cites: [{ title: 'NYS Medicaid Telehealth Policy Manual (Version 2026-V2, updated July 2026)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/telehealth/docs/provider_manual.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
       },
@@ -227,7 +245,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'The LBA is the billing provider, always. \u201cAn LBA must be enrolled with the NYS Medicaid FFS program to receive reimbursement for ABA services provided to a NYS Medicaid FFS or MMC member,\u201d and \u201cCBAAs cannot bill the NYS Medicaid program directly\u201d \u2014 they enroll as OPRA providers and their work is billed by the supervising LBA. The role mapping is explicit: LBAs bill \u201cusing the LBA\u2019s National Provider Identification (NPI) number for the \u2018Billing\u2019 provider and/or \u2018Supervising\u2019 provider,\u201d with \u201cthe NPI number of the CBAA that provided the ABA service\u2026 reported as the \u2018Rendering\u2019 provider on each claim.\u201d For non-enrolled unlicensed aides and LBA limited-permit holders, the supervising LBA\u2019s NPI fills Billing, Supervising and Rendering alike. An Article 28 facility bills instead on the Ordered Ambulatory Fee Schedule, with its LBAs/CBAAs enrolled as OPRA providers and affiliated with the facility.',
+          'The LBA is the billing provider, always. \u201cAn LBA must be enrolled with the NYS Medicaid FFS program to receive reimbursement for ABA services provided to a NYS Medicaid FFS or MMC member,\u201d and \u201cCBAAs cannot bill the NYS Medicaid program directly\u201d \u2014 they enroll as OPRA providers and their work is billed by the supervising LBA. The role mapping is explicit: LBAs bill \u201cusing the LBA\u2019s National Provider Identification (NPI) number for the \u2018Billing\u2019 provider and/or \u2018Supervising\u2019 provider,\u201d with \u201cthe NPI number of the CBAA that provided the ABA service\u2026 reported as the \u2018Rendering\u2019 provider on each claim.\u201d For non-enrolled unlicensed aides and LBA limited-permit holders, the supervising LBA\u2019s NPI fills Billing, Supervising and Rendering alike. Technicians (RBTs or not) do not enroll with NYS Medicaid at all: the manual defines the technician as an \u201cunlicensed individual\u201d who \u201cis not licensed, certified or registered by the State of New York as an ABA provider\u201d and attaches no RBT or other credential to the role. An Article 28 facility bills instead on the Ordered Ambulatory Fee Schedule, with its LBAs/CBAAs enrolled as OPRA providers and affiliated with the facility.',
         status: 'verified',
         cites: [{ title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
       },
@@ -239,6 +257,10 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Did New York Medicaid change ABA rates on October 1, 2026, and when is the next change?', a: 'Yes, a cut, now in effect. The August 2026 NYS Medicaid Update (Vol 42 No 9) says that, as authorized by the FY 2026-27 enacted budget, \u201ceffective October 1, 2026, the reimbursement for CPT code 97153 will be reduced to $9.63/per unit\u201d for fee-for-service. It is the third 97153 step: $19.26 before 10/1/2025, $16.85 from 10/1/2025, $14.45 from 4/1/2026, $9.63 from 10/1/2026. No other ABA code changed, and no later change had been announced as of this check (the August 2026 issue is still the current one). MMC plans pay by contract; ask each plan whether it follows the FFS cut.' },
       { q: 'How many RBTs or technicians can one LBA (BCBA) supervise in New York?', a: 'Two rules. Licensure: Education Law \u00a7 8802 says \u201cno licensed behavior analyst shall supervise more than six certified behavior analyst assistants\u201d; Article 167 sets no number for unlicensed staff. Medicaid (FFS and MMC, since October 1, 2025): the eMedNY ABA manual says \u201can LBA can supervise no more than six CBAAs/unlicensed individuals at a time (e.g., one CBAA and five unlicensed individuals or two CBAAs and four unlicensed individuals, etc.)\u201d, with supervision of at least 5% of each technician\u2019s monthly service hours and two face-to-face real-time contacts a month. In New York a BCBA must also hold the NYSED LBA license to supervise.' },
       { q: 'Can a BCBA bill NY Medicaid for ABA?', a: 'Not on the BCBA credential alone — New York requires NYSED licensure as a Licensed Behavior Analyst (LBA) to enroll and bill. CBAAs enroll as non-billing providers under a supervising LBA.' },
+      { q: 'Does NY Medicaid require RBT certification for ABA technicians, and do technicians enroll?', a: 'No to both. The eMedNY ABA manual defines the technician as an “unlicensed individual” not licensed, certified or registered by the state as an ABA provider, with no RBT requirement. Technicians do not enroll; the supervising LBA bills their work with the LBA’s NPI as Billing, Supervising and Rendering provider. Plans may add their own staffing rules.' },
+      { q: 'Can the ABA assessment (97151/97152) be done by telehealth under NY Medicaid?', a: 'Yes, when every element of the code can be met remotely. The NYS Medicaid Telehealth Policy Manual (July 2026) includes NYSED-licensed ABA providers, says covered telehealth services include assessment, and lists no ABA restriction. Bill with modifier 95 or GT and POS 02, 10 or 11. Managed-care plans can be stricter, so check the plan.' },
+      { q: 'Is NY Medicaid accepting new ABA providers?', a: 'For fee-for-service, an NYSED-licensed LBA can enroll through eMedNY; the ABA manual states no cap or moratorium. For managed care, each plan decides whether to contract, and eMedNY enrollment is required first.' },
+      { q: 'If a family switches ABA agencies, does the NY Medicaid authorization transfer?', a: 'On fee-for-service there is no authorization; the referral (valid up to 2 years) is for ABA services, not a named provider, and the treatment plan must carry transition and coordination plans. For a managed-care member, ask the plan whether its authorization can move or a new request is needed.' },
     ],
   },
 
@@ -317,6 +339,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Waitlist-workaround eligibility', desc: 'If no diagnostic slot within 6 months and the member is in/recently in ABA, pursue the letter of confirmation.' },
     ],
     sources: [
+      { title: 'NYS Medicaid Telehealth Policy Manual (Version 2026-V2, updated July 2026)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/telehealth/docs/provider_manual.pdf' },
       { title: 'Fidelis ABA Clinical Policy FC.CP.BH.301.04', url: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf' },
       { title: 'Fidelis ABA Provider Tip Sheet (01/01/2026)', url: 'https://www.fideliscare.org/Portals/0/Providers/TipSheets/ABA-Provider-Tip-Sheet.pdf' },
       { title: 'eMedNY ABA Provider Policy Manual (state baseline)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
@@ -354,11 +377,11 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Not published. Neither Fidelis\u2019s ABA clinical policy nor its provider tip sheet states which ABA codes may be delivered by telehealth or under which place-of-service code, and the state\u2019s own ABA manual answers telehealth only for supervision. What Fidelis does publish about setting cuts the other way: no ABA in school settings since September 1, 2023, and treatment during school hours requires contacting the local Committee on Special Education for an independent evaluation first.',
-        status: 'unverified',
-        cites: [{ title: 'Fidelis ABA Clinical Policy FC.CP.BH.301.04', url: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf' }, { title: 'Fidelis ABA Provider Tip Sheet (01/01/2026)', url: 'https://www.fideliscare.org/Portals/0/Providers/TipSheets/ABA-Provider-Tip-Sheet.pdf' }],
+          'Case by case, tied to the state telehealth manual. Fidelis\u2019s ABA clinical policy (FC.BH.301.04, last revised 2/26) says: \u201cThe appropriateness of any use of telehealth is determined on an individual basis. Some telehealth may be allowed when clinically appropriate and in alignment with the telehealth manual. Any use of telehealth should be documented in the treatment plan,\u201d linking the NYS Medicaid Telehealth Policy Manual \u2014 which includes NYSED-licensed ABA providers, counts assessment among telehealth services and requires that all elements of the billed code be met remotely. No ABA code (assessment 97151/97152, 97155 supervision or otherwise) is pre-approved for telehealth by Fidelis; its Medicaid provider manual says telehealth claims carry modifier GT or 95 and follow NYS Medicaid FFS billing guidance. What Fidelis publishes about setting cuts the other way: no ABA in school settings since September 1, 2023, and treatment during school hours requires contacting the local Committee on Special Education for an independent evaluation first.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Fidelis ABA Clinical Policy FC.CP.BH.301.04 (last revised 2/26)', url: 'https://www.fideliscare.org/Portals/0/Providers/Applied-Behavior-Analysis-Policy-FC.BH.301.04.pdf' }, { title: 'Fidelis Care Medicaid Provider Manual (V26.0, 1/1/2026), Section 26 Telehealth and Telemedicine', url: 'https://www.fideliscare.org/Portals/0/Providers/ProviderManuals/Provider-Manual-Medicaid-English.pdf' }, { title: 'NYS Medicaid Telehealth Policy Manual (Version 2026-V2, updated July 2026)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/telehealth/docs/provider_manual.pdf' }, { title: 'Fidelis ABA Provider Tip Sheet (01/01/2026)', url: 'https://www.fideliscare.org/Portals/0/Providers/TipSheets/ABA-Provider-Tip-Sheet.pdf' }],
         verifyVia:
-          'Fidelis provider services and the ABA form on the fideliscare.org Provider Policies page \u2014 confirm telehealth code eligibility and POS in writing before scheduling remote sessions.',
+          'Document the telehealth plan in the treatment plan submitted for authorization and get Fidelis\u2019s approval of it in writing per case (Fidelis provider services).',
         blocker: 'per-case',
       },
       authTurnaround: {
@@ -418,6 +441,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Fidelis allow ABA by telehealth, including the assessment?', a: 'Case by case. Fidelis\u2019s ABA policy says some telehealth \u201cmay be allowed when clinically appropriate and in alignment with the\u201d NYS telehealth manual, and it must be documented in the treatment plan. No code is pre-approved, so get the telehealth plan approved with the authorization.' },
       { q: 'Does Fidelis Care cover ABA therapy?', a: 'Yes — for NY Medicaid members under 21 with ASD or Rett syndrome, under its own Centene-derived clinical policy: assessment completed first, treatment authorized with named instruments and graphed data, and 6-month reauthorization cycles.' },
       { q: 'How recent does the autism diagnosis need to be for Fidelis?', a: 'Initial requests need a DSM-5 diagnosis using a validated assessment tool administered within the past 60 months, and the supporting diagnostic evaluation must be within 2 years of the authorization request. Continuing services don\'t re-trigger the instrument rule.' },
       { q: 'Can ABA be delivered in schools for Fidelis members?', a: 'No — Fidelis stopped covering school-setting ABA September 1, 2023. For treatment during school hours, contact the local Committee on Special Education for an independent evaluation first.' },
@@ -528,7 +552,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The most specific telehealth answer of any New York Medicaid plan: telehealth is allowed for supervision (97155) and caregiver training (97156 and 97157) once the practice is approved as a virtual-visits provider, billed with place of service 02. Direct technician-delivered treatment is not on that list. Optum\u2019s national criteria add only best-practice framing \u2014 telehealth options \u201care not intended to supplant in-person service; rather, they are intended to supplement the traditional in-person service delivery model.\u201d',
+          'The most specific telehealth answer of any New York Medicaid plan: telehealth is allowed for supervision (97155) and caregiver training (97156 and 97157) once the practice is approved as a virtual-visits provider, billed with place of service 02. Direct technician-delivered treatment is not on that list, and neither is the assessment: the Optum NY Medicaid ABA orientation (2025) describes the virtual service as \u201cABA supervision and/or caregiver training via telehealth,\u201d even though its billing line tells approved providers to put \u201cthe same procedure code you would use for an in-person service, 97151, 97152, 97153, 97154, 97155, 97156 or 97157\u201d on the claim with POS 02 \u2014 so get the Care Advocate\u2019s written OK before running a 97151/97152 assessment remotely. Optum\u2019s national criteria add only best-practice framing \u2014 telehealth options \u201care not intended to supplant in-person service; rather, they are intended to supplement the traditional in-person service delivery model.\u201d',
         status: 'verified',
         cites: [{ title: 'Optum NY Medicaid ABA Provider Orientation (BH00869, 01/30/2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/nyaba/NYabaPres.pdf' }, { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
@@ -591,6 +615,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of New York cover ABA?', a: 'Yes — for NY Medicaid members under 21 with ASD or Rett syndrome, on the state\'s clinical criteria, but with prior authorization required on all ABA services through Optum\'s providerexpress.com portal.' },
       { q: 'How do I get an ABA authorization from UHC Community Plan NY?', a: 'Submit the online ABA Assessment request on providerexpress.com for the assessment, then the treatment request through the portal or the Autism Care Advocate line with member info, diagnosis, and the treatment plan. Status is viewable online.' },
+      { q: 'Can the ABA assessment or BCBA supervision be done by telehealth with UHC Community Plan NY?', a: 'Supervision (97155) and caregiver training (97156/97157), yes, once your practice is an approved Optum virtual-visits provider; bill POS 02. Optum\u2019s orientation does not name the 97151/97152 assessment as a virtual service, so get written approval first.' },
       { q: 'Are UHC\'s clinical criteria different from the state\'s?', a: 'No — Optum\'s New York Medicaid/CHP entry copies the state criteria (under 21, ASD/Rett, 2-year referral with DSM-5 checklist). What differs is process: everything is PA-gated, unlike fee-for-service.' },
     ],
   },
@@ -605,12 +630,9 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }],
     },
     assessmentPA: {
-      value: 'Not published for the Medicaid line \u2014 Anthem\u2019s documented process is a treatment-plan-request workflow, and no policy answers whether 97151 itself needs PA; run assessments on the assumption a request may be needed and get the answer in writing per case',
-      status: 'unverified',
-      cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }, { title: 'Anthem NY provider news — ABA Services FAQ (article 13424)', url: 'https://providernews.anthem.com/new-york/articles/applied-behavior-analysis-services-faq-for-providers-13424' }],
-      verifyVia:
-        'Anthem’s ABA Services FAQ for New York providers (provider news article 13424) — the document that would settle whether 97151 itself needs a request. It was unretrievable at review time: the article page returns an empty JS shell and the Wayback Machine holds no capture. Until it can be read, Availity or Anthem NY Medicaid provider services, in writing per case.',
-      blocker: 'document',
+      value: 'Required \u2014 Anthem\u2019s ABA Services FAQ for New York providers says \u201cYes, authorizations are required\u201d and its MMC code table marks every ABA code, including 97151 (behavior identification assessment) and 97152, \u201cAuthorization required: Yes\u201d',
+      status: 'verified',
+      cites: [{ title: 'Anthem NY provider news — Updated ABA Services FAQ for providers (article 13424; read via r.jina.ai 10/1/2026)', url: 'https://providernews.anthem.com/new-york/articles/applied-behavior-analysis-services-faq-for-providers-13424' }],
     },
     dxRequired: {
       value: 'Yes — state baseline: under 21, ASD/Rett per DSM-5, with the state practitioner referral',
@@ -699,11 +721,11 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Not published for the New York Medicaid line. Anthem\u2019s Treatment Plan Request Form does not state which ABA codes may be delivered remotely or under which place-of-service code, and no Anthem New York Medicaid telehealth policy for ABA was retrievable at review time (the plan\u2019s ABA Services FAQ for NY providers, provider news article 13424, was unavailable). The state\u2019s own ABA manual answers telehealth only for supervision.',
+          'Not published for the New York Medicaid line. Anthem\u2019s Treatment Plan Request Form does not state which ABA codes may be delivered remotely or under which place-of-service code, and its ABA Services FAQ for New York providers (provider news article 13424, read in full 10/1/2026) lists the covered codes and their authorization requirement but says nothing about telehealth \u2014 for the assessment codes (97151/97152), 97155 supervision or anything else. The state rule underneath: the NYS Medicaid Telehealth Policy Manual (July 2026) includes NYSED-licensed ABA providers, counts assessment among telehealth services and requires that all elements of the code be met; the state ABA manual allows LBA supervision of technicians by synchronous audio-video.',
         status: 'unverified',
-        cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+        cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }, { title: 'Anthem NY provider news — Updated ABA Services FAQ for providers (article 13424; read via r.jina.ai 10/1/2026)', url: 'https://providernews.anthem.com/new-york/articles/applied-behavior-analysis-services-faq-for-providers-13424' }, { title: 'NYS Medicaid Telehealth Policy Manual (Version 2026-V2, updated July 2026)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/telehealth/docs/provider_manual.pdf' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
-          'Availity or Anthem NY provider services \u2014 and the plan\u2019s ABA Services FAQ for New York providers; get the telehealth answer in writing per case.',
+          'Availity or Anthem NY provider services \u2014 get the telehealth answer for each ABA code in writing per case.',
         blocker: 'document',
       },
       authTurnaround: {
@@ -762,9 +784,9 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'Not published for the New York Medicaid line \u2014 Anthem\u2019s form collects the treating BCBA/QHCP\u2019s information but states no rendering-versus-supervising NPI convention. At the fee-for-service layer New York is explicit: LBAs bill \u201cusing the LBA\u2019s National Provider Identification (NPI) number for the \u2018Billing\u2019 provider and/or \u2018Supervising\u2019 provider,\u201d with \u201cthe NPI number of the CBAA that provided the ABA service\u2026 reported as the \u2018Rendering\u2019 provider on each claim\u201d; for unlicensed aides and LBA limited-permit holders the supervising LBA\u2019s NPI fills all three roles. CBAAs cannot bill directly and enroll as OPRA providers. Because the state manual directs managed-care providers to their plan for billing guidance, confirm the Anthem claim format in Availity before billing CBAA- or technician-delivered units.',
+          'Not published for the New York Medicaid line \u2014 Anthem\u2019s form collects the treating BCBA/QHCP\u2019s information but states no rendering-versus-supervising NPI convention. At the fee-for-service layer New York is explicit: LBAs bill \u201cusing the LBA\u2019s National Provider Identification (NPI) number for the \u2018Billing\u2019 provider and/or \u2018Supervising\u2019 provider,\u201d with \u201cthe NPI number of the CBAA that provided the ABA service\u2026 reported as the \u2018Rendering\u2019 provider on each claim\u201d; for unlicensed aides and LBA limited-permit holders the supervising LBA\u2019s NPI fills all three roles. CBAAs cannot bill directly and enroll as OPRA providers. Anthem\u2019s ABA Services FAQ adds the technician rule in its own words: \u201cUnlicensed aides cannot enroll as a provider\u201d (it names no RBT requirement), and \u201cLBAs bill for services of CBAAs under their supervision.\u201d Because the state manual directs managed-care providers to their plan for billing guidance, confirm the Anthem claim format in Availity before billing CBAA- or technician-delivered units.',
         status: 'unverified',
-        cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
+        cites: [{ title: 'Anthem NY Medicaid ABA Treatment Plan Request Form (June 2026)', url: 'https://providers.anthem.com/docs/gpp/NY_ABC_CAID_ABA_AuthReqForm.pdf?v=202411221617' }, { title: 'Anthem NY provider news — Updated ABA Services FAQ for providers (article 13424; read via r.jina.ai 10/1/2026)', url: 'https://providernews.anthem.com/new-york/articles/applied-behavior-analysis-services-faq-for-providers-13424' }, { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' }],
         verifyVia:
           'Availity or Anthem NY Medicaid provider services \u2014 confirm the rendering/supervising NPI convention and any modifier requirement in writing.',
         blocker: 'per-case',
@@ -772,7 +794,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does Anthem HealthPlus cover ABA in New York?', a: 'Yes — it carries the NY Medicaid ABA carve-in for members under 21 with ASD/Rett, with treatment authorized via its Treatment Plan Request Form submitted through Availity. The June 2026 form revision confirms it remains an active NY ABA payer.' },
-      { q: 'Does the ABA assessment need prior authorization at Anthem NY?', a: 'No published policy answers that for 97151 specifically — the documented process is the treatment-plan-request workflow. Verify per case in Availity or with provider services, and get the answer in writing.' },
+      { q: 'Does the ABA assessment need prior authorization at Anthem NY?', a: 'Yes. Anthem\u2019s ABA Services FAQ for New York providers says authorizations are required and marks 97151 and 97152, like every other ABA code, \u201cAuthorization required: Yes.\u201d' },
+      { q: 'Does Anthem HealthPlus require RBT certification for technicians?', a: 'Anthem names no RBT requirement. Its NY ABA FAQ says services come from LBAs, CBAAs or other individuals allowed under Education Law Article 167, that \u201cunlicensed aides cannot enroll as a provider,\u201d and that LBAs bill for the staff they supervise.' },
       { q: 'Why was our Anthem ABA request returned?', a: 'Anthem returns incomplete Treatment Plan Request Forms rather than pending them. Complete every field — including BCBA/QHCP information and the Comprehensive/Focused classification — and attach clinical documentation up front.' },
     ],
   },
@@ -961,6 +984,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Healthfirst require RBT certification for ABA technicians, and do technicians enroll?', a: 'Healthfirst\u2019s NY provider manual names no RBT requirement. It says ABA comes from LBAs, CBAAs or other individuals allowed under Education Law Article 167, that \u201cunlicensed aides\u201d cannot enroll as a provider, and that LBAs bill for the CBAAs and unlicensed staff they supervise (up to 6).' },
       { q: 'Does Healthfirst cover ABA therapy?', a: 'Yes — it carries the NY Medicaid ABA carve-in on the state\'s clinical baseline (under 21, ASD/Rett, practitioner referral) and maintains its own ABA authorization policy, with PA submitted through Availity Essentials.' },
       { q: 'Does Healthfirst require prior authorization for the ABA assessment?', a: 'On its commercial group plans, yes — 97151–97158 all require PA. For the Medicaid line, the policy text was unavailable at review time; confirm the current policy via hfproviders.org or provider services (1-888-801-1660) before booking.' },
       { q: 'Do the state\'s new supervision rules apply at Healthfirst?', a: 'Yes — Healthfirst republished the state\'s October 2025 requirements (LBA supervision of at least 5% of technician hours, 2 monthly face-to-face contacts, max 6 supervisees) as applying to its plans.' },
@@ -1387,7 +1411,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       {
         h2: 'What to verify per case',
         body: [
-          'Molina\'s published materials still leave a few operational questions open: whether 97154, 97156, 97157 and 97158 need prior authorization (the 2021 notice names only four codes), authorization length, rates, and how Molina applies MCP 482\'s 18-month and Rett-syndrome language to New York members. Work from the state\'s clinical baseline (under 21, ASD/Rett, complete practitioner referral) plus the MCP 482 documentation package, submit through the current Molina portal, and confirm the rest with Molina in writing. Families transferred through the Affinity-to-Molina rebrand may also carry outdated card branding \u2014 verify plan identity on every inquiry.',
+          'Molina\'s published materials still leave a few operational questions open: whether 97154, 97156, 97157 and 97158 need prior authorization (the 2021 notice names only four codes), authorization length, rates, and how Molina applies MCP 482\'s 18-month and Rett-syndrome language to New York members. On that last point the policy\'s own preamble points to the benefit: “If there is a discrepancy between this policy and a Member\'s plan of benefits, the benefits plan will govern,” and “coverage may be mandated by applicable legal requirements of a State” — and the New York Medicaid benefit covers ASD and/or Rett under 21 with no minimum age. How Molina applies that in a given review is still a per-case answer. Work from the state\'s clinical baseline (under 21, ASD/Rett, complete practitioner referral) plus the MCP 482 documentation package, submit through the current Molina portal, and confirm the rest with Molina in writing. Families transferred through the Affinity-to-Molina rebrand may also carry outdated card branding \u2014 verify plan identity on every inquiry.',
         ],
         cites: [
           { title: 'Molina NY Medicaid bulletins index', url: 'https://www.molinahealthcare.com/providers/ny/medicaid/comm/bulletin.aspx' },
@@ -2380,6 +2404,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { label: 'Prior auth', value: 'Required for ABA assessment and treatment alike, per MVP\'s own ABA Payment Policy and its Behavioral Health Authorization Requirements grid' },
       { label: 'Codes excluded from Medicaid', value: '0362T and 0373T appear on MVP\'s general covered-code list but are explicitly excluded from Medicaid Managed Care reimbursement' },
       { label: 'School setting', value: 'ABA (97151–97158, 0362T, 0373T) not reimbursable with Place of Service = School, effective 7/1/2025' },
+      { label: 'Fee schedule', value: 'Medicaid, CHP and HARP: the MVP Medicaid Community Fee Schedule, which MVP defines as the NYS Medicaid fee schedule in effect on the date of service (97153 $9.63 from 10/1/2026)' },
     ],
     sections: [
       {
@@ -2409,6 +2434,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MVP FastFax #2025.16 — ABA School Setting Exclusion (3/27/2025)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/fastfax/2025/2025-16-aba-school-setting-exclusion.pdf' },
           { title: 'MVP Applied Behavior Analysis Services Payment Policy (eff. 4/1/2026)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' },
+        ],
+      },
+      {
+        h2: 'What is MVP\'s fee schedule for Medicaid ABA?',
+        body: [
+          'MVP ties its Medicaid ABA rates to the state schedule in writing. Its ABA payment policy says authorized ABA services for Government Program members (Managed Medicaid, CHP and HARP) \u201cwill be reimbursed in accordance with the MVP Medicaid Community Fee Schedule provision outlined in the provider\u2019s participation agreement,\u201d and \u201cthe MVP Medicaid Community Fee Schedule is the NYS Medicaid Fee Schedule in effect at the time the service was rendered.\u201d So the state\'s fee-for-service ABA rates apply by date of service: 97151, 97152, 97155 and 97156 at $19.26 per 15-minute unit, and technician-delivered 97153 at $9.63 from October 1, 2026 (NYS Medicaid Update, August 2026; $14.45 before that). Providers serving these members must also be enrolled in Medicaid fee-for-service with a valid MMIS number. For MVP\'s commercial lines the policy says only to \u201crefer to your provider fee schedule.\u201d',
+        ],
+        cites: [
+          { title: 'MVP Applied Behavior Analysis Services Payment Policy (eff. 4/1/2026)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' },
+          { title: 'NYS Medicaid Update, August 2026 (Vol 42 No 9) — 97153 reduced to $9.63/unit eff. 10/1/2026', url: 'https://www.health.ny.gov/health_care/medicaid/program/update/2026/no09_2026-08.htm' },
+          { title: 'NYS Medicaid ABA Fee Schedule (eMedNY)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Fee_Schedule.xls' },
         ],
       },
       {
@@ -2471,7 +2507,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Published but tied to a lapsed federal deadline, so treat it as open. MVP\u2019s ABA payment policy says it \u201cshall reimburse ABA services delivered via video-enabled telehealth through March 31, 2025, or until the CMS waiver expires, whichever is later. Following the expiration or change of the waiver, MVP may deny ABA services delivered via telehealth in accordance with applicable state laws or regulations\u201d \u2014 language unchanged in the April 2026 policy. What is unconditional: audio-only, fax-only and e-mail-only delivery are not reimbursable.',
+          'Published but tied to a lapsed federal deadline, so treat it as open. MVP\u2019s ABA payment policy says it \u201cshall reimburse ABA services delivered via video-enabled telehealth through March 31, 2025, or until the CMS waiver expires, whichever is later. Following the expiration or change of the waiver, MVP may deny ABA services delivered via telehealth in accordance with applicable state laws or regulations\u201d \u2014 language unchanged in the April 2026 policy. What is unconditional: audio-only, fax-only and e-mail-only delivery are not reimbursable. MVP\u2019s general Telehealth payment policy in the same April 2026 compendium says MVP \u201cwill reimburse Telehealth Services for Medicaid, HARP and Child Health Plus Members in accordance with guidance provided by NY Department of Health\u201d (whose telehealth manual includes NYSED-licensed ABA providers), with POS 02/10 and modifier 95 or GT, but the ABA policy names no ABA code \u2014 assessment (97151/97152), 97155 supervision or otherwise \u2014 as approved for telehealth, so confirm before delivering any ABA code remotely.',
         status: 'unverified',
         cites: [{ title: 'MVP Applied Behavior Analysis Services Payment Policy (eff. 4/1/2026)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' }],
         verifyVia:
@@ -2538,6 +2574,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does MVP Health Plan cover ABA therapy?', a: 'Yes — MVP carries the NY Medicaid ABA carve-in and publishes its own ABA Payment Policy, with prior authorization required for both assessment and treatment and in-house behavioral health utilization management (no vendor carve-out).' },
       { q: 'Are all ABA codes billable to MVP Medicaid?', a: 'Not quite — 0362T and 0373T appear on MVP\'s general covered-code list but are explicitly excluded from Medicaid Managed Care reimbursement specifically. Confirm code-by-code before billing.' },
       { q: 'Can ABA be delivered in a school setting for MVP Medicaid members?', a: 'No — effective July 1, 2025, MVP administratively denies any ABA code billed with Place of Service = School, across all its lines of business.' },
+      { q: 'What does MVP pay for Medicaid ABA?', a: 'The NYS Medicaid fee schedule in effect on the date of service \u2014 MVP\'s payment policy defines its Medicaid Community Fee Schedule that way for Medicaid, CHP and HARP. That means $19.26 per unit for 97151/97152/97155/97156 and $9.63 for 97153 from October 1, 2026.' },
+      { q: 'Does MVP require RBT certification for ABA technicians?', a: 'No. MVP\'s payment policy lets services be delivered by an LBA, a CBAA, an RBT \u201cor other unlicensed professionals\u201d under LBA supervision; technician-rendered services are covered only on 97152, 97153 and 97154 and are billed under the supervising LBA.' },
       { q: 'Does MVP cover ABA via telehealth?', a: 'Unclear as of this review — MVP\'s payment policy ties telehealth ABA reimbursement to a CMS waiver referencing a March 31, 2025 date without a subsequent update, so confirm current telehealth status with Provider Services before scheduling remote sessions.' },
     ],
   },

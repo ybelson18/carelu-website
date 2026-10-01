@@ -42,6 +42,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { label: 'Treatment auth', value: 'Required — 90-day initial + 90-day extension, then 180-day recertifications' },
       { label: 'Diagnosis recency', value: 'ASD dx (DSM criteria + severity level) made or reconfirmed within the past 3 years' },
       { label: 'Rates (per 15 min)', value: '97153: $14.50 · 97151: $27.56 · 97155: $20.08–$25.10 (eff. 9/1/2025, ~11.5% increase)' },
+      { label: 'Fee schedule', value: 'Published — TMHP Autism Services static fee schedule (run 9/14/2026); the 9/1/2025 rates are still the current rows' },
       { label: 'Daily cap', value: '8 hours (32 units) of direct treatment across 97153, 97154, 97155, 97158' },
       { label: 'Delivery', value: 'FFS via TMHP + STAR / STAR Kids / STAR Health MCOs — identical TMPPM criteria' },
       { label: 'Staff screening', value: 'BTs need RBT, BCAT, or ABAT cert (no Medicaid enrollment); monthly LEIE + HHSC-OIG exclusion checks on all staff' },
@@ -75,6 +76,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'HHSC Provider Finance — ABA fee adjustment packet (eff. 9/1/2025)', url: 'https://pfd.hhs.texas.gov/sites/default/files/documents/2025/9-1-2025-fee-adj-fetal-med-applied-behavior-dental-rate.pdf' },
+          { title: 'TMHP — Texas Medicaid Fee Schedule: Autism Services (PRCR615C, run 9/14/2026) (PDF)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
           { title: 'TMHP Online Fee Lookup', url: 'https://public.tmhp.com/FeeSchedules/Default.aspx' },
         ],
       },
@@ -108,6 +110,38 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Tex. Occ. Code § 506.254 — Licensed Assistant Behavior Analyst', url: 'https://texas.public.law/statutes/tex._occ._code_section_506.254' },
         ],
       },
+      {
+        h2: 'What is the Texas Medicaid ABA fee schedule?',
+        body: [
+          'TMHP publishes it. The static Autism Services fee schedule (file PRCR615C, run 9/14/2026) lists these per-unit Medicaid fees for clients aged 0–20: 97151-HO $27.56, 97153 $14.50, 97155-HN $20.08, 97155-HO $25.10, 97156-HN $18.40 and 97156-HO $23.01, all effective 9/1/2025; 97154 $1.63, 97158-HN $2.25 and 97158-HO $2.81, effective 3/1/2024; and 99366 team conferences $33.96 (non-facility). Every row shows a last pricing review of 9/1/2025, so the September 2025 increase is still the current rate set. The schedule notes that Medicaid rates are reviewed every two years or as necessary, and the TMPPM says autism services are reimbursed under 1 TAC § 355. For the fee on a particular date of service, use the TMHP Online Fee Lookup.',
+        ],
+        cites: [
+          { title: 'TMHP — Texas Medicaid Fee Schedule: Autism Services (PRCR615C, run 9/14/2026) (PDF)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMHP Online Fee Lookup', url: 'https://public.tmhp.com/FeeSchedules/Default.aspx' },
+        ],
+      },
+      {
+        h2: 'Is the Texas Medicaid ABA network open to new providers?',
+        body: [
+          'Fee-for-service participation means enrolling in Texas Medicaid through TMHP, and only the LBA enrolls (LaBAs and behavior technicians may not). Managed care is a second step with its own gate. The TMPPM\'s Medicaid Managed Care Handbook says providers "must be enrolled in Texas Medicaid before they can be enrolled by an MCO," that "Individual MCOs and DMOs have their own guidelines for contracting providers," and that "Enrollment in Texas Medicaid does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." Every Medicaid MCO credentials through the Texas Association of Health Plans\' contracted credentialing verification organization. Whether a given plan is adding ABA providers is therefore a question for that plan\'s provider relations team. Where no in-network provider is available, the MCO "must allow a referral to an out-of-network Medicaid provider," requested by an in-network provider and decided within five business days at most.',
+        ],
+        cites: [
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+        ],
+      },
+      {
+        h2: 'What happens when a family switches ABA providers or plans?',
+        body: [
+          'Changing ABA agencies restarts the authorization. Under TMPPM § 2.3.9, when a provider or client stops therapy during an authorized period and the client goes to a new provider outside the current group, "the new provider must start a new request for authorization and submit all documentation required for an initial evaluation." That includes a change-of-therapy-provider letter signed by the responsible adult, giving the date therapy ended with the previous provider (or the last date of service) and the names of both providers. A move to another performing provider within the same group keeps the same evaluation and plan of care, and the authorization period does not change. A gap of 180 days or more with no ABA treatment or re-evaluation also means starting over with an initial request.',
+          'Changing health plans works differently. "Health plan prior authorizations do not automatically transfer with a client who moves to another plan," but once the client or provider tells the new MCO about an existing prior authorization, the new MCO must continue the services at the same amount, duration and scope until the earliest of: 90 days after the transition, the end of the current authorization, or its own assessment and new decision.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program & plan', desc: 'FFS vs. STAR / STAR Kids / STAR Health, and which MCO — same clinical rules, different PA machinery.' },
@@ -130,11 +164,13 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TDLR — How to Apply for a Behavior Analyst License', url: 'https://www.tdlr.texas.gov/bhv/bhvapply.htm' },
       { title: 'Tex. Occ. Code § 506.254 — Licensed Assistant Behavior Analyst', url: 'https://texas.public.law/statutes/tex._occ._code_section_506.254' },
       { title: 'HHSC — Managed Care Service Areas: MCOs Serving Clients (rev. Jan 2026)', url: 'https://hhs.texas.gov/sites/default/files/documents/services/health/medicaid-chip/programs/managed-care-service-areas-map.pdf' },
+      { title: 'TMHP — Texas Medicaid Fee Schedule: Autism Services (PRCR615C, run 9/14/2026) (PDF)', url: 'https://public.tmhp.com/FeeSchedules/StaticFeeSchedule/FeeSchedules.aspx?fn=%5c%5ctmhp.net%5cFeeSchedule%5cPROD%5cStatic%5cTexas_Medicaid_Fee_Schedule_PRCR615C.pdf' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'The TMPPM sets no numeric ratio of its own: LBAs must directly supervise LaBAs and behavior technicians in accordance with Texas state licensure, which makes the certifying body\'s floor operative — for RBT-credentialed staff, the BACB minimum of supervision on at least 5% of service hours each calendar month with two face-to-face contacts. Only direct supervision, where the LBA directly observes the LaBA or BT providing services with the child, is reimbursable, under 97155; indirect supervision (caseload review, data discussion) is unpaid time.',
+          'The TMPPM sets no numeric ratio of its own: LBAs must directly supervise LaBAs and behavior technicians in accordance with Texas state licensure, which makes the certifying body\'s floor operative — for RBT-credentialed staff, the BACB minimum of supervision on at least 5% of service hours each calendar month with two face-to-face contacts. Only direct supervision, where the LBA directly observes the LaBA or BT providing services with the child, is reimbursable, under 97155; indirect supervision (caseload review, data discussion) is unpaid time. The LBA may deliver 97155 by synchronous audio-visual telehealth (modifier 95), and 97155 may be used when directly supervising a BT or LaBA working with the child; the supervised staff themselves may not deliver any service remotely ("LaBAs and RBTs may not deliver any service remotely").',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -226,7 +262,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Synchronous audio-visual only, modifier 95, and only on 97151, 97155, 97156, 97158 and 99366. One-on-one services delivered directly to the child by a behavior technician or LaBA must be delivered in person — the TMPPM prohibits telehealth for BT/LaBA-delivered direct service.',
+          'Synchronous audio-visual only, modifier 95, and only on 97151, 97155, 97156, 97158 and 99366. That list covers the assessment: 97151 is the initial evaluation and the re-evaluation done every 180 days, both by the LBA. It also covers 97155 when the LBA directly supervises a BT or LaBA working with the child. "LaBAs and RBTs may not deliver any service remotely," and one-on-one services delivered directly to the child by a behavior technician or LaBA must be in person — the TMPPM prohibits telehealth for BT/LaBA-delivered direct service.',
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -259,6 +295,12 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'How recent does the autism diagnosis need to be?', a: 'The diagnosis — with DSM criteria and a symptom severity level — must be made or reconfirmed within the 3 years before the PA request. Older diagnoses need reconfirmation before the evaluation PA can be approved.' },
       { q: 'What changed on April 1, 2025?', a: 'TMHP removed the prescribing-provider signature requirement from the CCP PA form for the 90-day treatment extension. The initial 180-day treatment plan still needs the prescriber\'s signature; the mid-cycle extension no longer does.' },
       { q: 'What does Texas Medicaid pay for ABA?', a: 'Effective September 1, 2025 (an ~11.5% increase): 97153 direct treatment pays $14.50 per 15-minute unit, 97151 evaluation $27.56, 97155 $20.08–$25.10 and 97156 $18.40–$23.01 depending on the LaBA/LBA modifier tier. Confirm current values in the TMHP Online Fee Lookup.' },
+      { q: 'Where is the Texas Medicaid ABA fee schedule?', a: 'TMHP publishes a static Autism Services fee schedule (PRCR615C). The run dated 9/14/2026 still carries the 9/1/2025 rates: 97153 $14.50, 97151-HO $27.56, 97155 $20.08/$25.10 and 97156 $18.40/$23.01 per unit. Use the TMHP Online Fee Lookup for a specific date of service.' },
+      { q: 'Can the ABA assessment be done by telehealth under Texas Medicaid?', a: 'Yes, by the LBA. 97151 (initial evaluation and re-evaluation) is on the TMPPM telehealth list with modifier 95, synchronous audio-visual only, along with 97155, 97156, 97158 and 99366.' },
+      { q: 'Can BCBA supervision of the RBT be done remotely?', a: 'The LBA can deliver 97155, including direct supervision of a BT working with the child, by synchronous audio-visual telehealth with modifier 95. The BT\'s own sessions must be in person, and only direct supervision is paid.' },
+      { q: 'Do behavior technicians enroll with Texas Medicaid?', a: 'No. BTs must hold RBT, BCAT or ABAT certification but "may not enroll in Texas Medicaid," and neither may LaBAs. Only the LBA enrolls, and BT services are billed under that LBA.' },
+      { q: 'What happens to the authorization if a family switches ABA providers?', a: 'A new provider outside the current group must submit a new authorization request with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult. A move within the same group keeps the evaluation, plan of care and authorization period.' },
+      { q: 'Is the Texas Medicaid ABA network open?', a: 'LBAs enroll in Texas Medicaid through TMHP. Each MCO then decides on contracting, and Medicaid enrollment does not guarantee an MCO contract, so ask each plan\'s provider relations about its ABA network.' },
     ],
   },
 
@@ -328,6 +370,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — Superior\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Superior does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program line', desc: 'STAR vs. STAR Kids vs. STAR Health — foster-care children are always Superior (STAR Health).' },
@@ -342,6 +395,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -480,6 +534,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Superior HealthPlan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit on TMPPM criteria, with prior authorization required on every ABA code, evaluation included, through Superior\'s provider portal.' },
       { q: 'Is Superior\'s ABA policy different from the state\'s?', a: 'No — Superior explicitly points providers to the TMPPM for diagnosis and clinical criteria and mirrors the state PA code list. What\'s Superior-specific is the portal, the PA-list mechanics, and the STAR Health foster-care line.' },
       { q: 'Why does foster care always mean Superior?', a: 'STAR Health, the Texas Medicaid program for children in foster care, is administered statewide by Superior alone — every foster-care ABA case routes through it.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Superior\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -546,6 +602,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TCHP — Autism Services Guideline #11281 v3 (PDF)', url: 'https://www.texaschildrenshealthplan.org/sites/default/files/2025-02/Autism%20Services%20Guideline.pdf' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — Texas Children\'s Health Plan\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Texas Children\'s Health Plan does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'STAR / STAR Kids vs. CHIP', desc: 'CHIP is excluded from ABA — confirm the Medicaid line before promising the benefit.' },
@@ -558,6 +625,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -696,6 +764,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Texas Children\'s Health Plan cover ABA?', a: 'Yes — for STAR and STAR Kids members under the state Autism Services benefit, governed by TCHP\'s Guideline #11281 v3, which restates the TMPPM criteria. CHIP members are excluded.' },
       { q: 'Is TCHP\'s ABA guideline stricter than the state\'s?', a: 'No — it\'s a formatted restatement of TMPPM requirements (same diagnoser list, 3-year recency, credential roles) with TCHP\'s UM submission process added. Plan against the state baseline and TCHP\'s channels.' },
       { q: 'How do I submit an ABA PA to TCHP?', a: 'Online via the electronic authorization portal, or by fax, phone, or mail to the UM Department. Electronic signatures are accepted.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Texas Children\'s Health Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -763,6 +833,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Wellpoint/Amerigroup — Texas Behavioral Health provider document (PDF)', url: 'https://provider.amerigroup.com/docs/gpp/TX_CAID_TexasBehavioralHealth.pdf?v=202207071852' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — Wellpoint\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Wellpoint does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Physician ABA referral', desc: 'A current, signed referral attaches to the PA — collect it with the diagnosis report.' },
@@ -776,6 +857,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -915,6 +997,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Wellpoint Texas cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit on TMPPM criteria, restated in its behavioral-health provider document: PA on evaluation and treatment, ages 0–20, credential modifiers, 8-hour daily cap.' },
       { q: 'Do I have to use Wellpoint\'s own PA form?', a: 'No — Wellpoint accepts either its Treatment Plan Request Form for Autism Spectrum Disorders or the state CCP Prior Authorization Request Form, plus the signed physician referral.' },
       { q: 'Did the Amerigroup-to-Wellpoint rebrand change anything?', a: 'No — the January 2024 rebrand changed no PA or claims processes. Documents and portals under the Amerigroup name remain valid references.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Wellpoint\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -983,6 +1067,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA State Mandates supplemental clinical criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — UnitedHealthcare Community Plan\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). UnitedHealthcare Community Plan does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Line of business', desc: 'STAR / STAR Kids vs. CHIP — CHIP is excluded from the state ABA benefit.' },
@@ -997,6 +1092,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -1136,6 +1232,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan of Texas cover ABA?', a: 'Yes — the state Autism Services benefit on TMPPM criteria. Authorization runs through UHC\'s designated behavioral health network (Optum), not the medical PA pipeline.' },
       { q: 'Why aren\'t ABA codes on UHC\'s Texas PA list?', a: 'Because behavioral health is carved out to Optum\'s BH network — the medical PA list doesn\'t govern ABA. PA is still required; it just routes through the BH pipeline at 888-887-9003.' },
       { q: 'Does Optum apply its own clinical criteria to Texas Medicaid ABA?', a: 'No — Optum\'s ABA state-mandates supplement has no Texas entry, and the plan publishes no distinct TX policy, so the TMPPM criteria govern. Optum is the UM intake, not a separate rulebook.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is UnitedHealthcare Community Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -1209,6 +1307,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of Texas — plan site', url: 'https://www.aetnabetterhealth.com/texas/index.html' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'The Texas Medicaid rule — Aetna Better Health\'s own provider documents could not be retrieved to check for a plan-specific rule, so confirm with the plan. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Aetna Better Health does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'STAR / STAR Kids vs. CHIP', desc: 'CHIP is excluded from the ABA benefit — confirm the Medicaid line.' },
@@ -1222,6 +1331,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Aetna Better Health of Texas — provider manual (access-restricted)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/texas/providers/pdf/tx_provider_manual.pdf' },
       { title: 'Aetna Better Health of Texas — plan site', url: 'https://www.aetnabetterhealth.com/texas/index.html' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -1386,6 +1496,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna Better Health of Texas cover ABA?', a: 'Yes — as a Texas Medicaid MCO it delivers the statewide THSteps-CCP Autism Services benefit under TMPPM criteria: PA on evaluation and treatment, ages 0–20, 3-year dx recency. CHIP members are excluded.' },
       { q: 'Does Aetna Better Health have its own Texas ABA policy?', a: 'None that we could find publicly — and its provider documents block automated retrieval. Texas MCOs must apply TMPPM criteria, so plan clinically against the state baseline and confirm submission mechanics with the plan directly.' },
       { q: 'How do I submit an ABA PA to Aetna Better Health of Texas?', a: 'Confirm with the plan — the specific channel and forms aren\'t publicly verifiable. Ask provider relations whether the state CCP PA form is accepted and get the UM fax/portal details in writing before your first submission.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Aetna Better Health\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -1459,6 +1571,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'The Texas Medicaid rule — Molina\'s own provider documents could not be retrieved to check for a plan-specific rule, so confirm with the plan. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Molina does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program line', desc: 'STAR (pediatric ABA) vs. STAR+PLUS (adult) vs. CHIP (excluded) — the answer routes everything.' },
@@ -1471,6 +1594,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Molina Healthcare of Texas — Prior Authorizations page (access-restricted)', url: 'https://www.molinahealthcare.com/providers/tx/medicaid/forms/PA.aspx' },
       { title: 'Molina TX — Medicaid/CHIP Prior Authorization Guide (access-restricted)', url: 'https://www.molinamarketplace.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/forms/MHT-Prior-Authorization-Guide-2025_R.ashx' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -1632,6 +1756,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Molina Healthcare of Texas cover ABA?', a: 'Yes — the statewide THSteps-CCP Autism Services benefit on TMPPM criteria, with PA on evaluation and treatment. Pediatric ABA members sit on Molina STAR; STAR+PLUS is the adult program and CHIP is excluded.' },
       { q: 'Does Molina have its own Texas ABA criteria?', a: 'We found no evidence of distinct criteria — Texas MCOs must apply the TMPPM. Plan clinically to the state baseline, and confirm code-level PA handling in Molina\'s PA Code Matrix / Look-Up Tool since its PA guide PDFs are not reliably accessible online.' },
       { q: 'What happened to Cigna\'s Texas Medicaid members?', a: 'Molina acquired Cigna\'s Texas Medicaid (STAR+PLUS) business in 2021 — those are adult-program members. A "Cigna Medicaid" mention in Texas today means Molina.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Molina\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -1697,6 +1823,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — Community First\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Community First does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'F84.0 diagnosis + recency', desc: 'The plan states the diagnosis requirement explicitly — and the state 3-year recency rule applies.' },
@@ -1709,6 +1846,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -1847,6 +1985,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Community First Health Plans cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit in the Bexar service area, on TMPPM criteria: F84.0 diagnosis, ages 0–20, PA on evaluation and all treatment codes, 8-hour daily cap.' },
       { q: 'Does the ABA evaluation need prior authorization at Community First?', a: 'Yes — the plan\'s billing guidelines state 97151 is not reimbursable unless the evaluation was submitted for authorization, capped at 24 units per period.' },
       { q: 'Why do providers outside Bexar County reference Community First\'s guidelines?', a: 'Its Autism Services Billing Guidelines page is one of the clearest public crosswalks of the Texas ABA codes, HO/HN/HM modifiers, and unit caps — a useful TMPPM digest even for other plans\' cases.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Community First\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -1912,6 +2052,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — Driscoll\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Driscoll does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program line', desc: 'STAR / STAR Kids vs. CHIP — CHIP is excluded from the ABA benefit.' },
@@ -1925,6 +2076,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -2062,6 +2214,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Driscoll Health Plan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit across its South Texas service areas, on TMPPM criteria, with PA required (Autism/ABA Services are listed on the plan\'s PA portal).' },
       { q: 'What form does Driscoll use for ABA authorizations?', a: 'The statewide Texas Authorization Referral Form (TARF), submitted via the DHP portal or fax to 1-866-741-5650 — no proprietary plan form.' },
       { q: 'Is Driscoll\'s ABA policy different from the state\'s?', a: 'No — it publishes no distinct ABA criteria. The TMPPM baseline governs; the plan-specific layer is the PA lookup portal and TARF workflow.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Driscoll\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -2141,6 +2295,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Community Health Choice — HHS Provider Manual (STAR/CHIP/CHIP Perinatal/STAR+PLUS)', url: 'https://provider.communityhealthchoice.org/wp-content/uploads/sites/2/2025/10/HHS-Provider-Manual.pdf' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — Community Health Choice\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Community Health Choice does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'STAR vs. STAR+PLUS vs. CHIP', desc: 'CHIP is excluded from ABA. Jefferson County is confirmed for STAR — confirm STAR+PLUS eligibility with CHC directly before promising the benefit there.' },
@@ -2156,6 +2321,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -2294,6 +2460,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Community Health Choice cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit under CHC\'s own ABA Medical Review Guideline (adopted June 2026), which restates TMPPM criteria for STAR members in Harris and Jefferson counties. CHIP is excluded.' },
       { q: 'What\'s different about CHC\'s ABA policy?', a: 'CHC layers its own UM machinery on the TMPPM baseline: named frequency tiers, an 85%-attendance requirement on extension and recertification requests, and an explicit list of excluded non-ABA interventions (DIR/Floortime, TEACCH, RDI).' },
       { q: 'What form does CHC require for the ABA evaluation PA?', a: 'Both the Texas Standard Prior Authorization Form (TSPA) and the state\'s CCP Prior Authorization Request Form, plus a signed prescriber referral — CHC\'s guideline requires the combination, not either form alone.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Community Health Choice\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -2363,6 +2531,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'BCBSTX — Texas Medicaid STAR, CHIP, and STAR Kids Provider Manual (PDF)', url: 'https://www.bcbstx.com/content/dam/hcsc/docs/provider/tx/provider-medicaid/education/2067877-758408-0324-TX-Medicaid-STAR-CHIP-STARKids-Provider-Manual-Handbook.pdf' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — BCBSTX\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). BCBSTX does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Line of business', desc: 'Confirm the card is BCBSTX Medicaid (STAR/STAR Kids), not commercial or FEP — different guides, different rules.' },
@@ -2378,6 +2557,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -2517,6 +2697,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Blue Cross Blue Shield of Texas Medicaid cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit for STAR and STAR Kids members in the Travis service area, on TMPPM criteria. BCBSTX publishes no distinct clinical policy; its own PA code grid confirms PA is required on the core ABA codes.' },
       { q: 'Is ABA carved out to a behavioral health vendor at BCBSTX Medicaid?', a: 'Not currently — BCBSTX carved Medicaid BH out to Magellan as recently as mid-2023, but announced "insourcing" of Medicaid behavioral health in May 2024. Current PA documents route ABA to BCBSTX\'s own fax and portal, not Magellan.' },
       { q: 'How do I submit an ABA PA to BCBSTX Medicaid?', a: 'Fax to 1-888-530-9809 or submit through the Availity Essentials provider portal, per BCBSTX\'s current ABA PA Requirement Checklist.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is BCBSTX\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -2586,6 +2768,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Cook Children\'s Health Plan — Comprehensive Care Program Prior Authorization Request Form (PDF)', url: 'https://www.cookchp.org/siteassets/documents/pdfs/provider-manual/comprehensive-care-program-prior-authorization-request-form-2024.pdf' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — Cook Children\'s Health Plan\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Cook Children\'s does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Service area check', desc: 'Six counties, not Tarrant alone: Wise, Denton, Parker, Tarrant, Hood, Johnson.' },
@@ -2601,6 +2794,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -2740,6 +2934,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Cook Children\'s Health Plan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit across STAR and STAR Kids in its six-county North Texas service area, on TMPPM criteria, with a dedicated 123-page ABA provider training restating the requirements in detail.' },
       { q: 'Does STAR Kids have different ABA rules than STAR at Cook Children\'s?', a: 'We found no distinguishing STAR Kids ABA process in the plan\'s own materials — the ABA policy applies uniformly across Medicaid, CHIP, and STAR Kids.' },
       { q: 'How do I submit an ABA PA to Cook Children\'s?', a: 'Through the EpicCare Link secure provider portal, using the Comprehensive Care Program PA form. Fax (682-885-8402 for STAR/CHIP) is available only while portal access is pending — determination letters are delivered via the portal only, not by fax.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Cook Children\'s Health Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -2806,6 +3002,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Parkland Community Health Plan — Behavioral Health network page', url: 'https://providers.parklandhealthplan.com/our-network/behavioral-health/' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — Parkland\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Parkland does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'STAR vs. CHIP', desc: 'ABA is available for STAR members only — CHIP is excluded, per PCHP\'s own member-facing benefit page.' },
@@ -2821,6 +3028,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -2959,6 +3167,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Parkland Community Health Plan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit for STAR members ages 0-20 with an ASD diagnosis, on TMPPM criteria. CHIP members are excluded.' },
       { q: 'Is behavioral health still carved out to Carelon at PCHP?', a: 'No — PCHP transitioned behavioral health administration from Carelon to direct in-house administration effective September 1, 2025. Providers had to re-contract directly with PCHP.' },
       { q: 'What codes does PCHP require PA for?', a: '97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, and 99366, per PCHP\'s own Prior Authorization Requirements list (eff. 9/1/2025). 0362T does not appear on that list — its status is unconfirmed.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Parkland\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -3027,6 +3237,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'El Paso Health — STAR/CHIP/STAR+PLUS Quick Reference Guide (PDF)', url: 'https://www.elpasohealth.com/pdf/EPH-STARCHIPSTARPLUS%20Quick%20Reference%20Guide.pdf' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — El Paso Health\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). El Paso Health does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Line of business + network check', desc: 'STAR/CHIP/STAR+PLUS — and confirm El Paso Health is the member\'s assigned MCO, since Molina and Superior also serve the El Paso SDA.' },
@@ -3043,6 +3264,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'El Paso Health — Prior Authorization (provider page)', url: 'https://elpasohealth.com/providers/prior-authorization.html' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -3183,6 +3405,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does El Paso Health cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit across STAR, CHIP, and STAR+PLUS in El Paso and Hudspeth counties, detailed in the plan\'s own ABA Request Checklist and 2026 documentation memos.' },
       { q: 'Is El Paso Health the only Medicaid MCO in El Paso?', a: 'It\'s the market\'s founding plan, but not the only one — Molina and Superior also participate in STAR and/or CHIP there per HHSC service-area sources. Confirm the member\'s assigned MCO before assuming El Paso Health.' },
       { q: 'What diagnostic documentation does El Paso Health require?', a: 'A validated standardized tool — ADOS, ADI-R, or CARS are named in the plan\'s own memo — plus DSM criteria, severity level, and (per a separate memo) documented comorbid conditions and trauma history. Screening tools like the M-CHAT-R/F don\'t substitute.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is El Paso Health\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -3193,14 +3417,14 @@ export const texasPayers: Record<string, PayerConfig> = {
       value: 'Required — per FirstCare\'s own PA code list; submit via the Texas Standard PA form, myFirstCare portal, or fax',
       status: 'verified',
       cites: [
-        { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+        { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
       ],
     },
     treatmentPA: {
       value: 'Required — 97151, 97153, 97154, 97155, 97156, 97158, 99366 all confirmed on FirstCare\'s Medicaid PA list',
       status: 'verified',
       cites: [
-        { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+        { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
       ],
     },
     dxRequired: {
@@ -3235,7 +3459,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           'FirstCare\'s STAR & CHIP Notification/Prior Authorization Codes list (effective 7/1/2026) lists 97151, 97153, 97154, 97155, 97156, 97158, and 99366 as requiring authorization, filed under "Therapy services" rather than behavioral health. Notably absent from that Medicaid-specific list: 97152, 97157, 0362T, and 0373T — those four codes appear only in FirstCare\'s separate commercial-oriented Medical Coverage Policy #206 ("Autism Spectrum Disorder"), which explicitly defers Medicaid decisions to the TMPPM: "For Medicaid plans, please confirm coverage as outlined in the Texas Medicaid Provider Procedures Manual." That same commercial policy confirms the Texas mandate\'s $36,000/year ABA cap for members 10+ "do not apply to self-funded/ERISA plans, Medicaid, or Medicare" — consistent with the statewide Medicaid baseline having no dollar cap. Treat 97152/97157/0362T/0373T PA status for FirstCare Medicaid as unconfirmed rather than assuming either way.',
         ],
         cites: [
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3249,6 +3473,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'FirstCare — STAR Medicaid (plan status)', url: 'https://www.firstcare.com/en/Individuals-and-Families/STAR-CHIP/STAR-Medicaid' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — FirstCare\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). FirstCare does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan continuity check', desc: 'FirstCare\'s own site states plans end 8/31/2026 (pending approval) — confirm current status and any HHSC-directed member transition plan before onboarding new cases.' },
@@ -3257,13 +3492,14 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'PA routing confirmation', desc: 'Confirm whether Medical PA or Behavioral Health PA processes ABA requests — FirstCare\'s own documents don\'t make this unambiguous.' },
     ],
     sources: [
-      { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+      { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
       { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
       { title: 'FirstCare — 2026 STAR and CHIP Provider Manual (PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf' },
       { title: 'FirstCare — STAR Medicaid (plan status)', url: 'https://www.firstcare.com/en/Individuals-and-Families/STAR-CHIP/STAR-Medicaid' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -3272,7 +3508,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
           { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
         ],
@@ -3283,7 +3519,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3293,7 +3529,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3303,7 +3539,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3313,7 +3549,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3323,7 +3559,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3335,7 +3571,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3345,7 +3581,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3355,7 +3591,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3365,7 +3601,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3375,7 +3611,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
           { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
         ],
@@ -3386,7 +3622,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
-          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
+          { title: 'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026, PDF)', url: 'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf' },
           { title: 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder (PDF)', url: 'https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf' },
         ],
       },
@@ -3414,6 +3650,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does FirstCare Health Plans cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit for STAR members in Lubbock and MRSA West, on TMPPM criteria. FirstCare\'s own Medicaid PA code list confirms PA is required on 97151, 97153-97156, 97158, and 99366.' },
       { q: 'Is FirstCare still accepting new Texas Medicaid members?', a: 'FirstCare\'s own site states its plans end August 31, 2026, subject to regulatory approval — confirm current enrollment and transition status directly with FirstCare or HHSC before building a long-term care plan around this payer.' },
       { q: 'Does the Texas mandate\'s $36,000 ABA cap apply to FirstCare Medicaid?', a: 'No — FirstCare\'s own commercial autism policy confirms the mandate\'s dollar cap applies to state-regulated commercial plans, not Medicaid, matching the no-cap statewide Medicaid baseline.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is FirstCare\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -3502,6 +3740,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'RightCare — 2026 Provider Manual', url: 'https://rightcare.swhp.org/-/media/project/bsw/sites/rightcare/documents/provider-manual.pdf' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — Baylor Scott & White\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Baylor Scott & White does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan wind-down awareness', desc: 'RightCare exits Texas Medicaid 8/31/2026 — confirm the family\'s plan-reassignment status and don\'t build long-term authorization plans around this plan past that date.' },
@@ -3519,6 +3768,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -3668,6 +3918,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does RightCare cover ABA therapy?', a: 'Yes, while active — PA-required codes 97151, 97153, 97154, 97155, 97156, 97158, and 99366, matching the statewide TMHP code set, with criteria deferring to the TMPPM. Prior-authorization processes remain unaffected during the wind-down.' },
       { q: 'Is ABA carved out to a behavioral health vendor at RightCare?', a: 'No — RightCare administers behavioral health in-house through its own "RightCare Behavioral Health Management" unit, not a third-party vendor like Magellan or Carelon.' },
       { q: 'What happens to my RightCare client\'s ABA authorization after the plan exits?', a: 'The family will be reassigned to a different STAR MCO before the 8/31/2026 exit date — confirm current status with TMHP\'s Contact Center (800-925-9126) or the family\'s new MCO once assigned.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Baylor Scott & White\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -3755,6 +4007,17 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'Dell Children\'s Health Plan — Value-Added Services', url: 'https://dellchildrenshealthplan.com/for-members/value-added-services/' },
         ],
       },
+      {
+        h2: 'Switching providers or plans, and joining the network',
+        body: [
+          'Follows the Texas Medicaid rule — Dell Children\'s Health Plan\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Dell Children\'s does not publish whether its ABA network is open, so ask its provider relations team.',
+        ],
+        cites: [
+          { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+          { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'STAR vs. CHIP vs. CHIP Perinatal', desc: 'ABA is explicitly covered for STAR; CHIP-specific ABA coverage isn\'t explicitly confirmed in the plan\'s own materials — verify for CHIP-only members.' },
@@ -3773,6 +4036,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'BACB RBT Handbook (updated 06/2026)', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
+      { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
     ],
     deliveryRules: {
       supervision: {
@@ -3912,6 +4176,8 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Dell Children\'s Health Plan cover ABA therapy?', a: 'Yes for STAR members — explicitly listed as a covered behavioral-health benefit, with prior authorization required on assessment and treatment codes. CHIP-specific (non-STAR) coverage of ABA is not explicitly confirmed in the plan\'s own materials — verify directly for CHIP-only members.' },
       { q: 'Who handles ABA prior authorization at Dell Children\'s Health Plan?', a: 'Magellan Healthcare, under delegation — call 1-800-424-1764 or use the Magellan provider portal, not the plan\'s general medical PA line.' },
       { q: 'What areas does Dell Children\'s Health Plan cover?', a: 'The Travis service delivery area: Bastrop, Burnet, Caldwell, Fayette, Hays, Lee, Travis, and Williamson counties.' },
+      { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
+      { q: 'Is Dell Children\'s Health Plan\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
     ],
   },
 
@@ -4227,6 +4493,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { label: 'Mandate age', value: 'From diagnosis — but the ASD dx must predate the 10th birthday; coverage continues once eligible' },
       { label: 'Mandate caps', value: 'No cap under 10; $36,000/yr ABA cap at age 10+ (parity-limited)' },
       { label: 'Exempt from mandate', value: 'ERS and UT/A&M system plans; self-funded ERISA; limited policies' },
+      { label: 'Fee schedule', value: 'No public ABA rate table; Evernorth sends rate questions to your provider relations representative' },
       { label: 'Licensure', value: 'TX Licensed Behavior Analyst — TDLR (Occupations Code Ch. 506)' },
     ],
     sections: [
@@ -4270,6 +4537,15 @@ export const texasPayers: Record<string, PayerConfig> = {
           { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
         ],
       },
+      {
+        h2: 'Joining Cigna\'s ABA network, rates, and technician credentials',
+        body: [
+          'Evernorth, which runs Cigna\'s behavioral health network, says it "is committed to expanding our network of autism providers." It requires providers to be certified by a national body or licensed by the state (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral health licensure). Individual providers apply with the Evernorth Behavioral Provider Information Form, and autism clinics and large groups with the Evernorth Screening Application for Autism Clinics. Processing can take up to 90 days, and once a clinic contract is signed each certified or licensed provider must be credentialed, which can take another 60 to 90 days. Providers must be fully credentialed before they render in-network services. Technicians are not credentialed: "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." The guide publishes no rate table and tells providers to contact their provider relations representative about "credentialing, contracts, or rates."',
+        ],
+        cites: [
+          { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -4285,6 +4561,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Tex. Ins. Code § 1355.003 (exceptions)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.003' },
       { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
       { title: 'Molina — Cigna Transition Provider Notice (TX Medicaid sale)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/tx/medicaid/comm/Cigna-Transition-Provider-Notice-Final.pdf' },
+      { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -4383,9 +4660,10 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The line-of-sight and close-proximity requirement it places on direct treatment expressly does not apply to telehealth services.',
+          'EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The line-of-sight and close-proximity requirement it places on direct treatment expressly does not apply to telehealth services. Evernorth\'s autism resource guide (March 2025) adds that "All ABA CPT codes are covered telehealth services," which takes in the 97151 assessment and 97155 protocol modification and supervision.',
         status: 'verified',
         cites: [
+          { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
@@ -4424,6 +4702,9 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What does the Texas autism mandate require?', a: 'For covered group plans: treatment coverage from the date of diagnosis, provided the ASD diagnosis was made before the child\'s 10th birthday (coverage continues once eligible), with no dollar cap under 10 and a $36,000/year ABA cap at 10+ that federal parity arguably limits for large-group plans.' },
       { q: 'Is there a Cigna Medicaid plan in Texas?', a: 'No — Cigna sold its Texas Medicaid (STAR+PLUS) business to Molina in 2021. A Texas family mentioning "Cigna Medicaid" is on Molina today.' },
       { q: 'What does Cigna pay for ABA in Texas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Texas Medicaid fee schedule (97153 at $14.50 per 15-minute unit effective 9/1/2025), and treat rate-setting as part of contracting.' },
+      { q: 'Does Cigna allow the ABA assessment or supervision by telehealth?', a: 'Evernorth\'s autism resource guide says "All ABA CPT codes are covered telehealth services," and EN0499 allows in-person, telehealth or hybrid delivery chosen case by case.' },
+      { q: 'Is Cigna\'s ABA network open to new providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Apply with the provider information form (individuals) or the autism clinic screening application; allow up to 90 days, then 60–90 days of credentialing per provider.' },
+      { q: 'Does Cigna credential RBTs?', a: 'No. Evernorth does not credential nonlicensed or noncertified staff; their services are billed under the supervising provider.' },
     ],
   },
 
@@ -4469,6 +4750,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { label: 'Mandate age', value: 'From diagnosis — but the ASD dx must predate the 10th birthday; coverage continues once eligible' },
       { label: 'Mandate caps', value: 'No cap under 10; $36,000/yr ABA cap at age 10+ (parity-limited)' },
       { label: 'Exempt from mandate', value: 'ERS and UT/A&M system plans; self-funded ERISA; limited policies' },
+      { label: 'Fee schedule', value: 'Contracted — Optum pays participating ABA providers "based on your contracted rate" for the codes on their fee schedule' },
       { label: 'Licensure', value: 'TX Licensed Behavior Analyst — TDLR (Occupations Code Ch. 506)' },
     ],
     sections: [
@@ -4507,6 +4789,15 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'TDLR — Behavior Analysts program (Occupations Code Ch. 506)', url: 'https://www.tdlr.texas.gov/bhv/' },
+        ],
+      },
+      {
+        h2: 'Joining the Optum ABA network, and how it pays',
+        body: [
+          'UnitedHealthcare\'s commercial ABA runs through Optum Behavioral Health. Optum\'s ABA FAQ sets the contracting criteria. An individual behavior analyst needs active BACB certification, state licensure where the state licenses behavior analysts (Texas does), compliance with state autism mandate requirements, at least six months of supervised ABA experience or training, and $1 million per occurrence / $1 million aggregate professional liability. An ABA group adds program oversight by a behavior analyst or licensed clinician, direct supervision of behavior technicians in joint sessions, training and supervision of BCaBAs and technicians "and hold applicable state licensure or certification," and $1 million / $3 million professional liability plus general or supplemental liability. Applications go through the "Join Our Autism/ABA Network" section of Provider Express. On payment, contracted providers bill "your contracted billing codes and customary charges as outlined on your Fee Schedule after receiving appropriate authorization" and are "reimbursed based on your contracted rate." A provider that is not yet contracted should call the Behavioral Health number on the member\'s ID card to get approvals.',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
     ],
@@ -4628,7 +4919,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” 97151 is not on the list, so the assessment is delivered in person; remote supervision of technicians is billed as 97155 under the same attestation.',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -4674,6 +4965,9 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum have Texas-specific ABA criteria?', a: 'No — Optum\'s ABA State Mandates supplement contains no Texas entry, so its standard national criteria apply, with the Texas mandate as the legal floor for state-regulated plans.' },
       { q: 'What does UnitedHealthcare pay for ABA in Texas?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Texas Medicaid fee schedule (97153 at $14.50 per 15-minute unit effective 9/1/2025), and treat rate-setting as part of contracting.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'Not on commercial plans. Optum allows telehealth only for 97155, 97156 and 97157 after a virtual-visits attestation, so 97151 is delivered in person. Remote supervision bills as 97155 with POS 02 or 10.' },
+      { q: 'What is UnitedHealthcare\'s ABA fee schedule?', a: 'Rates are contracted. Optum pays participating providers "based on your contracted rate" for the codes on their fee schedule; non-contracted providers call the Behavioral Health number on the member\'s card.' },
+      { q: 'How do I join the UnitedHealthcare (Optum) ABA network?', a: 'Meet Optum\'s criteria (BACB certification, Texas LBA license, six months of supervised ABA experience, liability coverage) and apply through the "Join Our Autism/ABA Network" section of Provider Express.' },
     ],
   },
 };

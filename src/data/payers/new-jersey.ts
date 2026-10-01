@@ -57,12 +57,12 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The state is silent and the carrier layer is not. Neither the founding DMAHS newsletter nor the daily unit guide addresses telehealth, remote delivery, modifiers or place-of-service codes for ABA. The one published New Jersey position is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider (attestation on Provider Express) and flags virtual delivery to the Care Advocate at authorization — then bills "the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not in that carve-out.',
-        status: 'unverified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
-        verifyVia:
-          'The member\'s MCO — the state sets no ABA telehealth rule, so each plan answers for itself; DMAHS\'s Autism Line (609-588-8522) is the state-side route.',
-        blocker: 'per-case',
+          'Yes, by statute. N.J.S.A. 30:4D-6k (as amended by P.L.2021, c.310) requires the State Medicaid and NJ FamilyCare programs to "provide coverage and payment for health care services delivered to a benefits recipient through telemedicine or telehealth, on the same basis as" in person, for services otherwise covered in person, with payment to the practitioner or the employing agency. The programs may limit coverage to participating providers, but may not restrict the originating site (the child\'s home counts) or the distant site except to keep the in-person standard of care, may not restrict the platform (audio-only included) if it meets that standard and HIPAA, and may not require a member to use telehealth instead of in-person care. Coverage can still be limited to medically necessary services. No DMAHS ABA document names an ABA telehealth code list, POS or in-person supervision minimum, so the 97151 assessment and 97155 supervision are covered by telehealth on the same basis as in person when medically necessary, and billing details come from the MCO. The one plan-level New Jersey position published is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider and flags it at authorization, billing 97155 or 97156 with POS 02.',
+        status: 'verified',
+        cites: [
+          { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+          { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+        ],
       },
       authTurnaround: {
         value:
@@ -250,12 +250,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
       { title: 'Horizon NJ Health — Overview of ABA Services (Dec 2020)', url: 'https://www.horizonnjhealth.com/sites/default/files/2020-12/Overview%20of%20ABA%20Services.pdf' },
       { title: 'NJ DMAHS — NJ FamilyCare Health Plans (current MCO roster)', url: 'https://nj.gov/humanservices/dmahs/providers-stakeholders/provider-resources/health-plans' },
+      { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
     ],
     faq: [
       { q: 'Does NJ FamilyCare cover ABA therapy?', a: 'Yes — under EPSDT for members with autism (roughly 18 months to 21), delivered and prior-authorized through the five NJ FamilyCare MCOs since April 1, 2020.' },
       { q: 'Does the ABA assessment need prior authorization in New Jersey?', a: 'Through an MCO, yes — the MCO authorizes a QHP assessment (Horizon, for example, issues 32 units of 97151 for 30 days). But members still fee-for-service pending MCO enrollment need no prior authorization at all — a real fast-start window for newly eligible children.' },
       { q: 'What does New Jersey Medicaid pay for ABA?', a: 'FFS rates per 15-minute unit: 97153 $15.00 (raised from $11.20 in February 2022), 97155 $21.25, 97151 and 97156 $25.00, 0362T $25.00, 0373T $16.40. MCOs aren\'t required to match the FFS schedule, though Aetna Better Health published an identical one.' },
       { q: 'Is a comprehensive diagnostic evaluation required for ABA in New Jersey?', a: 'No — per Optum\'s NJ Medicaid criteria, a plain ASD diagnosis (F84.0–F84.9) from a physician or psychologist suffices; a comprehensive diagnostic evaluation is not a prerequisite.' },
+      { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
     ],
   },
 
@@ -316,12 +318,12 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The state is silent and the carrier layer is not. Neither the founding DMAHS newsletter nor the daily unit guide addresses telehealth, remote delivery, modifiers or place-of-service codes for ABA. The one published New Jersey position is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider (attestation on Provider Express) and flags virtual delivery to the Care Advocate at authorization — then bills "the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not in that carve-out. Horizon republishes no telehealth position of its own for ABA.',
-        status: 'unverified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
-        verifyVia:
-          'Horizon NJ Health provider services, or the ABA UM escalation contact on the DMAHS BH integration contact sheet.',
-        blocker: 'per-case',
+          'The plan publishes no ABA telehealth rule of its own, so the state statute governs. N.J.S.A. 30:4D-6k (as amended by P.L.2021, c.310) requires the State Medicaid and NJ FamilyCare programs to "provide coverage and payment for health care services delivered to a benefits recipient through telemedicine or telehealth, on the same basis as" in person, for services otherwise covered in person, with payment to the practitioner or the employing agency. The programs may limit coverage to participating providers, but may not restrict the originating site (the child\'s home counts) or the distant site except to keep the in-person standard of care, may not restrict the platform (audio-only included) if it meets that standard and HIPAA, and may not require a member to use telehealth instead of in-person care. Coverage can still be limited to medically necessary services. No DMAHS ABA document names an ABA telehealth code list, POS or in-person supervision minimum, so the 97151 assessment and 97155 supervision are covered by telehealth on the same basis as in person when medically necessary, and billing details come from the MCO.',
+        status: 'verified',
+        cites: [
+          { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+          { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+        ],
       },
       authTurnaround: {
         value:
@@ -441,11 +443,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
+      { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
     ],
     faq: [
       { q: 'Does Horizon NJ Health cover ABA therapy?', a: 'Yes — it administers the NJ FamilyCare ABA benefit under EPSDT, with its own medical policy and MCG-based review layered on the state code set. Both assessment and treatment require prior authorization via NaviNet.' },
       { q: 'How fast is Horizon\'s ABA assessment authorization?', a: 'Fast — once eligibility, an ASD diagnosis, and a QHP script are confirmed, Horizon issues a 32-unit 97151 authorization valid for 30 days without a full clinical review. Treatment requests then get MCG review within 14 days, in 6-month spans.' },
       { q: 'Is Horizon changing its ABA policy in 2026?', a: 'For NJ FamilyCare members, one change: H0032 is retired for ABA effective July 15, 2026 — use 97151–97158/0362T/0373T. Authorizations created through July 14, 2026 with H0032 are honored, and H0032 is still paid on authorized services rendered through January 14, 2027. Horizon\'s January 1, 2026 ABA medical-policy revision applies to its commercial and ASO plans, not to Horizon NJ Health Medicaid members.' },
+      { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
     ],
   },
 
@@ -506,12 +510,12 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The state is silent and the carrier layer is not. Neither the founding DMAHS newsletter nor the daily unit guide addresses telehealth, remote delivery, modifiers or place-of-service codes for ABA. The one published New Jersey position is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider (attestation on Provider Express) and flags virtual delivery to the Care Advocate at authorization — then bills "the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not in that carve-out. Aetna Better Health of New Jersey publishes no ABA telehealth position.',
-        status: 'unverified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
-        verifyVia:
-          'Aetna Better Health of New Jersey provider services (1-855-232-3596) or the plan\'s named ABA clinical contacts on the DMAHS BH integration contact sheet.',
-        blocker: 'per-case',
+          'The plan publishes no ABA telehealth rule of its own, so the state statute governs. N.J.S.A. 30:4D-6k (as amended by P.L.2021, c.310) requires the State Medicaid and NJ FamilyCare programs to "provide coverage and payment for health care services delivered to a benefits recipient through telemedicine or telehealth, on the same basis as" in person, for services otherwise covered in person, with payment to the practitioner or the employing agency. The programs may limit coverage to participating providers, but may not restrict the originating site (the child\'s home counts) or the distant site except to keep the in-person standard of care, may not restrict the platform (audio-only included) if it meets that standard and HIPAA, and may not require a member to use telehealth instead of in-person care. Coverage can still be limited to medically necessary services. No DMAHS ABA document names an ABA telehealth code list, POS or in-person supervision minimum, so the 97151 assessment and 97155 supervision are covered by telehealth on the same basis as in person when medically necessary, and billing details come from the MCO.',
+        status: 'verified',
+        cites: [
+          { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+          { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+        ],
       },
       authTurnaround: {
         value:
@@ -622,11 +626,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Autism NJ — Medicaid rate increase for ABA services', url: 'https://autismnj.org/news/autism-new-jerseys-advocacy-leads-to-medicaid-rate-increase-for-aba-services/' },
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
+      { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
     ],
     faq: [
       { q: 'Does Aetna Better Health of New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit closest to the state baseline of all five MCOs, with a published rate sheet and unit limits copied from the DMAHS schedule. PA is required, via Availity or the BH prior auth form.' },
       { q: 'What does Aetna Better Health NJ pay for ABA?', a: 'Its published 2020 sheet mirrors the state FFS schedule: $25.00 for 97151/97156, $21.25 for 97155, and $11.20 for 97153. The state raised 97153 to $15.00 in February 2022 — whether Aetna followed is unverified, so confirm in your contract.' },
       { q: 'How fast does Aetna Better Health NJ decide ABA authorizations?', a: 'Urgent requests within 24 hours; routine requests within 7 days. Progress reports go via Availity or fax (844) 404-3972.' },
+      { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
     ],
   },
 
@@ -687,12 +693,12 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The state is silent and the carrier layer is not. Neither the founding DMAHS newsletter nor the daily unit guide addresses telehealth, remote delivery, modifiers or place-of-service codes for ABA. The one published New Jersey position is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider (attestation on Provider Express) and flags virtual delivery to the Care Advocate at authorization — then bills "the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not in that carve-out. Fidelis Care New Jersey publishes no ABA telehealth position.',
-        status: 'unverified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
-        verifyVia:
-          'Fidelis Care New Jersey\'s ABA UM contact (per the DMAHS BH integration contact sheet) before the first submission — nothing ABA-specific is published by the plan.',
-        blocker: 'per-case',
+          'The plan publishes no ABA telehealth rule of its own, so the state statute governs. N.J.S.A. 30:4D-6k (as amended by P.L.2021, c.310) requires the State Medicaid and NJ FamilyCare programs to "provide coverage and payment for health care services delivered to a benefits recipient through telemedicine or telehealth, on the same basis as" in person, for services otherwise covered in person, with payment to the practitioner or the employing agency. The programs may limit coverage to participating providers, but may not restrict the originating site (the child\'s home counts) or the distant site except to keep the in-person standard of care, may not restrict the platform (audio-only included) if it meets that standard and HIPAA, and may not require a member to use telehealth instead of in-person care. Coverage can still be limited to medically necessary services. No DMAHS ABA document names an ABA telehealth code list, POS or in-person supervision minimum, so the 97151 assessment and 97155 supervision are covered by telehealth on the same basis as in person when medically necessary, and billing details come from the MCO.',
+        status: 'verified',
+        cites: [
+          { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+          { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+        ],
       },
       authTurnaround: {
         value:
@@ -801,11 +807,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
+      { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
     ],
     faq: [
       { q: 'Does Fidelis Care New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan). No plan-specific ABA policy is published, so the state baseline is the rulebook to plan against.' },
       { q: 'Is Fidelis Care NJ the same as WellCare?', a: 'Yes — WellCare of NJ rebranded to Fidelis Care under Centene. The state\'s own contact documents still carry both names.' },
       { q: 'What does Fidelis Care NJ pay for ABA?', a: 'Unverified — no fee schedule or ABA rate document is published. Your provider contract is the only source of truth; benchmark against the state FFS schedule ($15.00/unit 97153, $21.25 97155, $25.00 97151/97156).' },
+      { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
     ],
   },
 
@@ -866,9 +874,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The one New Jersey plan with a published ABA telehealth rule, and it is specific. Optum allows BCBAs and licensed BH clinicians within contracted ABA practices to deliver ABA supervision and caregiver training by telehealth, but only after the practice becomes an approved Optum virtual-visits provider by attestation on Provider Express, and only if it alerts the Care Advocate that the services will be virtual while completing the authorization. Billing is then plain: "include the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not inside the carve-out, and the state publishes no ABA telehealth rule of its own.',
+          'The one New Jersey plan with a published ABA telehealth rule, and it is specific. Optum allows BCBAs and licensed BH clinicians within contracted ABA practices to deliver ABA supervision and caregiver training by telehealth, but only after the practice becomes an approved Optum virtual-visits provider by attestation on Provider Express, and only if it alerts the Care Advocate that the services will be virtual while completing the authorization. Billing is then plain: "include the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not inside the carve-out, and the state publishes no ABA telehealth rule of its own. State law sits underneath: N.J.S.A. 30:4D-6k (as amended by P.L.2021, c.310) requires NJ FamilyCare to cover telehealth "on the same basis as" in person, without originating-site restrictions.',
         status: 'verified',
-        cites: [{ title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+        cites: [{ title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
       },
       authTurnaround: {
         value:
@@ -991,6 +999,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum/UHC Community Plan \u2014 NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
       { title: 'NJMMIS \u2014 ABA Treatment Provider FFS enrollment packet (Gainwell)', url: 'https://www.njmmis.com/documentDownload.aspx?document=Applied_Behavior_Analysis.pdf' },
+      { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of New Jersey cover ABA?', a: 'Yes — the NJ FamilyCare ABA benefit, administered by Optum Behavioral Health under Optum\'s criteria plus a dedicated NJ Medicaid entry (revised November 2025). Requests go through Provider Express\'s NJ ABA path.' },
@@ -1056,12 +1065,12 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The state is silent and the carrier layer is not. Neither the founding DMAHS newsletter nor the daily unit guide addresses telehealth, remote delivery, modifiers or place-of-service codes for ABA. The one published New Jersey position is Optum\'s, for its own line of business: BCBAs and licensed BH clinicians in contracted ABA practices may deliver ABA supervision and caregiver training by telehealth if the practice is an approved Optum virtual-visits provider (attestation on Provider Express) and flags virtual delivery to the Care Advocate at authorization — then bills "the same procedure code you would use for an in-person service, 97155 or 97156, on your claim with the “02” place of service code." Direct technician treatment is not in that carve-out. Wellpoint New Jersey publishes no ABA telehealth position.',
-        status: 'unverified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
-        verifyVia:
-          'Wellpoint New Jersey provider services ((833) 731-2149 / (800) 454-3730), and Carelon Behavioral Health (provider.relations.NJ@carelon.com), which runs the ABA network.',
-        blocker: 'per-case',
+          'The plan publishes no ABA telehealth rule of its own, so the state statute governs. N.J.S.A. 30:4D-6k (as amended by P.L.2021, c.310) requires the State Medicaid and NJ FamilyCare programs to "provide coverage and payment for health care services delivered to a benefits recipient through telemedicine or telehealth, on the same basis as" in person, for services otherwise covered in person, with payment to the practitioner or the employing agency. The programs may limit coverage to participating providers, but may not restrict the originating site (the child\'s home counts) or the distant site except to keep the in-person standard of care, may not restrict the platform (audio-only included) if it meets that standard and HIPAA, and may not require a member to use telehealth instead of in-person care. Coverage can still be limited to medically necessary services. No DMAHS ABA document names an ABA telehealth code list, POS or in-person supervision minimum, so the 97151 assessment and 97155 supervision are covered by telehealth on the same basis as in person when medically necessary, and billing details come from the MCO.',
+        status: 'verified',
+        cites: [
+          { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+          { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+        ],
       },
       authTurnaround: {
         value:
@@ -1168,11 +1177,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
+      { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
     ],
     faq: [
       { q: 'Does Wellpoint New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit on the state baseline (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan), with authorization via Availity or (800) 454-3730. No plan-specific ABA criteria are published.' },
       { q: 'Is Wellpoint NJ the same as Amerigroup?', a: 'Yes — Amerigroup New Jersey rebranded to Wellpoint under Elevance. Cards and directories may still carry the old name.' },
       { q: 'How do I join Wellpoint NJ\'s ABA network?', a: 'Through Carelon Behavioral Health (provider.relations.NJ@carelon.com) — a separate contracting funnel from the Wellpoint medical plan. Being contracted for medical services doesn\'t put you in the ABA network.' },
+      { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
     ],
   },
 
@@ -1236,11 +1247,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Not published. Aetna\'s ABA materials set medical-necessity criteria and precertification requirements for 97151-97158, 0362T and 0373T but say nothing about remote delivery, telehealth modifiers or place-of-service codes. Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor to fall back on here — unlike Nebraska, whose statute names telehealth expressly.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
-        verifyVia:
-          'Aetna provider services and the member\'s benefit document — confirm which ABA codes pay by telehealth and with which POS code before scheduling remote supervision or caregiver training.',
+          'Aetna publishes no ABA telehealth code list: its ABA materials set medical-necessity criteria and precertification for 97151–97158, 0362T and 0373T but say nothing about remote delivery. Aetna\'s provider manual (6/26) says Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services," and providers must hold the licensure state law requires. For a New Jersey fully insured plan, N.J.S.A. 26:2S-29 (as amended by P.L.2021, c.310) requires a carrier to cover telehealth "on the same basis as" in person for otherwise covered services, bars restrictions on the originating or distant site except to keep the in-person standard of care, and lets the carrier limit coverage to in-network providers; self-funded employer plans are outside it.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+        ],
+        verifyVia: 'Availity or the precertification line on the card: ask whether the plan is fully insured in New Jersey or self-funded (and opted out of telehealth), and which ABA codes, POS and modifier Aetna pays by telehealth.',
         blocker: 'per-case',
       },
       authTurnaround: {
@@ -1273,9 +1286,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'Aetna sets a duty, not a number. Where a state mandate, plan document or contract allows services from someone neither state-licensed nor BACB-certified, \u201cthere must be supervision and direction of the unlicensed or non-certified providers in line with practice standards.\u201d The ABA Medical Necessity Guide publishes no supervision percentage, ratio or caseload cap \u2014 the operative standard is professional practice plus whatever the contract adds.',
+          'Aetna sets a duty, not a number. Where a state mandate, plan document or contract allows services from someone neither state-licensed nor BACB-certified, \u201cthere must be supervision and direction of the unlicensed or non-certified providers in line with practice standards.\u201d The ABA Medical Necessity Guide publishes no supervision percentage, ratio or caseload cap \u2014 the operative standard is professional practice plus whatever the contract adds. Aetna\'s Network Participation Criteria (5/26) spell out the technician tier: services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards."',
         status: 'verified',
-        cites: [{ title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
+        cites: [{ title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' }, { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
       },
       concurrentBilling: {
         value:
@@ -1332,6 +1345,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '$36,000/yr in statute — voided for MHPAEA group plans (DOBI Bulletin 10-02)' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (may exclude ABA entirely)' },
       { label: 'Licensure', value: 'NJ Licensed Applied Behavior Analyst (Consumer Affairs board)' },
+      { label: 'Fee schedule', value: 'Not public — Aetna pays the contracted rate in your participation agreement' },
     ],
     sections: [
       {
@@ -1369,6 +1383,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ Board of Applied Behavior Analyst Examiners — FAQ', url: 'https://www.njconsumeraffairs.gov/abae/Pages/FAQ.aspx' },
         ],
       },
+      {
+        h2: 'What is Aetna’s fee schedule for ABA?',
+        body: [
+          'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: “The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies,” and where a provider has both an intermediary contract and a direct agreement, “your direct Aetna rates will apply unless we specifically notify you otherwise.” Even when a member’s benefits run out, the provider “cannot charge them more than the contracted rate.” Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, see the NJ FamilyCare fee-for-service rates in the New Jersey Medicaid guide.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1385,11 +1408,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Autism NJ — Amendments to Insurance Mandate Expand Coverage', url: 'https://autismnj.org/news/amendments-to-insurance-mandate-expand-coverage/' },
       { title: 'NJ Board of Applied Behavior Analyst Examiners — FAQ', url: 'https://www.njconsumeraffairs.gov/abae/Pages/FAQ.aspx' },
       { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+      { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA), since New Jersey treats autism as a biologically-based mental illness. In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
-      { q: 'What does Aetna pay for ABA in New Jersey?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against NJ FamilyCare\'s FFS schedule ($15.00 for 97153, $25.00 for 97151/97156 per 15-minute unit) and treat rate-setting as part of contracting.' },
+      { q: 'What does Aetna pay for ABA in New Jersey?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. NJ FamilyCare\'s fee-for-service schedule (see the New Jersey Medicaid guide) is the public benchmark.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s network criteria do not require the RBT credential by name: technicians may be paraprofessionals supervised by a BCBA or licensed provider, with at least 1 hour of face-to-face supervision per 10 hours of ABA and the supervisor onsite with the child at least 1 hour a month. Technicians must meet any state requirement, so check the state\'s licensure or Medicaid rules too.' },
     ],
   },
 
@@ -1453,9 +1480,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor to fall back on here — unlike Nebraska, whose statute names telehealth expressly.',
+          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor to fall back on here — unlike Nebraska, whose statute names telehealth expressly. For a New Jersey fully insured plan, N.J.S.A. 26:2S-29 (as amended by P.L.2021, c.310) requires a carrier to cover telehealth "on the same basis as" in person for otherwise covered services, bars restrictions on the originating or distant site except to keep the in-person standard of care, and lets the carrier limit coverage to in-network providers; self-funded employer plans are outside it.',
         status: 'verified',
-        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        cites: [{ title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' }, { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
       authTurnaround: {
         value:
@@ -1545,6 +1572,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '$36,000/yr in statute — voided for MHPAEA group plans (DOBI Bulletin 10-02)' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (may exclude ABA entirely)' },
       { label: 'Licensure', value: 'NJ Licensed Applied Behavior Analyst (Consumer Affairs board)' },
+      { label: 'Fee schedule', value: 'Not public — your ABA fee schedule is Exhibit A of your Evernorth Provider Agreement; fee questions to Evernorth Provider Services, 800.926.2273' },
     ],
     sections: [
       {
@@ -1586,6 +1614,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ Board of Applied Behavior Analyst Examiners — FAQ', url: 'https://www.njconsumeraffairs.gov/abae/Pages/FAQ.aspx' },
         ],
       },
+      {
+        h2: 'What is Cigna’s fee schedule for ABA?',
+        body: [
+          'Cigna publishes no ABA rate table. Evernorth, which runs Cigna’s behavioral health network, puts the rates in the contract: its Administrative Guidelines (September 2026) say the Provider Agreement and the guidelines set the terms, which “include the reimbursement rates applicable to covered services,” and tell ABA providers: “For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement.” Fee-schedule and contract questions go to Provider Services at 800.926.2273. Virtual services are billed with modifier 95, which Evernorth says “will not change the reimbursement.” Non-credentialed technicians are paid only through the supervising provider’s claim. For a public benchmark, see the NJ FamilyCare fee-for-service rates in the New Jersey Medicaid guide.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1599,11 +1636,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
       { title: 'Autism NJ — Amendments to Insurance Mandate Expand Coverage', url: 'https://autismnj.org/news/amendments-to-insurance-mandate-expand-coverage/' },
       { title: 'NJ Board of Applied Behavior Analyst Examiners — FAQ', url: 'https://www.njconsumeraffairs.gov/abae/Pages/FAQ.aspx' },
+      { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     faq: [
       { q: 'Does Cigna cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national EN0499 policy for ASD (no PA on assessment codes 97151/97152/0362T), layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does EN0499 apply to New Jersey fully-insured plans?', a: 'Yes — unlike Virginia, New Jersey has no carve-out in the current EN0499. NJ fully-insured plans sit under the policy\'s generic state-mandate language, with P.L. 2009, c.115 controlling as the state mandate.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA). In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
+      { q: 'What does Cigna pay for ABA in New Jersey?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. NJ FamilyCare\'s fee-for-service schedule (see the New Jersey Medicaid guide) is the public benchmark.' },
     ],
   },
 
@@ -1672,9 +1712,10 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor beyond Optum’s own rule.',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor beyond Optum’s own rule. For a New Jersey fully insured plan, N.J.S.A. 26:2S-29 (as amended by P.L.2021, c.310) requires a carrier to cover telehealth "on the same basis as" in person for otherwise covered services, bars restrictions on the originating or distant site except to keep the in-person standard of care, and lets the carrier limit coverage to in-network providers; self-funded employer plans are outside it.',
         status: 'verified',
         cites: [
+          { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
@@ -1769,6 +1810,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '$36,000/yr in statute — voided for MHPAEA group plans (DOBI Bulletin 10-02)' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (may exclude ABA entirely)' },
       { label: 'Licensure', value: 'NJ Licensed Applied Behavior Analyst (Consumer Affairs board)' },
+      { label: 'Fee schedule', value: 'Not public — Optum pays up to the “Fee Maximum” in your agreement, by credential level (HM/HN/HO/HP modifiers)' },
     ],
     sections: [
       {
@@ -1814,6 +1856,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ Board of Applied Behavior Analyst Examiners — FAQ', url: 'https://www.njconsumeraffairs.gov/abae/Pages/FAQ.aspx' },
         ],
       },
+      {
+        h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
+        body: [
+          'UnitedHealthcare publishes no ABA rate table; its behavioral health network, Optum, pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the “Fee Maximum” as “The maximum amount a participating provider may be paid for a specific health care service provided to a member,” adding that “Reimbursement to clinicians is based upon licensure rather than degree.” Optum’s commercial ABA Reimbursement Policy (2022RP501A, updated 06/2026) makes the credential level part of every claim line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensed provider. It also says indirect work has no separate code and is bundled into the direct-service codes. Ask Optum network management for your rate sheet. For a public benchmark, see the NJ FamilyCare fee-for-service rates in the New Jersey Medicaid guide.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1832,12 +1884,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+      { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national policy for ASD (Optum\'s two-step Provider Express authorization), layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Optum have New Jersey-specific ABA criteria?', a: 'Only for Medicaid — its State Mandates document carries a dedicated NJ FamilyCare entry (no comprehensive evaluation required, ages 18 months to 21). There is no NJ commercial entry, so commercial members follow the national Supplemental Clinical Criteria plus the state mandate.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA). In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'What does UnitedHealthcare pay for ABA in New Jersey?', a: 'UnitedHealthcare/Optum publishes no ABA rates. You are paid up to the Fee Maximum in your Optum agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) under Optum’s ABA reimbursement policy. Ask Optum network management for your rate sheet. NJ FamilyCare\'s fee-for-service schedule (see the New Jersey Medicaid guide) is the public benchmark.' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'For commercial plans, Optum\'s ABA reimbursement policy defines the technician line: the approved rendering provider for the HM modifier (less than a bachelor\'s degree) is "a Registered Behavior Technician (RBT)," and a BCaBA bills HN. The policy notes that state regulatory requirements "may supplement, modify or supersede" it. So plan on RBT-certified technicians for UHC commercial members.' },
     ],
   },
 };

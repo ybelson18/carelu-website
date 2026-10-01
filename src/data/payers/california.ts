@@ -113,6 +113,17 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'DDS — Rate Reform: Complete Rate Models by Regional Center (rates eff. 7/1/2026)', url: 'https://www.dds.ca.gov/rc/vendor-provider/rate-reform/rate-models/' },
         ],
       },
+      {
+        h2: 'Changing ABA providers or plans, and joining the network',
+        body: [
+          'Medi-Cal managed-care members get BHT from their plan\'s network, so a provider joins each county plan (or its behavioral-health delegate) it wants to serve; fee-for-service members may use an enrolled Medi-Cal BHT provider that bills DHCS directly, or their Regional Center. No state document says whether a given plan\'s BHT network is open or closed; ask each plan\'s provider relations team.',
+          'When a family changes plans or moves into managed care from fee-for-service, APL 23-010 requires plans to "offer Members continued access to out-of-network Providers of BHT services (continuity of care) for up to 12 months," under APL 23-022. Within a plan, authorization belongs to the treatment plan: the BHT manual says authorization "is required to continue providing BHT services and/or modify existing BHT services," and makes BHT providers responsible for coordination "and ensuring continuity of care so that there are no gaps." No state document says whether an existing authorization moves to a new agency; ask the plan before the switch so there is no gap.',
+        ],
+        cites: [
+          { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
+          { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Medi-Cal plan', desc: 'The plan name on the card (L.A. Care, Health Net, IEHP, Kaiser, CalOptima …) — or fee-for-service. The plan, not DHCS, authorizes BHT for managed-care members.' },
@@ -183,7 +194,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Medi-Cal has no BHT-specific telehealth code list. The general rule (Provider Manual "Telehealth Modalities"; APL 23-007) lets any covered code be delivered by telehealth when the distant-site provider "believes that the Medi-Cal covered benefits or services being provided are clinically appropriate," with modifier 95 (video) or 93 (audio-only), POS 02 or 10, documented consent, an offer of in-person care, and payment parity. The provider must meet B&P 2290.5(a)(3), which SB 402 amended from January 1, 2026 to include "A qualified autism service provider certified by a national entity" and "a qualified autism service professional" — QAS paraprofessionals (the technicians who deliver 97153) are not on that list, so whether technician-delivered 97153 by telehealth is payable is not settled in any state document.',
+        value: 'Medi-Cal has no BHT-specific telehealth code list. The general rule (Provider Manual "Telehealth Modalities"; APL 23-007) lets any covered code be delivered by telehealth when the distant-site provider "believes that the Medi-Cal covered benefits or services being provided are clinically appropriate," with modifier 95 (video) or 93 (audio-only), POS 02 or 10, documented consent, an offer of in-person care, and payment parity. The provider must meet B&P 2290.5(a)(3), which SB 402 amended from January 1, 2026 to include "A qualified autism service provider certified by a national entity" and "a qualified autism service professional" — QAS paraprofessionals (the technicians who deliver 97153) are not on that list, so whether technician-delivered 97153 by telehealth is payable is not settled in any state document. The assessment and supervision codes sit inside the general rule: APL 23-007 lets "Existing Covered Services, identified by" CPT or HCPCS code and "subject to any existing treatment authorization requirements," be delivered by telehealth when the distant-site provider judges it clinically appropriate, and 97151 (QAS provider) and 97155 (QAS provider or professional) are covered BHT codes whose renderers are on the B&P 2290.5 list from 2026. No state document sets an in-person share for supervision; that, and any plan-level code limits, come from the member\'s plan.',
         status: 'plan-dependent',
         cites: [
           { title: 'Medi-Cal Provider Manual — Telehealth Modalities (tele mod), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=telemod.pdf' },
@@ -277,6 +288,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Should we go through the Regional Center or Medi-Cal for ABA?', a: 'Medi-Cal first. The Medi-Cal plan is the primary BHT payer; Regional Centers are payer of last resort and, for children 3 and older, won’t fund ABA without a Medi-Cal or insurance denial (W&I 4659). Fee-for-service Medi-Cal members may choose either route.' },
       { q: 'Can Medi-Cal cap ABA hours or cut them for school time?', a: 'No. APL 23-010 prohibits "caps on number of hours" and bars plans from reducing medically necessary hours by the time the child spends at school.' },
       { q: 'Does California license behavior analysts?', a: 'No. California has no behavior analyst license; BCBAs practice as qualified autism service providers on national certification, with QAS professionals and paraprofessionals working under their supervision.' },
+      { q: 'Can the ABA assessment (97151) or supervision (97155) be done by telehealth under Medi-Cal?', a: 'Yes under the state rule, when clinically appropriate: APL 23-007 lets any covered code be delivered by telehealth (POS 02 or 10, modifier 95 or 93, documented consent, in-person option preserved). Each plan can add its own BHT telehealth limits, so check the member\'s plan.' },
+      { q: 'Can a Medi-Cal family keep its ABA provider when switching providers or plans?', a: 'For up to 12 months, yes in most cases: APL 23-010 requires plans to offer continued access to out-of-network BHT providers (continuity of care) under APL 23-022. Whether an authorization follows the child to a new agency inside the plan is the plan\'s call; ask before switching.' },
     ],
   },
 
@@ -486,6 +499,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does L.A. Care cover ABA therapy?', a: 'Yes — as Behavioral Health Treatment for Medi-Cal members under 21. No autism diagnosis is needed; a licensed physician, surgeon or psychologist must recommend it, and L.A. Care must authorize it.' },
       { q: 'How do I request ABA from L.A. Care?', a: 'Fax form LA5480 (05/26) with the recommendation and documentation to (213) 438-5054, or call the BHT team at 1-888-347-2264. The FBA is requested as H0032, up to 12 hours.' },
       { q: 'Does the member’s medical group handle ABA?', a: 'No. For L.A. Care’s direct Medi-Cal members, BHT goes through L.A. Care’s own BHT network, not the IPA. Members on a Plan Partner card (Anthem Blue Cross, Blue Shield Promise) may follow that plan’s process.' },
+      { q: 'What happens when a family is switching providers or plans with L.A. Care?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask L.A. Care for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
     ],
   },
 
@@ -568,8 +582,9 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Health Net — ABA Prior Authorization Request Form (24-992)', url: 'https://providerlibrary.healthnetcalifornia.com/content/dam/centene/healthnet/pdfs/providerlibrary/500234-ABA-Prior-Auth-Request-Form-MCL.pdf' },
       { title: 'CalViva Health — ABA Prior Authorization Request Form (24-990)', url: 'https://providerlibrary.healthnetcalifornia.com/content/dam/centene/healthnet/pdfs/providerlibrary/500232-ABA-Prior-Auth-Request-Form-CVH.pdf' },
       { title: 'Health Net — ABA Recommendation and Referral Form (24-989)', url: 'https://providerlibrary.healthnetcalifornia.com/content/dam/centene/healthnet/pdfs/providerlibrary/500231-ABA-Referral-Form-MCL.pdf' },
-      { title: 'Health Net Medi-Cal — Coordination of Benefits Overview (updated 12/18/2024)', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/coordination-benefits/overview-medi-cal.html' },
+      { title: 'Health Net Medi-Cal — Coordination of Benefits Overview (last updated 9/25/2026)', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/coordination-benefits/overview-medi-cal.html' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
+      { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -632,7 +647,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: '"Medi-Cal is always the payer of last resort, including Medicare and TRICARE." Bill the primary first, then Health Net with the EOB within 180 days, with proof of exhaustion (denial or EOB showing non-coverage); payment is capped at Medi-Cal limits less the other payment. On authorization: "Where a benefit is not covered by the member’s primary insurance and the service is covered and requires authorization by Health Net Medi-Cal, an out-of-network provider may leverage a letter of agreement (LOA)" — so Health Net’s authorization applies when the primary does not cover ABA. Whether it is required when the primary does cover ABA is not stated.',
         status: 'verified',
         cites: [
-          { title: 'Health Net Medi-Cal — Coordination of Benefits Overview (updated 12/18/2024)', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/coordination-benefits/overview-medi-cal.html' },
+          { title: 'Health Net Medi-Cal — Coordination of Benefits Overview (last updated 9/25/2026)', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/coordination-benefits/overview-medi-cal.html' },
         ],
       },
     },
@@ -690,6 +705,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Health Net Medi-Cal (and CalViva) cover ABA?', a: 'Yes — Behavioral Health Treatment for members under 21 on a physician or licensed clinical psychologist recommendation, regardless of diagnosis, reviewed by Health Net’s Behavioral Health Autism Center under policy CA.CP.BH.104.' },
       { q: 'Is there an hour cap on Health Net Medi-Cal ABA?', a: 'Not a hard cap. CA.CP.BH.104 expects no more than 6 hours a day and 30 hours a week unless clinical documentation justifies more, and hours cannot be reduced for school time.' },
       { q: 'How do I change hours on a Health Net ABA authorization?', a: 'Submit a new complete PA request with a letter explaining the clinical reason — addendums are no longer accepted, and the existing authorization is ended.' },
+      { q: 'What happens when a family is switching providers or plans with Health Net?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Health Net for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
     ],
   },
 
@@ -904,6 +920,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does IEHP cover ABA therapy?', a: 'Yes — as Behavioral Health Treatment for Medi-Cal members under 21, "even without a diagnosis of autism spectrum disorder," on a formal request from a physician or psychologist.' },
       { q: 'How do I request ABA from IEHP?', a: 'Through the IEHP Provider Portal "BH Referral Request" — H0031 for the FBA, then 6-month unit requests for treatment on IEHP’s progress-report template.' },
       { q: 'How much supervision does IEHP authorize?', a: 'Up to two hours of case supervision (H0032) per 10 hours of direct treatment; more needs clinical justification.' },
+      { q: 'What happens when a family is switching providers or plans with IEHP?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask IEHP for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
     ],
   },
 
@@ -1105,6 +1122,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does CalOptima Health cover ABA therapy?', a: 'Yes — Behavioral Health Treatment for Medi-Cal members under 21 in Orange County, with or without an autism diagnosis, run by CalOptima’s own Behavioral Health department.' },
       { q: 'Who can write the ABA recommendation for CalOptima?', a: 'A licensed physician, surgeon or licensed clinical psychologist — in one dated, signed document that also carries the diagnosis. LMFTs, LCSWs, LPCCs and educational psychologists are not accepted, and NP/PA recommendations need an MD signature.' },
       { q: 'How fast does CalOptima decide?', a: 'Seven calendar days for routine requests (no more than 14) and 72 hours for expedited ones; a missed deadline counts as a denial.' },
+      { q: 'What happens when a family is switching providers or plans with CalOptima Health?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask CalOptima Health for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
     ],
   },
 
@@ -1328,6 +1346,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Anthem Blue Cross Medi-Cal cover ABA?', a: 'Yes — for members under 21 as Behavioral Health Treatment, on a recommendation from a physician or licensed psychologist; an autism diagnosis is confirmed only "if identified."' },
       { q: 'Does the ABA assessment need prior authorization with Anthem Medi-Cal?', a: 'Yes. Anthem runs the assessment (97151/97152/0362T) through the same ASD Treatment Plan Request Form as treatment, via Availity or fax 855-473-7902.' },
       { q: 'How fast does Anthem Medi-Cal decide an ABA request?', a: 'Its July 2026 manual says 7 calendar days (up to 14 if information is missing) and 72 hours for urgent requests; an older policy says 5 business days. Plan on the shorter clock.' },
+      { q: 'What happens when a family is switching providers or plans with Anthem Blue Cross Medi-Cal?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Anthem Blue Cross Medi-Cal for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
     ],
   },
 
@@ -1544,6 +1563,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Molina Healthcare of California cover ABA?', a: 'Yes — for Medi-Cal members under 21. Molina runs its own ABA department; a physician or clinical psychologist referral goes to PedsCA@molinahealthcare.com and a case manager connects the family to a provider.' },
       { q: 'Does Molina Medi-Cal require an autism diagnosis for ABA?', a: 'Molina’s Clinical Policy 482 asks for one, made with a validated tool such as ADOS-2. The state rule (APL 23-010) covers BHT "regardless of diagnosis" on a physician or psychologist recommendation — cite it if a non-ASD request is denied.' },
       { q: 'Can ABA be done by telehealth with Molina?', a: 'Only the indirect parts under Policy 482 — caregiver training, supervision and similar — alongside in-person services. Direct technician sessions by telehealth are likely to be denied.' },
+      { q: 'What happens when a family is switching providers or plans with Molina?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Molina for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
     ],
   },
 
@@ -1634,6 +1654,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
       { title: 'KP NCAL — Provider Authorizations FAQ', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/provider-authorizations-faq-en.pdf' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
+      { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1761,6 +1782,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Can we start ABA with a Kaiser Medi-Cal family who calls us directly?', a: 'Not until Kaiser authorizes it. A Kaiser physician must refer for BHT and Kaiser must issue a written Authorization for Medical Care to your agency; send the family to their Kaiser pediatrician or behavioral health first.' },
       { q: 'Does Kaiser Medi-Cal require an autism diagnosis for ABA?', a: 'Not in Southern California’s criteria, which cover ASD, suspected ASD and non-ASD members — but for a child without ASD the service must be delivered by a licensed clinician.' },
       { q: 'How long does Kaiser take to decide?', a: 'Five business days from receiving the information reasonably needed (H&S 1367.01(h)(1)), and 72 hours for expedited requests.' },
+      { q: 'What happens when a family is switching providers or plans with Kaiser Permanente Medi-Cal?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Kaiser Permanente Medi-Cal for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
     ],
   },
 
@@ -1852,6 +1874,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Partnership MPCR303 — Applied Behavioral Health and SUD Provider Credentialing', url: 'https://public.powerdms.com/PHC/documents/1849967' },
       { title: 'Partnership MPBP8003 — Mental Health Services (reviewed 6/10/2026; Carelon delegation)', url: 'https://public.powerdms.com/PHC/documents/3443929' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
+      { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1974,6 +1997,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Partnership HealthPlan cover ABA?', a: 'Yes — as Behavioral Health Treatment for Medi-Cal members under 21 in its 24 northern counties, reviewed by Partnership itself (not Carelon) through Treatment Authorization Requests.' },
       { q: 'What does Partnership need with a BHT request?', a: 'A signed release of information (valid one year), a physician/surgeon/psychologist recommendation, a diagnosis, the H&P and diagnostic testing, and a BCBA’s functional behavior assessment — records older than 12 months only earn a one-time single visit.' },
       { q: 'How fast does Partnership decide a BHT TAR?', a: 'Within 7 calendar days of receipt (up to 14 if information is missing), and within 72 hours for urgent requests.' },
+      { q: 'What happens when a family is switching providers or plans with Partnership HealthPlan?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Partnership HealthPlan for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
     ],
   },
 
@@ -2487,7 +2511,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       value: 'Required — 97151, 97152 and 0362T are on Anthem’s California PPO precertification list (eff. 9/1/2026) with Anthem as the responsible party; "Although most services do not require preauthorization, ABA services do"',
       status: 'verified',
       cites: [
-        { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (eff. 9/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+        { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
         { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
       ],
     },
@@ -2495,7 +2519,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       value: 'Required — 97153–97158, 0373T and the H-codes (H0031/H0032/H0046/H2012/H2014/H2019) are all on the list; "ABA services are authorized by CPT® code … Any codes billed without authorization are not allowed." The PPO list does not cover HMO or BlueCard members',
       status: 'verified',
       cites: [
-        { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (eff. 9/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+        { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
         { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
       ],
     },
@@ -2535,7 +2559,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
           'Anthem’s behavioral health group guide adds: "Always obtain authorization prior to rendering ABA services"; "ABA services are authorized by CPT® code, and claims will be processed by CPT code"; units must be whole numbers; and "Include the individual NPI of the rendering provider." Submit through Interactive Care Reviewer on Availity or "fill out the Adaptive Behavioral Treatment Request and fax the completed form to 866-582-2287." Some Anthem plans carve mental health out to another company — the ID card says so.',
         ],
         cites: [
-          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (eff. 9/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
           { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
         ],
       },
@@ -2563,7 +2587,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Business & Professions Code § 4999.200 — Qualified autism service provider (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.200' },
           { title: 'Business & Professions Code § 4999.202 — Qualified autism service paraprofessional (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.202' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts (California absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
-          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (eff. 9/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
         ],
       },
     ],
@@ -2575,7 +2599,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Rendering NPIs', desc: 'Claims need the individual NPI of the rendering provider.' },
     ],
     sources: [
-      { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (eff. 9/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+      { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
       { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
       { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
       { title: 'Insurance Code § 10144.51 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10144.51' },
@@ -2590,7 +2614,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'No age limit on fully insured plans: Anthem’s California PA list and BH guide carry no age cap, and H&S § 1374.73 / Ins. § 10144.51 contain none. Self-funded (ASO) plans follow their own plan document and the licensed MCG B-806-T guideline.',
         status: 'plan-dependent',
         cites: [
-          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (eff. 9/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
           { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
         ],
         verifyVia: 'Benefits verification on the member ID — fully insured vs. self-funded, then the employer plan’s own terms for ASO groups.',
@@ -2673,7 +2697,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         value: 'Anthem California publishes no supervision ratio. Its H-code descriptors encode the QAS tiers — H0031 assessment/plan by a "Qualified Autism Service Provider (licensed clinician or Board Certified Behavioral Analyst (BCBA))," H0032 "supervision of a Qualified Autism Service Professional or Paraprofessional by a Qualified Autism Service Provider," H0046 direct treatment by a QAS professional, H2019 by a QAS paraprofessional. The statute requires only supervision meeting "professionally recognized standards of practice."',
         status: 'plan-dependent',
         cites: [
-          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (eff. 9/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+          { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
           { title: 'Business & Professions Code § 4999.202 — Qualified autism service paraprofessional (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.202' },
         ],
         verifyVia: 'Anthem California Facility and Professional Provider Manual (Availity-gated) or the ABA group agreement.',
@@ -3288,6 +3312,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans; Medi-Cal plan contracts; specialized plans without mental health coverage; accident-only, specified-disease, hospital-indemnity and Medicare supplement policies' },
       { label: 'Licensure', value: 'None — no California behavior analyst license; QAS provider/professional/paraprofessional tiers (B&P §§ 4999.200–4999.202)' },
       { label: 'Submit via', value: 'ABA@Evernorth.com (preferred) or fax 860.687.9230; Autism Care Coordinators 877.279.7603' },
+      { label: 'Fee schedule', value: 'None published — contracted rates in your Evernorth agreement; ask Provider Relations' },
     ],
     sections: [
       {
@@ -3327,6 +3352,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Business & Professions Code § 4999.202 — Qualified autism service paraprofessional (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.202' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts (California absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
           { title: 'Cigna — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How does Cigna pay for ABA, and is its network open?',
+        body: [
+          'Cigna publishes no ABA fee schedule. In-network ABA is paid at the rates in your Evernorth behavioral-health agreement; the autism resource guide sends "questions about credentialing, contracts, or rates" to your Provider Relations representative, and billing questions to Provider Services at 800.926.2273. Bill only 97151-97158, 0362T and 0373T, in 15-minute units.',
+          'Network: Evernorth says it "is committed to expanding our network of autism providers." Individual analysts apply on the Evernorth Behavioral Provider Information Form and autism clinics or large groups on the Evernorth Screening Application for Autism Clinics; processing can take up to 90 days, and after a clinic contract each certified or licensed provider must be credentialed (another 60 to 90 days) before rendering in-network services. Evernorth requires the clinician to hold a national certification or state license (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral-health licensure). It "does not credential nonlicensed/noncertified staff" such as technicians, whose services "must be billed under the supervising provider."',
+        ],
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
     ],
@@ -3393,7 +3428,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Broad: "All ABA CPT codes are covered telehealth services" (autism resource guide); EN0499 allows in-person, telehealth or hybrid delivery, and its line-of-sight supervision rule "does not apply to telehealth services."',
+        value: 'Broad: "All ABA CPT codes are covered telehealth services" (autism resource guide); EN0499 allows in-person, telehealth or hybrid delivery, and its line-of-sight supervision rule "does not apply to telehealth services." The assessment and supervision codes are included: the resource guide\'s "All ABA CPT codes" covers 97151 (initial assessment and reassessment) and 97155 (protocol modification / direct supervision) as much as 97153, and neither document caps the share of supervision that may be remote. Neither names a required telehealth POS code or modifier, so confirm claim coding with Evernorth Provider Services (800.926.2273).',
         status: 'verified',
         cites: [
           { title: 'Cigna — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
@@ -3479,6 +3514,9 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in California?', a: 'Yes — for autism under Evernorth policy EN0499, with California’s mandate on fully insured plans. Self-funded employer plans are exempt from the mandate, so verify funding type first.' },
       { q: 'Does Cigna require prior authorization for the ABA assessment?', a: 'Not for standard in-network requests (97151, 97152, 0362T) when the provider is a BCBA or independently licensed and the plan covers ABA. Treatment requires prior authorization via ABA@Evernorth.com or fax 860.687.9230.' },
       { q: 'Does Cigna have California-specific ABA rules?', a: 'No. EN0499 carves out only Virginia fully insured plans; Evernorth’s California criteria list covers mental health levels of care, not ABA. California’s mandate and SB 855 still apply to fully insured plans.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with Cigna in California?', a: 'Yes. Evernorth\'s autism resource guide says all ABA CPT codes are covered telehealth services, and EN0499 allows in-person, telehealth or hybrid delivery. No POS code or modifier is published; confirm claim coding with Provider Services (800.926.2273).' },
+      { q: 'What is Cigna\'s ABA fee schedule in California?', a: 'There is no public one. Cigna pays in-network ABA at the rates in your Evernorth agreement; Evernorth directs rate and contract questions to your Provider Relations representative.' },
+      { q: 'Is Cigna accepting new ABA providers in California?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
     ],
   },
 
@@ -3531,6 +3569,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { label: 'Licensure', value: 'None — no California behavior analyst license; QAS provider/professional/paraprofessional tiers (B&P §§ 4999.200–4999.202)' },
       { label: 'California criteria', value: 'CASP ABA Practice Guidelines (3rd ed.) posted as CA commercial ABA criteria + Optum’s CA State Mandates entry' },
       { label: 'Requests', value: 'Assessment: online portal · Treatment: ABA clinical team 1-866-830-0325 or Provider Express' },
+      { label: 'Fee schedule', value: 'None published — paid at the contracted rate on your Optum fee schedule' },
     ],
     sections: [
       {
@@ -3572,6 +3611,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts (California absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: 'Optum — Autism Network Commercial Solo/Agency Provider QRG (BH3865)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaQRG.pdf' },
+        ],
+      },
+      {
+        h2: 'How does UnitedHealthcare (Optum) pay for ABA, and how do you join the network?',
+        body: [
+          'UnitedHealthcare commercial ABA is managed by Optum Behavioral Health, which publishes no ABA rate table. Optum\'s ABA FAQ tells contracted providers to "bill your contracted billing codes and customary charges as outlined on your Fee Schedule after receiving appropriate authorization. You will be reimbursed based on your contracted rate." The fee schedule is the one attached to your Optum agreement; non-contracted providers get approvals through the behavioral-health number on the member\'s card.',
+          'Joining the network: Optum lists credentialing and contracting criteria for ABA providers (BCBA with active certification, state licensure where the state licenses behavior analysts, six months of supervised ABA experience, and professional liability of $1 million per occurrence) and takes applications through the "Join Our Autism/ABA Network" section of its ABA page on Provider Express. Credentialing "can take from 45 to 120 days after submission of all materials," every new agency gets a site audit that can take up to 90 days to schedule, and a single case agreement while credentialing is "Not automatically" available, only in exception cases such as a network gap. Technicians working 1:1 must hold RBT, BCAT or ABAT certification (or an approved alternative).',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
     ],
@@ -3643,7 +3692,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” The CASP guidelines Optum posts as its California commercial criteria allow in-person, telehealth or hybrid delivery.',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” The CASP guidelines Optum posts as its California commercial criteria allow in-person, telehealth or hybrid delivery. The assessment is not on that list: 97151 (initial assessment and reassessment) and 97152 are not payable by telehealth for commercial members, so plan the assessment in person. Supervision is: 97155 is billed with the in-person code and POS 02 or 10 after the attestation (Optum\'s ABA FAQ, Q29), and Optum publishes no minimum in-person share of supervision.',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -3736,6 +3785,9 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Can UHC deny ABA because the child has an IEP?', a: 'Not on that basis alone for California commercial members: Optum’s California State Mandates entry and H&S § 1374.72(h) bar limiting coverage because special education, an IEP or Medicaid could provide the service.' },
       { q: 'Does UnitedHealthcare have a Medi-Cal plan in California?', a: 'No — no UnitedHealthcare Medi-Cal plan operates in any county in 2026. Medi-Cal ABA runs through the county Medi-Cal plan.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On fully insured California plans the treatment plan must be “reviewed no less than once every six months” by the qualified autism service provider.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in California?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
+      { q: 'What is UnitedHealthcare\'s ABA fee schedule in California?', a: 'There is no public one. Optum pays contracted providers at the rate on the fee schedule in their Optum agreement.' },
+      { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in California?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
     ],
   },
 };

@@ -106,6 +106,17 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Administrative Rule R156-61a — Behavior Analyst Licensing Act Rule', url: 'https://adminrules.utah.gov/public/rule/R156-61a/Current%20Rules' },
         ],
       },
+      {
+        h2: 'Is Utah Medicaid\'s ABA network open to new providers?',
+        body: [
+          'There are no plan networks to get into: ABA is fee-for-service, so a provider enrolls once with Utah Medicaid in PRISM and bills the state directly for every member, whatever ACO they carry. The enrollment moratorium Utah DHHS announced in June 2026 does not name ABA. It applies to "new Substance Use Disorder (SUD) and mental health rehabilitation provider enrollments," including enrollments in progress, for an initial six months, with case-by-case exceptions. ABA providers were instead moved to "High-Risk" screening on May 1, 2026: new and existing ABA enrollments now carry fingerprint-based background checks for owners with a 5% or greater interest, unannounced site visits and the federal enrollment fee, and every technician must hold a current NCCA-accredited certification before serving a member.',
+        ],
+        cites: [
+          { title: 'Utah DHHS — Medicaid SUD/ABA High-Risk announcement (June 23, 2026)', url: 'https://dhhs.utah.gov/featured-news/utah-dhhs-will-impose-medicaid-sud-enrollmentmoratorium-to-combat-fraud/' },
+          { title: 'July 2026 Medicaid Information Bulletin — items 26-61 and 26-83 (archived)', url: 'https://web.archive.org/web/20260717062915/https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Information+Bulletins/Traditional+Medicaid+Program/2026/July2026-MIB.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Written ASD diagnosis + completed diagnostic tool', desc: 'Both attach to the initial PA — the diagnosis must rest on evidence-based standardized measures, though no specific instrument is mandated.' },
@@ -168,7 +179,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'ABA may be delivered in multiple settings on the same day: naturally occurring home and community settings, and clinic or center-based settings where the environment can be controlled or group services are provided. Schools are the exception — ASD-related services listed on a child\'s IEP must be provided through the Medicaid School-Based Skills Development Services benefit, and apart from the psychologist\'s or behavior analyst\'s participation in the annual IEP development meeting (billable fee-for-service), Medicaid will not reimburse fee-for-service ABA in school-based settings in addition to services listed on an IEP. School-based settings include LEA-funded charter schools but not privately funded schools. Telehealth reports POS 02. Setting-associated costs — resorts, spas, therapeutic programs, camps — and provider travel time are non-covered.',
+          'ABA may be delivered in multiple settings on the same day: naturally occurring home and community settings, and clinic or center-based settings where the environment can be controlled or group services are provided. Schools are the exception: ASD-related services required under IDEA may be provided in school-based settings but must go through the Medicaid School-Based Skills Development Services benefit, and the January 2026 manual (8-4.1) states that "Apart from the psychologist\'s or behavior analyst\'s participation in the evaluation of a child\'s school-based care plan, the Medicaid agency shall not reimburse fee-for-service ABA services in school-based settings" (the care-plan meeting itself is billable fee-for-service when medically necessary). School-based settings include charter schools but not privately funded schools. Since the January 2026 update, Utah Code 63J-1-212 also bars Medicaid from paying for ASD services in any setting (schools, specialized centers, residential or day-treatment programs) already funded by state or federal money for ASD-associated behaviors: the ABA provider must verify the facility\'s funding sources and submit evidence of that due diligence with the prior-authorization request. Telehealth reports POS 02 (Section I also accepts POS 10). Setting-associated costs — resorts, spas, therapeutic programs, camps — and provider travel time are non-covered.',
         status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
@@ -233,12 +244,13 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Covered for supervision of an assistant behavior analyst or behavior technician and for parent training when clinically appropriate (per Utah Administrative Rule R414-42), synchronous only — real-time two-way video and audio — with the provider delivering or supervising only one member or one group session at a time and documentation substantiating clinical appropriateness. Not covered by telehealth: adaptive behavior treatment administered by a technician, group adaptive behavior treatment administered by a technician, and group adaptive behavior treatment with protocol modification administered by a QHP. Remote services report Place of Service 02 on the CMS-1500, and the treatment plan must describe the settings including hours delivered via remote technology. Coming change: from January 1, 2027, Medicaid Information Bulletin item 26-89 requires modifier 95 (real-time audio and video) or 93 (audio-only) on services delivered via telehealth — since ABA telehealth must be two-way video and audio, that means 95 alongside POS 02.',
+          'Assessment and supervision can both be remote. The January 2026 ASD manual (8-3.4) says: "When clinically appropriate, behavior identification assessments and supervision of an assistant behavior analyst or behavior technician may occur via remote access technology" — so 97151 (initial and ongoing reassessment) and 97155 supervision may be delivered by telehealth, with no published in-person share of supervision. Parent training is also covered when clinically appropriate (per Utah Administrative Rule R414-42). Synchronous only — real-time two-way video and audio — with the provider delivering or supervising only one member or one group session at a time and documentation substantiating clinical appropriateness. Not covered by telehealth: adaptive behavior treatment administered by a technician, group adaptive behavior treatment administered by a technician, and group adaptive behavior treatment with protocol modification administered by a QHP. The ASD manual says remote services report Place of Service 02; Section I (updated September 2026) accepts POS 02 or POS 10 (telehealth in the patient\'s home) on the 837P and states that "Services provided via telehealth have the same service thresholds, authorization requirements, and reimbursement rates as services delivered face-to-face." The treatment plan must describe the settings including hours delivered via remote technology. Coming change: from January 1, 2027, Medicaid Information Bulletin item 26-89 requires modifier 95 (real-time audio and video) or 93 (audio-only) on services delivered via telehealth — since ABA telehealth must be two-way video and audio, that means 95 alongside POS 02.',
         status: 'verified',
         cites: [
           { title: 'Utah Medicaid Information Bulletin, September 2026 — item 26-89 Telehealth Modifiers Update', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Information+Bulletins/Traditional+Medicaid+Program/2026/September2026-MIB.pdf' },
           { title: 'Utah Medicaid Provider Manual — ASD Services (July 2023 edition, archived)', url: 'https://web.archive.org/web/20240821082018/https://medicaid.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder7-23.pdf' },
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information (updated September 2026), ch. 8-4.2 Telehealth', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
       },
       authTurnaround: {
@@ -268,6 +280,9 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'What does Utah Medicaid pay for ABA?', a: 'Published in the PRISM lookup, effective 7/1/2026 per 15-minute unit: 97153 pays $19.67; 97151, 97155, and 97156 each pay $37.51 (97155 with credential modifiers HP/HO/HN but one published rate).' },
       { q: 'Which insurance pays the highest ABA rates in Utah?', a: 'Only Utah Medicaid publishes its ABA rates, so it is the only payer whose rates can be compared from public sources. For dates of service on and after July 1, 2026 its PRISM fee schedule (Provider Allowable Code 166, Applied Behavioral Analyst) pays per 15-minute unit: 97153 $19.67; 97151, 97155, 97156 and indirect supervision H0032 $37.51; group 97154 $13.91; 97157 and 97158 are covered at $0.00 and 97152 is not covered. Commercial ABA rates in Utah (Select Health commercial, Aetna, Cigna, UnitedHealthcare/Optum) are not published; they are negotiated in each participating-provider agreement, so no public source can say which commercial plan pays most \u2014 use the Medicaid schedule as the benchmark in negotiation. SelectHealth Community Care members are not a separate rate: their ABA is paid by Utah Medicaid fee-for-service at the same schedule.' },
       { q: 'Can adults get ABA under Utah Medicaid?', a: 'Yes — Utah\'s ASD services are not an EPSDT child-only benefit. The state offers them regardless of age, and PRISM lists Traditional Adult and Targeted Adult plans among covered eligibility groups.' },
+      { q: 'Can the 97151 assessment or BCBA supervision be done by telehealth under Utah Medicaid?', a: 'Yes, when clinically appropriate. The ASD manual allows behavior identification assessments and supervision of a technician or assistant analyst by synchronous two-way video, plus parent training. Technician-delivered 97153/97154 and group 97158 are not covered by telehealth. Bill POS 02 (or POS 10); from January 1, 2027 add modifier 95.' },
+      { q: 'Is Utah Medicaid accepting new ABA providers?', a: 'The June 2026 enrollment moratorium names only new SUD and mental-health rehabilitation providers, not ABA. ABA providers enroll with Utah Medicaid in PRISM, now under High-Risk screening (owner fingerprinting, site visits).' },
+      { q: 'Does Utah Medicaid pay for ABA in school?', a: 'Not fee-for-service. ASD services in school go through the School-Based Skills Development benefit; the analyst\'s participation in the school care-plan meeting is the only school-setting ABA service billable fee-for-service.' },
     ],
   },
 
@@ -443,7 +458,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — home, community and clinic settings are payable across the same day, while IEP-listed school services route to the School-Based Skills Development benefit instead. For commercial members, Select Health\'s ABA Preauthorization Form collects a full weekly schedule by setting (office, home, other) plus school and other-therapy schedules and IEP/ISP/504/ARD status, which is how setting is actually adjudicated; Policy #630 adds only that "community-based treatments are optimized" with documented collaboration among stakeholders including school psychologists, without naming allowed POS codes.',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — home, community and clinic settings are payable across the same day, while school ASD services route to the School-Based Skills Development benefit and the January 2026 manual says Medicaid "shall not reimburse fee-for-service ABA services in school-based settings" beyond the analyst\'s part in the school care-plan meeting. For commercial members, Select Health\'s ABA Preauthorization Form collects a full weekly schedule by setting (office, home, other) plus school and other-therapy schedules and IEP/ISP/504/ARD status, which is how setting is actually adjudicated; Policy #630 adds only that "community-based treatments are optimized" with documented collaboration among stakeholders including school psychologists, without naming allowed POS codes.',
         status: 'plan-dependent',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
@@ -526,7 +541,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — telehealth covers supervision and parent training but not technician-delivered 97153/97154 or QHP-delivered group 97158, synchronous only, POS 02. For commercial members the Preauthorization Form collects a weekly ABA schedule by setting (office, home, other), and Policy #630 — now directly confirmed — states no telehealth-specific modality rule of its own for ABA.',
+          'For SelectHealth Community Care (Medicaid) members this is not a Select Health question: ABA is carved out of every Utah Medicaid ACO to state fee-for-service, so the Utah Medicaid rule governs — the January 2026 ASD manual lets behavior identification assessments (97151) and supervision of a technician or assistant analyst (97155) occur by remote access technology when clinically appropriate, plus parent training, but not technician-delivered 97153/97154 or QHP-delivered group 97158; synchronous two-way video only, POS 02 (Section I also accepts POS 10). For commercial members the Preauthorization Form collects a weekly ABA schedule by setting (office, home, other), and Policy #630 — now directly confirmed — states no telehealth-specific modality rule of its own for ABA.',
         status: 'verified',
         cites: [
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
@@ -564,6 +579,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Does Select Health cover ABA therapy in Utah?', a: 'Depends which Select Health. SelectHealth Community Care (the Medicaid ACO) never administers ABA — it rides Utah Medicaid\'s fee-for-service carve-out. Select Health commercial (employer/individual) plans cover ABA under the plan\'s own Policy #630, with prior authorization required.' },
       { q: 'My client has "Select Health Community Care" — where does the ABA request go?', a: 'To Utah Medicaid directly, not to Select Health. ABA is carved out of all four Utah Medicaid ACOs (including SelectHealth Community Care) to state fee-for-service — see our Utah Medicaid guide.' },
       { q: 'How do I submit an ABA prior authorization to Select Health commercial?', a: 'Select Health\'s ABA Preauthorization Form, emailed to commercialUMintake@imail.org (fax 801-442-0825 as backup). Decisions on Utah commercial plans are due within 14 days.' },
+      { q: 'Does Select Health require RBT certification for ABA technicians?', a: 'Depends on the product. Community Care (Medicaid) ABA follows Utah Medicaid, which requires technicians to be fully certified (RBT, QABA or BICC) before serving any member. For commercial members, Policy #630 requires ABA to be delivered or supervised by a licensed behavior analyst, BCBA or licensed psychologist and, where unlicensed or non-certified staff are allowed, supervision in line with practice standards (at least 5% of direct hours, monthly); it names no RBT requirement.' },
       { q: 'What does Select Health pay for ABA?', a: 'No published fee schedule exists for either product. Community Care members\' ABA is paid at Utah Medicaid\'s own PRISM rates (not a Select Health rate); commercial rates are negotiated in your participating-provider agreement.' },
     ],
   },
@@ -878,6 +894,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'No hour limit since 2020; 600 hr/yr floor on legacy pre-2020 plans' },
       { label: 'Exempt from mandate', value: 'Small group plans; self-funded ERISA' },
       { label: 'Licensure', value: 'UT Licensed Behavior Analyst (DOPL, Utah Code 58-61 Part 7)' },
+      { label: 'Fee schedule', value: 'None published — contracted rates in your Evernorth agreement; ask Provider Relations' },
     ],
     sections: [
       {
@@ -916,6 +933,16 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7 (official)', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
+        ],
+      },
+      {
+        h2: 'How does Cigna pay for ABA, and is its network open?',
+        body: [
+          'Cigna publishes no ABA fee schedule. In-network ABA is paid at the rates in your Evernorth behavioral-health agreement; the autism resource guide sends "questions about credentialing, contracts, or rates" to your Provider Relations representative, and billing questions to Provider Services at 800.926.2273. Bill only 97151-97158, 0362T and 0373T, in 15-minute units.',
+          'Network: Evernorth says it "is committed to expanding our network of autism providers." Individual analysts apply on the Evernorth Behavioral Provider Information Form and autism clinics or large groups on the Evernorth Screening Application for Autism Clinics; processing can take up to 90 days, and after a clinic contract each certified or licensed provider must be credentialed (another 60 to 90 days) before rendering in-network services. Evernorth requires the clinician to hold a national certification or state license (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral-health licensure). It "does not credential nonlicensed/noncertified staff" such as technicians, whose services "must be billed under the supervising provider."',
+        ],
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
     ],
@@ -1033,10 +1060,11 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements; the line-of-sight and close-proximity requirement on direct treatment expressly does not apply to telehealth services.',
+          '"All ABA CPT codes are covered telehealth services," per Evernorth\'s autism resource guide (March 2025). EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements; the line-of-sight and close-proximity requirement on direct treatment expressly does not apply to telehealth services. The assessment and supervision codes are included: the resource guide\'s "All ABA CPT codes" covers 97151 (initial assessment and reassessment) and 97155 (protocol modification / direct supervision) as much as 97153, and neither document caps the share of supervision that may be remote. Neither names a required telehealth POS code or modifier, so confirm claim coding with Evernorth Provider Services (800.926.2273).',
         status: 'verified',
         cites: [
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
       authTurnaround: {
@@ -1069,6 +1097,8 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment need prior authorization with Cigna in Utah?', a: 'No — EN0499 requires no PA on assessment codes 97151, 97152, and 0362T, and Utah is fully subject to that policy. Treatment then requires the completed assessment plus a treatment plan with Cigna\'s ABA PA form.' },
       { q: 'What does the Utah autism mandate require?', a: 'For individual and large-group plans entered or renewed since 1/1/2020: coverage for ASD diagnosis and treatment with no age limit and no cap on ABA hours, a treatment plan due within 14 business days of starting treatment, insurer reviews at most every 3 months, and networks that include BCBAs. Small group is not covered by the statute.' },
       { q: 'What does Cigna pay for ABA in Utah?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against Utah Medicaid\'s published PRISM rates ($19.67/unit on 97153, $37.51 on 97151/97155/97156, effective 7/1/2026) and treat rate-setting as part of contracting.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with Cigna in Utah?', a: 'Yes. Evernorth\'s autism resource guide says all ABA CPT codes are covered telehealth services, and EN0499 allows in-person, telehealth or hybrid delivery. No POS code or modifier is published; confirm claim coding with Provider Services (800.926.2273).' },
+      { q: 'Is Cigna accepting new ABA providers in Utah?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
     ],
   },
 
@@ -1116,6 +1146,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'No hour limit since 2020; 600 hr/yr floor on legacy pre-2020 plans' },
       { label: 'Exempt from mandate', value: 'Small group plans; self-funded ERISA' },
       { label: 'Licensure', value: 'UT Licensed Behavior Analyst (DOPL, Utah Code 58-61 Part 7)' },
+      { label: 'Fee schedule', value: 'None published — paid at the contracted rate on your Optum fee schedule' },
     ],
     sections: [
       {
@@ -1154,6 +1185,16 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7 (official)', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
+        ],
+      },
+      {
+        h2: 'How does UnitedHealthcare (Optum) pay for ABA, and how do you join the network?',
+        body: [
+          'UnitedHealthcare commercial ABA is managed by Optum Behavioral Health, which publishes no ABA rate table. Optum\'s ABA FAQ tells contracted providers to "bill your contracted billing codes and customary charges as outlined on your Fee Schedule after receiving appropriate authorization. You will be reimbursed based on your contracted rate." The fee schedule is the one attached to your Optum agreement; non-contracted providers get approvals through the behavioral-health number on the member\'s card.',
+          'Joining the network: Optum lists credentialing and contracting criteria for ABA providers (BCBA with active certification, state licensure where the state licenses behavior analysts, six months of supervised ABA experience, and professional liability of $1 million per occurrence) and takes applications through the "Join Our Autism/ABA Network" section of its ABA page on Provider Express. Credentialing "can take from 45 to 120 days after submission of all materials," every new agency gets a site audit that can take up to 90 days to schedule, and a single case agreement while credentialing is "Not automatically" available, only in exception cases such as a network gap. Technicians working 1:1 must hold RBT, BCAT or ABAT certification (or an approved alternative).',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
     ],
@@ -1278,7 +1319,7 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” The assessment is not on that list: 97151 (initial assessment and reassessment) and 97152 are not payable by telehealth for commercial members, so plan the assessment in person. Supervision is: 97155 is billed with the in-person code and POS 02 or 10 after the attestation (Optum\'s ABA FAQ, Q29), and Optum publishes no minimum in-person share of supervision.',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -1319,6 +1360,9 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'What does the Utah autism mandate require?', a: 'For individual and large-group plans entered or renewed since 1/1/2020: coverage for ASD diagnosis and treatment with no age limit and no cap on ABA hours, a treatment plan due within 14 business days of starting treatment, insurer reviews at most every 3 months, and networks that include BCBAs. Small group is not covered by the statute.' },
       { q: 'What does UnitedHealthcare pay for ABA in Utah?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against Utah Medicaid\'s published PRISM rates ($19.67/unit on 97153, $37.51 on 97151/97155/97156, effective 7/1/2026) and treat rate-setting as part of contracting.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. Under the Utah mandate the insurer may review the treatment plan at most once every 3 months.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in Utah?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
+      { q: 'What is UnitedHealthcare\'s ABA fee schedule in Utah?', a: 'There is no public one. Optum pays contracted providers at the rate on the fee schedule in their Optum agreement.' },
+      { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in Utah?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
     ],
   },
 };

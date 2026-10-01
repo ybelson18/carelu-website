@@ -199,7 +199,7 @@ const EPH_QRG = src('https://www.elpasohealth.com/pdf/EPH-STARCHIPSTARPLUS%20Qui
 
 const FIRSTCARE_PA_LIST = src(
   'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf',
-  'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026) — lists 97151,97153,97154,97155,97156,97158,99366 as requiring authorization, filed under "Therapy services." 97152, 97157, 0362T, 0373T absent from this Medicaid-specific list (they appear only in FirstCare\'s separate commercial Medical Coverage Policy #206).'
+  'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026; re-checked 10/1/2026, ABA rows unchanged) — lists 97151,97153,97154,97155,97156,97158,99366 as requiring authorization, filed under "Therapy services." 97152, 97157, 0362T, 0373T absent from this Medicaid-specific list (they appear only in FirstCare\'s separate commercial Medical Coverage Policy #206).'
 );
 const FIRSTCARE_POLICY_206 = src('https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf', 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder — explicitly defers Medicaid coverage decisions to the TMPPM; confirms the mandate\'s $36,000/yr cap does not apply to Medicaid.');
 const FIRSTCARE_PROVIDER_MANUAL = src('https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf', 'FirstCare — 2026 STAR and CHIP Provider Manual — general PA turnaround 3 working days; submit ≥5 days before anticipated service date.');

@@ -110,6 +110,17 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'HCPF Provider Enrollment (fingerprint background check requirements & CY2026 fee)', url: 'https://hcpf.colorado.gov/provider-enrollment' },
         ],
       },
+      {
+        h2: 'Is Health First Colorado\'s ABA network open, and how do providers join?',
+        body: [
+          'There is no plan network to get into. Pediatric Behavioral Therapies are carved out to fee-for-service, so a provider enrolls once with Health First Colorado and bills the state for any eligible member, whatever their RAE. The PBT billing manual (revised July 15, 2026) sets the route: "Organizations with a Tax ID must enroll as Provider Type 83 - Behavioral Therapy Clinic," and the clinicians who may affiliate with that clinic are doctoral psychologists (Provider Type 37), licensed behavioral health clinicians (Type 38) and behavioral therapists (Type 84). Providers still enrolled as Type 25 for PBT "must disenroll and start a new application for type 83." Claims carry both a rendering and a billing NPI.',
+          'Before billing, Section 8.281 requires the agency to keep its technicians certified (RBT, or ABAT with 5% quarterly supervision) and background-checked annually, and every service still needs an approved PAR from Acentra. The manual does not describe any enrollment cap or moratorium for Type 83; confirm current enrollment status with HCPF provider enrollment if you are applying now.',
+        ],
+        cites: [
+          { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF; revisions through 7/15/2026)', url: 'https://hcpf.colorado.gov/pbt-manual' },
+          { title: 'HCPF Emergency Rule MSB 25-09-04-A — Section 8.281 (Oct 2025)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Doc%2009%20MSB%2025-09-04-Av1%20Emergency%20-%20Oct%202025.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which of the three pathways applies', desc: 'ASD diagnosis, functional interference (with a standardized assessment), or safety risk — no autism dx needed, so screen for all three instead of gating on diagnosis.' },
@@ -282,6 +293,8 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'What does Colorado Medicaid pay for ABA?', a: 'For dates of service on or after 10/1/2025: 97153 pays $17.20 and 97155 pays $25.80 per 15-minute unit (single rate per code, no credential tiers); 97151 pays a flat $866.88 per assessment (down from $882.78 before the October cut), once per 365 days, and 97151-TJ pays $39.61 per unit. Group codes 97154/97158 were cut 23-48% in the same bulletin. HCPF\'s July 1, 2026 v1.3 fee schedule carries exactly these PBT rates, so they are the rates in force for FY2026-27.' },
       { q: 'Does Colorado require an autism diagnosis for ABA?', a: 'It depends on the payer. Health First Colorado (Medicaid) does not: its Criteria for Behavioral Therapies open the benefit on a qualifying diagnosed condition (ASD is one, not the only one), functional interference with home, school or community participation, or a safety risk \u2014 though a signed comprehensive diagnostic evaluation from the previous 12 months is still required. Commercial plans are the opposite: the state mandate, C.R.S. \u00a7 10-16-104(1.4), is a mandate for the treatment of autism spectrum disorders, and the carriers\' ABA policies (Aetna, Cigna, UnitedHealthcare/Optum, Anthem) cover ABA for an ASD diagnosis \u2014 see each carrier guide\'s diagnosis field.' },
       { q: 'Which ABA payer contract pays best in Colorado?', a: 'Only Medicaid publishes its ABA rates, so only Medicaid can be compared on paper. Health First Colorado pays one statewide rate per code with no credential tiers: 97153 $17.20 and 97155 $25.80 per 15-minute unit, 97151 a flat $866.88 per assessment, group codes 97154 $8.81 and 97158 $9.34, and nothing at all for 97156 (July 1, 2026 v1.3 fee schedule). Commercial ABA rates in Colorado (Aetna, Cigna, UnitedHealthcare/Optum, Anthem) are not published; they are negotiated in each participating-provider agreement, so the answer for a commercial contract is whatever you negotiate, benchmarked against the Medicaid schedule. The non-rate terms differ too: Medicaid prior-authorizes every code including 97151, requires EVV in home and community settings and does not pay parent training, while fully insured commercial plans answer to a mandate with no age limit and no dollar cap and self-funded plans are exempt from it.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth in Colorado Medicaid?', a: 'Yes. Every PBT code, including 97151 and 97155, is on HCPF\'s allowable telemedicine list, on any modality, billed with POS 02 or 10. Telemedicine does not change the PAR requirement, and the member must first receive signed written disclosure statements.' },
+      { q: 'Is Health First Colorado accepting new ABA providers, and how do they join?', a: 'Enroll the agency with HCPF as Provider Type 83 (Behavioral Therapy Clinic) and affiliate its psychologists, licensed clinicians and behavioral therapists (Types 37, 38, 84). ABA is fee-for-service, so there are no RAE networks to join for it.' },
     ],
   },
 
@@ -559,6 +572,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'None — the historical $34K/$12K annual ABA caps were removed' },
       { label: 'Exempt from mandate', value: 'Short-term limited-duration; individual grandfathered; self-funded ERISA' },
       { label: 'Licensure', value: 'None yet (BCBA governs) — state license required 7/1/2028 per HB26-1425' },
+      { label: 'Fee schedule', value: 'None published — contracted rates in your Evernorth agreement; ask Provider Relations' },
     ],
     sections: [
       {
@@ -596,6 +610,16 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+        ],
+      },
+      {
+        h2: 'How does Cigna pay for ABA, and is its network open?',
+        body: [
+          'Cigna publishes no ABA fee schedule. In-network ABA is paid at the rates in your Evernorth behavioral-health agreement; the autism resource guide sends "questions about credentialing, contracts, or rates" to your Provider Relations representative, and billing questions to Provider Services at 800.926.2273. Bill only 97151-97158, 0362T and 0373T, in 15-minute units.',
+          'Network: Evernorth says it "is committed to expanding our network of autism providers." Individual analysts apply on the Evernorth Behavioral Provider Information Form and autism clinics or large groups on the Evernorth Screening Application for Autism Clinics; processing can take up to 90 days, and after a clinic contract each certified or licensed provider must be credentialed (another 60 to 90 days) before rendering in-network services. Evernorth requires the clinician to hold a national certification or state license (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral-health licensure). It "does not credential nonlicensed/noncertified staff" such as technicians, whose services "must be billed under the supervising provider."',
+        ],
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
     ],
@@ -653,7 +677,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          '"All ABA CPT codes are covered telehealth services," subject to EN0499. The policy adds a documentation duty rather than a code restriction: where services are delivered "via telehealth modalities," the record must show the service still meets the definition of direct treatment/direct engagement "regardless of treatment location or modality" and is conducted per the treatment-plan goals.',
+          '"All ABA CPT codes are covered telehealth services," subject to EN0499. The policy adds a documentation duty rather than a code restriction: where services are delivered "via telehealth modalities," the record must show the service still meets the definition of direct treatment/direct engagement "regardless of treatment location or modality" and is conducted per the treatment-plan goals. The assessment and supervision codes are included: the resource guide\'s "All ABA CPT codes" covers 97151 (initial assessment and reassessment) and 97155 (protocol modification / direct supervision) as much as 97153, and neither document caps the share of supervision that may be remote. Neither names a required telehealth POS code or modifier, so confirm claim coding with Evernorth Provider Services (800.926.2273).',
         status: 'verified',
         cites: [
           { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
@@ -741,6 +765,8 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment need prior authorization with Cigna in Colorado?', a: 'Per the national EN0499 policy, no — assessment codes 97151, 97152, and 0362T need no PA, and we found no Colorado carve-out from that policy. Confirm on the benefits call, since the current policy PDF could not be fully parsed for the state-exceptions list.' },
       { q: 'What does the Colorado autism mandate require?', a: 'It applies to all Colorado-issued or renewed health benefit plans (short-term limited-duration and individual grandfathered plans excepted), with no age limits and no dollar caps — the historical $34K/$12K annual ABA caps were removed from the statute. Self-funded ERISA plans are exempt by preemption.' },
       { q: 'What does Cigna pay for ABA in Colorado?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Health First Colorado fee schedule, and treat rate-setting as part of contracting.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with Cigna in Colorado?', a: 'Yes. Evernorth\'s autism resource guide says all ABA CPT codes are covered telehealth services, and EN0499 allows in-person, telehealth or hybrid delivery. No POS code or modifier is published; confirm claim coding with Provider Services (800.926.2273).' },
+      { q: 'Is Cigna accepting new ABA providers in Colorado?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
     ],
   },
 
@@ -783,6 +809,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'None — the historical $34K/$12K annual ABA caps were removed' },
       { label: 'Exempt from mandate', value: 'Short-term limited-duration; individual grandfathered; self-funded ERISA' },
       { label: 'Licensure', value: 'None yet (BCBA governs) — state license required 7/1/2028 per HB26-1425' },
+      { label: 'Fee schedule', value: 'None published — paid at the contracted rate on your Optum fee schedule' },
     ],
     sections: [
       {
@@ -820,6 +847,16 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+        ],
+      },
+      {
+        h2: 'How does UnitedHealthcare (Optum) pay for ABA, and how do you join the network?',
+        body: [
+          'UnitedHealthcare commercial ABA is managed by Optum Behavioral Health, which publishes no ABA rate table. Optum\'s ABA FAQ tells contracted providers to "bill your contracted billing codes and customary charges as outlined on your Fee Schedule after receiving appropriate authorization. You will be reimbursed based on your contracted rate." The fee schedule is the one attached to your Optum agreement; non-contracted providers get approvals through the behavioral-health number on the member\'s card.',
+          'Joining the network: Optum lists credentialing and contracting criteria for ABA providers (BCBA with active certification, state licensure where the state licenses behavior analysts, six months of supervised ABA experience, and professional liability of $1 million per occurrence) and takes applications through the "Join Our Autism/ABA Network" section of its ABA page on Provider Express. Credentialing "can take from 45 to 120 days after submission of all materials," every new agency gets a site audit that can take up to 90 days to schedule, and a single case agreement while credentialing is "Not automatically" available, only in exception cases such as a network gap. Technicians working 1:1 must hold RBT, BCAT or ABAT certification (or an approved alternative).',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
     ],
@@ -880,7 +917,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” The assessment is not on that list: 97151 (initial assessment and reassessment) and 97152 are not payable by telehealth for commercial members, so plan the assessment in person. Supervision is: 97155 is billed with the in-person code and POS 02 or 10 after the attestation (Optum\'s ABA FAQ, Q29), and Optum publishes no minimum in-person share of supervision.',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -969,6 +1006,8 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'What if the family is on Rocky Mountain Health Plans (RMHP)?', a: 'RMHP is UnitedHealthcare\'s Colorado Medicaid footprint, but ABA is a state fee-for-service carve-out — RMHP does not authorize or pay ABA claims. Those members follow the Health First Colorado process (Acentra PAR, state fee schedule) in our Colorado Medicaid guide.' },
       { q: 'What does UnitedHealthcare pay for ABA in Colorado?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Health First Colorado fee schedule, and treat rate-setting as part of contracting.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in Colorado?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
+      { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in Colorado?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
     ],
   },
 

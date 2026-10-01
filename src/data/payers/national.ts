@@ -66,16 +66,16 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'Provider qualifications',
-        cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         body: [
           'Practitioners delivering ABA under Aetna policy need BACB national certification or state behavior-analyst licensure; unlicensed staff work under supervision per practice standards. The diagnosis itself must come from a provider qualified to diagnose within their scope — licensed psychologist, psychiatrist, or physician. CPB 0648 also references intensive-intervention research norms (25 hours/week, 12 months/year), useful context when justifying requested intensity.',
         ],
       },
       {
         h2: 'Telehealth',
-        cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
         body: [
-          'Aetna covers telehealth for 97151, 97153, 97155, 97156, and 97157 (97152 is excluded), billed with GT/95/FR modifiers per its telemedicine payment policy. Notably, Aetna announced it would end ABA telehealth coverage in late 2023 — then rescinded the change within weeks. The lesson for intake: telehealth rules are volatile; verify the current position on every benefits check rather than assuming last quarter\'s answer.',
+          'On commercial plans Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 as telehealth-eligible (97152, 97154 and 97158 are checked for Medicare Advantage only), billed with GT/95/FR modifiers; the posted policy shows a last review of June 2021. Notably, Aetna announced it would end ABA telehealth coverage in late 2023 — then rescinded the change within weeks. The lesson for intake: telehealth rules are volatile; verify the current position on every benefits check rather than assuming last quarter\'s answer.',
         ],
       },
       {
@@ -99,13 +99,14 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Practitioners delivering ABA under CPB 0554 need BACB national certification or state behavior-analyst licensure, and unlicensed staff work under supervision per practice standards. Aetna publishes no hours-per-hours ratio of its own. The precertification form does make supervision a submission fact rather than an internal one: it asks for the name and credential of the BCBA or licensed clinician overseeing the case. For context on intensity rather than supervision, CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year.',
+          'Aetna\'s ABA medical necessity guide: services "must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists" unless state mandates, plan documents or contracts require otherwise, and where those allow unlicensed or non-certified staff "there must be supervision and direction of the unlicensed or non-certified providers in line with practice standards." No RBT credential is named. Aetna publishes no hours-per-hours ratio of its own. The precertification form does make supervision a submission fact rather than an internal one: it asks for the name and credential of the BCBA or licensed clinician overseeing the case. For context on intensity rather than supervision, CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year.',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
       },
       concurrentBilling: {
         value:
@@ -117,9 +118,9 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'Not published for ABA. CPB 0554 sets who may deliver the service \u2014 BACB-certified or state-licensed behavior analysts, with unlicensed staff supervised \u2014 but does not state whose NPI carries a technician-delivered 97153 claim, or which degree-level modifiers apply.',
+          'Not published for ABA. Aetna\'s ABA medical necessity guide sets who may deliver or bill the service \u2014 BACB-certified or state-licensed behavior analysts, with unlicensed staff supervised \u2014 but does not state whose NPI carries a technician-delivered 97153 claim, or which degree-level modifiers apply.',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
         verifyVia: 'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required modifiers before the first claim.',
         blocker: 'per-case',
       },
@@ -141,10 +142,10 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Not published as a payable-settings list. What CPB 0554 does make a submission requirement is adjacent and useful: the precertification form asks for concurrent services \u2014 PT, OT, speech and school services \u2014 plus how care is coordinated across them, so the school picture is data Aetna collects even though it publishes no school-versus-home rule.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia: 'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA and whether school-based delivery is excluded.',
+          'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
+        verifyVia: 'The member\'s benefit document (educational-services exclusion), and Aetna provider services for whether school-setting ABA is payable on that plan.',
         blocker: 'per-case',
       },
     },
@@ -187,9 +188,10 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Covered for 97151, 97153, 97155, 97156 and 97157; 97152 is excluded. Bill with GT, 95 or FR modifiers per Aetna\'s telemedicine payment policy. Treat the answer as perishable rather than settled: Aetna announced it would end ABA telehealth coverage in late 2023 and rescinded the change within weeks. Verify the current position on every benefits check rather than reusing last quarter\'s answer.',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, and Aetna announced an end to ABA telehealth coverage in late 2023 before rescinding it within weeks, so treat the list as perishable.',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
       },
       authTurnaround: {
         value:
@@ -219,6 +221,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy?', a: 'Yes — for autism spectrum disorder (ICD-10 F84.0–F84.9) under clinical policy CPB 0554, with precertification. Aetna considers ABA experimental for non-ASD indications.' },
       { q: 'Does Aetna require prior authorization for ABA?', a: 'Yes. Precertification is initiated on Availity or by phone, and form GR-69017-4 (7-26 revision, eff. 8/1/2026) supplies diagnosis details, requested hours per CPT code, the supervising clinician, and concurrent services.' },
       { q: 'Does Aetna cover ABA by telehealth?', a: 'Yes, for codes 97151, 97153, 97155, 97156, and 97157 (not 97152) — but the policy has shifted before, so confirm the current rule during each benefits verification.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
     ],
   },
 
@@ -299,6 +302,13 @@ export const nationalPayers: Record<string, PayerConfig> = {
         body: [
           'Assessment and case supervision must come from a BCBA, licensed behavior analyst, or independently licensed clinician with documented ABA training, with direct supervision at the standard 1–2 hours per 10 hours of direct treatment. Evernorth doesn\'t credential non-licensed staff — RBT services bill under the supervising provider.',
         ],
+      },
+      {
+        h2: 'Is Cigna\'s ABA network open to new providers?',
+        body: [
+          'Evernorth Behavioral Health, which runs Cigna\'s ABA network, says it "is committed to expanding our network of autism providers." It requires providers to be certified by a national governing body or a state licensing board (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral health licensure). Individual providers complete the Evernorth Behavioral Provider Information Form; autism clinics and large group practices complete the Evernorth Screening Application for Autism Clinics. An application can take up to 90 days, and once a clinic contract is signed each certified or licensed provider must also be credentialed, which "can take an additional 60 to 90 days." Providers must be fully credentialed to render in-network services. "Evernorth does not credential nonlicensed/noncertified staff": technician services are billed under the supervising provider.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
     ],
     collect: [
@@ -391,7 +401,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The most permissive published position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model \u2014 in person, telehealth or hybrid \u2014 chosen on the individual\'s needs rather than by code. State Medicaid telehealth restrictions do not reach commercial Cigna business.',
+          'The most permissive published position in this directory: Cigna\'s March 2025 autism resource guide states that all ABA CPT codes are covered telehealth services, with the delivery model \u2014 in person, telehealth or hybrid \u2014 chosen on the individual\'s needs rather than by code. State Medicaid telehealth restrictions do not reach commercial Cigna business. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth.',
         status: 'verified',
         cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
@@ -424,6 +434,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna require prior authorization for ABA?', a: 'Not for assessment codes (97151, 97152, 0362T) when there\'s an autism diagnosis and the provider is independently licensed or a BCBA. Treatment services do require authorization — assessment plus treatment plan with the PA form.' },
       { q: 'Does Cigna cover ABA by telehealth?', a: 'Yes — its March 2025 provider guide states all ABA CPT codes are covered telehealth services, with delivery (in-person, telehealth, hybrid) based on the individual\'s needs.' },
       { q: 'Can a child receive ABA and speech therapy under Cigna?', a: 'Yes, but not at the same time of day — Cigna doesn\'t cover ABA delivered concurrently with another therapy session. Intake should capture the existing therapy schedule to plan around it.' },
+      { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
+      { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
     ],
   },
 
@@ -604,7 +616,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth, and neither is the 97151 assessment or the technician-assisted 97152: plan the assessment in person. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -644,6 +656,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare require prior authorization for ABA?', a: 'Yes — a two-step process via Optum\'s Provider Express portal: an assessment authorization first, then a treatment authorization, generally under Optum\'s Supplemental Clinical Criteria unless state law specifies otherwise.' },
       { q: 'How often does Optum review ABA authorizations?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'What happens if a family uses fewer hours than authorized?', a: 'Utilization below 80% of authorized hours over a two-week period draws scrutiny at review. Intake should capture realistic availability so the requested intensity matches what the family can actually attend.' },
+      { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
+      { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
     ],
   },
   'meritain-health': {

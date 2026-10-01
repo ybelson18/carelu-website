@@ -110,6 +110,16 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'BCBSNM Turquoise Care BH Provider Training (roster enrollment process)', url: 'https://www.bcbsnm.com/docs/provider/nm/education/training/tc-bh-provider-training.pdf' },
         ],
       },
+      {
+        h2: 'Switching or stopping ABA agencies under New Mexico Medicaid',
+        body: [
+          'MAD Supplement 24-13 sets rules for ending services, not for moving an authorization between agencies. Before stopping services for lack of progress, the agency must work the barriers with the MCO care coordinator. A short halt (about a month) can be agreed and restarted on a set date. Otherwise the agency may terminate, and "Unless medically warranted for immediate discharge, discharge date must be at least 30 calendar days from the date the recipient or Family Set is notified in writing."',
+          'Restarting is a new start: "the BA will complete ABA Stage 2 services and submit a new 6-month prior authorization," and if the gap runs past the last Service Authorization period a new Service Authorization is needed too. The terminating agency "is not obligated to accept the recipient back" and "may refer the recipient to another AP agency." The supplement does not say whether an existing prior authorization moves to a new agency when a family switches; ask the MCO (or the TPA for fee-for-service) before the first session with the new agency.',
+        ],
+        cites: [
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Turquoise Care MCO (or FFS)', desc: 'BCBSNM, Molina, Presbyterian, UHC Community Plan, or FFS/TPA — same clinical criteria, different submission machinery.' },
@@ -133,6 +143,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'BACB — U.S. Licensure of Behavior Analysts (NM absent; checked July 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
       { title: 'BCBSNM Turquoise Care BH Provider Training (roster enrollment process)', url: 'https://www.bcbsnm.com/docs/provider/nm/education/training/tc-bh-provider-training.pdf' },
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+      { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -175,14 +186,12 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'NMAC 8.321.2.13 contains no telehealth or telemedicine provision for ABA, and the shared Turquoise Care Behavioral Health Level of Care Guidelines set none for ABA Stage 3 either — so no statewide per-code telehealth rule could be verified for the ABA benefit.',
-        status: 'unverified',
+        value: 'Allowed. MAD Supplement 24-13 (section 3.2.1) says MAD "allows and encourages the utilization of telemedicine to deliver MAD ABA services," to bring home- and community-based ABA to rural and frontier areas, and points to 8.310.2 NMAC for the requirements: a HIPAA-compliant system with interactive audio and video in real time, with coverage "determined in a manner consistent with medicaid coverage for health care services provided through in person consultation." In-state BCBAs, BCaBAs, RBTs, BCATs and non-certified technicians need no telemedicine license; an out-of-state MD/DO diagnostician does. Supervision is expressly remote-capable: 97155 may be delivered through telemedicine when the BA directs the technician and the recipient by observing behavior or troubleshooting protocols (not when the BA joins in person), the recipient must be present, and the one-hour-per-20-hours minimum of 97155 still applies. Where an agency documents annually to the MCO or TPA that its transmission provider cannot support real-time video, store-and-forward can deliver up to 100% of direct 97155, with 30 to 60 extra minutes of 97155 added, but not for a non-certified technician. The assessment can be partly remote too: "A BA/Mentored BA bills Indirect 97151 when conducting interviews or discussing the Treatment Plan or Protocols with the Family Set delivered via telemedicine," and direct T1026 UD case supervision may happen onsite or be "delivered through telemedicine." The supplement names no POS code or modifier for ABA telemedicine, so confirm claim coding with the MCO or TPA.',
+        status: 'verified',
         cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+          { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
         ],
-        verifyVia: 'MAD Behavioral Health Policy and Billing Manual (ABA billing instructions) and the NM Medicaid telehealth policy — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'per-case',
       },
       authTurnaround: {
         value:
@@ -257,6 +266,9 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment need prior authorization in New Mexico?', a: 'No — 97151, 97152, and 0362T are marked "Prior Auth: NO" on the state fee schedule. PA applies essentially only to treatment: 97153 requires it, and comprehensive programs averaging under 20 hours/week need PA regardless.' },
       { q: 'Is an autism diagnosis required for ABA in New Mexico?', a: 'Not strictly. Alongside diagnosed ASD, NMAC 8.321.2.13 covers recipients aged roughly 12–36 months with a well-documented RISK for ASD — developmental delays, some ASD characteristics, and a genetic risk factor such as an older sibling with ASD or Fragile X.' },
       { q: 'What does New Mexico Medicaid pay for ABA?', a: 'Published, credential-tiered rates per 15-minute unit (eff. 1/1/2025): 97153 pays $32.31 for a BCBA, $23.35 BCaBA, $19.85 behavior technician; 97151 pays $112.65 (BCBA) to $130.94 (BCBA-D/psychologist). Per LOD #53, these FFS rates are the minimum every Turquoise Care MCO must pay.' },
+      { q: 'Can the ABA assessment or BCBA supervision be done by telehealth in New Mexico Medicaid?', a: 'Yes. MAD Supplement 24-13 allows and encourages telemedicine for ABA services, real-time audio and video per 8.310.2 NMAC, and expressly lets 97155 supervision be delivered remotely with the recipient present (store-and-forward in documented no-broadband cases). The BA also bills indirect 97151 for family interviews and treatment-plan discussions held by telemedicine. Confirm POS and modifier with the MCO or TPA.' },
+      { q: 'What happens when a family is switching ABA providers in New Mexico Medicaid?', a: 'The supplement covers termination, not transfer: a terminating agency gives at least 30 days\' written notice and may refer the family to another agency, and a restart means a new Stage 2 assessment and a new 6-month prior authorization. Ask the MCO or TPA whether an existing authorization can move.' },
+      { q: 'Do ABA technicians need RBT certification for New Mexico Medicaid?', a: 'Not at the start. New Mexico Medicaid lets a non-certified behavior technician render ABA if they are 18 or older, have a high-school diploma, pass the New Mexico criminal background registry check, complete 4 hours of ASD training and at least 20 of the 40 RBT/BCAT training hours before serving, and then hold an RBT or BCAT certificate within their first six continuous months. If they miss that deadline they must stop until certified.' },
     ],
   },
 
@@ -339,6 +351,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
       { title: 'MAD Supplement 24-13 — ABA Guidance (adult benefit)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
+      { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -390,15 +403,12 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No verified rule. NMAC 8.321.2.13 carries no telehealth provision for ABA and the shared Turquoise Care Level of Care Guidelines set none for ABA Stage 3, and no plan-specific ABA telehealth policy was found for this MCO.',
-        status: 'unverified',
+        value: 'Follows the state rule — BCBSNM\'s own ABA documents checked this run (the ABA Clinical Service Request Form and the shared Turquoise Care BH Level of Care Guidelines) publish no ABA-specific telehealth policy, so the HCA rule applies. MAD Supplement 24-13 (section 3.2.1) says MAD "allows and encourages the utilization of telemedicine to deliver MAD ABA services," to bring home- and community-based ABA to rural and frontier areas, and points to 8.310.2 NMAC for the requirements: a HIPAA-compliant system with interactive audio and video in real time, with coverage "determined in a manner consistent with medicaid coverage for health care services provided through in person consultation." In-state BCBAs, BCaBAs, RBTs, BCATs and non-certified technicians need no telemedicine license; an out-of-state MD/DO diagnostician does. Supervision is expressly remote-capable: 97155 may be delivered through telemedicine when the BA directs the technician and the recipient by observing behavior or troubleshooting protocols (not when the BA joins in person), the recipient must be present, and the one-hour-per-20-hours minimum of 97155 still applies. Where an agency documents annually to the MCO or TPA that its transmission provider cannot support real-time video, store-and-forward can deliver up to 100% of direct 97155, with 30 to 60 extra minutes of 97155 added, but not for a non-certified technician. The assessment can be partly remote too: "A BA/Mentored BA bills Indirect 97151 when conducting interviews or discussing the Treatment Plan or Protocols with the Family Set delivered via telemedicine," and direct T1026 UD case supervision may happen onsite or be "delivered through telemedicine." The supplement names no POS code or modifier for ABA telemedicine, so confirm claim coding with the MCO or TPA.',
+        status: 'verified',
         cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+          { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
         ],
-        verifyVia: 'The plan’s provider portal or behavioral health UM line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'per-case',
       },
       authTurnaround: {
         value:
@@ -480,6 +490,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does BCBS of New Mexico cover ABA under Medicaid?', a: 'Yes — as a Turquoise Care MCO it administers the state ABA benefit on the shared Level of Care Guidelines, which defer to NMAC 8.321.2. The state front door applies: no PA on the assessment, treatment requested via BCBSNM\'s ABA Clinical Service Request Form.' },
       { q: 'When do I submit the BCBSNM ABA request form?', a: 'Up to 60 days before, and at least two weeks before, the requested treatment start date, via Availity or fax. The form (Oct 2025) says it "can be submitted up to 60 days prior to the treatment request start date" and to "Submit forms at least two weeks before requested start date." Build that lead time into scheduling conversations with families.' },
       { q: 'What does BCBSNM pay for ABA?', a: 'At least the state FFS fee schedule — LOD #53 makes the published ABA rates (e.g., $32.31 per 15-min 97153 unit for a BCBA) a contractual minimum for every Turquoise Care MCO and its sub-vendors.' },
+      { q: 'Do ABA technicians need RBT certification for BCBSNM (New Mexico Medicaid)?', a: 'Follows the state rule. Not at the start. New Mexico Medicaid lets a non-certified behavior technician render ABA if they are 18 or older, have a high-school diploma, pass the New Mexico criminal background registry check, complete 4 hours of ASD training and at least 20 of the 40 RBT/BCAT training hours before serving, and then hold an RBT or BCAT certificate within their first six continuous months. If they miss that deadline they must stop until certified.' },
+      { q: 'Can BCBA supervision (97155) be done by telehealth for BCBSNM members?', a: 'Yes, under the state rule in MAD Supplement 24-13: 97155 may be delivered by real-time telemedicine with the recipient present, and by store-and-forward only where the agency documents no real-time option.' },
     ],
   },
 
@@ -564,6 +576,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+      { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -615,15 +628,12 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No verified rule. NMAC 8.321.2.13 carries no telehealth provision for ABA and the shared Turquoise Care Level of Care Guidelines set none for ABA Stage 3, and no plan-specific ABA telehealth policy was found for this MCO.',
-        status: 'unverified',
+        value: 'Follows the state rule — Presbyterian\'s own ABA documents checked this run (the 2026 Turquoise Care Practitioner and Provider Manual, whose telehealth section is general, and the 09.01.2026 Prior Authorization Guide) publish no ABA-specific telehealth policy, so the HCA rule applies. MAD Supplement 24-13 (section 3.2.1) says MAD "allows and encourages the utilization of telemedicine to deliver MAD ABA services," to bring home- and community-based ABA to rural and frontier areas, and points to 8.310.2 NMAC for the requirements: a HIPAA-compliant system with interactive audio and video in real time, with coverage "determined in a manner consistent with medicaid coverage for health care services provided through in person consultation." In-state BCBAs, BCaBAs, RBTs, BCATs and non-certified technicians need no telemedicine license; an out-of-state MD/DO diagnostician does. Supervision is expressly remote-capable: 97155 may be delivered through telemedicine when the BA directs the technician and the recipient by observing behavior or troubleshooting protocols (not when the BA joins in person), the recipient must be present, and the one-hour-per-20-hours minimum of 97155 still applies. Where an agency documents annually to the MCO or TPA that its transmission provider cannot support real-time video, store-and-forward can deliver up to 100% of direct 97155, with 30 to 60 extra minutes of 97155 added, but not for a non-certified technician. The assessment can be partly remote too: "A BA/Mentored BA bills Indirect 97151 when conducting interviews or discussing the Treatment Plan or Protocols with the Family Set delivered via telemedicine," and direct T1026 UD case supervision may happen onsite or be "delivered through telemedicine." The supplement names no POS code or modifier for ABA telemedicine, so confirm claim coding with the MCO or TPA.',
+        status: 'verified',
         cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+          { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
         ],
-        verifyVia: 'The plan’s provider portal or behavioral health UM line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'per-case',
       },
       authTurnaround: {
         value:
@@ -702,6 +712,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does Presbyterian Health Plan cover ABA under Turquoise Care?', a: 'Yes — on the state\'s ABA criteria and stage model. Treatment requests use Presbyterian\'s own Stage 3 ABA Clinical Review Form, faxed to (505) 843-3019 or submitted through the Turquoise Care online channel.' },
       { q: 'Do I send Presbyterian Medicaid ABA authorizations to Magellan?', a: 'No — Magellan handles Presbyterian\'s Medicare and commercial behavioral health only. Turquoise Care (Medicaid) BH is in-house: use the Medicaid fax (505) 843-3019 or the Turquoise Care portal.' },
       { q: 'Does Presbyterian require PA on the ABA assessment?', a: 'Yes. Presbyterian\'s Provider Prior Authorization Guide (09.01.2026) lists 97151, 97152 and 0362T on its Applied Behavior Analysis row for Turquoise Care, Turquoise Care Expansion ABP and Commercial — stricter than the state fee schedule, which marks those codes PA-free. Confirm with Turquoise Care BH UM at (505) 923-5757, option 4 then 2.' },
+      { q: 'Do ABA technicians need RBT certification for Presbyterian (New Mexico Medicaid)?', a: 'Follows the state rule. Not at the start. New Mexico Medicaid lets a non-certified behavior technician render ABA if they are 18 or older, have a high-school diploma, pass the New Mexico criminal background registry check, complete 4 hours of ASD training and at least 20 of the 40 RBT/BCAT training hours before serving, and then hold an RBT or BCAT certificate within their first six continuous months. If they miss that deadline they must stop until certified.' },
+      { q: 'Can BCBA supervision (97155) be done by telehealth for Presbyterian members?', a: 'Yes, under the state rule in MAD Supplement 24-13: 97155 may be delivered by real-time telemedicine with the recipient present, and by store-and-forward only where the agency documents no real-time option.' },
     ],
   },
 
@@ -1004,6 +1016,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
       { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
+      { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1055,15 +1068,13 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No verified rule. NMAC 8.321.2.13 carries no telehealth provision for ABA and the shared Turquoise Care Level of Care Guidelines set none for ABA Stage 3, and no plan-specific ABA telehealth policy was found for this MCO.',
-        status: 'unverified',
+        value: 'Follows the state rule — UnitedHealthcare Community Plan\'s own ABA documents checked this run (Optum\'s NM Turquoise Care ABA Quick Reference Guide and the shared Turquoise Care BH Level of Care Guidelines) publish no ABA-specific telehealth policy, so the HCA rule applies. One Optum billing rule does apply: since November 1, 2023 every Optum behavioral-health telehealth claim, Medicaid included, must carry POS 02 or POS 10; modifiers alone are not reimbursed. MAD Supplement 24-13 (section 3.2.1) says MAD "allows and encourages the utilization of telemedicine to deliver MAD ABA services," to bring home- and community-based ABA to rural and frontier areas, and points to 8.310.2 NMAC for the requirements: a HIPAA-compliant system with interactive audio and video in real time, with coverage "determined in a manner consistent with medicaid coverage for health care services provided through in person consultation." In-state BCBAs, BCaBAs, RBTs, BCATs and non-certified technicians need no telemedicine license; an out-of-state MD/DO diagnostician does. Supervision is expressly remote-capable: 97155 may be delivered through telemedicine when the BA directs the technician and the recipient by observing behavior or troubleshooting protocols (not when the BA joins in person), the recipient must be present, and the one-hour-per-20-hours minimum of 97155 still applies. Where an agency documents annually to the MCO or TPA that its transmission provider cannot support real-time video, store-and-forward can deliver up to 100% of direct 97155, with 30 to 60 extra minutes of 97155 added, but not for a non-certified technician. The assessment can be partly remote too: "A BA/Mentored BA bills Indirect 97151 when conducting interviews or discussing the Treatment Plan or Protocols with the Family Set delivered via telemedicine," and direct T1026 UD case supervision may happen onsite or be "delivered through telemedicine." The supplement names no POS code or modifier for ABA telemedicine, so confirm claim coding with the MCO or TPA.',
+        status: 'verified',
         cites: [
-          { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
-          { title: 'Turquoise Care BH Level of Care Guidelines (ABA Stage 3, defers to NMAC 8.321.2)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
-          { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
+          { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+          { title: '8.310.2.12(M) NMAC — Telehealth services (srca.nm.gov, amended 1/1/2025)', url: 'https://www.srca.nm.gov/parts/title08/08.310.0002.html' },
+          { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
         ],
-        verifyVia: 'The plan’s provider portal or behavioral health UM line, plus the MAD Behavioral Health Policy and Billing Manual — hca.nm.gov blocked automated retrieval this cycle (CloudFront geo-block), so pull the MAD Behavioral Health Policy and Billing Manual and Supplement 24-13 from the HCA ABA provider page by hand, or ask the MAD ABA Manager.',
-        blocker: 'per-case',
       },
       authTurnaround: {
         value:
@@ -1145,6 +1156,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Which ABA codes need prior authorization with UHC in New Mexico?', a: 'Only 97153 and 0373T. Per the plan\'s Quick Reference Guide, all other autism services — including the 97151 assessment, 97155, and 97156 — require no prior authorization.' },
       { q: 'How do I submit the UHC NM treatment authorization?', a: 'On the New Mexico Uniform Prior Authorization Form, through the Provider Express Auth tab (One Healthcare ID, 5-step flow) or by fax to 1-888-541-6691.' },
       { q: 'What is the claims deadline for UHC NM ABA?', a: 'Six months from the date of service, on a CMS-1500 to Payer ID 87726 (ERA 86047), or on paper to Optum, PO Box 31348, Salt Lake City, UT 84131-0348.' },
+      { q: 'Do ABA technicians need RBT certification for UnitedHealthcare Community Plan (New Mexico Medicaid)?', a: 'Follows the state rule. Not at the start. New Mexico Medicaid lets a non-certified behavior technician render ABA if they are 18 or older, have a high-school diploma, pass the New Mexico criminal background registry check, complete 4 hours of ASD training and at least 20 of the 40 RBT/BCAT training hours before serving, and then hold an RBT or BCAT certificate within their first six continuous months. If they miss that deadline they must stop until certified.' },
+      { q: 'Can BCBA supervision (97155) be done by telehealth for UnitedHealthcare Community Plan members?', a: 'Yes, under the state rule in MAD Supplement 24-13: 97155 may be delivered by real-time telemedicine with the recipient present, and by store-and-forward only where the agency documents no real-time option.' },
     ],
   },
 
@@ -1428,6 +1441,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'None — annual/lifetime dollar limits prohibited (2019 HB 322)' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans; limited-benefit policies' },
       { label: 'Licensure', value: 'None — no NM behavior-analyst license; BACB certification governs' },
+      { label: 'Fee schedule', value: 'None published — contracted rates in your Evernorth agreement; ask Provider Relations' },
     ],
     sections: [
       {
@@ -1466,6 +1480,16 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
         cites: [
       { title: 'BACB — U.S. Licensure of Behavior Analysts (NM has no licensure law)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+        ],
+      },
+      {
+        h2: 'How does Cigna pay for ABA, and is its network open?',
+        body: [
+          'Cigna publishes no ABA fee schedule. In-network ABA is paid at the rates in your Evernorth behavioral-health agreement; the autism resource guide sends "questions about credentialing, contracts, or rates" to your Provider Relations representative, and billing questions to Provider Services at 800.926.2273. Bill only 97151-97158, 0362T and 0373T, in 15-minute units.',
+          'Network: Evernorth says it "is committed to expanding our network of autism providers." Individual analysts apply on the Evernorth Behavioral Provider Information Form and autism clinics or large groups on the Evernorth Screening Application for Autism Clinics; processing can take up to 90 days, and after a clinic contract each certified or licensed provider must be credentialed (another 60 to 90 days) before rendering in-network services. Evernorth requires the clinician to hold a national certification or state license (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral-health licensure). It "does not credential nonlicensed/noncertified staff" such as technicians, whose services "must be billed under the supervising provider."',
+        ],
+        cites: [
+          { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
     ],
@@ -1526,7 +1550,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'All ABA CPT codes are covered telehealth services per the Evernorth autism resource guide, and EN0499 allows delivery in person, via telehealth, or as a hybrid — the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The requirement that the ABA provider remain in line of sight and close proximity to the individual expressly does not apply to telehealth services. Where treatment is delivered in settings with additional behavioral expectations, telehealth included, the plan must document that the service still meets the definition of direct treatment and direct engagement.',
+        value: 'All ABA CPT codes are covered telehealth services per the Evernorth autism resource guide, and EN0499 allows delivery in person, via telehealth, or as a hybrid — the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The requirement that the ABA provider remain in line of sight and close proximity to the individual expressly does not apply to telehealth services. Where treatment is delivered in settings with additional behavioral expectations, telehealth included, the plan must document that the service still meets the definition of direct treatment and direct engagement. The assessment and supervision codes are included: the resource guide\'s "All ABA CPT codes" covers 97151 (initial assessment and reassessment) and 97155 (protocol modification / direct supervision) as much as 97153, and neither document caps the share of supervision that may be remote. Neither names a required telehealth POS code or modifier, so confirm claim coding with Evernorth Provider Services (800.926.2273).',
         status: 'verified',
         cites: [
           { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
@@ -1602,6 +1626,9 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in New Mexico?', a: 'Yes — under national policy EN0499 for ASD, layered on New Mexico\'s mandate (NMSA § 59A-22-49) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does the Cigna assessment need prior authorization in New Mexico?', a: 'No — EN0499 requires no PA on assessment codes 97151, 97152, and 0362T, and we confirmed the current policy contains no New Mexico carve-out (unlike Virginia). PA lands at the treatment step.' },
       { q: 'What does the New Mexico autism mandate require?', a: 'Coverage of ASD screening and treatment — including ABA — per a physician-prescribed plan, with no age-based denial and no annual or lifetime dollar limits since 2019\'s HB 322 repealed the old caps. Self-funded ERISA and limited-benefit plans are exempt.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with Cigna in New Mexico?', a: 'Yes. Evernorth\'s autism resource guide says all ABA CPT codes are covered telehealth services, and EN0499 allows in-person, telehealth or hybrid delivery. No POS code or modifier is published; confirm claim coding with Provider Services (800.926.2273).' },
+      { q: 'What is Cigna\'s ABA fee schedule in New Mexico?', a: 'There is no public one. Cigna pays in-network ABA at the rates in your Evernorth agreement; Evernorth directs rate and contract questions to your Provider Relations representative.' },
+      { q: 'Is Cigna accepting new ABA providers in New Mexico?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
     ],
   },
 
@@ -1648,6 +1675,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'None — annual/lifetime dollar limits prohibited (2019 HB 322)' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans; limited-benefit policies' },
       { label: 'Licensure', value: 'None — no NM behavior-analyst license; BACB certification governs' },
+      { label: 'Fee schedule', value: 'None published — paid at the contracted rate on your Optum fee schedule' },
     ],
     sections: [
       {
@@ -1686,6 +1714,16 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
         cites: [
       { title: 'BACB — U.S. Licensure of Behavior Analysts (NM has no licensure law)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+        ],
+      },
+      {
+        h2: 'How does UnitedHealthcare (Optum) pay for ABA, and how do you join the network?',
+        body: [
+          'UnitedHealthcare commercial ABA is managed by Optum Behavioral Health, which publishes no ABA rate table. Optum\'s ABA FAQ tells contracted providers to "bill your contracted billing codes and customary charges as outlined on your Fee Schedule after receiving appropriate authorization. You will be reimbursed based on your contracted rate." The fee schedule is the one attached to your Optum agreement; non-contracted providers get approvals through the behavioral-health number on the member\'s card.',
+          'Joining the network: Optum lists credentialing and contracting criteria for ABA providers (BCBA with active certification, state licensure where the state licenses behavior analysts, six months of supervised ABA experience, and professional liability of $1 million per occurrence) and takes applications through the "Join Our Autism/ABA Network" section of its ABA page on Provider Express. Credentialing "can take from 45 to 120 days after submission of all materials," every new agency gets a site audit that can take up to 90 days to schedule, and a single case agreement while credentialing is "Not automatically" available, only in exception cases such as a network gap. Technicians working 1:1 must hold RBT, BCAT or ABAT certification (or an approved alternative).',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
     ],
@@ -1749,7 +1787,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” The assessment is not on that list: 97151 (initial assessment and reassessment) and 97152 are not payable by telehealth for commercial members, so plan the assessment in person. Supervision is: 97155 is billed with the in-person code and POS 02 or 10 after the attestation (Optum\'s ABA FAQ, Q29), and Optum publishes no minimum in-person share of supervision.',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -1831,6 +1869,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What does the New Mexico autism mandate require?', a: 'Coverage of ASD screening and treatment — including ABA — per a physician-prescribed plan, with no age-based denial and no annual or lifetime dollar limits since 2019\'s HB 322 repealed the old caps. Self-funded ERISA and limited-benefit plans are exempt.' },
       { q: 'What does UnitedHealthcare pay for ABA in New Mexico?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against New Mexico\'s published Medicaid fee schedule (LOD #53), which the state enforces as a rate floor on the Medicaid side.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in New Mexico?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
+      { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in New Mexico?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
     ],
   },
 };

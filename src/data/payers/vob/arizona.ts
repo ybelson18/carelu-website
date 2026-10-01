@@ -161,6 +161,17 @@ function azBenchmarkRates(planName: string): RateTable {
   };
 }
 
+const AHCCCS_TELEHEALTH_CODESET: SourceRef = {
+  url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/TelehealthCodeSet.xlsx',
+  accessDate: '2026-10-01',
+  note: 'AHCCCS Telehealth Code Set — Guidelines sheet eff. 01/01/2026 ("AHCCCS will not be utilizing POS 02 and POS 10 for telehealth"; POS = originating site; GT/GQ/FQ modifiers), "2026 Final" code sheet eff. 06/01/2026: 97151-97158 each marked GT, none FQ; 0362T/0373T absent. Fetched directly — azahcccs.gov answered plain curl on 2026-10-01.',
+};
+const AHCCCS_BH_MATRIX: SourceRef = {
+  url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx',
+  accessDate: '2026-10-01',
+  note: 'AHCCCS Behavioral Health Services Matrix ("BH Matrix Procedure Codes and Associated Provider Types, Category of Service, Place of Service and Modifiers", as of 9/1/26). For provider types BC (BCBA) and AB (ABA organization), 97151-97158 share POS 03, 05, 06, 07, 08, 09, 11, 12, 14, 16, 19, 22, 49, 50, 51, 52, 53, 54, 71, 72, 99; modifiers include GT, U7, HN, HO, HP; HM is allowed on 97151-97154 but NOT on 97155-97158. 0362T/0373T are not on the matrix.',
+};
+
 /* -------------------- Layer 3: code-grid factories -------------- */
 
 function azEntry(
@@ -198,6 +209,19 @@ function ahcccsGrid(): Record<string, CodeGridEntry> {
   const grid: Record<string, CodeGridEntry> = {};
   for (const c of ['97151', '97152', '97153', '97154', '97155', '97156', '97157', '97158', '0362T', '0373T']) {
     grid[c] = azEntry('Yes', 'Delegated to plans — AMPM 320-S sets no PA of its own; PA rules live at the member\'s ACC/DDD plan (see per-plan guides).', 'verified', `${NO_DX} Verify the operative PA at the member's ACC or DDD Health Plan.`, [AMPM_320S]);
+    const onCodeSets = c !== '0362T' && c !== '0373T';
+    if (onCodeSets) {
+      grid[c] = {
+        ...grid[c],
+        posAllowed: ['03 school', '11 office', '12 home', '14 group home', '99 other/community', '05-08 IHS/tribal', '49 independent clinic', '50 FQHC', '53 CMHC', '19/22 outpatient hospital', '71/72 public health / rural health clinic'],
+        telehealth: 'Yes — GT modifier (interactive audio-video); POS is the member\'s location (originating site); AHCCCS does not use POS 02/10; no FQ audio-only for ABA codes (Telehealth Code Set, eff. 06/01/2026).',
+        modifiers: ['HM (below bachelor\'s / BT-RBT)' + (['97155', '97156', '97157', '97158'].includes(c) ? ' — NOT valid on this code per BH Matrix' : ''), 'HN (bachelor\'s / BCaBA)', 'HO (master\'s / BCBA)', 'HP (doctoral / BCBA-D)', 'GT (telehealth)'],
+        fieldStatus: { ...grid[c].fieldStatus, posAllowed: 'verified', telehealth: 'verified' },
+        sources: [AMPM_320S, AHCCCS_TELEHEALTH_CODESET, AHCCCS_BH_MATRIX],
+      };
+    } else {
+      grid[c] = { ...grid[c], telehealth: 'Not on the AHCCCS Telehealth Code Set or the BH Services Matrix (checked 2026-10-01).', fieldStatus: { ...grid[c].fieldStatus, telehealth: 'unverified' } };
+    }
   }
   return grid;
 }

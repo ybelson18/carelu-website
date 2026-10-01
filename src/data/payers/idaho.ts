@@ -40,7 +40,7 @@ const TRICARE_1079: PayerSource = { title: '10 U.S.C. 1079(i)(1) — TRICARE pay
 const CHAMPVA_270: PayerSource = { title: '38 CFR 17.270 — CHAMPVA is the last payer', url: 'https://www.ecfr.gov/current/title-38/section-17.270' };
 
 // ---- Carrier sources (all read 2026-09-24) ----
-const REG_BH18: PayerSource = { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (eff. 8/1/2025; revision announced for 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' };
+const REG_BH18: PayerSource = { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (the link now serves the revision effective 11/1/2026, last review June 2026; the 8/1/2025 version applies until then)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' };
 const REG_BH33: PayerSource = { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (eff. 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' };
 const REG_FORM: PayerSource = { title: 'Regence BlueShield of Idaho — ABA Utilization Management request form 5385ID (eff. 5/2026)', url: 'https://beonbrand.getbynder.com/m/4e9025772576d2cb/original/Applied-Behavioral-Analysis-ABA-Initial-Request-Form.pdf' };
 const BCI_PAP902: PayerSource = { title: 'Blue Cross of Idaho PAP902 — Behavioral Health Prior Authorization Requirements (revised April 2026)', url: 'https://providers.bcidaho.com/policies-and-procedures/pap/pap902.page' };
@@ -49,6 +49,7 @@ const BCI_FEP_FORM: PayerSource = { title: 'Blue Cross of Idaho — Federal Empl
 const BCI_MP301501: PayerSource = { title: 'Blue Cross of Idaho MP 3.01.501 — Guidelines for Coverage of Mental Health and Substance-Related and Addictive Disorders (eff. 8/28/2025)', url: 'https://providers.bcidaho.com/resources/pdfs/medical-management/Medical%20Policy%20PDF/3%20-%20MH/03.01.501_08-28-25.pdf' };
 const AETNA_GUIDE: PayerSource = { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' };
 const AETNA_PRECERT: PayerSource = { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' };
+const AETNA_TELE: PayerSource = { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' };
 const AETNA_0648: PayerSource = { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' };
 const CIGNA_EN0499: PayerSource = { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' };
 const CIGNA_ARG: PayerSource = { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' };
@@ -140,6 +141,14 @@ export const idahoPayers: Record<string, PayerConfig> = {
           'The credential mapping is the staffing key. The handbook states that "an individual who is a registered behavior technician (RBT) meets the requirements of an EBM intervention paraprofessional," a BCaBA "meets the requirements of an EBM intervention specialist," and a BCBA "or holds a master’s level certification in the Early Start Denver Model meets the requirements of an EBM intervention professional." Non-certified staff can qualify on the evidence-informed track. An Intervention Specialist needs a bachelor’s in a human services field, 1,040 supervised hours and a competency checklist or 40 hours of ABA training. An Intervention Professional needs a relevant master’s, 24 upper-division credits and 1,200 hours of experience. An Intervention Technician is a provisional, agency-only role limited to one 18-month period. Everyone needs an Idaho DHW background check and 12 hours of training a year, including one hour of ethics. Children from birth to three need providers with 240 hours of early-childhood experience plus a qualifying certificate or coursework, although EBM (BCBA/ESDM) providers are exempt from that extra requirement. Idaho has no behavior-analyst license, so the BACB credential does the work that a state license does elsewhere.',
         ],
         cites: [ID_FS_DDA, ID_FS_IND, ID_HB, ID_RULE, BACB_LIC],
+      },
+      {
+        h2: 'Switching CHIS providers, and joining the provider pool',
+        body: [
+          'Switching: the Idaho CHIS handbook (August 17, 2026) treats a provider change as a continuation, not a restart. "A six month ongoing PA request does not need to be submitted by the provider if the participant discontinues services or switches providers." The six-month request that is due must keep the existing cycle: "The dates must align with the previously set authorization date cycle and will not be reset or changed," and if it is not completed at the six-month mark "the participant will experience a lapse in services until a PA is made." When the new provider lacks the old one\'s progress data, the handbook says: "If a participant switches providers and the new provider does not have the data/graphs from the previous provider regarding progress or lack of progress, the provider should state that the participant continues to demonstrate the need for intervention services." Updates to an approved PA go on the Prior Authorizations Amendment Form, which the parent or guardian and the provider can submit, and amendments "do not reset or restart" the authorization dates.',
+          'Network: there is no managed-care network to be open or closed. CHIS is fee-for-service, and a provider becomes billable by enrolling with Idaho Medicaid. Staff must work for a developmental disabilities agency certified by the state licensing agency, or enroll as an independent CHIS provider (Intervention Specialists, Intervention Professionals and EBM Specialists or Professionals; technicians cannot enroll independently). Providers need an NPI, must enroll and sign a provider agreement before serving Medicaid participants, and direct-care staff need an Idaho Department of Health and Welfare background check clearance. The handbook names no enrollment cap or moratorium.',
+        ],
+        cites: [ID_HB],
       },
     ],
     collect: [
@@ -240,6 +249,8 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'We have Magellan. Does ABA go through them?', a: 'Not since December 1, 2025. Magellan stopped authorizing and paying 97151–97158. Those services became Behavioral Intervention under CHIS, billed fee-for-service to Gainwell with Telligen prior authorization. Idaho has no Medicaid managed-care plan that handles ABA for children.' },
       { q: 'Can a BCBA or RBT bill Idaho Medicaid?', a: 'Yes, through the evidence-based model track. A BCBA qualifies as an EBM Intervention Professional (modifier TG), a BCaBA as an EBM Intervention Specialist (TF), and an RBT as an EBM Intervention Paraprofessional. RBTs may deliver only as employees of a Developmental Disability Agency.' },
       { q: 'What does Idaho Medicaid pay?', a: 'For agencies, individual Behavioral Intervention (H0004) pays $24.68 per 15 minutes for a BCBA-level EBM professional, $18.51 for an EBM specialist and $14.34 for an RBT-level paraprofessional (effective 9/1/2025). Independent providers receive lower rates, for example $17.24 for H0004 TG.' },
+      { q: 'What happens to an Idaho Medicaid CHIS authorization when a family switches providers?', a: 'The authorization cycle carries on. The handbook says the switch does not by itself need a new six-month request, the next request keeps the existing date cycle, and a new provider without the old provider\'s data should state that the child continues to need intervention services. Changes go on the PA Amendment Form, which does not reset the dates.' },
+      { q: 'Is Idaho Medicaid accepting new CHIS (ABA) providers?', a: 'There is no MCO network to close: CHIS is fee-for-service. Agencies need state DDA certification; BCBAs, BCaBAs and other specialists can also enroll as independent CHIS providers with an NPI, a signed Medicaid provider agreement and a DHW background check clearance. The handbook names no enrollment cap.' },
     ],
   },
 
@@ -461,7 +472,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
         h2: 'The Regence rulebook, applied in Idaho',
         body: [
           'BH18 applies to "member contracts with applicable benefits" subject to named state laws, including "Idaho’s Clarification Regarding Coverage of Treatments for Autism Spectrum Disorder (Bulletin No. 18-02)." It says a certified treating provider "in Idaho" is "a credentialed provider with a Board-Certified Behavioral Analysis (BCBA) certification issued by the Behavioral Analyst Certification Board." Initiation requires a documented ABA assessment, an ASD diagnosis "by a qualified treating health care professional, as defined by state law," symptoms that make the member "a safety risk to self or others and/or" unable "to participate in age-appropriate home or community activities," and ABA "recommended or prescribed by a qualified treating health care professional experienced in the diagnosis and treatment of ASD." It also requires an eight-part individualized treatment plan with at least one standardized assessment per targeted behavior. Continuation requires measured progress, objective measurement at least every six months and standardized assessments annually. ABA "used for educational, vocational or custodial purposes" is not medically necessary.',
-          'The Idaho form 5385ID turns this into a checklist. The assessment request box is "only required for (FEP) Federal Employee Program." "Authorizations are for 6 months (26 weeks)," units are requested per six months, and "≥1 standardized assessment (required; curriculum-based alone is insufficient)." The form also flags that "there is very little evidence to support the efficacy of ABA for people 13 years and older," so requests for a member 13 or older need extra justification. Submissions go through Availity, by email to FAXBHRepository@regence.com, or by fax to 888-496-1540. Regence has announced a revised BH18 effective November 1, 2026. We could not retrieve the revised text, so re-check the policy for requests starting on or after that date.',
+          'The Idaho form 5385ID turns this into a checklist. The assessment request box is "only required for (FEP) Federal Employee Program." "Authorizations are for 6 months (26 weeks)," units are requested per six months, and "≥1 standardized assessment (required; curriculum-based alone is insufficient)." The form also flags that "there is very little evidence to support the efficacy of ABA for people 13 years and older," so requests for a member 13 or older need extra justification. Submissions go through Availity, by email to FAXBHRepository@regence.com, or by fax to 888-496-1540. The revised BH18, effective November 1, 2026, is now posted at the same link (last review June 2026). It keeps the criteria above and adds a coding note that 0373T may not be billed concurrently with 97153 or 97155.',
         ],
         cites: [REG_BH18, REG_BH33, REG_FORM],
       },
@@ -493,11 +504,11 @@ export const idahoPayers: Record<string, PayerConfig> = {
         cites: [REG_BH18],
       },
       concurrentBilling: {
-        value: 'Not addressed in BH18 (eff. 8/1/2025) or BH33. Regence’s revised BH18 takes effect November 1, 2026, and we could not retrieve its text to check for a concurrent-provider rule.',
+        value: 'Not addressed in BH18 (eff. 8/1/2025) or BH33. The revised BH18 effective November 1, 2026, now posted at the same link, adds one coding note: "Code 0373T may not be billed concurrently with 97153 or 97155. Activities typically reported under these codes are considered part of the 0373T service and are not separately reimbursable." It states no rule on billing 97153 and 97155 for the same time, or on more than one ABA provider holding an authorization at once.',
         status: 'unverified',
         cites: [REG_BH18],
-        verifyVia: 'The revised Regence BH18 (effective 11/1/2026) on regence.com medical policy, or Regence behavioral health UM — ask whether 97153 and 97155 may be billed for the same time and whether more than one ABA provider may hold an authorization at once.',
-        blocker: 'document',
+        verifyVia: 'Regence behavioral health UM — ask whether 97153 and 97155 may be billed for the same time and whether more than one ABA provider may hold an authorization at once.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'No numeric cap. The treatment plan must give "clinical justification for the number of days per week and hours per day of direct ABA services," and requested intensity must rest on individual need. "Dosage recommendations must not be based solely on diagnosis, caregiver availability, or scheduling preferences." Excessive hours of supervision, assessment, social skills or parent training need clinical justification. Units are requested per 6-month authorization (the form’s example: 10 hours a week of 97153 is 40 units a week and 1,040 units per 26 weeks).',
@@ -576,6 +587,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'Does Regence BlueShield of Idaho require prior authorization for the ABA assessment?', a: 'Not unless the member is on the Federal Employee Program. The Idaho request form marks the assessment request "only required for (FEP)." Treatment requests need authorization where the contract carries ABA preauthorization, in 6-month periods.' },
       { q: 'What assessment does Regence require for ABA treatment?', a: 'At least one standardized assessment, such as Vineland-3 or ABAS-3. Curriculum-based tools like VB-MAPP or ABLLS-R are encouraged for planning, but on their own they are "insufficient" per form 5385ID.' },
       { q: 'Does Regence cover ABA for teenagers?', a: 'There is no age cap, but the Idaho form says evidence for people 13 and older is limited and asks for added justification, such as severe risk of injury related to ASD.' },
+      { q: 'What does Regence need when a child switches from another ABA provider?', a: 'BH18 asks for documentation of the member\'s most recent date of service with any previous ABA provider and the reason for discharge from that provider, along with the new provider\'s own request for the services, units and authorization dates. It says nothing about an existing authorization transferring, so ask Regence behavioral health UM.' },
     ],
   },
 
@@ -642,7 +654,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functioning measure within 12 months', desc: 'For example Vineland-3, ABAS, VB-MAPP or ABLLS, showing impairment at least 1 SD below the mean.' },
       { title: 'Prescription', desc: 'Bulletin 18-02 frames coverage around care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [AETNA_GUIDE, AETNA_PRECERT, AETNA_0648, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE],
+    sources: [AETNA_GUIDE, AETNA_PRECERT, AETNA_0648, AETNA_TELE, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE],
     deliveryRules: {
       supervision: {
         value: 'Services must be provided directly or billed by licensed behavior analysts (in licensure states), board-certified behavior analysts, or licensed psychologists with behavior analysis in scope, unless state mandates, plan documents or contracts require otherwise. Where they allow services by unlicensed or non-certified staff, "there must be supervision and direction of the unlicensed or non-certified providers in line with practice standards." Aetna publishes no numeric supervision ratio.',
@@ -708,11 +720,11 @@ export const idahoPayers: Record<string, PayerConfig> = {
         cites: [AETNA_PRECERT, AETNA_GUIDE, ID_BULLETIN],
       },
       telehealth: {
-        value: 'Not addressed. Aetna’s ABA guide, precertification list and CPB 0648 set no telehealth rules or POS codes for ABA.',
-        status: 'unverified',
-        cites: [AETNA_GUIDE],
-        verifyVia: 'Availity or the precertification line on the member card — ask which ABA codes Aetna pays via telehealth on this plan and with which POS and modifier.',
-        blocker: 'per-case',
+        value:
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, and Aetna announced an end to ABA telehealth coverage in late 2023 before rescinding it within weeks, so treat the list as perishable.',
+        status: 'verified',
+        cites: [AETNA_TELE],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
       },
       authTurnaround: {
         value:
@@ -735,6 +747,8 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Idaho?', a: 'Yes, for ASD under Aetna’s national ABA guide. On state-regulated plans Idaho’s Bulletin 18-02 also bars excluding autism treatment when the plan covers rehabilitative or habilitative services. Self-funded employer plans set their own terms.' },
       { q: 'Does the Aetna ABA assessment need precertification?', a: 'Yes. Aetna’s behavioral health precertification list includes 97151 and 97152 along with all treatment codes.' },
       { q: 'Does Idaho have an autism insurance mandate?', a: 'No statute. Idaho relies on DOI Bulletin 18-02 (2018): no autism exclusion where rehab or habilitative services are covered, and no separate dollar or visit limits. It sets no age limit and does not reach self-funded ERISA plans.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
+      { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
     ],
   },
 
@@ -790,6 +804,13 @@ export const idahoPayers: Record<string, PayerConfig> = {
           'Idaho has no behavior-analyst licensure law and is not on the BACB’s list of licensing states, so in Idaho a BCBA qualifies under EN0499’s "Board Certified Behavior Analyst" category without a state license. Cigna publishes no commercial ABA rates, and they are negotiated in your agreement.',
         ],
         cites: [BACB_LIC, CIGNA_EN0499],
+      },
+      {
+        h2: 'Is Cigna\'s ABA network open to new providers?',
+        body: [
+          'Evernorth Behavioral Health, which runs Cigna\'s ABA network, says it "is committed to expanding our network of autism providers." It requires providers to be certified by a national governing body or a state licensing board (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral health licensure). Individual providers complete the Evernorth Behavioral Provider Information Form; autism clinics and large group practices complete the Evernorth Screening Application for Autism Clinics. An application can take up to 90 days, and once a clinic contract is signed each certified or licensed provider must also be credentialed, which "can take an additional 60 to 90 days." Providers must be fully credentialed to render in-network services. "Evernorth does not credential nonlicensed/noncertified staff": technician services are billed under the supervising provider.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
     ],
     collect: [
@@ -861,7 +882,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
         cites: [CIGNA_ARG, CIGNA_EN0499, ID_BULLETIN],
       },
       telehealth: {
-        value: '"All ABA CPT codes are covered telehealth services." EN0499 allows in-person, telehealth or hybrid delivery, and the line-of-sight requirement does not apply to telehealth.',
+        value: '"All ABA CPT codes are covered telehealth services." EN0499 allows in-person, telehealth or hybrid delivery, and the line-of-sight requirement does not apply to telehealth. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth.',
         status: 'verified',
         cites: [CIGNA_ARG, CIGNA_EN0499],
       },
@@ -886,6 +907,8 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in Idaho?', a: 'Yes, under EN0499 for ASD, with no Idaho carve-out in the current policy. On state-regulated plans Idaho’s Bulletin 18-02 also bars autism-treatment exclusions where rehab or habilitative services are covered.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in Idaho?', a: 'No. Assessment codes 97151, 97152 and 0362T need no PA with an autism diagnosis when the provider is independently licensed or a BCBA and the plan covers ABA. PA applies at the treatment step.' },
       { q: 'Can Cigna ABA be delivered by telehealth?', a: 'Yes. Evernorth’s autism resource guide says all ABA CPT codes are covered telehealth services.' },
+      { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
+      { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
     ],
   },
 
@@ -1028,7 +1051,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
         cites: [OPTUM_SCC, ID_BULLETIN],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth, and neither is the 97151 assessment or the technician-assisted 97152: plan the assessment in person. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -1058,6 +1081,8 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'Does the UnitedHealthcare ABA assessment need authorization?', a: 'Yes. In Provider Express, ABA assessment and ABA treatment are requested as separate authorizations.' },
       { q: 'Is there a UnitedHealthcare Medicaid plan for ABA in Idaho?', a: 'No. Idaho Medicaid has no managed-care plan for children’s ABA. It is fee-for-service CHIS through the state, so a UnitedHealthcare card on an Idaho child is a commercial or employer plan.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
+      { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
     ],
   },
 };

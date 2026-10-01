@@ -46,6 +46,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { label: 'Assessment auth (FFS)', value: 'None — 97151 is not prior-authorized; PA applies to BHT-ABA and Assistant BC-ABA' },
       { label: 'Clock after start', value: 'Assessment within 30 days; ITP within 45 days; payment allowed up to 75 days pre-ITP with order + treatment plan; ITP update every 6 months' },
       { label: 'FFS rates (per 15 min)', value: '97153 $12.73 BHT-ABA / $15.76 Asst BC-ABA; 97151, 97155, 97156 $22.09 BC-ABA / $24.73 BCBA (OMHSAS-21-03 table, Jan 2021)' },
+      { label: 'Fee schedule', value: 'FFS: OMHSAS-21-03 IBHS code table (Jan 2021) is the last published ABA rate list; the live MA fee schedule sits behind a CPT licence click-through. HealthChoices: each BH-MCO\'s contracted fee schedule' },
       { label: 'Secondary MA', value: 'PH-95 covers children under 18 with disabilities regardless of parental income; MA pays after the private plan (Act 62 / 55 Pa. Code § 1101.64)' },
       { label: 'Licensure', value: 'No behavior-analyst license in PA; IBHS behavior analytic services require a PA license (e.g. Behavior Specialist) plus BCBA' },
     ],
@@ -112,6 +113,26 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'OMHSAS — BACB Training Updates for IBHS Providers (April 2, 2026)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/2026-04-02-bacb-training-updates-for-ibhs-providers.pdf' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
           { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
+        ],
+      },
+      {
+        h2: 'Can a new ABA agency get into Pennsylvania Medicaid?',
+        body: [
+          'There are three gates, and none is an open-enrollment promise. Licensing: \u201cAll providers of IBHS, including ABA services, must be licensed,\u201d even those not serving MA; licences are issued by OMHSAS\u2019s four regional field offices, one per region served, and \u201cas part of the OMHSAS licensing process, a provider must notify the county that it is seeking a license and request a county letter of support.\u201d Enrollment: \u201conce an agency is licensed to provide IBHS, the agency will need to enroll in the MA program as an IBHS provider\u201d \u2014 Chapter 1155 pays only licensed IBHS agencies with a DHS provider agreement. Network: for the HealthChoices majority, payment also requires participation in the county\u2019s BH-MCO network, and each BH-MCO runs its own credentialing and network-inclusion process (see the BH-MCO guides).',
+        ],
+        cites: [
+          { title: 'OMHSAS IBHS Frequently Asked Questions (updated February 2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/intensive-behavioral-health-services-(ibhs)/ibhs-faq-updated-02-22-22.pdf' },
+          { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
+        ],
+      },
+      {
+        h2: 'Switching ABA agencies: what the state rules require',
+        body: [
+          'The state rules set the paperwork, not a transfer procedure. Every IBHS agency starts from \u201ca written order under \u00a7 1155.33(a)(1)\u201d and written parental consent, completes its own face-to-face assessment within 30 days of initiation and an ITP within 45 days, and the ITP must carry \u201ca crisis intervention plan and a transition plan\u201d (\u00a7\u00a7 5240.84\u20135240.86). When an agency cannot deliver what was ordered, OMHSAS says it \u201cmust notify the child\u2019s BH-MCO so the BH-MCO can work with the child\u2019s family to find a provider who is able to provide the services included in the written order.\u201d Whether an existing authorization moves to the new agency is a BH-MCO rule (fee-for-service: OMHSAS prior authorization) \u2014 see the BH-MCO guides.',
+        ],
+        cites: [
+          { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
+          { title: 'OMHSAS IBHS Frequently Asked Questions (updated February 2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/intensive-behavioral-health-services-(ibhs)/ibhs-faq-updated-02-22-22.pdf' },
         ],
       },
     ],
@@ -184,10 +205,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'OMHSAS-22-02 lets MA behavioral health services, including IBHS, be delivered by telehealth when clinically appropriate and with documented consent, but flags IBHS as a "high intensity" service where providers should weigh how much must stay in person; for young children it recommends a caregiver participate (ages 3–5) or observe (6–9). In fee-for-service, telehealth claims use POS 02 (not at home) or POS 10 (home) only on codes the MA fee schedule lists with those POS, plus FQ for audio-only; the 2021 IBHS code table lists ABA codes only with POS 03, 11, 12 and 99. HealthChoices providers "must follow the billing instructions of the BH-MCO." Which ABA codes currently carry telehealth POS could not be confirmed — the live fee schedule sits behind a CPT licence click-through.',
+        value: 'OMHSAS-22-02 lets MA behavioral health services, including IBHS, be delivered by telehealth when clinically appropriate and with documented consent, but flags IBHS as a "high intensity" service where providers should weigh how much must stay in person; for young children it recommends a caregiver participate (ages 3–5) or observe (6–9). In fee-for-service, telehealth claims use POS 02 (not at home) or POS 10 (home) only on codes the MA fee schedule lists with those POS, plus FQ for audio-only; the 2021 IBHS code table lists ABA codes only with POS 03, 11, 12 and 99. HealthChoices providers "must follow the billing instructions of the BH-MCO." The licensing rule draws two lines of its own. Assessment: \u201cWithin 30 days of the initiation of ABA services and prior to completing the ITP, a face-to-face assessment shall be completed\u201d by a behavior analytic or BC-ABA-qualified clinician (\u00a7 5240.85(a)); the rule does not say whether audio-video satisfies \u201cface-to-face\u201d for the assessment. Supervision: for BHT-ABA, Asst. BC-ABA and analyst staff alike, \u201cface-to face supervision may be delivered through secure, real-time, two-way audio and video transmission\u201d meeting HIPAA standards, with the supervision note recording \u201cthe location and modality of the session\u201d (\u00a7 5240.82) \u2014 though the onsite hours before a new BHT-ABA or Asst. BC-ABA works alone are onsite by definition. Which ABA codes currently carry telehealth POS could not be confirmed \u2014 the live fee schedule sits behind a CPT licence click-through.',
         status: 'unverified',
         cites: [
           { title: 'OMHSAS-22-02 — Revised Guidelines for Delivery of BH Services Through Telehealth (eff. 7/1/2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/docs/documents/omhsas/Bulletin%20OMHSAS-22-02%20-%20Revised%20Guidelines%20for%20Delivery%20of%20BH%20Services%20Through%20Telehealth%207.1.22.pdf' },
+          { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
           { title: 'OMHSAS-21-03 Attachment A — Updated IBHS Agency Procedure Codes (fees, PA flags, POS)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/IBHS%20Procedure%20Codes%20Bulletin%20Attachment%20A%20OMHSAS-21-03%201.22.21.pdf' },
         ],
         verifyVia: 'The MA Program Outpatient Fee Schedule (humanservices.dhs.pa.gov/OUTPATIENTFEESCHEDULE — requires accepting the AMA CPT licence) for POS 02/10 on 97151–97158, or the member\'s BH-MCO telehealth billing instructions.',
@@ -261,10 +283,11 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ],
       },
       billAsProvider: {
-        value: 'The licensed IBHS agency bills, not the individual clinician: "payment is made to a licensed IBHS agency for medically necessary IBHS provided by qualified individuals under the supervision and direction of a clinical director," and the agency must be licensed under Chapters 20 and 5240, hold a DHS provider agreement and be MA-enrolled. Chapter 1155 "does not apply to individual licensed practitioners ... that bill only for services provided directly by the licensed practitioners." The FFS code table places ABA under provider type 11, specialty 592, with modifiers identifying the rendering tier (U7 behavior analytic/BC-ABA by a BCBA; U8 Asst. BC-ABA; no modifier for BC-ABA or BHT-ABA).',
+        value: 'The licensed IBHS agency bills, not the individual clinician: "payment is made to a licensed IBHS agency for medically necessary IBHS provided by qualified individuals under the supervision and direction of a clinical director," and the agency must be licensed under Chapters 20 and 5240, hold a DHS provider agreement and be MA-enrolled. Chapter 1155 "does not apply to individual licensed practitioners ... that bill only for services provided directly by the licensed practitioners." The FFS code table places ABA under provider type 11, specialty 592, with modifiers identifying the rendering tier (U7 behavior analytic/BC-ABA by a BCBA; U8 Asst. BC-ABA; no modifier for BC-ABA or BHT-ABA). Technicians do not enroll or bill: RBT is one of six routes to BHT-ABA under \u00a7 5240.81(g) \u2014 BCaBA, RBT or BCAT certification, another NCCA/ANSI-accredited behavior-analysis certification, a high school diploma plus a 40-hour RBT Task List training certified by a BCBA/BCaBA trainer, or 2 years of ABA experience plus 40 hours of approved training \u2014 so RBT certification is accepted but not required.',
         status: 'verified',
         cites: [
           { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
+          { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
           { title: 'OMHSAS-21-03 Attachment A — Updated IBHS Agency Procedure Codes (fees, PA flags, POS)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/IBHS%20Procedure%20Codes%20Bulletin%20Attachment%20A%20OMHSAS-21-03%201.22.21.pdf' },
         ],
       },
@@ -274,6 +297,10 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Does my child need an autism diagnosis for ABA under Pennsylvania Medicaid?', a: 'No. The written order needs a DSM or ICD behavioral health diagnosis, and OMHSAS says IBHS is available when medically necessary regardless of the specific diagnosis.' },
       { q: 'Who approves ABA for Pennsylvania Medicaid members?', a: 'The Behavioral Health MCO assigned by the family\'s county — CBH in Philadelphia, Community Care, Magellan, PerformCare or Carelon elsewhere — not the physical-health plan on the card. The few members outside HealthChoices go through OMHSAS fee-for-service prior authorization.' },
       { q: 'Can a child with private insurance also get Medical Assistance for ABA?', a: 'Often, yes. The PH-95 category covers children under 18 with SSA-level disabilities and excludes parental income. The private plan pays first under Act 62 and 55 Pa. Code § 1101.64, and MA can pay what remains up to its fee.' },
+      { q: 'Does a technician need RBT certification for Pennsylvania Medicaid ABA?', a: 'No. RBT is one of six ways to qualify for BHT-ABA under 55 Pa. Code \u00a7 5240.81(g); a high school diploma plus a 40-hour RBT Task List training certified by a BCBA or BCaBA also qualifies. Technicians do not enroll in MA \u2014 the licensed IBHS agency bills.' },
+      { q: 'Can ABA supervision or the assessment be done by telehealth in Pennsylvania Medicaid?', a: 'Supervision, yes: \u00a7 5240.82 lets face-to-face supervision run over secure real-time audio-video. The assessment must be \u201cface-to-face\u201d (\u00a7 5240.85), and the rule does not say whether video counts. OMHSAS-22-02 allows telehealth for IBHS when clinically appropriate; HealthChoices providers follow their BH-MCO\u2019s billing rules.' },
+      { q: 'Is Pennsylvania Medicaid accepting new ABA providers?', a: 'An agency needs an OMHSAS IBHS licence (with a county letter of support requested), MA enrollment as an IBHS provider, and, for HealthChoices members, a contract with the county\u2019s BH-MCO, which decides network admission.' },
+      { q: 'If a family changes ABA agencies, what carries over?', a: 'The state sets no transfer procedure. The new agency works from a valid written order, gets fresh consent, and completes its own assessment (30 days) and ITP (45 days). If an agency cannot provide ordered services it must tell the BH-MCO, which helps the family find another provider. Ask the BH-MCO about the authorization.' },
       { q: 'What does Pennsylvania Medicaid pay for ABA?', a: 'The FFS IBHS table (OMHSAS-21-03, January 2021) lists 97153 at $12.73 per 15 minutes for a BHT-ABA ($15.76 for an Assistant BC-ABA) and 97151/97155/97156 at $22.09 ($24.73 for a BCBA). HealthChoices rates are set in each BH-MCO\'s provider contract.' },
     ],
   },
@@ -298,6 +325,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { label: 'ABA treatment', value: 'Prior authorization by packet review, within 45 days of service start; continued stay before the last covered day' },
       { label: 'Authorization length', value: 'Maximum 6 months per authorization for requests submitted on or after September 17, 2026 (Provider Alert 18)' },
       { label: 'Decision time', value: 'Two business days once information is complete; missing-info notice within 48 hours, 14 days to supply it (member handbook)' },
+      { label: 'Fee schedule', value: 'Contracted Community Care fee schedule \u2014 no public ABA rate list; schedules are specific to each Community Care network and may differ by the member\u2019s county' },
+      { label: 'Network', value: 'Needs-based: network management screening, reviewed with county partners before a network inclusion decision' },
       { label: 'Other coverage', value: 'Payer of last resort: bill commercial/CHIP/Medicare first and exhaust their appeals; out-of-network denials are not paid' },
     ],
     sections: [
@@ -348,6 +377,25 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Community Care — UPMC Health Plan autism behavioral health care management', url: 'https://providers.ccbh.com/provider-resources/act-62-resources/behavioral-health-care-management' },
         ],
       },
+      {
+        h2: 'Is Community Care\'s ABA network open, and what does it pay?',
+        body: [
+          'Joining is a needs-based decision, not an any-willing-provider right. The provider manual: \u201cPrior to becoming a participating provider with Community Care, all providers are required to complete the network management screening process,\u201d and \u201cCommunity Care then reviews this information with its county partners prior to making a network inclusion decision,\u201d weighing prospective member needs, specialty-population needs, the geographic distribution and demographics of members, and the provider\u2019s ability to meet them; a provider denied network inclusion is notified in writing. Credentialing and contracting follow for those admitted.',
+          'Rates live in the contract. Community Care pays \u201cwith an allowable amount up to that which is reflected on the contracted fee schedule,\u201d rate changes arrive as notices that amend the provider agreement (object in writing within 30 days or the change takes effect), and \u201cfee schedules are specific to each of Community Care\u2019s specific networks and dictated by primary contractor approval, fee schedules may differ according to the member\u2019s county of residence.\u201d Claims must use procedure codes, units and place-of-service codes from your Community Care fee schedule. There is no public ABA rate table; the state\'s 2021 fee-for-service IBHS rates are a reference point only.',
+        ],
+        cites: [
+          { title: 'Community Care Provider Manual (February 2026, 202602SH)', url: 'https://providers.ccbh.com/uploads/files/202602-providermanual_2026-02-03-153100_lbib.pdf' },
+        ],
+      },
+      {
+        h2: 'What happens when a family switches IBHS-ABA providers?',
+        body: [
+          'Community Care treats it as a transfer of care to be coordinated, with paperwork that follows the child. Its IBHS Performance Standards list \u201cTransfer of care between providers\u201d among the reasons for a documented treatment-team meeting, including \u201cfrom one IBHS provider to another IBHS provider,\u201d and add: \u201cif a member\u2019s care is being transferred to a new IBHS provider, releases must be signed to allow the Written Order, Assessment, and ITP to be filed in the member\u2019s chart at the new provider agency.\u201d For moves to or from another level of care, Community Care \u201cencourages an overlap of services for treatment coordination and transfer of care.\u201d The standards do not say whether the existing authorization transfers, so confirm with Community Care before the new agency\u2019s first session.',
+        ],
+        cites: [
+          { title: 'Community Care — Intensive Behavioral Health Services Performance Standards', url: 'https://providers.ccbh.com/uploads/files/CCBH-IBHS-Performance-Standards.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'County of residence and MA ID', desc: 'Community Care covers 41 counties; a family in Philadelphia, a Magellan, PerformCare or Carelon county has a different BH-MCO. Confirm eligibility at every visit.' },
@@ -377,6 +425,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Does Community Care require prior authorization for an ABA assessment?', a: 'No — the IBHS written order and assessment are registered in the ePortal (assessment within 30 days of service start; up to 200 units for “ASSESS-ABA”). ABA treatment itself needs prior authorization by packet review.' },
       { q: 'How long does a Community Care ABA authorization last?', a: 'For requests submitted on or after September 17, 2026, at most six months per authorization period. Written orders stay valid for up to 12 months, and a full formal assessment is still needed at least every 12 months.' },
       { q: 'My client has commercial insurance too. Who pays first?', a: 'The commercial plan (or CHIP/Medicare). Community Care is always the payer of last resort: you must be eligible in the primary plan’s network, follow its authorization rules, appeal its denials to the last level, and send its EOB with each claim. Out-of-network denials are not paid.' },
+      { q: 'What is Community Care\u2019s fee schedule for ABA?', a: 'There is no public one. Community Care pays up to the contracted fee schedule in your agreement, and its manual says schedules are specific to each network and may differ by the member\u2019s county. Rate changes come as notices amending the agreement.' },
+      { q: 'Is Community Care accepting new ABA providers?', a: 'Only through a needs-based review. Every applicant completes network management screening, and Community Care reviews it with its county partners before deciding on network inclusion, based on member needs and geography.' },
+      { q: 'What happens if a family switches ABA providers under Community Care?', a: 'It is handled as a transfer of care: a treatment-team meeting, and signed releases so the Written Order, Assessment and ITP are filed at the new agency. Confirm the authorization with Community Care before the new agency starts.' },
       { q: 'Can ABA be delivered in a center?', a: 'Yes, one-to-one center-based ABA by an OMHSAS-approved IBHS provider, when the written order and assessment both recommend it. Community Care’s July 2026 guidelines expect mostly under-6 children with documented neurodevelopmental delays and a plan to taper center hours.' },
     ],
     state: 'PA',
@@ -570,6 +621,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { label: 'Ongoing ABA', value: 'Packet prior auth: WO + assessment (FBA/skills) + signed ITP with weekly schedule and monthly hours tables' },
       { label: 'Authorization length', value: 'Maximum six months (Bulletin 25-05); submit continued requests 14–30 days before the last covered date' },
       { label: 'Decision time', value: 'Two business days; 48-hour insufficient notice and 14 days to cure; packets in by 2 p.m. are reviewed the next business day' },
+      { label: 'Fee schedule', value: 'Contract rates: \u201cCBH shall pay Healthcare Provider up to the rates identified in Schedule A\u201d of the provider agreement \u2014 no public ABA rate list' },
+      { label: 'Network', value: 'By invitation: parent organizations \u201cwill be invited to join\u201d under CBH\u2019s Network Entry policy; credentialing starts once licensed and MA-enrolled' },
       { label: 'Other coverage', value: 'Payer of last resort for all IBHS; CBH matches a primary insurer’s ABA authorization without its own medical-necessity review' },
     ],
     sections: [
@@ -624,6 +677,16 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'CBH Provider Manual (updated August 28, 2026)', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Manual_2026-08-28.pdf' },
         ],
       },
+      {
+        h2: 'Is CBH\'s ABA network open, and how is ABA paid?',
+        body: [
+          'CBH does not run an open enrollment. Its August 2026 provider manual: \u201cParent organizations will be invited to join the CBH Provider Network consistent with the CBH Network Entry policy,\u201d and contracted organizations expand services \u201cper the process outlined in the Network Adequacy and Service Expansion Policy.\u201d An organization becomes a network provider only after initial credentialing, CBH Credentialing Committee approval and contracting (a Provider Agreement and/or a Schedule A); facility credentialing \u201cis initiated when a facility is licensed/approved and enrolled in the Pennsylvania Medicaid program,\u201d with pre-licensure technical assistance \u201ctypically\u201d for new programs \u201centering the CBH Network via a procurement process.\u201d CBH aims to finish initial credentialing within 180 days.',
+          'Payment is by contract: \u201cCBH shall pay Healthcare Provider up to the rates identified in Schedule A,\u201d and providers should refer to the Schedule A of their CBH Provider Agreement \u201cfor all contractual services and the appropriate CPT codes, pricing and information modifiers, and BANs.\u201d CBH publishes no public ABA rate table. When a commercial plan is primary and the provider accepts its rate as payment in full, CBH does not pay the difference up to the Schedule A rate.',
+        ],
+        cites: [
+          { title: 'CBH Provider Manual (updated August 2026)', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Manual_2026-08-28.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Philadelphia residence and MA ID', desc: 'CBH covers Philadelphia County only; confirm HealthChoices eligibility in EVS before each authorization.' },
@@ -659,6 +722,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Does CBH require prior authorization for ABA, or is it registration only?', a: 'Prior authorization. CBH’s member handbook marks IBHS-ABA “Prior Authorization Required: Yes”. The first two authorizations, ABA Initial Assessment (100 units/30 days) and ABA Initial Treatment (200 units/45 days), need only a written order. Every later request needs the written order, the assessment (FBA and/or skills assessment) and a signed ITP.' },
       { q: 'How long is a CBH ABA authorization?', a: 'At most six months since February 23, 2025, even though a written order can be used for up to 365 days. Submit continued requests 14–30 days before the last covered date; CBH no longer backdates concurrent authorizations.' },
       { q: 'Can a BCBA and a BHT both bill for the same session at CBH?', a: 'Only as a “rare exception”: each must bill a distinct CPT code (for example 97155 or 97156 alongside 97153), all four people (parent, child, BCBA, BHT) must be present, and each must document the other’s service. Supervision and direct observation are never billable.' },
+      { q: 'What is CBH\u2019s fee schedule for ABA?', a: 'There is no public one. CBH pays \u201cup to the rates identified in Schedule A\u201d of your provider agreement, which also lists the CPT codes, modifiers and BANs to bill.' },
+      { q: 'Is CBH accepting new ABA providers?', a: 'Only by invitation. CBH\u2019s manual says parent organizations \u201cwill be invited to join\u201d under its Network Entry policy, and new programs sometimes enter through a procurement; credentialing starts after the agency is licensed and enrolled in PA Medicaid.' },
       { q: 'Is telehealth ABA covered by CBH?', a: 'Only as a supplement. CBH expects IBHS to be delivered primarily in person; telehealth may support contact with collaterals or act as a rare backup. Bill POS 10 for the member’s home, POS 02 elsewhere, and add FQ for audio-only.' },
       { q: 'The child has private insurance. Does CBH still review medical necessity?', a: 'Usually not. When the primary plan authorizes ABA, CBH matches that authorization at the same frequency and duration without a separate medical-necessity decision. It reviews as primary only if the primary denies (after its appeals), doesn’t cover the service, or the annual benefit cap is exhausted.' },
     ],
@@ -851,6 +916,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { label: 'Authorization length', value: 'Maximum 6 months (Somerset-Bedford ABA up to one year)' },
       { label: 'Decision clock', value: '2 business days pre-service, 1 business day concurrent (after complete information); RAI within 48 hours' },
       { label: 'Telehealth', value: 'POS 10 (member’s home) or 02 (elsewhere); FQ modifier for audio-only; GT no longer allowed' },
+      { label: 'Fee schedule', value: 'Not published \u2014 the HealthChoices supplement posts no ABA rate table; ask Magellan network management' },
       { label: 'Other coverage', value: 'Medicaid is last payer — bill the primary first; the IBHS packet still goes to Magellan when there is TPL' },
     ],
     sections: [
@@ -916,6 +982,24 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Magellan of PA — IBHS Provider Workgroup, July 30, 2026', url: 'https://www.magellanofpa.com/documents/2026/07/073126_ibhsproviderworkgrouponjuly302026.pdf' },
         ],
       },
+      {
+        h2: 'Switching ABA providers at Magellan: the IBHS transfer process',
+        body: [
+          'Magellan publishes an IBHS transfer process, and the authorization does not simply move \u2014 the receiving provider asks for its own. Once a receiving provider is identified, the currently authorized provider sends it \u201ca copy of the approved packet\u201d and \u201ca statement on letterhead acknowledging the transfer of the member and noting the mutually agreed upon date of transfer\u201d; \u201cno Magellan discharge form needs to be submitted.\u201d The receiving provider then submits through the provider portal the current provider\u2019s letter, its own letter on letterhead with the same agreed transfer date, and a \u201cTAR to ensure accuracy of new authorization.\u201d Members who ask to transfer are encouraged to discuss it with their current provider first, and for managed levels of care the care manager tells the treating provider by phone before the transfer.',
+        ],
+        cites: [
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+        ],
+      },
+      {
+        h2: 'Is Magellan\'s network open to new ABA providers, and how is ABA paid?',
+        body: [
+          'Every provider \u2014 organization, individual practitioner or group \u2014 must sign a Magellan Provider Participation Agreement to accept referrals and be paid, must be actively enrolled in PA Medical Assistance for the contracted services, and is credentialed under 28 Pa. Code \u00a7\u00a7 9.761\u20139.762. Magellan\u2019s supplement describes network inclusion as an application that can be declined (\u201cIf you apply for network inclusion and are declined, Magellan will provide written notice of the reason\u201d), existing providers \u201cmay not be eligible to expand services while they are under a corrective action plan,\u201d and new in-lieu-of or in-addition-to services need letters of support from both Magellan and the county. It does not state whether IBHS-ABA is currently open in a given county, and it posts no ABA rate table \u2014 ask Magellan network management for both.',
+        ],
+        cites: [
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'Magellan covers only its seven counties; the TAR asks which county the member’s MA is tied to, and a county change needs a new authorization line.' },
@@ -944,6 +1028,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Does my child need an autism diagnosis for ABA through Magellan?', a: 'No. IBHS ABA is available to children, youth and young adults under 21 with a behavioral health diagnosis; the written order must name a DSM/ICD behavioral health diagnosis, which need not be autism.' },
       { q: 'How long does a Magellan IBHS authorization last?', a: 'Up to 6 months per Magellan’s 2026 workgroup materials; Somerset-Bedford ABA authorizations can run up to one year. Reauthorization packets may be submitted up to 30 days before the last covered day.' },
       { q: 'My child has private insurance too. Does Magellan still need a packet?', a: 'Yes. Bill the private plan first (Medicaid is the last payer), but Magellan’s training says the IBHS packet still needs to be submitted to Magellan when there is TPL. Magellan will not pay as primary just because your agency is out of network with the primary plan.' },
+      { q: 'Does the authorization transfer if a family switches ABA agencies under Magellan?', a: 'Not by itself. The current provider sends the receiving provider the approved packet and a transfer letter with the agreed date; the receiving provider submits both letters and a new TAR through the portal \u201cto ensure accuracy of new authorization.\u201d No discharge form is needed.' },
       { q: 'How do we bill ABA telehealth to Magellan?', a: 'Use your normal contracted code/modifier combination with POS 10 when the member is at home or POS 02 elsewhere; add informational modifier FQ in the last position for audio-only. The GT modifier is no longer allowed.' },
     ],
     state: 'PA',
@@ -1125,6 +1210,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { label: 'Authorization length', value: 'Up to 12 months; ITP updated every 6 months' },
       { label: 'Decision clock', value: '2 business days initial, 1 business day concurrent; 21-day deemed approval' },
       { label: '97153 + 97155 together', value: 'Allowed when both descriptors are met — PerformCare adopted the 2019 CPT supplemental guidance' },
+      { label: 'Fee schedule', value: 'PerformCare contract fee schedule, changed by rate notices that amend the Provider Agreement; rate schedules are approved by the primary contractor and may differ by county' },
       { label: 'Telehealth', value: 'POS 10 (home) / 02 (elsewhere); FQ for audio-only (dates of service from 10/1/2022)' },
     ],
     sections: [
@@ -1178,6 +1264,26 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
         ],
       },
+      {
+        h2: 'Is PerformCare\'s network open to new ABA agencies, and what does it pay?',
+        body: [
+          'Entry runs through an expansion application, and county support is part of it. PerformCare\u2019s provider manual: \u201cAll providers go through the credentialing process, which begins by completing an in-plan expansion application\u201d (application packages from Provider Relations, 1-888-700-7370), and \u201call providers must be licensed and enrolled and in good standing within the Pennsylvania MA program.\u201d Expansion is planned with the counties \u2014 \u201ceach county has a unique way of monitoring network development\u201d \u2014 and \u201csigning a contract with PerformCare is not an invitation to expand services into any additional county or within a county beyond the initial approval and level of care\u201d: a county letter of support, DHS approval or MCO approval \u201calone is not sufficient\u201d to start billing HealthChoices.',
+          'Rates are contractual. \u201cThe fee schedule is reviewed regularly, and rates are adjusted as necessary\u201d; a rate notice \u201cis an official amendment to the Provider Agreement\u201d with 30 calendar days\u2019 notice, and \u201crate schedules are approved by PerformCare\u2019s primary contractor and may differ according to the member\u2019s county of residence.\u201d PerformCare publishes no public ABA rate table.',
+        ],
+        cites: [
+          { title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'What happens when a family switches ABA providers with PerformCare?',
+        body: [
+          'Members choose and may change: the manual\u2019s member rights say each member may \u201cpick any PerformCare network providers that they want,\u201d and \u201cmembers may change providers if they are unhappy.\u201d The mechanics in CM-CAS-042 start with an IBHS Individual/ABA Provider Choice Acknowledgment Form completed with the family when the written order is written; the order and form go to the family\u2019s first-choice provider within four calendar days on request, or to the family to take to any provider (the written order is valid 12 months). If that provider cannot start the assessment within seven calendar days, it must discuss a transfer to a provider with capacity and, if the family agrees, submit the Child/Adolescent Services Request Submission Sheet and the written order to PerformCare \u201cto facilitate the transfer\u201d; a family that chooses to wait signs an Initial Service Capacity Acknowledgement instead. For a child already in treatment, the policy does not say whether an authorization moves to the new agency \u2014 ask the PerformCare care manager.',
+        ],
+        cites: [
+          { title: 'PerformCare CM-CAS-042 \u2014 IBHS Individual/ABA authorization process (revised 03/11/26)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/policies/202605/CM-CAS-042%20%2004.03.26.pdf' },
+          { title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'PerformCare covers Cumberland, Dauphin, Franklin, Fulton, Lancaster, Lebanon and Perry; CANS rules differ between the CABHC and Franklin/Fulton contracts.' },
@@ -1207,6 +1313,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Does PerformCare require prior authorization for the ABA assessment?', a: 'It requires a registration, not a medical-necessity decision. The agency submits an IBHS Assessment Registration Form in Jiva within 4 calendar days of starting the assessment, and PerformCare authorizes 45 calendar days for an ABA assessment. Registering 97151 also allows billing 97152.' },
       { q: 'Can we bill 97153 and 97155 at the same time with PerformCare?', a: 'Yes, when both code descriptors are met. PerformCare adopted the 2019 CPT supplemental guidance for adaptive behavior services, which answers "Yes, as long as the criteria in the descriptors of both codes are met" — but a single QHP may not report both concurrently.' },
       { q: 'How long is a PerformCare ABA authorization?', a: 'Up to 12 months, starting on the medical-necessity decision date (or the day after the current authorization ends for timely reauths). Reauthorization packets are due within 60 days before the current authorization ends, with a new written order and assessment/ITP updated within 30 days.' },
+      { q: 'What is PerformCare\u2019s fee schedule for ABA?', a: 'Contractual and not public. Rates come from your PerformCare fee schedule, changed by rate notices that amend the Provider Agreement, and may differ by the member\u2019s county.' },
+      { q: 'Is PerformCare accepting new ABA providers?', a: 'You apply through an in-plan expansion application and credentialing, licensed and MA-enrolled. Each county plans its own network development, and a contract, county letter or DHS approval alone does not let you start billing a county.' },
+      { q: 'Can a family switch ABA agencies under PerformCare?', a: 'Yes. Members may change network providers. Families pick an agency on a Provider Choice Acknowledgment Form, and an agency that cannot start the assessment within 7 days must offer a transfer to one that can. Ask PerformCare how an existing authorization is handled.' },
       { q: 'Does my child need an autism diagnosis for PerformCare ABA?', a: 'No — IBHS ABA is available for a behavioral health diagnosis on the written order. An autism diagnosis matters mainly for coordination with private insurance under Act 62.' },
       { q: 'What does PerformCare need when private insurance is primary?', a: 'Seek authorization from both plans, bill the private plan first, and attach the EOB. For ABA/Act 62, PerformCare needs one denial or non-covered letter per CPT code per calendar year (plus an EOB denial per code per year if the letter spans years) before it pays as primary for the rest of that year.' },
     ],
@@ -1381,6 +1490,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { label: 'Authorization length', value: 'Up to 180 days; continued-stay request at least 10 business days before expiry' },
       { label: 'Decision clock', value: 'State Appendix AA: 2 business days prospective, 1 business day concurrent, 21-day deemed approval' },
       { label: 'Telehealth', value: 'POS 10 (home) / 02 (elsewhere); GT discontinued (Jan. 2026); FQ variants listed for audio-only' },
+      { label: 'Network', value: 'Open only where Carelon says so: applications are accepted \u201conly for those counties and levels of care in which the network is active\u201d' },
+      { label: 'Fee schedule', value: 'Carelon contracted rate \u2014 no public ABA rate list' },
       { label: 'Other coverage', value: 'Carelon pays last; with Act 62 coverage it acknowledges the case and reviews medical necessity once the primary benefit is met' },
     ],
     sections: [
@@ -1433,6 +1544,27 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Carelon Pennsylvania HealthChoices Covered Services Grid (PV 07/22/2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Pennsylvania-HealthChoices-Covered-Services-Grid-PV-07222026.xlsx' },
         ],
       },
+      {
+        h2: 'Is Carelon\'s ABA network open, and what does it pay?',
+        body: [
+          'Carelon says in its provider manual that the network opens county by county and level of care by level of care: \u201cApplications will only be accepted for those counties and levels of care in which the network is active,\u201d and a provider is eligible to contract only if it has a PROMISe (Medicaid) number, the applicable licence, agrees to Carelon training, and \u201cthe network is open for the county and level of care in which the provider intends to practice.\u201d Approved applicants go through the Carelon National Credentialing Committee before the contract is executed, with credentialing to finish within 180 days of the signed attestation. Carelon watches capacity, including \u201cthe number of network providers who are not accepting new members,\u201d and \u201cproviders receiving three out-of-network authorizations will be recruited into the Carelon provider network.\u201d Declined providers get written notice of the reason. Ask Provider Relations whether IBHS-ABA is open in your county before applying.',
+          'Rates are contractual: the billing guide pays at \u201cthe Carelon contracted rate\u201d (as secondary payer, \u201cthe lesser of the Carelon contracted rate or the primary carrier\u2019s allowable\u201d). Carelon publishes no public ABA rate table.',
+        ],
+        cites: [
+          { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Provider Recruitment', url: 'https://providers.pa.carelon.com/providers/provider-manual/5-provider-recruitment/' },
+          { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Provider Contracting', url: 'https://providers.pa.carelon.com/providers/provider-manual/5-provider-contracting/' },
+          { title: 'Carelon Health of Pennsylvania Billing Guide', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Billing-Guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Switching ABA providers at Carelon: what is published',
+        body: [
+          'Carelon publishes the provider-exit side, not a general transfer procedure. When a provider resigns or leaves the network, it \u201cmust continue to provide covered services, at the rate and pursuant to the requirements specified in the provider/facility agreement \u2026 to members receiving active treatment at the time of termination until the course of treatment is completed or until Carelon makes reasonable and medically appropriate arrangements to have another provider render such services,\u201d and members should call Carelon\u2019s member line for options. For a family that simply chooses a new agency, the manual does not say whether the authorization moves; ask Carelon before the new agency starts.',
+        ],
+        cites: [
+          { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Member Right to Continuing Course of Treatment', url: 'https://providers.pa.carelon.com/providers/provider-manual/4-member-right-to-continuing-course-of-treatment/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'Carelon covers 11 western PA counties; a county change needs an authorization under the new eligibility line.' },
@@ -1443,6 +1575,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Family Choice/Confirmation Form', desc: 'Reviewed with the family before services start.' },
     ],
     sources: [
+      { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Provider Recruitment', url: 'https://providers.pa.carelon.com/providers/provider-manual/5-provider-recruitment/' },
+      { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Provider Contracting', url: 'https://providers.pa.carelon.com/providers/provider-manual/5-provider-contracting/' },
+      { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Member Right to Continuing Course of Treatment', url: 'https://providers.pa.carelon.com/providers/provider-manual/4-member-right-to-continuing-course-of-treatment/' },
       { title: 'Carelon Health of PA Policy CN.48 — Intensive Behavioral Health Services (DHS approved 9/26/2024)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/CN-48-IBHS-Beacon-Policy-and-Procedure.pdf' },
       { title: 'Carelon Health of PA — Intensive Behavioral Health Services (IBHS) provider page', url: 'https://providers.pa.carelon.com/providers/intensive-behavioral-health-services-ibhs/' },
       { title: 'Carelon Health of PA — IBHS Packet Documentation Checklist', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/IBHS-Packet-Documentation-Checklist.docx' },
@@ -1463,6 +1598,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'How long does a Carelon IBHS authorization last?', a: 'Up to 180 days. Submit continued-stay requests through ProviderConnect at least 10 business days before the current authorization expires.' },
       { q: 'Does my child need an autism diagnosis for ABA through Carelon?', a: 'No — IBHS ABA is available with any DSM/ICD behavioral health diagnosis on the written order. An autism diagnosis triggers Carelon’s Act 62 cover sheet and primary-insurance process.' },
       { q: 'What if my child has private insurance with autism coverage?', a: 'Use a provider in the private plan’s network and bill it first. Carelon generates an acknowledgement letter that services are covered under Act 62 and reviews medical necessity once the primary benefit is met; if the provider bills Carelon only for copays, coinsurance or deductibles, no Carelon authorization is required.' },
+      { q: 'Is Carelon accepting new ABA providers?', a: 'Only where its network is open. Carelon accepts applications \u201conly for those counties and levels of care in which the network is active,\u201d so ask Provider Relations about IBHS-ABA in your county first. You also need a PROMISe number and the right licence.' },
+      { q: 'What is Carelon\u2019s fee schedule for ABA?', a: 'There is no public one. Carelon pays its contracted rate under your provider agreement.' },
       { q: 'How do we bill ABA telehealth to Carelon?', a: 'Identify telehealth by place of service only — POS 10 in the member’s home, POS 02 elsewhere; Carelon discontinued the GT modifier (Alert 03.26.01, Jan. 2026). The grid lists FQ variants of the ABA codes on POS 02/10 for audio-only.' },
     ],
     state: 'PA',
