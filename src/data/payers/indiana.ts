@@ -95,6 +95,29 @@ export const indianaPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'Is Indiana Medicaid\'s ABA network open to new providers?',
+        body: [
+          'Not to new agencies right now. IHCP Bulletin BT202692 (6/4/2026) announced CMS approval of a statewide ABA provider-enrollment moratorium effective June 6, 2026, "in place for an initial period of six months" and extendable "in six-month increments." It "will prevent enrollment for brand-new ABA group enrollments as well as changes of ownership for existing ABA therapy agencies," but "will not apply to rendering provider enrollment requests for individuals" — an already-enrolled agency can keep adding RBTs, BCaBAs and BCBAs. IHCP will consider limited exceptions "to ensure sufficient member access to ABA therapy services to areas in need"; an agency asking for one must already be accredited under BT202646 and applies by email to OMPPProviderRelations@fssa.in.gov. The moratorium reaches the managed-care networks too: federal rule requires the state to "screen and enroll" all network providers of its MCOs, and an MCO must drop a network provider the state cannot enroll. Existing agencies face their own gate — accreditation documentation was due August 1, 2026 and full ACQ/BHCOE accreditation by October 1, 2027, or the enrollment is deactivated. IHCP\'s bulletin list through BT2026164 (9/29/2026) shows no extension or early end yet; check for one before the first six months run out in early December 2026.',
+        ],
+        cites: [
+          { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
+          { title: 'IHCP Bulletin BT202667 — IHCP seeks approval for an ABA provider enrollment moratorium (5/7/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202667.pdf' },
+          { title: 'IHCP Bulletin BT202646 — ABA agency accreditation requirement (3/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202646.pdf' },
+          { title: '42 CFR 438.602(b) — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
+        ],
+      },
+      {
+        h2: 'What happens when a family switches ABA providers?',
+        body: [
+          'IHCP does not publish a transfer rule for an authorization when a family changes ABA providers, so expect the new agency to need its own approval: all ABA services require prior authorization, and each PA request runs at most six months. What is written down is how much of the old work carries over. "If a comprehensive behavior assessment has been completed within six months, any new provider is expected to obtain the assessment from the original provider" — so get the prior agency\'s assessment (with consent) before re-testing. The CDE and referral follow the child, not the agency: under BT2026160 (9/29/2026) a new statement of need/referral is needed only if the CDE is over a year old, or with a new PA after a six-month gap in ABA services. And the 4,000-hour lifetime allocation for comprehensive ABA is per member, not per provider, so hours used at the previous agency count; check the IHCP Portal\'s Limit Details panel at eligibility verification (it lags claims). Whether the old agency\'s open PA must be ended before a new one is approved is not published — ask Acentra Health (fee-for-service) or the member\'s MCE.',
+        ],
+        cites: [
+          { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+          { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' },
+          { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
+        ],
+      },
+      {
         h2: 'Staffing & credentialing: who you can hire, and what they must clear',
         body: [
           'Indiana is one of the few states where technicians enroll in Medicaid individually. Since December 18, 2024, RBTs enroll with the IHCP as rendering providers (provider type 11, specialty 625 — ABA Therapist RBT), and all RBTs and BCaBAs had to be individually enrolled by April 1, 2025 — each with their own Type 1 NPI, enrolled once and then associated with every group they render for. Since April 1, 2025 the rendering NPI on claims must align with the credential-level modifier (U1 RBT / U2 BCaBA / U3 BCBA-HSPP), though a bulletin update note delayed enforcement of that alignment. There is no separate state RBT license: IC 25-8.5-3-6 lets "direct contact technicians" practice without a license when implementing plans under the supervision and direction of a licensed behavior analyst, so the certification floor is the BACB\'s — age 18+, high-school education, the 40-hour training, competency assessment, and the RBT exam, plus the BACB\'s own requirement that every applicant pass a criminal background check and an abuse-registry check within 180 days before applying.',
@@ -125,6 +148,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Bulletin BT202646 — ABA agency accreditation', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202646.pdf' },
       { title: 'IHCP Bulletin BT2026118 — ABA accreditation deadline reminder (7/14/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026118.pdf' },
       { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
+      { title: 'IHCP Bulletin BT202667 — IHCP seeks approval for an ABA provider enrollment moratorium (5/7/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202667.pdf' },
+      { title: '42 CFR 438.602 — State monitoring; screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
       { title: 'IHCP Bulletin BT2026123 — BASC-3 PRQ to BASC-4 transition (7/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026123.pdf' },
       { title: 'IHCP Bulletin BT2026136 — Minimum caregiver coaching/training requirements for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' },
       { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' },
@@ -137,21 +162,20 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Behavior Analyst licensing information', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information/' },
       { title: 'IC 25-8.5-3-6 — Prohibitions; exceptions', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
       { title: 'BACB RBT Handbook', url: 'https://www.bacb.com/rbt-handbook' },
+      { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Two layers, and the second one is new money. The provider reference module requires that ABA performed by a BCaBA or credentialed RBT \u201cmust be under the direct supervision of a BCBA, BCBA-D or HSPP.\u201d On top of that, since April 1, 2026 IHCP sets a numeric floor: at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision per 8 hours of technician-delivered therapy. Because 97153 lost telehealth modifier 95 on the same date, that supervision capacity has to exist physically where the sessions happen. Assessments feeding a PA are a separate, narrower role: only a psychologist, BCBA-D or master\'s-level BCBA may perform the behavior assessment.',
+          'Two layers, and the second one is new money. The provider reference module requires that ABA performed by a BCaBA or credentialed RBT \u201cmust be under the direct supervision of a BCBA, BCBA-D or HSPP.\u201d On top of that, since April 1, 2026 IHCP sets a numeric floor: at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision per 8 hours of technician-delivered therapy. Because 97153 lost telehealth modifier 95 on the same date, that supervision capacity has to exist physically where the sessions happen. Assessments feeding a PA are a separate, narrower role: only a psychologist, BCBA-D or master\'s-level BCBA may perform the behavior assessment. BT202662 (4/28/2026) defines how the floor is measured: monthly, per member (“not aggregated across technicians or across Medicaid members”), proportionally when a member gets fewer than eight technician hours in the month, and counting both billable 97155 and documented nonbillable case supervision (fidelity checks, session-note review) — but not administrative supervision such as scheduling or staff meetings. Shortfalls are subject to claim audit, postpayment review and recoupment.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       concurrentBilling: {
         value:
-          'Not published in the ABA sections of the provider reference module or in the 2026 policy bulletins. Indiana does regulate code-pair economics from a different direction \u2014 the rendering NPI on the claim must align with the credential-level modifier (U1 RBT / U2 BCaBA / U3 BCBA-HSPP), and 97155 and 97156 are excluded from the 4,000-hour lifetime allocation while 97153 counts against it \u2014 but neither states whether 97155 and 97153 may be billed for the same clock time.',
-        status: 'unverified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
-        verifyVia: 'For fee-for-service, Acentra Health at 866-725-9991 (PA) or Gainwell Customer Assistance at 800-457-4584 (billing), plus the Procedure Codes and Modifiers for Applied Behavior Analysis Therapy table in Behavioral Health Services Codes on the IHCP Code Sets page. For a managed-care member, the MCE \u2014 IHCP states that MCEs establish and publish their own billing and reimbursement requirements.',
-        blocker: 'per-case',
+          'Yes, for 97155 alone — IHCP answered this in BT202662 (4/28/2026): “CPT code 97155 may be billed concurrently only with CPT codes 97153 and 97154.” It is the billable supervision code only when a BCBA, BCBA-D or other IHCP-approved supervising clinician “is actively directing a technician in implementing a modified treatment protocol during service delivery,” and IHCP “expects clear evidence of protocol modification and technician direction when CPT code 97155 is billed.” 97155 billed for observation, protocol evaluation or the analyst’s own direct implementation without directing a technician is not supervision of technician services and does not count toward the 1:8 floor, though it may otherwise be billable when documented.',
+        status: 'verified',
+        cites: [{ title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       dailyLimits: {
         value:
@@ -161,11 +185,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Indiana publishes signature rules for the plan documents but not for the session note. The behavior assessment \u201cmust be signed by the lead analyst and parent or guardian,\u201d and so must the treatment plan; the complete scoring report including outcome measure scores and graphs must be submitted with the PA request. Neither the provider reference module nor BT202562, the bulletin titled for ABA documentation requirements, states who signs an individual session note or by when.',
-        status: 'unverified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia: 'Acentra Health at 866-725-9991 for fee-for-service, or the member\'s MCE, which publishes its own documentation and billing requirements. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment \u2014 check for it before relying on this.',
-        blocker: 'per-case',
+          'Published, in the provider reference module’s ABA documentation requirements. Providers must keep — and be able to produce within 72 hours of a request — "session notes, which must be signed by the rendering practitioner," and each note must include the date, time, location and duration of services plus the session-specific targeted skills and the individual’s response addressing the treatment plan goals. The behavior assessment and the treatment plan are a separate signature rule: each must be signed by the lead analyst and the parent or guardian. No signing deadline (for example, within a set number of hours after the session) is published.',
+        status: 'verified',
+        cites: [{ title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }],
       },
       placeOfService: {
         value:
@@ -213,9 +235,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Indiana moved the other way from most states. Effective April 1, 2026, codes 97151, 97152, 97153, 97154 and 0373T can no longer be billed with telehealth modifier 95 \u2014 they require in-person delivery. That reaches the assessment and all direct and group treatment, which is why the 1-hour-per-8 supervision floor has to be staffed on site. Verify the current rule per code before scheduling; Indiana has revised its ABA policy repeatedly through 2026.',
+          'Assessment in person; remote supervision and caregiver training only, with conditions. Effective April 1, 2026, IHCP no longer allows 97151, 97152, 97153, 97154 or 0373T to be billed with telehealth modifier 95, because they "require direct, in-person interaction" — so the initial assessment, every reassessment and follow-up observational assessment (97151/97152), direct treatment and group treatment must all be delivered in person. Only 97155 and 97156 may be delivered via telehealth, and the provider reference module attaches three conditions: RBTs and BCaBAs "may not deliver any ABA therapy service via telehealth" (only an HSPP, BCBA or BCBA-D may use telehealth when supervising remotely); 97155 is reimbursable via telehealth "only when an HSPP, BCBA or BCBA-D is providing guidance/supervision to an RBT remotely, and the RBT is rendering adaptive behavioral treatment (procedure code 97153) in person to the member"; and every ABA telehealth service must be synchronous audio-video — audio-only is never reimbursable. Bill modifier 95 with 97155/97156 when delivered via telehealth, with U3 alongside it. BT202662 (4/28/2026) confirms that supervision “may be rendered via synchronous telehealth and billed using modifier 95,” but that telehealth supervision “is intended to supplement, not replace, the majority of in-person services” — no numeric cap on the remote share is set, and remote supervision counts toward the 1-hour-per-8 floor. The module itself is written for fee-for-service; managed-care members follow their MCE.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       authTurnaround: {
         value:
@@ -234,7 +256,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Indiana Medicaid cover ABA therapy?', a: 'Yes — IHCP covers medically necessary ABA for autism with prior authorization on all services. Since April 1, 2026 it is covered exclusively through EPSDT, and coverage ends for members 21+ for dates of service on or after October 1, 2026.' },
       { q: 'What is Indiana\'s lifetime cap on ABA?', a: 'Comprehensive ABA (16+ hours/week) draws from a 4,000-hour (16,000-unit) lifetime allocation per member, tracked in the IHCP Portal. 97155 and 97156 don\'t count against it, and targeted ABA (≤15 hrs/week) is exempt.' },
       { q: 'What does Indiana Medicaid pay for ABA?', a: 'Published max fees, per 15-minute unit — e.g., 97153 at $16.04 (technician tier, DOS on/after 4/1/2026, dropping to $15.39 on 4/1/2027) and 97155 at $25.97 (BCBA tier). MCE rates are contractual but benchmark against the IHCP schedule. The 2027 Medicare-based rebase of the Professional Fee Schedule excludes ABA (BT2026143), so the 4/1/2027 4% cut is the next scheduled change.' },
-      { q: 'Can Indiana Medicaid ABA be delivered by telehealth?', a: 'Codes 97151, 97152, 97153, 97154, and 0373T can no longer be billed with modifier 95 as of April 1, 2026 — they require in-person delivery. Verify current rules per code before scheduling.' },
+      { q: 'Can Indiana Medicaid ABA be delivered by telehealth?', a: 'Only partly. Since April 1, 2026, 97151, 97152, 97153, 97154 and 0373T cannot be billed with modifier 95, so assessments and reassessments are in person. 97155 and 97156 may be done by audio-video telehealth (modifier 95 with U3) by an HSPP, BCBA or BCBA-D only \u2014 and remote 97155 only while the RBT delivers 97153 in person. RBTs and BCaBAs may not use telehealth, and audio-only is never paid.' },
+      { q: 'Is Indiana Medicaid accepting new ABA providers?', a: 'Not new agencies, for now. A CMS-approved moratorium (effective June 6, 2026, six months at a time) blocks new ABA group enrollments and changes of ownership; individual RBT/BCaBA/BCBA enrollment is unaffected. Accredited agencies can ask for an access exception at OMPPProviderRelations@fssa.in.gov. It reaches MCE networks too, since MCE network providers must be state-enrolled.' },
+      { q: 'What happens to the authorization if a family switches ABA providers in Indiana Medicaid?', a: 'No transfer rule is published, so plan on a new PA for the new agency (each PA is up to six months). The new provider is expected to obtain a behavior assessment done within the last six months from the original provider, and lifetime comprehensive-ABA hours carry over. Confirm with Acentra Health or the MCE whether the old PA must be closed first.' },
       { q: 'Can a member nap or sleep during an Indiana Medicaid ABA session?', a: 'Yes — BT2026159 (9/29/2026) requires providers to follow AAP sleep recommendations by age, write necessary nap time into the schedule of services, and never keep a member awake or wake one by physically moving them. Lost 97153 billable time from a documented nap must be explained in the treatment plan, not penalized.' },
     ],
   },
@@ -310,6 +334,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'IHCP Bulletin BT202627 — ABA policy & rate changes', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
         ],
       },
+      {
+        h2: 'Is Anthem\'s ABA network open to new providers?',
+        body: [
+          'Not to new agencies, while Indiana\'s ABA enrollment moratorium lasts. IHCP Bulletin BT202692 (6/4/2026): a CMS-approved moratorium, effective June 6, 2026 for an initial six months and extendable in six-month increments, "will prevent enrollment for brand-new ABA group enrollments as well as changes of ownership for existing ABA therapy agencies"; individual rendering-provider (RBT/BCaBA/BCBA) enrollment is not affected. That reaches Anthem\'s network because federal rule requires the state to "screen and enroll" every network provider of its managed-care plans, and a plan must drop a network provider the state cannot enroll. Accredited agencies can ask IHCP for an access exception at OMPPProviderRelations@fssa.in.gov. Whether Anthem is adding already-enrolled ABA agencies to its panel is a contracting question — the plan publishes no open/closed statement for ABA.',
+        ],
+        cites: [
+          { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
+          { title: '42 CFR 438.602(b) — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program + delivery system', desc: 'Hoosier Healthwise vs. HIP vs. Hoosier Care Connect, and whether an ACO/PMG/IPA controls the auth path.' },
@@ -326,19 +360,23 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Bulletin BT2026123 \u2014 BASC-3 PRQ to BASC-4 transition (7/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026123.pdf' },
       { title: 'IHCP Bulletin BT202519 \u2014 ABA enrollment FAQ', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202519.pdf' },
       { title: 'IHCP Bulletin BT2026136 \u2014 Minimum caregiver coaching/training requirements for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' },
+      { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
+      { title: '42 CFR 438.602 — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
+      { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' },
+      { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Follows the Indiana Medicaid rule: ABA performed by a BCaBA or credentialed RBT must be under the direct supervision of a BCBA, BCBA-D or HSPP, and since April 1, 2026 at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision is required per 8 hours of technician-delivered therapy. Behavior assessments may only be performed by a psychologist, BCBA-D or master\'s-level BCBA. IHCP states that its ABA documentation requirements apply to both fee-for-service and managed care, and this plan publishes no supervision standard of its own.',
+          'Follows the Indiana Medicaid rule: ABA performed by a BCaBA or credentialed RBT must be under the direct supervision of a BCBA, BCBA-D or HSPP, and since April 1, 2026 at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision is required per 8 hours of technician-delivered therapy. Behavior assessments may only be performed by a psychologist, BCBA-D or master\'s-level BCBA. IHCP states that its ABA documentation requirements apply to both fee-for-service and managed care, and this plan publishes no supervision standard of its own. BT202662 (4/28/2026) defines how the floor is measured: monthly, per member (“not aggregated across technicians or across Medicaid members”), proportionally when a member gets fewer than eight technician hours in the month, and counting both billable 97155 and documented nonbillable case supervision (fidelity checks, session-note review) — but not administrative supervision such as scheduling or staff meetings. Shortfalls are subject to claim audit, postpayment review and recoupment.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       concurrentBilling: {
         value:
-          'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default.',
+          'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default. The IHCP rule this plan may or may not mirror: BT202662 (4/28/2026) says “CPT code 97155 may be billed concurrently only with CPT codes 97153 and 97154,” and only when the analyst is actively directing the technician through a modified protocol.',
         status: 'unverified',
-        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
         verifyVia: 'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
         blocker: 'per-case',
       },
@@ -362,11 +400,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Neither Indiana Medicaid nor this plan publishes a session-note signature rule. The state\'s published signature requirements attach to the plan documents \u2014 the behavior assessment and the treatment plan must each be signed by the lead analyst and the parent or guardian \u2014 and BT202562, the bulletin titled for ABA documentation requirements, does not reach the individual session note. IHCP states its documentation requirements apply to managed care as well as fee-for-service, but also that MCEs establish and publish their own billing and reimbursement requirements, so the gap is not automatically filled at the state level.',
-        status: 'unverified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia: 'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
-        blocker: 'per-case',
+          'Follows the Indiana Medicaid rule; the plan publishes no session-note rule of its own. IHCP’s ABA documentation requirements require "session notes, which must be signed by the rendering practitioner," each including the date, time, location and duration of services and the session-specific targeted skills and the member’s response to the treatment plan goals, producible within 72 hours of a request; the behavior assessment and treatment plan must each be signed by the lead analyst and the parent or guardian. IHCP states that "documentation requirements outlined in IHCP policy are applicable to both FFS and managed care." No signing deadline is published.',
+        status: 'verified',
+        cites: [{ title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
     },
     intakeGates: {
@@ -378,9 +414,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Follows the Indiana Medicaid rule: a CDE more than one year old requires an updated statement of need, which must include a referral from an appropriate referring practitioner and an up-to-date behavior assessment completed by the ABA provider. Members continuing current services need no new CDE but do need an updated behavior assessment and treatment plan. A behavior assessment completed within the previous six months should be obtained from the original provider rather than repeated. IHCP states these documentation requirements apply to managed care as well as fee-for-service.',
+          'Follows the Indiana Medicaid rule: a CDE more than one year old requires an updated statement of need, which must include a referral from an appropriate referring practitioner and an up-to-date behavior assessment completed by the ABA provider. Members continuing current services need no new CDE but do need an updated behavior assessment and treatment plan. A behavior assessment completed within the previous six months should be obtained from the original provider rather than repeated. IHCP states these documentation requirements apply to managed care as well as fee-for-service. BT2026160 (9/29/2026) since narrowed when that paperwork is due: “statement of need” and “referral” now mean the same thing, and one is required only at onset of ABA if the CDE is more than a year old, at reauthorization when an active member’s CDE crosses one year, or with a new PA after a six-month gap in ABA services — not with every reauthorization or annually — while reassessment and an updated treatment plan are still due at least every six months.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' }],
       },
       diagnosingProviders: {
         value:
@@ -396,15 +432,15 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Follows the Indiana Medicaid rule: a physician must make a treatment referral recommending ABA therapy, and the CDE\u2019s own required components include a physician\u2019s referral for autism-specific services. Prior authorization is required on top of the referral for every ABA service, through this plan rather than through Acentra Health.',
+          'Follows the Indiana Medicaid rule: a physician must make a treatment referral recommending ABA therapy, and the CDE\u2019s own required components include a physician\u2019s referral for autism-specific services. Under BT2026160 (9/29/2026) the referral/statement of need must come from an HSPP-endorsed doctoral psychologist, a licensed physician, a licensed APRN or a licensed physician assistant — a BCaBA, BCBA, PT, SLP or OT cannot complete it. Prior authorization is required on top of the referral for every ABA service, through this plan rather than through Acentra Health.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' }],
       },
       telehealth: {
         value:
-          'Follows the Indiana Medicaid rule: effective April 1, 2026, codes 97151, 97152, 97153, 97154 and 0373T can no longer be billed with telehealth modifier 95 and require in-person delivery. The plan publishes no ABA telehealth policy of its own.',
+          'Follows the Indiana Medicaid rule, with no ABA telehealth policy of the plan’s own. Effective April 1, 2026, IHCP no longer allows 97151, 97152, 97153, 97154 or 0373T to be billed with telehealth modifier 95, so the assessment, reassessments and all direct and group treatment are in person. Only 97155 and 97156 remain telehealth-eligible; IHCP’s provider reference module adds that RBTs and BCaBAs may not deliver any ABA service via telehealth, that remote 97155 is payable only when an HSPP, BCBA or BCBA-D supervises an RBT who is delivering 97153 in person, and that audio-only ABA is never reimbursable (modifier 95 plus U3). IHCP Bulletin BT202662 (4/28/2026) adds that supervision “may be rendered via synchronous telehealth and billed using modifier 95” but “is intended to supplement, not replace, the majority of in-person services.” The module is written for fee-for-service and IHCP says MCEs set their own billing requirements, so confirm with the plan before billing remote 97155 or 97156.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       authTurnaround: {
         value:
@@ -423,6 +459,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Anthem Indiana Medicaid cover ABA therapy?', a: 'Yes — under Anthem\'s UM guideline, which restates IHCP criteria: all ABA prior-authorized, 6-month max authorizations (Indiana\'s IC 27-1-37.5-26 says managed-care authorizations are valid at least a year, and nothing yet reconciles the two), up to 40 hours/week requestable, members 20 and younger.' },
       { q: 'What does Anthem require for an ABA prior authorization?', a: 'The PA form, F84.0 diagnosis, testing results, an intake assessment (functioning, severity, social/life skills), the treatment plan, and the child\'s daily schedule — via Availity\'s Interactive Care Reviewer, fax, or phone.' },
       { q: 'Do the 2026 Indiana ABA changes apply to Anthem members?', a: 'Yes — EPSDT-only coverage, the under-21 cutoff, the 4,000-hour lifetime allocation, and telehealth restrictions are state policy that binds every MCE, even though Anthem\'s published guideline predates them.' },
+      { q: 'Is Anthem accepting new ABA providers?', a: 'Not new agencies while Indiana\'s ABA enrollment moratorium lasts (effective June 6, 2026, renewable six months at a time): MCE network providers must be IHCP-enrolled, and the moratorium blocks new ABA group enrollments and changes of ownership. Existing IHCP-enrolled agencies should ask Anthem provider contracting about panel openings.' },
+      { q: 'What happens if a family switches ABA providers while on Anthem?', a: 'Anthem publishes no rule on transferring an open ABA authorization, so expect the new agency to submit its own PA and confirm with Anthem UM whether the old one must be closed first. Under IHCP documentation policy, which applies to managed care, a new provider is expected to obtain a behavior assessment completed within the last six months from the original provider instead of re-testing, and the member\'s 4,000-hour lifetime comprehensive-ABA allocation carries over.' },
     ],
   },
 
@@ -484,6 +522,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'MHS — Behavioral health provider forms', url: 'https://www.mhsindiana.com/providers/behavioral-health/bh-provider-forms.html' },
         ],
       },
+      {
+        h2: 'Is MHS\'s ABA network open to new providers?',
+        body: [
+          'Not to new agencies, while Indiana\'s ABA enrollment moratorium lasts. IHCP Bulletin BT202692 (6/4/2026): a CMS-approved moratorium, effective June 6, 2026 for an initial six months and extendable in six-month increments, "will prevent enrollment for brand-new ABA group enrollments as well as changes of ownership for existing ABA therapy agencies"; individual rendering-provider (RBT/BCaBA/BCBA) enrollment is not affected. That reaches MHS\'s network because federal rule requires the state to "screen and enroll" every network provider of its managed-care plans, and a plan must drop a network provider the state cannot enroll. Accredited agencies can ask IHCP for an access exception at OMPPProviderRelations@fssa.in.gov. Whether MHS is adding already-enrolled ABA agencies to its panel is a contracting question — the plan publishes no open/closed statement for ABA.',
+        ],
+        cites: [
+          { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
+          { title: '42 CFR 438.602(b) — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnostic instrument + score', desc: 'The named tool, date, score, and diagnosing provider — mandatory on the OTR and the most common intake bottleneck.' },
@@ -500,19 +548,23 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Bulletin BT2026123 \u2014 BASC-3 PRQ to BASC-4 transition (7/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026123.pdf' },
       { title: 'IHCP Bulletin BT202519 \u2014 ABA enrollment FAQ', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202519.pdf' },
       { title: 'IHCP Bulletin BT2026136 \u2014 Minimum caregiver coaching/training requirements for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' },
+      { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
+      { title: '42 CFR 438.602 — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
+      { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' },
+      { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Follows the Indiana Medicaid rule: ABA performed by a BCaBA or credentialed RBT must be under the direct supervision of a BCBA, BCBA-D or HSPP, and since April 1, 2026 at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision is required per 8 hours of technician-delivered therapy. Behavior assessments may only be performed by a psychologist, BCBA-D or master\'s-level BCBA. IHCP states that its ABA documentation requirements apply to both fee-for-service and managed care, and this plan publishes no supervision standard of its own.',
+          'Follows the Indiana Medicaid rule: ABA performed by a BCaBA or credentialed RBT must be under the direct supervision of a BCBA, BCBA-D or HSPP, and since April 1, 2026 at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision is required per 8 hours of technician-delivered therapy. Behavior assessments may only be performed by a psychologist, BCBA-D or master\'s-level BCBA. IHCP states that its ABA documentation requirements apply to both fee-for-service and managed care, and this plan publishes no supervision standard of its own. BT202662 (4/28/2026) defines how the floor is measured: monthly, per member (“not aggregated across technicians or across Medicaid members”), proportionally when a member gets fewer than eight technician hours in the month, and counting both billable 97155 and documented nonbillable case supervision (fidelity checks, session-note review) — but not administrative supervision such as scheduling or staff meetings. Shortfalls are subject to claim audit, postpayment review and recoupment.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       concurrentBilling: {
         value:
-          'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default.',
+          'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default. The IHCP rule this plan may or may not mirror: BT202662 (4/28/2026) says “CPT code 97155 may be billed concurrently only with CPT codes 97153 and 97154,” and only when the analyst is actively directing the technician through a modified protocol.',
         status: 'unverified',
-        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
         verifyVia: 'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
         blocker: 'per-case',
       },
@@ -536,11 +588,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Neither Indiana Medicaid nor this plan publishes a session-note signature rule. The state\'s published signature requirements attach to the plan documents \u2014 the behavior assessment and the treatment plan must each be signed by the lead analyst and the parent or guardian \u2014 and BT202562, the bulletin titled for ABA documentation requirements, does not reach the individual session note. IHCP states its documentation requirements apply to managed care as well as fee-for-service, but also that MCEs establish and publish their own billing and reimbursement requirements, so the gap is not automatically filled at the state level.',
-        status: 'unverified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia: 'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
-        blocker: 'per-case',
+          'Follows the Indiana Medicaid rule; the plan publishes no session-note rule of its own. IHCP’s ABA documentation requirements require "session notes, which must be signed by the rendering practitioner," each including the date, time, location and duration of services and the session-specific targeted skills and the member’s response to the treatment plan goals, producible within 72 hours of a request; the behavior assessment and treatment plan must each be signed by the lead analyst and the parent or guardian. IHCP states that "documentation requirements outlined in IHCP policy are applicable to both FFS and managed care." No signing deadline is published.',
+        status: 'verified',
+        cites: [{ title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
     },
     intakeGates: {
@@ -552,9 +602,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Follows the Indiana Medicaid rule: a CDE more than one year old requires an updated statement of need, which must include a referral from an appropriate referring practitioner and an up-to-date behavior assessment completed by the ABA provider. Members continuing current services need no new CDE but do need an updated behavior assessment and treatment plan. A behavior assessment completed within the previous six months should be obtained from the original provider rather than repeated. IHCP states these documentation requirements apply to managed care as well as fee-for-service.',
+          'Follows the Indiana Medicaid rule: a CDE more than one year old requires an updated statement of need, which must include a referral from an appropriate referring practitioner and an up-to-date behavior assessment completed by the ABA provider. Members continuing current services need no new CDE but do need an updated behavior assessment and treatment plan. A behavior assessment completed within the previous six months should be obtained from the original provider rather than repeated. IHCP states these documentation requirements apply to managed care as well as fee-for-service. BT2026160 (9/29/2026) since narrowed when that paperwork is due: “statement of need” and “referral” now mean the same thing, and one is required only at onset of ABA if the CDE is more than a year old, at reauthorization when an active member’s CDE crosses one year, or with a new PA after a six-month gap in ABA services — not with every reauthorization or annually — while reassessment and an updated treatment plan are still due at least every six months.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' }],
       },
       diagnosingProviders: {
         value:
@@ -570,15 +620,15 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Follows the Indiana Medicaid rule: a physician must make a treatment referral recommending ABA therapy, and the CDE\u2019s own required components include a physician\u2019s referral for autism-specific services. Prior authorization is required on top of the referral for every ABA service, through this plan rather than through Acentra Health.',
+          'Follows the Indiana Medicaid rule: a physician must make a treatment referral recommending ABA therapy, and the CDE\u2019s own required components include a physician\u2019s referral for autism-specific services. Under BT2026160 (9/29/2026) the referral/statement of need must come from an HSPP-endorsed doctoral psychologist, a licensed physician, a licensed APRN or a licensed physician assistant — a BCaBA, BCBA, PT, SLP or OT cannot complete it. Prior authorization is required on top of the referral for every ABA service, through this plan rather than through Acentra Health.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' }],
       },
       telehealth: {
         value:
-          'Follows the Indiana Medicaid rule: effective April 1, 2026, codes 97151, 97152, 97153, 97154 and 0373T can no longer be billed with telehealth modifier 95 and require in-person delivery. The plan publishes no ABA telehealth policy of its own.',
+          'Follows the Indiana Medicaid rule, with no ABA telehealth policy of the plan’s own. Effective April 1, 2026, IHCP no longer allows 97151, 97152, 97153, 97154 or 0373T to be billed with telehealth modifier 95, so the assessment, reassessments and all direct and group treatment are in person. Only 97155 and 97156 remain telehealth-eligible; IHCP’s provider reference module adds that RBTs and BCaBAs may not deliver any ABA service via telehealth, that remote 97155 is payable only when an HSPP, BCBA or BCBA-D supervises an RBT who is delivering 97153 in person, and that audio-only ABA is never reimbursable (modifier 95 plus U3). IHCP Bulletin BT202662 (4/28/2026) adds that supervision “may be rendered via synchronous telehealth and billed using modifier 95” but “is intended to supplement, not replace, the majority of in-person services.” The module is written for fee-for-service and IHCP says MCEs set their own billing requirements, so confirm with the plan before billing remote 97155 or 97156.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       authTurnaround: {
         value:
@@ -597,6 +647,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does MHS Indiana cover ABA therapy?', a: 'Yes — MHS administers the IHCP ABA benefit for Hoosier Healthwise and HIP members under state clinical criteria, with prior authorization on all ABA codes via its Outpatient Treatment Request form.' },
       { q: 'What does MHS require on an ABA authorization?', a: 'A formal ASD diagnosis with a named standardized instrument, date, and score; a committed outcome measure for the episode; units per code; the FBA/BIP; and parent goals. Fax the OTR to (866) 694-3649; incomplete forms are returned.' },
       { q: 'What happens at MHS reauthorization?', a: 'Concurrent requests must report actual utilization versus authorized hours (the "prescription fulfillment rate") — sustained under-delivery risks reduced hours, so request what the family can actually attend.' },
+      { q: 'Is MHS accepting new ABA providers?', a: 'Not new agencies while Indiana\'s ABA enrollment moratorium lasts (effective June 6, 2026, renewable six months at a time): MCE network providers must be IHCP-enrolled, and the moratorium blocks new ABA group enrollments and changes of ownership. Existing IHCP-enrolled agencies should ask MHS provider contracting about panel openings.' },
+      { q: 'What happens if a family switches ABA providers while on MHS?', a: 'MHS publishes no rule on transferring an open ABA authorization, so expect the new agency to submit its own PA and confirm with MHS UM whether the old one must be closed first. Under IHCP documentation policy, which applies to managed care, a new provider is expected to obtain a behavior assessment completed within the last six months from the original provider instead of re-testing, and the member\'s 4,000-hour lifetime comprehensive-ABA allocation carries over.' },
     ],
   },
 
@@ -673,6 +725,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'CareSource — archived IN ABA policy MM-0900', url: 'https://www.caresource.com/documents/medicaid-in-policy-medical-mm-0900-20220601' },
         ],
       },
+      {
+        h2: 'Is CareSource\'s ABA network open to new providers?',
+        body: [
+          'Not to new agencies, while Indiana\'s ABA enrollment moratorium lasts. IHCP Bulletin BT202692 (6/4/2026): a CMS-approved moratorium, effective June 6, 2026 for an initial six months and extendable in six-month increments, "will prevent enrollment for brand-new ABA group enrollments as well as changes of ownership for existing ABA therapy agencies"; individual rendering-provider (RBT/BCaBA/BCBA) enrollment is not affected. That reaches CareSource\'s network because federal rule requires the state to "screen and enroll" every network provider of its managed-care plans, and a plan must drop a network provider the state cannot enroll. Accredited agencies can ask IHCP for an access exception at OMPPProviderRelations@fssa.in.gov. Whether CareSource is adding already-enrolled ABA agencies to its panel is a contracting question — the plan publishes no open/closed statement for ABA.',
+        ],
+        cites: [
+          { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
+          { title: '42 CFR 438.602(b) — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Current/prior ABA agency', desc: 'The one-agency rule makes transitions a coordination task — get the outgoing provider\'s details and releases at intake.' },
@@ -689,19 +751,23 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Bulletin BT2026123 \u2014 BASC-3 PRQ to BASC-4 transition (7/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026123.pdf' },
       { title: 'IHCP Bulletin BT202519 \u2014 ABA enrollment FAQ', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202519.pdf' },
       { title: 'IHCP Bulletin BT2026136 \u2014 Minimum caregiver coaching/training requirements for ABA clarified (8/18/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026136.pdf' },
+      { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
+      { title: '42 CFR 438.602 — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
+      { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' },
+      { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Follows the Indiana Medicaid rule: ABA performed by a BCaBA or credentialed RBT must be under the direct supervision of a BCBA, BCBA-D or HSPP, and since April 1, 2026 at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision is required per 8 hours of technician-delivered therapy. Behavior assessments may only be performed by a psychologist, BCBA-D or master\'s-level BCBA. IHCP states that its ABA documentation requirements apply to both fee-for-service and managed care, and this plan publishes no supervision standard of its own.',
+          'Follows the Indiana Medicaid rule: ABA performed by a BCaBA or credentialed RBT must be under the direct supervision of a BCBA, BCBA-D or HSPP, and since April 1, 2026 at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision is required per 8 hours of technician-delivered therapy. Behavior assessments may only be performed by a psychologist, BCBA-D or master\'s-level BCBA. IHCP states that its ABA documentation requirements apply to both fee-for-service and managed care, and this plan publishes no supervision standard of its own. BT202662 (4/28/2026) defines how the floor is measured: monthly, per member (“not aggregated across technicians or across Medicaid members”), proportionally when a member gets fewer than eight technician hours in the month, and counting both billable 97155 and documented nonbillable case supervision (fidelity checks, session-note review) — but not administrative supervision such as scheduling or staff meetings. Shortfalls are subject to claim audit, postpayment review and recoupment.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       concurrentBilling: {
         value:
-          'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default.',
+          'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default. The IHCP rule this plan may or may not mirror: BT202662 (4/28/2026) says “CPT code 97155 may be billed concurrently only with CPT codes 97153 and 97154,” and only when the analyst is actively directing the technician through a modified protocol.',
         status: 'unverified',
-        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
         verifyVia: 'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
         blocker: 'per-case',
       },
@@ -725,11 +791,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Neither Indiana Medicaid nor this plan publishes a session-note signature rule. The state\'s published signature requirements attach to the plan documents \u2014 the behavior assessment and the treatment plan must each be signed by the lead analyst and the parent or guardian \u2014 and BT202562, the bulletin titled for ABA documentation requirements, does not reach the individual session note. IHCP states its documentation requirements apply to managed care as well as fee-for-service, but also that MCEs establish and publish their own billing and reimbursement requirements, so the gap is not automatically filled at the state level.',
-        status: 'unverified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia: 'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
-        blocker: 'per-case',
+          'Follows the Indiana Medicaid rule; the plan publishes no session-note rule of its own. IHCP’s ABA documentation requirements require "session notes, which must be signed by the rendering practitioner," each including the date, time, location and duration of services and the session-specific targeted skills and the member’s response to the treatment plan goals, producible within 72 hours of a request; the behavior assessment and treatment plan must each be signed by the lead analyst and the parent or guardian. IHCP states that "documentation requirements outlined in IHCP policy are applicable to both FFS and managed care." No signing deadline is published.',
+        status: 'verified',
+        cites: [{ title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
     },
     intakeGates: {
@@ -741,9 +805,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Follows the Indiana Medicaid rule: a CDE more than one year old requires an updated statement of need, which must include a referral from an appropriate referring practitioner and an up-to-date behavior assessment completed by the ABA provider. Members continuing current services need no new CDE but do need an updated behavior assessment and treatment plan. A behavior assessment completed within the previous six months should be obtained from the original provider rather than repeated. IHCP states these documentation requirements apply to managed care as well as fee-for-service.',
+          'Follows the Indiana Medicaid rule: a CDE more than one year old requires an updated statement of need, which must include a referral from an appropriate referring practitioner and an up-to-date behavior assessment completed by the ABA provider. Members continuing current services need no new CDE but do need an updated behavior assessment and treatment plan. A behavior assessment completed within the previous six months should be obtained from the original provider rather than repeated. IHCP states these documentation requirements apply to managed care as well as fee-for-service. BT2026160 (9/29/2026) since narrowed when that paperwork is due: “statement of need” and “referral” now mean the same thing, and one is required only at onset of ABA if the CDE is more than a year old, at reauthorization when an active member’s CDE crosses one year, or with a new PA after a six-month gap in ABA services — not with every reauthorization or annually — while reassessment and an updated treatment plan are still due at least every six months.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' }],
       },
       diagnosingProviders: {
         value:
@@ -759,15 +823,15 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Follows the Indiana Medicaid rule: a physician must make a treatment referral recommending ABA therapy, and the CDE\u2019s own required components include a physician\u2019s referral for autism-specific services. Prior authorization is required on top of the referral for every ABA service, through this plan rather than through Acentra Health.',
+          'Follows the Indiana Medicaid rule: a physician must make a treatment referral recommending ABA therapy, and the CDE\u2019s own required components include a physician\u2019s referral for autism-specific services. Under BT2026160 (9/29/2026) the referral/statement of need must come from an HSPP-endorsed doctoral psychologist, a licensed physician, a licensed APRN or a licensed physician assistant — a BCaBA, BCBA, PT, SLP or OT cannot complete it. Prior authorization is required on top of the referral for every ABA service, through this plan rather than through Acentra Health.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' }],
       },
       telehealth: {
         value:
-          'Follows the Indiana Medicaid rule: effective April 1, 2026, codes 97151, 97152, 97153, 97154 and 0373T can no longer be billed with telehealth modifier 95 and require in-person delivery. The plan publishes no ABA telehealth policy of its own.',
+          'Follows the Indiana Medicaid rule, with no ABA telehealth policy of the plan’s own. Effective April 1, 2026, IHCP no longer allows 97151, 97152, 97153, 97154 or 0373T to be billed with telehealth modifier 95, so the assessment, reassessments and all direct and group treatment are in person. Only 97155 and 97156 remain telehealth-eligible; IHCP’s provider reference module adds that RBTs and BCaBAs may not deliver any ABA service via telehealth, that remote 97155 is payable only when an HSPP, BCBA or BCBA-D supervises an RBT who is delivering 97153 in person, and that audio-only ABA is never reimbursable (modifier 95 plus U3). IHCP Bulletin BT202662 (4/28/2026) adds that supervision “may be rendered via synchronous telehealth and billed using modifier 95” but “is intended to supplement, not replace, the majority of in-person services.” The module is written for fee-for-service and IHCP says MCEs set their own billing requirements, so confirm with the plan before billing remote 97155 or 97156.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       authTurnaround: {
         value:
@@ -786,6 +850,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does CareSource Indiana cover ABA therapy?', a: 'Yes — CareSource administers the IHCP ABA benefit under state clinical criteria (it archived its own ABA policy at the end of 2022), with prior authorization on all ABA services.' },
       { q: 'How do I submit an ABA authorization to CareSource Indiana?', a: 'Through the CareSource Provider Portal (preferred), by phone at (844) 607-2831, or fax (844) 432-8924, using the Indiana Medicaid universal PA form.' },
       { q: 'Can a child see two ABA agencies under CareSource?', a: 'No — the plan\'s codified rule is one lead analyst and one ABA agency per member at a time, so provider transitions need coordinated handoffs rather than overlapping services.' },
+      { q: 'Is CareSource accepting new ABA providers?', a: 'Not new agencies while Indiana\'s ABA enrollment moratorium lasts (effective June 6, 2026, renewable six months at a time): MCE network providers must be IHCP-enrolled, and the moratorium blocks new ABA group enrollments and changes of ownership. Existing IHCP-enrolled agencies should ask CareSource provider contracting about panel openings.' },
+      { q: 'What happens if a family switches ABA providers while on CareSource?', a: 'CareSource publishes no rule on transferring an open ABA authorization, so expect the new agency to submit its own PA and confirm with CareSource UM whether the old one must be closed first. Under IHCP documentation policy, which applies to managed care, a new provider is expected to obtain a behavior assessment completed within the last six months from the original provider instead of re-testing, and the member\'s 4,000-hour lifetime comprehensive-ABA allocation carries over.' },
     ],
   },
 
@@ -863,19 +929,20 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Bulletin BT202627 — ABA policy updates', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' },
       { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
       { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
+      { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Follows the Indiana Medicaid rule: ABA performed by a BCaBA or credentialed RBT must be under the direct supervision of a BCBA, BCBA-D or HSPP, and since April 1, 2026 at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision is required per 8 hours of technician-delivered therapy. Behavior assessments may only be performed by a psychologist, BCBA-D or master\'s-level BCBA. IHCP states that its ABA documentation requirements apply to both fee-for-service and managed care, and this plan publishes no supervision standard of its own.',
+          'Follows the Indiana Medicaid rule: ABA performed by a BCaBA or credentialed RBT must be under the direct supervision of a BCBA, BCBA-D or HSPP, and since April 1, 2026 at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision is required per 8 hours of technician-delivered therapy. Behavior assessments may only be performed by a psychologist, BCBA-D or master\'s-level BCBA. IHCP states that its ABA documentation requirements apply to both fee-for-service and managed care, and this plan publishes no supervision standard of its own. BT202662 (4/28/2026) defines how the floor is measured: monthly, per member (“not aggregated across technicians or across Medicaid members”), proportionally when a member gets fewer than eight technician hours in the month, and counting both billable 97155 and documented nonbillable case supervision (fidelity checks, session-note review) — but not administrative supervision such as scheduling or staff meetings. Shortfalls are subject to claim audit, postpayment review and recoupment.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       concurrentBilling: {
         value:
-          'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default.',
+          'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default. The IHCP rule this plan may or may not mirror: BT202662 (4/28/2026) says “CPT code 97155 may be billed concurrently only with CPT codes 97153 and 97154,” and only when the analyst is actively directing the technician through a modified protocol.',
         status: 'unverified',
-        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
         verifyVia: 'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
         blocker: 'per-case',
       },
@@ -899,11 +966,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Neither Indiana Medicaid nor this plan publishes a session-note signature rule. The state\'s published signature requirements attach to the plan documents \u2014 the behavior assessment and the treatment plan must each be signed by the lead analyst and the parent or guardian \u2014 and BT202562, the bulletin titled for ABA documentation requirements, does not reach the individual session note. IHCP states its documentation requirements apply to managed care as well as fee-for-service, but also that MCEs establish and publish their own billing and reimbursement requirements, so the gap is not automatically filled at the state level.',
-        status: 'unverified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia: 'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
-        blocker: 'per-case',
+          'Follows the Indiana Medicaid rule; the plan publishes no session-note rule of its own. IHCP’s ABA documentation requirements require "session notes, which must be signed by the rendering practitioner," each including the date, time, location and duration of services and the session-specific targeted skills and the member’s response to the treatment plan goals, producible within 72 hours of a request; the behavior assessment and treatment plan must each be signed by the lead analyst and the parent or guardian. IHCP states that "documentation requirements outlined in IHCP policy are applicable to both FFS and managed care." No signing deadline is published.',
+        status: 'verified',
+        cites: [{ title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
     },
     intakeGates: {
@@ -915,9 +980,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Follows the Indiana Medicaid rule: a CDE more than one year old requires an updated statement of need, which must include a referral from an appropriate referring practitioner and an up-to-date behavior assessment completed by the ABA provider. Members continuing current services need no new CDE but do need an updated behavior assessment and treatment plan. A behavior assessment completed within the previous six months should be obtained from the original provider rather than repeated. IHCP states these documentation requirements apply to managed care as well as fee-for-service.',
+          'Follows the Indiana Medicaid rule: a CDE more than one year old requires an updated statement of need, which must include a referral from an appropriate referring practitioner and an up-to-date behavior assessment completed by the ABA provider. Members continuing current services need no new CDE but do need an updated behavior assessment and treatment plan. A behavior assessment completed within the previous six months should be obtained from the original provider rather than repeated. IHCP states these documentation requirements apply to managed care as well as fee-for-service. BT2026160 (9/29/2026) since narrowed when that paperwork is due: “statement of need” and “referral” now mean the same thing, and one is required only at onset of ABA if the CDE is more than a year old, at reauthorization when an active member’s CDE crosses one year, or with a new PA after a six-month gap in ABA services — not with every reauthorization or annually — while reassessment and an updated treatment plan are still due at least every six months.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' }],
       },
       diagnosingProviders: {
         value:
@@ -933,15 +998,15 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Follows the Indiana Medicaid rule: a physician must make a treatment referral recommending ABA therapy, and the CDE\u2019s own required components include a physician\u2019s referral for autism-specific services. Prior authorization is required on top of the referral for every ABA service, through this plan rather than through Acentra Health.',
+          'Follows the Indiana Medicaid rule: a physician must make a treatment referral recommending ABA therapy, and the CDE\u2019s own required components include a physician\u2019s referral for autism-specific services. Under BT2026160 (9/29/2026) the referral/statement of need must come from an HSPP-endorsed doctoral psychologist, a licensed physician, a licensed APRN or a licensed physician assistant — a BCaBA, BCBA, PT, SLP or OT cannot complete it. Prior authorization is required on top of the referral for every ABA service, through this plan rather than through Acentra Health.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' }],
       },
       telehealth: {
         value:
-          'Follows the Indiana Medicaid rule: effective April 1, 2026, codes 97151, 97152, 97153, 97154 and 0373T can no longer be billed with telehealth modifier 95 and require in-person delivery. The plan publishes no ABA telehealth policy of its own.',
+          'Follows the Indiana Medicaid rule, with no ABA telehealth policy of the plan’s own. Effective April 1, 2026, IHCP no longer allows 97151, 97152, 97153, 97154 or 0373T to be billed with telehealth modifier 95, so the assessment, reassessments and all direct and group treatment are in person. Only 97155 and 97156 remain telehealth-eligible; IHCP’s provider reference module adds that RBTs and BCaBAs may not deliver any ABA service via telehealth, that remote 97155 is payable only when an HSPP, BCBA or BCBA-D supervises an RBT who is delivering 97153 in person, and that audio-only ABA is never reimbursable (modifier 95 plus U3). IHCP Bulletin BT202662 (4/28/2026) adds that supervision “may be rendered via synchronous telehealth and billed using modifier 95” but “is intended to supplement, not replace, the majority of in-person services.” The module is written for fee-for-service and IHCP says MCEs set their own billing requirements, so confirm with the plan before billing remote 97155 or 97156.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       authTurnaround: {
         value:
@@ -1029,6 +1094,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
         ],
       },
+      {
+        h2: 'Is UnitedHealthcare Community Plan\'s ABA network open to new providers?',
+        body: [
+          'Not to new agencies, while Indiana\'s ABA enrollment moratorium lasts. IHCP Bulletin BT202692 (6/4/2026): a CMS-approved moratorium, effective June 6, 2026 for an initial six months and extendable in six-month increments, "will prevent enrollment for brand-new ABA group enrollments as well as changes of ownership for existing ABA therapy agencies"; individual rendering-provider (RBT/BCaBA/BCBA) enrollment is not affected. That reaches UnitedHealthcare Community Plan\'s network because federal rule requires the state to "screen and enroll" every network provider of its managed-care plans, and a plan must drop a network provider the state cannot enroll. Accredited agencies can ask IHCP for an access exception at OMPPProviderRelations@fssa.in.gov. Whether UnitedHealthcare Community Plan is adding already-enrolled ABA agencies to its panel is a contracting question — the plan publishes no open/closed statement for ABA.',
+        ],
+        cites: [
+          { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
+          { title: '42 CFR 438.602(b) — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program confirmation', desc: 'Confirm the member is on Hoosier Care Connect or PathWays for Aging — UHC does not administer HIP or Hoosier Healthwise in Indiana.' },
@@ -1045,19 +1120,23 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
       { title: 'IHCP Bulletin BT2026123 \u2014 BASC-3 PRQ to BASC-4 transition (7/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026123.pdf' },
       { title: 'FSSA \u2014 Indiana Medicaid managed care health plans (program-by-MCE roster)', url: 'https://www.in.gov/medicaid/partners/medicaid-partners/managed-care-health-plans/' },
+      { title: 'IHCP Bulletin BT202692 — ABA agency provider enrollment moratorium (6/4/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202692.pdf' },
+      { title: '42 CFR 438.602 — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
+      { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' },
+      { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
     ],
     deliveryRules: {
       supervision: {
         value:
-          'Follows the Indiana Medicaid rule: ABA performed by a BCaBA or credentialed RBT must be under the direct supervision of a BCBA, BCBA-D or HSPP, and since April 1, 2026 at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision is required per 8 hours of technician-delivered therapy. Behavior assessments may only be performed by a psychologist, BCBA-D or master\'s-level BCBA. IHCP states that its ABA documentation requirements apply to both fee-for-service and managed care, and this plan publishes no supervision standard of its own.',
+          'Follows the Indiana Medicaid rule: ABA performed by a BCaBA or credentialed RBT must be under the direct supervision of a BCBA, BCBA-D or HSPP, and since April 1, 2026 at least 1 hour of BCBA (or IHCP-approved qualifying clinician) supervision is required per 8 hours of technician-delivered therapy. Behavior assessments may only be performed by a psychologist, BCBA-D or master\'s-level BCBA. IHCP states that its ABA documentation requirements apply to both fee-for-service and managed care, and this plan publishes no supervision standard of its own. BT202662 (4/28/2026) defines how the floor is measured: monthly, per member (“not aggregated across technicians or across Medicaid members”), proportionally when a member gets fewer than eight technician hours in the month, and counting both billable 97155 and documented nonbillable case supervision (fidelity checks, session-note review) — but not administrative supervision such as scheduling or staff meetings. Shortfalls are subject to claim audit, postpayment review and recoupment.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       concurrentBilling: {
         value:
-          'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default.',
+          'Not published by Indiana Medicaid or by this plan. IHCP is explicit that within managed care \u201cindividual managed care entities (MCEs) establish and publish their own billing and reimbursement requirements,\u201d so unlike the clinical criteria, code-pair rules are not inherited from the state by default. The IHCP rule this plan may or may not mirror: BT202662 (4/28/2026) says “CPT code 97155 may be billed concurrently only with CPT codes 97153 and 97154,” and only when the analyst is actively directing the technician through a modified protocol.',
         status: 'unverified',
-        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
         verifyVia: 'The MCE directly \u2014 ask whether 97155 pays alongside 97153 for the same clock time, and request the plan\'s billing and reimbursement requirements in writing.',
         blocker: 'per-case',
       },
@@ -1081,11 +1160,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Neither Indiana Medicaid nor this plan publishes a session-note signature rule. The state\'s published signature requirements attach to the plan documents \u2014 the behavior assessment and the treatment plan must each be signed by the lead analyst and the parent or guardian \u2014 and BT202562, the bulletin titled for ABA documentation requirements, does not reach the individual session note. IHCP states its documentation requirements apply to managed care as well as fee-for-service, but also that MCEs establish and publish their own billing and reimbursement requirements, so the gap is not automatically filled at the state level.',
-        status: 'unverified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
-        verifyVia: 'The MCE directly \u2014 ask for its ABA documentation and session-note standard in writing. BT202562 also promises a future bulletin clarifying documentation requirements under the updated ABA State Plan Amendment; check for it before relying on this.',
-        blocker: 'per-case',
+          'Follows the Indiana Medicaid rule; the plan publishes no session-note rule of its own. IHCP’s ABA documentation requirements require "session notes, which must be signed by the rendering practitioner," each including the date, time, location and duration of services and the session-specific targeted skills and the member’s response to the treatment plan goals, producible within 72 hours of a request; the behavior assessment and treatment plan must each be signed by the lead analyst and the parent or guardian. IHCP states that "documentation requirements outlined in IHCP policy are applicable to both FFS and managed care." No signing deadline is published.',
+        status: 'verified',
+        cites: [{ title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
       },
     },
     intakeGates: {
@@ -1097,9 +1174,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Follows the Indiana Medicaid rule: a CDE more than one year old requires an updated statement of need, which must include a referral from an appropriate referring practitioner and an up-to-date behavior assessment completed by the ABA provider. Members continuing current services need no new CDE but do need an updated behavior assessment and treatment plan. A behavior assessment completed within the previous six months should be obtained from the original provider rather than repeated. IHCP states these documentation requirements apply to managed care as well as fee-for-service.',
+          'Follows the Indiana Medicaid rule: a CDE more than one year old requires an updated statement of need, which must include a referral from an appropriate referring practitioner and an up-to-date behavior assessment completed by the ABA provider. Members continuing current services need no new CDE but do need an updated behavior assessment and treatment plan. A behavior assessment completed within the previous six months should be obtained from the original provider rather than repeated. IHCP states these documentation requirements apply to managed care as well as fee-for-service. BT2026160 (9/29/2026) since narrowed when that paperwork is due: “statement of need” and “referral” now mean the same thing, and one is required only at onset of ABA if the CDE is more than a year old, at reauthorization when an active member’s CDE crosses one year, or with a new PA after a six-month gap in ABA services — not with every reauthorization or annually — while reassessment and an updated treatment plan are still due at least every six months.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' }],
       },
       diagnosingProviders: {
         value:
@@ -1115,15 +1192,15 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Follows the Indiana Medicaid rule: a physician must make a treatment referral recommending ABA therapy, and the CDE\u2019s own required components include a physician\u2019s referral for autism-specific services. Prior authorization is required on top of the referral for every ABA service, through this plan rather than through Acentra Health.',
+          'Follows the Indiana Medicaid rule: a physician must make a treatment referral recommending ABA therapy, and the CDE\u2019s own required components include a physician\u2019s referral for autism-specific services. Under BT2026160 (9/29/2026) the referral/statement of need must come from an HSPP-endorsed doctoral psychologist, a licensed physician, a licensed APRN or a licensed physician assistant — a BCaBA, BCBA, PT, SLP or OT cannot complete it. Prior authorization is required on top of the referral for every ABA service, through this plan rather than through Acentra Health.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' }],
       },
       telehealth: {
         value:
-          'Follows the Indiana Medicaid rule: effective April 1, 2026, codes 97151, 97152, 97153, 97154 and 0373T can no longer be billed with telehealth modifier 95 and require in-person delivery. The plan publishes no ABA telehealth policy of its own.',
+          'Follows the Indiana Medicaid rule, with no ABA telehealth policy of the plan’s own. Effective April 1, 2026, IHCP no longer allows 97151, 97152, 97153, 97154 or 0373T to be billed with telehealth modifier 95, so the assessment, reassessments and all direct and group treatment are in person. Only 97155 and 97156 remain telehealth-eligible; IHCP’s provider reference module adds that RBTs and BCaBAs may not deliver any ABA service via telehealth, that remote 97155 is payable only when an HSPP, BCBA or BCBA-D supervises an RBT who is delivering 97153 in person, and that audio-only ABA is never reimbursable (modifier 95 plus U3). IHCP Bulletin BT202662 (4/28/2026) adds that supervision “may be rendered via synchronous telehealth and billed using modifier 95” but “is intended to supplement, not replace, the majority of in-person services.” The module is written for fee-for-service and IHCP says MCEs set their own billing requirements, so confirm with the plan before billing remote 97155 or 97156.',
         status: 'verified',
-        cites: [{ title: 'IHCP Bulletin BT202627 \u2014 ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }],
+        cites: [{ title: 'IHCP Bulletin BT202627 — ABA policy & rate changes (2/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202627.pdf' }, { title: 'IHCP — Behavioral Health Services module (PROMOD00039, v4.5, publ. Sept. 29, 2026), ABA section', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202562 — ABA documentation requirements, FFS and managed care (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' }, { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' }],
       },
       authTurnaround: {
         value:
@@ -1142,6 +1219,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan of Indiana cover ABA?', a: 'Yes — for Hoosier Care Connect and PathWays for Aging members, administered through an Optum Behavioral Health carve-out under Indiana Medicaid clinical criteria, with PA on all ABA via Optum\'s ABA Treatment Request Form. UHC does not serve HIP or Hoosier Healthwise members in Indiana — those route to Anthem, CareSource, or MHS.' },
       { q: 'How fast does UHC/Optum decide Indiana ABA authorizations?', a: 'Indiana law sets the clock for Hoosier Care Connect: IC 27-1-37.5-23 requires an answer within 24 hours for urgent requests and 48 hours for all others, not counting weekends and state/federal holidays, and a missed deadline means the service is deemed authorized (IC 27-1-37.5-28). UHC\'s older manual figures are slower; the statute controls.' },
       { q: 'Do I need separate credentialing for UHC Indiana ABA?', a: 'Yes — the ABA network is Optum-managed and credentialed separately from UHC medical, and providers must also be enrolled with Indiana Medicaid first.' },
+      { q: 'Is UnitedHealthcare Community Plan accepting new ABA providers?', a: 'Not new agencies while Indiana\'s ABA enrollment moratorium lasts (effective June 6, 2026, renewable six months at a time): MCE network providers must be IHCP-enrolled, and the moratorium blocks new ABA group enrollments and changes of ownership. Existing IHCP-enrolled agencies should ask UnitedHealthcare Community Plan provider contracting about panel openings.' },
+      { q: 'What happens if a family switches ABA providers while on UnitedHealthcare Community Plan?', a: 'UnitedHealthcare Community Plan publishes no rule on transferring an open ABA authorization, so expect the new agency to submit its own PA and confirm with UnitedHealthcare Community Plan UM whether the old one must be closed first. Under IHCP documentation policy, which applies to managed care, a new provider is expected to obtain a behavior assessment completed within the last six months from the original provider instead of re-testing, and the member\'s 4,000-hour lifetime comprehensive-ABA allocation carries over.' },
     ],
   },
 
@@ -1919,7 +1998,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Anthem Indiana — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/indiana/articles/streamlined-aba-claim-process-starts-march-1-2026-28211' },
         ],
         body: [
-          'Anthem has moved ABA reimbursement onto weekly approved units rather than total authorized units. Claims should reflect the units rendered within each week, up to the weekly medically necessary limit as approved by prior approval; claims submitted with units exceeding the weekly limit are ineligible for reimbursement and get adjusted. Existing requests and claims, including those with date ranges running past the effective date, are unaffected. The affected codes are 97151, 97152, 0362T, 97153, 97154, 97155, 97156, 97157, 97158 and 0373T, each per 15 minutes.',
+          'Anthem has moved ABA reimbursement onto weekly approved units rather than total authorized units. Claims should reflect the units rendered within each week, up to the weekly medically necessary limit as approved by prior approval; claims submitted with units exceeding the weekly limit are ineligible for reimbursement and get adjusted. Existing requests and claims, including those with date ranges running past the effective date, are unaffected. The notice is tagged on Anthem\'s Indiana provider-news site for both its Commercial and its Medicaid lines of business (which is why it carries the Hoosier Healthwise/HIP footer), so it does reach commercial ABA claims. The affected codes are 97151, 97152, 0362T, 97153, 97154, 97155, 97156, 97157, 97158 and 0373T, each per 15 minutes.',
           'One thing to verify rather than assume: Anthem\'s Indiana notice is headlined "Streamlined ABA claim process starts March 1, 2026" while its body text says "effective January 1, 2026." The inconsistency is in Anthem\'s own published article. Confirm with Anthem which date applies to your authorizations before you rebuild a billing calendar around either one.',
         ],
       },
