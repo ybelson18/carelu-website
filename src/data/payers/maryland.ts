@@ -145,6 +145,19 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'PT 28-27 — Final ePREP Access Deadline and MPRIME Launch Updates (Sept 16, 2026)', url: 'https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT28-27_Final_ePREP_Access_Deadline_and_MPRIME_Launch_Updates.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Maryland member, including by telehealth?',
+        body: [
+          'Maryland licenses the practice: “an individual shall be licensed by the Board before the individual may practice behavior analysis in the State” (Health Occupations § 17-6A-10(a)). Section 17-6A-10 itself exempts only students in a qualifying unpaid clinical educational experience, so plan on a Maryland license before treating a child located in Maryland remotely.',
+          'Maryland Medicaid writes the license into its ABA regulation: an ABA provider “shall be licensed, certified, or otherwise legally authorized to provide ABA services in the jurisdiction in which the services are provided,” and a BCBA who renders ABA must “Be licensed by the Maryland Board of Professional Counselors and Therapists” and hold current BACB certification (COMAR 10.09.28.02B and G). Telehealth does not loosen that: a telehealth provider must meet the same participation conditions, and distant-site providers “may render services via telehealth within the provider’s scope of practice” (COMAR 10.09.49.04). Carelon does not credential; providers enroll with Maryland Medicaid first, then register with Carelon.',
+        ],
+        cites: [
+          { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
+          { title: 'COMAR 10.09.28.02 — ABA provider qualifications and conditions for participation', url: 'https://dsd.maryland.gov/regulations/Pages/10.09.28.02.aspx' },
+          { title: 'COMAR 10.09.49.04 — Medicaid telehealth provider conditions for participation', url: 'https://dsd.maryland.gov/regulations/Pages/10.09.49.04.aspx' },
+          { title: 'Carelon Maryland — ABA FAQs (May 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-FAQ-May-2026-.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid eligibility — not the MCO', desc: 'Verify Medical Assistance eligibility and route everything to Carelon; the HealthChoice MCO on the card is irrelevant for ABA.' },
@@ -180,6 +193,10 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'COMAR 10.58.16.06 — Renewal (behavior analysts)', url: 'https://regs.maryland.gov/us/md/exec/comar/10.58.16.06' },
       { title: 'BACB RBT Handbook', url: 'https://assets.bacb.com/wp-content/uploads/2022/01/RBTHandbook_230622-a.pdf' },
       { title: 'BACB — RBT Requirements During the 2026 Transition (upd. 08/2025)', url: 'https://www.bacb.com/wp-content/uploads/2025/07/RBT-2026-Requirements_250723-a.pdf' },
+      { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
+      { title: 'COMAR 10.09.28.02 — ABA provider qualifications and conditions for participation', url: 'https://dsd.maryland.gov/regulations/Pages/10.09.28.02.aspx' },
+      { title: 'COMAR 10.09.49.04 — Medicaid telehealth provider conditions for participation', url: 'https://dsd.maryland.gov/regulations/Pages/10.09.49.04.aspx' },
+      { title: 'COMAR 10.09.28.04 — ABA covered services (preauthorization)', url: 'https://dsd.maryland.gov/regulations/Pages/10.09.28.04.aspx' },
     ],
     deliveryRules: {
       supervision: {
@@ -284,6 +301,8 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'Does the referring doctor have to be enrolled in Maryland Medicaid?', a: 'Yes, for dates of service from July 1, 2026. PT 76-26 says the referring practitioner "must be enrolled as a Medicaid provider and active on the date of service," and every ABA claim must carry that individual\'s NPI in Field 17b; a group or facility NPI there, or an unenrolled referrer, gets the claim denied. Check the referrer in the Provider Verification System at intake.' },
       { q: 'Can Maryland Medicaid ABA be delivered 100% by telehealth?', a: 'Not for 97155 (RBT/BCaBA/BT supervision), 97156/97156-U2 (parent training), or 97157 (group parent training) — effective April 1, 2026, PT 60-26 ("ABA Transmittal No. 9") requires at least 25% of those three services to be rendered in person, with up to 75% allowed via telehealth. Direct 97153 treatment was never on the telehealth list at all.' },
       { q: 'Is Maryland Medicaid accepting new ABA providers?', a: 'Yes, there is no closed network: enroll with Maryland Medicaid, then register with Carelon. But new enrollments are waiting on the system change: ePREP is closed (access ended October 1, 2026) and the new portal, MPRIME, is scheduled to open October 13, 2026.' },
+      { q: 'Can an out-of-state BCBA treat Maryland Medicaid members in Maryland, including by telehealth?', a: 'Maryland requires a Maryland license to practice behavior analysis (Health Occupations § 17-6A-10). Maryland Medicaid requires a rendering BCBA to be licensed by the Maryland Board of Professional Counselors and Therapists (COMAR 10.09.28.02G).' },
+      { q: 'Does Carelon allow retro authorizations for Maryland Medicaid ABA?', a: 'Only a short backdate. Carelon’s May 2026 FAQ: “Carelon allows backdating of ABA authorizations up to 20 calendar days.” COMAR 10.09.28.04 covers ABA only when “Preauthorized by the Program or its designee.” No authorization is needed when Maryland Medicaid is the secondary payer.' },
     ],
   },
 
@@ -407,6 +426,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'MDH HealthChoice — Behavioral Health Coverage (carve-out)', url: 'https://health.maryland.gov/mmcp/healthchoice/Pages/BehavioralHealthCoverage.aspx' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Maryland member, including by telehealth?',
+        body: [
+          'Maryland licenses the practice: “an individual shall be licensed by the Board before the individual may practice behavior analysis in the State” (Health Occupations § 17-6A-10(a)). Section 17-6A-10 itself exempts only students in a qualifying unpaid clinical educational experience, so plan on a Maryland license before treating a child located in Maryland remotely.',
+          'CareFirst’s rule is the strictest on paper. Its provider manual (Chapter 3, Credentialing) says the practitioner “must be licensed in the state where the member receives the service and must be within the CareFirst service area, which includes Maryland, Washington, D.C. and Northern Virginia,” and lists “Licensed Board-Certified Behavior Analyst (Maryland and Virginia only)” as an eligible provider type. A BCBA based outside that service area does not meet CareFirst’s credentialing criteria as written.',
+        ],
+        cites: [
+          { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
+          { title: 'CareFirst Provider Manual, Chapter 3: Provider Network Requirements (Credentialing)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-3-administrative-functions.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and product', desc: 'Fully insured Maryland contract (mandate and hour floors apply), self-funded employer plan (exempt), FEP or a NASCO national account (may differ from CareFirst\'s local policies), or CareFirst Community Health Plan Maryland (Medicaid, so ABA goes to Carelon).' },
@@ -435,6 +465,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'COMAR 10.58.16.14 — Supervision (behavior analysts)', url: 'https://regs.maryland.gov/us/md/exec/comar/10.58.16.14' },
       { title: 'Carelon Maryland — ABA FAQs (May 2026) — changing providers (Maryland Medicaid only)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/ABA-FAQ-May-2026-.pdf' },
       { title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' },
+      { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -551,6 +582,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'Does CareFirst require prior authorization for ABA?', a: 'Yes. Medical Policy 3.01.015 says ABT "must be preauthorized," and Operating Procedure 8.01.011A says ABA services and habilitative diagnoses must be preauthorized. Submit through the CareFirst Provider Portal or 1-866-773-2884, and check the 97151 assessment code in the PAL tool, since the policies do not treat it separately.' },
       { q: 'Which CareFirst medical policy covers ABA?', a: 'Medical Policy 3.01.015, Autism Spectrum Disorder (ASD), effective 3/1/2026, for medical necessity. Medical Policy Operating Procedure 8.01.011A, Habilitative Services (MD and DC Mandates), for the Maryland mandate and its hour floors. Payment Policy PP CO 020.01, Limited Licensed Providers, for how technician services are billed. The old policy 3.01.006 (Pervasive Developmental Disorders) is retired.' },
       { q: 'What does CareFirst pay for ABA?', a: 'CareFirst publishes no ABA fee schedule. PP CO 020.01 says a BCBA is paid 75% of CareFirst\'s base physician fee schedule, and technician services are allowed at the supervising BCBA\'s rate. The dollar amounts are in your participating-provider agreement. Use Maryland Medicaid\'s published fee schedule as the public benchmark.' },
+      { q: 'Can an out-of-state BCBA treat CareFirst members in Maryland, including by telehealth?', a: 'Maryland requires a Maryland license to practice behavior analysis (Health Occupations § 17-6A-10). CareFirst credentials only practitioners “licensed in the state where the member receives the service” and within its Maryland, D.C. and Northern Virginia service area.' },
     ],
   },
 
@@ -652,6 +684,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Maryland member, including by telehealth?',
+        body: [
+          'Maryland licenses the practice: “an individual shall be licensed by the Board before the individual may practice behavior analysis in the State” (Health Occupations § 17-6A-10(a)). Section 17-6A-10 itself exempts only students in a qualifying unpaid clinical educational experience, so plan on a Maryland license before treating a child located in Maryland remotely.',
+          'Aetna’s own rule is written for telehealth explicitly. Its Network Participation Criteria (form 8100606-01-01, 5/26) bind every Hybrid and Virtual Only provider: “Providers must satisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located. As required by applicable law, providers must also hold licenses, registrations, and certifications in the state(s) in which they are physically located.” The ABA criteria add that BCBAs “must meet the current Aetna® credentialing and recredentialing standards” and that “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” So a BCBA treating a child located in Maryland by video must meet Maryland’s requirements as well as those of the state the BCBA works from, and only codes on Aetna’s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth.',
+        ],
+        cites: [
+          { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
+          { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate + hour floors apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -674,6 +717,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' },
       { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+      { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -797,6 +841,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'What does the Maryland mandate require for ABA?', a: 'For fully-insured plans: coverage of habilitative services through at least the month the enrollee turns 19, no denial of ABA solely on prescribed hours up to 25 hrs/week (ages 18 months–5) or 10 hrs/week (ages 6–18), no experimental/investigational denials, and no dollar cap — entered via a comprehensive evaluation plus a physician prescription reviewed annually.' },
       { q: 'What does Aetna pay for ABA in Maryland?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. Maryland Medicaid\'s published schedule (97153 $19.17–$24.41 per 15 minutes by credential tier) is the public benchmark.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s network criteria do not require the RBT credential by name: technicians may be paraprofessionals supervised by a BCBA or licensed provider, with at least 1 hour of face-to-face supervision per 10 hours of ABA and the supervisor onsite with the child at least 1 hour a month. Technicians must meet any state requirement, so check the state\'s licensure or Medicaid rules too.' },
+      { q: 'Can an out-of-state BCBA treat Aetna members in Maryland, including by telehealth?', a: 'Maryland requires a Maryland license to practice behavior analysis (Health Occupations § 17-6A-10). Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
     ],
   },
 
@@ -893,6 +938,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Maryland member, including by telehealth?',
+        body: [
+          'Maryland licenses the practice: “an individual shall be licensed by the Board before the individual may practice behavior analysis in the State” (Health Occupations § 17-6A-10(a)). Section 17-6A-10 itself exempts only students in a qualifying unpaid clinical educational experience, so plan on a Maryland license before treating a child located in Maryland remotely.',
+          'Evernorth, which manages Cigna’s behavioral benefits, frames it as a compliance duty rather than a member-state rule. Its Administrative Guidelines (September 2026): “Providers must meet all state requirements to provide virtual behavioral services, including any licenses and certifications,” must “comply with their state laws about the use of audio or video-based technology,” and providers who meet the telehealth specialty requirements “may deliver services virtually with no additional credentialing” after attesting on the Attested Specialty Form, when Evernorth adds “telehealth” to the provider profile. The guidelines do not say in terms which state’s license a remote BCBA needs, so read “all state requirements” against Maryland’s licensure law above and confirm with Evernorth before a remote start.',
+        ],
+        cites: [
+          { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate + hour floors apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -909,6 +965,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' },
       { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
       { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
+      { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -1016,6 +1073,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in Maryland?', a: 'Yes — under the carrier\'s national policy for ASD (EN0499, with no PA on assessment codes), layered on Maryland\'s habilitative-services mandate for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Maryland mandate require for ABA?', a: 'For fully-insured plans: coverage of habilitative services through at least the month the enrollee turns 19, no denial of ABA solely on prescribed hours up to 25 hrs/week (ages 18 months–5) or 10 hrs/week (ages 6–18), no experimental/investigational denials, and no dollar cap — entered via a comprehensive evaluation plus a physician prescription reviewed annually.' },
       { q: 'What does Cigna pay for ABA in Maryland?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. Maryland Medicaid\'s published schedule (97153 $19.17–$24.41 per 15 minutes by credential tier) is the public benchmark.' },
+      { q: 'Can an out-of-state BCBA treat Cigna members in Maryland, including by telehealth?', a: 'Maryland requires a Maryland license to practice behavior analysis (Health Occupations § 17-6A-10). Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
     ],
   },
 
@@ -1125,6 +1183,17 @@ export const marylandPayers: Record<string, PayerConfig> = {
           { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Maryland member, including by telehealth?',
+        body: [
+          'Maryland licenses the practice: “an individual shall be licensed by the Board before the individual may practice behavior analysis in the State” (Health Occupations § 17-6A-10(a)). Section 17-6A-10 itself exempts only students in a qualifying unpaid clinical educational experience, so plan on a Maryland license before treating a child located in Maryland remotely.',
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, is explicit. Its National Network Manual (effective September 1, 2026): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service. In addition, providers must comply with all licensing laws and telehealth regulations in the jurisdiction(s) where the provider is licensed and where the member is receiving treatment.” For a child located in Maryland, that means a Maryland license before the first remote session.',
+        ],
+        cites: [
+          { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (COMAR floors + Optum\'s MD criteria apply) vs. self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -1148,6 +1217,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { title: 'Md. Code, Insurance § 15-139 — coverage for telehealth', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gin&section=15-139&enactments=false' },
       { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
       { title: 'MDH ABA Provider Manual — fee schedule pp. 15–16 (eff. Feb 1, 2026)', url: 'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf' },
+      { title: 'Md. Code, Health Occupations § 17-6A-10 — license required to practice behavior analysis', url: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gho&section=17-6A-10&enactments=false' },
     ],
     deliveryRules: {
       supervision: {
@@ -1267,6 +1337,7 @@ export const marylandPayers: Record<string, PayerConfig> = {
       { q: 'What does UnitedHealthcare pay for ABA in Maryland?', a: 'UnitedHealthcare/Optum publishes no ABA rates. You are paid up to the Fee Maximum in your Optum agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) under Optum’s ABA reimbursement policy. Ask Optum network management for your rate sheet. Maryland Medicaid\'s published schedule (97153 $19.17–$24.41 per 15 minutes by credential tier) is the public benchmark.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'For commercial plans, Optum\'s ABA reimbursement policy defines the technician line: the approved rendering provider for the HM modifier (less than a bachelor\'s degree) is "a Registered Behavior Technician (RBT)," and a BCaBA bills HN. The policy notes that state regulatory requirements "may supplement, modify or supersede" it. So plan on RBT-certified technicians for UHC commercial members.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Maryland, including by telehealth?', a: 'Maryland requires a Maryland license to practice behavior analysis (Health Occupations § 17-6A-10). Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
     ],
   },
 };

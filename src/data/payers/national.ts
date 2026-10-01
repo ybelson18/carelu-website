@@ -85,6 +85,18 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'CPB 0554 is Aetna\'s clinical policy — but self-funded employer plans can carve benefits differently, and state mandates layer on top. Two families with Aetna cards can have materially different ABA benefits. The only safe intake behavior is a live benefits verification on every family: ABA coverage confirmation, deductible status, visit or dollar limits, and the precert path for that specific plan.',
         ],
       },
+      {
+        h2: 'Can a BCBA licensed in another state deliver ABA by telehealth to an Aetna member?',
+        cites: [
+          { title: 'Aetna — Behavioral Health Televideo Services (DocFind)', url: 'https://es.aetna.com/dse/cms/codeAssets/html/static/Behavioral_Health_Televideo.html' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+        body: [
+          'Aetna applies the law at both ends of the call. Its Behavioral Health Televideo Services page says providers “comply with all relevant laws in the jurisdiction where they and the member getting services are located,” and adds that “Not all benefits plans cover Behavioral Health Televideo Services.” Aetna’s 2026 provider manual sets the ABA credential: “either national certification is needed from the Behavior Analyst Certification Board (BACB), or the practitioner must be licensed as a behavior analyst in the state in which they practice.” Its Behavioral Health Provider Manual (8/22 edition) says telemedicine providers “must act within the scope of their license and ensure that they have the proper licensure based on state requirements.”',
+          'Aetna publishes no ABA-specific cross-state rule beyond that. A BCBA can treat an Aetna child in another state by telehealth only if that state’s law lets them practise there and the member’s plan covers televideo. Check both on the benefits call, along with which ABA codes the plan pays by telehealth.',
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID, group ID & subscriber', desc: 'Plus a card photo — enough to run verification without a callback.' },
@@ -100,6 +112,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
+      { title: 'Aetna — Behavioral Health Televideo Services (DocFind)', url: 'https://es.aetna.com/dse/cms/codeAssets/html/static/Behavioral_Health_Televideo.html' },
+      { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -222,6 +236,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna require prior authorization for ABA?', a: 'Yes. Precertification is initiated on Availity or by phone, and form GR-69017-4 (7-26 revision, eff. 8/1/2026) supplies diagnosis details, requested hours per CPT code, the supervising clinician, and concurrent services.' },
       { q: 'Does Aetna cover ABA by telehealth?', a: 'Yes, for codes 97151, 97153, 97155, 97156, and 97157 (not 97152) — but the policy has shifted before, so confirm the current rule during each benefits verification.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
+      { q: 'Can an out-of-state BCBA provide ABA to an Aetna member by telehealth?', a: 'Only within the law at both ends. Aetna requires televideo providers to comply with all relevant laws in the jurisdiction where they and the member are located, and not every plan covers televideo. Confirm that the child’s state allows the BCBA to practise there, and verify telehealth coverage for the specific plan.' },
     ],
   },
 
@@ -310,6 +325,16 @@ export const nationalPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
+      {
+        h2: 'Can a BCBA licensed in another state deliver ABA by telehealth to a Cigna member?',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+        body: [
+          'Evernorth, which runs Cigna’s behavioral network, puts the licensing burden on the provider and points to state law. Its Behavioral Health Administrative Guidelines (September 2026) say: “Providers must meet all state requirements to provide virtual behavioral services, including any licenses and certifications. Providers must also comply with their state laws about the use of audio or video-based technology.” Providers are also “expected to follow all regulatory and licensure requirements related to their scope of practice.” A provider who meets the telehealth specialty requirements attests on the Attested Specialty Form, and Evernorth then adds “telehealth” to the provider profile.',
+          'The guidelines do not name the member’s state in so many words. Check the child’s state licensing law for whether an out-of-state BCBA may practise there by telehealth before scheduling remote sessions.',
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID + plan details', desc: 'Card photo, subscriber info, and whether the plan actually includes the ABA benefit.' },
@@ -321,6 +346,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -436,6 +462,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'Can a child receive ABA and speech therapy under Cigna?', a: 'Yes, but not at the same time of day — Cigna doesn\'t cover ABA delivered concurrently with another therapy session. Intake should capture the existing therapy schedule to plan around it.' },
       { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
+      { q: 'Can an out-of-state BCBA provide ABA to a Cigna member by telehealth?', a: 'Only if state law allows it. Evernorth requires providers to meet all state requirements for virtual behavioral services, including licences and certifications, and to attest to the telehealth specialty. Check the child’s state licensing rules before scheduling remote sessions.' },
     ],
   },
 
@@ -516,6 +543,24 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Tele-supervision and virtual family training require the provider to be an approved Optum virtual-visits provider with a completed attestation on Provider Express, and the authorization itself must note virtual delivery. Optum frames telehealth as a supplement to — not a replacement for — in-person care.',
         ],
       },
+      {
+        h2: 'Can a BCBA licensed in another state deliver ABA by telehealth to a UnitedHealthcare member?',
+        cites: [
+          { title: 'Optum Behavioral Health Solutions National Network Manual (eff. Oct. 1, 2025) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/netwManual/2024/NNMJune2024.pdf' },
+        ],
+        body: [
+          'Optum answers this directly. Its National Network Manual (effective Oct. 1, 2025) says: “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service. In addition, providers must comply with all licensing laws and telehealth regulations in the jurisdiction(s) where the provider is licensed and where the member is receiving treatment. This includes specific telehealth documentation requirements, informed consent to treat via telehealth, and other telehealth-specific laws and regulations.” Providers also attest to offering telehealth to be listed for it in the directory. For ABA, check the BCBA’s licence against the state the child is in at the time of each session, not the state the agency is in.',
+        ],
+      },
+      {
+        h2: 'Will Optum authorize ABA retroactively for a UnitedHealthcare member?',
+        cites: [
+          { title: 'Optum Behavioral Health Solutions National Network Manual (eff. Oct. 1, 2025) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/netwManual/2024/NNMJune2024.pdf' },
+        ],
+        body: [
+          'Only as an exception. The National Network Manual says: “On occasion, emergent or other unusual circumstances will interfere with the pre-authorization processes. In those cases, requests for a retrospective review of services must be submitted within 180 calendar days of the date(s) of service, unless otherwise mandated by state law.” A retrospective review covers an initial request “made after services have already been delivered but no claim has been filed.” The request “must include information regarding the reason or circumstances preventing required prior authorization or notification and include the medical record and will be processed at the sole discretion of Optum.” Optum decides within 30 calendar days of receipt, and requests outside the time frame “will not be processed.” Treat retro review as a safety valve, not a workflow.',
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID + card photo', desc: 'Plus subscriber details for the benefits check.' },
@@ -531,6 +576,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Optum Behavioral Health Solutions National Network Manual (eff. Oct. 1, 2025) (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/netwManual/2024/NNMJune2024.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -658,6 +704,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'What happens if a family uses fewer hours than authorized?', a: 'Utilization below 80% of authorized hours over a two-week period draws scrutiny at review. Intake should capture realistic availability so the requested intensity matches what the family can actually attend.' },
       { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
+      { q: 'Can an out-of-state BCBA provide ABA to a UnitedHealthcare member by telehealth?', a: 'Only if licensed where the child is. Optum requires telehealth providers to be licensed in the state where the member is located at the time of service, and to follow the licensing and telehealth laws of both their own state and the member’s.' },
+      { q: 'Does Optum allow retro-authorization for ABA?', a: 'Only in emergent or unusual circumstances. A retrospective review must be requested within 180 calendar days of the service (unless state law says otherwise), must explain why prior authorization was not obtained, and is at Optum’s sole discretion. Optum decides within 30 calendar days.' },
     ],
   },
   'meritain-health': {
@@ -982,6 +1030,15 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Humana\'s Medicare Advantage and D-SNP prior authorization list (effective July 1, 2026, revised Sept. 1, 2026) has a behavioral health category with two entries: partial hospitalization and transcranial magnetic stimulation. No ABA code (97151–97158, 0362T, 0373T) appears on it. That tells you ABA is not on the PA list. It does not tell you ABA is a covered Medicare Advantage benefit. The list itself says "certain services may not be covered under the member\'s plan" and points to an Advance Coverage Determination for services whose coverage is uncertain. It also notes that, from Jan. 1, 2026, CMS requires prior authorization decisions within 7 days for certain medical items and services.',
         ],
       },
+      {
+        h2: 'Will Humana authorize ABA retroactively?',
+        cites: [
+          { title: 'Humana — 2026 Provider Manual for physicians, hospitals and healthcare providers (773902ALL0725-A) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_773902ALL0725-A_2026_ProviderManual-Delegated_formattedpdf' },
+        ],
+        body: [
+          'Humana’s 2026 Provider Manual sets the general rule. Prior authorization requests “should be made as soon as possible but at least 14 days in advance of the service date.” “If prior authorization is required and not obtained, it may result in reduction or denial of payment. Services provided without prior authorization also may be subject to retrospective review,” with clinical information supplied for a medical-necessity review. But “Elective ambulatory or inpatient services on Humana’s Prior Authorization and Notification List for which precertification did not occur before providing the service are not eligible for retrospective review.” Whether that bites for ABA depends on the line of business: check the PA list for the member’s plan, and for a Healthy Horizons Medicaid member use the state guide.',
+        ],
+      },
     ],
     collect: [
       { title: 'The product name on the card, verbatim', desc: '"Healthy Horizons" means a state Medicaid plan, a Medicare Advantage product name means Medicare, and a TRICARE marking means Humana Military. The bare word "Humana" is not enough to route.' },
@@ -997,6 +1054,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
       { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 9/1/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
       { title: 'Humana — Commercial Summary of Medical Preauthorization and Notification List Changes (last updated Nov. 5, 2024) (PDF)', url: 'https://assets.humana.com/is/content/humana/Commercial%20SOCpdf' },
+      { title: 'Humana — 2026 Provider Manual for physicians, hospitals and healthcare providers (773902ALL0725-A) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_773902ALL0725-A_2026_ProviderManual-Delegated_formattedpdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1110,6 +1168,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'Does Humana cover ABA therapy?', a: 'It depends on which Humana plan the child is on. Humana finished leaving employer group medical coverage in 2025. Its remaining lines are Medicaid (Healthy Horizons, state by state), Medicare Advantage, and TRICARE East via Humana Military, and each handles ABA under its own rules. Identify the line first.' },
       { q: 'Can my child still have Humana through a parent\'s employer?', a: 'Not as a medical plan. Humana announced in Feb. 2023 that it was leaving all employer group commercial medical products (fully insured, self-funded and FEHB) and finalized the exit during 2025. Humana still sells dental, vision, life and disability to employers, so an employer-issued Humana card today is most likely a specialty card with no ABA benefit. Ask for the family\'s current medical card.' },
       { q: 'Is Humana Healthy Horizons the same as Humana?', a: 'Healthy Horizons is Humana\'s Medicaid product, contracted state by state (FL, KY, IL, IN, LA, OH, OK, SC, VA and WI per Humana\'s 2025 10-K). Each state has its own ABA policy and PA list. Use the state Healthy Horizons guide, not this national one.' },
+      { q: 'Will Humana back-date an ABA authorization?', a: 'Do not count on it. Humana’s 2026 Provider Manual asks for prior authorization at least 14 days ahead. Services on its Prior Authorization and Notification List that were not precertified before the service are not eligible for retrospective review. For other services, retrospective review is possible but not guaranteed.' },
     ],
   },
 };

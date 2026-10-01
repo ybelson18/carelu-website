@@ -223,6 +223,17 @@ instead of silently dropping the fact or, worse, publishing an unverified one.
 | `alliancehealthplan.org/document-library/<id>` | Serves a .docx as `application/octet-stream` | Unzip `word/document.xml` (cover sheet 97990). |
 | `mmis.georgia.gov` Provider Manuals list | ASP.NET postback-paged list | Replaying `__VIEWSTATE` with `__EVENTTARGET=...NextPageButton` then `...$Select` in a `requests.Session` returns the current Handbooks filename (found Telehealth Guidance Q4 - October 2026). |
 | `health.mil` Reference-Center publications | URL looks like an HTML page | Returns the PDF directly to curl with a browser UA (TRICARE ABA rates 2026) — check the file type. |
+| `horizonblue.com` medical-policy detail pages | r.jina.ai / WebFetch return only the "I AGREE" terms page; curl gets an Incapsula stub | curl with a cookie jar and a Chrome UA: GET the terms page, POST the agree form, then fetch the policy; or r.jina.ai with header `X-Set-Cookie: MP-<date>=medicalpolicy` (the cookie name carries a date and changes) — 2026-10-01. |
+| `provider.wellpoint.com` NJ provider manual | 41 MB image-only PDF | Render pages with pymupdf (page index = printed page + 1) and read the images. |
+| `r.jina.ai` → `web.archive.org` | Refused with AbuseAlleviationError (2026-10-01) | Use direct `curl` to web.archive.org when it is up; the jina route is dead. |
+| `martinspoint.org`, `tricare.triwest.com`, `humanamilitary.com` PDFs | — | Plain `curl -A 'Mozilla/5.0'` returns the real PDFs (2026-10-01). |
+| `manuals.dha.mil` TPT5 (TRICARE Policy Manual) | SPA shell | `https://r.jina.ai/https://manuals.dha.mil/View-Publication/TPT5/FileName/<chapter>` returns the chapter with its revision. |
+| `magellanprovider.com/media/<id>/provider_handbook.pdf` | Cloudflare to curl | r.jina.ai returns the full 2026 handbook text. |
+| `law.justia.com` | Cloudflare 403 to curl and r.jina.ai | Use `codes.findlaw.com` via r.jina.ai, or the enrolled bill PDF. |
+| `leg.colorado.gov` | 406 to plain curl | r.jina.ai. |
+| `mgaleg.maryland.gov` statutes, `dsd.maryland.gov` COMAR | — | Plain curl; fetch single sections only (DSD asks not to be scraped). |
+| `sos.mo.gov` CSR chapters, `dss.mo.gov` MO HealthNet forms | — | Plain curl (Chrome UA) — prefer sos.mo.gov over the Cornell mirror for 13 CSR 70-98. |
+| Molina NM manual | molinahealthcare.com 404 | The May 2024 edition is readable via r.jina.ai at medicare.centralhealthplan.com (Molina media path) — label it as the 2024 edition. |
 | `ecfr.gov` API | 406 without compression | `curl --compressed`, or r.jina.ai. |
 | `federalregister.gov` | 302s to an unblock interstitial | Use the JSON API (`/api/v1/documents.json`) for docket sweeps; `govinfo.gov` for document text. |
 
@@ -299,6 +310,31 @@ it PRINTS the imports the website adds — port those lines (and their `...sprea
 port new `types.ts` fields / STATE_META rows by hand, keeping any LeadTrap-only looser unions.
 Never hand-copy files instead of running the script: a plain copy silently deleted 7 guides'
 worth of LeadTrap-only content in the first attempt of the 2026-09-24 sync.
+
+9b-merge. **Merge three-way, never trust `sync.py` alone (learned 2026-10-01).** `sync.py` only
+detects LeadTrap-only *keys*; it silently overwrites LeadTrap-side *field-level* edits inside shared
+files (the October copy undid two of them). Build base = `sync.py` output of the website commit used
+by the LAST merged sync, applied to LeadTrap as it was before that sync and formatted with LeadTrap's
+prettier; ours = LeadTrap main; theirs = `sync.py` output of the website now. Run `git merge-file`
+per file, resolve conflicts by hand, then check the restore list below.
+
+9b-restore. **Restore checklist — LeadTrap-side edits that must survive every sync** (from #4218,
+re-confirmed in #4333; add to this list whenever LeadTrap makes a new one):
+  1. TennCare "no straight / fee-for-service TennCare" correction (#3880) in `tennessee.ts`:
+     section, FAQ, at-a-glance row, sources, card text.
+  2. No `carelu.com/sources` pointers or Carelu self-references in served guide prose or `verifyVia`
+     (the README requires it); only `changelog.ts`/`types.ts` comments may mention them.
+  3. VOB dialing order: `providerServicesPhone` puts the ABA/BH number first for firstcare-health-plans
+     (digit form, not the vanity "800.431.STAR"), baylor-scott-white-texas, dell-childrens-health-plan,
+     cigna-indiana, sentara-community-plan. No dialed phone may change in the diff.
+  4. `vob/carveouts.ts` keeps the `IOWA_INDIANA_HAWAII_ROWS` block (array spreads, not a keyed Record,
+     so `sync.py` drops it).
+  5. LeadTrap-only `changelog.ts` entries stay, and the LAST entry's `totals` equals the guide count
+     LeadTrap serves (guides outside `AWAITING_VOB`), not the website's count.
+Also: add every new website slug without a VOB layer to `AWAITING_VOB`, keep LeadTrap's looser
+`types.ts` unions, and delete the duplicate "LeadTrap-only guides" comment line `sync.py` adds to
+`vob/indiana.ts` and `vob/national.ts`. Do not edit the sync PR's description while its CI is running:
+the `edited` event starts a CI run that skips every job and cancels the real one.
 
 9c. Verify: `npx tsc --noEmit -p backend/tsconfig.json` in LeadTrap must show ZERO errors under
 `src/data/payer-guides/` (errors elsewhere from a stale local node_modules are not yours — CI is

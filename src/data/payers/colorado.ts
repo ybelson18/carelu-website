@@ -121,6 +121,17 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'HCPF Emergency Rule MSB 25-09-04-A — Section 8.281 (Oct 2025)', url: 'https://hcpf.colorado.gov/sites/hcpf/files/Doc%2009%20MSB%2025-09-04-Av1%20Emergency%20-%20Oct%202025.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Colorado member, including by telehealth?',
+        body: [
+          'Colorado does not license behavior analysts yet. HB26-1425 creates a Colorado Behavior Analyst Licensing Board in DORA, and “on and after July 1, 2028, an individual is prohibited from engaging in or offering the practice of applied behavior analysis unless the individual is licensed by the board”; unlicensed practice after that date is a class 2 misdemeanor. Until then there is no Colorado behavior analyst license to hold, and BACB certification is the operative credential.',
+          'Health First Colorado enrolls out-of-state providers “under the same rules and regulations applied to Colorado providers,” but pays for out-of-state services only in listed situations: residents of recognized Colorado border localities, members living in other states under special circumstances such as foster care, emergencies, care needed because returning to Colorado would endanger the member’s health, and “Services that are unavailable in Colorado” (the last two prior authorized). The manual does not address an out-of-state therapist delivering PBT by telemedicine to a member located in Colorado, so ask HCPF provider enrollment before relying on it.',
+        ],
+        cites: [
+          { title: 'Colorado General Assembly — HB26-1425 (signed act): Colorado Behavior Analyst Licensing Board; licensure required from July 1, 2028', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+          { title: 'Health First Colorado — General Provider Information manual (Out-of-State Providers; Out-of-State Benefits)', url: 'https://hcpf.colorado.gov/gen-info-manual' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which of the three pathways applies', desc: 'ASD diagnosis, functional interference (with a standardized assessment), or safety risk — no autism dx needed, so screen for all three instead of gating on diagnosis.' },
@@ -147,6 +158,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'C.R.S. \u00a7 10-16-104 (FindLaw) \u2014 autism mandate for commercial plans', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
       { title: 'HCPF Provider News — PBT exempted from the HB 26-1410 2.0% rate cut (through 7/27/2026)', url: 'https://hcpf.colorado.gov/provider-news' },
       { title: 'HCPF — Telemedicine Provider Information (allowed procedure codes, POS rules)', url: 'https://hcpf.colorado.gov/telemedicine-provider-information' },
+      { title: 'Colorado General Assembly — HB26-1425 (signed act): Colorado Behavior Analyst Licensing Board; licensure required from July 1, 2028', url: 'https://leg.colorado.gov/bills/HB26-1425' },
     ],
     intakeGates: {
       ageLimit: {
@@ -295,6 +307,9 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Which ABA payer contract pays best in Colorado?', a: 'Only Medicaid publishes its ABA rates, so only Medicaid can be compared on paper. Health First Colorado pays one statewide rate per code with no credential tiers: 97153 $17.20 and 97155 $25.80 per 15-minute unit, 97151 a flat $866.88 per assessment, group codes 97154 $8.81 and 97158 $9.34, and nothing at all for 97156 (July 1, 2026 v1.3 fee schedule). Commercial ABA rates in Colorado (Aetna, Cigna, UnitedHealthcare/Optum, Anthem) are not published; they are negotiated in each participating-provider agreement, so the answer for a commercial contract is whatever you negotiate, benchmarked against the Medicaid schedule. The non-rate terms differ too: Medicaid prior-authorizes every code including 97151, requires EVV in home and community settings and does not pay parent training, while fully insured commercial plans answer to a mandate with no age limit and no dollar cap and self-funded plans are exempt from it.' },
       { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth in Colorado Medicaid?', a: 'Yes. Every PBT code, including 97151 and 97155, is on HCPF\'s allowable telemedicine list, on any modality, billed with POS 02 or 10. Telemedicine does not change the PAR requirement, and the member must first receive signed written disclosure statements.' },
       { q: 'Is Health First Colorado accepting new ABA providers, and how do they join?', a: 'Enroll the agency with HCPF as Provider Type 83 (Behavioral Therapy Clinic) and affiliate its psychologists, licensed clinicians and behavioral therapists (Types 37, 38, 84). ABA is fee-for-service, so there are no RAE networks to join for it.' },
+      { q: 'Can an out-of-state BCBA treat Health First Colorado members in Colorado, including by telehealth?', a: 'Colorado has no behavior analyst license yet; HB26-1425 makes one mandatory from July 1, 2028. Health First Colorado enrolls out-of-state providers but pays for out-of-state services only in listed cases (border localities, services unavailable in Colorado with PA, and a few others).' },
+      { q: 'Can Health First Colorado ABA (PBT) be authorized retroactively?', a: 'Plan on no. The PBT billing manual says providers “must submit, and have approved, PARs for medically necessary services prior to rendering the services,” and PAR approval “does not serve as a timely filing waiver.” We have not verified a retro-PAR route for a member made retroactively eligible; ask Acentra (ColoradoPAR) first.' },
+      { q: 'Does Colorado require insurance to cover autism treatment?', a: 'For commercial plans, yes: C.R.S. 10-16-104(1.4) says “All health benefit plans issued or renewed in this state must provide coverage for the assessment, diagnosis, and treatment of autism spectrum disorders for a child,” and its definition of treatment includes applied behavior analysis by autism services providers. Health First Colorado covers ABA separately, through its Pediatric Behavioral Therapies benefit.' },
     ],
   },
 
@@ -382,6 +397,17 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Colorado member, including by telehealth?',
+        body: [
+          'Colorado does not license behavior analysts yet. HB26-1425 creates a Colorado Behavior Analyst Licensing Board in DORA, and “on and after July 1, 2028, an individual is prohibited from engaging in or offering the practice of applied behavior analysis unless the individual is licensed by the board”; unlicensed practice after that date is a class 2 misdemeanor. Until then there is no Colorado behavior analyst license to hold, and BACB certification is the operative credential.',
+          'Aetna’s own rule is written for telehealth explicitly. Its Network Participation Criteria (form 8100606-01-01, 5/26) bind every Hybrid and Virtual Only provider: “Providers must satisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located. As required by applicable law, providers must also hold licenses, registrations, and certifications in the state(s) in which they are physically located.” The ABA criteria add that BCBAs “must meet the current Aetna® credentialing and recredentialing standards” and that “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” So a BCBA treating a child located in Colorado by video must meet Colorado’s requirements as well as those of the state the BCBA works from, and only codes on Aetna’s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth.',
+        ],
+        cites: [
+          { title: 'Colorado General Assembly — HB26-1425 (signed act): Colorado Behavior Analyst Licensing Board; licensure required from July 1, 2028', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+          { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -395,6 +421,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'C.R.S. § 10-16-104 (FindLaw, current through 1/1/2025)', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
       { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
       { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -518,6 +545,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'What does the Colorado autism mandate require?', a: 'It applies to all Colorado-issued or renewed health benefit plans (short-term limited-duration and individual grandfathered plans excepted), with no age limits and no dollar caps — the historical $34K/$12K annual ABA caps were removed from the statute. Self-funded ERISA plans are exempt by preemption.' },
       { q: 'Does Aetna require an autism diagnosis for ABA in Colorado?', a: 'Yes — ASD only (F84.0-F84.9) per the national policy, unlike Health First Colorado, which opens its benefit without an autism diagnosis. If a family lacks a diagnosis and holds a commercial Aetna plan, the diagnostic evaluation comes first.' },
       { q: 'What does Aetna pay for ABA in Colorado?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Health First Colorado fee schedule, and treat rate-setting as part of contracting.' },
+      { q: 'Can an out-of-state BCBA treat Aetna members in Colorado, including by telehealth?', a: 'Colorado has no behavior analyst license yet; HB26-1425 makes one mandatory from July 1, 2028. Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
     ],
   },
 
@@ -613,6 +641,17 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Colorado member, including by telehealth?',
+        body: [
+          'Colorado does not license behavior analysts yet. HB26-1425 creates a Colorado Behavior Analyst Licensing Board in DORA, and “on and after July 1, 2028, an individual is prohibited from engaging in or offering the practice of applied behavior analysis unless the individual is licensed by the board”; unlicensed practice after that date is a class 2 misdemeanor. Until then there is no Colorado behavior analyst license to hold, and BACB certification is the operative credential.',
+          'Evernorth, which manages Cigna’s behavioral benefits, frames it as a compliance duty rather than a member-state rule. Its Administrative Guidelines (September 2026): “Providers must meet all state requirements to provide virtual behavioral services, including any licenses and certifications,” must “comply with their state laws about the use of audio or video-based technology,” and providers who meet the telehealth specialty requirements “may deliver services virtually with no additional credentialing” after attesting on the Attested Specialty Form, when Evernorth adds “telehealth” to the provider profile. The guidelines do not say in terms which state’s license a remote BCBA needs, so read “all state requirements” against Colorado’s licensure law above and confirm with Evernorth before a remote start.',
+        ],
+        cites: [
+          { title: 'Colorado General Assembly — HB26-1425 (signed act): Colorado Behavior Analyst Licensing Board; licensure required from July 1, 2028', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -625,6 +664,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'C.R.S. § 10-16-104 (FindLaw, current through 1/1/2025)', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
       { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+      { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -759,6 +799,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with Cigna in Colorado?', a: 'Yes. Evernorth\'s autism resource guide says all ABA CPT codes are covered telehealth services, and EN0499 allows in-person, telehealth or hybrid delivery. No POS code or modifier is published; confirm claim coding with Provider Services (800.926.2273).' },
       { q: 'Is Cigna accepting new ABA providers in Colorado?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
       { q: 'Does Cigna pay for ABA delivered at school in Colorado?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
+      { q: 'Can an out-of-state BCBA treat Cigna members in Colorado, including by telehealth?', a: 'Colorado has no behavior analyst license yet; HB26-1425 makes one mandatory from July 1, 2028. Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
     ],
   },
 
@@ -849,6 +890,17 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      {
+        h2: 'Can an out-of-state BCBA treat a Colorado member, including by telehealth?',
+        body: [
+          'Colorado does not license behavior analysts yet. HB26-1425 creates a Colorado Behavior Analyst Licensing Board in DORA, and “on and after July 1, 2028, an individual is prohibited from engaging in or offering the practice of applied behavior analysis unless the individual is licensed by the board”; unlicensed practice after that date is a class 2 misdemeanor. Until then there is no Colorado behavior analyst license to hold, and BACB certification is the operative credential.',
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, is explicit. Its National Network Manual (effective September 1, 2026): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service. In addition, providers must comply with all licensing laws and telehealth regulations in the jurisdiction(s) where the provider is licensed and where the member is receiving treatment.” Colorado issues no behavior analyst license until the HB26-1425 board starts licensing, so how Optum applies that member-state rule to a BCBA treating a Colorado child before then is a question for Optum provider relations, not something the manual settles.',
+        ],
+        cites: [
+          { title: 'Colorado General Assembly — HB26-1425 (signed act): Colorado Behavior Analyst Licensing Board; licensure required from July 1, 2028', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
     ],
@@ -1001,6 +1053,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in Colorado?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in Colorado?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
       { q: 'Does UnitedHealthcare pay for ABA in school in Colorado?', a: 'Mostly no. Optum\'s ABA FAQ says school-based services are reviewed for medical necessity, but "school-based ABA services or services that are otherwise covered under the Individuals with Disabilities Education Act (IDEA) are not covered (e.g., a 1:1 aid in the school setting)." Coordination is covered: teacher training, meetings with school staff and observations in school.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Colorado, including by telehealth?', a: 'Colorado has no behavior analyst license yet; HB26-1425 makes one mandatory from July 1, 2028. Optum (UnitedHealthcare) requires telehealth providers to “be licensed in the state where the member is located at the time of service”; ask Optum how it applies that before Colorado licensing starts.' },
     ],
   },
 
@@ -1119,6 +1172,17 @@ export const coloradoPayers: Record<string, PayerConfig> = {
         body: [
           'Colorado has historically not licensed behavior analysts, leaning instead on the statutory "autism services provider" ladder and BACB certification. That changed in 2026: HB26-1425 became law and creates the Colorado Behavior Analyst Licensing Board under the Division of Professions and Occupations at DORA, with authority to license behavior analysts and assistant behavior analysts. The operative date is not now — on and after July 1, 2028, practising or offering applied behavior analysis without a board-issued license is prohibited, and doing so is a class 2 misdemeanor.',
           'As of this writing the board seats are still listed as vacant on the DORA program page and no license is being issued, so today\'s credentialing conversation with Anthem still runs on national certification plus the statutory ladder. The planning consequence is real, though: every analyst you expect to still be supervising Colorado cases in mid-2028 needs a licensure path, and the regulation carries a sunset review scheduled for September 1, 2031.',
+        ],
+      },
+      {
+        h2: 'Can an out-of-state BCBA treat a Colorado member, including by telehealth?',
+        body: [
+          'Colorado does not license behavior analysts yet. HB26-1425 creates a Colorado Behavior Analyst Licensing Board in DORA, and “on and after July 1, 2028, an individual is prohibited from engaging in or offering the practice of applied behavior analysis unless the individual is licensed by the board”; unlicensed practice after that date is a class 2 misdemeanor. Until then there is no Colorado behavior analyst license to hold, and BACB certification is the operative credential.',
+          'Anthem’s ABA Provider Resource Guide (June 2025) lists BCBAs among approved providers, alongside “other mental health service providers licensed or authorized by the state in which they practice and recognized by the affiliated health plan Anthem to be eligible for reimbursement,” and sends providers to the state-specific Credentialing with Anthem pages; for telehealth it points to Anthem’s Virtual Visits reimbursement policy for the allowed codes. It does not say which state’s license a remote BCBA needs, so confirm with Anthem credentialing before treating a member remotely from another state.',
+        ],
+        cites: [
+          { title: 'Colorado General Assembly — HB26-1425 (signed act): Colorado Behavior Analyst Licensing Board; licensure required from July 1, 2028', url: 'https://leg.colorado.gov/bills/HB26-1425' },
+          { title: 'Anthem Blue Cross and Blue Shield Colorado — ABA Provider Resource Guide (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
         ],
       },
     ],
@@ -1263,6 +1327,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'What changed for Anthem Colorado ABA claims in March 2026?', a: 'From March 1, 2026 reimbursement is based on weekly approved units rather than total authorized units. Units rendered above the approved weekly limit are ineligible for reimbursement and get adjusted, so banking hours across weeks no longer works.' },
       { q: 'Is there a dollar cap on ABA under Colorado\'s autism mandate?', a: 'No. The cap language was struck effective January 1, 2017, and the statute now requires that coverage not be subject to dollar limits, deductibles or coinsurance less favorable than those applied to physical illness generally. There is also no small-employer exemption in the autism subsection.' },
       { q: 'Does Colorado license behavior analysts?', a: 'Not yet, but it will. HB26-1425 became law in 2026 and creates the Colorado Behavior Analyst Licensing Board; on and after July 1, 2028 practising applied behavior analysis without a board-issued license is prohibited. Until then the statutory "autism services provider" ladder, built on BACB certification, is the operative standard.' },
+      { q: 'Can an out-of-state BCBA treat Anthem members in Colorado, including by telehealth?', a: 'Colorado has no behavior analyst license yet; HB26-1425 makes one mandatory from July 1, 2028. Anthem’s ABA guide accepts BCBAs and providers “licensed or authorized by the state in which they practice”; confirm the license question with Anthem credentialing.' },
     ],
   },
 };

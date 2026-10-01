@@ -119,6 +119,30 @@ export const missouriPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'MO HealthNet Behavioral Health Services Manual, \u00a71.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' }],
       },
+      {
+        h2: 'Does MO HealthNet require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'MO HealthNet sets required elements, not a DSM-5 template. 13 CSR 70-98.030(7) requires the treatment plan to be person-centered and individualized and developed by an LBA or LP. It must be based on the ABA assessment for intervention planning and "Include assessment and treatment protocols for addressing each of the target behaviors." It must include training for LABAs and RBTs, caregiver training (below), and care coordination. Goals must address the condition: the rule excludes solely educational, vocational or recreational services, but covers "ABA treatment goals, objectives, and procedures" related to those activities "but... medically necessary to address the deficits and symptoms of ASD." Continued precertification needs the current intervention plan and progress data/graphs. If progress is not evident, the request must identify barriers and strategies to improve effectiveness (Behavioral Health Services Manual §1.16; form 2575-045). Neither the rule nor the manual prescribes a goal template or a DSM-5 grouping.',
+        ],
+        cites: [
+          { title: '13 CSR 70-98.030 — Applied Behavior Analysis Services (Code of State Regulations, 6/30/26)', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/13csr/13c70-98.pdf' },
+          { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
+          { title: 'MO HealthNet Request for Applied Behavior Analysis, form 2575-045 (January 2026)', url: 'https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/Remediated_2575-045-Request-for-Applied-Behavior-Analysis-Jan-2026.pdf' },
+        ],
+      },
+      {
+        h2: 'Does MO HealthNet require parent training, and how many hours?',
+        body: [
+          'Caregiver training is a required part of the plan, but no minimum hours or utilization target is set. Under 13 CSR 70-98.030(7)(A), the plan shall "Include training and support to enable parents and other caregivers to participate in treatment planning and treatment plan implementation" and "Include care coordination involving the parents or caregiver(s)." Precertification form 2575-045 (January 2026) puts 97156 and 97157 on the intervention worksheet: you request units for each code, and they count toward the six-month total. Both codes require precertification (§1.16), and the faxed approval states the hours allowed. The only ceilings are unit limits: the MHD Applied Behavioral Analysis fee schedule (file dated 8/27/2026) lists "Maximum Units" of 16 for 97156 and 8 for 97157, following CMS medically unlikely edits. MHD\'s September 2026 billing tip adds that drop-off and pick-up conversations with caregivers are billable "only... if the behavior analyst or assistant behavior analyst is providing guidance, not just providing a status update."',
+        ],
+        cites: [
+          { title: '13 CSR 70-98.030 — Applied Behavior Analysis Services (Code of State Regulations, 6/30/26)', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/13csr/13c70-98.pdf' },
+          { title: 'MO HealthNet Request for Applied Behavior Analysis, form 2575-045 (January 2026)', url: 'https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/Remediated_2575-045-Request-for-Applied-Behavior-Analysis-Jan-2026.pdf' },
+          { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
+          { title: 'MHD Applied Behavioral Analysis fee schedule (xlsx, file dated 8/27/2026)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx' },
+          { title: 'MO HealthNet hot tip — Important Information for Documenting and Billing for Applied Behavior Analysis Services (9/9/2026)', url: 'https://mydss.mo.gov/mhd/hot-tips/important-information-documenting-and-billing-applied-behavior-analysis-services' },
+        ],
+      },
     ],
     collect: [
       { title: 'MO HealthNet eligibility — not the plan card', desc: 'Whichever MCO card the family shows, ABA is state FFS. Verify MO HealthNet eligibility; skip the MCO analysis entirely.' },
@@ -146,6 +170,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'RSMo § 210.900 — Family Care Safety Registry definitions', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=210.900' },
       { title: 'MO DHSS FAQ — Family Care Safety Registry registration requirements', url: 'https://mohealth.uservoice.com/knowledgebase/articles/1166425-who-is-required-to-register-with-the-family-care-s' },
       { title: 'MO HealthNet Managed Care Policy Statements (rev. 7/2023)', url: 'https://dss.mo.gov/business-processes/managed-care/vendor-docs-2022/mo-healthnet-managed-care-policy-statements-09-23.pdf' },
+      { title: '13 CSR 70-98.030 — Applied Behavior Analysis Services (Code of State Regulations, 6/30/26)', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/13csr/13c70-98.pdf' },
+      { title: 'MO HealthNet Request for Applied Behavior Analysis, form 2575-045 (January 2026)', url: 'https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/Remediated_2575-045-Request-for-Applied-Behavior-Analysis-Jan-2026.pdf' },
+      { title: 'MO HealthNet hot tip — Important Information for Documenting and Billing for Applied Behavior Analysis Services (9/9/2026)', url: 'https://mydss.mo.gov/mhd/hot-tips/important-information-documenting-and-billing-applied-behavior-analysis-services' },
     ],
     deliveryRules: {
       supervision: {
@@ -255,6 +282,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment or BCBA supervision be done by telemedicine under MO HealthNet?', a: 'Yes. The telemedicine rule covers any service within the provider\'s scope, technicians included, paid at the fee-schedule amount. Bill POS 02 (not in home) or POS 10 (in home), or POS 03 with GT on school grounds. Telemedicine needs the same precertification as in person; the TM modifier on the fee file is for school-based IEP services, not telemedicine.' },
       { q: 'Is the Missouri Medicaid ABA network open to new providers?', a: 'There is no MCO network to join for ABA. Every MO HealthNet member, including managed-care enrollees, receives ABA fee-for-service, so a provider enrolls with MO HealthNet through Missouri Medicaid Audit and Compliance rather than contracting with Healthy Blue, Home State Health or UnitedHealthcare. The manual recommends Autism Clinic enrollment for groups with two or more licensed behavior analysts.' },
       { q: 'What happens to a MO HealthNet ABA precertification if the family switches providers?', a: 'The manual does not say it transfers. Inside an Autism Clinic the precertification sits under the clinic number, so other performing providers there can continue care. For a new agency, call the Behavioral Health Services help desk at (573) 635-6516 before the first session.' },
+      { q: 'Does MO HealthNet require ABA goals to be organized by DSM-5 criteria?', a: 'No DSM-5 template. 13 CSR 70-98.030 requires an individualized plan built on the ABA assessment, with assessment and treatment protocols for each target behavior and goals that address the deficits and symptoms of ASD.' },
+      { q: 'Does MO HealthNet require parent training hours?', a: 'Parent/caregiver training is a required treatment-plan element under 13 CSR 70-98.030(7), but no hour minimum is set; the fee schedule caps 97156 at 16 units and 97157 at 8 units. Request 97156/97157 units on form 2575-045; the precertification sets the hours.' },
     ],
   },
 
@@ -333,6 +362,27 @@ export const missouriPayers: Record<string, PayerConfig> = {
         ],
         cites: [
       { title: 'RSMo § 337.315 — behavior analyst licensure (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.315' },
+        ],
+      },
+      {
+        h2: 'Does Aetna require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Aetna sets the content of the plan, not a DSM-5 template. Its ABA Medical Necessity Guide (©2026) requires a DSM-5 ASD diagnosis and a treatment plan whose "specific identified target behaviors related to the condition" are "clearly defined: frequency, rate, symptom intensity or duration, or other objective measures of baseline levels are recorded, and quantifiable criteria for progress are established," with the intervention techniques, reinforcers, generalization strategies, and transition, titration and discharge criteria spelled out. Hours are sized from severity in three areas — maladaptive behavior, social communication and self-care — rather than from DSM criteria. Precertification form GR-69017-4 (7-26) asks for a "time-limited, individualized treatment plan" with "baseline, interim and current data for all goals." Neither document asks for goals to be grouped under DSM-5 criteria. Missouri\'s mandate adds only that a plan, when the carrier requests it, must include the elements needed to pay claims — "a diagnosis, proposed treatment by type, frequency and duration of treatment, and goals" (RSMo § 376.1224.4(2)).',
+        ],
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
+      },
+      {
+        h2: 'Does Aetna require parent training, and how many hours?',
+        body: [
+          'Caregiver participation is a criterion, but Aetna publishes no hour minimum. The Medical Necessity Guide requires "engagement and commitment from parent(s) (or guardians) to participate in treatment to generalize gains," and says that, based on impairment and severity, additional authorization may be provided "for QHP protocol modification and direction at 1 to 2 hours per 10 hours of treatment by protocol, as well as authorization for caregiver training" — no caregiver-training amount is stated. Form GR-69017-4 asks you to request 97156 and 97157 in hours per week and to show that "Primary caregiver(s) have measurable goals that work to reinforce interventions and generalize gains." The approved caregiver-training hours are whatever the precertification letter grants.',
+        ],
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
     ],
@@ -478,6 +528,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in Missouri?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the MO HealthNet fee schedule, and treat rate-setting as part of contracting.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
       { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
+      { q: 'Does Aetna require ABA goals to be organized by DSM-5 criteria in Missouri?', a: 'No DSM-5 grouping is asked for. Aetna wants a DSM-5 ASD diagnosis and a plan with clearly defined target behaviors, baseline data and quantifiable progress criteria; GR-69017-4 asks for baseline, interim and current data for all goals.' },
+      { q: 'Does Aetna set required parent training hours in Missouri?', a: 'No published minimum or cap. Parent commitment to participate is a medical-necessity criterion; request 97156/97157 in hours per week on GR-69017-4 and show measurable caregiver goals — the authorization sets the hours.' },
     ],
   },
 
@@ -559,6 +611,26 @@ export const missouriPayers: Record<string, PayerConfig> = {
           'Evernorth Behavioral Health, which runs Cigna\'s ABA network, says it "is committed to expanding our network of autism providers." It requires providers to be certified by a national governing body or a state licensing board (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral health licensure). Individual providers complete the Evernorth Behavioral Provider Information Form; autism clinics and large group practices complete the Evernorth Screening Application for Autism Clinics. An application can take up to 90 days, and once a clinic contract is signed each certified or licensed provider must also be credentialed, which "can take an additional 60 to 90 days." Providers must be fully credentialed to render in-network services. "Evernorth does not credential nonlicensed/noncertified staff": technician services are billed under the supervising provider.',
         ],
         cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+      },
+      {
+        h2: 'Does Cigna require treatment-plan goals tied to DSM-5 criteria?',
+        body: [
+          'Yes — this is the closest any commercial payer in the state comes to a DSM-5 structure. EN0499 (effective 5/15/2026) requires "Clearly defined and measurable goals designed to target specific behaviors and skills across all settings," each naming the target behavior, the measurement method and the mastery standard, and requires that "Treatment goals are directly related to the individual\'s diagnosis of ASD and the symptoms of ASD defined by the DSM-5-TR (e.g., social communication and social interaction; restricted, repetitive patterns of behavior, interest, or activities)." Goals must come from the full ABA assessment, be developmentally appropriate, and carry dated quantitative baseline data and mastery criteria. The policy ties each goal to the DSM-5-TR symptom domains; it does not prescribe a template that groups them under headings.',
+          'Missouri\'s mandate requires only that the plan, when requested, include "a diagnosis, proposed treatment by type, frequency and duration of treatment, and goals" (RSMo § 376.1224.4(2)).',
+        ],
+        cites: [
+          { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
+      },
+      {
+        h2: 'Does Cigna require parent training, and how many hours?',
+        body: [
+          'EN0499 requires a "Stakeholder Training" component in the treatment plan but sets no hour minimum or cap. Stakeholder (parent/caregiver, relative, teacher) training "will be conducted by a BCBA®, LBA, or a mental health professional who is licensed to practice independently" and must have "clearly defined, measurable stakeholder goals with mastery criteria," baseline data, a plan to collect progress data, separately documented data for each stakeholder group, and the trainer\'s name and credentials. Planned group stakeholder training needs its own measurable goals. For continued care, Cigna wants baseline, interim and current data showing stakeholders "continue to actively participate in the treatment" and are progressing toward their goals. The hours approved are set case by case on the authorization.',
+        ],
+        cites: [
+          { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
     ],
     collect: [
@@ -690,6 +762,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in Missouri?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the MO HealthNet fee schedule, and treat rate-setting as part of contracting.' },
       { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
+      { q: 'Does Cigna require ABA goals to follow DSM-5 criteria in Missouri?', a: 'EN0499 requires every treatment goal to be "directly related to" the ASD diagnosis and the DSM-5-TR symptoms (social communication/interaction; restricted, repetitive behavior), with measurable targets, baseline data and mastery criteria.' },
+      { q: 'Does Cigna set required parent training hours in Missouri?', a: 'No hour figure is published. EN0499 requires measurable stakeholder (parent/caregiver) training goals with mastery criteria and progress data, delivered by a BCBA or licensed clinician; the hours are set on the authorization.' },
     ],
   },
 
@@ -777,6 +851,28 @@ export const missouriPayers: Record<string, PayerConfig> = {
         ],
         cites: [
       { title: 'RSMo § 337.315 — behavior analyst licensure (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.315' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare (Optum) require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Optum sets goal content and priorities, not a DSM-5 template. Its ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026) require "Treatment goals and objectives that are comprehensive and clearly stated," "Outcome-oriented interventions targeting specific baseline behaviors," and behaviors "tied to objective and quantifiable treatment goals that have baseline data, measurable progress, and projected timeframes for completion." Goals are to be "prioritized to address behaviors that threaten the safety of the client or others or create a barrier to quality of life," then skills fundamental to health and social inclusion; when goals are met, "new goals should be identified based on targeted symptoms and behaviors." DSM-5-TR appears in the diagnosis requirement, not as a way to organize goals.',
+          'Missouri\'s mandate requires only that the plan, when requested, include "a diagnosis, proposed treatment by type, frequency and duration of treatment, and goals" (RSMo § 376.1224.4(2)).',
+        ],
+        cites: [
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare (Optum) require parent training, and how many hours?',
+        body: [
+          'Optum says parent training is required but sets no number. Its CPT-code FAQ (BH00083-24-FAQ, 01/2024): "Is parent training covered? Parent training is required. Bill 97156 or 97157 depending on the format of parent training," and, asked "Is there a minimum or maximum of what can be billed for parent training?", answers "It is based on the treatment plan and goals provided." The Supplemental Clinical Criteria call for a "systematic, individualized curriculum on ABA fundamental concepts" — "not accomplished by simply having the caregiver or guardian present during treatment" — and for the plan to describe parent goals with progress and "the percentage of planned sessions attended." The only numeric ceiling is the commercial reimbursement policy\'s maximum frequency per day: 16 units (4 hours) each for 97156 and 97157.',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A; history entry February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
     ],
@@ -932,6 +1028,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On a fully insured Missouri plan, § 376.1224 lets the carrier review the treatment plan no more than once every six months unless the provider agrees otherwise.' },
       { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
+      { q: 'Does UnitedHealthcare require ABA goals to be organized by DSM-5 criteria in Missouri?', a: 'No DSM-5 grouping is asked for. Optum wants clearly stated, measurable goals with baseline data and timeframes, prioritized by safety and quality-of-life risk, with new goals based on targeted symptoms and behaviors.' },
+      { q: 'Does UnitedHealthcare set required parent training hours in Missouri?', a: 'Optum says "Parent training is required" (97156/97157) but sets no minimum or maximum — "It is based on the treatment plan and goals provided." Commercial claims are capped at 16 units (4 hours) per day for each of 97156 and 97157.' },
     ],
   },
 
@@ -1060,6 +1158,32 @@ export const missouriPayers: Record<string, PayerConfig> = {
         body: [
           'Missouri is unusual in tying the insurance mandate directly to the state license. An "autism service provider" under § 376.1224 is either a person or entity licensed or certified by the state of Missouri, or a person "licensed under chapter 337 as a board-certified behavior analyst by the behavior analyst certification board or licensed under chapter 337 as an assistant board-certified behavior analyst." National BACB certification is the gateway to the license, but it is the chapter 337 license the mandate names.',
           'Chapter 337 defines four tiers — licensed behavior analyst (LBA), licensed assistant behavior analyst (LaBA), plus provisional and temporary versions of each — administered by the Behavior Analyst Advisory Board within the State Committee of Psychologists, under the Division of Professional Registration. Credential every supervising analyst against that license before you submit a Missouri claim, not after.',
+        ],
+      },
+      {
+        h2: 'Does Anthem require treatment-plan goals in a set format, such as by DSM-5 criteria?',
+        body: [
+          'Anthem\'s form asks for documentation, not a DSM-5 goal template. The commercial Treatment Plan Request Form for Autism Spectrum Disorders (December 2025, covering Missouri) requires records showing how the member meets ASD criteria "as per DSM-5-TR criteria" for the assessment request. For treatment it recommends the following:',
+          '• A treatment plan "including symptoms and behaviors requiring treatment."',
+          '• Cumulative graphs of baseline and current data, and a "Description of progress on goals since last review."',
+          '• Baseline and updated assessments (Vineland, VB-MAPP, ABLLS-R) "to show progress toward goals is occurring."',
+          '• Measurable, client-specific generalization and discharge/transition plans.',
+          'The plan should be dated within 30 days of the start date. Medical necessity is judged against MCG B-806-T (Behavioral Health Care Applied Behavioral Analysis), used since June 1, 2024. That guideline is licensed and not public, so whether it imposes a goal structure cannot be confirmed here. Missouri\'s mandate requires only that the plan, when requested, include "a diagnosis, proposed treatment by type, frequency and duration of treatment, and goals" (RSMo § 376.1224.4(2)).',
+        ],
+        cites: [
+          { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+          { title: 'Anthem — MCG care guidelines 27th edition update (Missouri, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/missouri/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
+      },
+      {
+        h2: 'Does Anthem require parent training, and how many hours?',
+        body: [
+          'Anthem asks for measurable parent-training goals but publishes no hour figure. The Treatment Plan Request Form recommends "Documentation of changes in parental/caregiver/guardian situation, if applicable, since the last review plus measurable goals for parent training." It requests 97156 and 97157 in units "Per authorization period," while direct treatment codes are requested per week. Any amount the MCG guideline expects is in licensed criteria we cannot read. The units Anthem approves for 97156/97157 appear on the authorization.',
+        ],
+        cites: [
+          { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+          { title: 'Anthem — MCG care guidelines 27th edition update (Missouri, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/missouri/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
         ],
       },
     ],
@@ -1205,6 +1329,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Does ABA prior authorization in Missouri go to Carelon?', a: 'No. Anthem\'s own five-state precertification list names Anthem as the responsible party for ABA. Carelon Medical Benefits Management handles imaging, musculoskeletal, oncology and genetics on that list, and Carelon Behavioral Health serves as the behavioral health network and credentialing organization — its Missouri quick-reference guide points providers back to anthem.com and the member ID card for precertification.' },
       { q: 'Which medical-necessity criteria does Anthem use for ABA in Missouri?', a: 'MCG B-806-T (Behavioral Health Care Applied Behavioral Analysis). Anthem told commercial providers it would transition from CG-BEH-02 and MCG W0153 to B-806-T effective June 1, 2024. MCG guidelines are proprietary and not published publicly, so build the request around Anthem\'s Treatment Plan Request Form for Autism Spectrum Disorders instead.' },
       { q: 'Does the Missouri mandate exempt small employers?', a: 'No. There is no small-group exemption in the current statute. The exclusions are supplemental and limited policy types — accident-only, specified disease, Medicare supplement, long-term care, short-term major medical of six months or less — plus MO HealthNet, and private self-funded plans to the extent federal law preempts them.' },
+      { q: 'Does Anthem require ABA goals to be organized by DSM-5 criteria in Missouri?', a: 'Not on its public form. DSM-5-TR applies to the diagnosis; for treatment Anthem wants symptoms and behaviors requiring treatment, progress on goals with graphs and standardized assessments, and measurable generalization and discharge plans. Its MCG B-806-T criteria are licensed and not public.' },
+      { q: 'Does Anthem set required parent training hours in Missouri?', a: 'No published figure. The request form asks for "measurable goals for parent training" and requests 97156/97157 per authorization period; the approved units are on the authorization.' },
     ],
   },
 };

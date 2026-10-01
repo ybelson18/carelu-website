@@ -79,11 +79,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       {
         h2: 'How fast care must start: the AHCCCS behavioral health appointment clock',
         body: [
-          'AHCCCS sets its own timeliness standard for behavioral health, and it is the one to design an ABA intake around. ACOM Policy 417 (effective October 1, 2025), which binds the ACC, ACC-RBHA, ALTCS E/PD and DDD contractors, requires the \u201cInitial assessment \u2013 Within seven calendar days after the initial referral or request for behavioral health services\u201d; then the \u201cInitial appointment \u2013 Within timeframes indicated by clinical need\u201d but, \u201cFor members under the age of 18 years old, no later than 21 days after the initial assessment\u201d (23 calendar days for members 18 and older); and \u201cSubsequent behavioral health services \u2013 Within the timeframes according to the needs of the person, but no longer than 45 calendar days from identification of need.\u201d Urgent need is 24 hours. Children in Department of Child Safety custody and adopted children run on a separate, faster track under A.R.S. 8-512.01: screening and evaluation within seven calendar days, the initial appointment no later than 21 calendar days after it, and subsequent services no later than 21 calendar days after any screening and assessment.',
+          'AHCCCS sets its own timeliness standard for behavioral health, and it is the one to design an ABA intake around. ACOM Policy 417 (current version effective October 1, 2026), which binds the ACC, ACC-RBHA, ALTCS E/PD and DDD contractors, requires the \u201cInitial assessment \u2013 Within seven calendar days after the initial referral or request for behavioral health services\u201d; then the \u201cInitial appointment \u2013 Within timeframes indicated by clinical need\u201d but, \u201cFor members under the age of 18 years old, no later than 21 days after the initial assessment\u201d (23 calendar days for members 18 and older); and \u201cSubsequent behavioral health services \u2013 Within the timeframes according to the needs of the person, but no longer than 45 calendar days from identification of need.\u201d Urgent need is 24 hours. Children in Department of Child Safety custody and adopted children run on a separate, faster track under A.R.S. 8-512.01: screening and evaluation within seven calendar days, the initial appointment no later than 21 calendar days after it, and subsequent services no later than 21 calendar days after any screening and assessment.',
           'These are standards the health plan must meet through its network, not a claim rule, but they are the numbers a plan uses when it asks whether your agency can take a referral. For ABA the practical sequence is: see the child for the 97151 assessment within about a week of referral (the two largest plans, Mercy Care and UnitedHealthcare Community Plan, need no PA for 97151/97152), then have the treatment authorization decided and 97153 started inside the 21-day window. The plan\'s PA decision clock sits inside that window: 14 calendar days in most AHCCCS plan manuals, 7 calendar days under the federal rule that applies to managed care plans for rating periods starting on or after January 1, 2026 (see the authorization-timing field below).',
         ],
         cites: [
-          { title: 'AHCCCS Contractor Operations Manual (ACOM) 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (eff. 10/01/25)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
+          { title: 'AHCCCS Contractor Operations Manual (ACOM) 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (current version eff. 10/01/26)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
         ],
       },
       {
@@ -127,6 +127,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'DES/DDD — Central Registry, LEIE and SAM background check requirements (8/7/2015)', url: 'https://des.az.gov/sites/default/files/central_registry_leie_sam_requirements.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'AHCCCS ties ABA to the Arizona license: AMPM Policy 320-S defines a Behavior Analyst as “A person who is licensed pursuant to A.R.S §32-2091,” and A.R.S. § 32-2091.14 directs AHCCCS to recognize “a behavior analyst who is licensed pursuant to this article” as a behavioral health professional eligible for reimbursement. A § 36-3606 telehealth registration is not that license, so for AHCCCS work plan on full Arizona licensure.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'AHCCCS AMPM Policy 320-S — Behavior Analysis Services', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'ACC plan vs. DDD enrollment', desc: 'The routing question — an ACC card and a DDD Health Plan card mean different payers, portals, and auth pathways.' },
@@ -136,7 +151,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA provider', desc: 'Post-March-2026, many inbounds are displaced Action Behavior Centers / Centria families — capture the history and any active auths.' },
     ],
     sources: [
-      { title: 'AHCCCS Contractor Operations Manual (ACOM) 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (eff. 10/01/25)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
+      { title: 'AHCCCS Contractor Operations Manual (ACOM) 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (current version eff. 10/01/26)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
       { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
       { title: 'AHCCCS — Available Health Plans list', url: 'https://www.azahcccs.gov/Members/Downloads/Resources/ENGLISH_HealthPlanList.pdf' },
@@ -159,6 +174,10 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 320-I — Telehealth (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320-I.pdf' },
       { title: 'AHCCCS Behavioral Health Services Matrix (B2Matrix, as of 9/1/26)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx' },
       { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -206,7 +225,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
         ],
       },
       authTurnaround: {
-        value: 'Fee-for-service (AIHP/tribal and other FFS members): since January 1, 2026, 42 CFR 440.230(e) requires state FFS decisions "in no case later than 7 calendar days after receiving the request" for standard and 72 hours for expedited (standard extendable up to 14 calendar days). Health plans: AHCCCS’s own CY2025 prior-authorization metrics report (March 2026) says that "Beginning January 1, 2026" the CMS rule requires Medicaid managed care plans to decide within "7 calendar days for standard requests (non-urgent)" and "72 hours for expedited requests (urgent)"; the federal regulation ties the 7-day ceiling to rating periods starting on or after January 1, 2026. AHCCCS’s contractor policy ACOM 414 (rev. March 2025) still reads "no later than 14 calendar days from receipt of the request for the service, regardless of whether the 14th day falls on a weekend", 72 hours expedited, each extendable up to 14 more calendar days. Expect 7 and confirm with the plan; individual plan manuals still vary (see each plan). No ABA-specific decision clock or reauthorization lead time is published; AMPM 320-S requires progress reports at least every six months, which is what the reauth is built from. The decision clock sits inside a service-start clock: ACOM 417 (eff. 10/1/2025) requires the behavioral health "Initial assessment – Within seven calendar days after the initial referral" and, for members under 18, the initial appointment "no later than 21 days after the initial assessment" (23 calendar days for adults).',
+        value: 'Fee-for-service (AIHP/tribal and other FFS members): since January 1, 2026, 42 CFR 440.230(e) requires state FFS decisions "in no case later than 7 calendar days after receiving the request" for standard and 72 hours for expedited (standard extendable up to 14 calendar days). Health plans: AHCCCS’s own CY2025 prior-authorization metrics report (March 2026) says that "Beginning January 1, 2026" the CMS rule requires Medicaid managed care plans to decide within "7 calendar days for standard requests (non-urgent)" and "72 hours for expedited requests (urgent)"; the federal regulation ties the 7-day ceiling to rating periods starting on or after January 1, 2026. AHCCCS’s contractor policy ACOM 414 (rev. March 2025) still reads "no later than 14 calendar days from receipt of the request for the service, regardless of whether the 14th day falls on a weekend", 72 hours expedited, each extendable up to 14 more calendar days. Expect 7 and confirm with the plan; individual plan manuals still vary (see each plan). No ABA-specific decision clock or reauthorization lead time is published; AMPM 320-S requires progress reports at least every six months, which is what the reauth is built from. The decision clock sits inside a service-start clock: ACOM 417 (current version eff. 10/1/2026) requires the behavioral health "Initial assessment – Within seven calendar days after the initial referral" and, for members under 18, the initial appointment "no later than 21 days after the initial assessment" (23 calendar days for adults).',
         status: 'verified',
         cites: [
           { title: '42 CFR 440.230(e) — Medicaid fee-for-service prior authorization timeframes (from 1/1/2026)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-440/subpart-B/section-440.230' },
@@ -214,7 +233,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
           { title: 'AHCCCS ACOM 414 — Requirements for Service Authorization Decisions and NOABD (rev. 3/7/2025)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/414.pdf' },
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
-          { title: 'AHCCCS ACOM 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (eff. 10/01/25)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
+          { title: 'AHCCCS ACOM 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (current version eff. 10/01/26)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
         ],
       },
       coordinationOfBenefits: {
@@ -285,7 +304,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'How soon after an initial assessment must an AHCCCS member start ABA?', a: 'AHCCCS\u2019s behavioral health appointment standard (ACOM 417, eff. 10/1/2025) sets the clock for every ACC, ACC-RBHA, ALTCS E/PD and DDD plan: the initial assessment within seven calendar days of the referral or request, and the initial appointment \u201cno later than 21 days after the initial assessment\u201d for members under 18 (23 calendar days for adults), with later services no more than 45 calendar days from identification of need. For children in DCS custody and adopted children, the initial appointment is due no later than 21 calendar days after screening and evaluation. The standard binds the plan\'s network, so plans refer to agencies that can meet it. The treatment PA decision (14 calendar days in most plan manuals, 7 under the 2026 federal rule) has to fit inside the 21 days.' },
+      { q: 'How soon after an initial assessment must an AHCCCS member start ABA?', a: 'AHCCCS\u2019s behavioral health appointment standard (ACOM 417, current version eff. 10/1/2026) sets the clock for every ACC, ACC-RBHA, ALTCS E/PD and DDD plan: the initial assessment within seven calendar days of the referral or request, and the initial appointment \u201cno later than 21 days after the initial assessment\u201d for members under 18 (23 calendar days for adults), with later services no more than 45 calendar days from identification of need. For children in DCS custody and adopted children, the initial appointment is due no later than 21 calendar days after screening and evaluation. The standard binds the plan\'s network, so plans refer to agencies that can meet it. The treatment PA decision (14 calendar days in most plan manuals, 7 under the 2026 federal rule) has to fit inside the 21 days.' },
       { q: 'Does AHCCCS cover ABA therapy?', a: 'Yes — under AMPM 320-S, for members with autism spectrum disorder and/or other diagnoses as justified by medical necessity. Coverage runs through the member\'s ACC plan, or through a DDD Health Plan (Mercy Care DD or UHCCP DD) for ALTCS-DD members.' },
       { q: 'Does Arizona Medicaid require an autism diagnosis for ABA?', a: 'No — AMPM 320-S explicitly covers "other diagnoses as justified by medical necessity," and Optum\'s Arizona orientation states verbatim that an ASD diagnosis is not required for AHCCCS members. A qualified Behavioral Health Professional must still recommend the service based on assessment.' },
       { q: 'What does AHCCCS pay for ABA?', a: 'Fixed, credential-tiered rates since 11/1/2023: 97153 pays $17.91 (HM) / $21.32 (HN) / $23.69 (HO/HP) per 15-minute unit, with home delivery about 10% higher. The codes live on the physician fee schedule, not the behavioral-health outpatient one, and 97156 wasn\'t in the 2023 rate notice — look it up directly.' },
@@ -293,6 +312,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth under AHCCCS?', a: 'Yes. AHCCCS\u2019s Telehealth Code Set lists 97151 through 97158 for interactive audio-video with the GT modifier, so the assessment (97151, 97152) and analyst direction of the technician (97155) can be remote. The place of service is where the member is (for example 12 home); AHCCCS does not use POS 02 or 10. Audio-only (FQ) is not listed for these codes.' },
       { q: 'Is ABA payable in school under AHCCCS?', a: 'The Behavioral Health Services Matrix lists POS 03 (school) as a valid place of service for 97151 through 97158. AMPM 320-S requires the treatment plan to name the settings but sets no school-specific restriction; ask the member\u2019s health plan how it handles school-based delivery alongside an IEP.' },
       { q: 'Do AHCCCS health plans pay the AHCCCS fee-for-service ABA rates?', a: 'Not necessarily. AHCCCS says its fixed ABA rates apply only to fee-for-service programs (AIHP, Tribal ALTCS, DDD Tribal Health Program), and “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” For a plan member, the rate is in your plan contract.' },
+      { q: 'Can an out-of-state BCBA treat AHCCCS members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
+      { q: 'Can AHCCCS ABA be authorized retroactively?', a: 'For fee-for-service members, AHCCCS’s FFS manual (Chapter 8) says no PA is required for “Services provided prior to the posting of the member’s retroactive eligibility.” Health plan members follow their plan’s retrospective-review rules, which differ by plan (see each plan guide).' },
     ],
   },
 
@@ -361,6 +382,23 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'azfamily — Nearly 1K Arizona children lose in-network ABA (3/5/2026)', url: 'https://www.azfamily.com/2026/03/05/nearly-1k-arizona-children-with-autism-lose-aba-therapy-coverage/' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'AHCCCS ties ABA to the Arizona license: AMPM Policy 320-S defines a Behavior Analyst as “A person who is licensed pursuant to A.R.S §32-2091,” and A.R.S. § 32-2091.14 directs AHCCCS to recognize “a behavior analyst who is licensed pursuant to this article” as a behavioral health professional eligible for reimbursement. A § 36-3606 telehealth registration is not that license, so for AHCCCS work plan on full Arizona licensure.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Mercy Care’s network has to be enrolled with AHCCCS as well.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'AHCCCS AMPM Policy 320-S — Behavior Analysis Services', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Mercy Care book', desc: 'ACC, Mercy Care DD (DDD/ALTCS), or DCS CHP (foster care) — same payer, different funnel and care team.' },
@@ -376,6 +414,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
       { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
       { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+      { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -536,6 +580,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Is Mercy Care the same as Aetna?', a: 'Mercy Care is administered by Aetna Medicaid Administrators LLC, so the machinery is Aetna\'s — but it\'s a Medicaid plan on AHCCCS rules, not Aetna\'s commercial CPB 0554 policy. A family saying "we have Aetna" in Phoenix may well be a Mercy Care member.' },
       { q: 'How long do Mercy Care ABA authorizations last?', a: 'Six months, matching the state\'s 6-month progress-report cadence — build reauthorization requests from the AMPM 320-S progress report.' },
       { q: 'What is Mercy Care\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with Mercy Care; the AHCCCS fee-for-service schedule does not bind the plan.' },
+      { q: 'Can an out-of-state BCBA treat Mercy Care members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
     ],
   },
 
@@ -597,6 +642,32 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'azfamily — Nearly 1K Arizona children lose in-network ABA (3/5/2026)', url: 'https://www.azfamily.com/2026/03/05/nearly-1k-arizona-children-with-autism-lose-aba-therapy-coverage/' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'AHCCCS ties ABA to the Arizona license: AMPM Policy 320-S defines a Behavior Analyst as “A person who is licensed pursuant to A.R.S §32-2091,” and A.R.S. § 32-2091.14 directs AHCCCS to recognize “a behavior analyst who is licensed pursuant to this article” as a behavioral health professional eligible for reimbursement. A § 36-3606 telehealth registration is not that license, so for AHCCCS work plan on full Arizona licensure.',
+          'UnitedHealthcare Community Plan’s Arizona manual (effective 7/9/2026) adds its own check on every authorization request: “All rendering care providers, facilities, and vendors must be actively registered with AHCCCS.”',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'AHCCCS AMPM Policy 320-S — Behavior Analysis Services', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+          { title: 'UnitedHealthcare Community Plan of Arizona — Provider Manual (effective 07/09/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/AZ-Provider-Manual.pdf' },
+        ],
+      },
+      {
+        h2: 'Can UnitedHealthcare Community Plan of Arizona authorize ABA retroactively?',
+        body: [
+          'UHC Community Plan’s Arizona manual (effective 7/9/2026) says: “We do not approve retroactive authorizations for therapy services. This includes physical, occupational, and speech therapy.” ABA is not named in that sentence, so confirm with the plan whether it treats ABA as a therapy service. The manual’s decision table gives retrospective review “Within 30 calendar days of receiving all pertinent clinical information.”',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Arizona — Provider Manual (effective 07/09/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/AZ-Provider-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'ACC vs. DD membership', desc: 'Check the card — Group AZDDD ("DDD Health Plan by UHCCP") vs. AZHCCCS routes the eligibility conversation.' },
@@ -610,6 +681,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
       { title: 'azfamily — Nearly 1K Arizona children lose in-network ABA (3/5/2026)', url: 'https://www.azfamily.com/2026/03/05/nearly-1k-arizona-children-with-autism-lose-aba-therapy-coverage/' },
       { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+      { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -745,6 +821,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does UHC require an autism diagnosis for AHCCCS ABA?', a: 'No — Optum\'s Arizona orientation states verbatim that an ASD diagnosis is not required for ABA services for Arizona Medicaid members. Medical necessity, supported by assessment, governs.' },
       { q: 'How do I submit an ABA authorization to UHC in Arizona?', a: 'The online ABA Treatment Form on providerexpress.com, or fax 1-888-541-6691. Claims go separately through UHCprovider.com (payer ID 03432) within 90 days of the date of service.' },
       { q: 'What is UnitedHealthcare Community Plan\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with UnitedHealthcare Community Plan; the AHCCCS fee-for-service schedule does not bind the plan.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
+      { q: 'Can UnitedHealthcare Community Plan of Arizona authorize ABA retroactively?', a: 'Plan on no. UHC does not approve retroactive authorizations for therapy services (it names PT, OT and speech); ask whether it applies that to ABA before treating without approval.' },
     ],
   },
 
@@ -816,6 +894,32 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'azfamily — Nearly 1K Arizona children lose in-network ABA (3/5/2026)', url: 'https://www.azfamily.com/2026/03/05/nearly-1k-arizona-children-with-autism-lose-aba-therapy-coverage/' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'AHCCCS ties ABA to the Arizona license: AMPM Policy 320-S defines a Behavior Analyst as “A person who is licensed pursuant to A.R.S §32-2091,” and A.R.S. § 32-2091.14 directs AHCCCS to recognize “a behavior analyst who is licensed pursuant to this article” as a behavioral health professional eligible for reimbursement. A § 36-3606 telehealth registration is not that license, so for AHCCCS work plan on full Arizona licensure.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Arizona Complete Health’s network has to be enrolled with AHCCCS as well.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'AHCCCS AMPM Policy 320-S — Behavior Analysis Services', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can Arizona Complete Health authorize ABA retroactively?',
+        body: [
+          'Narrowly. Section 4.5 of the provider manual lists the services eligible for retrospective review. The one that fits ABA: “Outpatient services requiring prior authorization when an authorization is requested after initiation of, but prior to completion of, a course of a treatment when the provider asserts completion of the course of treatment is necessary to ensure continuity of care.” A request outside the listed categories gets a denial letter explaining the appeal process.',
+        ],
+        cites: [
+          { title: 'Arizona Complete Health — Provider Manual, Section 4 (4.5 Retrospective Review)', url: 'https://www.azcompletehealth.com/providers/resources/provider-manual/pm_section_4.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Evaluation date', desc: 'CP.BH.104 wants the comprehensive diagnostic evaluation within 5 years — flag stale evals for re-evaluation early.' },
@@ -829,6 +933,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
       { title: 'azfamily — Nearly 1K Arizona children lose in-network ABA (3/5/2026)', url: 'https://www.azfamily.com/2026/03/05/nearly-1k-arizona-children-with-autism-lose-aba-therapy-coverage/' },
       { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+      { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -955,6 +1065,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Arizona Complete Health cap ABA hours?', a: 'No hard caps — CP.BH.104 uses guideline bands: 10–25 hours/week for focused ABA, 30–40 for comprehensive, with supervision at 1–2 hours per 10 direct hours.' },
       { q: 'What happened to Care1st?', a: 'Care1st no longer exists as a separate ACC plan — it merged into Arizona Complete Health, with northern-county members transitioned in 2024. Any "Care1st" card or listing is stale.' },
       { q: 'What is Arizona Complete Health\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with Arizona Complete Health; the AHCCCS fee-for-service schedule does not bind the plan.' },
+      { q: 'Can an out-of-state BCBA treat Arizona Complete Health members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
+      { q: 'Can Arizona Complete Health authorize ABA retroactively?', a: 'Only in its listed cases; for outpatient care, when the request comes after treatment started but before the course is finished and completing it is needed for continuity of care.' },
     ],
   },
 
@@ -1023,6 +1135,32 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AHCCCS — Available Health Plans list', url: 'https://www.azahcccs.gov/Members/Downloads/Resources/ENGLISH_HealthPlanList.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'AHCCCS ties ABA to the Arizona license: AMPM Policy 320-S defines a Behavior Analyst as “A person who is licensed pursuant to A.R.S §32-2091,” and A.R.S. § 32-2091.14 directs AHCCCS to recognize “a behavior analyst who is licensed pursuant to this article” as a behavioral health professional eligible for reimbursement. A § 36-3606 telehealth registration is not that license, so for AHCCCS work plan on full Arizona licensure.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Banner-University Family Care’s network has to be enrolled with AHCCCS as well.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'AHCCCS AMPM Policy 320-S — Behavior Analysis Services', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can Banner-University Family Care authorize ABA retroactively?',
+        body: [
+          'Only at the plan’s discretion for good cause. B–UFC’s 2026 manual: “A Retrospective Review request will be considered at the plan discretion when good cause is demonstrated why pre-service authorization did not occur prior to services being rendered.” Submit the Retrospective Review Request Form, explaining why authorization was not obtained, batched with the claim and within B–UFC’s claim submission guidelines; B–UFC decides within 30 days of receipt.',
+        ],
+        cites: [
+          { title: 'Banner-University Family Care — 2026 Provider Manual (effective 07/09/2026)', url: 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/manuals-and-directories/manuals/prov-bufc-prov-manual_eff07092026_en.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis (any qualifying)', desc: 'AMPM 320-S baseline — ASD or another diagnosis justified by medical necessity, with a BHP recommendation.' },
@@ -1037,6 +1175,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
       { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
       { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+      { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1193,6 +1337,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Banner-University Family Care cover ABA?', a: 'Yes — as an AHCCCS ACC plan it covers Behavior Analysis Services under AMPM 320-S. Treatment requires PA via Banner\'s ABA Prior Authorization Form; the plan publishes no distinct clinical policy beyond the state baseline.' },
       { q: 'Does Banner require PA for the ABA assessment?', a: 'Not published — unlike Mercy Care and UHC, Banner\'s assessment-PA position isn\'t stated publicly. Verify with the plan or the current PA form before booking an assessment as auth-free.' },
       { q: 'What does Banner pay for ABA?', a: 'Not published. Benchmark against the AHCCCS physician fee schedule (97153 at $17.91–$23.69 per 15-minute unit by credential tier); your contract is the source of truth.' },
+      { q: 'Can an out-of-state BCBA treat Banner-University Family Care members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
+      { q: 'Can Banner-University Family Care authorize ABA retroactively?', a: 'Only at its discretion for good cause: send the Retrospective Review Request Form with the claim, explaining why authorization was not obtained; decision within 30 days.' },
     ],
   },
 
@@ -1267,6 +1413,23 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AHCCCS — Available Health Plans list', url: 'https://www.azahcccs.gov/Members/Downloads/Resources/ENGLISH_HealthPlanList.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'AHCCCS ties ABA to the Arizona license: AMPM Policy 320-S defines a Behavior Analyst as “A person who is licensed pursuant to A.R.S §32-2091,” and A.R.S. § 32-2091.14 directs AHCCCS to recognize “a behavior analyst who is licensed pursuant to this article” as a behavioral health professional eligible for reimbursement. A § 36-3606 telehealth registration is not that license, so for AHCCCS work plan on full Arizona licensure.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Health Choice’s network has to be enrolled with AHCCCS as well.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'AHCCCS AMPM Policy 320-S — Behavior Analysis Services', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis (any qualifying)', desc: 'AMPM 320-S baseline — ASD or another diagnosis justified by medical necessity.' },
@@ -1282,6 +1445,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
       { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
       { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+      { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1439,6 +1608,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does BCBSAZ Health Choice require PA for ABA codes?', a: 'Not published as a standing rule — check the current PA grid rows for 97151–97158 on healthchoiceaz.com, or call the PA line at 1-800-322-8670. Grids have revised at least seven times since early 2024.' },
       { q: 'Is Health Choice Arizona now Blue Cross Blue Shield of Arizona Health Choice?', a: 'Yes — AHCCCS\'s official health plan roster (revised 6/30/2026) lists it as "Blue Cross Blue Shield of Arizona Health Choice." It has been a BCBSAZ subsidiary since BCBSAZ acquired Steward Health Choice Arizona; the plan\'s AHCCCS contract, coverage, and mechanics are unchanged by the naming update.' },
       { q: 'What is BCBSAZ Health Choice\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with BCBSAZ Health Choice; the AHCCCS fee-for-service schedule does not bind the plan.' },
+      { q: 'Can an out-of-state BCBA treat Health Choice members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
     ],
   },
 
@@ -1502,6 +1672,23 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'AHCCCS ties ABA to the Arizona license: AMPM Policy 320-S defines a Behavior Analyst as “A person who is licensed pursuant to A.R.S §32-2091,” and A.R.S. § 32-2091.14 directs AHCCCS to recognize “a behavior analyst who is licensed pursuant to this article” as a behavioral health professional eligible for reimbursement. A § 36-3606 telehealth registration is not that license, so for AHCCCS work plan on full Arizona licensure.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Molina’s network has to be enrolled with AHCCCS as well.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'AHCCCS AMPM Policy 320-S — Behavior Analysis Services', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis (any qualifying)', desc: 'AMPM 320-S baseline — ASD or another diagnosis justified by medical necessity.' },
@@ -1516,6 +1703,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
       { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
       { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
+      { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1671,6 +1864,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Molina Healthcare of Arizona cover ABA?', a: 'Yes — as an AHCCCS ACC plan on the AMPM 320-S baseline. Molina publishes no distinct ABA clinical policy; PA mechanics run through its Prior Auth and Pre-Service Review Guide and Availity Essentials.' },
       { q: 'Does Molina require PA for ABA in Arizona?', a: 'Its code-level ABA PA rules aren\'t published as a standing rule — verify against the current Prior Auth Guide or call Healthcare Services at (844) 782-2678 before booking.' },
       { q: 'Where does Molina operate in Arizona?', a: 'Three counties: Maricopa, Gila, and Pinal — the smallest ACC footprint, centered on Phoenix metro.' },
+      { q: 'Can an out-of-state BCBA treat Molina members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
     ],
   },
 
@@ -1744,6 +1938,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'AHCCCS ties ABA to the Arizona license: AMPM Policy 320-S defines a Behavior Analyst as “A person who is licensed pursuant to A.R.S §32-2091,” and A.R.S. § 32-2091.14 directs AHCCCS to recognize “a behavior analyst who is licensed pursuant to this article” as a behavioral health professional eligible for reimbursement. A § 36-3606 telehealth registration is not that license, so for AHCCCS work plan on full Arizona licensure.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'AHCCCS AMPM Policy 320-S — Behavior Analysis Services', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
+          { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'DDD enrollment + ALTCS status', desc: 'Enrolled DDD member, ALTCS application pending, or ACC-only — three different routes with different timelines.' },
@@ -1752,7 +1961,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Other DDD services in place', desc: 'Habilitation and respite hours shape the realistic ABA schedule.' },
     ],
     sources: [
-      { title: 'AHCCCS Contractor Operations Manual (ACOM) 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (eff. 10/01/25)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
+      { title: 'AHCCCS Contractor Operations Manual (ACOM) 417 \u2014 Appointment Availability, Transportation Timeliness, Monitoring, and Reporting (current version eff. 10/01/26)', url: 'https://www.azahcccs.gov/shared/Downloads/ACOM/PolicyFiles/400/417_Appointment_Availability_Monitoring_and_Reporting.pdf' },
       { title: 'DES — DDD Health Plans information', url: 'https://des.az.gov/services/disabilities/developmental-disabilities/individuals-and-families/supports-and-services/ddd-health-plans-info' },
       { title: 'AMPM 320-S — Behavior Analysis Services (AHCCCS)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/320S.pdf' },
       { title: 'AZA United — navigating the systems of care', url: 'https://azaunited.org/blog/navigating-the-systems-of-care' },
@@ -1760,6 +1969,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Arizona AHCCCS Autism/ABA Program provider orientation (BH4129)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/azaba/azABA_Provider_Orient.pdf' },
       { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
       { title: 'AHCCCS — Rate Setting for Applied Behavioral Analysis (ABA) Services FAQ (10/31/2023)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSrates/ABA_RateSettingFAQs.pdf' },
+      { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1915,11 +2129,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'How quickly must a DDD member be seen for ABA after the assessment?', a: 'The DDD contractors are bound by AHCCCS\u2019s behavioral health appointment standard (ACOM 417, eff. 10/1/2025): initial assessment within seven calendar days of the referral or request, and the initial appointment \u201cno later than 21 days after the initial assessment\u201d for members under 18 (23 calendar days for adults), with later services no more than 45 calendar days from identification of need. Mercy Care DD and UHCCP DD must meet it through their networks, so plan the treatment authorization request to land well inside that window.' },
+      { q: 'How quickly must a DDD member be seen for ABA after the assessment?', a: 'The DDD contractors are bound by AHCCCS\u2019s behavioral health appointment standard (ACOM 417, current version eff. 10/1/2026): initial assessment within seven calendar days of the referral or request, and the initial appointment \u201cno later than 21 days after the initial assessment\u201d for members under 18 (23 calendar days for adults), with later services no more than 45 calendar days from identification of need. Mercy Care DD and UHCCP DD must meet it through their networks, so plan the treatment authorization request to land well inside that window.' },
       { q: 'How do DDD members get ABA in Arizona?', a: 'Through their chosen DDD Health Plan — Mercy Care DD or UHCCP DD, both statewide — on the same AMPM 320-S clinical rules and the same plan-level ABA PA machinery as those plans\' ACC lines.' },
       { q: 'Can a child get ABA through an ACC plan instead of DDD?', a: 'Yes — children under 21 can get ABA via their ACC plan under EPSDT even without DDD. If the child is ALTCS/DDD-eligible, the DDD path adds bundled services (habilitation, respite); over age 3, ALTCS approval is the gate.' },
       { q: 'Does county matter for DDD members?', a: 'No — both DDD Health Plans are statewide, unlike ACC plans, which are restricted to geographic service areas.' },
       { q: 'What is the DDD Health Plans\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with the DDD Health Plans; the AHCCCS fee-for-service schedule does not bind the plan.' },
+      { q: 'Can an out-of-state BCBA treat DDD members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
     ],
   },
 
@@ -2010,6 +2225,20 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'Aetna’s own rule is written for telehealth explicitly. Its Network Participation Criteria (form 8100606-01-01, 5/26) bind every Hybrid and Virtual Only provider: “Providers must satisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located. As required by applicable law, providers must also hold licenses, registrations, and certifications in the state(s) in which they are physically located.” The ABA criteria add that BCBAs “must meet the current Aetna® credentialing and recredentialing standards” and that “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” So a BCBA treating a child located in Arizona by video must meet Arizona’s requirements as well as those of the state the BCBA works from, and only codes on Aetna’s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -2027,6 +2256,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
       { title: 'Mercy Care — Applied Behavior Analysis provider page', url: 'https://www.mercycareaz.org/providers/applied-behavior-analysis.html' },
       { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2150,6 +2384,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Arizona?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Steven\'s Law for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Arizona still cap ABA benefits at $50,000 a year?', a: 'No — SB 1590 (signed May 7, 2025) repealed the $50,000/$25,000 annual behavioral-therapy caps from all four Steven\'s Law sections. No annual dollar ceiling remains on any state-regulated group plan.' },
       { q: 'What does Aetna pay for ABA in Arizona?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the AHCCCS physician fee schedule and treat rate-setting as part of contracting.' },
+      { q: 'Can an out-of-state BCBA treat Aetna members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
     ],
   },
 
@@ -2246,6 +2481,20 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           'Evernorth publishes no ABA fee schedule. The guide sends questions about “credentialing, contracts, or rates” to your provider relations representative, so your rates are in your Evernorth contract.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'Evernorth, which manages Cigna’s behavioral benefits, frames it as a compliance duty rather than a member-state rule. Its Administrative Guidelines (September 2026): “Providers must meet all state requirements to provide virtual behavioral services, including any licenses and certifications,” must “comply with their state laws about the use of audio or video-based technology,” and providers who meet the telehealth specialty requirements “may deliver services virtually with no additional credentialing” after attesting on the Attested Specialty Form, when Evernorth adds “telehealth” to the provider profile. The guidelines do not say in terms which state’s license a remote BCBA needs, so read “all state requirements” against Arizona’s licensure law above and confirm with Evernorth before a remote start.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -2261,6 +2510,10 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — Arizona state-regulated insurance coverage', url: 'https://www.autismspeaks.org/arizona-state-regulated-insurance-coverage' },
       { title: 'A.R.S. § 32-2091 — behavior analyst licensure', url: 'https://www.azleg.gov/ars/32/02091.htm' },
       { title: 'AHCCCS — Final Public Notice, FFS rate changes 11/1/2023 (ABA codes)', url: 'https://www.azahcccs.gov/AHCCCS/Downloads/PublicNotices/rates/FinalPublicNotice_RateChanges_20231101_ABA.pdf' },
+      { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2393,6 +2646,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Arizona still cap ABA benefits at $50,000 a year?', a: 'No — SB 1590 (signed May 7, 2025) repealed the $50,000/$25,000 annual behavioral-therapy caps from all four Steven\'s Law sections. No annual dollar ceiling remains on any state-regulated group plan.' },
       { q: 'What is Cigna\u2019s fee schedule for ABA in Arizona?', a: 'Evernorth (Cigna\u2019s behavioral health arm) publishes no ABA fee schedule. Its autism resource guide sends questions about credentialing, contracts or rates to your provider relations representative, so the rate is in your Evernorth contract.' },
       { q: 'How do I join Cigna\u2019s ABA network in Arizona?', a: 'Apply to Evernorth: individuals use the Evernorth Behavioral Provider Information Form and autism clinics the Screening Application for Autism Clinics. Allow up to 90 days for the application and another 60 to 90 days to credential each provider after the clinic contract. Technicians are not credentialed; their services bill under the supervising provider.' },
+      { q: 'Can an out-of-state BCBA treat Cigna members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
     ],
   },
 
@@ -2493,6 +2747,20 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare does not publish a commercial ABA rate table; Optum administers the behavioral health benefit and pays under your participation agreement. Optum\u2019s Telehealth Billing guide (September 2025) tells providers that “participating (contracted) network providers should use the applicable CPT code(s) listed on their fee schedule,” and that payment “may also be subject to benefit plan provisions and prior authorization requirements.” Optum\u2019s commercial ABA reimbursement policy (2022RP501A) sets how the claim is built rather than the price: 97151\u201397158 with a credential modifier (HM for an RBT, HN for a BCaBA, and so on), 15-minute units counted the CMS way, and indirect work “bundled with direct services for consideration of reimbursement.” For rates, ask Optum network management or check your agreement.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat an Arizona member, including by telehealth?',
+        body: [
+          'Arizona licenses the practice: “A person who wishes to practice as a behavior analyst must be licensed pursuant to this article” (A.R.S. § 32-2091.02, Board of Psychologist Examiners), and practicing unlicensed is a class 2 misdemeanor (§ 32-2091.12). Arizona is unusual in giving out-of-state clinicians a telehealth-only route: under A.R.S. § 36-3606 a health care provider “who is not licensed in this state may provide telehealth services to a person located in this state” after registering with the board that licenses the comparable profession, holding “a current, valid and unrestricted license to practice in another state that is substantially similar,” carrying malpractice coverage that includes Arizona telehealth, and following Arizona’s scope and standard-of-care rules. Behavior analysts are licensed under Title 32, chapter 19.1, which § 36-3601 includes in the definition of “health care provider.” A registered provider may not open an Arizona office (except within a multistate group that includes an Arizona-licensed provider) or see Arizona patients in person without an Arizona license. Fewer than ten telehealth encounters a year, or care in consultation with an Arizona-licensed provider who keeps ultimate authority, is exempt from registration.',
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, is explicit. Its National Network Manual (effective September 1, 2026): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service. In addition, providers must comply with all licensing laws and telehealth regulations in the jurisdiction(s) where the provider is licensed and where the member is receiving treatment.” For a child located in Arizona, that means an Arizona license before the first remote session.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+          { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+          { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+          { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -2513,6 +2781,10 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'A.R.S. § 32-2091.02 — a behavior analyst must be licensed', url: 'https://www.azleg.gov/ars/32/02091-02.htm' },
+      { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
+      { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
+      { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2641,6 +2913,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Arizona still cap ABA benefits at $50,000 a year?', a: 'No — SB 1590 (signed May 7, 2025) repealed the $50,000/$25,000 annual caps, and Optum\'s own Arizona state-mandate entry (effective January 2026) already reflects the repeal. No annual dollar ceiling remains on any state-regulated group plan.' },
       { q: 'What is UnitedHealthcare\u2019s fee schedule for ABA in Arizona?', a: 'There is no public one. Optum tells participating providers to bill “the applicable CPT code(s) listed on their fee schedule,” meaning the schedule in your Optum agreement, with payment subject to the member\u2019s benefits and prior authorization. Ask Optum network management for rates.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
     ],
   },
 };

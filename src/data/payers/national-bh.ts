@@ -147,6 +147,15 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'Carelon also runs several public-sector ABA programs that already have their own guides in this directory — Maryland’s Medicaid behavioral health ASO (see our Maryland Medicaid guide), the Massachusetts Behavioral Health Partnership (MBHP), Wellpoint New Jersey and Simply Healthcare in Florida. The commercial carve-out described here shares the portal and the handbook with those programs, but not the clinical criteria or the fee schedule.',
         ],
       },
+      {
+        h2: 'Will Carelon authorize ABA retroactively?',
+        cites: [
+          { title: 'Carelon Behavioral Health Provider Handbook', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' },
+        ],
+        body: [
+          'Only where the member’s plan allows it. The Carelon Behavioral Health Provider Handbook (section 10.04): “When a provider/participating provider requests a retrospective review for services previously rendered, Carelon will first determine whether such a retrospective review is available under the member’s benefit plan and request the reason for the retrospective review (e.g., emergency admission, no presentation of a Carelon member identification card, etc.).” And: “In cases where a retrospective review is not available under the member’s benefit plan and/or and where the provider/participating provider fails to follow administrative process and requirements for authorization, certification, and/or notification, the request for retrospective review may be administratively denied.” Where a retro review is available, the handbook’s chart allows 30 calendar days for the decision. Ask on the benefits call whether this client’s plan permits retro review at all.',
+        ],
+      },
     ],
     collect: [
       { title: 'A photo of BOTH sides of the card', desc: 'The behavioral health administrator and its phone number live on the back. Front-only card photos are the root cause of most carve-out misroutes.' },
@@ -288,6 +297,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       { q: 'What supervision ratio does Carelon apply to 97153?', a: 'Its national ABA Authorization Request form describes 97153 as adaptive behavior treatment by protocol administered by a technician under the direction of the physician/QHP, “receiving 1 hour of supervision for every 5 to 10 hours of direct treatment.”' },
       { q: 'Where do I find Carelon’s ABA medical-necessity criteria?', a: 'There is no single national one. Carelon’s Corporate Quality Medical Management Committee approves criteria per client and regulatory requirement, and the criteria vary by state, contract and benefit — CMS criteria first for Medicare members, then custom client criteria, then ASAM, then InterQual, then Carelon’s national set. Ask which criteria set governs the specific client plan.' },
       { q: 'Which portal do I submit ABA authorizations through?', a: 'Availity Essentials, ProviderConnect or eServices, depending on the client plan — the handbook says you may need both Carelon portals. Link ProviderConnect and/or eServices to Availity once via single sign-on in the Availity payer space and you can reach everything from one login.' },
+      { q: 'Does Carelon allow retro-authorization for ABA?', a: 'Only if the member’s benefit plan allows retrospective review, and Carelon will ask why authorization was not obtained. Where the plan does not allow it, or the provider skipped the authorization process, the request may be administratively denied. Get the authorization before services start.' },
     ],
   },
 
@@ -419,6 +429,15 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'Third: continued care is a data argument, not a narrative one. Magellan requires demonstrated improvement from baseline in the targeted skill deficits and behaviors using validated assessments of adaptive functioning, with the member still below the participation threshold. Discharge follows when goals are achieved or maximum benefit reached, when caregivers refuse treatment recommendations, when behavioral issues are exacerbated by treatment, when the member is unlikely to continue to benefit, when there is no progress toward goals for two or more successive authorization periods, or when continued care would be primarily for the convenience of the child or caregivers. “No progress for two authorization periods” is the one to watch: it makes the quality of your data collection a clinical-eligibility issue, not just a documentation issue.',
         ],
       },
+      {
+        h2: 'Can a BCBA licensed in another state deliver ABA by telehealth for a Magellan-managed plan?',
+        cites: [
+          { title: 'Magellan — 2026 Handbook for the National Provider Network (11/25 v3) (PDF)', url: 'https://www.magellanprovider.com/media/11893/provider_handbook.pdf' },
+        ],
+        body: [
+          'Not without telling Magellan first. Magellan’s 2026 Handbook for the National Provider Network lists “providing services in a new state or via telehealth” among changes that may need a contract amendment. It then says: “Providing or billing for services in any of these situations should NOT commence until you have notified Network staff and received confirmation that all required changes have been implemented, which could include the amending of existing agreements or the need for new agreements to be issued.” To deliver telehealth at all, providers complete Magellan’s telehealth services provider attestation, and “The Magellan member must have a covered mental health benefit that permits telehealth in order for providers to receive payment for telehealth services.” Providers must also “Provide services in accordance with applicable state and federal laws, and licensing and certification bodies,” so the child’s state licensing law still decides whether the BCBA may practise there.',
+        ],
+      },
     ],
     collect: [
       { title: 'Both sides of the card plus the employer name', desc: 'Magellan tells providers to obtain a card copy at the first visit and to call “the appropriate toll-free number” — the plan/program number on the card is what routes you to the right ABA team and fax number.' },
@@ -435,6 +454,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       { title: 'Magellan Behavior Analyst Network Criteria (rev. 01/21)', url: 'https://www.magellanprovider.com/media/1819/autismcriteria.pdf' },
       { title: 'Magellan Healthcare — Autism Spectrum Disorders provider resources', url: 'https://www.magellanprovider.com/news-publications/state-plan-eap-specific-information/autism.aspx' },
       { title: 'Magellan Healthcare — Outpatient Applied Behavior Analysis: Louisiana Healthcare Connections (eff. 1/1/2024)', url: 'https://www.ldh.la.gov/assets/medicaid/MCPP/1.11.24/982_LHCC_20231006_Magellan_LAMedicaidABA_MNC_v3_redlined_bolded_underlined.pdf' },
+      { title: 'Magellan — 2026 Handbook for the National Provider Network (11/25 v3) (PDF)', url: 'https://www.magellanprovider.com/media/11893/provider_handbook.pdf' },
     ],
     deliveryRules: {
       dailyLimits: {
@@ -543,6 +563,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       { q: 'Can 97153 and 97155 be billed for the same time?', a: 'Yes. Magellan’s January 2026 commercial and employer code table says of 97155: “We do accept overlap with technician; all services are direct.” Note separately that 97152 is listed as not a covered code.' },
       { q: 'Do RBTs have to be credentialed with Magellan?', a: 'No. Master’s and doctoral-level practitioners must credential before joining the network and re-credential every three years, and only credentialed providers may bill as in-network. Bachelor’s-level behavior analysts and support staff/technicians are not required to credential if they work under the supervision of the licensed, credentialed practitioner — with the supervisory relationship documented in writing.' },
       { q: 'Do Magellan’s national criteria always apply?', a: 'No. Magellan publishes a state/client-specific list — California, Hawaiʻi, Idaho, Louisiana, Nevada, New Mexico, North Carolina, Pennsylvania, Texas and Virginia among them — where modified criteria govern. In Louisiana, for Louisiana Healthcare Connections members, Magellan follows the Louisiana Department of Health ABA Provider Manual outright.' },
+      { q: 'Can an out-of-state BCBA deliver ABA by telehealth to a Magellan member?', a: 'Only after Magellan confirms it. Serving a new state or adding telehealth may need a contract amendment, and Magellan says services should not start until network staff confirm the change. The provider must also complete the telehealth attestation, the member’s plan must cover telehealth, and the child’s state licensing law must allow the BCBA to practise there.' },
     ],
   },
 

@@ -164,6 +164,18 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'Can a BCBA licensed in another state treat a TRICARE East child by telehealth?',
+        cites: [
+          { title: 'Humana Military \u2014 TRICARE Provider Handbook, East Region (2026)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/tricare-provider-handbook.pdf' },
+          { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 \u2014 Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 \u2014 Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+        ],
+        body: [
+          'The licence has to cover the state the child is in. Humana Military\u2019s 2026 East Region provider handbook, under \u201cMulti-state licensure requirements,\u201d says virtual-health providers \u201cmust also meet licensure requirements in the state where they practice and where the beneficiary is located at time of service,\u201d that \u201cIt\u2019s the provider\u2019s responsibility to confirm that they are licensed in every state where they practice and where the virtual health patient is located,\u201d and that \u201cClaims review will validate compliance to this requirement.\u201d The DHA manuals behind it say the same. The TRICARE Policy Manual\u2019s telehealth section pays only when the service is \u201cwithin a provider\u2019s scope of practice under all applicable state(s) law(s) in which services are provided and or received.\u201d The ACD chapter requires ABA providers to meet the licensing or certification requirements \u201cextant in the State, county, municipality, or other political jurisdiction in which ABA services are provided under the ACD.\u201d It accepts BACB certification for an ABA supervisor only where a state-issued licence or certification is not available. Whether the child\u2019s state requires its own licence is that state\u2019s law, so check it state by state.',
+          'The ACD adds a second limit that applies whatever the licence. Under TRICARE Operations Manual Ch. 18, Sec. 3, 97151, 97153, 97155, 97157 and 97158 \u201cmay not be conducted via TH.\u201d Only 97156 parent/caregiver sessions may be done by telehealth, and only \u201cafter the first six-month authorization period per authorized provider\u201d; \u201call services provided via TH must adhere to State laws governing TH services.\u201d In practice an out-of-state BCBA cannot assess, treat or modify protocols remotely for a TRICARE child. They can deliver remote parent training only after the first six months, and only if licensed or otherwise authorized where the family is.',
+        ],
+      },
+      {
         h2: 'What is TRICARE\'s fee schedule for ABA?',
         body: [
           'DHA publishes the Autism Care Demonstration fee schedule. Its ABA Maximum Allowed Amounts file, effective May 1, 2026, sets a maximum per 15-minute unit for 97151, 97153, 97155 and 97156 in each TRICARE locality, split by credential: one rate for 97151 and one for 97156 (BCBA-D, BCBA or assistant behavior analyst), four tiers for 97153 (BCBA-D, BCBA, assistant behavior analyst, behavior technician) and three for 97155 (BCBA-D, BCBA, assistant behavior analyst). A companion table prices 97157 and 97158 at the non-physician, non-facility rate for CPT 90853 divided by three, and lists 99366 and 99368 at their CMAC rates. Earlier years\' files sit on the same DHA page. These are maximums: look up the locality where care is delivered before quoting a family or modelling revenue. Examples from the May 1, 2026 file: Alabama pays 97151 $31.56, 97153 by a behavior technician $16.82 and 97155 by a BCBA $31.25; Boston pays 97151 $37.73, 97153 by a behavior technician $20.11 and 97155 by a BCBA $33.48.',
@@ -195,6 +207,9 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'Humana Military — Beneficiaries in the new TRICARE contract', url: 'https://www.humanamilitary.com/beneupdates' },
       { title: 'DHA — ABA Maximum Allowed Rates, effective May 1, 2026 (Autism Care Demonstration, by locality)', url: 'https://health.mil/Reference-Center/Publications/2026/04/01/ABA-Rates-2026' },
       { title: 'DHA — Applied Behavior Analysis Maximum Allowed Amounts (all years)', url: 'https://health.mil/Military-Health-Topics/Access-Cost-Quality-and-Safety/TRICARE-Health-Plan/Rates-and-Reimbursement/ABA-Max-Allowed-Amounts' },
+      { title: 'Humana Military — TRICARE Provider Handbook, East Region (2026)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/tricare-provider-handbook.pdf' },
+      { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 — Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
+      { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
     ],
     intakeGates: {
       ageLimit: {
@@ -256,6 +271,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'Is there a maximum number of 97151 units for a TRICARE East ABA assessment?', a: 'Yes. Under TRICARE Operations Manual Ch. 18, Sec. 3, the initial assessment and treatment plan are authorized for up to 32 units (eight hours) of 97151, including the PDDBI, and each later reassessment for up to 24 units (six hours) per authorization, which is once every six months. The units must be used within 14 calendar days of the first 97151 date of service or the claim is denied. Outcome measures are authorized separately as 97151 with modifier 99.' },
       { q: 'Will Humana Military back-date or retro-authorize ABA for TRICARE?', a: 'No. Humana Military does not accept retrospective referrals and will not backdate late submissions, and its 2026 provider handbook states that retrospective authorization is not allowed. Get the authorization before the first session, and file reauthorizations 30 to 60 days before the current one expires.' },
       { q: 'Can one ABA agency do an assessment while another agency keeps treating the child under TRICARE East?', a: 'The assessment, yes; treatment, no. DHA allows a second-opinion authorization for 32 units of 97151 to overlap another approved authorization, but two ongoing treatment authorizations for direct services are not permitted. Humana Military approves only one authorized ABA supervisor to provide ABA for a child at a time. If the family moves to the new agency, the new treatment authorization cannot start until the old one ends.' },
+      { q: 'Can an out-of-state BCBA provide ABA by telehealth to a TRICARE East family?', a: 'Only parent training (97156), only after the first six-month authorization, and only if the BCBA is licensed where the child is. Humana Military requires virtual-health providers to be licensed both where they practice and where the beneficiary is located at the time of service, and checks this in claims review. The assessment and direct ABA codes cannot be delivered by telehealth under the ACD at all.' },
       { q: 'What does TRICARE pay for ABA in the East Region?', a: 'DHA publishes the rates. The ABA Maximum Allowed Amounts file effective May 1, 2026 sets a per-15-minute maximum by locality and credential, for example Alabama: 97151 $31.56, 97153 by a behavior technician $16.82, 97155 by a BCBA $31.25. Look up the locality where care is delivered on health.mil.' },
     ],
     deliveryRules: {
@@ -449,6 +465,37 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
       },
       {
+        h2: 'How do you get a TRICARE West authorization for an ABA assessment?',
+        cites: [
+          { title: 'TriWest \u2014 Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' },
+          { title: 'TRICARE West \u2014 Steps to Obtain ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/How-to-Obtain-ABA-Services' },
+          { title: 'TriWest \u2014 TRICARE West Region ACD Quick Reference Guide (rev. April 6, 2026)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/tricare-west-region-autism-care-demonstration-qrg.pdf' },
+        ],
+        body: [
+          'The ABA provider does not request the first assessment authorization. TriWest issues it once the child is enrolled in the ACD, and it is the diagnosing provider\u2019s referral that starts the clock. The sequence below comes from TriWest\u2019s ACD provider guide and the TRICARE West \u201cSteps to Obtain ABA Services\u201d page.',
+        ],
+        list: [
+          { title: 'Step 1 \u2014 the diagnosing provider sends the referral', desc: 'A TRICARE-authorized PCM or specialized ASD diagnosing provider submits the diagnostic evaluation, the date of the initial ASD diagnosis (month, day and year), TriWest\u2019s DSM-5-TR ASD criteria checklist and the results of an approved validated assessment tool: STAT, ADOS-2, ADI-R, CARS-2, or GARS-3 with additional documentation. ABA providers may not complete the checklist. For active duty families, EFMP enrollment and ECHO registration complete the enrollment criteria.' },
+          { title: 'Step 2 \u2014 TriWest places a provider', desc: 'Within 15 business days of verifying the referral, TriWest identifies an ABA provider who can meet TRICARE access-to-care standards. It contacts providers to see whether they can assess and treat in time, asks the family\u2019s preferences, and ranks candidates with its ACD Provider Steerage Model. A family may name a provider, but if it does, access-to-care cannot be guaranteed.' },
+          { title: 'Step 3 \u2014 TriWest issues the 97151 authorization', desc: '\u201cOnce the beneficiary meets ACD enrollment criteria, TriWest will issue an authorization for an initial ABA assessment,\u201d and the assessment is authorized to an ABA provider group. Initial assessments are approved for 32 units of 97151 (eight hours), which include the PDDBI. 97151 cannot be done by telehealth.' },
+          { title: 'Step 4 \u2014 start within 28 days, finish within 14', desc: 'The assessment must start within 28 days of the referral verification date, and the authorization\u2019s start date is set to match that date. Every 97151 unit must fall within 14 days of the first date of service. An authorized ABA supervisor conducts the assessment, or an assistant behavior analyst if delegated.' },
+          { title: 'Step 5 \u2014 submit the treatment plan and outcome measures', desc: 'After the assessment, the provider requests treatment by submitting the treatment plan and outcome measures through the online referral management system on Availity, with the dedicated ACD fax (877-875-9037) as the fallback. TriWest completes reviews within five business days of receipt and tells the family and the provider in writing when services are approved.' },
+        ],
+      },
+      {
+        h2: 'Can a BCBA licensed in another state treat a TRICARE West child by telehealth?',
+        cites: [
+          { title: 'TriWest \u2014 TRICARE Provider Telehealth/Telemedicine FAQs, West Region (June 26, 2025)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/tricare-provider-telehealth-telemedicine-faqs.pdf' },
+          { title: 'TriWest \u2014 Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' },
+          { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 \u2014 Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 \u2014 Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+        ],
+        body: [
+          'TriWest does not run its own cross-state rule; it sends providers to state law. Its West Region telehealth FAQ asks \u201cCan providers provide telehealth services for beneficiaries across state lines?\u201d and answers: \u201cRequirements differ from state-to-state. Refer to respective state-specific guidance. All providers must abide by state-specific credentialing requirements.\u201d Its ACD guide adds that supervisors and assistants \u201cmust maintain any licenses or certifications required by their respective state licensing board.\u201d The DHA rule TriWest works under covers both ends of the call. The TRICARE Policy Manual tells contractors to instruct telehealth providers to follow licensing rules \u201cin both the jurisdiction (site) in which they are practicing as well as the jurisdiction (site) where the patient is receiving care.\u201d It pays only when the service is \u201cwithin a provider\u2019s scope of practice under all applicable state(s) law(s) in which services are provided and or received.\u201d The ACD chapter requires compliance with the licensing requirements of the jurisdiction \u201cin which ABA services are provided.\u201d',
+          'The ACD then limits what can be remote at all. 97151, 97153, 97155, 97157 and 97158 \u201cmay not be conducted via TH.\u201d 97156 parent/caregiver sessions may be done by telehealth only after the first six-month authorization period per authorized provider, and must follow state telehealth law. An out-of-state BCBA therefore cannot assess or deliver direct ABA remotely for a TRICARE West child. They can do remote parent training only after the first six months, and only if the child\u2019s state allows them to practise there.',
+        ],
+      },
+      {
         h2: 'What is TRICARE\'s fee schedule for ABA?',
         body: [
           'DHA publishes the Autism Care Demonstration fee schedule. Its ABA Maximum Allowed Amounts file, effective May 1, 2026, sets a maximum per 15-minute unit for 97151, 97153, 97155 and 97156 in each TRICARE locality, split by credential: one rate for 97151 and one for 97156 (BCBA-D, BCBA or assistant behavior analyst), four tiers for 97153 (BCBA-D, BCBA, assistant behavior analyst, behavior technician) and three for 97155 (BCBA-D, BCBA, assistant behavior analyst). A companion table prices 97157 and 97158 at the non-physician, non-facility rate for CPT 90853 divided by three, and lists 99366 and 99368 at their CMAC rates. Earlier years\' files sit on the same DHA page. These are maximums: look up the locality where care is delivered before quoting a family or modelling revenue. Examples from the May 1, 2026 file: Nebraska pays 97151 $43.99, 97153 by a behavior technician $23.55 and 97155 by a BCBA $31.25; Idaho pays 97151 $32.14, 97153 by a behavior technician $17.13 and 97155 by a BCBA $31.25.',
@@ -480,6 +527,10 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'Federal Register — Extension of the Comprehensive Autism Care Demonstration (Aug. 4, 2022)', url: 'https://www.govinfo.gov/content/pkg/FR-2022-08-04/html/2022-16742.htm' },
       { title: 'DHA — ABA Maximum Allowed Rates, effective May 1, 2026 (Autism Care Demonstration, by locality)', url: 'https://health.mil/Reference-Center/Publications/2026/04/01/ABA-Rates-2026' },
       { title: 'DHA — Applied Behavior Analysis Maximum Allowed Amounts (all years)', url: 'https://health.mil/Military-Health-Topics/Access-Cost-Quality-and-Safety/TRICARE-Health-Plan/Rates-and-Reimbursement/ABA-Max-Allowed-Amounts' },
+      { title: 'TriWest — TRICARE West Region ACD Quick Reference Guide (rev. April 6, 2026)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/tricare-west-region-autism-care-demonstration-qrg.pdf' },
+      { title: 'TriWest — TRICARE Provider Telehealth/Telemedicine FAQs, West Region (June 26, 2025)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/tricare-provider-telehealth-telemedicine-faqs.pdf' },
+      { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 — Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
+      { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
     ],
     intakeGates: {
       ageLimit: {
@@ -541,6 +592,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'How many 97151 units does TriWest authorize for an ABA assessment?', a: 'Initial assessments are approved for 32 units (eight hours) per authorization period and reassessments for 24 units (six hours), including the PDDBI. The units must be completed within 14 days of the first service date, and 97151 cannot be done by telehealth. Each outcome measure gets one separately authorized 97151 unit billed with modifier 99.' },
       { q: 'Can TriWest back-date an ABA authorization?', a: 'No. TriWest states that authorizations cannot be backdated and there is no expedited review, so a late reauthorization can leave a gap in coverage. File each reauthorization 30 to 60 days before the current one ends.' },
       { q: 'Can a second ABA provider assess a child while the first keeps treating under TRICARE West?', a: 'Yes for the assessment: a second-opinion assessment is allowed within the two-year referral window with no new referral. But only one provider can give treatment at a time, and only one treatment authorization can be active. If the family switches, the first provider\u2019s authorization ends just before the second provider\u2019s starts, and the first provider submits a discharge report.' },
+      { q: 'What is the process to get a TRICARE West authorization for an ABA assessment?', a: 'The diagnosing provider sends TriWest a complete referral: the diagnosis and its date, the DSM-5-TR checklist and a validated assessment tool, plus EFMP/ECHO for active duty families. Once the child is enrolled in the ACD, TriWest places a provider within 15 business days and issues the initial assessment authorization itself, 32 units of 97151. The assessment must start within 28 days of referral verification and be finished within 14 days of the first session. The treatment plan and outcome measures then go in through Availity.' },
+      { q: 'Can an out-of-state BCBA provide ABA by telehealth to a TRICARE West family?', a: 'Only parent training (97156), only after the first six-month authorization, and only where the child’s state allows it. TriWest says cross-state telehealth requirements differ by state and providers must follow state-specific credentialing rules. The DHA manual requires compliance with licensing rules both where the provider practises and where the patient receives care. Assessment and direct ABA cannot be delivered by telehealth under the ACD.' },
       { q: 'What does TRICARE pay for ABA in the West Region?', a: 'DHA publishes the rates. The ABA Maximum Allowed Amounts file effective May 1, 2026 sets a per-15-minute maximum by locality and credential, for example Nebraska: 97151 $43.99, 97153 by a behavior technician $23.55, 97155 by a BCBA $31.25. Look up the locality where care is delivered on health.mil.' },
     ],
     deliveryRules: {
@@ -677,6 +730,29 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'So the pre-authorization call is also your policy call. Ask, and get it in writing: what diagnosis documentation they want and how recent; what the authorization period is and what a renewal needs; which provider credentials they will recognise for the rendering and supervising roles; whether any settings are excluded; and whether the family has other health insurance that would change the pre-authorization posture entirely. Do not assume TRICARE’s answers apply — different department, different statute, different rules.',
         ],
       },
+      {
+        h2: 'Does CHAMPVA restrict an out-of-state BCBA delivering ABA by telehealth?',
+        cites: [
+          { title: 'eCFR — 38 CFR 17.270, General provisions (definition of authorized non-VA provider)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+          { title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' },
+          { title: 'eCFR — 38 CFR 17.272, Benefits limitations/exclusions', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+          { title: 'Federal Register — CHAMPVA Coverage of Audio-Only Telehealth, Mental Health Services, and Cost Sharing for Certain Contraceptive Services (final rule, Apr. 30, 2024)', url: 'https://www.govinfo.gov/content/pkg/FR-2024-04-30/html/2024-09072.htm' },
+        ],
+        body: [
+          'CHAMPVA publishes no telehealth rule for ABA, and no rule tying the provider’s licence to the state where the beneficiary lives. What it does publish is a licence test. The CHAMPVA regulation defines an authorized non-VA provider as one that “Is licensed or certified by a state to provide the medical services and supplies.” It also accepts one that, “Where a state does not offer licensure or certification, is otherwise certified by an appropriate national or professional association that sets standards for the specific medical provider.” The Guidebook says: “We generally consider any provider to be authorized if they are performing services within the scope of their license.” Neither says which state’s licence counts when the BCBA and the child are in different states.',
+          'So the answer runs through two checks. The first is state law. CHAMPVA’s test is scope of licence, so confirm that the BCBA’s licence, or the child’s state’s rules, actually allow practice into the state where the child is. The second is CHAMPVA itself. ABA treatment needs pre-authorization, so name the delivery mode and the provider’s licence state in the request and get the answer in writing. On telehealth in general, a 2024 final rule (effective May 30, 2024) removed CHAMPVA’s exclusion of audio-only care. Telephone services on or after May 12, 2020 “are not excluded when the services are otherwise covered CHAMPVA services provided through this modality and are medically necessary and appropriate.” Detailed operating rules sit in the CHAMPVA Policy Manual, which is behind a VA sign-in.',
+        ],
+      },
+      {
+        h2: 'Will CHAMPVA authorize ABA retroactively?',
+        cites: [
+          { title: 'eCFR — 38 CFR 17.273, Preauthorization', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/subject-group-ECFRd3f6f5d27d7b5ae/section-17.273' },
+          { title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' },
+        ],
+        body: [
+          'Plan on pre-authorization before the first treatment session. The Guidebook lists “Applied behavior analysis (ABA) for treatment only (not the evaluation)” among services that require pre-authorization and describes no back-dating route. The regulation has one narrow retrospective path: “CHAMPVA will perform a retrospective medical necessity review during the coordination of benefits process if: (1) It is determined that CHAMPVA is the responsible payer for services and supplies but CHAMPVA preauthorization was not obtained prior to delivery of the services or supplies; and, (2) The claim for payment is filed within the appropriate one-year period.” That is a review of a claim in the coordination-of-benefits process, not a way to authorize treatment after the fact. The Guidebook’s filing limit is one year after the date of service. Where other health insurance is primary and has authorized the service, CHAMPVA requires no pre-authorization of its own.',
+        ],
+      },
     ],
     collect: [
       { title: 'CHAMPVA vs. TRICARE, settled', desc: 'Confirm the family is not eligible for or enrolled in TRICARE. The two are mutually exclusive, and a retiree or a spouse of a veteran killed in action is a TRICARE beneficiary.' },
@@ -688,6 +764,11 @@ export const militaryPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'VA — CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' },
       { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
+      { title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' },
+      { title: 'eCFR — 38 CFR 17.270, General provisions (definition of authorized non-VA provider)', url: 'https://www.ecfr.gov/current/title-38/section-17.270' },
+      { title: 'eCFR — 38 CFR 17.272, Benefits limitations/exclusions', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
+      { title: 'eCFR — 38 CFR 17.273, Preauthorization', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/subject-group-ECFRd3f6f5d27d7b5ae/section-17.273' },
+      { title: 'Federal Register — CHAMPVA Coverage of Audio-Only Telehealth, Mental Health Services, and Cost Sharing for Certain Contraceptive Services (final rule, Apr. 30, 2024)', url: 'https://www.govinfo.gov/content/pkg/FR-2024-04-30/html/2024-09072.htm' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -807,6 +888,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'What does a CHAMPVA family pay for ABA?', a: 'When CHAMPVA is the primary payer, the annual deductible of $50 per individual or $100 per family, then a 25% cost-share, with CHAMPVA paying 75% of the allowable amount. Beneficiary cost sharing is capped at $3,000 a year. When CHAMPVA is secondary or tertiary, the patient pays nothing in most cases.' },
       { q: 'Does CHAMPVA have a provider network?', a: 'No. The VA states that CHAMPVA does not have a network of health care providers and beneficiaries can visit most authorized providers. Pre-authorization, not network status, is the gate for ABA treatment.' },
       { q: 'How long does a CHAMPVA ABA authorization last?', a: 'CHAMPVA does not publish an authorization interval for ABA in the Guidebook. Ask when you request pre-authorization on 800-733-8387 and get the period, the renewal requirements and any credential or setting limits in writing.' },
+      { q: 'Can a BCBA licensed in another state provide ABA by telehealth to a CHAMPVA family?', a: 'CHAMPVA publishes no rule on it. Its test is that the provider is licensed or certified by a state (or nationally certified where the state does not license) and works within the scope of that licence. Whether the licence reaches a child in another state depends on the state laws involved. Name the delivery mode and licence state in the pre-authorization request and get CHAMPVA’s answer in writing.' },
+      { q: 'Does CHAMPVA allow retroactive authorization for ABA?', a: 'Not as a routine. ABA treatment needs pre-authorization before it starts. The regulation allows a retrospective medical-necessity review only in coordination of benefits: when CHAMPVA turns out to be the responsible payer, pre-authorization was not obtained, and the claim is filed within one year.' },
     ],
   },
 
@@ -910,6 +993,17 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Where this guide stops: Johns Hopkins publishes an ACD-ABA provider presentation and a USFHP provider manual, but both are served behind bot protection and could not be retrieved for this review, so the plan-specific supervision, unit-limit, concurrent-billing and documentation rules are not restated here. Ask Johns Hopkins USFHP provider relations for the current ACD-ABA training deck and provider manual, and confirm anything operational against those rather than against another region’s contractor guidance.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA use telehealth, or can authorizations be back-dated, under Johns Hopkins USFHP?',
+        cites: [
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 \u2014 Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+          { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 \u2014 Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
+        ],
+        body: [
+          'Johns Hopkins\u2019 own ABA provider material could not be retrieved for this review (its PDFs sit behind bot protection), so the answer here is the DHA rule. The TRICARE Operations Manual chapter that runs the Autism Care Demonstration names USFHP designated providers in its scope and excludes them only from specific paragraphs, such as the autism services coordination rules in paragraphs 6.0 to 6.9. Its licensing, telehealth and referral rules therefore apply to the plan.',
+          'The DHA manuals answer both visitor questions. On licensure, the ACD chapter requires ABA providers to meet the licensing or certification requirements \u201cextant in the State, county, municipality, or other political jurisdiction in which ABA services are provided under the ACD.\u201d The TRICARE Policy Manual\u2019s telehealth section pays only when the service is \u201cwithin a provider\u2019s scope of practice under all applicable state(s) law(s) in which services are provided and or received.\u201d On telehealth, 97151, 97153, 97155, 97157 and 97158 \u201cmay not be conducted via TH,\u201d and 97156 parent/caregiver sessions may be done by telehealth only after the first six-month authorization period per authorized provider. So an out-of-state BCBA cannot assess or deliver direct ABA remotely, and can deliver remote parent training only after six months and only if licensed or otherwise authorized where the child is. On back-dating, the ACD referral rule is that \u201cA retroactive referral shall not be accepted.\u201d',
+        ],
+      },
     ],
     collect: [
       { title: 'Confirm it is USFHP, not regional TRICARE', desc: 'A Prime card that says US Family Health Plan routes to Johns Hopkins, not to Humana Military. Sending the referral to the wrong place is the most common first-week loss on these cases.' },
@@ -928,6 +1022,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE — Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' },
       { title: 'TRICARE — Understanding Outcome Measures for ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/Outcome-Measures' },
       { title: 'TRICARE — Compare Health Plan Costs', url: 'https://tricare.mil/Costs/Compare' },
+      { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+      { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 — Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -1038,6 +1134,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'Does the Autism Care Demonstration apply to USFHP members?', a: 'Yes. ABA for TRICARE beneficiaries is covered under the ACD regardless of plan, and the referral, six-month authorization cycle, two-year referral renewal and four outcome measures all apply. Johns Hopkins requires its ABA providers to attest to completing its ACD-ABA training.' },
       { q: 'What is the Johns Hopkins USFHP service area?', a: 'Maryland and Washington DC plus parts of Pennsylvania, Delaware, Virginia and West Virginia. The plan’s own site lists Delaware alongside Maryland and DC, while TRICARE’s listing puts it among the partial states — check the ZIP against the plan’s service-area tool.' },
       { q: 'Do USFHP families get an Autism Services Navigator?', a: 'No. DHA states that beneficiaries enrolled in USFHP, and those living overseas, do not have an ASN. The coordination the navigator normally provides falls to the plan and the ABA provider.' },
+      { q: 'Can a BCBA licensed in another state provide ABA by telehealth to a Johns Hopkins USFHP member?', a: 'Only parent training (97156), only after the first six-month authorization, and only where the BCBA is licensed or otherwise authorized for the child\u2019s location. The DHA manuals the plan administers require compliance with licensing law where services are provided and received, and bar telehealth for the assessment and direct ABA codes. Authorizations are not back-dated: the ACD does not accept retroactive referrals.' },
       { q: 'What does a Johns Hopkins USFHP family pay for ABA?', a: 'TRICARE Prime rates, since USFHP has the same out-of-pocket costs as Prime. ABA is outpatient specialty care and one copay covers all ABA services on a single day: currently $0 for active duty family members and $39 for retirees and others on network specialty care. There is no annual or lifetime cap on ABA.' },
     ],
   },
@@ -1154,6 +1251,18 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Costs are TRICARE Prime costs, because USFHP carries Prime out-of-pocket amounts. ABA bills as outpatient specialty care and one copayment covers all ABA services on a single day — currently $0 for active duty family members and $39 for retirees and others for network specialty care. There are no yearly or lifetime dollar caps on ABA under the ACD.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA use telehealth, or can authorizations be back-dated, under Martin\u2019s Point USFHP?',
+        cites: [
+          { title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' },
+          { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 \u2014 Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+          { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 \u2014 Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
+        ],
+        body: [
+          'Martin\u2019s Point\u2019s ACD training says nothing specific on either point, but it says which rules govern: \u201cThe US Family Health Plan is contracted with the Defense Health Agency to administer the Autism Care Demonstration benefits in accordance with TRICARE\u2019s Program Manuals,\u201d naming the TRICARE Operations Manual 6010.62-M and the TRICARE Policy Manual 6010.63-M. Its own provider standards require ABA supervisors to be \u201cstate-licensed, and/or certified\u201d by the BACB, and require reauthorizations at least 30 days before the authorization expires.',
+          'The DHA manuals answer both visitor questions. On licensure, the ACD chapter requires ABA providers to meet the licensing or certification requirements \u201cextant in the State, county, municipality, or other political jurisdiction in which ABA services are provided under the ACD.\u201d The TRICARE Policy Manual\u2019s telehealth section pays only when the service is \u201cwithin a provider\u2019s scope of practice under all applicable state(s) law(s) in which services are provided and or received.\u201d On telehealth, 97151, 97153, 97155, 97157 and 97158 \u201cmay not be conducted via TH,\u201d and 97156 parent/caregiver sessions may be done by telehealth only after the first six-month authorization period per authorized provider. So an out-of-state BCBA cannot assess or deliver direct ABA remotely, and can deliver remote parent training only after six months and only if licensed or otherwise authorized where the child is. On back-dating, the ACD referral rule is that \u201cA retroactive referral shall not be accepted.\u201d',
+        ],
+      },
     ],
     collect: [
       { title: 'Confirm USFHP, then the ZIP', desc: 'Martin’s Point USFHP is not regional TRICARE — the referral goes to the plan. New York, Pennsylvania and Ohio are partial states, so check the ZIP against the plan service area before promising anything.' },
@@ -1171,6 +1280,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE — Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' },
       { title: 'TRICARE — Understanding Outcome Measures for ABA Services', url: 'https://tricare.mil/About/Regions/West-Region/Find-Care/Autism-Care-Demonstration/Outcome-Measures' },
       { title: 'TRICARE — Compare Health Plan Costs', url: 'https://tricare.mil/Costs/Compare' },
+      { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+      { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 — Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -1278,6 +1389,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'How much parent training does the plan require?', a: 'Six parent/caregiver training sessions every six months, to teach treatment protocols. Parent/caregiver involvement is mandatory and the treatment plan must document it.' },
       { q: 'Can ABA be delivered in school for a Martin’s Point member?', a: 'The plan’s own ABA provider training lists academic services and school-based ABA among non-reimbursable services, while DHA’s ACD guidance allows a narrow BCBA pathway for focused, time-limited, pre-authorized goals. Because the plan administers the demonstration itself, get its written answer before scheduling a school session.' },
       { q: 'What does the plan require before a provider can stop seeing a child?', a: 'At least 45 calendar days’ notice to the contractor before terminating services, for any reason. Discharge criteria are meeting the ABA goals or a lack of measurable progress across several assessments.' },
+      { q: 'Can a BCBA licensed in another state provide ABA by telehealth to a Martin\u2019s Point USFHP member?', a: 'Only parent training (97156), only after the first six-month authorization, and only where the BCBA is licensed or otherwise authorized for the child\u2019s location. Martin\u2019s Point administers the ACD under the TRICARE manuals, which require compliance with licensing law where services are provided and received and bar telehealth for the assessment and direct ABA codes. The ACD does not accept retroactive referrals, so get the authorization first.' },
       { q: 'What does a Martin’s Point USFHP family pay for ABA?', a: 'TRICARE Prime amounts, since USFHP has the same out-of-pocket costs as Prime. ABA bills as outpatient specialty care and one copayment covers all ABA on a single day — currently $0 for active duty family members and $39 for retirees and others in network. There is no annual or lifetime cap on ABA.' },
     ],
   },
