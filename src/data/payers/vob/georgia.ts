@@ -176,13 +176,13 @@ const ANTHEM_RT_COMPANION_GUIDE = src(
 
 
 /* Layer 4 — GA DCH ABS rate table (fee-for-service), ASD manual Appendix A
-   "2019 Adaptive Behavior Services (ABS) Codes and Rates" in the July 1, 2026
+   "2019 Adaptive Behavior Services (ABS) Codes and Rates" in the October 1, 2026
    manual; the revision log records "10/8/2025 Appendix A Updated rates to
    reflect increase". Tiers are practitioner level (U1 physician, U2
    psychologist/BCBA-D, U3 BCBA, U4 BCaBA, U5 RBT) x setting (U6 in-clinic,
    GT telemed, U7 out-of-clinic). CMOs pay under their own contracts. */
 const georgiaMedicaidRates: RateTable = {
-  source: 'GA DCH Part II Policies and Procedures for ASD Services (version date July 1, 2026), Appendix A — rates updated 10/8/2025',
+  source: 'GA DCH Part II Policies and Procedures for ASD Services (version date October 1, 2026), Appendix A — rates updated 10/8/2025',
   effectiveDate: '2025-10-08',
   byCode: {
     '97151': { rate: '$30.91 (U3 U6)', unit: '15min', modifierTiers: { 'U1 U6': '$59.96', 'U2 U6': '$40.14', 'U3 U6': '$30.91', 'U1 GT': '$59.96', 'U2 GT': '$40.14', 'U3 GT': '$30.91', 'U1 U7': '$76.31', 'U2 U7': '$48.16', 'U3 U7': '$37.78' } },
