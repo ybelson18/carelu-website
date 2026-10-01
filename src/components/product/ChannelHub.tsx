@@ -37,7 +37,7 @@ export default function ChannelHub() {
 
   return (
     <div className="ch-wrap" style={{ display: 'grid', gridTemplateColumns: '1.7fr 1fr', gap: 'clamp(20px, 3vw, 40px)', alignItems: 'center' }}>
-      <div style={{ background: '#fff', borderRadius: 22, boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)', padding: 'clamp(12px, 2vw, 24px)', overflowX: 'auto' }}>
+      <div className="ch-svg" style={{ background: '#fff', borderRadius: 22, boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)', padding: 'clamp(12px, 2vw, 24px)', overflowX: 'auto' }}>
         <svg viewBox="0 0 1000 460" role="img" aria-label="Every channel flows into Carelu, then to a complete intake and your CRM" style={{ width: '100%', minWidth: 560, height: 'auto', display: 'block' }}>
           {/* paths from channels to hub */}
           {CHANNELS.map((c, i) => {
@@ -96,6 +96,29 @@ export default function ChannelHub() {
         </svg>
       </div>
 
+      {/* Phone layout: the same idea as a short vertical flow */}
+      <div className="ch-flow-m" style={{ background: '#fff', borderRadius: 22, boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)', padding: 22 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
+          {CHANNELS.map(c => (
+            <span key={c.id} style={{ fontSize: 13, fontWeight: 600, padding: '6px 12px', borderRadius: 100, background: c.id === active ? FOREST : BONE, color: c.id === active ? BONE : INK, border: '1px solid rgba(43,42,38,0.12)' }}>{c.label}</span>
+          ))}
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, marginTop: 14 }}>
+          <span style={{ width: 2, height: 22, background: LEAF }} />
+          <span style={{ background: FOREST, color: BONE, borderRadius: 100, padding: '10px 22px', fontFamily: 'var(--font-display)', fontSize: 22, boxShadow: `0 0 0 6px rgba(212,242,92,0.35)` }}>Carelu</span>
+          <span style={{ fontSize: 11, letterSpacing: '0.12em', color: LEAF, fontWeight: 700 }}>INSTANT ANSWER</span>
+          <span style={{ width: 2, height: 22, background: LEAF }} />
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center' }}>
+            {OUT.map(o => (
+              <span key={o.label} style={{ background: '#F0F5EE', border: '1px solid #D4E4CF', borderRadius: 14, padding: '9px 14px', textAlign: 'center' }}>
+                <span style={{ display: 'block', fontSize: 14, fontWeight: 600, color: INK }}>{o.label}</span>
+                <span style={{ display: 'block', fontSize: 12, color: 'rgba(43,42,38,0.6)' }}>{o.sub}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div aria-live="polite">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 18 }}>
           {CHANNELS.map(c => (
@@ -120,6 +143,8 @@ export default function ChannelHub() {
         @keyframes chPulse { 0%,100% { transform: scale(0.92); opacity: .18; } 50% { transform: scale(1.06); opacity: .35; } }
         @media (prefers-reduced-motion: reduce) { .ch-flow, .ch-pulse { animation: none; } }
         @media (max-width: 900px) { .ch-wrap { grid-template-columns: 1fr !important; } }
+        .ch-flow-m { display: none; }
+        @media (max-width: 760px) { .ch-svg { display: none; } .ch-flow-m { display: block; } }
       `}</style>
     </div>
   );

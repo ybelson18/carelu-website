@@ -44,17 +44,52 @@ function Track({ title, marks, tone }: { title: string; marks: Mark[]; tone: 'be
   );
 }
 
+
+/* Phone layout: each path runs down the page, one row per moment. */
+function VTrack({ title, marks, tone }: { title: string; marks: Mark[]; tone: 'before' | 'after' }) {
+  const after = tone === 'after';
+  return (
+    <div style={{ flex: 1, minWidth: 0 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: after ? LEAF : 'rgba(43,42,38,0.5)', marginBottom: 14 }}>{title}</div>
+      <ol style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        {marks.map((m, i) => {
+          const last = i === marks.length - 1;
+          return (
+            <li key={m.label} style={{ display: 'grid', gridTemplateColumns: '18px 1fr', gap: 12, margin: 0 }}>
+              <span style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+                <span style={{ width: 14, height: 14, borderRadius: '50%', marginTop: 3, background: after && last ? LIME : '#fff', border: `2.5px solid ${after ? FOREST : '#B9B2A2'}`, position: 'relative', zIndex: 1 }} />
+                {!last && <span style={{ position: 'absolute', top: 17, bottom: -3, width: 2, background: after ? LEAF : '#D9D3C6' }} />}
+              </span>
+              <span style={{ paddingBottom: last ? 0 : 16 }}>
+                <span style={{ display: 'block', fontSize: 15, fontWeight: 600, color: INK, lineHeight: 1.3 }}>{m.label}</span>
+                <span style={{ display: 'block', fontSize: 13.5, color: 'rgba(43,42,38,0.6)', marginTop: 2, lineHeight: 1.4 }}>{m.sub}</span>
+              </span>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+}
+
 export default function SpeedTimeline() {
   return (
-    <div style={{ background: '#fff', borderRadius: 22, boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)', padding: 'clamp(24px, 3.4vw, 44px)', overflowX: 'auto' }}>
-      <div style={{ minWidth: 640 }}>
+    <div style={{ background: '#fff', borderRadius: 22, boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)', padding: 'clamp(22px, 3.4vw, 44px)' }}>
+      <div className="st-h">
         <Track title="The usual way" marks={BEFORE} tone="before" />
         <div style={{ height: 1, background: '#EDE8DC', margin: '18px 0 22px' }} />
         <Track title="With Carelu" marks={AFTER} tone="after" />
       </div>
+      <div className="st-v">
+        <VTrack title="The usual way" marks={BEFORE} tone="before" />
+        <div style={{ height: 1, background: '#EDE8DC', margin: '22px 0' }} />
+        <VTrack title="With Carelu" marks={AFTER} tone="after" />
+      </div>
       <p style={{ fontSize: 12.5, color: 'rgba(43,42,38,0.5)', margin: '18px 0 0' }}>Illustrative. The same family, the same Friday night.</p>
       <style>{`
         .st-fill { transform-origin: left; }
+        .st-v { display: none; }
+        @media (max-width: 760px) { .st-h { display: none; } .st-v { display: block; } }
         .rv.visible .st-fast { animation: stGrow 1.2s cubic-bezier(.16,1,.3,1) both; }
         .rv.visible .st-slow { animation: stGrow 3.2s ease-in-out both; }
         @keyframes stGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
