@@ -140,6 +140,27 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'For NC Medicaid the answer is now no for a new enrollee. Session Law 2026-1 added G.S. 108C-9(e): “Board Certified Behavior Analysts and Qualified Autism Services Practitioner Supervisors shall not be permitted to enroll in the North Carolina Medicaid program as out-of-state providers,” applying to enrollment applications submitted on or after the law took effect. NC Medicaid’s August 31, 2026 reminder restates it: all LQASPs and C-QPs, “including Board Certified Behavior Analysts and Board Certified Assistant Behavior Analysts, seeking to enroll in the NC Medicaid program must do so as an in-state provider,” effective August 2, 2026.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+        ],
+      },
+      {
+        h2: 'Can NC Medicaid authorize ABA retroactively?',
+        body: [
+          'Only when Medicaid eligibility itself is retroactive. CCP 8F (amended 8/1/2026) says the provider “shall obtain prior approval before rendering Research-Based Behavioral Health Treatment services,” and “Services provided without prior authorization are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility.” A beneficiary who becomes retroactively eligible while receiving covered services is entitled to be reimbursed by the provider for money paid during the retroactive period (other than third-party payments or cost-sharing), and “The qualified provider may file for reimbursement with Medicaid for these services” (10A NCAC 22J.0106). Everything else, including the 97151 assessment, needs approval first.',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID & health plan', desc: 'Standard Plan, Tailored Plan, CFSP, or NC Medicaid Direct — it decides the portal, forms, and UM contacts.' },
@@ -170,6 +191,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Vaya Health — Provider Communication Bulletin, Issue 3 (July 8, 2026): Important Changes to RB-BHT and Peer Support Services', url: 'https://providers.vayahealth.com/wp-content/uploads/2026/07/PCB_Issue_3_20260708.pdf' },
       { title: 'Partners Health Management — Provider Alert: Changes to RB-BHT and Peer Support Services (issued July 8, 2026)', url: 'https://providers.partnersbhm.org/changes-to-rb-bht-and-peer-support-services/' },
       { title: 'Alliance Health — Provider Enrollment (Closed Network section)', url: 'https://www.alliancehealthplan.org/providers/network/become-a-provider/provider-enrollment/' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -297,6 +320,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Are the NC Medicaid plans open or closed to new ABA providers?', a: 'Closed by statute for RB-BHT since July 7, 2026: S.L. 2026-41 §9E.22 requires every health plan (Standard Plans, Tailored Plans and the Children and Families Specialty Plan) to maintain a closed RB-BHT network, and lets it exclude providers. NC Medicaid has published no guidance on how plans are applying it. Trillium, Vaya, Partners and Alliance have each confirmed a closed RB-BHT network: current contracted providers continue, and Vaya and Partners review new requests case by case against network need. The Standard Plans have published nothing yet, so ask each plan\'s contracting team whether it is accepting new RB-BHT providers.' },
       { q: 'What happens to the authorization when switching ABA agencies in NC Medicaid?', a: 'CCP 8F does not say an authorization transfers. It treats "a different RB-BHT provider agency is needed" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and bases prior approval on the Treatment Plan submitted with the request. It also bars paying two providers for duplicate services. Ask the family\'s health plan whether the new agency needs its own prior approval before its first session.' },
       { q: 'Can NC Medicaid ABA (RB-BHT) be delivered at school?', a: 'Yes, school is one of the payable settings, chosen with the family and clinically justified in the Treatment Plan. CCP 8F excludes services available through IDEA or other educational programs that duplicate or supplant the authorized Treatment Plan, teaching academic subjects, and acting as a substitute for a teacher, aide or tutor.' },
+      { q: 'Can an out-of-state BCBA treat NC Medicaid members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e), from S.L. 2026-1).' },
+      { q: 'Can NC Medicaid ABA be authorized retroactively?', a: 'Only for retroactive Medicaid eligibility. CCP 8F: services without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility.” Get approval before the first session, including 97151.' },
     ],
   },
 
@@ -374,6 +399,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'N.C.G.S. § 108D-22 — PHP provider networks (as codified on ncleg.gov)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_108D/GS_108D-22.html' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'For NC Medicaid the answer is now no for a new enrollee. Session Law 2026-1 added G.S. 108C-9(e): “Board Certified Behavior Analysts and Qualified Autism Services Practitioner Supervisors shall not be permitted to enroll in the North Carolina Medicaid program as out-of-state providers,” applying to enrollment applications submitted on or after the law took effect. NC Medicaid’s August 31, 2026 reminder restates it: all LQASPs and C-QPs, “including Board Certified Behavior Analysts and Board Certified Assistant Behavior Analysts, seeking to enroll in the NC Medicaid program must do so as an in-state provider,” effective August 2, 2026.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Healthy Blue’s network has to be enrolled with NC Medicaid as well.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can Healthy Blue authorize ABA retroactively?',
+        body: [
+          'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
+          'Healthy Blue’s NC provider manual sets a decision clock for “Retrospective review requests: within 30 days of request,” but we have not verified which circumstances Healthy Blue accepts for an RB-BHT retrospective review; ask its UM team before treating without an approval.',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Healthy Blue (NC) — Medicaid Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Standard Healthy Blue vs. Care Together (CFSP)', desc: 'Child-welfare-involved members are on the specialty plan — confirm which ID the family holds.' },
@@ -385,6 +435,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Healthy Blue NC — prior authorization page', url: 'https://provider.healthybluenc.com/north-carolina-provider/prior-authorization' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+      { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -499,6 +553,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What is Healthy Blue Care Together?', a: 'The separate Children & Families Specialty Plan (launched December 2025) for child-welfare-involved members, also run by Blue Cross NC. Foster families\' "Healthy Blue" cards may actually be CFSP — verify before submitting.' },
       { q: 'Is Healthy Blue accepting new ABA providers?', a: 'For RB-BHT, NC law has required a closed network since July 7, 2026 (S.L. 2026-41 §9E.22), so Healthy Blue may decline new providers. It had published no notice on how it is applying this as of October 1, 2026; ask its provider contracting team directly.' },
       { q: 'What happens to the authorization when switching ABA agencies on Healthy Blue?', a: 'Healthy Blue applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, bases prior approval on the Treatment Plan submitted with the request, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Healthy Blue utilization management.' },
+      { q: 'Can an out-of-state BCBA treat Healthy Blue members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
+      { q: 'Can Healthy Blue authorize ABA retroactively?', a: 'Plan on no. CCP 8F excludes services provided without the plan’s prior authorization except for retroactive Medicaid eligibility. Healthy Blue decides retrospective review requests within 30 days; confirm the qualifying circumstances with its UM team.' },
     ],
   },
 
@@ -572,6 +628,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'N.C.G.S. § 108D-22 — PHP provider networks (as codified on ncleg.gov)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_108D/GS_108D-22.html' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'For NC Medicaid the answer is now no for a new enrollee. Session Law 2026-1 added G.S. 108C-9(e): “Board Certified Behavior Analysts and Qualified Autism Services Practitioner Supervisors shall not be permitted to enroll in the North Carolina Medicaid program as out-of-state providers,” applying to enrollment applications submitted on or after the law took effect. NC Medicaid’s August 31, 2026 reminder restates it: all LQASPs and C-QPs, “including Board Certified Behavior Analysts and Board Certified Assistant Behavior Analysts, seeking to enroll in the NC Medicaid program must do so as an in-state provider,” effective August 2, 2026.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in AmeriHealth Caritas North Carolina’s network has to be enrolled with NC Medicaid as well.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can AmeriHealth Caritas NC authorize ABA retroactively?',
+        body: [
+          'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
+          'AmeriHealth Caritas NC publishes the exceptions. Its provider manual says “A retrospective/post-service Utilization Management (UM) review will only be performed in the following circumstances: When the member obtains retroactive eligibility; When pertinent coverage information is not available, or is incorrect, upon admission or at the time of the service ...; When an out-of-state facility treats the member emergently/urgently; When a provider can show that attempts were made to submit the request prior to the service, but the plan did not receive the request.” Separately, ACNC “may conduct retrospective reviews of claims for services that did not receive prior authorization to ensure medical necessity.”',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'AmeriHealth Caritas North Carolina — Provider Manual', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID + plan confirmation', desc: 'Standard AmeriHealth Caritas NC vs. other channels — verify at (888) 738-0004 if in doubt.' },
@@ -583,6 +664,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (pull manually; bot-blocked)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
       { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+      { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -699,6 +784,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'How do I reach AmeriHealth Caritas NC utilization management?', a: 'UM runs at (888) 738-0004; the provider workflow uses NaviNet and the PA Lookup Tool at amerihealthcaritasnc.com. The January 2025 Behavioral Health UM Guide has the current details — pull it from the portal.' },
       { q: 'Is AmeriHealth Caritas North Carolina accepting new ABA providers?', a: 'For RB-BHT, NC law has required a closed network since July 7, 2026 (S.L. 2026-41 §9E.22), so AmeriHealth Caritas North Carolina may decline new providers. It had published no notice on how it is applying this as of October 1, 2026; ask its provider contracting team directly.' },
       { q: 'What happens to the authorization when switching ABA agencies on AmeriHealth Caritas NC?', a: 'AmeriHealth Caritas NC applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, bases prior approval on the Treatment Plan submitted with the request, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with AmeriHealth Caritas NC utilization management.' },
+      { q: 'Can an out-of-state BCBA treat AmeriHealth Caritas NC members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
+      { q: 'Can AmeriHealth Caritas NC authorize ABA retroactively?', a: 'Only in its listed cases: retroactive eligibility, coverage information missing or wrong at the time of service, emergent out-of-state facility care, or proof you tried to submit before the service and the plan did not receive it.' },
     ],
   },
 
@@ -769,6 +856,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'N.C.G.S. § 108D-22 — PHP provider networks (as codified on ncleg.gov)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_108D/GS_108D-22.html' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'For NC Medicaid the answer is now no for a new enrollee. Session Law 2026-1 added G.S. 108C-9(e): “Board Certified Behavior Analysts and Qualified Autism Services Practitioner Supervisors shall not be permitted to enroll in the North Carolina Medicaid program as out-of-state providers,” applying to enrollment applications submitted on or after the law took effect. NC Medicaid’s August 31, 2026 reminder restates it: all LQASPs and C-QPs, “including Board Certified Behavior Analysts and Board Certified Assistant Behavior Analysts, seeking to enroll in the NC Medicaid program must do so as an in-state provider,” effective August 2, 2026.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Carolina Complete Health’s network has to be enrolled with NC Medicaid as well.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can Carolina Complete Health authorize ABA retroactively?',
+        body: [
+          'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
+          'Carolina Complete Health’s 2026 manual defines retrospective review as an initial review of services “for which authorization and/or timely notification to Carolina Complete Health was not obtained due to extenuating circumstances”; its examples include a member unable to give eligibility information and “Late eligibility notification from DHHS.” Requests go in “up to 90 days after the date of service (DOS),” with clinical documentation and “Specific details as to why an authorization was not obtained,” and the plan has 30 calendar days to decide. After 90 days the request “will not be reviewed and will deny for lack of timely notification,” and a timely request without clearly defined extenuating circumstances is denied administratively.',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Carolina Complete Health — Provider Manual 2026 (last updated 06/29/2026)', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCHE_PRV15_Provider_Manual_2026.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member plan history', desc: 'Members transitioning from WellCare of North Carolina land here after the 4/1/2026 merger — confirm which card/ID the family currently holds.' },
@@ -780,6 +892,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
       { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+      { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -897,6 +1013,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Is Carolina Complete Health available statewide?', a: 'Yes, as of April 1, 2026 — it absorbed WellCare of North Carolina and now operates statewide as a Standard Plan, rather than the smaller regional footprint it held before the merger.' },
       { q: 'Is Carolina Complete Health accepting new ABA providers?', a: 'For RB-BHT, NC law has required a closed network since July 7, 2026 (S.L. 2026-41 §9E.22), so Carolina Complete Health may decline new providers. It had published no notice on how it is applying this as of October 1, 2026; ask its provider contracting team directly.' },
       { q: 'What happens to the authorization when switching ABA agencies on Carolina Complete Health?', a: 'Carolina Complete Health applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, bases prior approval on the Treatment Plan submitted with the request, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Carolina Complete Health utilization management.' },
+      { q: 'Can an out-of-state BCBA treat Carolina Complete Health members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
+      { q: 'Can Carolina Complete Health authorize ABA retroactively?', a: 'Only for extenuating circumstances (late DHHS eligibility notification is one), requested within 90 days of the date of service with the reason the authorization was not obtained; decision within 30 calendar days.' },
     ],
   },
 
@@ -966,6 +1084,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'N.C.G.S. § 108D-22 — PHP provider networks (as codified on ncleg.gov)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_108D/GS_108D-22.html' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'For NC Medicaid the answer is now no for a new enrollee. Session Law 2026-1 added G.S. 108C-9(e): “Board Certified Behavior Analysts and Qualified Autism Services Practitioner Supervisors shall not be permitted to enroll in the North Carolina Medicaid program as out-of-state providers,” applying to enrollment applications submitted on or after the law took effect. NC Medicaid’s August 31, 2026 reminder restates it: all LQASPs and C-QPs, “including Board Certified Behavior Analysts and Board Certified Assistant Behavior Analysts, seeking to enroll in the NC Medicaid program must do so as an in-state provider,” effective August 2, 2026.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in UnitedHealthcare Community Plan’s network has to be enrolled with NC Medicaid as well.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can UnitedHealthcare Community Plan of NC authorize ABA retroactively?',
+        body: [
+          'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
+          'UHC Community Plan’s NC manual lists a decision clock for “Retrospective review: Within 30 calendar days of receiving all pertinent clinical information,” but we have not verified which circumstances it accepts for an RB-BHT retrospective review; ask the plan before treating without an approval.',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'UnitedHealthcare Community Plan of North Carolina — Care Provider Manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NC-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID + plan confirmation', desc: 'UHC Community Plan members route through Optum — different portal and forms than every other NC plan.' },
@@ -978,6 +1121,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'UHC Community Plan NC — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/north-carolina-health-plans/nc-comm-plan-home/nc-cp-prior-auth.html' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+      { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1093,6 +1240,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'How is UHC\'s NC authorization process different?', a: 'It\'s a two-step flow on Provider Express: a separate authorization for the assessment, then a second for treatment — unlike the single-request flow at most other NC plans.' },
       { q: 'What credentialing do I need for UHC NC ABA?', a: 'NC Medicaid enrollment via NCTracks first, then Optum ABA network credentialing — plan for both in your timeline.' },
       { q: 'Is UnitedHealthcare Community Plan of North Carolina accepting new ABA providers?', a: 'For RB-BHT, NC law has required a closed network since July 7, 2026 (S.L. 2026-41 §9E.22), so UnitedHealthcare Community Plan of North Carolina may decline new providers. It had published no notice on how it is applying this as of October 1, 2026; ask its provider contracting team directly.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
+      { q: 'Can UnitedHealthcare Community Plan of NC authorize ABA retroactively?', a: 'Plan on no. CCP 8F excludes services without the plan’s prior authorization except for retroactive Medicaid eligibility; UHC decides retrospective reviews within 30 calendar days of receiving the clinical information. Confirm the qualifying circumstances with the plan.' },
     ],
   },
 
@@ -1156,6 +1305,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'For NC Medicaid the answer is now no for a new enrollee. Session Law 2026-1 added G.S. 108C-9(e): “Board Certified Behavior Analysts and Qualified Autism Services Practitioner Supervisors shall not be permitted to enroll in the North Carolina Medicaid program as out-of-state providers,” applying to enrollment applications submitted on or after the law took effect. NC Medicaid’s August 31, 2026 reminder restates it: all LQASPs and C-QPs, “including Board Certified Behavior Analysts and Board Certified Assistant Behavior Analysts, seeking to enroll in the NC Medicaid program must do so as an in-state provider,” effective August 2, 2026.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in WellCare’s network has to be enrolled with NC Medicaid as well.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can WellCare authorize ABA retroactively?',
+        body: [
+          'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
+          'WellCare’s NC Medicaid manual narrows provider-requested retrospective review to two cases: it “will review post-service requests for authorization of inpatient admissions or outpatient services only if, at the time of treatment, the Member was not eligible and became eligible with WellCare retroactively, or, in cases of emergency treatment, the payer was not known at the time of service.” It decides within 30 calendar days (one extension of up to 14 days), and “All services performed without Prior Authorization are subject to retrospective review by WellCare.”',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'WellCare of North Carolina — Medicaid Provider Manual (effective Jan. 22, 2026)', url: 'https://www.wellcarenc.com/content/dam/centene/wellcare/nc/pdfs/providers/NC_Medicaid_Provider_Manual_03_2026_R.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Redirect to Carolina Complete Health', desc: 'WellCare of NC no longer exists as a standalone plan — route WellCare-branded inquiries to the Carolina Complete Health guide and workflow.' },
@@ -1166,6 +1340,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — WellCare NC and Carolina Complete Health merge April 1, 2026 (Provider Playbook)', url: 'https://medicaid.ncdhhs.gov/providers/provider-playbook-medicaid-managed-care/trending-topics/wellcare-north-carolina-and-carolina-complete-health-merge-april-1-2026' },
       { title: 'WellCare NC — WNC.CP.109 RB-BHT clinical policy (historical)', url: 'https://www.policies-wellcare.com/content/dam/centene/wellcare/nc/policies/clinical-policies/WNC.CP.109.pdf' },
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+      { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1297,6 +1475,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does WellCare of North Carolina still exist?', a: 'No — WellCare of North Carolina merged into Carolina Complete Health effective April 1, 2026, and is no longer a standalone NC Medicaid Standard Plan. Members and providers should use the Carolina Complete Health guide going forward.' },
       { q: 'What happened to WellCare NC members after the merger?', a: 'They are now served by Carolina Complete Health, which expanded from its prior regional footprint to a statewide Standard Plan as part of the merger.' },
+      { q: 'Can an out-of-state BCBA treat WellCare members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
+      { q: 'Can WellCare authorize ABA retroactively?', a: 'Only if the member became eligible with WellCare retroactively (or for emergency treatment when the payer was unknown). WellCare decides post-service requests within 30 calendar days.' },
     ],
   },
 
@@ -1377,6 +1557,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'For NC Medicaid the answer is now no for a new enrollee. Session Law 2026-1 added G.S. 108C-9(e): “Board Certified Behavior Analysts and Qualified Autism Services Practitioner Supervisors shall not be permitted to enroll in the North Carolina Medicaid program as out-of-state providers,” applying to enrollment applications submitted on or after the law took effect. NC Medicaid’s August 31, 2026 reminder restates it: all LQASPs and C-QPs, “including Board Certified Behavior Analysts and Board Certified Assistant Behavior Analysts, seeking to enroll in the NC Medicaid program must do so as an in-state provider,” effective August 2, 2026.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Alliance Health’s network has to be enrolled with NC Medicaid as well.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can Alliance Health authorize ABA retroactively?',
+        body: [
+          'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
+          'Alliance’s Tailored Plan/PIHP manual (V.26, March 2026) says it “will review post-service requests for authorization of inpatient admissions or outpatient services only if, at the time of treatment, the member was not eligible and became eligible with Alliance Health retroactively, or, in cases of emergency treatment, the payer was not known at the time of service.” Its decision table gives retrospective requests 30 calendar days “unless a more restrictive requirement is issued by NC Medicaid or accrediting bodies.”',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Alliance Health — Tailored Plan/PIHP Provider Manual (V.26, March 2026)', url: 'https://www.alliancehealthplan.org/document-library/79431/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnostic instrument check', desc: 'Confirm the diagnosis used BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (CCP 8F 3.2.4) — ADI-R alone is not on the state list, and screeners alone cannot start services.' },
@@ -1390,6 +1595,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Alliance Health — Provider Enrollment (Closed Network section)', url: 'https://www.alliancehealthplan.org/providers/network/become-a-provider/provider-enrollment/' },
       { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
       { title: 'Alliance Health — Research-Based Behavioral Health Treatment (RB-BHT) cover sheet (Word form, document library 97990)', url: 'https://www.alliancehealthplan.org/document-library/97990/' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+      { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1518,6 +1727,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What makes a valid service order for Alliance?', a: 'Completed, signed and dated by a licensed MD, DO or psychologist; under one year old; in place on or before the first day of service; and visibly based on a behavioral, adaptive or functional assessment. Alliance\'s RB-BHT cover sheet asks you to confirm each of these, and CCP 8F §3.2.6 sets the same rule.' },
       { q: 'Is Alliance Health accepting new ABA providers?', a: 'Closed. RB-BHT is on Alliance\'s mandatory closed-network list under S.L. 2026-41, and Alliance says providers who want to deliver it must go through its specific contracting and credentialing process, not a standard participation agreement. Check its current service needs list and email NetworkRelations@AllianceHealthPlan.org.' },
       { q: 'What happens to the authorization when switching ABA agencies on Alliance Health?', a: 'Alliance Health applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Alliance Health utilization management.' },
+      { q: 'Can an out-of-state BCBA treat Alliance Health members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
+      { q: 'Can Alliance Health authorize ABA retroactively?', a: 'Only if the member became eligible with Alliance retroactively (or for emergency treatment when the payer was unknown); Alliance decides retrospective requests within 30 calendar days.' },
     ],
   },
 
@@ -1592,6 +1803,31 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'For NC Medicaid the answer is now no for a new enrollee. Session Law 2026-1 added G.S. 108C-9(e): “Board Certified Behavior Analysts and Qualified Autism Services Practitioner Supervisors shall not be permitted to enroll in the North Carolina Medicaid program as out-of-state providers,” applying to enrollment applications submitted on or after the law took effect. NC Medicaid’s August 31, 2026 reminder restates it: all LQASPs and C-QPs, “including Board Certified Behavior Analysts and Board Certified Assistant Behavior Analysts, seeking to enroll in the NC Medicaid program must do so as an in-state provider,” effective August 2, 2026.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Trillium’s network has to be enrolled with NC Medicaid as well.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can Trillium authorize ABA retroactively?',
+        body: [
+          'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
+          'Trillium’s Tailored Plan manual describes utilization management as “conducting initial, concurrent and retrospective reviews of services,” but we have not verified the circumstances in which Trillium will review RB-BHT after the fact; ask Trillium UM before treating without an approval.',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium Health Resources — Tailored Plan Provider Manual', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Provider-Manual/Trillium-TP-Provider-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Assessment + service order', desc: 'Written assessment, validated-tool diagnosis documentation, and the MD/DO/LP order — all required at the initial TAR.' },
@@ -1605,6 +1841,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'Trillium Health Resources — Provider Communication 005 (July 9, 2026): Mandatory Closed Network for Peer Support and RB-BHT Services', url: 'https://www.trilliumhealthresources.org/article/provider-communication-005' },
       { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1737,6 +1976,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Is Trillium\'s ABA network open?', a: 'No, not for RB-BHT. Trillium\'s Provider Communication 005 (July 9, 2026) says "Trillium will be maintaining a closed network" for RB-BHT and peer support, as S.L. 2026-41 §9E.22 requires of every NC Medicaid health plan. That overrides the open-network wording in its July 20, 2026 provider manual for these services. Ask Trillium provider network contracting before planning on a new RB-BHT contract.' },
       { q: 'Can Trillium ABA services be delivered by telehealth?', a: 'Only in part, under the finalized CCP 8F (effective 8/1/2026): telehealth is removed entirely for 97152, 97153, and 97154; 97151 keeps it with clinical justification; 97155 keeps it capped at 50% of billing per beneficiary per 180 days; 97156/97157 keep their separate telephonic/KX caregiver-barrier exception.' },
       { q: 'What happens to the authorization when switching ABA agencies on Trillium?', a: 'Trillium applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Trillium utilization management.' },
+      { q: 'Can an out-of-state BCBA treat Trillium members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
+      { q: 'Can Trillium authorize ABA retroactively?', a: 'Plan on no outside retroactive Medicaid eligibility (CCP 8F). Trillium does retrospective reviews, but confirm the qualifying circumstances with its UM team.' },
     ],
   },
 
@@ -1809,6 +2050,30 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'For NC Medicaid the answer is now no for a new enrollee. Session Law 2026-1 added G.S. 108C-9(e): “Board Certified Behavior Analysts and Qualified Autism Services Practitioner Supervisors shall not be permitted to enroll in the North Carolina Medicaid program as out-of-state providers,” applying to enrollment applications submitted on or after the law took effect. NC Medicaid’s August 31, 2026 reminder restates it: all LQASPs and C-QPs, “including Board Certified Behavior Analysts and Board Certified Assistant Behavior Analysts, seeking to enroll in the NC Medicaid program must do so as an in-state provider,” effective August 2, 2026.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Vaya Health’s network has to be enrolled with NC Medicaid as well.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can Vaya Health authorize ABA retroactively?',
+        body: [
+          'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
+          'We have not verified Vaya’s own retrospective-review rule for RB-BHT; ask Vaya UM before treating without an approval.',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member county', desc: 'Vaya\'s footprint is western NC — confirm the county maps to Vaya before intake.' },
@@ -1822,6 +2087,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'Vaya Health — Provider Communication Bulletin, Issue 3 (July 8, 2026): Important Changes to RB-BHT and Peer Support Services', url: 'https://providers.vayahealth.com/wp-content/uploads/2026/07/PCB_Issue_3_20260708.pdf' },
       { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+      { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1951,6 +2220,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does every Vaya ABA request need a full SAR?', a: 'No — 97151 assessment requests up to 32 units per 6 months and 97155 up to a 1-hour-per-10-hours ratio against direct intervention pass through on notification alone. Above either threshold, a complete SAR (service order, treatment plan, validated diagnosis) is required.' },
       { q: 'Is Vaya Health accepting new ABA providers?', a: 'Closed since July 7, 2026. Vaya says only contracted providers in its approved closed network may deliver RB-BHT; current providers continue as contracted, and new requests are reviewed case by case against selection criteria that include network need. Email provider.info@vayahealth.com.' },
       { q: 'What happens to the authorization when switching ABA agencies on Vaya Health?', a: 'Vaya Health applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Vaya Health utilization management.' },
+      { q: 'Can an out-of-state BCBA treat Vaya Health members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
+      { q: 'Can Vaya Health authorize ABA retroactively?', a: 'Plan on no outside retroactive Medicaid eligibility (CCP 8F); confirm any retrospective-review option with Vaya UM.' },
     ],
   },
 
@@ -2021,6 +2292,30 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'For NC Medicaid the answer is now no for a new enrollee. Session Law 2026-1 added G.S. 108C-9(e): “Board Certified Behavior Analysts and Qualified Autism Services Practitioner Supervisors shall not be permitted to enroll in the North Carolina Medicaid program as out-of-state providers,” applying to enrollment applications submitted on or after the law took effect. NC Medicaid’s August 31, 2026 reminder restates it: all LQASPs and C-QPs, “including Board Certified Behavior Analysts and Board Certified Assistant Behavior Analysts, seeking to enroll in the NC Medicaid program must do so as an in-state provider,” effective August 2, 2026.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Partners Health Management’s network has to be enrolled with NC Medicaid as well.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+          { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can Partners authorize ABA retroactively?',
+        body: [
+          'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
+          'We have not verified Partners’ own retrospective-review rule for RB-BHT; ask Partners UM before treating without an approval.',
+        ],
+        cites: [
+          { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+        ],
+      },
     ],
     collect: [
       { title: 'Treatment-plan alignment', desc: 'The ALL-codes auth only protects billing that matches the approved plan — keep the plan current as services shift.' },
@@ -2033,6 +2328,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'NC Medicaid — Clinical Coverage Policy 8F', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
       { title: 'Partners Health Management — Provider Alert: Changes to RB-BHT and Peer Support Services (issued July 8, 2026)', url: 'https://providers.partnersbhm.org/changes-to-rb-bht-and-peer-support-services/' },
       { title: 'Session Law 2026-41 (S.B. 257, Current Operations Appropriations Act of 2026, approved 7/7/2026), §9E.22', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-41.pdf' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+      { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2162,6 +2461,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'How do I submit an RB-BHT authorization to Partners?', a: 'Through ProAuth: enter the base code as the Primary Procedure Code on the Prescreen, select the Treatment Type from the dropdown. Questions go to UMQuestions@partnersbhm.org.' },
       { q: 'Is Partners accepting new ABA providers?', a: 'Closed. Partners limits RB-BHT to contracted providers in its approved network; current providers continue as contracted, and new requests are reviewed case by case against selection criteria that include network need. Email CredentialingTeam@partnersbhm.org.' },
       { q: 'What happens to the authorization when switching ABA agencies on Partners?', a: 'Partners applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Partners utilization management.' },
+      { q: 'Can an out-of-state BCBA treat Partners Health Management members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
+      { q: 'Can Partners authorize ABA retroactively?', a: 'Plan on no outside retroactive Medicaid eligibility (CCP 8F); confirm any retrospective-review option with Partners UM.' },
     ],
   },
 
@@ -2253,6 +2554,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'North Carolina Behavior Analyst Licensure Board', url: 'https://ncbehavioranalystboard.org/' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'Aetna’s own rule is written for telehealth explicitly. Its Network Participation Criteria (form 8100606-01-01, 5/26) bind every Hybrid and Virtual Only provider: “Providers must satisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located. As required by applicable law, providers must also hold licenses, registrations, and certifications in the state(s) in which they are physically located.” The ABA criteria add that BCBAs “must meet the current Aetna® credentialing and recredentialing standards” and that “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” So a BCBA treating a child located in North Carolina by video must meet North Carolina’s requirements as well as those of the state the BCBA works from, and only codes on Aetna’s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2270,6 +2582,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
       { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2405,6 +2719,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What does the North Carolina autism mandate require?', a: 'North Carolina’s mandate (effective July 2016) requires covered health benefit plans to cover “adaptive behavior treatment” — the statutory term; ABA itself isn’t named, but board certified behavior analysts are among the eight authorized provider categories, and treatment must be ordered by a licensed physician or licensed psychologist. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in North Carolina?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the North Carolina Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s ABA medical necessity guide does not require a technician credential. Services must be provided directly or billed by a licensed behavior analyst (where the state licenses them), a BCBA or a licensed psychologist. Where plans or state law allow services by people who are not licensed or BACB-certified, they must be supervised and directed in line with practice standards. State law or the plan can require more.' },
+      { q: 'Can an out-of-state BCBA treat Aetna members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
     ],
   },
 
@@ -2514,6 +2829,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'Evernorth, which manages Cigna’s behavioral benefits, frames it as a compliance duty rather than a member-state rule. Its Administrative Guidelines (September 2026): “Providers must meet all state requirements to provide virtual behavioral services, including any licenses and certifications,” must “comply with their state laws about the use of audio or video-based technology,” and providers who meet the telehealth specialty requirements “may deliver services virtually with no additional credentialing” after attesting on the Attested Specialty Form, when Evernorth adds “telehealth” to the provider profile. The guidelines do not say in terms which state’s license a remote BCBA needs, so read “all state requirements” against North Carolina’s licensure law above and confirm with Evernorth before a remote start.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2528,6 +2854,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — North Carolina state-regulated coverage', url: 'https://www.autismspeaks.org/north-carolina-state-regulated-insurance-coverage' },
       { title: 'North Carolina Behavior Analyst Licensure Board', url: 'https://ncbehavioranalystboard.org/' },
       { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2656,6 +2983,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in North Carolina?', a: 'Evernorth (Cigna behavioral health) publishes no ABA rate table. Its administrative guidelines say your fee schedule and the list of reimbursable autism services are in Exhibit A of your Evernorth provider agreement; call Provider Services at 800.926.2273 with fee schedule questions.' },
       { q: 'Is Cigna (Evernorth) accepting new ABA providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Individuals file the Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; processing can take up to 90 days, plus 60 to 90 days of credentialing per provider after a clinic contract.' },
       { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth\'s autism resource guide does not name a technician credential. It says Evernorth "does not credential nonlicensed/noncertified staff" and that their services "must be billed under the supervising provider." Case supervision must come from a BCBA, LBA or independently licensed clinician with ABA training. State licensure rules can add requirements.' },
+      { q: 'Can an out-of-state BCBA treat Cigna members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
     ],
   },
 
@@ -2759,6 +3087,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, is explicit. Its National Network Manual (effective September 1, 2026): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service. In addition, providers must comply with all licensing laws and telehealth regulations in the jurisdiction(s) where the provider is licensed and where the member is receiving treatment.” For a child located in North Carolina, that means a North Carolina license before the first remote session.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2776,6 +3115,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2910,6 +3250,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers?', a: 'Optum publishes its ABA credentialing criteria and an application route ("Join Our Autism/ABA Network" on Provider Express), not an open or closed status. Credentialing takes 45 to 120 days, and new agencies also need an Optum audit, which can take up to 90 days to schedule. Ask the Provider Service Line (1-877-614-0484) about need in your area.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'Yes, or an equivalent. Optum\'s ABA FAQ says technicians working directly with children 1:1 must be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT) or a certified Applied Behavior Analysis Technician (ABAT), or hold another certification approved by network management. State rules may add to or override this.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth with UnitedHealthcare?', a: 'On commercial plans Optum allows ABA telehealth only for 97155, 97156 and 97157. That covers BCBA supervision of the technician (97155), but not the assessment codes 97151 and 97152. The provider must have completed Optum\'s virtual-visits attestation, and claims carry POS 02 or POS 10.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
     ],
   },
   'medcost': {
@@ -3021,6 +3362,16 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'MedCost — Providers', url: 'https://www.medcost.com/providers' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a North Carolina member, including by telehealth?',
+        body: [
+          'North Carolina licenses the practice itself: “it shall be a violation of this Article for any individual not licensed under this Article to practice behavior analysis” (G.S. 90-746(a); a Class 2 misdemeanor under 90-746(b)), with exemptions for NC-licensed psychologists and for behavior technicians working under a licensed professional’s direction (G.S. 90-745). An analyst licensed elsewhere has two routes: a temporary license for one who “resides and practices behavior analysis in another state,” available “only if the behavior analysis services are to be delivered during a limited and defined period of service approved by the Board” (G.S. 90-740), and licensure by reciprocity for someone actively licensed in a state with comparable requirements that reciprocates with North Carolina (G.S. 90-741). Article 43 contains no telehealth exception, so plan on an NC license before treating a child located in North Carolina by video.',
+          'We have not verified MedCost’s own credentialing rule for out-of-state BCBAs; ask MedCost provider relations before a remote start, and expect the plan to look to North Carolina licensure.',
+        ],
+        cites: [
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'ID card, front and back', desc: 'Shows who the payer is (MedCost or a network-leasing partner) and whether the plan has a precertification program and who to call.' },
@@ -3043,6 +3394,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'N.C.G.S. § 58-3-192 — coverage for autism spectrum disorder', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-192.html' },
       { title: 'N.C.G.S. § 58-3-167 — "health benefit plan" defined', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-167.html' },
       { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3188,6 +3540,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does MedCost require prior authorization for ABA?', a: 'Only if the member\'s plan includes a precertification program, which is shown on the ID card. Under MedCost\'s Comprehensive Outpatient Review (January 2025 list), 97153–97158 and 0373T should be pre-certified; the assessment codes 97151, 97152 and 0362T are not on the list. Call 800-722-2157 option 2 when MedCost is the precert contact.' },
       { q: 'Does the North Carolina autism mandate apply to a MedCost plan?', a: 'Often not. N.C.G.S. § 58-3-192 applies to "health benefit plans", a term that reaches other benefit arrangements only to the extent ERISA allows, so a self-funded private employer plan generally follows its own plan document. Establish funding type and employer type first.' },
       { q: 'The card says MedCost, but MedCost is not the payer. Why?', a: 'MedCost leases its provider network to dozens of other administrators and insurers. The ID card shows who the payer is; if it is unclear, MedCost\'s provider contact center (1-800-824-7406) can help identify the claim administrator.' },
+      { q: 'Can an out-of-state BCBA treat MedCost members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). We have not verified this plan’s own credentialing rule for out-of-state BCBAs; ask provider relations.' },
     ],
   },
 };

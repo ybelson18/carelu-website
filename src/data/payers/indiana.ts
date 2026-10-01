@@ -133,6 +133,28 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'BACB RBT Handbook', url: 'https://www.bacb.com/rbt-handbook' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+        ],
+      },
+      {
+        h2: 'When will Indiana Medicaid authorize ABA retroactively?',
+        body: [
+          'Only in the IHCP’s listed situations. The Prior Authorization module says PA is given after services have begun only for: pending or retroactive member eligibility (request within 12 months of the date the caseworker entered the eligibility); services outside Indiana by a provider not yet IHCP-enrolled; mechanical or administrative delays or errors by the contractor or the county DFR office; certain out-of-state transportation; a provider unaware the member was eligible (only with documented refusal or inability to give the Member ID, continued pursuit of payment from the member, and a PA request within 60 calendar days of discovering eligibility); and cases where the exact procedure cannot be known until afterward. An approved retroactive PA extends timely filing to 180 days from approval, and the claim must carry a copy of the PA marked “retroactive prior authorization.” Retroactive changes to an existing PA’s start date are not allowed. These are fee-for-service rules; for managed care members the module sends providers to the MCE’s own manual.',
+        ],
+        cites: [
+          { title: 'IHCP — Prior Authorization module (published Sept. 29, 2026): Retroactive Prior Authorization', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID & managed-care plan', desc: 'Anthem, MHS, CareSource, or UHC (Hoosier Care Connect/PathWays) — the plan decides the PA process and forms. MDwise ended as an HIP/Hoosier Healthwise MCE 1/1/2026; former MDwise members now carry one of the other three.' },
@@ -163,6 +185,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IC 25-8.5-3-6 — Prohibitions; exceptions', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
       { title: 'BACB RBT Handbook', url: 'https://www.bacb.com/rbt-handbook' },
       { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+      { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -191,9 +217,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'School is in scope as a provider type, and out of scope as a duplicate. IHCP enrolls School Corporations (provider type 12, specialty 120) to bill ABA, and the treatment plan must be built around \u201cthe individual\u2019s needs, age, school attendance (including homeschooling) and other daily activities.\u201d But two named exclusions bound it: services \u201cthat focus solely on recreational or educational outcomes\u201d are not covered, and neither are \u201cservices that are duplicative of other covered services, such as services rendered under an individualized educational program (IEP) that address the same goals using the same techniques as the treatment plan.\u201d The plan must also document plans for parent/guardian training and school transition. Enrolled school corporations are exempt from the high-risk fingerprint screening, but group providers rendering ABA in school settings are not.',
+          'School is in scope as a provider type, and out of scope as a duplicate. IHCP enrolls School Corporations (provider type 12, specialty 120) to bill ABA, and the treatment plan must be built around \u201cthe individual\u2019s needs, age, school attendance (including homeschooling) and other daily activities.\u201d But two named exclusions bound it: services \u201cthat focus solely on recreational or educational outcomes\u201d are not covered, and neither are \u201cservices that are duplicative of other covered services, such as services rendered under an individualized educational program (IEP) that address the same goals using the same techniques as the treatment plan.\u201d The plan must also document plans for parent/guardian training and school transition. Enrolled school corporations are exempt from the high-risk fingerprint screening, but group providers rendering ABA in school settings are not. ABA under an IEP, 504 plan or other approved education plan is billed by the school corporation with modifier TM on every code (TL and TR are not used), the education plan serves as prior authorization, the school corporation\'s NPI is both billing and rendering provider, and the claim goes to fee-for-service (Gainwell), never to the student\'s MCE.',
         status: 'verified',
-        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202519 \u2014 ABA enrollment FAQ (fingerprinting, deadlines) (2/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202519.pdf' }],
+        cites: [{ title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' }, { title: 'IHCP Bulletin BT202519 \u2014 ABA enrollment FAQ (fingerprinting, deadlines) (2/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202519.pdf' }, { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' }],
       },
       billAsProvider: {
         value:
@@ -260,6 +286,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Is Indiana Medicaid accepting new ABA providers?', a: 'Not new agencies, for now. A CMS-approved moratorium (effective June 6, 2026, six months at a time) blocks new ABA group enrollments and changes of ownership; individual RBT/BCaBA/BCBA enrollment is unaffected. Accredited agencies can ask for an access exception at OMPPProviderRelations@fssa.in.gov. It reaches MCE networks too, since MCE network providers must be state-enrolled.' },
       { q: 'What happens to the authorization if a family switches ABA providers in Indiana Medicaid?', a: 'No transfer rule is published, so plan on a new PA for the new agency (each PA is up to six months). The new provider is expected to obtain a behavior assessment done within the last six months from the original provider, and lifetime comprehensive-ABA hours carry over. Confirm with Acentra Health or the MCE whether the old PA must be closed first.' },
       { q: 'Can a member nap or sleep during an Indiana Medicaid ABA session?', a: 'Yes — BT2026159 (9/29/2026) requires providers to follow AAP sleep recommendations by age, write necessary nap time into the schedule of services, and never keep a member awake or wake one by physically moving them. Lost 97153 billable time from a documented nap must be explained in the treatment plan, not penalized.' },
+      { q: 'Can an out-of-state BCBA treat Indiana Medicaid members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
+      { q: 'Can Indiana Medicaid ABA be authorized retroactively?', a: 'Only in IHCP’s listed cases, chiefly pending or retroactive eligibility (request within 12 months of the eligibility entry) or a provider who could not have known the child was eligible (request within 60 days of discovery). Managed care members follow their MCE’s rules.' },
+      { q: 'What code does ABA under a child’s IEP fall under in Indiana Medicaid?', a: 'The same ABA CPT codes, billed by the school corporation with modifier TM. The IHCP School Corporation Services module (Sept. 29, 2026) lists ABA therapy among school-based Medicaid services and says “the TM modifier must be attached to the end of all billing codes” for services under an IEP, a 504 plan or another approved education plan; TL and TR are not used. The education plan serves as prior authorization, the school corporation’s NPI is both billing and rendering provider, and claims go to fee-for-service (Gainwell), never to the child’s MCE.' },
     ],
   },
 
@@ -344,6 +373,21 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.602(b) — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Anthem’s network has to be enrolled with the IHCP as well.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program + delivery system', desc: 'Hoosier Healthwise vs. HIP vs. Hoosier Care Connect, and whether an ACO/PMG/IPA controls the auth path.' },
@@ -364,6 +408,12 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 438.602 — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
       { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' },
       { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -461,6 +511,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Do the 2026 Indiana ABA changes apply to Anthem members?', a: 'Yes — EPSDT-only coverage, the under-21 cutoff, the 4,000-hour lifetime allocation, and telehealth restrictions are state policy that binds every MCE, even though Anthem\'s published guideline predates them.' },
       { q: 'Is Anthem accepting new ABA providers?', a: 'Not new agencies while Indiana\'s ABA enrollment moratorium lasts (effective June 6, 2026, renewable six months at a time): MCE network providers must be IHCP-enrolled, and the moratorium blocks new ABA group enrollments and changes of ownership. Existing IHCP-enrolled agencies should ask Anthem provider contracting about panel openings.' },
       { q: 'What happens if a family switches ABA providers while on Anthem?', a: 'Anthem publishes no rule on transferring an open ABA authorization, so expect the new agency to submit its own PA and confirm with Anthem UM whether the old one must be closed first. Under IHCP documentation policy, which applies to managed care, a new provider is expected to obtain a behavior assessment completed within the last six months from the original provider instead of re-testing, and the member\'s 4,000-hour lifetime comprehensive-ABA allocation carries over.' },
+      { q: 'Can an out-of-state BCBA treat Anthem Medicaid members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
+      { q: 'Does Anthem (Indiana Medicaid) authorize ABA retroactively?', a: 'We have not verified Anthem’s rule. The IHCP’s retroactive-PA list is written for fee-for-service; for managed care members the IHCP Prior Authorization module sends providers to the MCE’s own manual. Ask Anthem UM before treating without an approved PA.' },
+      { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
     ],
   },
 
@@ -532,6 +585,21 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.602(b) — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in MHS’s network has to be enrolled with the IHCP as well.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnostic instrument + score', desc: 'The named tool, date, score, and diagnosing provider — mandatory on the OTR and the most common intake bottleneck.' },
@@ -552,6 +620,12 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 438.602 — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
       { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' },
       { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -649,6 +723,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'What happens at MHS reauthorization?', a: 'Concurrent requests must report actual utilization versus authorized hours (the "prescription fulfillment rate") — sustained under-delivery risks reduced hours, so request what the family can actually attend.' },
       { q: 'Is MHS accepting new ABA providers?', a: 'Not new agencies while Indiana\'s ABA enrollment moratorium lasts (effective June 6, 2026, renewable six months at a time): MCE network providers must be IHCP-enrolled, and the moratorium blocks new ABA group enrollments and changes of ownership. Existing IHCP-enrolled agencies should ask MHS provider contracting about panel openings.' },
       { q: 'What happens if a family switches ABA providers while on MHS?', a: 'MHS publishes no rule on transferring an open ABA authorization, so expect the new agency to submit its own PA and confirm with MHS UM whether the old one must be closed first. Under IHCP documentation policy, which applies to managed care, a new provider is expected to obtain a behavior assessment completed within the last six months from the original provider instead of re-testing, and the member\'s 4,000-hour lifetime comprehensive-ABA allocation carries over.' },
+      { q: 'Can an out-of-state BCBA treat MHS members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
+      { q: 'Does MHS authorize ABA retroactively?', a: 'MHS’s provider manual answers directly: “Do you allow retro authorizations? No, except in the case of retro-eligibility,” using its late notification form.' },
+      { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
     ],
   },
 
@@ -735,6 +812,21 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.602(b) — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in CareSource’s network has to be enrolled with the IHCP as well.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Current/prior ABA agency', desc: 'The one-agency rule makes transitions a coordination task — get the outgoing provider\'s details and releases at intake.' },
@@ -755,6 +847,13 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 438.602 — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
       { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' },
       { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'IHCP — Prior Authorization module (published Sept. 29, 2026): Retroactive Prior Authorization', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' },
+      { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -852,6 +951,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Can a child see two ABA agencies under CareSource?', a: 'No — the plan\'s codified rule is one lead analyst and one ABA agency per member at a time, so provider transitions need coordinated handoffs rather than overlapping services.' },
       { q: 'Is CareSource accepting new ABA providers?', a: 'Not new agencies while Indiana\'s ABA enrollment moratorium lasts (effective June 6, 2026, renewable six months at a time): MCE network providers must be IHCP-enrolled, and the moratorium blocks new ABA group enrollments and changes of ownership. Existing IHCP-enrolled agencies should ask CareSource provider contracting about panel openings.' },
       { q: 'What happens if a family switches ABA providers while on CareSource?', a: 'CareSource publishes no rule on transferring an open ABA authorization, so expect the new agency to submit its own PA and confirm with CareSource UM whether the old one must be closed first. Under IHCP documentation policy, which applies to managed care, a new provider is expected to obtain a behavior assessment completed within the last six months from the original provider instead of re-testing, and the member\'s 4,000-hour lifetime comprehensive-ABA allocation carries over.' },
+      { q: 'Can an out-of-state BCBA treat CareSource members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
+      { q: 'Does CareSource (Indiana Medicaid) authorize ABA retroactively?', a: 'We have not verified CareSource Indiana’s rule. The IHCP’s retroactive-PA list is written for fee-for-service; for managed care members the IHCP Prior Authorization module sends providers to the MCE’s own manual. Ask CareSource UM before treating without an approved PA.' },
+      { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
     ],
   },
 
@@ -916,6 +1018,19 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'IHCP Bulletin BT2025157 — MDwise to end participation as a managed care health plan (11/12/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2025157.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Redirect to new MCE', desc: 'MDwise no longer serves HIP/Hoosier Healthwise as of 1/1/2026 — confirm which of Anthem, CareSource, or MHS the member was reassigned to, and use that guide.' },
@@ -930,6 +1045,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP \u2014 Behavioral Health Services module (PROMOD00039, ABA section)', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
       { title: 'IHCP Bulletin BT202562 \u2014 ABA documentation requirements (5/2025)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202562.pdf' },
       { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1025,6 +1144,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does MDwise still cover ABA therapy in Indiana?', a: 'No — FSSA ended MDwise\'s participation as an MCE for HIP and Hoosier Healthwise effective January 1, 2026. Members were reassigned to Anthem, CareSource, or MHS; use those guides for current ABA authorization.' },
       { q: 'What happened to MDwise members?', a: 'They chose a new plan (Anthem, CareSource, or MHS) during a Nov. 1 – Dec. 15, 2025 open-enrollment window, or were auto-assigned with a 90-day window to switch after January 1, 2026. FSSA states coverage and existing authorizations continue through the transition.' },
       { q: 'Why did Indiana end MDwise\'s Medicaid contract?', a: 'FSSA\'s review found MDwise was "both the most expensive and the lowest in quality" of the four legacy plans; federal rules require at least three plans, which the state still meets with Anthem, CareSource, and MHS.' },
+      { q: 'Can an out-of-state BCBA treat Indiana Medicaid (former MDwise) members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
+      { q: 'Did MDwise authorize ABA retroactively?', a: 'No. Its historical manual says “MDwise does not provide prior authorizations retroactively,” though it could do a post-service review to determine payment. MDwise left Hoosier Healthwise and HIP on 1/1/2026; follow the new MCE’s rules.' },
     ],
   },
 
@@ -1104,6 +1225,21 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: '42 CFR 438.602(b) — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Indiana Medicaid enrolls some out-of-state providers (405 IAC 5-5), but the IHCP Provider Enrollment Type and Specialty Matrix “indicates which provider types and specialties are ineligible for out-of-state enrollment,” and “In general, all out-of-state services rendered to IHCP members require prior authorization (PA)” on top of the ABA PA. That extra out-of-state PA is waived for “Telehealth services if providers have the subtype ‘Telemedicine’ attached to their enrollment,” and for providers granted “in-state” status for service locations in designated border-area counties (Cook County, Illinois, is one). Check the Matrix for the ABA specialties (615, 624, 625) before applying.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in UnitedHealthcare Community Plan’s network has to be enrolled with the IHCP as well.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Program confirmation', desc: 'Confirm the member is on Hoosier Care Connect or PathWays for Aging — UHC does not administer HIP or Hoosier Healthwise in Indiana.' },
@@ -1124,6 +1260,12 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 438.602 — State screening and enrollment of MCO network providers (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.602' },
       { title: 'IHCP Bulletin BT2026160 — ABA statement of need and referral requirements clarified (9/29/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026160.pdf' },
       { title: 'IHCP Bulletin BT202662 — Additional ABA guidance: supervision, caregiver coaching, UA modifier (4/28/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT202662.pdf' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1221,6 +1363,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Do I need separate credentialing for UHC Indiana ABA?', a: 'Yes — the ABA network is Optum-managed and credentialed separately from UHC medical, and providers must also be enrolled with Indiana Medicaid first.' },
       { q: 'Is UnitedHealthcare Community Plan accepting new ABA providers?', a: 'Not new agencies while Indiana\'s ABA enrollment moratorium lasts (effective June 6, 2026, renewable six months at a time): MCE network providers must be IHCP-enrolled, and the moratorium blocks new ABA group enrollments and changes of ownership. Existing IHCP-enrolled agencies should ask UnitedHealthcare Community Plan provider contracting about panel openings.' },
       { q: 'What happens if a family switches ABA providers while on UnitedHealthcare Community Plan?', a: 'UnitedHealthcare Community Plan publishes no rule on transferring an open ABA authorization, so expect the new agency to submit its own PA and confirm with UnitedHealthcare Community Plan UM whether the old one must be closed first. Under IHCP documentation policy, which applies to managed care, a new provider is expected to obtain a behavior assessment completed within the last six months from the original provider instead of re-testing, and the member\'s 4,000-hour lifetime comprehensive-ABA allocation carries over.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
+      { q: 'Does UnitedHealthcare Community Plan of Indiana authorize ABA retroactively?', a: 'We have not verified UHC’s current Indiana rule. The IHCP’s retroactive-PA list is written for fee-for-service; for managed care members the IHCP Prior Authorization module sends providers to the MCE’s own manual. Ask UHC before treating without an approved PA.' },
+      { q: 'Do we bill this plan for ABA written into a child’s IEP?', a: 'No. Indiana carves school-based Medicaid services out of managed care: the IHCP School Corporation Services module (Sept. 29, 2026) says school corporations “must not submit claims for these services to the student’s managed care entity (MCE)” and bill fee-for-service (Gainwell) instead, with modifier TM on every code and the education plan serving as prior authorization. ABA your agency delivers outside the school program still goes through the plan.' },
     ],
   },
 
@@ -1314,6 +1459,19 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Behavior Analyst licensure', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Aetna’s own rule is written for telehealth explicitly. Its Network Participation Criteria (form 8100606-01-01, 5/26) bind every Hybrid and Virtual Only provider: “Providers must satisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located. As required by applicable law, providers must also hold licenses, registrations, and certifications in the state(s) in which they are physically located.” The ABA criteria add that BCBAs “must meet the current Aetna® credentialing and recredentialing standards” and that “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” So a BCBA treating a child located in Indiana by video must meet Indiana’s requirements as well as those of the state the BCBA works from, and only codes on Aetna’s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1331,6 +1489,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26), eff. 8/1/2026 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1449,6 +1611,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Indiana?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Indiana\'s mandate (Ind. Code 27-8-14.2) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Indiana autism mandate require?', a: 'Indiana’s mandate (2001) was the first autism insurance mandate in the country, and it remains one of the strongest: group accident and sickness policies must cover ASD treatment prescribed by the treating physician under a treatment plan, with no age limits and no dollar, visit, or hour caps — and cost-sharing no less favorable than for physical illness generally. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Indiana?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Indiana Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'Can an out-of-state BCBA treat Aetna members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
     ],
   },
 
@@ -1534,6 +1697,19 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Behavior Analyst licensure', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Evernorth, which manages Cigna’s behavioral benefits, frames it as a compliance duty rather than a member-state rule. Its Administrative Guidelines (September 2026): “Providers must meet all state requirements to provide virtual behavioral services, including any licenses and certifications,” must “comply with their state laws about the use of audio or video-based technology,” and providers who meet the telehealth specialty requirements “may deliver services virtually with no additional credentialing” after attesting on the Attested Specialty Form, when Evernorth adds “telehealth” to the provider profile. The guidelines do not say in terms which state’s license a remote BCBA needs, so read “all state requirements” against Indiana’s licensure law above and confirm with Evernorth before a remote start.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1548,6 +1724,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Ind. Code § 27-8-14.2-5 (individual offer)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
       { title: 'Indiana PLA — Behavior Analyst licensure', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
       { title: 'Ind. Code \u00a7 25-8.5-3-6 \u2014 practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1657,6 +1837,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in Indiana?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Indiana\'s mandate (Ind. Code 27-8-14.2) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Indiana autism mandate require?', a: 'Indiana’s mandate (2001) was the first autism insurance mandate in the country, and it remains one of the strongest: group accident and sickness policies must cover ASD treatment prescribed by the treating physician under a treatment plan, with no age limits and no dollar, visit, or hour caps — and cost-sharing no less favorable than for physical illness generally. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Cigna pay for ABA in Indiana?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Indiana Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'Can an out-of-state BCBA treat Cigna members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
     ],
   },
 
@@ -1751,6 +1932,19 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Behavior Analyst licensure', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, is explicit. Its National Network Manual (effective September 1, 2026): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service. In addition, providers must comply with all licensing laws and telehealth regulations in the jurisdiction(s) where the provider is licensed and where the member is receiving treatment.” For a child located in Indiana, that means a Indiana license before the first remote session.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1771,6 +1965,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1891,6 +2089,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'What does the Indiana autism mandate require?', a: 'Indiana’s mandate (2001) was the first autism insurance mandate in the country, and it remains one of the strongest: group accident and sickness policies must cover ASD treatment prescribed by the treating physician under a treatment plan, with no age limits and no dollar, visit, or hour caps — and cost-sharing no less favorable than for physical illness generally. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does UnitedHealthcare pay for ABA in Indiana?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Indiana Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
     ],
   },
 
@@ -2006,6 +2205,19 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'One thing to verify rather than assume: Anthem\'s Indiana notice is headlined "Streamlined ABA claim process starts March 1, 2026" while its body text says "effective January 1, 2026." The inconsistency is in Anthem\'s own published article. Confirm with Anthem which date applies to your authorizations before you rebuild a billing calendar around either one.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Anthem’s ABA Provider Resource Guide (June 2025) lists BCBAs among approved providers, alongside “other mental health service providers licensed or authorized by the state in which they practice and recognized by the affiliated health plan Anthem to be eligible for reimbursement,” and sends providers to the state-specific Credentialing with Anthem pages; for telehealth it points to Anthem’s Virtual Visits reimbursement policy for the allowed codes. It does not say which state’s license a remote BCBA needs, so confirm with Anthem credentialing before treating a member remotely from another state.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'Anthem — ABA Provider Resource Guide (multi-state incl. Georgia and Indiana, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Group or individual policy, and funding type', desc: 'Group plans must cover ABA; individual-policy insurers only have to offer it, so an individual plan may lawfully lack the benefit. Self-funded ERISA plans are outside the mandate entirely. This fork decides the whole conversation.' },
@@ -2030,6 +2242,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Anthem Indiana — Streamlined ABA claim process starts March 1, 2026', url: 'https://providernews.anthem.com/indiana/articles/streamlined-aba-claim-process-starts-march-1-2026-28211' },
       { title: 'Anthem Indiana — Carelon Behavioral Health assignment mailing was sent in error to non-Ohio providers (June 2023)', url: 'https://providernews.anthem.com/indiana/articles/important-information-regarding-the-recent-carelon-behaviora-1-13957' },
       { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -2140,6 +2355,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does ABA prior authorization in Indiana go to Carelon?', a: 'No. Anthem\'s five-state precertification list names Anthem as the responsible party for ABA, and Carelon Behavioral Health does not appear in it at all — Anthem even told Indiana providers that a 2023 Carelon Behavioral Health assignment letter was an Ohio matter sent to them in error. Carelon Medical Benefits Management, which does appear, handles imaging, genetics, musculoskeletal and oncology programmes, not ABA.' },
       { q: 'Does Indiana license behavior analysts?', a: 'Yes, since 2025. The Indiana Professional Licensing Agency\'s Behavior Analyst Licensing Board issues Licensed Behavior Analyst and Licensed Assistant Behavior Analyst credentials, applications went live on May 13, 2025, and practising applied behavior analysis without a licence is prohibited. Licensure requires current BACB certification plus a national background check. Indiana does not license RBTs — technicians work under a statutory exception while directed by a licensed analyst.' },
       { q: 'Which criteria does Anthem use for ABA in Indiana?', a: 'MCG B-806-T. Anthem notified Indiana commercial providers that effective June 1, 2024 it would transition from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and unpublished.' },
+      { q: 'Can an out-of-state BCBA treat Anthem members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Anthem’s ABA guide accepts BCBAs and providers “licensed or authorized by the state in which they practice”; confirm the license question with Anthem credentialing.' },
     ],
   },
 
@@ -2257,6 +2473,19 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'On concurrent billing, a QHP billing 97155 "can only add code 97153 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician." Records need total treatment time plus start and stop times, author identification on every entry, and a signature date within 30 days of service. Treatment plans must show review or update at least every 6 months.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'Anthem’s ABA Provider Resource Guide (June 2025) lists BCBAs among approved providers, alongside “other mental health service providers licensed or authorized by the state in which they practice and recognized by the affiliated health plan Anthem to be eligible for reimbursement,” and sends providers to the state-specific Credentialing with Anthem pages; for telehealth it points to Anthem’s Virtual Visits reimbursement policy for the allowed codes. It does not say which state’s license a remote BCBA needs, so confirm with Anthem credentialing before treating a member remotely from another state.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+          { title: 'Anthem — ABA Provider Resource Guide (multi-state incl. Georgia and Indiana, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Commercial or Medicaid', desc: 'Anthem runs both lines in Indiana and they follow different rulebooks. A Hoosier Healthwise, HIP, Hoosier Care Connect or PathWays card belongs in the Medicaid guide.' },
@@ -2280,6 +2509,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Ind. Code § 25-8.5-3-1 — licensure requirements', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-1/' },
       { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
       { title: 'Indiana PLA — Behavior Analyst', url: 'https://www.in.gov/pla/professions/behavior-analyst/' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
     ],
     deliveryRules: {
       supervision: {
@@ -2412,6 +2644,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Indiana\'s autism mandate cap ABA?', a: 'No. IC 27-8-14.2 sets no dollar, age, visit or hour limit. Its only limit is parity: dollar limits, deductibles and coinsurance can be no less favorable than for physical illness. Group policies must cover ABA; individual-policy insurers only have to offer it; self-funded employer plans are outside the statute.' },
       { q: 'Which criteria does Anthem use?', a: 'MCG B-806-T since June 1, 2024, replacing CG-BEH-02 and MCG W0153. MCG criteria are licensed and not published, so ask the reviewer for the specific criterion when a request is denied.' },
       { q: 'Do technicians need an Indiana license?', a: 'No. Indiana licenses behavior analysts (LBA/LABA), not technicians. A direct-contact technician is exempt while acting under the direction of an Indiana-licensed analyst, and Anthem requires the supervising BCBA or QHP in box 31 of the claim.' },
+      { q: 'Can an out-of-state BCBA treat Anthem members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Anthem’s ABA guide accepts BCBAs and providers “licensed or authorized by the state in which they practice”; confirm the license question with Anthem credentialing.' },
     ],
   },
 
@@ -2493,6 +2726,18 @@ export const indianaPayers: Record<string, PayerConfig> = {
           'Caregiver coaching is required in every ABA request: at least 2 hours a month or 12 hours per standard 6-month authorization, and up to 18. If the minimum is not met, "other authorized ABA units may be reduced in subsequent authorization periods." Continuation requests go in every 6 months. Two successive 6-month periods without meaningful progress on standardized assessments is a discontinuation criterion.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Indiana member, including by telehealth?',
+        body: [
+          'Indiana licenses the practice: an individual may not “practice applied behavior analysis” unless the individual “holds a license issued under this chapter” (IC 25-8.5-3-6(a)); the PLA takes reciprocity applications ($75 for an LBA). Indiana’s telehealth law (IC 25-1-9.5) defines a telehealth “practitioner” as someone holding “an unlimited license to practice” in Indiana and lists “a behavior analyst licensed under IC 25-8.5,” so plan on an Indiana license before treating a child located in Indiana remotely.',
+          'We have not verified CareSource Marketplace’s own credentialing rule for out-of-state BCBAs; ask CareSource provider relations, and expect it to look to Indiana licensure.',
+        ],
+        cites: [
+          { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+          { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+          { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+        ],
+      },
     ],
     collect: [
       { title: 'Marketplace or Medicaid', desc: 'Decides which CareSource rulebook applies. A Hoosier Healthwise or HIP card belongs in the caresource-indiana Medicaid guide.' },
@@ -2511,6 +2756,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
       { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' },
       { title: 'Ind. Code § 25-8.5-3-6 — practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' },
+      { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
+      { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
+      { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
     ],
     deliveryRules: {
       supervision: {
@@ -2626,6 +2874,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Who can diagnose autism for a CareSource Marketplace ABA request?', a: 'Under MP-MM-1329, a child and adolescent psychiatrist, clinical psychologist, child neurologist or developmental pediatrician, evaluating independently of the ABA provider. The request also needs the ASD level and the standardized tools used, such as ADOS, ADI-R or CARS-2.' },
       { q: 'How long does an authorization last?', a: 'Medical necessity is reviewed at baseline and every 6 months; the initial treatment plan generally runs 26 weeks and continuation requests are due every 6 months.' },
       { q: 'Will the family owe cost sharing?', a: 'Yes, usually. The EOC applies the deductible, copayment and coinsurance from the Schedule of Benefits, no less favorable than for physical illness. Check deductible status before quoting.' },
+      { q: 'Can an out-of-state BCBA treat CareSource Marketplace members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. We have not verified this plan’s own credentialing rule for out-of-state BCBAs; ask provider relations.' },
     ],
   },
 };

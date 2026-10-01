@@ -133,6 +133,16 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Healthy Blue Kansas Provider Manual (June 2026)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Kansas member, including by telehealth?',
+        body: [
+          'Kansas licenses the practice: “no person shall practice applied behavior analysis in this state unless they are” a licensed behavior analyst, a licensed assistant behavior analyst under LBA supervision, a supervised trainee, or a licensed psychologist (K.S.A. 65-7503(a)). The exemptions cover people providing services under IDEA or Section 504 and providers qualified under the HCBS autism waiver, not out-of-state analysts. The statute does not say in terms whether video sessions with a child located in Kansas are practice “in this state,” so the safe plan is a Kansas LBA (Behavioral Sciences Regulatory Board) before the first remote session.',
+          'For KanCare, enrollment runs through KMAP. We have not verified KMAP’s rules for enrolling an out-of-state ABA provider, so ask KMAP provider enrollment before treating a KanCare member from another state.',
+        ],
+        cites: [
+          { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'KanCare MCO', desc: 'Sunflower, UnitedHealthcare, or Healthy Blue — same CCTS/IIS baseline, different PA machinery. Anything saying "Aetna Better Health" is stale (moved to Healthy Blue 1/1/2025).' },
@@ -317,6 +327,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Does an RBT enroll with KMAP (Kansas Medicaid) or with the KanCare MCOs, or bill under the supervising BCBA?', a: 'The RBT enrolls with KMAP individually — IIS provider type 11, specialty 404, as “Individual within a Group” under an already-enrolled group, once per service location — and claims go out under the RBT\'s own NPI: “when you hire new ABAs or RBTs, you must enroll them through KMAP before you can bill Medicaid under the employee\'s NPI number.” Then the MCO credentials them: for UnitedHealthcare Community Plan, Optum retrieves the KMAP application, credentials within 60 days and contracts within 30. Sunflower and Healthy Blue also require KMAP enrollment first, but neither publishes a technician-level credentialing rule (Healthy Blue\'s manual limits credentialing to independently practicing licensed/certified practitioners), so confirm with their network teams. A non-RBT technician can still enroll with the KDADS letter instead of the RBT certificate.' },
       { q: 'What does Kansas Medicaid pay for ABA?', a: 'Mostly not reliably published. One exception: 97153 is verified at $16.25/15-minute unit ($65/hour) effective 7/1/2024 (KMAP Bulletin 24125). For every other code the last public anchor is $17.50/15-minute unit for 97151 effective 1/1/2019, raised 4/1/2019 without published amounts; the 2022 BH increase skipped the 9715x codes. Pull current figures from the KMAP interactive fee-schedule lookup — the only source of truth for the rest.' },
       { q: 'Can KanCare ABA (including the 97151 assessment) be done by telehealth?', a: 'Yes. KMAP Bulletin 21234 lists 97151, 97152, 97153, 97155 and 97156 as allowed with POS 10 (telehealth in the home), alongside POS 02 for other locations, from 1/1/2022. Group codes 97154, 97157 and 97158 are not on the list. K.S.A. 40-2,213 bars KMAP from excluding a covered service only because it is delivered by telemedicine. Confirm the modality with the member\'s MCO at authorization.' },
+      { q: 'Can an out-of-state BCBA treat KanCare members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
     ],
   },
 
@@ -433,6 +444,27 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Kansas member, including by telehealth?',
+        body: [
+          'Kansas licenses the practice: “no person shall practice applied behavior analysis in this state unless they are” a licensed behavior analyst, a licensed assistant behavior analyst under LBA supervision, a supervised trainee, or a licensed psychologist (K.S.A. 65-7503(a)). The exemptions cover people providing services under IDEA or Section 504 and providers qualified under the HCBS autism waiver, not out-of-state analysts. The statute does not say in terms whether video sessions with a child located in Kansas are practice “in this state,” so the safe plan is a Kansas LBA (Behavioral Sciences Regulatory Board) before the first remote session.',
+          'For KanCare, enrollment runs through KMAP. We have not verified KMAP’s rules for enrolling an out-of-state ABA provider, so ask KMAP provider enrollment before treating a KanCare member from another state.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Sunflower’s network has to be enrolled with Kansas Medicaid (KMAP) as well.',
+        ],
+        cites: [
+          { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can Sunflower authorize ABA retroactively?',
+        body: [
+          'Only for extenuating circumstances or retroactive eligibility. Sunflower’s provider manual (KDHE approved February 27, 2026) defines retrospective review as an initial review after services were provided, which “may occur when authorization or timely notification to Sunflower was not obtained due to extenuating circumstances (e.g., member was unconscious at presentation, member did not have his or her Sunflower ID card, services were authorized by another payer who subsequently determined member was not eligible at the time of service).” Requests “must be submitted promptly,” and the decision comes within 30 calendar days, “not to exceed 180 calendar days from the date of service.” For a member awarded retroactive eligibility whose claim was denied, the provider files an optional reconsideration or appeal with documentation of the retroactive enrollment.',
+        ],
+        cites: [
+          { title: 'Sunflower Health Plan — Provider Manual (KDHE approved Feb. 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis date + diagnosing clinician', desc: 'KS.CP.01 says validated by an MD or licensed psychologist within the last 6 months; KMAP 26140 (eff. 11/1/2026) says no re-evaluation once a qualified diagnostician has diagnosed. Record the date and diagnostician, and ask Sunflower UM before ordering a refresh.' },
@@ -458,6 +490,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
       { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
       { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+      { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -615,6 +649,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Can a child switch ABA agencies with Sunflower?', a: 'Sunflower publishes no transfer rule. Authorizations are requested per provider, and a new agency that skips the initial assessment request must send all the assessment items with its first treatment plan. Ask Sunflower UM (1-877-644-4623) before the new agency submits whether it needs the old agency\'s discharge date.' },
       { q: 'What does Sunflower pay for ABA?', a: 'No public ABA rate table. Sunflower\'s sample Medicaid agreement pays the lesser of billed charges or its Medicaid fee schedule and offers a sample of fees on written request. The state benchmark for 97153 is $16.25 per 15 minutes (KMAP Bulletin 24125).' },
       { q: 'Is Sunflower accepting new ABA providers?', a: 'Sunflower publishes no ABA moratorium. Enroll with KMAP first and pick Sunflower; KMAP sends the file for credentialing and contracting, which Sunflower aims to finish within 30–45 days of a complete application. Ask Contracting (1-877-644-4623) about need in your area.' },
+      { q: 'Can an out-of-state BCBA treat Sunflower members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
+      { q: 'Can Sunflower authorize ABA retroactively?', a: 'Only for extenuating circumstances (such as a member who did not have the Sunflower card, or another payer later finding the member ineligible) or retroactive eligibility; decision within 30 days, no later than 180 days from the date of service.' },
     ],
   },
 
@@ -683,6 +719,18 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'UHC/Optum — KanCare ASD getting-started guide (BH00567_10102024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/ksABA/ksHowToAuth.pdf' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Kansas member, including by telehealth?',
+        body: [
+          'Kansas licenses the practice: “no person shall practice applied behavior analysis in this state unless they are” a licensed behavior analyst, a licensed assistant behavior analyst under LBA supervision, a supervised trainee, or a licensed psychologist (K.S.A. 65-7503(a)). The exemptions cover people providing services under IDEA or Section 504 and providers qualified under the HCBS autism waiver, not out-of-state analysts. The statute does not say in terms whether video sessions with a child located in Kansas are practice “in this state,” so the safe plan is a Kansas LBA (Behavioral Sciences Regulatory Board) before the first remote session.',
+          'For KanCare, enrollment runs through KMAP. We have not verified KMAP’s rules for enrolling an out-of-state ABA provider, so ask KMAP provider enrollment before treating a KanCare member from another state.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in UnitedHealthcare Community Plan’s network has to be enrolled with Kansas Medicaid (KMAP) as well.',
+        ],
+        cites: [
+          { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis report + evaluator credentials', desc: 'Kansas BSRB-licensed clinical psychologist or qualified physician, comprehensive evaluation with DSM severity and a validated tool (ADOS/CARS) — the initial-auth gate. No recency clock: an older report from a qualified diagnostician still counts.' },
@@ -701,6 +749,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (CCTS 50 h/yr, IIS 25 h/wk limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
       { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
       { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
+      { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -837,6 +887,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Who can make the ASD diagnosis for a UHC Kansas Medicaid member?', a: 'Since KMAP Bulletin 26140 (eff. 11/1/2026), for members 20 and under, a Kansas BSRB-licensed clinical psychologist or a qualified physician, documented against DSM criteria/severity using a validated diagnostic tool (e.g., ADOS, CARS). There is no diagnosis-recency rule: Optum\'s July 2026 Kansas criteria say no re-evaluation is needed and there is no time limit on starting treatment. Existing non-compliant diagnoses get a 2-year window.' },
       { q: 'How do I join the UHC KanCare ABA network?', a: 'Enroll in KMAP first — Optum retrieves your application from KMAP to start credentialing (~60 days). CCTS credentialing requires BACB certification proof plus your Kansas BSRB license number; contracting line 1-877-614-0484.' },
       { q: 'Can ABA for this plan\'s KanCare members be delivered by telehealth?', a: 'Under the state rule, yes. KMAP Bulletin 21234 allows 97151, 97152, 97153, 97155 and 97156 with POS 10 (telehealth in the home), alongside POS 02 elsewhere; group codes 97154, 97157 and 97158 are not listed. The plan publishes no ABA telehealth rule of its own, so confirm the modality at authorization.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
     ],
   },
 
@@ -906,6 +957,18 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (issued 8/12/2026; reissued 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Kansas member, including by telehealth?',
+        body: [
+          'Kansas licenses the practice: “no person shall practice applied behavior analysis in this state unless they are” a licensed behavior analyst, a licensed assistant behavior analyst under LBA supervision, a supervised trainee, or a licensed psychologist (K.S.A. 65-7503(a)). The exemptions cover people providing services under IDEA or Section 504 and providers qualified under the HCBS autism waiver, not out-of-state analysts. The statute does not say in terms whether video sessions with a child located in Kansas are practice “in this state,” so the safe plan is a Kansas LBA (Behavioral Sciences Regulatory Board) before the first remote session.',
+          'For KanCare, enrollment runs through KMAP. We have not verified KMAP’s rules for enrolling an out-of-state ABA provider, so ask KMAP provider enrollment before treating a KanCare member from another state.',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Healthy Blue’s network has to be enrolled with Kansas Medicaid (KMAP) as well.',
+        ],
+        cites: [
+          { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Prior-payer history', desc: 'Ex-Aetna Better Health families landed here 1/1/2025 — check for transition-honored auths and stale card details.' },
@@ -926,6 +989,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'KMAP Bulletin 19029 — Rate Increase for Autism Services (CCTS 50 h/yr, IIS 25 h/wk limits)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-19029.html' },
       { title: 'KMAP General Bulletin 21234 — New Place of Service Code 10 (telehealth in the home; POS 10 code list incl. 97151–97153, 97155, 97156; eff. 1/1/2022)', url: 'https://portal.kmap-state-ks.us/Documents/Provider/Bulletins/21234%20-%20General%20-%20New_POS_Code_10.pdf' },
       { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
+      { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1069,6 +1134,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'What happened to Aetna Better Health of Kansas members?', a: 'Aetna lost its KanCare contract; members auto-transitioned to Healthy Blue on 1/1/2025 (extended change deadline 4/4/2025) with continuity-of-care authorizations honored. Any listing showing Aetna Better Health as an active KanCare MCO is outdated.' },
       { q: 'How do I submit an ABA authorization to Healthy Blue Kansas?', a: 'Availity is preferred (Patient Registration > Authorizations & Referrals); behavioral-health outpatient fax is 1-866-852-8978, and the plan lists an ABA line at 877-563-9347. Assessment requests use the dedicated ASD Testing form KSHB-CD-066296-24.' },
       { q: 'Can ABA for this plan\'s KanCare members be delivered by telehealth?', a: 'Under the state rule, yes. KMAP Bulletin 21234 allows 97151, 97152, 97153, 97155 and 97156 with POS 10 (telehealth in the home), alongside POS 02 elsewhere; group codes 97154, 97157 and 97158 are not listed. The plan publishes no ABA telehealth rule of its own, so confirm the modality at authorization.' },
+      { q: 'Can an out-of-state BCBA treat Healthy Blue members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
     ],
   },
 
@@ -1442,6 +1508,17 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Kansas member, including by telehealth?',
+        body: [
+          'Kansas licenses the practice: “no person shall practice applied behavior analysis in this state unless they are” a licensed behavior analyst, a licensed assistant behavior analyst under LBA supervision, a supervised trainee, or a licensed psychologist (K.S.A. 65-7503(a)). The exemptions cover people providing services under IDEA or Section 504 and providers qualified under the HCBS autism waiver, not out-of-state analysts. The statute does not say in terms whether video sessions with a child located in Kansas are practice “in this state,” so the safe plan is a Kansas LBA (Behavioral Sciences Regulatory Board) before the first remote session.',
+          'Evernorth, which manages Cigna’s behavioral benefits, frames it as a compliance duty rather than a member-state rule. Its Administrative Guidelines (September 2026): “Providers must meet all state requirements to provide virtual behavioral services, including any licenses and certifications,” must “comply with their state laws about the use of audio or video-based technology,” and providers who meet the telehealth specialty requirements “may deliver services virtually with no additional credentialing” after attesting on the Attested Specialty Form, when Evernorth adds “telehealth” to the provider profile. The guidelines do not say in terms which state’s license a remote BCBA needs, so read “all state requirements” against Kansas’s licensure law above and confirm with Evernorth before a remote start.',
+        ],
+        cites: [
+          { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1458,6 +1535,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Autism Legal Resource Center — Kansas (parity analysis)', url: 'https://www.autismlegalresourcecenter.com/resources/autism-healthcare-info/kansas/' },
       { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
       { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+      { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1586,6 +1664,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in Kansas?', a: 'Yes — under the carrier\'s national EN0499 policy for ASD (no prior auth on assessment codes; PA at the treatment step), layered on Kansas\'s mandate (K.S.A. 40-2,194) for fully-insured large-group plans. Self-funded plans are exempt from the mandate, so verify funding type first.' },
       { q: 'What does the Kansas autism mandate require?', a: 'For large-group (51+) fully-insured plans: coverage for members under 12, with ABA capped at 1,300 hours/year for 4 years when diagnosed by age 5, otherwise 520 hours/year — exceedable with prior approval when medically necessary. Federal parity analysis questions the age limit and hour caps, so treat cap denials as appealable.' },
       { q: 'What does Cigna pay for ABA in Kansas?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. KanCare\'s 97153 rate ($16.25 per 15 minutes, KMAP Bulletin 24125) is the public benchmark.' },
+      { q: 'Can an out-of-state BCBA treat Cigna members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
     ],
   },
 
@@ -1686,6 +1765,17 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Kansas member, including by telehealth?',
+        body: [
+          'Kansas licenses the practice: “no person shall practice applied behavior analysis in this state unless they are” a licensed behavior analyst, a licensed assistant behavior analyst under LBA supervision, a supervised trainee, or a licensed psychologist (K.S.A. 65-7503(a)). The exemptions cover people providing services under IDEA or Section 504 and providers qualified under the HCBS autism waiver, not out-of-state analysts. The statute does not say in terms whether video sessions with a child located in Kansas are practice “in this state,” so the safe plan is a Kansas LBA (Behavioral Sciences Regulatory Board) before the first remote session.',
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, is explicit. Its National Network Manual (effective September 1, 2026): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service. In addition, providers must comply with all licensing laws and telehealth regulations in the jurisdiction(s) where the provider is licensed and where the member is receiving treatment.” For a child located in Kansas, that means a Kansas license before the first remote session.',
+        ],
+        cites: [
+          { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1707,6 +1797,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
       { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
       { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+      { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1835,6 +1926,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum have Kansas-specific ABA criteria?', a: 'Yes, but only for Medicaid: its State Mandates supplement carries a "For Kansas Medicaid member" section (KanCare CCTS/IIS rules). Commercial Kansas members follow the national Supplemental Clinical Criteria.' },
       { q: 'What does UnitedHealthcare pay for ABA in Kansas?', a: 'UnitedHealthcare/Optum publishes no ABA rates. You are paid up to the Fee Maximum in your Optum agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) under Optum’s ABA reimbursement policy. Ask Optum network management for your rate sheet. KanCare\'s 97153 rate ($16.25 per 15 minutes, KMAP Bulletin 24125) is the public benchmark.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
     ],
   },
 };

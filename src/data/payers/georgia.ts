@@ -223,6 +223,17 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           'At the technician level, Georgia is notably light on state screening: technicians are exempt from licensure (they must use nonprofessional titles like "behavior technician"), and neither the statute nor the current ASD manual (July 2026) imposes a state background-check, fingerprint, or registry mandate on them — the operative screen is the BACB\'s own: a criminal background check plus abuse-registry check within 180 days before the RBT application, with 5%-of-hours monthly supervision and at least two face-to-face contacts per month. Plan-level extras do bind: Peach State requires protocol modification (BCBA-level case direction) at ≥2 hours/week or 10% of direct service hours (whichever is greater), and 0373T sessions must include a BCBA onsite and immediately available. One honest gap: the ASD manual does not address staff-level exclusion screening — confirm OIG LEIE / SAM.gov cadence with DCH provider enrollment.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Georgia member, including by telehealth?',
+        body: [
+          'Georgia licenses the practice: “The unlicensed practice of applied behavior analysis is prohibited in this state,” at a fine of $1,000 per violation (O.C.G.A. 43-7A-6, added by HB 412, effective July 1, 2023). A BCBA “residing and practicing in another state who temporarily provides applied behavior analysis services in this state to a resident of this state” may apply for a temporary license covering “not more than a total of 30 days within a calendar year” (43-7A-8), and the board licenses by reciprocity someone actively licensed in a state with comparable requirements that reciprocates with Georgia (43-7A-9). As enacted, Chapter 7A contains no telehealth exception.',
+          'Georgia Medicaid adds a residence test. The ASD manual (July 2026): “To enroll as a Medicaid provider, the practitioner must reside in Georgia or within 50 miles of the Georgia border and must hold an active license issued by the Georgia BCBA Licensure Board.”',
+        ],
+        cites: [
+          { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+          { title: 'GA DCH — Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date July 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID + CMO', desc: 'Which plan the child is on (CareSource, Peach State, Amerigroup, or FFS) — it decides the whole PA path.' },
@@ -253,6 +264,9 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { q: 'How long do Georgia Medicaid ABA authorizations last?', a: 'Treatment authorizations are issued in 6-month increments, with reauthorization requiring a recent assessment (within 2 months), documented progress, and updated goals.' },      { q: 'What is Georgia Medicaid\'s fee schedule for ABA?', a: 'DCH publishes it in Appendix A of the ASD manual (raised 10/8/2025), per 15-minute unit by practitioner level and setting. For example, 97153 pays $15.58 for an RBT in-clinic and $18.69 out-of-clinic, and 97155 pays $30.91 in-clinic and $37.78 out-of-clinic for a BCBA. CMOs pay under their own contracts.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth under Georgia Medicaid?', a: 'Yes, with the PA. DCH\'s Telehealth Guidance lists 97151, 97152, 97155 and the other ABS codes for telehealth with the GT modifier and POS 02 or 10, and a telehealth request needs the Telehealth Readiness Checklist. Supervision does not require the supervisor on site; 97155 by telehealth is billable at BCBA level and above.' },
       { q: 'What happens to the authorization if a Georgia Medicaid family switches ABA providers?', a: 'For fee-for-service members, the existing PA can be used by the new provider (DCH removed provider matching in 2020); the new provider gets the PA details from the old one. If the new provider files its own PA, the old provider must end-date or withdraw its PA, and the new provider must do its own assessment and plan. CMO members follow the CMO\'s process.' },
+      { q: 'Can an out-of-state BCBA treat Georgia Medicaid members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Georgia Medicaid enrolls only practitioners who live in Georgia or within 50 miles of its border and hold a Georgia license.' },
+      { q: 'Can Georgia Medicaid ABA be authorized retroactively?', a: 'No. “PA effective dates cannot be made retroactive or backdated under any circumstance,” though you may set the effective date up to 30 days before the submission date. Retroactive eligibility does not change that: reinstated members and members who began services before Medicaid approval “are not eligible for retroactive prior authorizations”; the 30-day backdate is the only flexibility (ASD manual, July 2026).' },
+      { q: 'Does a Georgia Medicaid assessment PA take longer to decide than a treatment PA?', a: 'Not under the current ASD manual (July 2026). It sets one clock for every ABS prior authorization request: “Please allow up to 7 calendar days for the PA request to be reviewed and a decision issued,” plus 10 more calendar days when you send supplemental documentation to cure a technical or peer denial. The manual’s revision log shows DCH “Updated the PA TAT from 45 days to 7 days” in April 2026, so longer waits remembered from before then no longer apply. CMO members follow their plan’s clock.' },
     ],
   },
 
@@ -454,6 +468,17 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           'Expect the treatment plan to be "reviewed and/or updated at a min of every 6 months" (more often if the plan’s own guidelines require it). Anthem’s guide stresses "systematic and repeated evaluation of developmental status," with standardized assessments "early in the course of treatment and at reviews during treatment thereafter" used to document improvement. Intake sets this clock: the baseline data collected at the start is what every future review gets measured against.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Georgia member, including by telehealth?',
+        body: [
+          'Georgia licenses the practice: “The unlicensed practice of applied behavior analysis is prohibited in this state,” at a fine of $1,000 per violation (O.C.G.A. 43-7A-6, added by HB 412, effective July 1, 2023). A BCBA “residing and practicing in another state who temporarily provides applied behavior analysis services in this state to a resident of this state” may apply for a temporary license covering “not more than a total of 30 days within a calendar year” (43-7A-8), and the board licenses by reciprocity someone actively licensed in a state with comparable requirements that reciprocates with Georgia (43-7A-9). As enacted, Chapter 7A contains no telehealth exception.',
+          'Anthem’s ABA Provider Resource Guide (June 2025) lists BCBAs among approved providers, alongside “other mental health service providers licensed or authorized by the state in which they practice and recognized by the affiliated health plan Anthem to be eligible for reimbursement,” and sends providers to the state-specific Credentialing with Anthem pages; for telehealth it points to Anthem’s Virtual Visits reimbursement policy for the allowed codes. It does not say which state’s license a remote BCBA needs, so confirm with Anthem credentialing before treating a member remotely from another state.',
+        ],
+        cites: [
+          { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+          { title: 'Anthem — ABA Provider Resource Guide (multi-state incl. Georgia and Indiana, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID + plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) vs. small group (≤10 employees, exempt) — this determines what the plan owes.' },
@@ -469,12 +494,14 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Ava\'s Law — O.C.G.A. § 33-24-59.10', url: 'https://law.justia.com/codes/georgia/title-33/chapter-24/article-1/section-33-24-59-10/' },
       { title: 'Georgia Behavior Analyst Licensing Board', url: 'https://sos.ga.gov/georgia-behavior-analyst-licensing-board' },
       { title: 'Anthem Commercial Reimbursement Policy C-08002 — Virtual Visits, Professional and Facility (last approved 03/26/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/policy/reimb/C-08002.pdf' },
+      { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
     ],
     faq: [
       { q: 'Does Anthem BCBS Georgia cover ABA therapy?', a: 'Yes — Anthem reviews commercial ABA for medical necessity against MCG B-806-T, which replaced clinical guideline CG-BEH-02 for dates of service from June 1, 2024. Georgia\'s Ava\'s Law also mandates coverage in state-regulated plans for individuals 20 and under.' },
       { q: 'Does Anthem still use CG-BEH-02 for ABA in Georgia?', a: 'Not for commercial medical-necessity reviews. Anthem announced that for dates of service on or after June 1, 2024 it moved from CG-BEH-02 and MCG W0153 to MCG B-806-T. MCG criteria are licensed and not public, so ask Anthem for the criteria applied to your request. From January 1, 2026 Anthem also pays ABA claims against weekly approved units.' },
       { q: 'Is the $35,000 ABA cap in Ava\'s Law enforceable?', a: 'Against large-group plans covered by federal parity law, generally not — MHPAEA prohibits treatment limits on mental-health benefits that are stricter than medical/surgical benefits. Treat a payer applying the cap to a large-group member as a red flag to escalate.' },
       { q: 'Which plans are exempt from Ava\'s Law?', a: 'Self-funded ERISA plans (federal preemption) and employers with 10 or fewer employees. That\'s why intake should always capture the employer and funding type, not just the insurance card.' },
+      { q: 'Can an out-of-state BCBA treat Anthem members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Anthem’s ABA guide accepts BCBAs and providers “licensed or authorized by the state in which they practice”; confirm the license question with Anthem credentialing.' },
     ],
   },
 
@@ -651,6 +678,28 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           'Whether CareSource is taking new ABA groups right now is not published. The manual describes how to apply, not whether the network is open, so ask CareSource provider contracting. Individual practitioners must also meet DCH’s enrollment rules (Georgia licence, residence in Georgia or within 50 miles of the border).',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Georgia member, including by telehealth?',
+        body: [
+          'Georgia licenses the practice: “The unlicensed practice of applied behavior analysis is prohibited in this state,” at a fine of $1,000 per violation (O.C.G.A. 43-7A-6, added by HB 412, effective July 1, 2023). A BCBA “residing and practicing in another state who temporarily provides applied behavior analysis services in this state to a resident of this state” may apply for a temporary license covering “not more than a total of 30 days within a calendar year” (43-7A-8), and the board licenses by reciprocity someone actively licensed in a state with comparable requirements that reciprocates with Georgia (43-7A-9). As enacted, Chapter 7A contains no telehealth exception.',
+          'Georgia Medicaid adds a residence test. The ASD manual (July 2026): “To enroll as a Medicaid provider, the practitioner must reside in Georgia or within 50 miles of the Georgia border and must hold an active license issued by the Georgia BCBA Licensure Board.”',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in CareSource’s network has to be enrolled with Georgia Medicaid as well.',
+        ],
+        cites: [
+          { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+          { title: 'GA DCH — Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date July 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can CareSource authorize ABA retroactively in Georgia?',
+        body: [
+          'Within 30 days only. CareSource’s Georgia manual (DCH approved 7/22/2026): “Providers must submit a retro authorization within 30 calendar days of the service date, or discharge date for inpatient services where prior authorization was required but not obtained.” CareSource decides within 30 calendar days, and “Claims not meeting the requirement as described above will be administratively denied.” The manual still expects services that need authorization to be “authorized before the service is delivered.”',
+        ],
+        cites: [
+          { title: 'CareSource Georgia Medicaid Provider Manual (GA-MED-P-2890751a, DCH approved 7/22/2026)', url: 'https://www.caresource.com/documents/ga-provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'CareSource member ID', desc: 'Confirm the family is on CareSource (vs. another GA CMO or FFS) — it decides the whole PA path.' },
@@ -664,12 +713,16 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'GA DCH — Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date July 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf' },
       { title: 'GA DCH — Part II Policies and Procedures for Telehealth Guidance, version date October 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Telehealth%20Guidance%20Q4%20-%20October%202026%2020260921152812.pdf' },
       { title: 'CareSource Georgia Medicaid Provider Manual (GA-MED-P-2890751a, July 2026)', url: 'https://www.caresource.com/documents/ga-provider-manual.pdf' },
+      { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     faq: [
       { q: 'Does CareSource Georgia cover ABA therapy?', a: 'Yes — CareSource administers the Georgia Medicaid ABA benefit under policy MCD-MM-0212, aligned to the DCH ASD manual, with in-house prior authorization and medical review. Members must be under 21 with an ASD diagnosis.' },
       { q: 'What changed with CareSource ABA reimbursement in 2026?', a: 'CareSource says it notified certain Georgia ABA providers of reimbursement adjustments; the reported term is 80% of the Georgia Medicaid fee schedule from May 2026. The amendment is not published, so check your own CareSource agreement. Coverage is unchanged.' },
       { q: 'How is CareSource different from Georgia Medicaid fee-for-service?', a: 'The clinical rules align to the DCH ASD manual, but CareSource runs its own PA/medical-review process and requires a Plan of Care signed by the BCBA and the parent/guardian with each review. Always confirm the member\'s plan at intake.' },
       { q: 'Is the CareSource Georgia Medicaid ABA network open to new providers?', a: 'Enroll in Georgia Medicaid through GAMMIS, then request a CareSource contract (New Health Partner Contract Form or 1-855-202-1058). Credentialing is done by DCH’s centralized CVO, about 51 days for a complete application, and CareSource pays nothing before the approval date. CareSource does not publish whether its ABA network is open, so ask provider contracting.' },
+      { q: 'Can an out-of-state BCBA treat CareSource members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Georgia Medicaid enrolls only practitioners who live in Georgia or within 50 miles of its border and hold a Georgia license.' },
+      { q: 'Can CareSource authorize ABA retroactively in Georgia?', a: 'Only if you request it within 30 calendar days of the service date; CareSource decides within 30 days and administratively denies late requests.' },
     ],
   },
 
@@ -839,6 +892,28 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           'Whether Peach State is accepting new ABA groups is not published. Ask Provider Relations before you invest in credentialing. Individual practitioners must also meet DCH’s enrollment rules (Georgia licence, residence in Georgia or within 50 miles of the border).',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Georgia member, including by telehealth?',
+        body: [
+          'Georgia licenses the practice: “The unlicensed practice of applied behavior analysis is prohibited in this state,” at a fine of $1,000 per violation (O.C.G.A. 43-7A-6, added by HB 412, effective July 1, 2023). A BCBA “residing and practicing in another state who temporarily provides applied behavior analysis services in this state to a resident of this state” may apply for a temporary license covering “not more than a total of 30 days within a calendar year” (43-7A-8), and the board licenses by reciprocity someone actively licensed in a state with comparable requirements that reciprocates with Georgia (43-7A-9). As enacted, Chapter 7A contains no telehealth exception.',
+          'Georgia Medicaid adds a residence test. The ASD manual (July 2026): “To enroll as a Medicaid provider, the practitioner must reside in Georgia or within 50 miles of the Georgia border and must hold an active license issued by the Georgia BCBA Licensure Board.”',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Peach State’s network has to be enrolled with Georgia Medicaid as well.',
+        ],
+        cites: [
+          { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+          { title: 'GA DCH — Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date July 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
+      {
+        h2: 'Can Peach State authorize ABA retroactively?',
+        body: [
+          'Not through a retro-authorization request. Peach State’s 2026 manual: “For untimely requests for authorizations, providers and facilities are advised to submit the claim for processing. The claim will be denied for ‘services not authorized’ at which time the provider may initiate the appeal process.” A retrospective (post-service) review decision is made “within thirty (30) calendar days of receipt of the request.”',
+        ],
+        cites: [
+          { title: 'Peach State Health Plan Provider Manual (2026)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/pdfs/GA-INT-11666%20Provider%20Handbook%20Update%202026%20FINAL%202_R.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Peach State member ID', desc: 'Confirm the plan — it determines the PA process and forms.' },
@@ -851,12 +926,16 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'GA DCH — Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date July 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf' },
       { title: 'GA DCH — Part II Policies and Procedures for Telehealth Guidance, version date October 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Telehealth%20Guidance%20Q4%20-%20October%202026%2020260921152812.pdf' },
       { title: 'Peach State Health Plan Provider Manual (April 2026)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/pdfs/GA-INT-11666%20Provider%20Handbook%20Update%202026%20FINAL%202_R.pdf' },
+      { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     faq: [
       { q: 'Does Peach State Health Plan cover ABA therapy?', a: 'Yes — Peach State administers the Georgia Medicaid ABA benefit under policy GA.CP.BH.504, with prior-authorization criteria based on the DCH ASD manual, for members under 21 with ASD.' },
       { q: 'What are Peach State\'s ABA hour limits?', a: 'Generally no more than 6 hours/day up to 30 hours/week unless clinically justified, and under 20 hours/week for full-time students. Attendance below 80% of authorized hours requires justification.' },
       { q: 'Is Peach State staying a Georgia Medicaid CMO?', a: 'Peach State lost the December 2024 CMO rebid and filed a protest; the transition timeline has been in flux. Confirm the member\'s current plan and any transition at intake.' },
       { q: 'Is the Peach State Georgia Medicaid ABA network open to new providers?', a: 'Get credentialed by DCH’s centralized CVO through the GAMMIS portal, then ask Peach State Provider Relations for a contract. Peach State does not publish whether its ABA network is open, so ask Provider Relations.' },
+      { q: 'Can an out-of-state BCBA treat Peach State members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Georgia Medicaid enrolls only practitioners who live in Georgia or within 50 miles of its border and hold a Georgia license.' },
+      { q: 'Can Peach State authorize ABA retroactively?', a: 'No retro-authorization request route: submit the claim, let it deny for “services not authorized,” then appeal.' },
     ],
   },
 
@@ -1024,6 +1103,19 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           'Whether Amerigroup is accepting new ABA groups is not published. Ask Amerigroup network management. Individual practitioners must also meet DCH’s enrollment rules (Georgia licence, residence in Georgia or within 50 miles of the border).',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Georgia member, including by telehealth?',
+        body: [
+          'Georgia licenses the practice: “The unlicensed practice of applied behavior analysis is prohibited in this state,” at a fine of $1,000 per violation (O.C.G.A. 43-7A-6, added by HB 412, effective July 1, 2023). A BCBA “residing and practicing in another state who temporarily provides applied behavior analysis services in this state to a resident of this state” may apply for a temporary license covering “not more than a total of 30 days within a calendar year” (43-7A-8), and the board licenses by reciprocity someone actively licensed in a state with comparable requirements that reciprocates with Georgia (43-7A-9). As enacted, Chapter 7A contains no telehealth exception.',
+          'Georgia Medicaid adds a residence test. The ASD manual (July 2026): “To enroll as a Medicaid provider, the practitioner must reside in Georgia or within 50 miles of the Georgia border and must hold an active license issued by the Georgia BCBA Licensure Board.”',
+          'Federal rules make the state Medicaid enrollment rule binding on the plan: the state “must screen and enroll, and periodically revalidate, all network providers” of Medicaid managed care plans (42 CFR 438.602(b)(1)). So a BCBA in Amerigroup’s network has to be enrolled with Georgia Medicaid as well.',
+        ],
+        cites: [
+          { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+          { title: 'GA DCH — Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date July 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf' },
+          { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+        ],
+      },
     ],
     collect: [
       { title: 'Amerigroup member ID', desc: 'Confirm the plan and current CMO status at intake.' },
@@ -1036,11 +1128,14 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'GA DCH — Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date July 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder-Q3%20July%202026%2020260702131100.pdf' },
       { title: 'GA DCH — Part II Policies and Procedures for Telehealth Guidance, version date October 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Telehealth%20Guidance%20Q4%20-%20October%202026%2020260921152812.pdf' },
       { title: 'Amerigroup Georgia Medicaid Provider Manual (GA-AGP-CD-PM-003925-26)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_ProviderManual.pdf' },
+      { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+      { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
     ],
     faq: [
       { q: 'Does Amerigroup Georgia cover ABA therapy?', a: 'Yes — Amerigroup administers the Georgia Medicaid ABA benefit under its CG-BEH-02 adaptive behavioral treatment guideline, aligned to the DCH ASD manual, with prior authorization and medical-necessity review.' },
       { q: 'Is Amerigroup\'s Georgia ABA guideline current?', a: 'The publicly available version is dated 2017/2018 and is likely superseded. Verify the current guideline on the Amerigroup provider portal before relying on specific requirements.' },
       { q: 'Is the Amerigroup Georgia Medicaid ABA network open to new providers?', a: 'Get credentialed by DCH’s centralized CVO, then sign a participating agreement through Availity (Provider Enrollment and Network Management) or the Join Our Network link. Amerigroup does not publish whether its ABA network is open, so ask network management.' },
+      { q: 'Can an out-of-state BCBA treat Amerigroup members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Georgia Medicaid enrolls only practitioners who live in Georgia or within 50 miles of its border and hold a Georgia license.' },
     ],
   },
 
@@ -1239,6 +1334,17 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia Association for Behavior Analysis — licensure (HB 412)', url: 'https://www.georgia-aba.org/licensure' },
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Georgia member, including by telehealth?',
+        body: [
+          'Georgia licenses the practice: “The unlicensed practice of applied behavior analysis is prohibited in this state,” at a fine of $1,000 per violation (O.C.G.A. 43-7A-6, added by HB 412, effective July 1, 2023). A BCBA “residing and practicing in another state who temporarily provides applied behavior analysis services in this state to a resident of this state” may apply for a temporary license covering “not more than a total of 30 days within a calendar year” (43-7A-8), and the board licenses by reciprocity someone actively licensed in a state with comparable requirements that reciprocates with Georgia (43-7A-9). As enacted, Chapter 7A contains no telehealth exception.',
+          'Aetna’s own rule is written for telehealth explicitly. Its Network Participation Criteria (form 8100606-01-01, 5/26) bind every Hybrid and Virtual Only provider: “Providers must satisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located. As required by applicable law, providers must also hold licenses, registrations, and certifications in the state(s) in which they are physically located.” The ABA criteria add that BCBAs “must meet the current Aetna® credentialing and recredentialing standards” and that “All BCBAs, BCaBAs and paraprofessionals must meet state requirements.” So a BCBA treating a child located in Georgia by video must meet Georgia’s requirements as well as those of the state the BCBA works from, and only codes on Aetna’s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth.',
+        ],
+        cites: [
+          { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+          { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1254,11 +1360,14 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia Association for Behavior Analysis — licensure (HB 412)', url: 'https://www.georgia-aba.org/licensure' },
       { title: 'Aetna \u2014 Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna \u2014 Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+      { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Georgia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Georgia\'s mandate (O.C.G.A. § 33-24-59.10 (Ava’s Law)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Georgia autism mandate require?', a: 'Ava’s Law requires state-regulated accident and sickness plans (including the state employee health plan) to cover ASD treatment for individuals 20 years of age or under, with ABA nominally cappable at $35,000 per year — and no limits allowed on the number of visits. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Georgia?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Georgia Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'Can an out-of-state BCBA treat Aetna members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
     ],
   },
 
@@ -1462,6 +1571,17 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           'Evernorth publishes no ABA fee schedule. The guide sends questions about “credentialing, contracts, or rates” to your provider relations representative, so your rates are in your Evernorth contract.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Georgia member, including by telehealth?',
+        body: [
+          'Georgia licenses the practice: “The unlicensed practice of applied behavior analysis is prohibited in this state,” at a fine of $1,000 per violation (O.C.G.A. 43-7A-6, added by HB 412, effective July 1, 2023). A BCBA “residing and practicing in another state who temporarily provides applied behavior analysis services in this state to a resident of this state” may apply for a temporary license covering “not more than a total of 30 days within a calendar year” (43-7A-8), and the board licenses by reciprocity someone actively licensed in a state with comparable requirements that reciprocates with Georgia (43-7A-9). As enacted, Chapter 7A contains no telehealth exception.',
+          'Evernorth, which manages Cigna’s behavioral benefits, frames it as a compliance duty rather than a member-state rule. Its Administrative Guidelines (September 2026): “Providers must meet all state requirements to provide virtual behavioral services, including any licenses and certifications,” must “comply with their state laws about the use of audio or video-based technology,” and providers who meet the telehealth specialty requirements “may deliver services virtually with no additional credentialing” after attesting on the Attested Specialty Form, when Evernorth adds “telehealth” to the provider profile. The guidelines do not say in terms which state’s license a remote BCBA needs, so read “all state requirements” against Georgia’s licensure law above and confirm with Evernorth before a remote start.',
+        ],
+        cites: [
+          { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1475,12 +1595,15 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia Code § 33-24-59.10 (Ava\'s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' },
       { title: 'Autism Speaks — Georgia state-regulated coverage', url: 'https://www.autismspeaks.org/georgia-state-regulated-insurance-coverage' },
       { title: 'Georgia Association for Behavior Analysis — licensure (HB 412)', url: 'https://www.georgia-aba.org/licensure' },
+      { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+      { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     faq: [
       { q: 'Does Cigna cover ABA therapy in Georgia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Georgia\'s mandate (O.C.G.A. § 33-24-59.10 (Ava’s Law)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Georgia autism mandate require?', a: 'Ava’s Law requires state-regulated accident and sickness plans (including the state employee health plan) to cover ASD treatment for individuals 20 years of age or under, with ABA nominally cappable at $35,000 per year — and no limits allowed on the number of visits. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What is Cigna\u2019s fee schedule for ABA in Georgia?', a: 'Evernorth (Cigna\u2019s behavioral health arm) publishes no ABA fee schedule. Its autism resource guide sends questions about credentialing, contracts or rates to your provider relations representative, so the rate is in your Evernorth contract.' },
       { q: 'How do I join Cigna\u2019s ABA network in Georgia?', a: 'Apply to Evernorth: individuals use the Evernorth Behavioral Provider Information Form and autism clinics the Screening Application for Autism Clinics. Allow up to 90 days for the application and another 60 to 90 days to credential each provider after the clinic contract. Technicians are not credentialed; their services bill under the supervising provider.' },
+      { q: 'Can an out-of-state BCBA treat Cigna members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
     ],
   },
 
@@ -1689,6 +1812,17 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare does not publish a commercial ABA rate table; Optum administers the behavioral health benefit and pays under your participation agreement. Optum\u2019s Telehealth Billing guide (September 2025) tells providers that “participating (contracted) network providers should use the applicable CPT code(s) listed on their fee schedule,” and that payment “may also be subject to benefit plan provisions and prior authorization requirements.” Optum\u2019s commercial ABA reimbursement policy (2022RP501A) sets how the claim is built rather than the price: 97151\u201397158 with a credential modifier (HM for an RBT, HN for a BCaBA, and so on), 15-minute units counted the CMS way, and indirect work “bundled with direct services for consideration of reimbursement.” For rates, ask Optum network management or check your agreement.',
         ],
       },
+      {
+        h2: 'Can an out-of-state BCBA treat a Georgia member, including by telehealth?',
+        body: [
+          'Georgia licenses the practice: “The unlicensed practice of applied behavior analysis is prohibited in this state,” at a fine of $1,000 per violation (O.C.G.A. 43-7A-6, added by HB 412, effective July 1, 2023). A BCBA “residing and practicing in another state who temporarily provides applied behavior analysis services in this state to a resident of this state” may apply for a temporary license covering “not more than a total of 30 days within a calendar year” (43-7A-8), and the board licenses by reciprocity someone actively licensed in a state with comparable requirements that reciprocates with Georgia (43-7A-9). As enacted, Chapter 7A contains no telehealth exception.',
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, is explicit. Its National Network Manual (effective September 1, 2026): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service. In addition, providers must comply with all licensing laws and telehealth regulations in the jurisdiction(s) where the provider is licensed and where the member is receiving treatment.” For a child located in Georgia, that means a Georgia license before the first remote session.',
+        ],
+        cites: [
+          { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1706,12 +1840,15 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+      { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Georgia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Georgia\'s mandate (O.C.G.A. § 33-24-59.10 (Ava’s Law)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Georgia autism mandate require?', a: 'Ava’s Law requires state-regulated accident and sickness plans (including the state employee health plan) to cover ASD treatment for individuals 20 years of age or under, with ABA nominally cappable at $35,000 per year — and no limits allowed on the number of visits. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What is UnitedHealthcare\u2019s fee schedule for ABA in Georgia?', a: 'There is no public one. Optum tells participating providers to bill “the applicable CPT code(s) listed on their fee schedule,” meaning the schedule in your Optum agreement, with payment subject to the member\u2019s benefits and prior authorization. Ask Optum network management for rates.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
     ],
   },
 };
