@@ -17,10 +17,10 @@ const BEFORE: Mark[] = [
 ];
 const AFTER: Mark[] = [
   { at: 0, label: 'Form filled', sub: 'Friday, 9pm' },
-  { at: 10, label: 'Pre-approved', sub: 'Seconds later' },
-  { at: 24, label: 'Releases signed', sub: 'Same visit, on a phone' },
-  { at: 38, label: 'Benefits verified', sub: 'In the background' },
-  { at: 52, label: 'Intake complete', sub: 'Before Monday' },
+  { at: 16, label: 'Pre-approved', sub: 'Seconds later' },
+  { at: 32, label: 'Releases signed', sub: 'Same visit, on a phone' },
+  { at: 48, label: 'Benefits verified', sub: 'In the background' },
+  { at: 64, label: 'Intake complete', sub: 'Before Monday' },
 ];
 
 function Track({ title, marks, tone }: { title: string; marks: Mark[]; tone: 'before' | 'after' }) {
