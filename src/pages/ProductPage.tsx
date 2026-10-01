@@ -1,12 +1,12 @@
 import DemoModalHost from '../components/DemoModal';
 import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
-import { Nav } from './Landing';
+import { Nav, ChannelsHub, ChecklistVisual, HandoffVisual, ProductPeek } from './Landing';
 import SiteFooter from '../components/SiteFooter';
 import ChannelHub from '../components/product/ChannelHub';
 import SpeedTimeline from '../components/product/SpeedTimeline';
 import JourneyStepper, { type JourneyStep } from '../components/product/JourneyStepper';
-import ProductGallery, { type Shot } from '../components/product/ProductGallery';
+import { VerdictVisual, ConsentVisual, FollowUpVisual } from '../components/product/JourneyVisuals';
 
 /* ================================================================
    CARELU — PRODUCT
@@ -59,23 +59,13 @@ const BREAKS = [
 
 
 const JOURNEY: JourneyStep[] = [
-  { who: 'Family', title: 'It starts with a short form', body: 'Maya finds Brightway ABA on Google at 9pm and fills out a form that looks like the clinic’s own. Just an email to start. No twenty-question wall.', points: ['Your branding, on your own web address', 'Text consent captured up front'], img: '/product/family-01-start-gate.webp', device: 'phone', alt: 'The intake start screen: Get Started with ABA Therapy, with an email field' },
-  { who: 'Carelu', title: 'An answer in seconds', body: 'State, age, diagnosis and insurance are checked against the clinic’s own rules. Maya learns on the spot that Leo is pre-approved, and goes straight into intake while she’s still ready.', points: ['Pre-approved, case by case, or outside your area', 'Families you can’t serve are sorted out, with a reason'], img: '/product/family-04-verdict-preapproved.webp', device: 'phone', alt: 'The verdict screen: You’re pre-approved, you may qualify for care' },
-  { who: 'Family', title: 'Every consent, signed once', body: 'The clinic’s own consent and release forms, personalized with Leo’s details. Maya taps to agree to each one and signs once for all of them.', points: ['Your documents, state by state', 'Each one filed as its own signed PDF'], img: '/product/family-07-consent-signed.webp', device: 'phone', alt: 'Consent forms agreed and signed with one typed signature' },
-  { who: 'Carelu', title: 'Documents checked as they arrive', body: 'Maya snaps photos of Leo’s diagnosis report and insurance card. Carelu reads each one and tells her right away if it’s the right document.', points: ['A referral isn’t mistaken for a diagnosis', 'No report? Look up the doctor and a release is generated'], img: '/product/family-09-documents-uploaded.webp', device: 'phone', alt: 'Diagnosis report and insurance cards uploaded, each marked looks right' },
-  { who: 'Family', title: 'The clinical intake, tap by tap', body: 'Availability, behaviors, goals and history, built from your BCBA’s questionnaire. Mostly taps, in English or Spanish, and it saves as she goes.', points: ['Follow-up questions only where they matter', 'Stop anytime and pick up at the same step'], img: '/product/family-12-behavioral-questionnaire.webp', device: 'phone', alt: 'Behavior questionnaire with options to select' },
-  { who: 'Family', title: 'Done, in one sitting', body: 'Maya finishes before bed. No callback to wait for, no packet to print, nothing to chase.', img: '/product/family-14-complete.webp', device: 'phone', alt: 'Completion screen: You’re all set, Maya' },
-  { who: 'Your team', title: 'Every family, every stage', body: 'In the morning your coordinators see every family by stage: new, qualified, intake complete, converted. Who owns each one, and what’s still missing.', points: ['Table or pipeline view', 'Saved views for each coordinator or state'], img: '/product/team-07-pipeline-board.webp', device: 'desktop', alt: 'Pipeline board with families in New, Qualified, Intake Complete, Converted and Disqualified' },
-  { who: 'Your team', title: 'The whole story on one page', body: 'An AI summary, every answer, every signed consent and document, the next task, and a complete intake packet ready to download or send to your CRM.', points: ['Edit answers while you’re on the phone', 'Send a pre-filled link for anything missing'], img: '/product/team-record.webp', device: 'desktop', alt: 'A family record with AI summary, open task and patient profile' },
-  { who: 'Carelu', title: 'Benefits verified', body: 'Coverage, deductible and out-of-pocket costs, checked automatically and reviewed by a specialist, often before anyone asks for an insurance card.', img: '/product/team-benefits.webp', device: 'desktop', alt: 'Benefits verification: verified, in network, with deductible and out-of-pocket maximum' },
-  { who: 'Carelu', title: 'Nobody falls through', body: 'Families who stop halfway get follow-ups that ask for exactly what’s missing, from your coordinator’s own email and number, with a link back to the step they left.', points: ['You approve before anything is sent', 'Flows for unfinished intakes and missing diagnoses'], img: '/product/team-10-outreach-flows.webp', device: 'desktop', alt: 'Outreach flows: Finish your intake and No diagnosis yet' },
-];
-
-const GALLERY: Shot[] = [
-  { src: '/product/team-09b-service-area-new-jersey-detail.webp', title: 'Your rules, per state', caption: 'Which insurers you take, ages, diagnosis rules and ZIPs, set for each state you serve.', alt: 'Service area settings for New Jersey with in-network insurers' },
-  { src: '/product/team-08-forms-builder.webp', title: 'Your intake, your way', caption: 'Every page and question of your intake, built from your packet and easy to change.', alt: 'Forms builder showing intake pages' },
-  { src: '/product/team-12-home-priorities.webp', title: 'Your team’s day, prioritized', caption: 'Each coordinator starts the day with the calls and tasks that move families forward.', alt: 'Home page with today’s priorities' },
-  { src: '/product/team-11-reporting-overview.webp', title: 'Ask anything about your data', caption: 'Families captured, qualified and converted, and plain-English answers to your questions.', alt: 'Reporting overview with an ask-anything box and key numbers' },
+  { who: 'Family', title: 'It starts with the first touch', body: 'A parent reaches out at 9pm on a Friday. By phone, text, chat, your website form, a Facebook ad or a doctor’s fax. It doesn’t matter which. Carelu is there in seconds.', points: ['Every channel, one front door', 'English and Spanish, any hour'], visual: <ChannelsHub /> },
+  { who: 'Carelu', title: 'An answer on the spot', body: 'Carelu checks the family against your rules for their state: location, age, diagnosis and insurance. Families you can serve hear yes right away and keep going.', points: ['Pre-approved, case by case, or outside your area', 'Families you can’t serve are sorted out, with a reason'], visual: <VerdictVisual /> },
+  { who: 'Family', title: 'Your intake, on their phone', body: 'Your own consents and releases, personalized for their child. They agree to each one and sign once. Then your clinical questions, tap by tap.', points: ['Built from your packet, state by state', 'Save and pick up at the same step'], visual: <ConsentVisual /> },
+  { who: 'Carelu', title: 'Documents and benefits, checked', body: 'Insurance cards and diagnosis reports are read as they arrive, and benefits are verified in the background, often before anyone asks for a card.', points: ['A referral isn’t mistaken for a diagnosis', 'Coverage and costs, reviewed by a specialist'], visual: <ChecklistVisual /> },
+  { who: 'Carelu', title: 'Nobody falls through', body: 'If a family stops halfway, Carelu follows up from your coordinator’s own email and number, asks for exactly what’s missing, and links them back to the step they left.', points: ['You approve before anything is sent', 'Phone tasks for your team when a call matters'], visual: <FollowUpVisual /> },
+  { who: 'Your team', title: 'A ready case, handed off', body: 'Signed, documented and verified. The complete intake packet lands with your team and in your CRM, ready to schedule the assessment.', visual: <HandoffVisual /> },
+  { who: 'Your team', title: 'Watch it do the work', body: 'Every family in your pipeline in real time. Ask anything about your intake in plain English, and see what each channel delivers.', visual: <ProductPeek /> },
 ];
 
 const MODULES = [
@@ -147,36 +137,6 @@ function DemoButton({ label = 'Get a Demo' }: { label?: string }) {
   );
 }
 
-/* A small phone mock of the moment that matters: the instant verdict. */
-function VerdictPhone() {
-  const row: React.CSSProperties = { display: 'flex', justifyContent: 'space-between', padding: '9px 0', borderBottom: '1px solid #EDE8DC', fontSize: 13 };
-  return (
-    <div style={{ width: 'min(300px, 100%)', borderRadius: 38, background: FOREST, padding: 12, boxShadow: '0 24px 60px rgba(26,46,31,0.22)' }}>
-      <div style={{ background: '#fff', borderRadius: 28, padding: '20px 18px 22px', color: TEXT }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: '#8C8674', marginBottom: 10 }}>
-          <span>intake.yourclinic.com</span><span>Step 2 of 6</span>
-        </div>
-        <div style={{ height: 5, background: '#EDE8DC', borderRadius: 3, marginBottom: 16 }}>
-          <div style={{ width: '38%', height: '100%', background: LEAF, borderRadius: 3 }} />
-        </div>
-        <div style={{ background: '#F0F5EE', border: '1px solid #D4E4CF', borderRadius: 18, padding: 16, textAlign: 'center' }}>
-          <div style={{ width: 38, height: 38, borderRadius: '50%', background: LEAF, color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 8 }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12l5 5L20 6" /></svg>
-          </div>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: INK, lineHeight: 1.15 }}>You’re pre-approved for care</div>
-          <div style={{ fontSize: 12.5, color: '#8C8674', marginTop: 6 }}>Take two minutes now and save two weeks.</div>
-        </div>
-        <div style={{ marginTop: 10 }}>
-          <div style={row}><span>Service area</span><span style={{ color: LEAF, fontWeight: 600 }}>Covered</span></div>
-          <div style={row}><span>Insurance</span><span style={{ color: LEAF, fontWeight: 600 }}>In network</span></div>
-          <div style={row}><span>Benefits check</span><span style={{ color: LEAF, fontWeight: 600 }}>Running</span></div>
-        </div>
-        <div style={{ marginTop: 16, background: FOREST, color: BONE, textAlign: 'center', borderRadius: 100, padding: 11, fontSize: 14, fontWeight: 600 }}>Continue my intake</div>
-      </div>
-    </div>
-  );
-}
-
 export default function ProductPage() {
   useReveal();
   useSeo({
@@ -191,30 +151,39 @@ export default function ProductPage() {
       <Nav base="/carelu" />
 
       {/* Hero */}
-      <section style={{ paddingTop: 'clamp(140px, 16vw, 200px)' }}>
+      <section style={{ paddingTop: 'clamp(150px, 18vw, 210px)', textAlign: 'center' }}>
         <div style={W}>
-          <div className="pp-hero" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 'clamp(32px, 5vw, 64px)', alignItems: 'center' }}>
-            <div>
-              <div className="rv"><Eyebrow>The Carelu platform</Eyebrow></div>
-              <h1 className="rv-scale d1" style={{
-                fontFamily: 'var(--font-display)', fontSize: 'clamp(40px, 5.8vw, 78px)',
-                fontWeight: 400, color: INK, lineHeight: 1.04, letterSpacing: '-0.025em', margin: 0,
-              }}>
-                Every family answered. <em style={{ color: LEAF }}>Every intake finished.</em>
-              </h1>
-              <p className="rv d2" style={{ fontSize: 'clamp(16px, 1.5vw, 19px)', color: MUTED, lineHeight: 1.65, maxWidth: 560, margin: '24px 0 0' }}>
-                Carelu runs your intake from the first message to a complete, benefits-verified intake packet. Families get an answer the moment they reach out. Your team spends its time with families who are ready to start.
-              </p>
-              <div className="rv d3" style={{ display: 'flex', gap: 12, marginTop: 34, flexWrap: 'wrap' }}>
-                <DemoButton />
-                <a href="#how-it-works" style={{
-                  display: 'inline-flex', alignItems: 'center', fontSize: 15, fontWeight: 600, color: INK,
-                  padding: '14px 26px', borderRadius: 100, textDecoration: 'none',
-                  border: '1.5px solid rgba(43,42,38,0.25)',
-                }}>See how it works</a>
-              </div>
-            </div>
-            <div className="rv d2 pp-phone" style={{ display: 'flex', justifyContent: 'center' }}><VerdictPhone /></div>
+          <div className="rv">
+            <span style={{
+              display: 'inline-block', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase',
+              color: INK, background: '#fff', padding: '10px 20px', borderRadius: 100,
+              border: '1px solid rgba(0,0,0,0.06)', boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)',
+            }}>The Carelu platform</span>
+          </div>
+          <h1 className="rv-scale d1" style={{
+            fontFamily: 'var(--font-display)', fontSize: 'clamp(40px, 5.8vw, 78px)',
+            fontWeight: 400, color: INK, lineHeight: 1.04, letterSpacing: '-0.025em', margin: '26px auto 0', maxWidth: 860,
+          }}>
+            Every family answered.<br /><em>Every intake finished.</em>
+          </h1>
+          <p className="rv d2" style={{ fontSize: 'clamp(16px, 1.5vw, 19px)', color: MUTED, lineHeight: 1.65, maxWidth: 620, margin: '24px auto 0' }}>
+            Carelu runs your intake from the first message to a complete, benefits-verified intake packet, so your team spends its time with families who are ready to start.
+          </p>
+          <div className="rv d3" style={{ display: 'inline-flex', gap: 12, marginTop: 34, flexWrap: 'wrap', justifyContent: 'center' }}>
+            <DemoButton />
+            <a href="#how-it-works" style={{
+              display: 'inline-flex', alignItems: 'center', fontSize: 15, fontWeight: 600, color: INK,
+              padding: '14px 26px', borderRadius: 100, textDecoration: 'none', border: '1.5px solid rgba(43,42,38,0.25)',
+            }}>See how it works</a>
+          </div>
+        </div>
+        <div style={{ ...W, marginTop: 'clamp(48px, 6vw, 80px)' }}>
+          <div className="rv-scale d2" style={{
+            position: 'relative', borderRadius: 32, overflow: 'hidden',
+            padding: 'clamp(40px, 7vw, 96px) clamp(16px, 4vw, 48px)',
+            background: `linear-gradient(180deg, rgba(250,248,243,0) 55%, rgba(250,248,243,0.55) 100%), url(/hero-sky-1920.jpg) center 35% / cover no-repeat`,
+          }}>
+            <HandoffVisual />
           </div>
         </div>
       </section>
@@ -263,8 +232,8 @@ export default function ProductPage() {
         <div style={W}>
           <div className="rv" style={{ maxWidth: 760 }}>
             <Eyebrow>How it works</Eyebrow>
-            <h2 style={H2}>Then Carelu takes it from there</h2>
-            <p style={{ ...BODY, fontSize: 17, marginTop: 18 }}>Follow one family, Maya and her son Leo, from the first form to a finished intake, and see what your team sees on the other side. These are real Carelu screens with a sample clinic and sample families.</p>
+            <h2 style={H2}>How Carelu does it, step by step</h2>
+            <p style={{ ...BODY, fontSize: 17, marginTop: 18 }}>Follow one family from the first message to a finished intake, and see what your team sees on the other side.</p>
           </div>
           <div style={{ marginTop: 48 }}>
             <JourneyStepper steps={JOURNEY} />
@@ -289,18 +258,6 @@ export default function ProductPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Under the hood: more real screens */}
-      <section style={SECTION}>
-        <div style={W}>
-          <div className="rv" style={{ maxWidth: 720 }}>
-            <Eyebrow>Under the hood</Eyebrow>
-            <h2 style={H2}>Built around how your clinic runs</h2>
-            <p style={{ ...BODY, fontSize: 17, marginTop: 18 }}>Your rules, your forms, your team’s day. Click any screen to see it full size.</p>
-          </div>
-          <div style={{ marginTop: 40 }}><ProductGallery shots={GALLERY} /></div>
         </div>
       </section>
 

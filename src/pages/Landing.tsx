@@ -1212,7 +1212,7 @@ const HANDOFF_CASES = [
   { name: 'Ava T., age 5', detail: 'Cigna PPO \u00b7 Re-evaluation', photo: '/kids/kid-4.jpg' },
 ];
 
-function HandoffVisual() {
+export function HandoffVisual() {
   const milestones = ['Intake', 'Insurance', 'Forms', 'Schedule', 'Ready'];
   const [filled, setFilled] = useState(0);
   const [caseIdx, setCaseIdx] = useState(0);
@@ -1462,7 +1462,7 @@ function HandoffVisual() {
 }
 
 // ── CHECKLIST VISUAL — each row's icon goes idle → loading-spinner → check (cascading) ──
-function ChecklistVisual() {
+export function ChecklistVisual() {
   const items = [
     { label: 'Insurance verified', sub: 'Blue Cross PPO', done: true },
     { label: 'Consent form', sub: 'Signed', done: true },
@@ -1599,7 +1599,7 @@ function ChecklistVisual() {
 }
 
 // ── CHANNELS HUB — sequential reveal: center first, then each pill clockwise ──
-function ChannelsHub() {
+export function ChannelsHub() {
   const channels = [
     { name: 'Phone', soon: false },
     { name: 'Text', soon: false },
@@ -2724,7 +2724,7 @@ function PrReporting() {
 /* The product on mobile: a scaled-down live app frame inside step IV's
    stacked card. The screens take turns on a gentle timer while in view
    (desktop gets the full-stage ProductStage instead). */
-function ProductPeek() {
+export function ProductPeek() {
   const [tab, setTab] = useState(0);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.45);
