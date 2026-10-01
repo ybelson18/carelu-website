@@ -110,7 +110,9 @@ def sync_dir(web_dir, lt_dir, suffix, report):
             if kept:
                 report.append(f'{os.path.basename(lt_dir)}/{f}: kept LeadTrap-only {kept}')
         elif not os.path.exists(lp):
-            report.append(f'NEW {f} (register it in index.ts)')
+            # source-requests.ts is read by LeadTrap's VobSourceRefreshTask
+            # directly, not registered in index.ts.
+            report.append(f'NEW {f}' + ('' if f == 'source-requests.ts' else ' (register it in index.ts)'))
         open(lp, 'w').write(web)
 
 
