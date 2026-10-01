@@ -414,7 +414,11 @@ function LoginScreen({ onSuccess, onNotConfigured }: { onSuccess: () => void; on
       <form onSubmit={submit} style={{ width: '100%', maxWidth: 400, background: '#fff', borderRadius: 20, padding: 'clamp(28px, 4vw, 40px)', boxShadow: '0 12px 48px rgba(0,0,0,0.08)' }}>
         <img src="/carelu-logo.svg" alt="Carelu" style={{ height: 26, width: 'auto', display: 'block', margin: '0 auto 22px', opacity: 0.9 }} />
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 400, color: INK, textAlign: 'center', margin: '0 0 6px', letterSpacing: '-0.01em' }}>Source Documents</h1>
-        <p style={{ fontSize: 13.5, color: MUTE, textAlign: 'center', margin: '0 0 24px', lineHeight: 1.5 }}>Sign in to upload payer-source documents.</p>
+        <p style={{ fontSize: 13.5, color: MUTE, textAlign: 'center', margin: '0 0 14px', lineHeight: 1.5 }}>Sign in to upload payer-source documents.</p>
+        {/* Retired for new requests (2026-10-01): they are filed on LeadTrap's board now. */}
+        <p style={{ fontSize: 13, color: INK, background: 'rgba(63,122,52,0.08)', borderRadius: 10, padding: '10px 12px', margin: '0 0 22px', lineHeight: 1.5 }}>
+          New document requests are on the LeadTrap <strong>Source documents</strong> board (VOB Review &rarr; Source documents). Upload there.
+        </p>
         <input
           type="text"
           value={username}

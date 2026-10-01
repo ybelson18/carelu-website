@@ -4,8 +4,10 @@ You are the monthly refresh agent for Carelu's ABA payer directory (carelu.com/p
 THREE repos are cloned in your workspace:
 
 - **carelu-website** — the site + VOB data + public API; pushes to main auto-deploy via Vercel.
-- **carelu-sources** — PRIVATE document pipeline: `requests.json`, `events.json`, `inbox/`,
-  `processed/` — fronted by the team app at https://www.carelu.com/sources.
+- **carelu-sources** — PRIVATE repo: `ask-usage/` (payer-chat logs, step 8), `inbox/` and
+  `processed/`. Its `requests.json` / `events.json` and the carelu.com/sources upload page are
+  RETIRED for new requests (2026-10-01): requests now live in this repo's
+  `src/data/payers/source-requests.ts` and appear on LeadTrap's Source documents board.
 - **LeadTrap** — the product monorepo. Its `backend/src/data/payer-guides/` holds a vendored
   copy of this directory that the live VOB flow, review queue, and payer-call agent read.
 
@@ -73,16 +75,21 @@ primary source you actually fetched (or a human-uploaded copy of it) confirms it
 
 ## PHASE 0 — SOURCE INBOX (always first)
 
-0a. List `carelu-sources/inbox/`. For each uploaded file: match it to its request in
-`requests.json` (REQ-number filename). Read the document; verify and apply the facts it
-unblocks in guide prose AND vob layers (fields `'unverified'` whose `verifyVia` names this
-document). Cite the OFFICIAL source URL from the request (not the repo copy) with this
-month's accessDate.
+Where documents come from (changed 2026-10-01): people upload on LeadTrap's **Source documents**
+board (LeadTrap admin → VOB Review → Source documents). This refresh cannot read that board's
+files yet, so an operator copies each RECEIVED document from the board into
+`carelu-sources/inbox/`, named after the request's `key` in `source-requests.ts` (or its board
+REQ id), until LeadTrap exposes them directly.
 
-0b. In `requests.json` set that request's status `fulfilled` + `fulfilledAt`; `git mv` the file to
-`processed/`; append an `events.json` entry
-`{ts, type:'request-fulfilled', summary:'<title> processed — <N> fields verified', refId:'REQ-xxx'}`.
-Commit and push carelu-sources.
+0a. List `carelu-sources/inbox/`. For each file: match it to its entry in
+`src/data/payers/source-requests.ts` (or, for old files, `requests.json`). Read the document;
+verify and apply the facts it unblocks in guide prose AND vob layers (fields `'unverified'`
+whose `verifyVia` names this document). Cite the OFFICIAL source URL from the request (not the
+repo copy) with this month's accessDate.
+
+0b. Set that entry's `status: 'resolved'` with a one-line `resolution` in `source-requests.ts`
+(LeadTrap fulfills the board request on its next deploy); `git mv` the file to `processed/`;
+commit and push carelu-sources.
 
 ## PHASE 1 — VERIFY
 
@@ -145,8 +152,8 @@ fetching the named document, then either correct the guide (and note it in the c
 `resolvedAt` and a one-line `resolution`. Never resolve one by reasoning alone.
 
 3d. DOCUMENT REQUESTS — `documentRequests` mirrors what PHASE 0 processes: these are the
-sources that blocked a fact this cycle. Open a real request in `carelu-sources/requests.json`
-for any that does not already have one (step 5c), and cross-reference the REQ id back here.
+sources that blocked a fact this cycle. Open a real request in `src/data/payers/source-requests.ts`
+for any that does not already have one (step 5c), and cross-reference its `key` back here.
 
 3e. COVERAGE AUDIT — run `npm run payers:coverage` at the START and END of the refresh.
 It reports, per field, how many of the guides carry it. This is the directory's completeness
@@ -269,14 +276,18 @@ counts). Zero changes → still append the "All sources re-verified; no policy c
 heartbeat.
 
 5c. NEW DOCUMENT REQUESTS: for every document you needed but could not fetch, append an
-entry to `carelu-sources/requests.json` (next REQ id, title, officialUrl_note with the URL,
-unblocks, status 'open', requestedAt) + an `events.json` `{type:'request-opened'}` entry. No
-duplicates of existing open requests.
+entry to `src/data/payers/source-requests.ts`: a new permanent `key`
+(`carelu-<yyyy-mm-dd>-<short-slug>`, never reused), `title`, `note` (where/how to get it, with
+the official URL first), `unblocks`, `requestedAt`, `status: 'open'`. Append only; no duplicates
+of an open entry. A request you settle another way: set `status: 'resolved'` + `resolution`.
+The file rides the PHASE 4 sync into LeadTrap, whose next deploy opens (or fulfills) the
+requests on the Source documents board. Do NOT write `carelu-sources/requests.json` or open
+requests on the board by hand: the board numbers requests itself, and two writers caused
+clashing REQ ids on 2026-10-01.
 
-5d. EVENTS: append ONE `events.json` entry `{type:'refresh-completed', summary:'<Month>
-refresh: N changes applied, M sources checked, K unreachable'}` — the app's heartbeat depends
-on this. If the refresh FAILED or was partial, append `{type:'refresh-issue', summary:'<what
-went wrong>'}` instead — never skip both.
+5d. RUN RECORD: the refresh report (PHASE 5) and the Slack post (step 11) are the run's record.
+Do not append to `carelu-sources/events.json` (retired with the old upload page; LeadTrap's
+board keeps its own history).
 
 6. Completed full sweep → bump `PAYER_REVIEWED` in `types.ts`.
 7. Validate: `npm install && npm run build` must pass; cannot pass →
@@ -292,7 +303,7 @@ there separately, e.g. `npx esbuild api/ask.ts --outfile=/dev/null`.
 ## PHASE 3 — SHIP
 
 8. carelu-website: commit `Monthly payer directory refresh: <Month Year> (<N> verified
-updates)`, `git pull --rebase`, push main. Push carelu-sources changes too.
+updates)`, `git pull --rebase`, push main. Push carelu-sources changes (inbox → processed) too.
 
 ## PHASE 4 — LEADTRAP SYNC (PR only — NEVER push LeadTrap main)
 
@@ -360,8 +371,9 @@ guides shipped and fields filled this month, how many worklist entries remain op
 
 11. Slack (POST `{"text": "..."}` plain text to
 https://hooks.slack.com/triggers/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):
-(a) the refresh outcome in 2-3 sentences; (b) for EACH open document request, one line:
-`<title> — get it: <official URL> — upload it: https://www.carelu.com/sources#REQ-xxx`;
+(a) the refresh outcome in 2-3 sentences; (b) for EACH document request opened this run, one
+line: `<title> — get it: <official URL>`, and one closing line: "Upload on LeadTrap → VOB
+Review → Source documents once the sync PR is merged and deployed";
 (c) the LeadTrap sync PR link (or its failure); (d) if there were issues, lead with `ISSUE:`.
 If no open requests, say so.
 

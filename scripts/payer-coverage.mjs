@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const DIR = 'src/data/payers';
-const SKIP = new Set(['types.ts', 'index.ts', 'changelog.ts']);
+const SKIP = new Set(['types.ts', 'index.ts', 'changelog.ts', 'source-requests.ts']);
 
 // Structured fields every guide should carry a value for, where the payer publishes one.
 const TOP = ['cardDesc', 'assessmentPA', 'treatmentPA', 'dxRequired', 'family', 'state', 'kind'];
