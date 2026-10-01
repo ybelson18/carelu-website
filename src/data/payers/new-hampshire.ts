@@ -48,6 +48,18 @@ const S: Record<string, PayerSource> = {
   en0499: { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
   cignaARG: { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
   optumSCC: { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+  rsa167: { title: 'RSA 167:4-d — Medicaid Coverage of Telehealth Services', url: 'https://www.gencourt.state.nh.us/rsa/html/XII/167/167-4-d.htm' },
+  rsa415J: { title: 'RSA 415-J — New Hampshire Telemedicine Act (415-J:3 coverage for telemedicine services)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/415-J/415-J-mrg.htm' },
+  p32Tele: { title: 'Point32Health Payment Policy — Telehealth/Telemedicine (rev. 07/2026)', url: 'https://www.point32health.org/documents/telehealth-ent-pp' },
+  aetnaOM: { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+  optumTele: { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
+  optumNNM: { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+  ebhAdmin: { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+  optumReimb: { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+  nhhfIQ: { title: 'NH Healthy Families — Retirement of ABA Clinical Policy CP.BH.104 and Transition to InterQual® Criteria (notice 04/28/2026, eff. 6/1/2026)', url: 'https://www.nhhealthyfamilies.com/content/dam/centene/NH%20Healthy%20Families/Medicaid/pdfs/NHHF_ABA_Transition_To_InterQual_04282026.pdf' },
+  nhhf105: { title: 'NH Healthy Families — Clinical Policy CP.BH.105, Applied Behavioral Analysis Documentation Requirements (last revised 11/23)', url: 'https://www.nhhealthyfamilies.com/content/dam/centene/NH%20Healthy%20Families/Medicaid/Policies/ClinicalPolicies/CP.BH.105.pdf' },
+  aetnaTele: { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
+  aetnaNPC: { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
   optumSM: { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
 };
 
@@ -137,7 +149,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Commercial coverage is billed first and its PA rules must be followed; Medicaid only picks up what is left.' },
       { title: 'Age', desc: 'EPSDT covers members under 21. No adult ABA benefit was found.' },
     ],
-    sources: [S.heW500, S.mcm, S.form272A, S.saInstr, S.fee, S.mmisDocs, S.nonPrimary, S.acnhPM, S.wsPM, S.nhhfTip, S.bacbLic, S.cfr440, S.cfr433],
+    sources: [S.heW500, S.mcm, S.form272A, S.saInstr, S.fee, S.mmisDocs, S.nonPrimary, S.acnhPM, S.wsPM, S.nhhfTip, S.bacbLic, S.cfr440, S.cfr433, S.rsa167],
     deliveryRules: {
       supervision: {
         value: 'No numeric ratio is published. The only written NH Medicaid ABA staffing rule, He-W 589.04(ah), requires a BCBA with a BACB supervisory certification when supervising, and lets a rehabilitation assistant, BCaBA or RBT deliver ABA "under the appropriate supervision of" that BCBA. It appears in the Medicaid to Schools rule; no separate supervision rule for home or clinic ABA was found.',
@@ -205,11 +217,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.heW500, S.form272A, S.saInstr],
       },
       telehealth: {
-        value: 'Not addressed in any NH Medicaid ABA source read (Form 272A, the SA instructions, the fee schedule, He-W 546 or He-W 589).',
-        status: 'unverified',
-        cites: [S.form272A, S.fee],
-        verifyVia: 'NH Medicaid Provider Relations, (866) 291-1674, or the member’s health plan: ask which ABA codes are payable by telehealth and with which POS code.',
-        blocker: 'document',
+        value: 'Yes, by statute. RSA 167:4-d requires the Medicaid program to “provide coverage and reimbursement for health care services provided through telemedicine on the same basis as the Medicaid program provides coverage and reimbursement for health care services provided in person,” with “no restriction on eligible originating or distant sites” (the child’s home counts) and reimbursement for “all modes of telehealth, including video and audio, audio-only, or other electronic media … for all medically necessary services.” Its list of providers who may use all modes names “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of a person certified by the national behavior analyst certification board.” So the BCBA assessment (97151/97152), supervision with protocol modification (97155) and technician and family services are inside the statute, subject to medical necessity; the statute names no in-person minimum for supervision. It is “conditioned upon review and approval of a state plan amendment,” and no NH Medicaid ABA document read publishes an ABA telehealth code list, POS or modifier.',
+        status: 'verified',
+        cites: [S.rsa167, S.form272A, S.fee],
       },
       authTurnaround: {
         value: 'The state publishes no ABA decision timeframe. The federal fee-for-service floor applies: since January 1, 2026 the state agency must decide a standard request "in no case later than 7 calendar days after receiving the request" (extendable by up to 14 days) and an expedited one "in no case later than 72 hours." On the state side, an incomplete request gets a request for more information, not a denial, and is held 30 days; after approval the fiscal agent "has up to three business days to create and mail the SA." Managed-care members follow their plan’s clock (42 CFR 438.210(d): 7 calendar days for rating periods starting on or after January 1, 2026).',
@@ -227,6 +237,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Is ABA carved out of New Hampshire’s Medicaid managed care?', a: 'No. ABA is inside the managed care contracts: the state’s FFS instructions send MCO members to their plan for authorization, and each plan runs its own ABA prior authorization.' },
       { q: 'What does New Hampshire Medicaid pay for ABA?', a: 'The 2026 fee-for-service schedule pays, per 15-minute unit: 97151, 97155 and 97156 $16.43; 97153 $17.79; 97154 $6.50; 0373T $35.58. The health plans pay contracted rates, which are not published.' },
       { q: 'Does a BCBA need a New Hampshire license?', a: 'No. New Hampshire does not license behavior analysts. Medicaid, the plans and the commercial mandate all rely on BACB certification (BCBA, BCaBA, RBT).' },
+      { q: 'Can NH Medicaid ABA be done by telehealth, including the assessment?', a: 'Yes. RSA 167:4-d makes NH Medicaid cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise among the providers who may use it. That covers the 97151 assessment and 97155 supervision when medically necessary. No NH document sets an ABA code list or POS, so confirm billing details with NH MMIS or the health plan.' },
     ],
   },
 
@@ -293,7 +304,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'The plan is payer of last resort; bill the primary first and attach its EOB within 60 days.' },
       { title: 'Current authorizations', desc: 'New members get 60 days of continuity for ongoing treatment; capture any prior plan’s authorization.' },
     ],
-    sources: [S.acnhPM, S.acnhPA, S.mcm, S.heW500, S.cfr438, S.cfr433, S.bacbLic],
+    sources: [S.acnhPM, S.acnhPA, S.mcm, S.heW500, S.cfr438, S.cfr433, S.bacbLic, S.rsa167],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state rule applies: He-W 589.04(ah) requires a BCBA with a BACB supervisory certification when supervising, and lets a BCaBA, RBT or rehabilitation assistant deliver ABA under that BCBA’s "appropriate supervision," with no numeric ratio.',
@@ -369,11 +380,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.acnhPM, S.heW500],
       },
       telehealth: {
-        value: 'The manual publishes no ABA telehealth rule.',
-        status: 'unverified',
-        cites: [S.acnhPM],
-        verifyVia: 'AmeriHealth Caritas NH Provider Services, 1-888-599-1479: ask which ABA codes are payable by telehealth and with which POS code.',
-        blocker: 'per-case',
+        value: 'AmeriHealth Caritas NH’s provider manual publishes no ABA telehealth rule of its own, so the state rule applies. RSA 167:4-d requires the NH Medicaid program to “provide coverage and reimbursement for health care services provided through telemedicine on the same basis as the Medicaid program provides coverage and reimbursement for health care services provided in person,” with “no restriction on eligible originating or distant sites” (the child’s home counts) and reimbursement for “all modes of telehealth, including video and audio, audio-only, or other electronic media … for all medically necessary services.” Its list of providers who may use all modes names “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of a person certified by the national behavior analyst certification board.” So the BCBA assessment (97151/97152), supervision with protocol modification (97155) and technician and family services are inside the statute, subject to medical necessity; the statute names no in-person minimum for supervision. It is “conditioned upon review and approval of a state plan amendment,” and no NH Medicaid ABA document read publishes an ABA telehealth code list, POS or modifier.',
+        status: 'verified',
+        cites: [S.rsa167, S.acnhPM],
       },
       authTurnaround: {
         value: 'The June 2026 manual still says standard decisions are due "no later than 14 calendar days after AmeriHealth Caritas New Hampshire receives the request" (plus up to 14 more), expedited within 72 hours, and urgent extensions of an ongoing course within 24 hours if asked at least 24 hours before it ends. Federal law has since tightened the standard limit: for rating periods starting on or after January 1, 2026, it "may not exceed 7 calendar days." The manual also says decisions not made on time "constitute a denial" that can be appealed.',
@@ -392,6 +401,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does AmeriHealth Caritas New Hampshire cover ABA?', a: 'Yes. Its provider manual lists EPSDT "including Applied Behavioral Analysis Coverage" for members under 21.' },
       { q: 'Does AmeriHealth Caritas NH require prior authorization for ABA?', a: 'The manual’s PA list doesn’t name ABA and points to the online lookup tool for the current list. Check each ABA code there before starting services.' },
       { q: 'How long does credentialing take?', a: 'The plan says it notifies mental health providers of the decision within 30 calendar days of a clean and complete application (effective January 1, 2026).' },
+      { q: 'Can ABA be delivered by telehealth for this plan’s members?', a: 'Yes, under New Hampshire law. RSA 167:4-d requires NH Medicaid to cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise. That includes the 97151 assessment and 97155 supervision when medically necessary. The plan publishes no ABA-specific telehealth rule, so ask it which POS and modifier to bill.' },
     ],
   },
 
@@ -433,6 +443,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { label: 'Codes paid (NH.PP.07)', value: '97151 assessment (up to 32 units), 97153, 97155, 97156; no bundled H2019' },
       { label: 'Decision clock', value: '7 calendar days standard, 72 hours expedited' },
       { label: 'Licensure', value: 'None in NH; BACB certification governs' },
+      { label: 'Medical-necessity criteria', value: 'InterQual (licensed) from 6/1/2026; CP.BH.104 retired; CP.BH.105 documentation rules still apply' },
     ],
     sections: [
       {
@@ -443,6 +454,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         ],
         cites: [S.nhhfPP07, S.nhhfTip],
       },
+      {
+        h2: 'Which criteria does NH Healthy Families use for ABA?',
+        body: [
+          'InterQual, since June 1, 2026. In an April 28, 2026 notice NH Healthy Families said it "will retire Clinical Policy CP.BH.104, Applied Behavioral Analysis (ABA) Services," and that "Beginning on June 1, 2026, InterQual® criteria will be utilized to evaluate medical necessity determinations for all authorization requests related to Applied Behavioral Analysis (ABA) services, inclusive of all applicable ABA service codes" — for initial and concurrent reviews. InterQual is licensed criteria the plan does not publish. What did not change: prior-authorization requirements stay as they were, determinations still follow the NH Medicaid managed care contract and EPSDT, and "CP.BH.105 (ABA Clinical Documentation Requirements) is not affected by this change." CP.BH.105 requires the treatment record to be complete before the claim is submitted and a dated, credentialed signature from the rendering clinician or technician on every note.',
+        ],
+        cites: [S.nhhfIQ, S.nhhf105],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Medicaid (not the Ambetter marketplace product, which uses a different payer ID).' },
@@ -450,7 +468,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan for the OTR', desc: 'Direct treatment, supervision and parent-training hours, which map to 97153, 97155 and 97156.' },
       { title: 'Other insurance', desc: 'The plan is payer of last resort; tell it if the family won’t help identify other coverage.' },
     ],
-    sources: [S.nhhfPP07, S.nhhfTip, S.nhhfPM, S.nhhfPreAuth, S.mcm, S.heW500, S.cfr438, S.cfr433],
+    sources: [S.nhhfPP07, S.nhhfTip, S.nhhfPM, S.nhhfPreAuth, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167, S.nhhfIQ, S.nhhf105],
     deliveryRules: {
       supervision: {
         value: 'NH.PP.07 treats 97155 as "Supervision of a Technician" but sets no ratio, and the plan publishes no other supervision rule. The state rule applies: a BCBA with BACB supervisory certification supervises BCaBAs, RBTs and rehabilitation assistants, with no numeric ratio (He-W 589.04(ah)).',
@@ -470,11 +488,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.nhhfPP07],
       },
       noteSignature: {
-        value: 'NH.PP.07 states "Documentation Requirements: Not Applicable," and the provider manual publishes no ABA session-note rule.',
-        status: 'unverified',
-        cites: [S.nhhfPP07, S.nhhfPM],
-        verifyVia: 'NH Healthy Families Provider Services, 1-866-769-3085, or the documentation terms in your provider agreement.',
-        blocker: 'per-case',
+        value: 'NH.PP.07 states "Documentation Requirements: Not Applicable," but the plan’s clinical policy CP.BH.105 (ABA Documentation Requirements, last revised 11/23) does set the rule, and NH Healthy Families said in April 2026 that CP.BH.105 "is not affected" by its move to InterQual. It requires "Completion of the treatment record prior to submission of a claim," and every note must show the provider organization, the member’s name on each page, date of service, time in and time out, pauses, location, the service code, and the "Rendering clinician/technician’s name, credentials, and dated signature." Addenda must reference the note they supplement and carry the date and a "Signature with credentials." Technician notes add target areas, techniques and barriers; QHP notes add protocol modifications and direction of technicians.',
+        status: 'verified',
+        cites: [S.nhhf105, S.nhhfIQ, S.nhhfPP07],
       },
       placeOfService: {
         value: 'The plan publishes no ABA setting rule. At the state level, school-based ABA is billed by school districts under the Medicaid to Schools program (He-W 589).',
@@ -522,11 +538,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.nhhfPP07, S.heW500],
       },
       telehealth: {
-        value: 'The plan’s ABA documents set no telehealth rule.',
-        status: 'unverified',
-        cites: [S.nhhfPP07, S.nhhfPM],
-        verifyVia: 'NH Healthy Families Provider Services, 1-866-769-3085: ask which ABA codes are payable by telehealth and with which POS code.',
-        blocker: 'per-case',
+        value: 'NH Healthy Families’ ABA documents (NH.PP.07, the provider manual) set no telehealth rule of their own, so the state rule applies. RSA 167:4-d requires the NH Medicaid program to “provide coverage and reimbursement for health care services provided through telemedicine on the same basis as the Medicaid program provides coverage and reimbursement for health care services provided in person,” with “no restriction on eligible originating or distant sites” (the child’s home counts) and reimbursement for “all modes of telehealth, including video and audio, audio-only, or other electronic media … for all medically necessary services.” Its list of providers who may use all modes names “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of a person certified by the national behavior analyst certification board.” So the BCBA assessment (97151/97152), supervision with protocol modification (97155) and technician and family services are inside the statute, subject to medical necessity; the statute names no in-person minimum for supervision. It is “conditioned upon review and approval of a state plan amendment,” and no NH Medicaid ABA document read publishes an ABA telehealth code list, POS or modifier.',
+        status: 'verified',
+        cites: [S.rsa167, S.nhhfPP07, S.nhhfPM],
       },
       authTurnaround: {
         value: 'Standard requests: "the decision and notification will be made no more than seven (7) calendar days from receipt of the request (unless an extension is requested)." Urgent pre-service requests: 72 hours. Supply clinical information promptly: "Failure to submit necessary clinical information within forty-eight (48) hours of the request can result in an administrative denial." Routine requests should go in "at least five calendar days before the scheduled service delivery date"; out-of-network requests need 10 calendar days.',
@@ -543,6 +557,8 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does NH Healthy Families cover ABA?', a: 'Yes, for New Hampshire Medicaid members. It pays 97151, 97153, 97155 and 97156 and requires prior authorization for ABA treatment.' },
       { q: 'Where do I send NH Healthy Families ABA claims?', a: 'To the behavioral health platform: payer ID 68068 for Medicaid, for dates of service on or after June 1, 2024.' },
       { q: 'How fast does NH Healthy Families decide an ABA authorization?', a: 'Within 7 calendar days for standard requests and 72 hours for urgent ones, per its January 2026 provider manual.' },
+      { q: 'Can ABA be delivered by telehealth for this plan’s members?', a: 'Yes, under New Hampshire law. RSA 167:4-d requires NH Medicaid to cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise. That includes the 97151 assessment and 97155 supervision when medically necessary. The plan publishes no ABA-specific telehealth rule, so ask it which POS and modifier to bill.' },
+      { q: 'What criteria does NH Healthy Families use to approve ABA?', a: 'InterQual Behavioral Health criteria, for initial and concurrent requests, since June 1, 2026; Centene’s CP.BH.104 was retired. Prior authorization requirements did not change, and the CP.BH.105 documentation rules (complete, signed notes before you bill) still apply.' },
     ],
   },
 
@@ -605,7 +621,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Care-coordination contacts', desc: 'PCP, behavioral health provider and school contacts with dates of communication.' },
       { title: 'Other insurance', desc: 'WellSense pays after the primary; you have 120 days from the primary’s determination to bill it.' },
     ],
-    sources: [S.wsForm, S.wsMatrix, S.wsPM, S.wsPA, S.wsBH, S.mcm, S.heW500, S.cfr438, S.cfr433],
+    sources: [S.wsForm, S.wsMatrix, S.wsPM, S.wsPA, S.wsBH, S.mcm, S.heW500, S.cfr438, S.cfr433, S.rsa167],
     deliveryRules: {
       supervision: {
         value: 'WellSense publishes no New Hampshire ABA supervision ratio; the form only requires naming the BCBA "who will perform/supervise services." The state rule applies: a BCBA with BACB supervisory certification supervises BCaBAs, RBTs and rehabilitation assistants, with no numeric ratio (He-W 589.04(ah)).',
@@ -677,11 +693,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.wsForm, S.heW500],
       },
       telehealth: {
-        value: 'WellSense covers telemedicine generally, with modifiers listed in its telemedicine policy, but publishes no ABA-specific telehealth rule.',
-        status: 'unverified',
-        cites: [S.wsPM],
-        verifyVia: 'WellSense telemedicine policy on wellsense.org and the ABA medical policy on PolicyTech: check which ABA codes and modifiers apply.',
-        blocker: 'document',
+        value: 'WellSense covers telemedicine generally, with modifiers listed in its telemedicine policy, but publishes no ABA-specific telehealth rule, so the state rule applies. RSA 167:4-d requires the NH Medicaid program to “provide coverage and reimbursement for health care services provided through telemedicine on the same basis as the Medicaid program provides coverage and reimbursement for health care services provided in person,” with “no restriction on eligible originating or distant sites” (the child’s home counts) and reimbursement for “all modes of telehealth, including video and audio, audio-only, or other electronic media … for all medically necessary services.” Its list of providers who may use all modes names “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of a person certified by the national behavior analyst certification board.” So the BCBA assessment (97151/97152), supervision with protocol modification (97155) and technician and family services are inside the statute, subject to medical necessity; the statute names no in-person minimum for supervision. It is “conditioned upon review and approval of a state plan amendment,” and no NH Medicaid ABA document read publishes an ABA telehealth code list, POS or modifier.',
+        status: 'verified',
+        cites: [S.rsa167, S.wsPM],
       },
       authTurnaround: {
         value: 'Medicaid standard pre-service requests: "Written notification to the member and provider within 7 calendar days of the receipt of request." Urgent or expedited pre-service and concurrent requests: 72 hours. The clock runs from receipt, not from a complete file, so send the full packet the first time.',
@@ -698,6 +712,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does WellSense require prior authorization for ABA in New Hampshire?', a: 'Yes, both for the initial evaluation and for continued services, on its New Hampshire ABA form or through the HealthTrio portal.' },
       { q: 'How long is a WellSense NH ABA authorization?', a: 'Up to 3 months for an initial request and 6 months for continued services, with units requested for the whole period rather than per week.' },
       { q: 'Who can diagnose for a WellSense ABA request?', a: 'A neurologist, pediatrician, psychiatrist, psychologist, or other licensed physician experienced in autism, via a comprehensive diagnostic evaluation.' },
+      { q: 'Can ABA be delivered by telehealth for this plan’s members?', a: 'Yes, under New Hampshire law. RSA 167:4-d requires NH Medicaid to cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise. That includes the 97151 assessment and 97155 supervision when medically necessary. The plan publishes no ABA-specific telehealth rule, so ask it which POS and modifier to bill.' },
     ],
   },
 
@@ -775,7 +790,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist, with frequency and duration.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee],
+    sources: [S.anthemNHPA, S.anthemRG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.rsa415J],
     deliveryRules: {
       supervision: {
         value: 'Anthem publishes no numeric supervision ratio. It recognizes "providers practicing under the direction and supervision of the BCBA," and allows 97153 alongside 97155 only when the QHP and technician are both face-to-face with the patient and the QHP is directing the technician. The NH mandate itself requires ABA to be provided by, or "under the supervision of," a BACB certificant.',
@@ -843,9 +858,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.anthemNHPA, S.rsa417E],
       },
       telehealth: {
-        value: 'Anthem lists POS 10 (telehealth in the member’s home) and 02 (telehealth elsewhere) for ABA, subject to coverage, and refers to its Virtual Visits reimbursement policy, where "Allowed codes may vary."',
+        value: 'Anthem lists POS 10 (telehealth in the member’s home) and 02 (telehealth elsewhere) for ABA, subject to coverage, and refers to its Virtual Visits reimbursement policy, where "Allowed codes may vary." For a fully insured New Hampshire plan, RSA 415-J:3 says an insurer “may not deny coverage on the sole basis that the coverage is provided through telemedicine” and must cover and reimburse it “on the same basis” as in person, with “no restriction on eligible originating or distant sites,” for “all modes of telehealth.” Its list of providers who may use all modes includes “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of” a BACB certificant “as required by RSA 417-E:2.” Self-funded employer plans are outside the state statute.',
         status: 'plan-dependent',
-        cites: [S.anthemRG],
+        cites: [S.anthemRG, S.rsa415J],
         verifyVia: 'Anthem Virtual Visits reimbursement policy and the member’s benefits: confirm which ABA codes are allowed by telehealth.',
         blocker: 'per-case',
       },
@@ -912,6 +927,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'None in the current text; the 2010 caps ($36,000/yr ages 0–12, $27,000/yr ages 13–21) no longer appear in RSA 417-E:2' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA employer plans (outside state insurance law)' },
       { label: 'Licensure', value: 'None: NH does not license behavior analysts; the mandate requires BACB certification or BACB-certificant supervision' },
+      { label: 'Fee schedule', value: 'Not public — paid at your contracted rates and fee schedule (Point32Health ABA payment policy)' },
     ],
     sections: [
       {
@@ -932,6 +948,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         body: [NH_LICENSURE_BODY],
         cites: [S.bacbLic, S.rsa420J, S.rsa417E, S.fee, S.wsForm],
       },
+      {
+        h2: 'What is Harvard Pilgrim’s fee schedule for ABA?',
+        body: [
+          'Harvard Pilgrim publishes no ABA rate table. Point32Health’s ABA payment policy (rev. 05/2026) says: “Providers are reimbursed according to the applicable contracted rates and fee schedules.” Its telehealth payment policy (rev. 07/2026) pays New Hampshire behavioral health telehealth at 100% of the applicable fee schedule, the same as in person. Get your rates from your Harvard Pilgrim agreement or the Provider Service Center (800-708-4414). For a public benchmark, NH Medicaid’s 2026 fee-for-service schedule pays 97153 at $17.79 per 15 minutes; commercial contracts are negotiated separately.',
+        ],
+        cites: [S.hpPP, S.p32Tele, S.fee],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-insured (benefit document governs).' },
@@ -940,7 +963,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'School services', desc: 'Services covered by the school’s special education resources under an IEP are not paid.' },
       { title: 'Other coverage', desc: 'Second parent’s plan (birthday rule), Medicaid, TRICARE or CHAMPVA.' },
     ],
-    sources: [S.hpMNG, S.hpPP, S.hpNews, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee],
+    sources: [S.hpMNG, S.hpPP, S.hpNews, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.fee, S.p32Tele, S.rsa415J],
     deliveryRules: {
       supervision: {
         value: 'Point32Health requires InterQual’s "Applied Behavior Analysis (ABA) Program-Applied Behavior Analysis Supervision" subset for supervision requests, but the criteria inside it are licensed and not published.',
@@ -1020,11 +1043,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       telehealth: {
-        value: 'Not addressed in the ABA MNG or payment policy.',
-        status: 'unverified',
-        cites: [S.hpMNG, S.hpPP],
-        verifyVia: 'Point32Health telehealth payment policy (point32health.org, Payment policies) or the Provider Service Center, 800-708-4414.',
-        blocker: 'document',
+        value: 'Covered under Point32Health’s general telehealth policy; the ABA guideline and ABA payment policy add nothing. The Telehealth/Telemedicine payment policy (rev. 07/2026), which applies to Harvard Pilgrim commercial products, reimburses “medically necessary telehealth/telemedicine services consistent with applicable state mandates” when the service is clinically appropriate as a substitute for in-person care, the patient is present and consents, both locations are documented and the platform is HIPAA compliant. It does not pay “Services that require equipment and/or direct hands-on care that cannot be provided remotely.” Bill POS 02 or 10 with modifier 93, 95 or GT; in New Hampshire behavioral health telehealth is paid at 100% of the fee schedule. No ABA code list is published. For a fully insured New Hampshire plan, RSA 415-J:3 says an insurer “may not deny coverage on the sole basis that the coverage is provided through telemedicine” and must cover and reimburse it “on the same basis” as in person, with “no restriction on eligible originating or distant sites,” for “all modes of telehealth.” Its list of providers who may use all modes includes “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of” a BACB certificant “as required by RSA 417-E:2.” Self-funded employer plans are outside the state statute.',
+        status: 'verified',
+        cites: [S.p32Tele, S.rsa415J, S.hpMNG, S.hpPP],
       },
       authTurnaround: {
         value:
@@ -1049,6 +1070,8 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does Harvard Pilgrim cover ABA in New Hampshire?', a: 'Yes, for members with a definitive ASD diagnosis, under Point32Health’s commercial ABA guideline (effective July 1, 2026), with prior authorization on every ABA code.' },
       { q: 'What criteria does Harvard Pilgrim use for ABA?', a: 'InterQual, through an automated questionnaire on HPHConnect. The criteria are licensed; registered providers can view them in HPHConnect.' },
       { q: 'Does Harvard Pilgrim pay H0031 or H0032 for ABA?', a: 'No. Since January 1, 2026 those codes are no longer covered for Harvard Pilgrim commercial plans.' },
+      { q: 'Does Harvard Pilgrim pay for ABA by telehealth in New Hampshire?', a: 'Its general telehealth payment policy pays medically necessary telehealth when it is an appropriate substitute for in-person care, billed POS 02 or 10 with modifier 93, 95 or GT, at 100% of the fee schedule for behavioral health in NH. No ABA code list is published, so confirm the codes at authorization. Fully insured NH plans must also follow RSA 415-J.' },
+      { q: 'What does Harvard Pilgrim pay for ABA in New Hampshire?', a: 'Point32Health pays ABA “according to the applicable contracted rates and fee schedules,” and publishes no ABA rate table. Telehealth for behavioral health in NH is paid at 100% of the fee schedule. NH Medicaid’s FFS rate for 97153 ($17.79 per 15 minutes) is the only public benchmark.' },
     ],
   },
 
@@ -1090,6 +1113,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'None in the current text; the 2010 caps ($36,000/yr ages 0–12, $27,000/yr ages 13–21) no longer appear in RSA 417-E:2' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA employer plans (outside state insurance law)' },
       { label: 'Licensure', value: 'None: NH does not license behavior analysts; the mandate requires BACB certification or BACB-certificant supervision' },
+      { label: 'Fee schedule', value: 'Not public — Aetna pays the contracted rate in your participation agreement' },
     ],
     sections: [
       {
@@ -1109,6 +1133,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         body: [NH_LICENSURE_BODY],
         cites: [S.bacbLic, S.rsa420J, S.rsa417E, S.fee, S.wsForm],
       },
+      {
+        h2: 'What is Aetna’s fee schedule for ABA?',
+        body: [
+          'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: “The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies,” and where a provider has both an intermediary contract and a direct agreement, “your direct Aetna rates will apply unless we specifically notify you otherwise.” Even when a member’s benefits run out, the provider “cannot charge them more than the contracted rate.” Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, NH Medicaid’s 2026 fee-for-service schedule pays 97153 at $17.79 per 15 minutes; commercial contracts are negotiated separately.',
+        ],
+        cites: [S.aetnaOM, S.fee],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-funded ERISA (plan document governs). Ask for the employer and check the card.' },
@@ -1117,12 +1148,12 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3).' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaBHPM, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa],
+    sources: [S.aetnaCPB, S.aetnaCPB648, S.aetnaGuide, S.aetnaPrecert, S.aetnaBHPM, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.aetnaOM, S.rsa415J, S.fee, S.aetnaNPC],
     deliveryRules: {
       supervision: {
-        value: 'Services must be provided directly or billed by licensed behavior analysts (in states with licensure laws), board-certified behavior analysts, or licensed psychologists where ABA is within scope, unless mandates, plan documents or contracts say otherwise; where others deliver services, there must be supervision "in line with practice standards." Aetna publishes no numeric ratio. The NH mandate requires ABA to be provided by, or supervised by, a BACB certificant.',
+        value: 'Services must be provided directly or billed by licensed behavior analysts (in states with licensure laws), board-certified behavior analysts, or licensed psychologists where ABA is within scope, unless mandates, plan documents or contracts say otherwise; where others deliver services, there must be supervision "in line with practice standards." Aetna publishes no numeric ratio. The NH mandate requires ABA to be provided by, or supervised by, a BACB certificant. Aetna\'s Network Participation Criteria (5/26) spell out the technician tier: services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," plus the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements. If state requirements are not defined, all BCBAs, BCaBAs and paraprofessionals must meet Aetna standards."',
         status: 'verified',
-        cites: [S.aetnaGuide, S.rsa417E],
+        cites: [S.aetnaNPC, S.aetnaGuide, S.rsa417E],
       },
       concurrentBilling: {
         value: 'Not addressed in Aetna’s published ABA policies (CPB 0554, CPB 0648, the medical necessity guide).',
@@ -1183,10 +1214,10 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.aetnaPrecert, S.aetnaGuide, S.rsa417E],
       },
       telehealth: {
-        value: 'Not addressed in CPB 0554, CPB 0648 or the ABA medical necessity guide.',
-        status: 'unverified',
-        cites: [S.aetnaCPB, S.aetnaGuide],
-        verifyVia: 'Availity or the precertification line on the card: ask which ABA codes Aetna pays by telehealth on this plan, with which POS and modifier.',
+        value: 'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Aetna’s provider manual (6/26) says Aetna Behavioral Health “offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out,” and that providers “must act within the scope of their license and ensure that they have the proper licensure based on state requirements.” For a fully insured New Hampshire plan, RSA 415-J:3 says an insurer “may not deny coverage on the sole basis that the coverage is provided through telemedicine” and must cover and reimburse it “on the same basis” as in person, with “no restriction on eligible originating or distant sites,” for “all modes of telehealth.” Its list of providers who may use all modes includes “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of” a BACB certificant “as required by RSA 417-E:2.” Self-funded employer plans are outside the state statute.',
+        status: 'plan-dependent',
+        cites: [S.aetnaTele, S.aetnaOM, S.rsa415J],
+        verifyVia: 'Availity or the precertification line on the card: ask whether the plan is fully insured in New Hampshire or self-funded (and opted out of telehealth), and which ABA codes, POS and modifier Aetna pays by telehealth.',
         blocker: 'per-case',
       },
       authTurnaround: {
@@ -1211,7 +1242,8 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Aetna cover ABA therapy in New Hampshire?', a: 'Yes, under its national policy for ASD, with New Hampshire’s RSA 417-E mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'What does the New Hampshire autism mandate require?', a: 'Coverage of autism treatment including ABA by or under a BACB-certified provider, on terms no less extensive than physical illness, without denial because services are habilitative. The current statute carries no age or dollar cap.' },
-      { q: 'What does Aetna pay for ABA in New Hampshire?', a: 'Commercial rates are negotiated and not published. The only public benchmark is NH Medicaid’s fee-for-service schedule (97153 $17.79 per 15 minutes).' },
+      { q: 'What does Aetna pay for ABA in New Hampshire?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. The only public benchmark is NH Medicaid’s fee-for-service schedule (97153 $17.79 per 15 minutes).' },
+      { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s network criteria do not require the RBT credential by name: technicians may be paraprofessionals supervised by a BCBA or licensed provider, with at least 1 hour of face-to-face supervision per 10 hours of ABA and the supervisor onsite with the child at least 1 hour a month. Technicians must meet any state requirement, so check the state\'s licensure or Medicaid rules too.' },
     ],
   },
 
@@ -1251,6 +1283,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'None in the current text; the 2010 caps ($36,000/yr ages 0–12, $27,000/yr ages 13–21) no longer appear in RSA 417-E:2' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA employer plans (outside state insurance law)' },
       { label: 'Licensure', value: 'None: NH does not license behavior analysts; the mandate requires BACB certification or BACB-certificant supervision' },
+      { label: 'Fee schedule', value: 'Not public — your ABA fee schedule is Exhibit A of your Evernorth Provider Agreement; fee questions to Evernorth Provider Services, 800.926.2273' },
     ],
     sections: [
       {
@@ -1270,6 +1303,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         body: [NH_LICENSURE_BODY],
         cites: [S.bacbLic, S.rsa420J, S.rsa417E, S.fee, S.wsForm],
       },
+      {
+        h2: 'What is Cigna’s fee schedule for ABA?',
+        body: [
+          'Cigna publishes no ABA rate table. Evernorth, which runs Cigna’s behavioral health network, puts the rates in the contract: its Administrative Guidelines (September 2026) say the Provider Agreement and the guidelines set the terms, which “include the reimbursement rates applicable to covered services,” and tell ABA providers: “For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement.” Fee-schedule and contract questions go to Provider Services at 800.926.2273. Virtual services are billed with modifier 95, which Evernorth says “will not change the reimbursement.” Non-credentialed technicians are paid only through the supervising provider’s claim. For a public benchmark, NH Medicaid’s 2026 fee-for-service schedule pays 97153 at $17.79 per 15 minutes; commercial contracts are negotiated separately.',
+        ],
+        cites: [S.ebhAdmin, S.fee],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-funded ERISA (plan document governs).' },
@@ -1278,7 +1318,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [S.en0499, S.cignaARG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa],
+    sources: [S.en0499, S.cignaARG, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.ebhAdmin, S.fee],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with ABA training. Direct plus indirect case supervision runs at one to two hours per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week of direct case supervision. The supervisor’s name and credentials must be documented.',
@@ -1367,6 +1407,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in New Hampshire?', a: 'Yes, under national policy EN0499 for ASD, with New Hampshire’s RSA 417-E mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in New Hampshire?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Does a BCBA need a New Hampshire license to bill Cigna?', a: 'New Hampshire issues no behavior-analyst license, and Cigna accepts a BCBA as the billing credential for ABA.' },
+      { q: 'What does Cigna pay for ABA in New Hampshire?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. NH Medicaid’s fee-for-service rate for 97153 ($17.79 per 15 minutes) is the only public benchmark.' },
     ],
   },
 
@@ -1408,6 +1449,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'None in the current text; the 2010 caps ($36,000/yr ages 0–12, $27,000/yr ages 13–21) no longer appear in RSA 417-E:2' },
       { label: 'Exempt from mandate', value: 'Self-funded ERISA employer plans (outside state insurance law)' },
       { label: 'Licensure', value: 'None: NH does not license behavior analysts; the mandate requires BACB certification or BACB-certificant supervision' },
+      { label: 'Fee schedule', value: 'Not public — Optum pays up to the “Fee Maximum” in your agreement, by credential level (HM/HN/HO/HP modifiers)' },
     ],
     sections: [
       {
@@ -1427,6 +1469,13 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         body: [NH_LICENSURE_BODY],
         cites: [S.bacbLic, S.rsa420J, S.rsa417E, S.fee, S.wsForm],
       },
+      {
+        h2: 'What is UnitedHealthcare’s fee schedule for ABA?',
+        body: [
+          'UnitedHealthcare publishes no ABA rate table; its behavioral health network, Optum, pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the “Fee Maximum” as “The maximum amount a participating provider may be paid for a specific health care service provided to a member,” adding that “Reimbursement to clinicians is based upon licensure rather than degree.” Optum’s commercial ABA Reimbursement Policy (2022RP501A, updated 06/2026) makes the credential level part of every claim line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensed provider. It also says indirect work has no separate code and is bundled into the direct-service codes. Ask Optum network management for your rate sheet. For a public benchmark, NH Medicaid’s 2026 fee-for-service schedule pays 97153 at $17.79 per 15 minutes; commercial contracts are negotiated separately.',
+        ],
+        cites: [S.optumNNM, S.optumReimb, S.fee],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (RSA 417-E applies) vs. self-funded ERISA (plan document governs).' },
@@ -1434,7 +1483,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others). Optum asks for the instrument.' },
       { title: 'Signed treatment plan', desc: 'RSA 417-E:2 lets the insurer require one signed by the PCP or a listed specialist.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.mcm, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa],
+    sources: [S.optumSCC, S.optumSM, S.mcm, S.rsa417E, S.hb569, S.rsa420J, S.ins1904, S.bacbLic, S.erisa, S.optumTele, S.rsa415J, S.optumNNM, S.optumReimb, S.fee],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required at 1–2 hours for every 10 hours of direct treatment per week. Technicians work under a BCBA or licensed behavioral health clinician and should be RBTs or otherwise certified. Optum does not recommend parents serving as their own child’s RBT.',
@@ -1500,11 +1549,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.optumSCC, S.rsa417E],
       },
       telehealth: {
-        value: 'The SCC now point to CASP’s telehealth practice parameters and say telehealth options "are not intended to supplant in-person service; rather, they are intended to supplement" it. They publish no code list or POS rule.',
-        status: 'unverified',
-        cites: [S.optumSCC],
-        verifyVia: 'Provider Express or the behavioral health number on the card: ask which ABA codes are payable by telehealth on this plan and with which POS code.',
-        blocker: 'per-case',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) says for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157. These are the procedure codes that identify the virtual supervision of ABA Behavior Technicians and Family Training and Guidance.” So the 97151 assessment and technician 97153 are not on Optum’s telehealth list. Bill POS 10 (home) or 02 (elsewhere). The SCC add that telehealth options “are not intended to supplant in-person service; rather, they are intended to supplement” it. For a fully insured New Hampshire plan, RSA 415-J:3 says an insurer “may not deny coverage on the sole basis that the coverage is provided through telemedicine” and must cover and reimburse it “on the same basis” as in person, with “no restriction on eligible originating or distant sites,” for “all modes of telehealth.” Its list of providers who may use all modes includes “Professionals certified by the national behavior analyst certification board or persons performing services under the supervision of” a BACB certificant “as required by RSA 417-E:2.” Self-funded employer plans are outside the state statute. Ask Optum how it applies the three-code list to a fully insured New Hampshire plan.',
+        status: 'verified',
+        cites: [S.optumTele, S.optumSCC, S.rsa415J],
       },
       authTurnaround: {
         value:
@@ -1529,6 +1576,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare cover ABA therapy in New Hampshire?', a: 'Yes, under Optum’s national ABA criteria for ASD, with New Hampshire’s RSA 417-E mandate layered on for fully insured plans. Self-funded employer plans follow their own documents.' },
       { q: 'Does Optum have New Hampshire-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement does not list New Hampshire, so the standard national criteria and two-step authorization apply.' },
       { q: 'Is UnitedHealthcare a New Hampshire Medicaid plan?', a: 'No. New Hampshire’s Medicaid plans are AmeriHealth Caritas New Hampshire, NH Healthy Families and WellSense.' },
+      { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in New Hampshire?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 by telehealth (supervision and family training), billed POS 10 or 02. The 97151 assessment and 97153 are not on that list. Fully insured NH plans are also subject to RSA 415-J, which bars denying a covered service only because it is delivered by telemedicine, so ask Optum how it applies the list to your plan.' },
+      { q: 'What does UnitedHealthcare pay for ABA in New Hampshire?', a: 'UnitedHealthcare/Optum publishes no ABA rates. You are paid up to the Fee Maximum in your Optum agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) under Optum’s ABA reimbursement policy. Ask Optum network management for your rate sheet. NH Medicaid’s fee-for-service rate for 97153 ($17.79 per 15 minutes) is the only public benchmark.' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'For commercial plans, Optum\'s ABA reimbursement policy defines the technician line: the approved rendering provider for the HM modifier (less than a bachelor\'s degree) is "a Registered Behavior Technician (RBT)," and a BCaBA bills HN. The policy notes that state regulatory requirements "may supplement, modify or supersede" it. So plan on RBT-certified technicians for UHC commercial members.' },
     ],
   },
 };

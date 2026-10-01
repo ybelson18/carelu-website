@@ -185,7 +185,7 @@ function nmMedicaidEntry(pa: string, notes?: string, statusOverrides?: Record<st
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['home', 'clinic / office', 'community', 'school', 'telehealth (modality allowed; NM ABA-specific POS numbers not published in the fee schedule/Supplement)'],
-    telehealth: 'unverified — Supplement 24-13 contemplates the settings above but does not publish ABA-specific telehealth POS/modifier mechanics.',
+    telehealth: 'Allowed as a modality — MAD Supplement 24-13 (3.2.1) "allows and encourages the utilization of telemedicine to deliver MAD ABA services" under 8.310.2 NMAC (real-time audio + video); 97155 explicitly by telemedicine with the recipient present (store-and-forward only in documented no-broadband cases), indirect 97151 family interviews by telemedicine. No ABA-specific POS/modifier is published — confirm with the MCO/TPA.',
     modifiers: ['U5 (Qualifying Psychologist)', 'U4 (BCBA-D)', 'U3 (BCBA)', 'U9 (BCaBA)', 'U1 (Behavior Technician)', 'UA/UB group size (97154/97158)'],
     notes: [notes, 'Verify via: HCA/MCO — per-code daily unit caps are not published in NM primary sources (limits are program-level: comprehensive 30–40 hrs/wk, focused 10–25, the <20-hrs/wk PA quirk).']
       .filter(Boolean)
@@ -195,7 +195,7 @@ function nmMedicaidEntry(pa: string, notes?: string, statusOverrides?: Record<st
       paRequired: 'verified',
       unitCap: 'unverified',
       posAllowed: 'inferred',
-      telehealth: 'unverified',
+      telehealth: 'inferred',
       modifiers: 'verified',
       ...statusOverrides,
     },
@@ -257,18 +257,28 @@ function nmCignaEntry(pa: string): CodeGridEntry {
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
-    telehealth: 'unverified',
+    telehealth: 'Allowed — "All ABA CPT codes are covered telehealth services" (Evernorth autism resource guide, March 2025); no POS/modifier published.',
     modifiers: ['unverified'],
     notes: 'Verify via: Cigna/Evernorth provider services — EN0499 is a medical-necessity policy only; no coding/reimbursement mechanics published. ABA claims route to Evernorth payer ID 62308.',
-    fieldStatus: { covered: 'verified', paRequired: 'verified', unitCap: 'unverified', posAllowed: 'unverified', telehealth: 'unverified', modifiers: 'unverified' },
+    fieldStatus: { covered: 'verified', paRequired: 'verified', unitCap: 'unverified', posAllowed: 'unverified', telehealth: 'verified', modifiers: 'unverified' },
     sources: [CIGNA_AUTISM_GUIDE],
   };
 }
 
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
+
 function nmAetnaEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification (assessment and treatment), per national CPB 0554/0648; NM mandate NMSA §59A-22-49 governs fully-insured benefit terms.',
+    paRequired: 'Required — precertification (assessment and treatment): Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T, and form GR-69017-4 (7-26) supplies the clinical information; NM mandate NMSA §59A-22-49 governs fully-insured benefit terms.',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
@@ -276,7 +286,7 @@ function nmAetnaEntry(): CodeGridEntry {
     modifiers: ['unverified'],
     notes: 'Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding/reimbursement mechanics published, and Aetna runs no NM Medicaid plan.',
     fieldStatus: { covered: 'verified', paRequired: 'verified', unitCap: 'unverified', posAllowed: 'unverified', telehealth: 'unverified', modifiers: 'unverified' },
-    sources: [src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis.'), src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders.')],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis.'), src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders.')],
   };
 }
 

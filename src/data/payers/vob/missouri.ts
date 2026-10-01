@@ -35,7 +35,9 @@
      prices by rendering-practitioner tier via modifiers (HO = behavior
      analyst/psychologist, HN = assistant behavior analyst, HM = behavior
      technician/RBT billed by the licensed supervisor), plus U8 =
-     home/other place of service and TM = telemedicine.
+     home/other place of service and TM = school-based IEP direct services
+     (billed by the school district; corrected 2026-10-01, it is not a
+     telemedicine modifier — BHSM §1.12).
    - The 3 commercial guides (aetna-missouri, cigna-missouri,
      unitedhealthcare-missouri) get Layers 1 + 3 only, per the build
      spec ("Do not attempt commercial rates"). Their code grids reuse
@@ -63,11 +65,11 @@ const MO_COMPANION_GUIDE = src(
 );
 const MO_BHSM = src(
   'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx',
-  'MO HealthNet Behavioral Health Services Manual, §1.16 Applied Behavior Analysis Services (May 2026). Tables 17-19 give the billable modifier combinations per code (Table 18 in-person, Table 17 telehealth), documentation requirements per precert type (Table 19), POS codes (11 office / 12 home / 03 school / 99 other; U8 for POS 12 or 99), and the up-to-6-month precert period. Word tables parsed directly this pass (binary .docx not readable by plain fetch).'
+  'MO HealthNet Behavioral Health Services Manual, §1.16 Applied Behavior Analysis Services (May 2026). Tables 17-19 give the billable modifier combinations per code (the TM combinations belong to the §1.12 school-based IEP direct-services table, not telehealth; telemedicine is §1.21: POS 02/10, same precertification as in person), documentation requirements per precert type (Table 19), POS codes (11 office / 12 home / 03 school / 99 other; U8 for POS 12 or 99), and the up-to-6-month precert period. Word tables parsed directly this pass (binary .docx not readable by plain fetch).'
 );
 const MO_FEE_SCHEDULE = src(
   'https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx',
-  'MHD Applied Behavioral Analysis fee schedule (.xlsx on the apps.dss.mo.gov static file portal — https://apps.dss.mo.gov/fmsfeeschedules/DLFiles.aspx), file-stamped 2026-07-07. All 10 codes covered and priced per 15-min unit by tier (HO/HN/HM + U8/TM). Every TM (telemedicine) row is marked precert-NOT-required; every in-person (HO/HN/HM/U8/RHC) row precert-required. No U8 row exists for any HM/technician combination (technicians never carry U8).'
+  'MHD Applied Behavioral Analysis fee schedule (.xlsx on the apps.dss.mo.gov static file portal — https://apps.dss.mo.gov/fmsfeeschedules/DLFiles.aspx), file-stamped 2026-07-07. All 10 codes covered and priced per 15-min unit by tier (HO/HN/HM + U8/TM). Every TM row (school-based IEP direct services billed by the school district, which BHSM §1.12 exempts from precertification; NOT telemedicine) is marked precert-NOT-required; every in-person (HO/HN/HM/U8/RHC) row precert-required. No U8 row exists for any HM/technician combination (technicians never carry U8).'
 );
 const MO_13CSR = src(
   'https://www.law.cornell.edu/regulations/missouri/13-CSR-70-98-030',
@@ -104,6 +106,16 @@ const CIGNA_EN0499 = src(
 );
 const AETNA_CPB0554 = src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis; medical-necessity policy only, no coding/reimbursement mechanics.');
 const AETNA_CPB0648 = src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders; 97151-97158 covered when selection criteria are met, no unit caps/POS/telehealth/modifier detail. No separate Aetna ABA billing/reimbursement policy located.');
+
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
 const OPTUM_SCC = src(
   'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf',
   'Optum ABA Supplemental Clinical Criteria (BH803ABASCC) — national policy; contains zero CPT codes (ICD-10 F84.0 only). Points to the separate Optum ABA Reimbursement Policy for coding detail.'
@@ -189,15 +201,15 @@ const missouriMedicaidEdi: EdiRouting = {
    tiers and daily-unit maxima differ per code (from the fee schedule +
    BHSM Tables 17-18). */
 
-const MO_POS = ['11 = office', '12 = home (U8 modifier required)', '03 = school', '99 = other (U8 modifier required)', 'telehealth (TM modifier)'];
+const MO_POS = ['11 = office', '12 = home (U8 modifier required)', '03 = school', '99 = other (U8 modifier required)', 'telehealth: POS 02 (not in home) or 10 (in home); POS 03 + GT on school grounds (BHSM §1.21)'];
 const MO_TELEHEALTH =
-  "Yes — TM modifier. The ABA fee schedule marks every TM (telemedicine) row as NOT requiring precertification, unlike in-person rows. Delivered only by the tiers each code allows (LaBAs and technicians are limited per the manual).";
+  "Yes — any ABA code within the provider's scope, technicians included, by telemedicine at the fee-schedule amount (BHSM §1.21; 13 CSR 70-3.330): POS 02 (not in home) or 10 (in home), POS 03 + GT on school grounds, and the same precertification as in person. The TM modifier on the fee schedule is NOT telehealth — it marks school-based IEP direct services billed by the school district.";
 
 function moMedicaidEntry(unitCap: number, tierNote: string, modifiers: string[]): CodeGridEntry {
   return {
     covered: 'Yes',
     paRequired:
-      'Required — precertification via the faxed ABA precertification request form (form 2575-045 per missouri.ts prose) to the MHD Behavioral Health Services help desk, (573) 635-6516; the sole exception is school-based ABA delivered under an IEP. Precertified for up to 6 months. Telehealth (TM) rows are marked no-precert on the fee schedule.',
+      'Required — precertification via the faxed ABA precertification request form (form 2575-045 per missouri.ts prose) to the MHD Behavioral Health Services help desk, (573) 635-6516; the sole exception is school-based ABA delivered under an IEP. Precertified for up to 6 months. TM rows on the fee schedule are school-based IEP direct services billed by the school district (precert-exempt); telemedicine needs the same precertification as in person.',
     unitCap: `${unitCap} units/day`,
     capPeriod: 'day',
     posAllowed: MO_POS,
@@ -217,25 +229,25 @@ function moMedicaidEntry(unitCap: number, tierNote: string, modifiers: string[])
 }
 
 const missouriMedicaidCodeGrid: Record<string, CodeGridEntry> = {
-  '97151': moMedicaidEntry(32, 'Behavior-identification assessment — behavior analyst / psychologist tier only (HO); no HN or HM tier. In-home via U8; telehealth via TM.', ['HO', 'U8 (in-home)', 'TM (telehealth)']),
-  '97152': moMedicaidEntry(16, 'Supporting assessment (one technician) — HO, HN, or HM (RBT billed by the supervisor, HO+HM or HN+HM). In-home HO/HN via U8; technician rows never carry U8.', ['HO', 'HN', 'HM (RBT, billed by supervisor)', 'U8 (HO/HN in-home)', 'TM']),
-  '97153': moMedicaidEntry(32, 'Direct treatment by protocol — HO $20.13 / HN $20.13 / HM $16.37 (RBT billed by supervisor). 32 units = 8 hrs/day. In-home HO/HN via U8; technician rows never carry U8.', ['HO', 'HN', 'HM (RBT, billed by supervisor)', 'U8 (HO/HN in-home)', 'TM']),
-  '97154': moMedicaidEntry(8, 'Group treatment by protocol — billable ONLY as a technician service, HM combined with the supervisor tier (HO+HM or HN+HM); no standalone HO/HN, U8, or RHC pricing. Rate $2.05, effective 5/1/2025.', ['HM (RBT, billed by supervisor)', 'TM']),
-  '97155': moMedicaidEntry(24, 'Treatment with protocol modification — HO $25.26 (in-home $27.46 with U8) / HN $17.73 (no in-home bump). Behavior analyst / assistant tiers only; no technician tier.', ['HO', 'HN', 'U8 (HO in-home, higher rate)', 'TM']),
-  '97156': moMedicaidEntry(16, 'Family treatment guidance — HO $25.26 / HN $20.13 (HN raised eff 7/1/2024). Behavior analyst / assistant tiers; no technician tier.', ['HO', 'HN', 'U8 (HO/HN in-home)', 'TM']),
-  '97157': moMedicaidEntry(8, 'Multiple-family group treatment guidance — HO $3.16 / HN $2.52 (effective 12/18/2025). Behavior analyst / assistant tiers; no technician tier.', ['HO', 'HN', 'U8 (HO/HN in-home)', 'TM']),
-  '97158': moMedicaidEntry(6, 'Group treatment with protocol modification — HO $3.16 / HN $2.14. Behavior analyst / assistant tiers; no technician tier and (per the fee file) no U8 in-home row.', ['HO', 'HN', 'TM']),
-  '0362T': moMedicaidEntry(16, 'Supporting assessment, two or more technicians — behavior analyst / psychologist tier only (HO); in-home $27.46 with U8.', ['HO', 'U8 (in-home, higher rate)', 'TM']),
-  '0373T': moMedicaidEntry(32, 'Treatment with protocol modification, two or more technicians — behavior analyst / psychologist tier only (HO); in-home $27.46 with U8.', ['HO', 'U8 (in-home, higher rate)', 'TM']),
+  '97151': moMedicaidEntry(32, 'Behavior-identification assessment — behavior analyst / psychologist tier only (HO); no HN or HM tier. In-home via U8; TM = school-based IEP direct service.', ['HO', 'U8 (in-home)', 'TM (school-based IEP, billed by school district)']),
+  '97152': moMedicaidEntry(16, 'Supporting assessment (one technician) — HO, HN, or HM (RBT billed by the supervisor, HO+HM or HN+HM). In-home HO/HN via U8; technician rows never carry U8.', ['HO', 'HN', 'HM (RBT, billed by supervisor)', 'U8 (HO/HN in-home)', 'TM (school-based IEP)']),
+  '97153': moMedicaidEntry(32, 'Direct treatment by protocol — HO $20.13 / HN $20.13 / HM $16.37 (RBT billed by supervisor). 32 units = 8 hrs/day. In-home HO/HN via U8; technician rows never carry U8.', ['HO', 'HN', 'HM (RBT, billed by supervisor)', 'U8 (HO/HN in-home)', 'TM (school-based IEP)']),
+  '97154': moMedicaidEntry(8, 'Group treatment by protocol — billable ONLY as a technician service, HM combined with the supervisor tier (HO+HM or HN+HM); no standalone HO/HN, U8, or RHC pricing. Rate $2.05, effective 5/1/2025.', ['HM (RBT, billed by supervisor)', 'TM (school-based IEP)']),
+  '97155': moMedicaidEntry(24, 'Treatment with protocol modification — HO $25.26 (in-home $27.46 with U8) / HN $17.73 (no in-home bump). Behavior analyst / assistant tiers only; no technician tier.', ['HO', 'HN', 'U8 (HO in-home, higher rate)', 'TM (school-based IEP)']),
+  '97156': moMedicaidEntry(16, 'Family treatment guidance — HO $25.26 / HN $20.13 (HN raised eff 7/1/2024). Behavior analyst / assistant tiers; no technician tier.', ['HO', 'HN', 'U8 (HO/HN in-home)', 'TM (school-based IEP)']),
+  '97157': moMedicaidEntry(8, 'Multiple-family group treatment guidance — HO $3.16 / HN $2.52 (effective 12/18/2025). Behavior analyst / assistant tiers; no technician tier.', ['HO', 'HN', 'U8 (HO/HN in-home)', 'TM (school-based IEP)']),
+  '97158': moMedicaidEntry(6, 'Group treatment with protocol modification — HO $3.16 / HN $2.14. Behavior analyst / assistant tiers; no technician tier and (per the fee file) no U8 in-home row.', ['HO', 'HN', 'TM (school-based IEP)']),
+  '0362T': moMedicaidEntry(16, 'Supporting assessment, two or more technicians — behavior analyst / psychologist tier only (HO); in-home $27.46 with U8.', ['HO', 'U8 (in-home, higher rate)', 'TM (school-based IEP)']),
+  '0373T': moMedicaidEntry(32, 'Treatment with protocol modification, two or more technicians — behavior analyst / psychologist tier only (HO); in-home $27.46 with U8.', ['HO', 'U8 (in-home, higher rate)', 'TM (school-based IEP)']),
 };
 
 /* Layer 4 — MO HealthNet ABA rate table (fee schedule dated 2026-07-07). */
 
 const MO_MEDICAID_RATES: RateTable = {
-  source: 'MHD Applied Behavioral Analysis fee schedule (.xlsx, apps.dss.mo.gov static portal), file-stamped 2026-07-07 and RE-VERIFIED 2026-09-25 against the current file (header date 8/27/2026, https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx): every ABA rate, rate-effective date and maximum-unit value below is unchanged; cross-confirmed against the Behavioral Health Services Manual §1.16. Per 15-min unit; TM (telemedicine) rows precert-not-required.',
+  source: 'MHD Applied Behavioral Analysis fee schedule (.xlsx, apps.dss.mo.gov static portal), file-stamped 2026-07-07 and RE-VERIFIED 2026-09-25 against the current file (header date 8/27/2026, https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx): every ABA rate, rate-effective date and maximum-unit value below is unchanged; cross-confirmed against the Behavioral Health Services Manual §1.16. Per 15-min unit; TM rows (school-based IEP direct services, billed by the school district) precert-not-required.',
   effectiveDate: '2026-07-07 (file stamp; per-code rate-effective dates vary — noted per code)',
   byCode: {
-    '97151': { rate: 'Modifier-tiered — see modifierTiers (max 32 units/day; eff 7/1/2022)', unit: '15min', modifierTiers: { HO: '$25.26 (behavior analyst/psychologist)', 'U8+HO': '$25.26 (in-home)', 'TM+HO': '$25.26 (telehealth, no precert)' } },
+    '97151': { rate: 'Modifier-tiered — see modifierTiers (max 32 units/day; eff 7/1/2022)', unit: '15min', modifierTiers: { HO: '$25.26 (behavior analyst/psychologist)', 'U8+HO': '$25.26 (in-home)', 'TM+HO': '$25.26 (school-based IEP direct service, no precert)' } },
     '97152': { rate: 'Modifier-tiered — see modifierTiers (max 16 units/day; eff 7/1/2022)', unit: '15min', modifierTiers: { HO: '$25.26 (behavior analyst/psychologist)', HN: '$17.12 (assistant BA)', HM: '$15.00 (RBT, billed by supervisor)' } },
     '97153': { rate: 'Modifier-tiered — see modifierTiers (max 32 units/day = 8 hrs; HO/HN/HM rates eff 7/1/2024)', unit: '15min', modifierTiers: { HO: '$20.13 (behavior analyst/psychologist)', HN: '$20.13 (assistant BA)', HM: '$16.37 (RBT, billed by supervisor; raised from $17.73 base eff 7/1/2024)' } },
     '97154': { rate: '$2.05 per 15-min unit — technician service only, HM + supervisor tier (HO+HM or HN+HM); no standalone HO/HN pricing (max 8 units/day; eff 5/1/2025)', unit: '15min', modifierTiers: { 'HM (billed by HO or HN)': '$2.05' } },
@@ -346,7 +358,7 @@ const aetnaMissouriEdi: EdiRouting = {
 function aetnaMoEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification (specific form number not confirmed in either cited CPB)',
+    paRequired: 'Required — Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T; initiate on Availity or by phone, with form GR-69017-4 (7-26, eff. 8/1/2026) supplying the clinical information',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
@@ -355,13 +367,13 @@ function aetnaMoEntry(): CodeGridEntry {
     notes: `Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding/reimbursement policy could be located. ${MO_MANDATE_NOTE}`,
     fieldStatus: {
       covered: 'verified',
-      paRequired: 'unverified',
+      paRequired: 'verified',
       unitCap: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [AETNA_CPB0554, AETNA_CPB0648, RSMO_376_1224],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_CPB0554, AETNA_CPB0648, RSMO_376_1224],
   };
 }
 

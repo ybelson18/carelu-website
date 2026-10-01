@@ -158,6 +158,20 @@ const AETNA_CPB0648 = src(
   'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
   'Aetna CPB 0648 (Autism Spectrum Disorders) — national ASD coverage policy; 97151–97158 covered when selection criteria are met; no coding/reimbursement mechanics published.'
 );
+
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
+const AETNA_ABA_MNG = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf',
+  'Aetna Applied Behavior Analysis Medical Necessity Guide (©2026): "A member\'s progress is to be evaluated every six months."'
+);
 const CIGNA_EN0499 = src(
   'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf',
   'Evernorth/Cigna EN0499 (Intensive Behavioral Interventions), effective 5/15/2026 — states verbatim that Virginia fully-insured business is NOT subject to the policy. For fully-insured VA Cigna members, coverage terms come from the plan document and the state mandate, not EN0499\'s IBI criteria; self-funded (ASO) plans still follow EN0499.'
@@ -682,7 +696,7 @@ const aetnaVaEdi: EdiRouting = {
 function aetnaCommercialEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification via Availity or phone (both assessment and treatment), per Aetna\'s national CPB 0554/0648; reauthorization commonly ~6 months. For fully-insured VA plans the Va. Code § 38.2-3418.17 mandate is the legal floor; self-funded ERISA plans are exempt.',
+    paRequired: 'Required — precertification via Availity or phone (both assessment and treatment), per Aetna\'s behavioral health precertification list (eff. 8/1/2024: 97151-97158, 0362T, 0373T), with form GR-69017-4 (7-26) supplying the clinical information; reauthorization commonly ~6 months (the ABA Medical Necessity Guide evaluates progress every six months). For fully-insured VA plans the Va. Code § 38.2-3418.17 mandate is the legal floor; self-funded ERISA plans are exempt.',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
@@ -697,7 +711,7 @@ function aetnaCommercialEntry(): CodeGridEntry {
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [AETNA_CPB0554, AETNA_CPB0648],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_ABA_MNG, AETNA_CPB0554, AETNA_CPB0648],
   };
 }
 

@@ -38,7 +38,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
     h1: 'Michigan Medicaid ABA coverage: the intake guide.',
     metaTitle: 'Michigan Medicaid ABA Coverage & Autism Benefit Guide | Carelu',
     metaDescription:
-      'How Michigan Medicaid covers ABA through the Behavioral Health Treatment benefit: carved out to the regional PIHPs and Community Mental Health programs rather than the Medicaid Health Plans, under 21, PCP exam and PIHP evaluation first, 1:10 supervision, telehealth limits, and the PIHP procurement to watch.',
+      'How Michigan Medicaid covers ABA through the Behavioral Health Treatment benefit: carved out to the regional PIHPs and Community Mental Health programs rather than the Medicaid Health Plans, under 21, PCP exam and PIHP evaluation first, 1:10 supervision, telehealth limits, and the cancelled PIHP procurement.',
     intro: [
       'Michigan Medicaid covers ABA as part of its Behavioral Health Treatment (BHT) benefit for children under 21 with autism, and the single fact that organizes every Michigan Medicaid intake is where that benefit lives. It is not run by the Medicaid Health Plan printed on the family’s card. The Medicaid Provider Manual assigns the comprehensive diagnostic evaluation, the behavioral assessment and all BHT services, ABA included, to the Prepaid Inpatient Health Plan (PIHP) for the child’s county, which delivers them through its Community Mental Health Services Programs (CMHSPs) and contracted ABA agencies. So the question that routes a Michigan Medicaid family is not "which health plan?" but "which county?" This guide covers the state rules every PIHP must follow; five PIHPs (regions 4, 5, 7, 8 and 9) have their own guides.',
     ],
@@ -52,7 +52,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { label: 'Supervision', value: 'At least 1 hour of observation and direction per 10 hours of direct treatment' },
       { label: 'Telehealth', value: '97155, 97156, 97157, 97158 only; 97151/97153/97154/0362T in person' },
       { label: 'Licensure', value: 'BCBA/BCaBA must be LARA-licensed (LBA/LaBA); technicians need RBT training, no license' },
-      { label: 'Watch', value: 'MDHHS PIHP procurement targeted an Oct. 1, 2026 start — confirm the county’s PIHP before routing' },
+      { label: 'PIHP procurement', value: 'Cancelled — the State discontinued the PIHP RFP on 1/29/2026 and issued no award; route through the county’s current PIHP' },
+      { label: 'Fee schedule', value: 'No public ABA fee screen — PIHPs must pay at least the rate in the MDHHS–PIHP contract (MPM 18.13); your rate is in your PIHP/CMHSP network contract' },
     ],
     sections: [
       {
@@ -112,13 +113,14 @@ export const michiganPayers: Record<string, PayerConfig> = {
         ],
       },
       {
-        h2: 'Watch: the PIHP procurement',
+        h2: 'The PIHP procurement was cancelled',
         body: [
-          'MDHHS ran a competitive procurement for the PIHP contracts, with an RFP issued in August 2025 (bids due September 29, 2025) and a stated goal of a service start date of October 1, 2026. The RFP was limited to nonprofit organizations with additional consideration for public entities, and the PIHP "must contract with CMHSPs to provide a comprehensive array of mental health services as required by the Mental Health Code." MDHHS’s county designations table for the FY27 contract maps today’s ten regions onto new Northern, Central and Metro regions (Wayne, Oakland and Macomb into Metro). We could not confirm at review time which entities hold the contracts from October 1, 2026 onward; until MDHHS publishes the award, confirm the PIHP for the family’s county before routing a referral or an authorization.',
+          'MDHHS ran a competitive procurement for the PIHP contracts, with an RFP issued in August 2025 (bids due September 29, 2025), a goal of a service start date of October 1, 2026, and a county designations table for an FY27 contract that would have redrawn today’s ten regions into Northern, Central and Metro regions. That procurement is over. The State’s Department of Technology, Management and Budget cancelled RFP 250000002670 on January 29, 2026: “the State has elected to discontinue the RFP process, and no Award will be issued.” The cancellation followed a January 8, 2026 Court of Claims ruling that found key parts of the RFP conflicted with the Michigan Mental Health Code. So no new PIHPs took over on October 1, 2026 and the FY27 region map was not put into effect through this RFP; the Michigan Health & Hospital Association, reporting the withdrawal, says the existing PIHP structure remains in place. Route referrals and authorizations through the family’s current county PIHP and CMHSP, and watch for any new MDHHS procurement.',
         ],
         cites: [
+          { title: 'Michigan DTMB — Cancellation of Request for Proposal 250000002670 (PIHP RFP), Jan. 29, 2026 (copy posted by the Michigan Health & Hospital Association)', url: 'https://www.mha.org/wp-content/uploads/2026/02/0206_RFP.pdf' },
+          { title: 'Michigan Health & Hospital Association — MDHHS withdraws PIHP procurement (Feb. 6, 2026)', url: 'https://www.mha.org/newsroom/mdhhs-withdraws-pihp-procurement/' },
           { title: 'MDHHS press release — MDHHS seeking proposals for Prepaid Inpatient Health Plans (Aug. 5, 2025)', url: 'https://www.michigan.gov/mdhhs/inside-mdhhs/newsroom/2025/08/05/pihp-contracts' },
-          { title: 'MDHHS — Specialty Behavioral Health Services / PIHPs page (archived April 3, 2026)', url: 'https://web.archive.org/web/20260403054639/https://www.michigan.gov/mdhhs/keep-mi-healthy/mentalhealth/specialty-behavioral-health-services' },
           { title: 'MDHHS — PIHP county designations table (FY27 PIHP contract, May 2025)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/PIHPs/PIHP-Region-Table.pdf' },
         ],
       },
@@ -152,6 +154,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 438.210 — Coverage and authorization of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
       { title: 'Michigan Medicaid Provider Manual (July 1, 2026) — Coordination of Benefits chapter', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
+      { title: 'Michigan DTMB — Cancellation of RFP 250000002670 (PIHP RFP), Jan. 29, 2026', url: 'https://www.mha.org/wp-content/uploads/2026/02/0206_RFP.pdf' },
+      { title: 'Michigan Health & Hospital Association — MDHHS withdraws PIHP procurement (Feb. 6, 2026)', url: 'https://www.mha.org/newsroom/mdhhs-withdraws-pihp-procurement/' },
     ],
     deliveryRules: {
       supervision: {
@@ -292,6 +296,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'My child has a Medicaid Health Plan. Does the plan approve ABA?', a: 'No. The manual assigns the autism evaluation and all BHT/ABA services to the PIHP for the child’s county. The health plan covers the PCP screening and, if the PIHP finds the child ineligible, related speech, occupational and physical therapy.' },
       { q: 'Is there a limit on ABA hours?', a: 'No preset cap. The manual describes focused intervention averaging 5–15 hours a week and comprehensive intervention averaging 16–25, and says a PIHP may not deny services based solely on preset limits.' },
       { q: 'Can ABA be done by telehealth under Michigan Medicaid?', a: 'Only analyst-level services: 97155, 97156, 97157 and 97158. Technician-delivered 97153/97154, the 97151 assessment and 0362T were removed from the MDHHS telemedicine database in 2023.' },
+      { q: 'What is Michigan Medicaid\'s fee schedule for ABA?', a: 'There is no public ABA fee screen. ABA is paid by the PIHP or CMHSP under your network contract, and the Medicaid Provider Manual (Section 18.13) says only that "All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract." Ask the PIHP/CMHSP contracting office for its ABA rates.' },
     ],
   },
 
@@ -2691,15 +2696,10 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Not addressed. CPB 0554, CPB 0648 and the ABA medical necessity guide set no telehealth rules or place-of-service codes for ABA.',
-        status: 'unverified',
-        cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-        ],
-        verifyVia:
-          'Availity or the precertification line on the member ID card — ask which ABA codes Aetna will pay via telehealth on this plan, with which POS and modifier.',
-        blocker: 'per-case',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
       },
       authTurnaround: {
         value:

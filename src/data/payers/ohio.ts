@@ -91,6 +91,17 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'CareSource — Ohio Medicaid ABA policy (MM-0028, eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
         ],
       },
+      {
+        h2: 'Is Ohio Medicaid\'s ABA network open to new providers?',
+        body: [
+          'Ohio has no ABA-specific enrollment moratorium we can cite, and the front door is centralized. Certified Ohio Behavior Analysts are on the list of practitioners for whom “credentialing by ODM is mandatory” (OAC 5160-1-42), through ODM’s CAQH-based process with recredentialing every 36 months. Contracting is still per plan: AmeriHealth Caritas Ohio’s January 2026 manual tells providers to start contracting with each MCO while enrolling and being credentialed at ODM, that the plan interest can be flagged in ODM’s PNM system when applying, and that a provider is not participating until both credentialing and contracting are complete. Whether a given MCO’s ABA panel is open is that plan’s contracting decision. One policy signal: ODM paused its ABA rule rewrite in 2025 citing budget shortfalls and national concern over ABA growth and spending, and its draft would create an ABA-specific organizational provider type — a draft that governs nothing yet.',
+        ],
+        cites: [
+          { title: 'OAC 5160-1-42 — Medicaid provider credentialing (COBAs credentialed by ODM)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
+          { title: 'AmeriHealth Caritas Ohio — Provider Manual (v6, January 2026), enrollment, credentialing and contracting', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
+          { title: 'ODM — ABA provider stakeholder presentation (7/30/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/BH/provider/Presentations/7.30_ABA_Presentation.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID & Next Gen MCO', desc: 'CareSource, Buckeye, Molina, Anthem, UHC, AmeriHealth Caritas, or Humana — several run materially different ABA policies.' },
@@ -116,6 +127,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
       { title: 'Buckeye — CP.BH.104 Applied Behavior Analysis (rev. 2/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
       { title: 'Anthem OH Medicaid — Clinical UM Guidelines list (CG-BEH-02)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_FEB23CUMG.pdf' },
+      { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
+      { title: 'OAC 5160-1-18 — Telehealth', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-18' },
+      { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
+      { title: 'AmeriHealth Caritas Ohio — Provider Manual (v6, January 2026)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -170,14 +185,16 @@ export const ohioPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       telehealth: {
-        value: 'No per-code state telehealth rule for ABA could be verified. What is published at the plan level: Optum’s Ohio Medicaid criteria state that ABA is available through telehealth under guidelines effective June 2018, conditioned on the member having the basic and advanced prerequisite skills to benefit, a caregiver willing and able to support telehealth, and a thorough provider assessment of the environment and safety concerns — with the session note required to indicate when a service was delivered by telehealth. CareSource covers parent training and supervision by telehealth, and 1:1 ABA by telehealth only when medically necessary under a documented service-delivery plan. ODM’s own Telehealth Services guidance for managed care entities and the Telehealth Billing Guidelines set the underlying rules.',
+        value: 'No per-code state telehealth rule for ABA could be verified. What is published at the plan level: Optum’s Ohio Medicaid criteria state that ABA is available through telehealth under guidelines effective June 2018, conditioned on the member having the basic and advanced prerequisite skills to benefit, a caregiver willing and able to support telehealth, and a thorough provider assessment of the environment and safety concerns — with the session note required to indicate when a service was delivered by telehealth. CareSource covers parent training and supervision by telehealth, and 1:1 ABA by telehealth only when medically necessary under a documented service-delivery plan. ODM’s own Telehealth Billing Guidelines (fee-for-service, dates of service on or after 1/1/2026, under OAC 5160-1-18) do not list any ABA code — 97151–97158, 0362T or 0373T — in their telehealth-eligible code tables, and behavior analysts are not among the practitioner types they name as eligible to render telehealth; OAC 5160-1-18 does let payment extend to “other practitioners” and “other services if specifically authorized in rule,” which would be the ABA rule we cannot read. The same guidelines say the MCOs “cover the same telehealth services as in fee-for-service but may have different billing requirements.” So whether 97151 (assessment) or 97155 (supervision) may be delivered remotely for an Ohio Medicaid member is, today, a question for the member’s MCO.',
         status: 'unverified',
         cites: [
           { title: 'Optum — Ohio Medicaid Supplemental Clinical Criteria (BH803OH012026.E, eff. 7/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/optumLOCG/ohlocg/ohMedcadLOCG.pdf' },
           { title: 'CareSource — OH MCD-MM-0028 (eff. 9/1/2026)', url: 'https://www.caresource.com/documents/medicaid-oh-policy-medical-mm-0028-20260901' },
+          { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
+          { title: 'OAC 5160-1-18 — Telehealth', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-18' },
         ],
         verifyVia: 'ODM Telehealth Services: Guidelines for Managed Care Entities and the ODM Telehealth Billing Guidelines, plus the member’s MCO — confirm which ABA codes are payable by telehealth and with which modifier.',
-        blocker: 'per-case',
+        blocker: 'document',
       },
       authTurnaround: {
         value:
@@ -267,6 +284,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { q: 'Does OhioRISE cover ABA?', a: 'No — ODM\'s Mixed Services Protocol assigns ABA claims to the member\'s Medicaid MCO (or FFS) even for OhioRISE-enrolled youth. Always identify the underlying MCO.' },
       { q: 'What does Ohio Medicaid pay for ABA?', a: 'Per 15-minute unit by credential tier: 97153 at $16.04 (RBT), 97155 at $27.28 and 97151 at $30.49 at the COBA/BCBA tier, with lower BCaBA-tier amounts. MCO rates are contractual against this benchmark.' },
       { q: 'Who can provide ABA under Ohio Medicaid?', a: 'Independent practitioners are COBAs (Ohio Board of Psychology, ORC 4783) or BCBAs/BCBA-Ds enrolled as ODM Provider Type 19, Specialty 190; BCaBAs and RBTs deliver under supervision.' },
+      { q: 'Is Ohio Medicaid accepting new ABA providers?', a: 'There is no ABA enrollment moratorium we can cite. Behavior analysts (COBAs) are credentialed once, centrally, by ODM under OAC 5160-1-42, but you still contract with each MCO separately, and whether a plan\'s ABA panel is open is its own decision. Start MCO contracting while your ODM enrollment and credentialing are in process.' },
     ],
   },
 
@@ -587,6 +605,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Buckeye — clinical & payment policies index', url: 'https://www.buckeyehealthplan.com/providers/resources/clinical-payment-policies.html' },
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
       { title: 'Ohio Administrative Code — rule 4783-6-02 (COBA supervision responsibilities)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-6-02' },
+      { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -642,15 +661,10 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No plan-specific ABA telehealth rule found; ODM’s Telehealth Services guidance for managed care entities and the Telehealth Billing Guidelines set the underlying rules.',
-        status: 'unverified',
-        cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Buckeye — CP.BH.104 Applied Behavior Analysis (rev. 2/2026)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' },
-          { title: 'Buckeye — Autism Services Prior Authorization Request Form', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/WebsitePDFs/BehavioralHealthEducation/Medicaid-ABA-OTR-P-Form-508-6-28-23.pdf' },
-        ],
-        verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
-        blocker: 'per-case',
+        value:
+          'Buckeye’s ABA policy (CP.BH.104, last revised 02/26) allows telehealth as a modality: services “may be provided in various settings (e.g., home, clinic, school, community) and modalities (e.g., in-person, telehealth).” It quotes the CASP telehealth parameters that telehealth “is not intended to replace in person service” but to supplement it, says modality should be chosen on the member’s needs, caregiver availability and environmental support, and tells providers to “refer to respective state allowances for telehealth services.” It names no ABA codes. ODM’s 2026 Telehealth Billing Guidelines list no ABA code as telehealth-eligible, and say the MCOs “cover the same telehealth services as in fee-for-service but may have different billing requirements.” Before billing a remote 97151 or 97155, confirm with Buckeye which codes, modifier and place of service it accepts.',
+        status: 'verified',
+        cites: [{ title: 'Buckeye Health Plan — CP.BH.104 Applied Behavior Analysis (last revised 02/26)', url: 'https://www.buckeyehealthplan.com/content/dam/centene/Buckeye/policies/clinical-policies/CP.BH.104.pdf' }, { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' }],
       },
       authTurnaround: {
         value:
@@ -804,6 +818,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
+      { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -854,12 +869,11 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No plan-specific ABA telehealth rule found; ODM’s Telehealth Services guidance for managed care entities and the Telehealth Billing Guidelines set the underlying rules.',
+        value: 'No plan-specific ABA telehealth rule found. ODM’s 2026 Telehealth Billing Guidelines (fee-for-service, under OAC 5160-1-18) list no ABA code — 97151–97158, 0362T, 0373T — as telehealth-eligible and do not name behavior analysts among eligible telehealth practitioners, while saying the MCOs “cover the same telehealth services as in fee-for-service but may have different billing requirements.” So remote assessment (97151) or supervision (97155) is not established in any document we could read for this plan; ask before scheduling it.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' },
-        ],
+          { title: 'Molina OH — prior authorization page (verify via portal)', url: 'https://www.molinahealthcare.com/members/oh/en-US/mem/medicaid/overvw/care/prior-authorizations.aspx' }, { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' }],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',
       },
@@ -1012,6 +1026,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
       { title: 'Ohio Administrative Code — rule 4783-6-02 (COBA supervision responsibilities)', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-6-02' },
+      { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1067,13 +1082,12 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No plan-specific ABA telehealth rule found; ODM’s Telehealth Services guidance for managed care entities and the Telehealth Billing Guidelines set the underlying rules.',
+        value: 'No plan-specific ABA telehealth rule found. ODM’s 2026 Telehealth Billing Guidelines (fee-for-service, under OAC 5160-1-18) list no ABA code — 97151–97158, 0362T, 0373T — as telehealth-eligible and do not name behavior analysts among eligible telehealth practitioners, while saying the MCOs “cover the same telehealth services as in fee-for-service but may have different billing requirements.” So remote assessment (97151) or supervision (97155) is not established in any document we could read for this plan; ask before scheduling it.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
           { title: 'Anthem OH Medicaid — Clinical UM Guidelines list (CG-BEH-02)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_FEB23CUMG.pdf' },
-          { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' },
-        ],
+          { title: 'Anthem OH Medicaid — provider manual (10/2025)', url: 'https://providers.anthem.com/docs/gpp/OH_CAID_ProviderManual.pdf' }, { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' }],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',
       },
@@ -1418,6 +1432,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { label: 'UM contact', value: '(833) 735-7700 · PA fax (833) 329-6411' },
       { label: 'Portal', value: 'Jiva via NaviNet' },
       { label: 'Decision time', value: '7 calendar days standard / 48 hours expedited (OAC 5160-26-03.1); plan manual still prints 10 calendar days' },
+      { label: 'Fee schedule', value: 'Contracted rates, not published; out-of-network pays 75% of the applicable fee schedule' },
     ],
     sections: [
       {
@@ -1432,6 +1447,25 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'OAC 5160-26-03.1 — MCO utilization management and authorization timeframes (eff. 1/1/2026)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03.1' },
         ],
       },
+      {
+        h2: 'What is AmeriHealth Caritas Ohio\'s fee schedule for ABA?',
+        body: [
+          'AmeriHealth Caritas Ohio publishes no ABA rate table. In-network ABA pays at the rate in your contract with the plan; ask your Provider Network Account Executive for it. The manual does publish the out-of-network rate: “For providers who are not contracted with AmeriHealth Caritas Ohio, reimbursement for covered services will be made at seventy-five percent (75%) of the applicable fee schedule amount,” for non-emergent services. Out-of-network services, emergencies aside, also need prior authorization. Ohio Medicaid’s own ABA rates are in the Ohio Medicaid guide.',
+        ],
+        cites: [
+          { title: 'AmeriHealth Caritas Ohio — Provider Manual (v6, January 2026)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'Is AmeriHealth Caritas Ohio\'s ABA network open?',
+        body: [
+          'A provider is “not considered participating (and therefore [is] not eligible to provide services to members) until both credentialing and contracting have been completed.” Credentialing is centralized at ODM: Certified Ohio Behavior Analysts are credentialed by ODM under OAC 5160-1-42. The plan contract is separate. The manual recommends starting MCO contracting while you enroll and are credentialed at ODM, and you can mark AmeriHealth Caritas Ohio as a plan of interest in ODM’s PNM system, which sends your data to the plan to begin contracting. The plan publishes nothing saying whether its ABA panel is open or closed; ask Provider Services at 1-833-644-6001.',
+        ],
+        cites: [
+          { title: 'AmeriHealth Caritas Ohio — Provider Manual (v6, January 2026)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
+          { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
+        ],
+      },
     ],
     collect: [
       { title: 'NaviNet/Jiva access', desc: 'The working authorization channel — confirm registration before the first case.' },
@@ -1441,6 +1475,9 @@ export const ohioPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
+      { title: 'AmeriHealth Caritas Ohio — Provider Manual (v6, January 2026)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' },
+      { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
+      { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1493,13 +1530,11 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No plan-specific ABA telehealth rule found; ODM’s Telehealth Services guidance for managed care entities and the Telehealth Billing Guidelines set the underlying rules.',
+        value:
+          'No ABA-specific telehealth rule from the plan. Its January 2026 manual restates the OAC 5160-1-18 list of practitioners eligible to render telehealth — physicians, psychologists, behavioral health practitioners, therapists and others, plus “other practitioners if specifically authorized by ODM” — without naming behavior analysts, and says services that need prior authorization need it “whether they are delivered in-person or via telehealth” (ABA is on that list). ODM’s 2026 Telehealth Billing Guidelines list no ABA code among telehealth-eligible services and say the MCOs “cover the same telehealth services as in fee-for-service but may have different billing requirements.” Whether 97151 assessment or 97155 supervision may be done remotely for this plan’s members is therefore a question for its UM line.',
         status: 'unverified',
-        cites: [
-          { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'AmeriHealth Caritas OH — BH prior authorization page (verify via portal)', url: 'https://www.amerihealthcaritasoh.com/provider/resources/behavioral-prior-auth' },
-        ],
-        verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
+        cites: [{ title: 'AmeriHealth Caritas Ohio — Provider Manual (v6, January 2026)', url: 'https://www.amerihealthcaritasoh.com/content/dam/amerihealth-caritas/acoh/pdf/provider/provider-manual.pdf' }, { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' }],
+        verifyVia: 'AmeriHealth Caritas Ohio UM at 1-833-735-7700 or Provider Services at 1-833-644-6001 — ask which ABA codes (97151, 97155, 97156) it pays by telehealth, with which modifier and place of service.',
         blocker: 'per-case',
       },
       authTurnaround: {
@@ -1585,6 +1620,8 @@ export const ohioPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does AmeriHealth Caritas Ohio cover ABA therapy?', a: 'Yes — under the Ohio Medicaid framework. "Behavioral Analysis Therapy for Autism Spectrum Disorder" is on the plan\'s prior-authorization list; submit through Jiva via NaviNet, fax 1-833-329-6411, or call UM at 1-833-735-7700. The plan does not publish its authorization-period length.' },
       { q: 'How long do AmeriHealth Caritas Ohio ABA authorizations take?', a: 'Standard decisions are due “no later than seven calendar days following receipt of the request for service” under OAC 5160-26-03.1 (effective 1/1/2026), and expedited decisions within 48 hours. The plan’s January 2026 provider manual still prints “no later than 10 calendar days” — treat 7 as the binding outer limit.' },
+      { q: 'What does AmeriHealth Caritas Ohio pay for ABA?', a: 'No ABA rate table is published. In-network rates are in your plan contract. A non-contracted provider is paid 75% of the applicable fee schedule amount for covered non-emergent services, and out-of-network care needs prior authorization.' },
+      { q: 'Can I join AmeriHealth Caritas Ohio\'s network as an ABA provider?', a: 'You need ODM enrollment and credentialing (centralized at ODM for behavior analysts) plus a separate contract with the plan, and you are not participating until both are done. Start contracting while ODM processes your enrollment. Ask Provider Services at 1-833-644-6001 whether the ABA panel has openings.' },
     ],
   },
 
@@ -1649,6 +1686,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Humana Healthy Horizons OH — PA and notification list', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
       { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
+      { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1699,12 +1737,11 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No plan-specific ABA telehealth rule found; ODM’s Telehealth Services guidance for managed care entities and the Telehealth Billing Guidelines set the underlying rules.',
+        value: 'No plan-specific ABA telehealth rule found. ODM’s 2026 Telehealth Billing Guidelines (fee-for-service, under OAC 5160-1-18) list no ABA code — 97151–97158, 0362T, 0373T — as telehealth-eligible and do not name behavior analysts among eligible telehealth practitioners, while saying the MCOs “cover the same telehealth services as in fee-for-service but may have different billing requirements.” So remote assessment (97151) or supervision (97155) is not established in any document we could read for this plan; ask before scheduling it.',
         status: 'unverified',
         cites: [
           { title: 'Ohio Administrative Code — rule 5160-34-02', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-34-02' },
-          { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' },
-        ],
+          { title: 'Humana Healthy Horizons OH — PA and notification list (eff. 1/1/2026)', url: 'https://assets.humana.com/is/content/humana/OH%20MCD%20PAL%20Dpdf' }, { title: 'ODM — Telehealth Billing Guidelines (FFS, DOS on or after 1/1/2026)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Billing/BillingInstructions/Telehealth_Billing_Guidelines_updates_for_2026_final.pdf' }],
         verifyVia: 'This plan’s provider portal or behavioral health UM line; Rules@Medicaid.Ohio.gov or JCARR for the in-force text of OAC 5160-34-02.',
         blocker: 'per-case',
       },
@@ -1849,6 +1886,9 @@ export const ohioPayers: Record<string, PayerConfig> = {
         cites: [
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       {
@@ -1939,14 +1979,11 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Not addressed. Neither CPB 0554, CPB 0648 nor the ABA medical necessity guide sets telehealth rules or place-of-service codes for ABA; the behavioral health provider manual covers telemedicine only as a member-facing Teladoc-style offering that self-insured plan sponsors may opt out of.',
-        status: 'unverified',
-        cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
-        ],
-        verifyVia: 'Availity, or the precertification line on the member ID card — ask which ABA codes Aetna will pay via telehealth on this specific plan, and with which POS code and modifier.',
+        value:
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. The behavioral health provider manual describes telemedicine (under a Teladoc heading) that Aetna Behavioral Health offers to all commercial fully insured members and to self-insured plan sponsors unless they opt out.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }, { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
         blocker: 'per-case',
       },
       authTurnaround: {

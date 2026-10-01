@@ -161,6 +161,17 @@ function azBenchmarkRates(planName: string): RateTable {
   };
 }
 
+const AHCCCS_TELEHEALTH_CODESET: SourceRef = {
+  url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/TelehealthCodeSet.xlsx',
+  accessDate: '2026-10-01',
+  note: 'AHCCCS Telehealth Code Set — Guidelines sheet eff. 01/01/2026 ("AHCCCS will not be utilizing POS 02 and POS 10 for telehealth"; POS = originating site; GT/GQ/FQ modifiers), "2026 Final" code sheet eff. 06/01/2026: 97151-97158 each marked GT, none FQ; 0362T/0373T absent. Fetched directly — azahcccs.gov answered plain curl on 2026-10-01.',
+};
+const AHCCCS_BH_MATRIX: SourceRef = {
+  url: 'https://www.azahcccs.gov/PlansProviders/Downloads/MedicalCodingResources/B2Matrix.xlsx',
+  accessDate: '2026-10-01',
+  note: 'AHCCCS Behavioral Health Services Matrix ("BH Matrix Procedure Codes and Associated Provider Types, Category of Service, Place of Service and Modifiers", as of 9/1/26). For provider types BC (BCBA) and AB (ABA organization), 97151-97158 share POS 03, 05, 06, 07, 08, 09, 11, 12, 14, 16, 19, 22, 49, 50, 51, 52, 53, 54, 71, 72, 99; modifiers include GT, U7, HN, HO, HP; HM is allowed on 97151-97154 but NOT on 97155-97158. 0362T/0373T are not on the matrix.',
+};
+
 /* -------------------- Layer 3: code-grid factories -------------- */
 
 function azEntry(
@@ -198,6 +209,19 @@ function ahcccsGrid(): Record<string, CodeGridEntry> {
   const grid: Record<string, CodeGridEntry> = {};
   for (const c of ['97151', '97152', '97153', '97154', '97155', '97156', '97157', '97158', '0362T', '0373T']) {
     grid[c] = azEntry('Yes', 'Delegated to plans — AMPM 320-S sets no PA of its own; PA rules live at the member\'s ACC/DDD plan (see per-plan guides).', 'verified', `${NO_DX} Verify the operative PA at the member's ACC or DDD Health Plan.`, [AMPM_320S]);
+    const onCodeSets = c !== '0362T' && c !== '0373T';
+    if (onCodeSets) {
+      grid[c] = {
+        ...grid[c],
+        posAllowed: ['03 school', '11 office', '12 home', '14 group home', '99 other/community', '05-08 IHS/tribal', '49 independent clinic', '50 FQHC', '53 CMHC', '19/22 outpatient hospital', '71/72 public health / rural health clinic'],
+        telehealth: 'Yes — GT modifier (interactive audio-video); POS is the member\'s location (originating site); AHCCCS does not use POS 02/10; no FQ audio-only for ABA codes (Telehealth Code Set, eff. 06/01/2026).',
+        modifiers: ['HM (below bachelor\'s / BT-RBT)' + (['97155', '97156', '97157', '97158'].includes(c) ? ' — NOT valid on this code per BH Matrix' : ''), 'HN (bachelor\'s / BCaBA)', 'HO (master\'s / BCBA)', 'HP (doctoral / BCBA-D)', 'GT (telehealth)'],
+        fieldStatus: { ...grid[c].fieldStatus, posAllowed: 'verified', telehealth: 'verified' },
+        sources: [AMPM_320S, AHCCCS_TELEHEALTH_CODESET, AHCCCS_BH_MATRIX],
+      };
+    } else {
+      grid[c] = { ...grid[c], telehealth: 'Not on the AHCCCS Telehealth Code Set or the BH Services Matrix (checked 2026-10-01).', fieldStatus: { ...grid[c].fieldStatus, telehealth: 'unverified' } };
+    }
   }
   return grid;
 }
@@ -245,6 +269,16 @@ function azCommercialGrid(entryFn: (pa: string) => CodeGridEntry, treatmentPa: s
   return grid;
 }
 
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
+
 function azAetnaEntry(pa: string): CodeGridEntry {
   return {
     covered: 'Yes',
@@ -256,7 +290,7 @@ function azAetnaEntry(pa: string): CodeGridEntry {
     modifiers: ['unverified'],
     notes: 'Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding mechanics published. (Commercial only — for Aetna-administered AHCCCS members see mercy-care-arizona.) Steven\'s Law caps repealed by SB 1590 (2025).',
     fieldStatus: { covered: 'verified', paRequired: 'verified', unitCap: 'unverified', posAllowed: 'unverified', telehealth: 'unverified', modifiers: 'unverified' },
-    sources: [src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis.'), src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders.')],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis.'), src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders.')],
   };
 }
 
@@ -914,7 +948,7 @@ export const arizonaVob: Record<string, VobExtension> = {
   },
   'aetna-arizona': {
     edi: aetnaAzEdi,
-    codeGrid: azCommercialGrid(azAetnaEntry, 'Required — precertification (assessment and treatment), per national CPB 0554/0648; ASD only.'),
+    codeGrid: azCommercialGrid(azAetnaEntry, 'Required — precertification (assessment and treatment): Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T, and form GR-69017-4 (7-26) supplies the clinical information; ASD only (CPB 0648; CPB 0554 makes non-ASD indications experimental).'),
     stcMap: inheritFamilyStc(aetnaFamilyStc, 'Inherited from the Aetna family default (docs/vob-build.md Layer 2) — no Arizona-specific 270/271 STC document found.'),
     vobContact: aetnaAzContact,
     lastUpdated: ACCESS_DATE,

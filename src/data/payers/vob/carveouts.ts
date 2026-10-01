@@ -73,6 +73,16 @@ const AETNA_CPB0648 = src(
   'Aetna CPB 0648 — Autism Spectrum Disorders (national commercial policy).'
 );
 
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.'
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
+
 /* ================================================================
    CIGNA / EVERNORTH — national default (commercial)
    ================================================================ */
@@ -117,8 +127,8 @@ const AETNA_COMMERCIAL_ROWS: CarveoutRow[] = [
     administratorPayerId: 'unverified',
     abaAdministeredOn: 'unverified',
     notes:
-      'No BH carve-out administrator is named for Aetna commercial ABA in any of the 19 states\' guides (GA, NC, FL, TX, NY, MD, MA, NJ, MO, NE, NM, OH, TN, UT, KS, IN, AZ, CO, VA all checked directly — explicit "not researched to a primary source" / "publishes no state-specific ABA policy, form, or supplement" language repeats across every state). Aetna\'s national CPB 0554/CPB 0648 governs directly with precertification via Availity (form GR-69017-4); whether an internal BH unit or a named vendor adjudicates that precert was not confirmable from any primary source in this corpus. verifyVia: Aetna provider services precert line.',
-    sources: [AETNA_CPB0554, AETNA_CPB0648],
+      'No BH carve-out administrator is named for Aetna commercial ABA in any of the 19 states\' guides (GA, NC, FL, TX, NY, MD, MA, NJ, MO, NE, NM, OH, TN, UT, KS, IN, AZ, CO, VA all checked directly — explicit "not researched to a primary source" / "publishes no state-specific ABA policy, form, or supplement" language repeats across every state). Aetna\'s national policies (CPB 0648 for ASD; CPB 0554 for non-ASD indications) and ABA Medical Necessity Guide govern directly, with precertification via Availity (BH precertification list; form GR-69017-4); whether an internal BH unit or a named vendor adjudicates that precert was not confirmable from any primary source in this corpus. verifyVia: Aetna provider services precert line.',
+    sources: [AETNA_CPB0554, AETNA_CPB0648, AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017],
   },
 ];
 

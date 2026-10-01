@@ -1308,6 +1308,9 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: '2025 Iowa Acts ch. 162 (H.F. 330)', url: 'https://www.legis.iowa.gov/docs/acts/2025/CH0162.pdf' },
       { title: 'Iowa Code chapter 154D — Behavioral science', url: 'https://www.legis.iowa.gov/docs/code/154D.pdf' },
       { title: 'Iowa Code § 514F.8 — Prior authorizations', url: 'https://www.legis.iowa.gov/docs/code/514F.8.pdf' },
+      { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
+      { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1340,13 +1343,10 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Aetna publishes no ABA place-of-service list. The one boundary it states: "Aetna is not required provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act." Iowa\'s mandate likewise does not affect IEP or IFSP obligations (§ 514C.31). Whether ABA is payable in a school, the community or a group home is a benefit-document question.',
+          'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question. Iowa\'s mandate likewise does not affect IEP or IFSP obligations (§ 514C.31).',
         status: 'plan-dependent',
-        cites: [
-          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Iowa Code § 514C.31', url: 'https://www.legis.iowa.gov/docs/code/514C.31.pdf' },
-        ],
-        verifyVia: 'The member\'s benefit document and Aetna provider services.',
+        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Iowa Code § 514C.31', url: 'https://www.legis.iowa.gov/docs/code/514C.31.pdf' }],
+        verifyVia: 'The member\'s benefit document (educational-services exclusion), and Aetna provider services for whether school-setting ABA is payable on that plan.',
         blocker: 'per-case',
       },
       billAsProvider: {
@@ -1402,10 +1402,11 @@ export const iowaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       telehealth: {
-        value: 'Not published in Aetna\'s ABA materials.',
-        status: 'unverified',
-        verifyVia: 'Aetna provider services and the member\'s benefit document: which ABA codes pay by telehealth, and with which POS code.',
-        blocker: 'per-case',
+        value:
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
       },
       authTurnaround: {
         value:
@@ -1436,6 +1437,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Iowa?', a: 'Yes, for autism under Aetna\'s national criteria, with precertification for every ABA code. Large-group and public-employee plans must cover ABA under Iowa Code § 514C.31 or § 514C.28; individual, small-group and self-funded plans follow their plan documents.' },
       { q: 'Does the Iowa autism mandate cap ABA hours or dollars?', a: 'Not for plans issued or renewed on or after January 1, 2026: H.F. 330 removed the age limits and the age-banded dollar maximums, and visit limits were already barred. Medical necessity still sets the hours.' },
       { q: 'What does Aetna pay for ABA in Iowa?', a: 'Commercial rates are negotiated in your participation agreement and not published. Iowa Medicaid\'s fee schedule ($28.59 per 15 minutes for 97153 by a BCBA; $17.16 by a technician) is a public benchmark.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
+      { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
     ],
   },
 
@@ -1512,6 +1515,13 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Iowa Code chapter 154D — Behavioral science', url: 'https://www.legis.iowa.gov/docs/code/154D.pdf' },
           { title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
+      },
+      {
+        h2: 'Is Cigna\'s ABA network open to new providers?',
+        body: [
+          'Evernorth Behavioral Health, which runs Cigna\'s ABA network, says it "is committed to expanding our network of autism providers." It requires providers to be certified by a national governing body or a state licensing board (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral health licensure). Individual providers complete the Evernorth Behavioral Provider Information Form; autism clinics and large group practices complete the Evernorth Screening Application for Autism Clinics. An application can take up to 90 days, and once a clinic contract is signed each certified or licensed provider must also be credentialed, which "can take an additional 60 to 90 days." Providers must be fully credentialed to render in-network services. "Evernorth does not credential nonlicensed/noncertified staff": technician services are billed under the supervising provider.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
     ],
     collect: [
@@ -1612,7 +1622,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          '"All ABA CPT codes are covered telehealth services" (Evernorth autism resource guide), and EN0499 allows "in-person service delivery, telehealth, or a hybrid," chosen on the individual\'s characteristics, caregiver participation and environment. Services by telehealth must still meet the direct-treatment definition.',
+          '"All ABA CPT codes are covered telehealth services" (Evernorth autism resource guide), and EN0499 allows "in-person service delivery, telehealth, or a hybrid," chosen on the individual\'s characteristics, caregiver participation and environment. Services by telehealth must still meet the direct-treatment definition. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth.',
         status: 'verified',
         cites: [
           { title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
@@ -1648,6 +1658,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in Iowa?', a: 'Yes, for autism under Evernorth/Cigna coverage policy EN0499. Large-group and public-employee plans must cover ABA under Iowa\'s mandate; individual, small-group and self-funded plans follow their plan documents.' },
       { q: 'Does the ABA assessment need prior authorization with Cigna?', a: 'No. Evernorth no longer requires PA for 97151, 97152 or 0362T with an autism diagnosis when the provider is independently licensed or a BCBA and the plan covers ABA. Treatment needs the ABA Prior Authorization Form.' },
       { q: 'How much supervision does Cigna expect?', a: 'One to two hours of case supervision per ten hours of direct treatment, and at least one to two hours a week when direct treatment is ten hours or less.' },
+      { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
+      { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
     ],
   },
 
@@ -1834,7 +1846,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth, and neither is the 97151 assessment or the technician-assisted 97152: plan the assessment in person. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -1872,6 +1884,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare?', a: 'Only supervision (97155) and caregiver training (97156), billed with POS 02, and only after the provider completes Optum\'s virtual-visits attestation.' },
       { q: 'How many hours a day of 97153 will Optum pay?', a: 'Up to 32 units (8 hours) a day under the commercial ABA reimbursement policy; claims above that may be denied or recovered.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On fully insured Iowa plans the mandate limits treatment-plan reviews to once every three months in the first year and every six months after.' },
+      { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
     ],
   },
 };

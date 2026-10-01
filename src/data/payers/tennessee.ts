@@ -219,6 +219,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Who can provide ABA under TennCare?', a: 'Direct ABA must be delivered by a BCBA or qualified licensed clinician who holds a Tennessee Licensed Behavior Analyst (LBA) license, with RBTs working under LBA authority.' },
       { q: 'Are TennCare\'s ABA rules different per MCO?', a: 'The clinical rules are deliberately unified — one shared program description and one universal request form across BlueCare, UnitedHealthcare, and Wellpoint. What differs is submission mechanics (portal, fax, forms, timelines) and UnitedHealthcare\'s additional Level of Care guidelines — see each MCO\'s guide.' },
       { q: 'What does TennCare pay for ABA?', a: 'TennCare publishes no ABA fee schedule — each MCO negotiates rates in its provider contracts. Your contract is the only source of truth on reimbursement.' },
+      { q: 'Does TennCare require RBT certification for ABA technicians?', a: 'The shared TennCare program description sets credential expectations for "RBT paraprofessionals": RBTs and their supervising BCBAs "must comply with ALL of the current Behavior Analyst Certification Board (BACB) requirements for credentialing, ethics, competency, supervision, and maintenance of the RBT credential." Direct ABA must be delivered or supervised by a TN Licensed Behavior Analyst. Technicians do not bill under their own NPI: the universal form collects the group (or solo servicing) NPI, and technician codes carry the HM modifier.' },
     ],
   },
 
@@ -292,6 +293,17 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           { title: 'BlueCare Tennessee Provider Administration Manual (H3259, 07/01/2026)', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
           { title: 'Managing Telehealth for BlueCare Tennessee Patients — provider guide (updated Jan. 2025)', url: 'https://content.bcbst.com/api/public/content/bluecare_tennessee_telehealth_guide.pdf' },
           { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' },
+        ],
+      },
+      {
+        h2: 'Is the BlueCare ABA network open to new providers?',
+        body: [
+          'BlueCare Tennessee, which runs both BlueCare and TennCareSelect, does not run an any-willing-provider network. Its Provider Administration Manual says its "ability to credential Providers as well as maintain a separate network and not include any willing Provider is not considered discrimination." Network need is a recognized reason to turn an applicant down: providers "denied participation in a BCBST/BCT network for reason other than network need may not reapply for participation for a least one year." So a denial for network need does not trigger that one-year wait.',
+          'To apply, practitioners and organizations submit a credentialing application, assessed against NCQA, CMS and TennCare Contractor Risk Agreement standards. ABA groups also have to attest to the shared TennCare ABA program description to join the ABA network. BlueCare publishes no statement on whether it is adding ABA providers in a given region; ask BlueCare provider network operations.',
+        ],
+        cites: [
+          { title: 'BlueCare Tennessee Provider Administration Manual (H3259, rev. 10/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
+          { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/13/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
         ],
       },
     ],
@@ -416,6 +428,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Is BlueCare\'s ABA policy different from TennCare\'s?', a: 'Clinically, no — the rules are the shared TennCare baseline. The differences are mechanical: BlueCare\'s portal, fax lines, supplemental form, and UM timelines.' },
       { q: 'Does BlueCare Tennessee (BCBST) allow ABA by telehealth?', a: 'Yes. BlueCare\'s Telehealth Approved Code List (updated March 10, 2026) lists every ABA code — 97151-97158, 0362T and 0373T — as payable with POS 02 or POS 10. Telehealth hours must still be requested per code on the universal ABA request form. For a commercial BCBST plan, see the BlueCross BlueShield of Tennessee guide.' },
       { q: 'What is BlueCare Tennessee\'s fee schedule for ABA?', a: 'There is no public ABA fee schedule. TennCare publishes none, and BlueCare pays according to the fee schedule in your BlueCare provider agreement; its telehealth guide says telehealth payment for many services is consistent with that same fee schedule. Your contract, or BlueCare network management, is the source for rates.' },
+      { q: 'Does BlueCare require RBT certification for ABA technicians?', a: 'Yes, in practice. The shared TennCare program description sets credential expectations for "RBT paraprofessionals" who must keep the RBT credential under BACB rules, and BlueCare\'s manual says "the RBT service codes can be utilized by Registered Behavior Technicians, Board Certified Assistant Behavior Analysts (BCaBA) or by a Provider who has completed their training in Applied Behavior Analysis and is waiting to take the exam to become a Board Certified Behavior Analyst (BCBA)." TennCare does not pay immediate family members to deliver ABA.' },
+      { q: 'Is BlueCare accepting new ABA providers?', a: 'There is no published open or closed status. BlueCare Tennessee\'s manual says it may "maintain a separate network and not include any willing Provider," and that it can deny participation for network need. Apply through BCBST credentialing and attest to the TennCare ABA program description, then ask provider network operations about need in your area.' },
     ],
   },
 
@@ -491,6 +505,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' },
       { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
+      { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/13/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -525,7 +540,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Per-code on the universal form, with a UHC-specific clinical gate on top: \u201cdirect Telehealth services may only be considered medically necessary when the provider has assessed that a member has core skills to attend to a device for an extended period of time.\u201d The guidelines add that \u201ctelehealth service delivery for ABA should include an ongoing review of ethical, efficacy, and scope of practice considerations.\u201d So document device-attention skills before requesting telehealth hours \u2014 it is a medical-necessity element, not a logistics preference.',
+          'Per-code on the universal form, with a UHC-specific clinical gate on top: \u201cdirect Telehealth services may only be considered medically necessary when the provider has assessed that a member has core skills to attend to a device for an extended period of time.\u201d The guidelines add that \u201ctelehealth service delivery for ABA should include an ongoing review of ethical, efficacy, and scope of practice considerations.\u201d So document device-attention skills before requesting telehealth hours \u2014 it is a medical-necessity element, not a logistics preference. The checkbox sits on the assessment rows (97151, 97152) as well as on 97155, so assessment and BCBA-supervision hours can be requested as telehealth code by code. The form and program description set no cap on remote supervision; the BACB supervision requirements they incorporate still apply.',
         status: 'verified',
         cites: [{ title: 'UHC \u2014 Level of Care Guidelines: Applied Behavior Analysis (rev. 12/13/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-BH-Level-of-Care-Guidelines-Applied-Behavioral-Analysis.pdf' }, { title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }],
       },
@@ -597,6 +612,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan of Tennessee cover ABA?', a: 'Yes — it administers the TennCare ABA benefit (EPSDT, under 21) under the shared tri-MCO program description, plus UHC\'s own Level of Care Guidelines with additional requirements like an explicit physician order.' },
       { q: 'How is UHC different from the other TennCare MCOs for ABA?', a: 'It\'s the only one with a distinct clinical overlay: physician-order requirement, extra scrutiny above 20 hours/week of comprehensive ABA, a device-attention test for telehealth, and a 3-month no-measurable-progress discharge rule.' },
       { q: 'How do I submit a UHC TennCare ABA authorization?', a: 'The universal tri-MCO ABA request form via Provider Express, fax (877) 217-6068, or secure email tn_medicaid_aba@uhc.com; ABA line (800) 690-1606.' },
+      { q: 'Can the ABA assessment or BCBA supervision be done by telehealth in TennCare?', a: 'It can be requested. The universal TennCare ABA request form has an "Indicate if Hours are telehealth" checkbox on every code row, including the 97151/97152 assessment and 97155 supervision, so telehealth hours are authorized code by code. The shared program description asks providers to judge clinical appropriateness and use HIPAA-compliant technology.' },
+      { q: 'Does TennCare require RBT certification for ABA technicians?', a: 'The shared TennCare program description sets credential expectations for "RBT paraprofessionals": RBTs and their supervising BCBAs "must comply with ALL of the current Behavior Analyst Certification Board (BACB) requirements for credentialing, ethics, competency, supervision, and maintenance of the RBT credential." Direct ABA must be delivered or supervised by a TN Licensed Behavior Analyst. Technicians do not bill under their own NPI: the universal form collects the group (or solo servicing) NPI, and technician codes carry the HM modifier.' },
     ],
   },
 
@@ -704,7 +721,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Follows the TennCare rule: telehealth is requested and authorized per code via the \u201cIndicate if Hours are telehealth\u201d checkbox that appears on every ABA code row of the universal form Wellpoint hosts, with Telehealth also listed among the places of service. No Wellpoint-Tennessee-specific ABA telehealth policy was located, so the shared program description\u2019s cautions \u2014 clinical appropriateness protocols by model, HIPAA-compliant technology, demonstrated provider competence \u2014 are the operative standard.',
+          'Follows the TennCare rule: telehealth is requested and authorized per code via the \u201cIndicate if Hours are telehealth\u201d checkbox that appears on every ABA code row of the universal form Wellpoint hosts, with Telehealth also listed among the places of service. No Wellpoint-Tennessee-specific ABA telehealth policy was located, so the shared program description\u2019s cautions \u2014 clinical appropriateness protocols by model, HIPAA-compliant technology, demonstrated provider competence \u2014 are the operative standard. The checkbox sits on the assessment rows (97151, 97152) as well as on 97155, so assessment and BCBA-supervision hours can be requested as telehealth code by code. The form and program description set no cap on remote supervision; the BACB supervision requirements they incorporate still apply.',
         status: 'verified',
         cites: [{ title: 'Universal Request for ABA form (all 3 MCOs, Jan 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_RequestABA.pdf' }, { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' }],
       },
@@ -775,6 +792,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Does Wellpoint Tennessee cover ABA therapy?', a: 'Yes — Wellpoint (formerly Amerigroup) administers the TennCare ABA benefit under the shared tri-MCO program description: EPSDT members under 21, PA on assessment and treatment, TN LBA licensure.' },
       { q: 'How do I submit an ABA authorization to Wellpoint TN?', a: 'Complete the universal tri-MCO ABA request form and attach it as clinical documentation in Availity\'s Interactive Care Reviewer; fax fallback (866) 920-6006. The assessment request needs an MD order or treating-provider recommendation.' },
       { q: 'Is Wellpoint\'s ABA policy different from TennCare\'s?', a: 'Clinically, no — it\'s the shared TennCare baseline. The plan-specific layer is workflow: Availity ICR, fax lines, the MD-order emphasis, and the sub-90% unit-utilization explanation rule at continuation.' },
+      { q: 'Can the ABA assessment or BCBA supervision be done by telehealth in TennCare?', a: 'It can be requested. The universal TennCare ABA request form has an "Indicate if Hours are telehealth" checkbox on every code row, including the 97151/97152 assessment and 97155 supervision, so telehealth hours are authorized code by code. The shared program description asks providers to judge clinical appropriateness and use HIPAA-compliant technology.' },
+      { q: 'Does TennCare require RBT certification for ABA technicians?', a: 'The shared TennCare program description sets credential expectations for "RBT paraprofessionals": RBTs and their supervising BCBAs "must comply with ALL of the current Behavior Analyst Certification Board (BACB) requirements for credentialing, ethics, competency, supervision, and maintenance of the RBT credential." Direct ABA must be delivered or supervised by a TN Licensed Behavior Analyst. Technicians do not bill under their own NPI: the universal form collects the group (or solo servicing) NPI, and technician codes carry the HM modifier.' },
     ],
   },
 
@@ -865,6 +884,17 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MLTSS Provider Manual (BlueCare/TennCare Select)', url: 'https://content.bcbst.com/api/public/content/prov-mltss-manual.pdf' },
           { title: 'TennCare Aligned Background Check Protocol (eff. July 1, 2024)', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/AlignedBackgroundCheckProtocol.pdf' },
+        ],
+      },
+      {
+        h2: 'Is the TennCare Select ABA network open to new providers?',
+        body: [
+          'BlueCare Tennessee, which runs both BlueCare and TennCareSelect, does not run an any-willing-provider network. Its Provider Administration Manual says its "ability to credential Providers as well as maintain a separate network and not include any willing Provider is not considered discrimination." Network need is a recognized reason to turn an applicant down: providers "denied participation in a BCBST/BCT network for reason other than network need may not reapply for participation for a least one year." So a denial for network need does not trigger that one-year wait.',
+          'To apply, practitioners and organizations submit a credentialing application, assessed against NCQA, CMS and TennCare Contractor Risk Agreement standards. ABA groups also have to attest to the shared TennCare ABA program description to join the ABA network. BlueCare publishes no statement on whether it is adding ABA providers in a given region; ask BlueCare provider network operations.',
+        ],
+        cites: [
+          { title: 'BlueCare Tennessee Provider Administration Manual (H3259, rev. 10/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
+          { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/13/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
         ],
       },
     ],
@@ -991,6 +1021,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Who is on TennCare Select?', a: 'SSI-eligible children under 21, children in DCS foster-care custody ("SelectKids"), members in intellectual-disability HCBS waivers ("SelectCommunity"), Katie Beckett Part A children, and some out-of-state or safety-net enrollees — roughly 37,095 members statewide (CY2024 average).' },
       { q: 'Does TennCare Select cover ABA therapy?', a: 'Yes — the same shared tri-MCO ABA program that governs BlueCare, UnitedHealthcare Community Plan, and Wellpoint: EPSDT members under 21, prior authorization on assessment and treatment, TN Licensed Behavior Analyst licensure, 26-week authorization periods.' },
       { q: 'How do I submit an ABA prior authorization to TennCare Select?', a: 'The shared tri-MCO universal ABA request form, via Availity (Tennessee providers) or Cohere (out-of-state providers). TennCare Select\'s own Provider Service Line is 1-800-276-1978 and PA phone is 1-800-711-4104 — both distinct from BlueCare\'s numbers.' },
+      { q: 'Does TennCare Select require RBT certification for ABA technicians?', a: 'Yes, in practice. The shared TennCare program description sets credential expectations for "RBT paraprofessionals" who must keep the RBT credential under BACB rules, and BlueCare\'s manual says "the RBT service codes can be utilized by Registered Behavior Technicians, Board Certified Assistant Behavior Analysts (BCaBA) or by a Provider who has completed their training in Applied Behavior Analysis and is waiting to take the exam to become a Board Certified Behavior Analyst (BCBA)." TennCare does not pay immediate family members to deliver ABA.' },
+      { q: 'Is TennCare Select accepting new ABA providers?', a: 'There is no published open or closed status. BlueCare Tennessee\'s manual says it may "maintain a separate network and not include any willing Provider," and that it can deny participation for network need. Apply through BCBST credentialing and attest to the TennCare ABA program description, then ask provider network operations about need in your area.' },
     ],
   },
 
@@ -1001,12 +1033,12 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     assessmentPA: {
       value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
       status: 'verified',
-      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
     },
     treatmentPA: {
       value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
       status: 'verified',
-      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
       value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
@@ -1040,6 +1072,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       {
@@ -1081,6 +1116,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Tenn. Code Ann. § 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' },
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1094,9 +1131,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Aetna\u2019s policies are silent on how recent the diagnostic evaluation must be, and set no re-evaluation interval, so recency is a plan-document and utilization-review question rather than a published rule. Reauthorization is commonly on a roughly six-month cadence, which is the practical clock intake should plan around.',
+          'Aetna\u2019s policies are silent on how recent the diagnostic evaluation must be, so diagnosis recency is a plan-document and utilization-review question rather than a published rule. The re-evaluation clock sits elsewhere: the ABA Medical Necessity Guide says \"A member\'s progress is to be evaluated every six months,\" and form GR-69017-4 (7-26) asks for standardized assessment results \"completed within the past 12 months.\" Reauthorization is commonly on a roughly six-month cadence, which is the practical clock intake should plan around.',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Precertification intake at Aetna (form GR-69017-4 via Availity or phone) \u2014 ask what evaluation age the reviewer will accept, and get the answer in writing per case.',
         blocker: 'per-case',
@@ -1120,18 +1157,17 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         value:
           'Aetna\u2019s ABA policies are silent on whether a referral, prescription or physician order is required; what is required is precertification for both assessment and treatment on form GR-69017-4, submitted through Availity or by phone. Tennessee\u2019s statute imposes no ordering requirement either \u2014 it names no treatment type at all. Many plans still ask for a physician order as a benefit-document term, so verify per plan rather than assuming none is needed.',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
+        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
         verifyVia:
           'Live benefits verification and the plan document; Aetna precertification intake for the specific member.',
         blocker: 'per-case',
       },
       telehealth: {
         value:
-          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA codes, so there is no published Aetna rule to cite for Tennessee \u2014 and no Tennessee-specific Aetna ABA policy, form or supplement exists to supply one. Coverage and any place-of-service requirement fall to the member\u2019s benefit plan and Aetna\u2019s general telemedicine terms.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
-        verifyVia:
-          'Aetna\u2019s telemedicine policy and the member\u2019s benefit document, confirmed at precertification before scheduling remote sessions.',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. No Tennessee-specific Aetna ABA policy, form or supplement changes that list, so whether the member’s plan carries the telehealth benefit is a benefit-plan question. Aetna’s June 2026 provider manual says "Aetna Behavioral Health offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services," and points to Aetna.com for approved telehealth services.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }, { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
         blocker: 'per-case',
       },
       authTurnaround: {
@@ -1164,7 +1200,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         value:
           'Not published. Aetna\u2019s ABA policies set no supervision ratio, no supervisor-to-technician cap and no observation cadence. In Tennessee the binding supervision requirement is therefore the state licensure one: direct ABA must be delivered by a Licensed Behavior Analyst under T.C.A. \u00a7\u00a7 63-11-301 through 63-11-311, administered by the Applied Behavior Analyst Licensing Committee, with assistant-level LABAs practicing only under LBA supervision \u2014 the same gate that governs TennCare work.',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
         verifyVia:
           'Aetna provider services and your participating-provider agreement; the TN Applied Behavior Analyst Licensing Committee for the licensure floor.',
         blocker: 'per-case',
@@ -1216,6 +1252,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Tennessee?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Tennessee\'s mandate (Tenn. Code Ann. § 56-7-2367) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Tennessee autism mandate require?', a: 'Tennessee’s statute is the weakest of the states we cover — it’s a parity rule, not an ABA mandate. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Tennessee?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Tennessee Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s ABA medical necessity guide does not require a technician credential. Services must be provided directly or billed by a licensed behavior analyst (where the state licenses them), a BCBA or a licensed psychologist. Where plans or state law allow services by people who are not licensed or BACB-certified, they must be supervised and directed in line with practice standards. State law or the plan can require more.' },
     ],
   },
 
@@ -1255,6 +1292,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'No ABA-specific benefit — carrier policy governs' },
       { label: 'Exempt from mandate', value: 'Plans without neurological-disorder benefits; self-funded ERISA' },
       { label: 'Licensure', value: 'TN Licensed Behavior Analyst (Dept. of Health committee)' },
+      { label: 'Fee schedule', value: 'Not public — your rates and the list of reimbursable ASD services are in Exhibit A of your Evernorth provider agreement' },
     ],
     sections: [
       {
@@ -1294,6 +1332,27 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
         ],
       },
+      {
+        h2: 'What is Cigna\'s fee schedule for ABA?',
+        body: [
+          'Cigna\'s behavioral health arm, Evernorth, publishes no ABA rate table. Its September 2026 Administrative Guidelines tell contracted providers: "For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement." Fee schedule and contract questions go to Evernorth Provider Services at 800.926.2273.',
+          'Billing follows the AMA codes only: "All ABA services must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY," in 15-minute units, under Evernorth payer ID 62308.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Is Cigna\'s ABA network open to new providers?',
+        body: [
+          'Evernorth says it "is committed to expanding our network of autism providers." Providers must be certified by a national governing agency or a state licensing board (BCBA, BCBA-D, BCaBA, licensed behavior analyst, licensed behavior specialist or other behavioral health licensure). Individual providers complete the Evernorth Behavioral Provider Information Form; autism clinics and large groups complete the Evernorth Screening Application for Autism Clinics.',
+          'Timing: "It may take up to 90 days for an application to be processed," and after a clinic contract is signed each certified or licensed provider must be credentialed, which "can take an additional 60 to 90 days." Providers must be fully credentialed to render in-network services. Questions go to BehavioralContracting@Evernorth.com or Provider Services at 800.926.2273.',
+        ],
+        cites: [
+          { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1306,6 +1365,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'Tenn. Code Ann. § 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' },
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
+      { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1343,9 +1403,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Permitted, with no code list and no place-of-service rule published: \u201cABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities,\u201d chosen on individual characteristics, treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Telehealth is one of the environments where the policy requires services to be \u201cclearly identified and documented,\u201d and the line-of-sight/proximity requirement expressly \u201cdoes not apply to telehealth services, when applicable.\u201d',
+          'Permitted. EN0499 itself publishes no code list and no place-of-service rule: \u201cABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities,\u201d chosen on individual characteristics, treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Telehealth is one of the environments where the policy requires services to be \u201cclearly identified and documented,\u201d and the line-of-sight/proximity requirement expressly \u201cdoes not apply to telehealth services, when applicable.\u201d Evernorth’s autism resource guide (March 2025) settles the code question: "All ABA CPT codes are covered telehealth services." That includes the assessment codes 97151 and 97152 and BCBA supervision (97155).',
         status: 'verified',
-        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
       authTurnaround: {
         value:
@@ -1419,7 +1479,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Cigna cover ABA therapy in Tennessee?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Tennessee\'s mandate (Tenn. Code Ann. § 56-7-2367) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Tennessee autism mandate require?', a: 'Tennessee’s statute is the weakest of the states we cover — it’s a parity rule, not an ABA mandate. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
-      { q: 'What does Cigna pay for ABA in Tennessee?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Tennessee Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'What does Cigna pay for ABA in Tennessee?', a: 'Evernorth (Cigna behavioral health) publishes no ABA rate table. Its administrative guidelines say your fee schedule and the list of reimbursable autism services are in Exhibit A of your Evernorth provider agreement; call Provider Services at 800.926.2273 with fee schedule questions.' },
+      { q: 'Is Cigna (Evernorth) accepting new ABA providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Individuals file the Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; processing can take up to 90 days, plus 60 to 90 days of credentialing per provider after a clinic contract.' },
+      { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth\'s autism resource guide does not name a technician credential. It says Evernorth "does not credential nonlicensed/noncertified staff" and that their services "must be billed under the supervising provider." Case supervision must come from a BCBA, LBA or independently licensed clinician with ABA training. State licensure rules can add requirements.' },
     ],
   },
 
@@ -1462,6 +1524,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: 'No ABA-specific benefit — carrier policy governs' },
       { label: 'Exempt from mandate', value: 'Plans without neurological-disorder benefits; self-funded ERISA' },
       { label: 'Licensure', value: 'TN Licensed Behavior Analyst (Dept. of Health committee)' },
+      { label: 'Fee schedule', value: 'Not public — bill the codes and charges on your contracted Optum ABA fee schedule; paid at your contracted rate' },
     ],
     sections: [
       {
@@ -1495,6 +1558,26 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         ],
         cites: [
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
+        ],
+      },
+      {
+        h2: 'What is UnitedHealthcare\'s fee schedule for ABA?',
+        body: [
+          'Optum, which runs UnitedHealthcare\'s commercial ABA network, publishes no ABA rate table. Its ABA CPT FAQ: "FOR COMMERCIAL MEMBERS, you should bill your contracted billing codes and customary charges as outlined on your Fee Schedule after receiving appropriate authorization. You will be reimbursed based on your contracted rate." Participating groups bill on the Form 1500 "with the billing codes indicated on your contracted fee schedule." A provider that is not yet contracted should call the behavioral health number on the member\'s card to obtain approvals before billing.',
+          'MUEs apply to the commercial ABA program, except that Optum allows 32 units a day of 97151 so assessments can run in longer sessions. Your rates are in your Optum agreement; there is no public lookup.',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      {
+        h2: 'Is UnitedHealthcare\'s ABA network open to new providers?',
+        body: [
+          'Optum describes how to join rather than whether the network is open. Its ABA FAQ lists the credentialing criteria: an individual behavior analyst needs BACB certification as a BCBA, state licensure or certification where the state requires it, at least six months of supervised ABA experience, and $1 million/$1 million professional liability coverage. A group needs analysts who meet those standards, an analyst or licensed clinician on staff providing program oversight, and $1 million/$3 million professional liability plus general or supplemental liability coverage. Apply through the "Join Our Autism/ABA Network" section of the Autism/ABA page on Provider Express.',
+          'Timing: "Solo Behavior Analysts/Specialists and Group credentialing can take from 45 to 120 days," and "an audit is required for all new ABA Agencies and normally it can take up to 90 days to schedule." Optum publishes no statement on whether it is adding ABA providers in a given area; its Provider Service Line (1-877-614-0484) handles network questions.',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
     ],
@@ -1550,7 +1633,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” For assessments, that list matters: 97151 and 97152 are not among the three telehealth codes, so Optum’s guide gives no telehealth path for the initial assessment or a reassessment on commercial plans. BCBA supervision of the technician (97155) is one of the three, as is caregiver training (97156, 97157).',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -1635,8 +1718,11 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Tennessee?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Tennessee\'s mandate (Tenn. Code Ann. § 56-7-2367) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Tennessee autism mandate require?', a: 'Tennessee’s statute is the weakest of the states we cover — it’s a parity rule, not an ABA mandate. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
-      { q: 'What does UnitedHealthcare pay for ABA in Tennessee?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Tennessee Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
+      { q: 'What does UnitedHealthcare pay for ABA in Tennessee?', a: 'Optum publishes no ABA rate table. Contracted providers bill the codes and customary charges on their Optum fee schedule after authorization and are "reimbursed based on your contracted rate." Rates are set in your participating-provider agreement, so ask Optum network management before you contract.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers?', a: 'Optum publishes its ABA credentialing criteria and an application route ("Join Our Autism/ABA Network" on Provider Express), not an open or closed status. Credentialing takes 45 to 120 days, and new agencies also need an Optum audit, which can take up to 90 days to schedule. Ask the Provider Service Line (1-877-614-0484) about need in your area.' },
+      { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'Yes, or an equivalent. Optum\'s ABA FAQ says technicians working directly with children 1:1 must be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT) or a certified Applied Behavior Analysis Technician (ABAT), or hold another certification approved by network management. State rules may add to or override this.' },
+      { q: 'Can the ABA assessment or BCBA supervision be done by telehealth with UnitedHealthcare?', a: 'On commercial plans Optum allows ABA telehealth only for 97155, 97156 and 97157. That covers BCBA supervision of the technician (97155), but not the assessment codes 97151 and 97152. The provider must have completed Optum\'s virtual-visits attestation, and claims carry POS 02 or POS 10.' },
     ],
   },
   'bluecross-blueshield-of-tennessee': {
@@ -1838,6 +1924,16 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           { title: 'Rules of the TN Applied Behavior Analyst Licensing Committee, Ch. 1180-05 (rev. May 2025)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
         ],
       },
+      {
+        h2: 'Is BCBST\'s ABA network open to new providers?',
+        body: [
+          'BCBST does not run an any-willing-provider network. Its commercial manual (effective October 1, 2026) says its "ability to credential providers, as well as maintain a separate network and not include any willing provider, isn\'t considered discrimination," and network need is a recognized reason for a denial: providers "denied participation in a BlueCross network for reason other than network need may not reapply for participation for a least one year."',
+          'Who can be credentialed matters for ABA. The manual\'s credentialing requirements for an individual "Behavior Analyst (CBA)" are a Tennessee Behavior Analyst license and certification as a "board-certified Behavior Analyst-Doctoral (BCBA D)." A BCBA without the doctoral credential does not meet that individual listing as written, so ask BCBST provider network how your practice should enroll.',
+        ],
+        cites: [
+          { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective October 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Commercial BCBST or BlueCare', desc: 'Same company, different rulebooks — BlueCare and TennCareSelect are TennCare plans with their own guides.' },
@@ -1864,6 +1960,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Does BCBS Tennessee allow telehealth for ABA?', a: 'Yes, generally. BCBST reimburses telehealth under Tennessee\'s telehealth law and denies only codes that are not on Medicare\'s telehealth list; all ABA codes (97151-97158, 0362T, 0373T) are on the 2026 list. Bill POS 10 (home) or 02, and make sure the authorization covers telehealth hours. Some self-funded groups exclude telehealth in their contract. For BlueCare (TennCare), see the BlueCare guide — its approved code list also includes every ABA code.' },
       { q: 'What is the fee schedule for BCBS Tennessee?', a: 'BCBST does not publish a public ABA fee schedule. Behavioral health services pay on the provider-contracted Behavioral Health Fee Schedule in your BCBST network attachment, with new codes priced from Medicare RVUs and a network conversion factor. Ask BCBST network management for rates before contracting; BlueCare (TennCare) rates are a separate contract.' },
       { q: 'Can 97155 be billed at the same time as 97153 with BCBST?', a: 'Yes, when the BCBA is directing the RBT, the client is present and at least one protocol is modified — BCBST\'s manual says 97155 "may be billed concurrently with the RBT codes" in that case.' },
+      { q: 'Is BCBS Tennessee accepting new ABA providers?', a: 'There is no published open or closed status. BCBST\'s manual says it may maintain a network that does not include any willing provider and can deny participation for network need. For an individual Behavior Analyst its credentialing list requires a Tennessee license and BCBA-D certification, so ask BCBST provider network about joining as a group.' },
+      { q: 'Can BCBA supervision (97155) be done by telehealth with BCBS Tennessee?', a: 'Generally yes. BCBST pays telehealth for codes on Medicare\'s telehealth list, and 97155 is on the 2026 list along with the other ABA codes. Bill POS 10 or 02 and include the telehealth hours in the authorization. BCBST publishes no cap on the share of supervision done remotely; BACB supervision rules still apply, and some self-funded groups exclude telehealth.' },
     ],
   },
 };

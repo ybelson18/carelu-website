@@ -189,6 +189,16 @@ const CIGNA_EN0499 = src(
 );
 const AETNA_CPB0554 = src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis; medical-necessity policy only.');
 const AETNA_CPB0648 = src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders; 97151-97158 covered when selection criteria are met; no unit caps/POS/telehealth/modifier detail.');
+
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
 const AETNA_ABA_CLAIMS = src(
   'https://www.aetna.com/health-care-professionals/newsletters-news/office-link-updates-june-2022/behavioral-health-updates/applied-behavior-analysis-treatment-and-claims.html',
   'Aetna OfficeLink Updates (June 2022) — "Applied behavior analysis (ABA) treatment and claims": ABA is administered under the member\'s behavioral-health benefits as an internal Aetna function (not a separate carve-out company); no distinct BH claims payer ID named. National commercial claims ride 60054. In-house BH administration is inferred, not stated as a payer ID.'
@@ -766,15 +776,15 @@ const aetnaOhioEdi: EdiRouting = {
 function aetnaOhEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification (specific form number not confirmed in either cited CPB)',
+    paRequired: 'Required — Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T; initiate on Availity or by phone, with form GR-69017-4 (7-26, eff. 8/1/2026) supplying the clinical information',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
     telehealth: 'unverified',
     modifiers: ['unverified'],
     notes: `Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding/reimbursement policy located. ${OHIO_MANDATE_NOTE}`,
-    fieldStatus: { covered: 'verified', paRequired: 'unverified', unitCap: 'unverified', posAllowed: 'unverified', telehealth: 'unverified', modifiers: 'unverified' },
-    sources: [AETNA_CPB0554, AETNA_CPB0648, OHIO_MANDATE],
+    fieldStatus: { covered: 'verified', paRequired: 'verified', unitCap: 'unverified', posAllowed: 'unverified', telehealth: 'unverified', modifiers: 'unverified' },
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_CPB0554, AETNA_CPB0648, OHIO_MANDATE],
   };
 }
 

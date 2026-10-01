@@ -110,6 +110,16 @@ const AETNA_CPB0648 = src(
   'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
   'Aetna CPB 0648 (Autism Spectrum Disorders) — 97151-97158 covered if selection criteria met; no unit caps, POS codes, telehealth modifiers, or licensure-tier modifiers given; no Utah entry.'
 );
+
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
 const OPTUM_SCC = src(
   'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf',
   'Optum ABA Supplemental Clinical Criteria (BH803ABASCC) — clinical-necessity criteria (ICD-10 F84.0 only); contains zero CPT codes; points to a separate Optum ABA Reimbursement Policy for coding detail. Utah has no entry in Optum\'s ABA State Mandates supplemental criteria (Jan 2026 edition lists 14 states, Utah not among them).'
@@ -204,7 +214,7 @@ function utEntry(o: UtEntryOpts): CodeGridEntry {
     paRequired: o.paRequired,
     unitCap: o.unitCap,
     capPeriod: o.capPeriod,
-    posAllowed: ['home', 'clinic', 'community', 'school (school-based ABA on an IEP routes to the School-Based Skills Development benefit, not FFS)', 'telehealth (per code — see telehealth)'],
+    posAllowed: ['home', 'clinic', 'community', 'school (NOT payable FFS — the January 2026 manual routes school ASD services to the School-Based Skills Development benefit; only the analyst\'s part in the school care-plan meeting bills FFS)', 'telehealth (per code — see telehealth)'],
     telehealth: o.telehealth,
     modifiers: o.modifiers,
     notes: o.notes,
@@ -241,8 +251,8 @@ const utahMedicaidCodeGrid: Record<string, CodeGridEntry> = {
     paRequired: 'NOT required — behavior-identification assessments are exempt from PA (PRISM CSV: PA=No).',
     unitCap: '1 assessment per 26 weeks, up to 24 units; reassessment roughly every 6 months',
     capPeriod: '26 weeks',
-    telehealth: 'unverified for the assessment specifically — the manual permits telehealth for supervision and parent training but excludes technician-delivered direct treatment; assessment telehealth eligibility not restated in retrievable sources.',
-    telehealthStatus: 'unverified',
+    telehealth: 'Allowed when clinically appropriate — the January 2026 ASD manual (8-3.4): "behavior identification assessments and supervision of an assistant behavior analyst or behavior technician may occur via remote access technology"; synchronous two-way video only, POS 02 (Section I also accepts POS 10); modifier 95 required from 1/1/2027 (MIB 26-89).',
+    telehealthStatus: 'verified',
     modifiers: [],
     notes: 'Behavior-identification assessment (professional). Pays $37.51/15-min unit (see rates). No PA means intake can book and bill the assessment immediately with a diagnosis in hand.',
     sources: [UT_PRISM_FEE_CSV, UT_PRISM_LOOKUP, UT_ASD_MANUAL, UT_ASD_MANUAL_ARCHIVE],
@@ -394,7 +404,7 @@ const utahMedicaidContact: VobContact = {
 function aetnaEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification (specific form number not confirmed in either cited CPB)',
+    paRequired: 'Required — Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T; initiate on Availity or by phone, with form GR-69017-4 (7-26, eff. 8/1/2026) supplying the clinical information',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
@@ -404,13 +414,13 @@ function aetnaEntry(): CodeGridEntry {
       'Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding/reimbursement policy could be located. Utah-specific layer is the Utah Code 31A-22-642 mandate (individual + large group only — NOT small group), which governs limits, not coding mechanics.',
     fieldStatus: {
       covered: 'verified',
-      paRequired: 'unverified',
+      paRequired: 'verified',
       unitCap: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [AETNA_CPB0554, AETNA_CPB0648],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_CPB0554, AETNA_CPB0648],
   };
 }
 

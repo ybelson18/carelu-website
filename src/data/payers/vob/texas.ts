@@ -118,6 +118,20 @@ const TMHP_AUTISM_BENEFIT_RELEASE = src(
 );
 const AETNA_CPB0554 = src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis.');
 const AETNA_CPB0648 = src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders.');
+
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
+const AETNA_ABA_MNG = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf',
+  'Aetna Applied Behavior Analysis Medical Necessity Guide (©2026): "A member\'s progress is to be evaluated every six months."'
+);
 const CIGNA_EN0499 = src(
   'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf',
   'Evernorth/Cigna EN0499 — no PA on assessment codes 97151/97152/0362T; PA required for treatment codes.'
@@ -199,7 +213,7 @@ const EPH_QRG = src('https://www.elpasohealth.com/pdf/EPH-STARCHIPSTARPLUS%20Qui
 
 const FIRSTCARE_PA_LIST = src(
   'https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR/PA-List.pdf',
-  'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 7/1/2026) — lists 97151,97153,97154,97155,97156,97158,99366 as requiring authorization, filed under "Therapy services." 97152, 97157, 0362T, 0373T absent from this Medicaid-specific list (they appear only in FirstCare\'s separate commercial Medical Coverage Policy #206).'
+  'FirstCare — Texas Medicaid/CHIP Notification/Prior Authorization Codes (eff. 10/1/2026; re-checked 10/1/2026, ABA rows unchanged) — lists 97151,97153,97154,97155,97156,97158,99366 as requiring authorization, filed under "Therapy services." 97152, 97157, 0362T, 0373T absent from this Medicaid-specific list (they appear only in FirstCare\'s separate commercial Medical Coverage Policy #206).'
 );
 const FIRSTCARE_POLICY_206 = src('https://wadcdnstorageprod.blob.core.windows.net/bswhp/Medical-Policies/206.pdf', 'FirstCare — Medical Coverage Policy #206: Autism Spectrum Disorder — explicitly defers Medicaid coverage decisions to the TMPPM; confirms the mandate\'s $36,000/yr cap does not apply to Medicaid.');
 const FIRSTCARE_PROVIDER_MANUAL = src('https://www.firstcare.com/-/media/project/bsw/sites/firstcare/documents/STAR-CHIP-Provider-Manual.pdf', 'FirstCare — 2026 STAR and CHIP Provider Manual — general PA turnaround 3 working days; submit ≥5 days before anticipated service date.');
@@ -750,7 +764,7 @@ const aetnaTxCommercialCodeGrid: Record<string, CodeGridEntry> = Object.fromEntr
         telehealth: 'unverified',
         modifiers: 'unverified',
       },
-      sources: [AETNA_CPB0554, AETNA_CPB0648],
+      sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_ABA_MNG, AETNA_CPB0554, AETNA_CPB0648],
     },
   ])
 );

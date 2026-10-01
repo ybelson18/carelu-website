@@ -211,6 +211,22 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'BACB — RBT Handbook', url: 'https://www.bacb.com/wp-content/uploads/2022/01/RBTHandbook.pdf' },
         ],
       },
+      {
+        h2: 'Is the Florida Medicaid ABA network open to new providers?',
+        cites: [{ title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' }, { title: 'Sunshine Health — Sunshine Health to Temporarily Pause Enrollment of Behavioral Analysis (BA) Providers (9/3/2025)', url: 'https://www.sunshinehealth.com/newsroom/aba-pause.html' }, { title: 'Sunshine Health — Sunshine Health to Resume Enrolling BA Providers in Regions E and F (2/20/2026)', url: 'https://www.sunshinehealth.com/newsroom/pause-ends.html' }, { title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
+        body: [
+          'Mostly a plan-by-plan question, because almost every child is in one of the nine MMA plans. Florida law lets those plans close their networks: “managed care plans may limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), apart from essential providers such as FQHCs and teaching hospitals, and “the agency may not classify physicians and other practitioners as essential providers.” So no Florida rule obliges a plan to contract with a BA group that asks. Each plan sets its own intake. Sunshine Health, for example, paused adding practitioners to existing BA groups from October 1, 2025 outside Regions A and B, and lifted the pause only in Regions E and F from March 1, 2026 (see the Sunshine guide).',
+          'For fee-for-service members (those not in a plan), every rendering practitioner, technicians included, enrolls with Florida Medicaid (see who can bill). Ask each MMA plan\u2019s provider relations team whether it is adding BA groups in your region before you budget for credentialing.',
+        ],
+      },
+      {
+        h2: 'What happens when a family switches BA providers?',
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'Acentra Health \u2014 Behavior Analysis Provider Manual 2026', url: 'https://fl.acentra.com/wp-content/uploads/sites/14/2026/05/Behavior-Analysis-Provider-Manual-2026.pdf' }],
+        body: [
+          'AHCA\u2019s coverage policy addresses it directly in the assessment rules: “A full assessment may be requested if there is a change in provider; however, a change of a practitioner status (e.g., an RBT becoming certified as a BCaBA) is not grounds for conducting a reassessment or updating a behavior plan.” Providers “must request a new authorization if clinical conditions require a new assessment.” The policy does not say the old authorization carries over to a new agency, so plan on the new agency requesting its own assessment authorization and then its own treatment authorization.',
+          'Fee-for-service requests through Acentra follow its request types: an initial authorization (“admission review”) at least 5 business days before services start, and reauthorization (“continued stay”) 10 to 30 business days before the current approval ends; Acentra says “requests for 97151TS from the current provider should be entered as a continued stay.” Parent withdrawal of consent is one of the policy\u2019s listed discharge grounds. MMA members follow their plan\u2019s process for closing one authorization and opening another, so ask the plan.',
+        ],
+      },
     ],
     collect: [
       { title: 'MMA plan (or FFS)', desc: 'One of the nine plans, or unenrolled/FFS via Acentra — it decides the entire PA pathway.' },
@@ -237,12 +253,15 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'AHCA — Clearinghouse Renewals', url: 'https://ahca.myflorida.com/health-quality-assurance/bureau-of-central-services/background-screening/clearinghouse-renewals' },
       { title: 'CASP — ABA Practice Guidelines for the Treatment of ASD (3.0)', url: 'https://assets-002.noviams.com/novi-file-uploads/casp/pdfs-and-documents/ASD_Guidelines/ABA_Practice_Guidelines_3_0-70a721a1.pdf' },
       { title: 'BACB — RBT Handbook', url: 'https://www.bacb.com/wp-content/uploads/2022/01/RBTHandbook.pdf' },
+      { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
     ],
     faq: [
       { q: 'Does Florida Medicaid require an autism diagnosis for ABA?', a: 'No. Eligibility is functional — behavior that impairs a major life activity, for recipients under 21. The gate is a referral from an independent physician or qualifying practitioner, including a physician\'s order for BA services and a Comprehensive Diagnostic Evaluation. Claims carry the most specific supporting diagnosis, but no F84.x code is required.' },
       { q: 'Who approves Florida Medicaid ABA prior authorizations now?', a: 'Since February 1, 2025 (SMMC 3.0), the member\'s MMA plan — one of nine — authorizes BA for plan enrollees. Only recipients not enrolled in a plan still authorize through Acentra Health\'s eQSuite portal on the fee-for-service side.' },
       { q: 'How long do Florida BA authorizations last?', a: 'Up to 180 calendar days. Renewal requires a reassessment and an updated behavior plan at least every 6 months, with the Vineland-3 and BASC-3 core instruments re-administered every 12 months.' },
       { q: 'What does Florida Medicaid pay for ABA?', a: 'Per the January 2025 schedule: 97153 direct treatment $12.26 per 15-minute unit, 97151 assessment $19.05, 97155 $19.17 (Lead Analyst), 97156 family training $19.05 — among the lowest ABA rates in the Southeast. MCO contracts use the state schedule as the baseline.' },
+      { q: 'Is the Florida Medicaid ABA network open?', a: 'Each MMA plan decides. Florida law lets plans limit their networks “based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), and some plans have paused adding BA practitioners in some regions (Sunshine Health since October 2025, outside Regions A and B, lifted in E and F from March 2026). Ask each plan\u2019s provider relations team.' },
+      { q: 'What happens if a Florida Medicaid family changes BA providers?', a: 'AHCA\u2019s policy says “a full assessment may be requested if there is a change in provider,” so the new agency usually requests its own assessment and then a new treatment authorization. An RBT becoming a BCaBA is not grounds for a reassessment. Plan members follow the plan\u2019s process.' },
     ],
   },
 
@@ -460,6 +479,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Is Sunshine accepting new ABA providers?', a: 'Sunshine announced a temporary pause, effective October 1, 2025, on adding new practitioners to existing BA groups everywhere except Regions A and B. It resumed enrolling in Regions E and F from March 1, 2026. Verify current status for your region with your Sunshine account manager.' },
       { q: 'What is the Sunshine Health PCP Acknowledgement Form?', a: 'Effective August 1, 2026, Sunshine requires a "PCP Acknowledgement and Care Coordination Form" with every new BA authorization request — Sunshine states authorizations submitted on or after that date "will not be approved without this form." The PCP confirms awareness of the BA services and care-coordination considerations but does not set BA hours or approve the treatment plan. The form updates annually, but the original signed copy must be resubmitted with every PA request, on top of the existing CDE/Vineland-3/BASC-3 documentation.' },
       { q: 'Is Ambetter the same as Sunshine Health Medicaid?', a: 'No — Ambetter from Sunshine Health is Centene\'s ACA Marketplace (exchange) brand, a fully-insured individual-market product. It is NOT Florida Medicaid, and Florida\'s autism mandate (§ 627.6686) explicitly excludes individual-market plans, so Ambetter\'s ABA coverage rests on ACA/MHPAEA rules and Centene\'s own clinical policy rather than the state mandate or the AHCA Medicaid BA policy. Always confirm which card a family holds.' },
+      { q: 'What happens when a Sunshine Health member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Sunshine Health how it closes the previous provider\u2019s authorization.' },
     ],
   },
 
@@ -682,12 +702,15 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Molina Healthcare of Florida — Behavioral Analysis Services: Authorization & Documentation Guide (Comprehensive BA QRG, effective July 2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx' },
       { title: 'AHCA SMMC Model Health Plan Contract — Exhibit II-C, Children’s Medical Services Health Plan (July 2026 update)', url: 'https://ahca.myflorida.com/file/medicaid/Health_Exhibit%20II-C%20CMSPlan_July%202026.pdf' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+      { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
     ],
     faq: [
       { q: 'Who runs the CMS Health Plan now?', a: 'Molina Healthcare of Florida, from October 1, 2026. Sunshine Health operated the plan through September 30, 2026, and members moved to Molina automatically. Benefits did not change; the payer ID (Molina 51062), portal (Availity) and BA documentation rules did.' },
       { q: 'Will Molina honor my Sunshine BA authorization?', a: 'Yes, during continuity of care: up to 240 days (through May 29, 2027) for members who transferred from Sunshine, or until Molina finalizes a new care plan. Molina keeps the Sunshine authorization number. Authorizations ending September 30–November 30 need a continuation request; later ones and all new services need a full new request.' },
       { q: 'Does the CMS Health Plan cover ABA?', a: 'Yes — Behavior Analysis for members under 21, on the Florida Medicaid criteria. No autism diagnosis is required as such, but Molina\'s CDE must state a formal diagnosis (ASD or another qualifying condition), and the PCP\'s signed referral must accompany the first request.' },
       { q: 'How fast does the CMS Plan decide BA authorizations?', a: 'Within 3 days for standard requests under the CMS Plan contract exhibit (Molina says 3 business days in its BA guide), and 2 days for expedited ones. That is shorter than the 5-day standard the core contract sets for the MMA plans.' },
+      { q: 'Is the CMS Health Plan\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask the CMS Health Plan\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
+      { q: 'What happens when a the CMS Health Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask the CMS Health Plan how it closes the previous provider\u2019s authorization.' },
     ],
   },
 
@@ -862,11 +885,14 @@ export const floridaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Simply Healthcare / Carelon — Behavioral Analysis provider training (Feb 2025)', url: 'https://provider.simplyhealthcareplans.com/docs/gpp/FLFL_SIMPLY_CarelonBehavioralAnalysisTrainingRes.pdf?v=202503041513' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+      { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
     ],
     faq: [
       { q: 'Does Simply Healthcare cover ABA in Florida?', a: 'Yes — on the AHCA Behavior Analysis criteria (no autism diagnosis required), with utilization management and claims both delegated to Carelon Behavioral Health since February 1, 2025.' },
       { q: 'Where do Simply Healthcare ABA authorizations go?', a: 'To Carelon — via the eServices portal or fax 1-800-370-1116. Claims also go to Carelon, submitted through Availity Essentials, not to Simply directly.' },
       { q: 'What is the 30-day rule on Simply/Carelon PAs?', a: 'The treatment plan and supporting data must be no older than 30 days at submission — a Carelon process rule layered on the state\'s 6-month clinical cycle. Refresh data before assembling any renewal packet.' },
+      { q: 'Is Simply Healthcare\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Simply Healthcare\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
+      { q: 'What happens when a Simply Healthcare member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Simply Healthcare how it closes the previous provider\u2019s authorization.' },
     ],
   },
 
@@ -1043,11 +1069,14 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'UHC Community Plan FL — SMMC Behavioral Analysis Program QRG (BH00998-1-25)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/fl/resources/FL-BAP-QRG.pdf' },
       { title: 'Optum Provider Express — Florida ABA QRG', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/flaba/FLABAQRG.pdf' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+      { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Florida cover ABA?', a: 'Yes — since February 1, 2025 its Behavior Analysis program is managed by Optum on the state clinical criteria: no autism diagnosis required, physician referral + order + CDE, PA on all BA services.' },
       { q: 'How do I submit a BA authorization to UHC Community Plan of Florida?', a: 'Portal-only: Provider Express → Auths → Request a new authorization → "ABA Assessment" or "ABA Treatment." No fax pathway is advertised for BA — unique among Florida\'s nine plans.' },
       { q: 'Where do UHC Florida Medicaid ABA claims go?', a: 'To UHC Community Plan, payer ID 87726, within 180-day timely filing; clean claims process in 15 calendar days. First-time submitters must attach a W9 and a copy of the Florida license.' },
+      { q: 'Is UnitedHealthcare Community Plan\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask UnitedHealthcare Community Plan\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
+      { q: 'What happens when a UnitedHealthcare Community Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask UnitedHealthcare Community Plan how it closes the previous provider\u2019s authorization.' },
     ],
   },
 
@@ -1226,11 +1255,14 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Humana FL — Behavior Analysis Authorization form (1023905FL0616)', url: 'https://assets.humana.com/is/content/humana/ABA_PA_Formpdf' },
       { title: 'Humana FL — ABA clinical toolkit', url: 'https://provider.humana.com/medicaid/florida-medicaid/aba-toolkit' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+      { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
     ],
     faq: [
       { q: 'Does Humana Healthy Horizons cover ABA in Florida?', a: 'Yes — it administers the state Behavior Analysis benefit on AHCA criteria: no autism diagnosis required, physician referral + order + CDE, PA on all BA services via Availity, 24/7 IVR, or fax.' },
       { q: 'What documents does a Humana Florida BA authorization need?', a: 'For the initial assessment, a BA referral and the CDE. For treatment, the signed behavior plan, history and care-coordination notes, the Vineland-3 and BASC-3 PRQ (ages 2–18; initial and every 12 months), a rationale for requested hours, and the IEP/504 for school-based services — all on Humana\'s Behavior Analysis Authorization form (1023905FL0616).' },
       { q: 'What does Humana pay non-par ABA providers in Florida?', a: 'Absent a letter of agreement, the lesser of the amount on Humana\'s authorization form or 100% of the Medicaid fee schedule — and the form sets that amount at 80% of the Medicaid Fee Schedule. The state\'s BA rates are the explicit reference point.' },
+      { q: 'Is Humana Healthy Horizons\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Humana Healthy Horizons\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
+      { q: 'What happens when a Humana Healthy Horizons member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Humana Healthy Horizons how it closes the previous provider\u2019s authorization.' },
     ],
   },
 
@@ -1406,11 +1438,14 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'ABHFL — BA Provider Open Office Hours notice (02/24/2025)', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/florida/pdf/ABHFL_BA_Office_Hours_Provider_Notice_02.24.2025.pdf' },
       { title: 'ABHFL — provider materials & forms', url: 'https://www.aetnabetterhealth.com/florida/providers/materials-forms.html' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+      { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
     ],
     faq: [
       { q: 'Does Aetna Better Health of Florida cover ABA?', a: 'Yes — it administers the state Behavior Analysis benefit on AHCA criteria: no autism diagnosis required, the physician referral + order + CDE gate, and PA on all BA services (universal PA from July 1, 2025 per plan notices).' },
       { q: 'How do I join Aetna Better Health of Florida\'s ABA network?', a: 'Through Behavioral Services Network (BSN), the plan\'s delegated BA contracting and credentialing partner — info@bsnnet.com or 305-907-7470 — not through Aetna directly.' },
       { q: 'Where do ABHFL BA authorizations get submitted?', a: 'The plan\'s general PA guidance points to Availity, but ABHFL\'s BA-specific submission details aren\'t publicly verifiable — confirm the current channel in the portal or at the plan\'s BA Provider Open Office Hours.' },
+      { q: 'Is Aetna Better Health of Florida\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Aetna Better Health of Florida\u2019s provider relations or contracting team whether it is adding BA groups in your region. Its guide above names the BA contracting route.' },
+      { q: 'What happens when a Aetna Better Health of Florida member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Aetna Better Health of Florida how it closes the previous provider\u2019s authorization.' },
     ],
   },
 
@@ -1575,10 +1610,13 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Molina Healthcare of Florida — Behavioral Analysis Services: Authorization & Documentation Guide (Comprehensive BA QRG, effective July 2026)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/fl/medicaid/08-07-26-MHFL-Comprehensive-BA-QRG-508.ashx' },
       { title: 'Molina FL — BA Quick Reference Guide 2026 (revised 2/5/2026)', url: 'https://www.molinahealthcare.com/providers/fl/medicaid/comm/-/media/D0605825716B47F8819AD3B554626A86.ashx' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+      { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
     ],
     faq: [
       { q: 'Does Molina Healthcare of Florida cover ABA?', a: 'Yes — it has administered the state Behavior Analysis benefit in-house since the February 2025 carve-in, for members under 21, on AHCA criteria: a PCP referral and a qualifying CDE, then prior authorization for treatment codes (97151 assessment is exempt).' },
       { q: 'Where are Molina\'s Florida BA rules published?', a: 'In its Behavioral Analysis Services Authorization & Documentation Guide (effective July 2026), linked from Molina\'s Florida provider home page, and in the Prior Authorization Code Lookup Tool. The AHCA coverage policy sits underneath.' },
+      { q: 'Is Molina\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Molina\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
+      { q: 'What happens when a Molina member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Molina how it closes the previous provider\u2019s authorization.' },
     ],
   },
 
@@ -1749,11 +1787,14 @@ export const floridaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Community Care Plan — Behavior Analysis Provider Manual (2025-01-29)', url: 'https://www.therapynetwork.com/state_links/ba/manuals/Community-Care-Plan-Behavior-Analysis-Provider-Manual.pdf' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+      { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
     ],
     faq: [
       { q: 'Does Community Care Plan cover ABA?', a: 'Yes — the state Behavior Analysis benefit on AHCA criteria (no autism diagnosis required), with the entire BA function — authorizations and claims — delegated to Therapy Network of Florida.' },
       { q: 'How fast does CCP approve BA authorizations?', a: 'Therapy Network of Florida publishes 5 calendar days standard and 2 calendar days expedited — the AHCA contract clock. Decisions come from Therapy Network of Florida, not the plan.' },
       { q: 'Where do CCP ABA claims go?', a: 'To Therapy Network of Florida, not CCP — electronically via the TNFL portal, or on paper addressed to Therapy Network of Florida.' },
+      { q: 'Is Community Care Plan\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Community Care Plan\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
+      { q: 'What happens when a Community Care Plan member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Community Care Plan how it closes the previous provider\u2019s authorization.' },
     ],
   },
 
@@ -1918,10 +1959,13 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Florida Community Care — Behavioral Analysis Services (provider page)', url: 'https://fcchealthplan.com/ba-services/' },
       { title: 'Florida Community Care — ABA Request for Prior Authorization Form (last updated 7/28/2025)', url: 'https://fcchealthplan.com/wp-content/uploads/2025/01/2M2524-FCC-ABA-PriorAuthForm-Final.pdf' },
       { title: 'Florida Medicaid BA Services Coverage Policy (Dec 2024)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
+      { title: 'Fla. Stat. § 409.975 (2026) — Managed care plan accountability (provider networks)', url: 'https://www.flsenate.gov/Laws/Statutes/2026/409.975' },
     ],
     faq: [
       { q: 'Does Florida Community Care cover ABA?', a: 'Yes — the state Behavior Analysis benefit on AHCA criteria (no autism diagnosis required), authorized by FCC\'s in-house Utilization Department via its ABA PA form.' },
       { q: 'How do I submit a BA authorization to FCC?', a: 'The FCC ABA Prior Authorization Request Form by fax to 305-675-6138, email to FCCUMDepartment@FCCHealthPlan.com, or through the FCC Provider Portal — email submission is an FCC-specific convenience.' },
+      { q: 'Is Florida Community Care\u2019s BA network open to new providers?', a: 'Not published as a yes or no. Florida law lets MMA plans “limit the providers in their networks based on credentials, quality indicators, and price” (s. 409.975(1), F.S.), so a plan may decline a new BA group. Ask Florida Community Care\u2019s provider relations or contracting team whether it is adding BA groups in your region.' },
+      { q: 'What happens when a Florida Community Care member switches BA providers?', a: 'AHCA\u2019s BA coverage policy, which every MMA plan must follow, says “a full assessment may be requested if there is a change in provider,” and a change in a practitioner\u2019s credential (an RBT becoming a BCaBA) is not grounds for a reassessment. Expect the new agency to request its own assessment and treatment authorization; ask Florida Community Care how it closes the previous provider\u2019s authorization.' },
     ],
   },
 
@@ -1979,17 +2023,17 @@ export const floridaPayers: Record<string, PayerConfig> = {
           'Aetna gates ABA with precertification rather than a referral: form GR-69017-4, submitted through Availity or by phone, for both the assessment and treatment. Neither CPB 0554, CPB 0648 nor the ABA Medical Necessity Guide publishes a referral or physician-order requirement — the Guide mentions “involvement of, or referrals to, appropriate health care, community or supplemental resources” as a quality element, not an entry condition. Whether the specific plan needs a PCP referral is a benefit-design question, not a policy one.',
         status: 'plan-dependent',
         blocker: 'per-case',
-        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
         verifyVia:
           'The member’s benefit document and Aetna precertification at the number on the ID card — ask whether a PCP referral is required in addition to precertification.',
       },
       telehealth: {
         value:
-          'Not published. Aetna’s ABA materials — CPB 0554, CPB 0648 and the ABA Medical Necessity Guide — say nothing about telehealth delivery of ABA: no code list, no place-of-service codes, no modifiers and no limits. Do not assume the Florida Medicaid position either, which is narrower than most commercial practice (telemedicine for caregiver training only).',
-        status: 'unverified',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Do not assume the Florida Medicaid position either, which is narrower than most commercial practice (telemedicine for caregiver training only).',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
         blocker: 'per-case',
-        verifyVia:
-          'Aetna’s telemedicine policy and provider services at the number on the member’s ID card — confirm which ABA codes pay by telehealth on that specific Florida plan before scheduling remote sessions.',
       },
       authTurnaround: {
         value:
@@ -2052,12 +2096,11 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Aetna publishes no place-of-service code list for ABA. The one boundary it does state is the schools carve-out: pursuant to applicable law Aetna “is not required [to] provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act.” That limits paying for what the IEP owes; it is not a blanket ban on the school setting, and it yields to a stronger state mandate. Florida’s mandate does not itself name settings, so where ABA is payable in a school, in the community or in a group home is a benefit-document question on Aetna plans.',
+          'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question. Florida\u2019s mandate does not itself name settings.',
         status: 'plan-dependent',
+        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
+        verifyVia: 'The member\'s benefit document (educational-services exclusion), and Aetna provider services for whether school-setting ABA is payable on that plan.',
         blocker: 'per-case',
-        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (\u00a92026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Fla. Stat. \u00a7 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' }],
-        verifyVia:
-          'The member’s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
       },
       billAsProvider: {
         value:
@@ -2091,6 +2134,9 @@ export const floridaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       {
@@ -2205,7 +2251,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Open, and stated at both the policy and the guide level. EN0499: “ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities,” with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements — and the line-of-sight/close-proximity documentation rule expressly “does not apply to telehealth services, when applicable.” The Evernorth autism resource guide is blunter: “all ABA CPT codes are covered telehealth services,” subject to EN0499. Services delivered via telehealth still have to meet the direct treatment / direct engagement definition and be documented as such.',
+          'Open, and stated at both the policy and the guide level. EN0499: “ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities,” with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements — and the line-of-sight/close-proximity documentation rule expressly “does not apply to telehealth services, when applicable.” The Evernorth autism resource guide is blunter: “all ABA CPT codes are covered telehealth services,” subject to EN0499. Services delivered via telehealth still have to meet the direct treatment / direct engagement definition and be documented as such. Because the guide covers all ABA CPT codes, that includes the 97151 assessment and 97152 supporting assessment and the BCBA\u2019s 97155 direction of a technician. EN0499 sets supervision at one to two hours per ten hours of direct treatment, with the BCBA “face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]”; it does not say that face-to-face must be in person.',
         status: 'verified',
         cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
@@ -2295,6 +2341,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '$36,000/yr; $200,000 lifetime (CPI-adjusted; parity-limited)' },
       { label: 'Exempt from mandate', value: 'Individual, individually underwritten, and small-group plans; self-funded ERISA' },
       { label: 'Licensure', value: 'None — no FL behavior analyst license; BCBA/FL-CBA credential (s. 393.17)' },
+      { label: 'Fee schedule', value: 'Not public — rates are a contract question for your Evernorth provider relations representative' },
     ],
     sections: [
       {
@@ -2335,6 +2382,14 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts (FL not listed)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
         ],
       },
+      {
+        h2: 'How do I join Cigna\u2019s (Evernorth\u2019s) ABA network, and what does it pay?',
+        cites: [{ title: 'Evernorth — Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        body: [
+          'Cigna\u2019s behavioral health network is run by Evernorth. Its autism resource guide (March 2025): “Individual providers and autism clinics must complete an application if they would like to join our network” \u2014 individuals use the Evernorth Behavioral Provider Information Form, and autism clinics and large group practices use the Evernorth Screening Application for Autism Clinics. Processing can take up to 90 days (questions after that go to BehavioralContracting@Evernorth.com), and once a clinic contract is signed, each certified or licensed provider must be credentialed, which “can take an additional 60 to 90 days.” Evernorth “does not credential nonlicensed/noncertified staff”; their services are billed under the supervising provider. The guide does not say whether the network is accepting new ABA providers in a given area, so ask Provider Services (800-926-2273).',
+          'Evernorth publishes no ABA fee schedule. The guide sends questions about “credentialing, contracts, or rates” to your provider relations representative, so your rates are in your Evernorth contract.',
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large-group (mandate applies) vs. individual/small-group or self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -2352,7 +2407,8 @@ export const floridaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Cigna cover ABA therapy in Florida?', a: 'Yes — under national policy EN0499 for ASD (no PA on assessment codes 97151/97152/0362T), layered on Florida\'s Geller Act (§ 627.6686) for covered fully-insured group plans. Self-funded, individual, and small-group plans sit outside the mandate, so verify plan funding type first.' },
       { q: 'What does the Florida autism mandate require?', a: 'For covered group plans: screening, speech, OT, PT, and ABA for eligible individuals — under 18 (or 18+ in high school) diagnosed with a developmental disability by age 8 — with ABA capped at $36,000/year and $200,000 lifetime (CPI-adjusted). It also covers Down syndrome, and federal parity limits how hard the dollar caps can be enforced against group plans.' },
-      { q: 'What does Cigna pay for ABA in Florida?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Florida Medicaid BA schedule (97153 at $12.26/unit) and treat rate-setting as part of contracting.' },
+      { q: 'What is Cigna\u2019s fee schedule for ABA in Florida?', a: 'Evernorth (Cigna\u2019s behavioral health arm) publishes no ABA fee schedule. Its autism resource guide sends questions about credentialing, contracts or rates to your provider relations representative, so the rate is in your Evernorth contract.' },
+      { q: 'How do I join Cigna\u2019s ABA network in Florida?', a: 'Apply to Evernorth: individuals use the Evernorth Behavioral Provider Information Form and autism clinics the Screening Application for Autism Clinics. Allow up to 90 days for the application and another 60 to 90 days to credential each provider after the clinic contract. Technicians are not credentialed; their services bill under the supervising provider.' },
     ],
   },
 
@@ -2421,7 +2477,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
           'A live benefits verification plus Provider Express — confirm whether the plan layers a referral requirement on top of the two-step authorization.',
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” Because only 97155, 97156 and 97157 are allowed by telehealth on commercial plans, the 97151 assessment and 97152 supporting assessment must be done in person, while remote BCBA direction of the technician (97155) is allowed.',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -2485,7 +2541,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'The commercial ABA reimbursement policy sets codes, modifiers, units and concurrency but no place-of-service rule; the clinical criteria only require the place of service to appear on every daily progress note, and the treatment plan to be coordinated with the school and any IFSP/IEP. Florida is one of the states where Optum publishes a genuine state supplement, but it is a covered-condition rule rather than a setting rule: for Florida members on mid- and large-group fully-insured plans, “Applied Behavior Analysis (ABA) is covered for the treatment of Down Syndrome. Speech therapy, physical therapy, occupational therapy, and ABA must be covered to the same extent as the existing Florida autism mandate.”',
+          'The commercial ABA reimbursement policy sets codes, modifiers, units and concurrency but no place-of-service rule; the clinical criteria only require the place of service to appear on every daily progress note, and the treatment plan to be coordinated with the school and any IFSP/IEP. Florida is one of the states where Optum publishes a genuine state supplement, but it is a covered-condition rule rather than a setting rule: for Florida members on mid- and large-group fully-insured plans, “Applied Behavior Analysis (ABA) is covered for the treatment of Down Syndrome. Speech therapy, physical therapy, occupational therapy, and ABA must be covered to the same extent as the existing Florida autism mandate.” School: Optum\u2019s clinical criteria exclude “services that are not ABA therapy, such as 1:1 aid delivered simultaneously during classroom instruction, or services covered under the Individuals with Disabilities Education Act (IDEA),” but “school ABA services do allow for coordination of services and would cover services such as teacher training, meetings with school personnel, and observations in the school setting.”',
         status: 'unverified',
         blocker: 'per-case',
         cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
@@ -2514,6 +2570,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { label: 'Mandate caps', value: '$36,000/yr; $200,000 lifetime (CPI-adjusted; parity-limited)' },
       { label: 'Exempt from mandate', value: 'Individual, individually underwritten, and small-group plans; self-funded ERISA' },
       { label: 'Licensure', value: 'None — no FL behavior analyst license; BCBA/FL-CBA credential (s. 393.17)' },
+      { label: 'Fee schedule', value: 'Not public — participating providers bill from the fee schedule in their Optum agreement' },
     ],
     sections: [
       {
@@ -2562,6 +2619,13 @@ export const floridaPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts (FL not listed)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
         ],
       },
+      {
+        h2: 'What is UnitedHealthcare\u2019s fee schedule for ABA in Florida?',
+        cites: [{ title: 'Optum — Telehealth Billing Quick Reference Guide (updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'Optum — Applied Behavior Analysis (ABA) Reimbursement Policy, Commercial (2022RP501A)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        body: [
+          'UnitedHealthcare does not publish a commercial ABA rate table; Optum administers the behavioral health benefit and pays under your participation agreement. Optum\u2019s Telehealth Billing guide (September 2025) tells providers that “participating (contracted) network providers should use the applicable CPT code(s) listed on their fee schedule,” and that payment “may also be subject to benefit plan provisions and prior authorization requirements.” Optum\u2019s commercial ABA reimbursement policy (2022RP501A) sets how the claim is built rather than the price: 97151\u201397158 with a credential modifier (HM for an RBT, HN for a BCaBA, and so on), 15-minute units counted the CMS way, and indirect work “bundled with direct services for consideration of reimbursement.” For rates, ask Optum network management or check your agreement.',
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type + group size', desc: 'Fully insured mid/large-group triggers both the mandate and Optum\'s Down syndrome coverage; individual/small-group and self-funded ERISA are exempt.' },
@@ -2586,7 +2650,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare cover ABA therapy in Florida?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on Florida\'s Geller Act (§ 627.6686) for covered fully-insured group plans. Self-funded, individual, and small-group plans sit outside the mandate, so verify plan funding type first.' },
       { q: 'Does UnitedHealthcare cover ABA for Down syndrome in Florida?', a: 'For mid- and large-group fully-insured Florida plans, yes — Optum\'s ABA State Mandates supplement explicitly covers ABA for the treatment of Down syndrome, mirroring the Florida mandate\'s unusual Down syndrome extension. It does not apply to individual or small-group plans; confirm funding type and group size.' },
       { q: 'What does the Florida autism mandate require?', a: 'For covered group plans: screening, speech, OT, PT, and ABA for eligible individuals — under 18 (or 18+ in high school) diagnosed with a developmental disability by age 8 — with ABA capped at $36,000/year and $200,000 lifetime (CPI-adjusted). Federal parity limits how hard the dollar caps can be enforced against group plans.' },
-      { q: 'What does UnitedHealthcare pay for ABA in Florida?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Florida Medicaid BA schedule (97153 at $12.26/unit) and treat rate-setting as part of contracting.' },
+      { q: 'What is UnitedHealthcare\u2019s fee schedule for ABA in Florida?', a: 'There is no public one. Optum tells participating providers to bill “the applicable CPT code(s) listed on their fee schedule,” meaning the schedule in your Optum agreement, with payment subject to the member\u2019s benefits and prior authorization. Ask Optum network management for rates.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
     ],
   },

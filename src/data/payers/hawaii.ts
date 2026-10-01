@@ -62,6 +62,7 @@ const AET_0554: PayerSource = { title: 'Aetna CPB 0554 — Applied Behavior Anal
 const AET_0648: PayerSource = { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' };
 const AET_GUIDE: PayerSource = { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' };
 const AET_PRECERT: PayerSource = { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' };
+const AET_TELE: PayerSource = { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' };
 const AET_BHMAN: PayerSource = { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' };
 const CIG_EN0499: PayerSource = { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' };
 const CIG_ARG: PayerSource = { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' };
@@ -187,6 +188,16 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [MQ_MEMO, MQ_FAQ, MQ_PRES, MQ_FEES],
       },
+      {
+        h2: 'How do ABA providers get into a QUEST plan network?',
+        body: [
+          'Med-QUEST does not run an ABA network of its own. Under QI-2431 the QI health plans "will follow their established [and Department of Human Services, MQD reviewed and approved] credentialing and contracting processes" for diagnosing and rendering providers, so a provider contracts with each plan it wants to serve (AlohaCare, HMSA, Kaiser Permanente, ʻOhana through 2026, UnitedHealthcare Community Plan through Optum).',
+          'Each plan must make sure rendering providers are licensed in Hawaii, practicing within the scope of their license, "Actively enrolled in the State Medicaid Program," and, for anyone practicing as a BCBA-D, BCBA, BCaBA or RBT, holding current BACB credentialing and certification. A BCaBA or RBT must work under a licensed behavior analyst (BCBA-D or BCBA). So an RBT credential is required, and the agency enrolls with Hawaii Medicaid before contracting with plans. The memo does not say whether any plan\'s ABA network is open or closed; ask each plan\'s provider relations team.',
+        ],
+        cites: [
+          MQ_MEMO,
+        ],
+      },
     ],
     collect: [
       { title: 'Which QUEST Integration plan', desc: 'AlohaCare, HMSA, Kaiser, ʻOhana or UnitedHealthcare Community Plan. The plan runs authorization; ʻOhana members change plans on January 1, 2027.' },
@@ -261,7 +272,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       telehealth: {
-        value: 'The ABA memo defers to MQD’s telehealth policy, QI-2527 (Dec 8, 2025): audio-video telehealth billed with modifier 95, GT or GQ, by providers eligible to bill Hawaii Medicaid, for services appropriate to the modality. ABA codes are not on the suggested-code list, though "other codes may also be billed." A provider that cannot offer in-person care must tell the family, each time, that they have a right to it. Place of service and plan limits are set by each QI plan; Optum’s 2022 UnitedHealthcare Community Plan orientation, for example, allowed only 97155 and 97156 by BCBAs, billed with POS 02.',
+        value: 'The ABA memo defers to MQD’s telehealth policy, QI-2527 (Dec 8, 2025): audio-video telehealth billed with modifier 95, GT or GQ, by providers eligible to bill Hawaii Medicaid, for services appropriate to the modality. ABA codes are not on the suggested-code list, though "other codes may also be billed." A provider that cannot offer in-person care must tell the family, each time, that they have a right to it. Place of service and plan limits are set by each QI plan; Optum’s 2022 UnitedHealthcare Community Plan orientation, for example, allowed only 97155 and 97156 by BCBAs, billed with POS 02. Neither QI-2431 nor QI-2527 says whether the 97151 assessment or 97155 supervision may be remote, or caps the remote share of supervision; QI-2527 sends QI providers to their MCO for place-of-service and other billing guidance, so the answer is the plan’s.',
         status: 'plan-dependent',
         cites: [MQ_MEMO, MQ_TELE, OPT_HI_ORIENT],
         verifyVia: 'The member’s QI plan — ask which ABA codes it pays via telehealth, with which modifier and POS.',
@@ -285,6 +296,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Why does Hawaii call it Intensive Behavioral Therapy?', a: 'IBT is the heading Med-QUEST files the benefit under; the memo’s subtitle is "Guidelines for Applied Behavioral Analysis." Searching Hawaii Medicaid documents for "ABA" alone can miss it.' },
       { q: 'Does the ABA assessment need prior authorization?', a: 'It depends on the plan. The memo says assessment "may require PA from the QI plan." AlohaCare and ʻOhana list 97151 and 97152 as PA codes. The diagnostic evaluation needs no PA, though a plan may want a PCP referral.' },
       { q: 'What happens to ʻOhana Health Plan members?', a: 'ʻOhana leaves QUEST on December 31, 2026. Members choose a new plan in a special open enrollment (October 1–20, 2026) or are assigned one, and the new plan starts January 1, 2027 under QUEST transition-of-care rules.' },
+      { q: 'Do ABA technicians need RBT certification for Hawaii Medicaid?', a: 'Yes. QI-2431 requires anyone practicing as an RBT to hold current BACB certification, be enrolled in the State Medicaid program and work under a licensed BCBA or BCBA-D.' },
+      { q: 'Can the 97151 assessment or BCBA supervision be done by telehealth under Hawaii Medicaid?', a: 'The state leaves it to the plan. The ABA memo defers to MQD\'s telehealth memo (QI-2527: audio-video, modifier 95, GT or GQ), which does not list ABA codes and sends QI providers to their MCO for place-of-service rules. Ask the member\'s QI plan.' },
+      { q: 'Are Hawaii Medicaid plans accepting new ABA providers?', a: 'Enroll in the Hawaii Medicaid program, then credential and contract with each QUEST Integration plan. Plans must confirm Hawaii licensure, Medicaid enrollment and BACB certification for BCBAs, BCaBAs and RBTs.' },
     ],
   },
 
@@ -835,7 +849,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { title: 'ASD diagnosis and age', desc: 'Documented DSM-5 ASD, under 21. For suspected ASD, the working diagnosis for a trial period.' },
       { title: 'Assessment authorization status', desc: 'Optum’s documents conflict on 97151 — ask before the assessment.' },
     ],
-    sources: [OPT_HI, OPT_HI_ORIENT, OPT_HI_QRG, OPT_SCC, UHCCP_PA, UHCCP_MAN, MQ_MEMO, MQ_TELE, CFR_438_210, CFR_433_139],
+    sources: [OPT_HI, OPT_HI_ORIENT, OPT_HI_QRG, OPT_SCC, UHCCP_PA, UHCCP_MAN, MQ_MEMO, MQ_TELE, CFR_438_210, CFR_433_139, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Optum’s ABA criteria (applied to this program) require direct case supervision of 1–2 hours for every 10 hours of direct treatment per week, consistent with CASP — the same ratio as the MQD memo, which adds direct supervision of at least 5% of BCaBA and RBT hours. Technicians work under a BCBA or licensed clinician; Optum’s Hawaii credentialing expects a BCBA to directly supervise technicians in joint sessions.',
@@ -901,9 +915,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       telehealth: {
-        value: 'Optum’s 2022 Hawaii orientation: BCBAs only (for HI QUEST) may deliver ABA supervision and caregiver training by telehealth after attesting as an Optum virtual-visits provider — bill 97155 or 97156 with place of service 02. MQD memo QI-2527 governs telehealth generally (audio-video, modifier 95/GT/GQ).',
+        value: 'Optum’s 2022 Hawaii orientation: BCBAs only (for HI QUEST) may deliver ABA supervision and caregiver training by telehealth after attesting as an Optum virtual-visits provider — bill 97155 or 97156 with place of service 02. The 97151 assessment is not among the services the orientation allows by telehealth (it names only supervision and caregiver training), and it sets no in-person share for supervision. Optum\'s September 2025 telehealth billing guide adds that every behavioral-health telehealth claim, on all lines of business including Medicaid/Community Plan, must carry POS 02 (member outside the home) or POS 10 (member at home); telehealth modifiers alone are not paid. MQD memo QI-2527 governs telehealth generally (audio-video, modifier 95/GT/GQ).',
         status: 'verified',
-        cites: [OPT_HI_ORIENT, MQ_TELE],
+        cites: [OPT_HI_ORIENT, MQ_TELE, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }],
       },
       authTurnaround: {
         value: 'The federal managed-care limit applies: 7 calendar days for standard decisions (rating periods from January 1, 2026; extendable by 14) and 72 hours expedited. Continuation requests are due at least two weeks before the approved period ends (MQD memo and Optum orientation).',
@@ -922,6 +936,8 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan of Hawaii cover ABA therapy?', a: 'Yes — as a QUEST Integration plan it delivers the Med-QUEST ABA benefit for members under 21 with ASD, managed by Optum (United Behavioral Health) since 2016.' },
       { q: 'Does Optum administer ABA for this plan?', a: 'Yes. The plan’s PA list says "For ABA Therapy, submit by fax or Provider Express," and the provider manual lists Optum for behavioral health authorizations and claims (payer ID 87726).' },
       { q: 'Does the assessment need prior authorization?', a: 'Optum’s documents conflict — its 2022 orientation says no, its 2022 quick reference guide says all autism services need PA. Confirm with Optum before the assessment.' },
+      { q: 'Can the ABA assessment (97151) be done by telehealth with UnitedHealthcare Community Plan of Hawaii?', a: 'Optum\'s Hawaii QUEST orientation allows telehealth only for BCBA supervision (97155) and caregiver training (97156), after a virtual-visits attestation, billed with POS 02 (or 10 at home). The assessment is not on that list.' },
+      { q: 'Is UnitedHealthcare Community Plan of Hawaii accepting new ABA providers?', a: 'Through Optum\'s ABA credentialing: BCBAs need active BACB certification, Hawaii licensure, 6 months of supervised ABA experience and $1M/$1M liability cover; groups need a BCBA on staff, RBTs meeting state requirements, higher liability limits and a record and site audit. Optum\'s orientation does not say whether the network is open or closed.' },
     ],
   },
 
@@ -1207,11 +1223,10 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [AET_PRECERT, AET_GUIDE, HRS_133],
       },
       telehealth: {
-        value: 'Not addressed in Aetna’s ABA policies.',
-        status: 'unverified',
-        cites: [AET_0554, AET_GUIDE],
-        verifyVia: 'Availity or the precertification number on the ID card — ask which ABA codes are payable via telehealth and with which POS/modifier.',
-        blocker: 'per-case',
+        value: 'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable.',
+        status: 'verified',
+        cites: [AET_TELE],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
       },
       authTurnaround: {
         value: 'Depends on funding. Group plans (fully insured through 45 CFR 147.136, self-funded directly) follow 29 CFR 2560.503-1: pre-service decisions "not later than 15 days," one 15-day extension, urgent within 72 hours. We found no Hawaii statute setting a shorter initial-decision deadline for fully insured plans; HRS § 432E-5 sets internal appeals at 72 hours expedited and 60 days.',
@@ -1267,6 +1282,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — for ASD (excluding Rett syndrome), per EN0499' },
       ...HI_MANDATE_GLANCE,
+      { label: 'Fee schedule', value: 'None published — contracted rates in your Evernorth agreement; ask Provider Relations' },
     ],
     sections: [
       {
@@ -1279,6 +1295,16 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       },
       HI_MANDATE_SECTION,
       HI_LICENSURE_SECTION,
+      {
+        h2: 'How does Cigna pay for ABA, and is its network open?',
+        body: [
+          'Cigna publishes no ABA fee schedule. In-network ABA is paid at the rates in your Evernorth behavioral-health agreement; the autism resource guide sends "questions about credentialing, contracts, or rates" to your Provider Relations representative, and billing questions to Provider Services at 800.926.2273. Bill only 97151-97158, 0362T and 0373T, in 15-minute units.',
+          'Network: Evernorth says it "is committed to expanding our network of autism providers." Individual analysts apply on the Evernorth Behavioral Provider Information Form and autism clinics or large groups on the Evernorth Screening Application for Autism Clinics; processing can take up to 90 days, and after a clinic contract each certified or licensed provider must be credentialed (another 60 to 90 days) before rendering in-network services. Evernorth requires the clinician to hold a national certification or state license (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other behavioral-health licensure). It "does not credential nonlicensed/noncertified staff" such as technicians, whose services "must be billed under the supervising provider."',
+        ],
+        cites: [
+          CIG_ARG,
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Luke’s Law applies) or self-funded employer plan (exempt).' },
@@ -1350,7 +1376,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [CIG_ARG, HRS_133],
       },
       telehealth: {
-        value: '"All ABA CPT codes are covered telehealth services" (Cigna autism resource guide); EN0499 allows in-person, telehealth or hybrid delivery.',
+        value: '"All ABA CPT codes are covered telehealth services" (Cigna autism resource guide); EN0499 allows in-person, telehealth or hybrid delivery. The assessment and supervision codes are included: the resource guide\'s "All ABA CPT codes" covers 97151 (initial assessment and reassessment) and 97155 (protocol modification / direct supervision) as much as 97153, and neither document caps the share of supervision that may be remote. Neither names a required telehealth POS code or modifier, so confirm claim coding with Evernorth Provider Services (800.926.2273).',
         status: 'verified',
         cites: [CIG_ARG, CIG_EN0499],
       },
@@ -1373,6 +1399,11 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in Hawaii?', a: 'Yes — for ASD (excluding Rett syndrome) under EN0499. Fully insured Hawaii plans also carry Luke’s Law: coverage for children under 14, ABA capped at $25,000 a year for ages 13 and under.' },
       { q: 'Does Cigna require prior authorization for the ABA assessment?', a: 'No — 97151, 97152 and 0362T need no prior authorization with an autism diagnosis, when the provider is independently licensed or a BCBA. Treatment does.' },
       { q: 'Does Cigna pay for ABA by telehealth?', a: 'Cigna’s autism resource guide says all ABA CPT codes are covered telehealth services.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with Cigna in Hawaii?', a: 'Yes. Evernorth\'s autism resource guide says all ABA CPT codes are covered telehealth services, and EN0499 allows in-person, telehealth or hybrid delivery. No POS code or modifier is published; confirm claim coding with Provider Services (800.926.2273).' },
+      { q: 'What is Cigna\'s ABA fee schedule in Hawaii?', a: 'There is no public one. Cigna pays in-network ABA at the rates in your Evernorth agreement; Evernorth directs rate and contract questions to your Provider Relations representative.' },
+      { q: 'Is Cigna accepting new ABA providers in Hawaii?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
+      { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth credentials only certified or licensed clinicians (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other licensure). It does not credential technicians; their services are billed under the supervising provider. EN0499 describes direct supervision of the RBT or BCaBA delivering treatment.' },
+      { q: 'Does Cigna pay for ABA delivered at school in Hawaii?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
     ],
   },
 
@@ -1413,6 +1444,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — for ASD, per Optum’s ABA clinical criteria (behavioral health via Optum)' },
       ...HI_MANDATE_GLANCE,
+      { label: 'Fee schedule', value: 'None published — paid at the contracted rate on your Optum fee schedule' },
     ],
     sections: [
       {
@@ -1425,6 +1457,16 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       },
       HI_MANDATE_SECTION,
       HI_LICENSURE_SECTION,
+      {
+        h2: 'How does UnitedHealthcare (Optum) pay for ABA, and how do you join the network?',
+        body: [
+          'UnitedHealthcare commercial ABA is managed by Optum Behavioral Health, which publishes no ABA rate table. Optum\'s ABA FAQ tells contracted providers to "bill your contracted billing codes and customary charges as outlined on your Fee Schedule after receiving appropriate authorization. You will be reimbursed based on your contracted rate." The fee schedule is the one attached to your Optum agreement; non-contracted providers get approvals through the behavioral-health number on the member\'s card.',
+          'Joining the network: Optum lists credentialing and contracting criteria for ABA providers (BCBA with active certification, state licensure where the state licenses behavior analysts, six months of supervised ABA experience, and professional liability of $1 million per occurrence) and takes applications through the "Join Our Autism/ABA Network" section of its ABA page on Provider Express. Credentialing "can take from 45 to 120 days after submission of all materials," every new agency gets a site audit that can take up to 90 days to schedule, and a single case agreement while credentialing is "Not automatically" available, only in exception cases such as a network gap. Technicians working 1:1 must hold RBT, BCAT or ABAT certification (or an approved alternative).',
+        ],
+        cites: [
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Fully insured or self-funded', desc: 'Decides whether Luke’s Law applies at all.' },
@@ -1506,7 +1548,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [OPT_SCC, HRS_133],
       },
       telehealth: {
-        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.”',
+        value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” The assessment is not on that list: 97151 (initial assessment and reassessment) and 97152 are not payable by telehealth for commercial members, so plan the assessment in person. Supervision is: 97155 is billed with the in-person code and POS 02 or 10 after the attestation (Optum\'s ABA FAQ, Q29), and Optum publishes no minimum in-person share of supervision.',
         status: 'verified',
         cites: [
           { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
@@ -1533,6 +1575,9 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare cover ABA in Hawaii?', a: 'Yes, under Optum’s ABA clinical criteria, with behavioral health administered by Optum. Fully insured plans also carry Luke’s Law: coverage for children under 14, ABA capped at $25,000 a year for ages 13 and under.' },
       { q: 'Does Luke’s Law apply to every UnitedHealthcare plan?', a: 'No. Self-funded employer plans follow their plan documents, not state insurance mandates, so check funding type first.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in Hawaii?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
+      { q: 'What is UnitedHealthcare\'s ABA fee schedule in Hawaii?', a: 'There is no public one. Optum pays contracted providers at the rate on the fee schedule in their Optum agreement.' },
+      { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in Hawaii?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
     ],
   },
 };
