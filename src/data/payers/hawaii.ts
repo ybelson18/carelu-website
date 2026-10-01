@@ -62,6 +62,7 @@ const AET_0554: PayerSource = { title: 'Aetna CPB 0554 — Applied Behavior Anal
 const AET_0648: PayerSource = { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' };
 const AET_GUIDE: PayerSource = { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' };
 const AET_PRECERT: PayerSource = { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' };
+const AET_TELE: PayerSource = { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' };
 const AET_BHMAN: PayerSource = { title: 'Aetna — Behavioral Health Provider Manual', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' };
 const CIG_EN0499: PayerSource = { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' };
 const CIG_ARG: PayerSource = { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' };
@@ -1222,11 +1223,10 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         cites: [AET_PRECERT, AET_GUIDE, HRS_133],
       },
       telehealth: {
-        value: 'Not addressed in Aetna’s ABA policies.',
-        status: 'unverified',
-        cites: [AET_0554, AET_GUIDE],
-        verifyVia: 'Availity or the precertification number on the ID card — ask which ABA codes are payable via telehealth and with which POS/modifier.',
-        blocker: 'per-case',
+        value: 'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable.',
+        status: 'verified',
+        cites: [AET_TELE],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
       },
       authTurnaround: {
         value: 'Depends on funding. Group plans (fully insured through 45 CFR 147.136, self-funded directly) follow 29 CFR 2560.503-1: pre-service decisions "not later than 15 days," one 15-day extension, urgent within 72 hours. We found no Hawaii statute setting a shorter initial-decision deadline for fully insured plans; HRS § 432E-5 sets internal appeals at 72 hours expedited and 60 days.',

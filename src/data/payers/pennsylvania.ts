@@ -3407,15 +3407,12 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       telehealth: {
-        value: 'Not addressed for ABA. CPB 0554, CPB 0648 and the ABA medical necessity guide set no telehealth rules or place-of-service codes for ABA. The behavioral health provider manual says Aetna Behavioral Health offers telemedicine to all commercial fully insured members, and to self-insured plan sponsors unless they opt out. It does not say which ABA codes may be delivered remotely.',
-        status: 'unverified',
-        cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Aetna — Behavioral Health Provider Manual (8/22)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }
-        ],
-        verifyVia: 'Availity, or the precertification line on the member’s ID card: ask which ABA codes Aetna pays via telehealth on this plan, and with which POS code and modifier.',
-        blocker: 'per-case'
+        value:
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. The behavioral health provider manual says Aetna Behavioral Health offers telemedicine to all commercial fully insured members, and to self-insured plan sponsors unless they opt out.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }, { title: 'Aetna — Behavioral Health Provider Manual (8/22)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
+        blocker: 'per-case',
       },
       authTurnaround: {
         value: 'Depends on how the plan is funded. Fully insured Pennsylvania plans follow Act 146 of 2022 (Insurance Company Law § 2155, effective January 1, 2024). An urgent request for care not yet started is decided “as soon as possible, but not more than 72 hours” after receipt. An ongoing urgent course asked to continue at least 24 hours before it would be cut back or ended is decided within 24 hours. Every other prior authorization request is decided “within 15 days”; the insurer can extend that only if it promptly flagged missing information, and the provider then has at least 45 days to supply it. Act 146 also makes insurers post their prior-authorization list and offer a peer-to-peer on denial. Self-funded ERISA plans follow 29 CFR 2560.503-1 instead: pre-service decisions within 15 days, one 15-day extension, and 72 hours for urgent care. Aetna’s provider manual says only that the timing of review “incorporates state, federal, Centers for Medicare and Medicaid Services (CMS) and National Committee for Quality Assurance (NCQA) requirements.”',

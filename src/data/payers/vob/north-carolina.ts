@@ -931,6 +931,16 @@ const AETNA_CPB0648 = src(
   'Aetna CPB 0648 (Autism Spectrum Disorders) — 97151-97158 listed as covered if selection criteria are met (0362T/0373T under "other CPT codes related to the CPB"); no unit caps, POS codes, telehealth modifiers, or licensure-tier modifiers given. No separate Aetna ABA billing/reimbursement policy located, same as the Georgia build.'
 );
 
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
+
 /* -------------------- Layer 3: codeGrid factories -------------------- */
 
 /* NC Medicaid's CCP 8F billable RB-BHT set is 97151-97157 ONLY (verified —
@@ -1030,23 +1040,23 @@ function cignaEntryNC(paRequired: string): CodeGridEntry {
 function aetnaEntryNC(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification (specific form number not confirmed in either cited CPB)',
+    paRequired: 'Required — Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T; initiate on Availity or by phone, with form GR-69017-4 (7-26, eff. 8/1/2026) supplying the clinical information',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
     telehealth: 'unverified',
     modifiers: ['unverified'],
     notes:
-      'Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding/reimbursement policy could be located this pass (same finding as the Georgia build). QA re-check (2026-07-23): form "GR-69017-4," previously cited here, does not appear in either CPB 0554 or CPB 0648 — removed pending a source that actually states it.',
+      'Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding/reimbursement policy could be located this pass (same finding as the Georgia build). Re-check (2026-10-01): form GR-69017-4 is sourced to the form itself and to the BH precertification list, not to CPB 0554/0648.',
     fieldStatus: {
       covered: 'verified',
-      paRequired: 'unverified',
+      paRequired: 'verified',
       unitCap: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [AETNA_CPB0554, AETNA_CPB0648],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_CPB0554, AETNA_CPB0648],
   };
 }
 

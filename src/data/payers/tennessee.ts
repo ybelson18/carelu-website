@@ -1033,12 +1033,12 @@ export const tennesseePayers: Record<string, PayerConfig> = {
     assessmentPA: {
       value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
       status: 'verified',
-      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
     },
     treatmentPA: {
       value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
       status: 'verified',
-      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
       value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
@@ -1072,6 +1072,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       {
@@ -1128,9 +1131,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Aetna\u2019s policies are silent on how recent the diagnostic evaluation must be, and set no re-evaluation interval, so recency is a plan-document and utilization-review question rather than a published rule. Reauthorization is commonly on a roughly six-month cadence, which is the practical clock intake should plan around.',
+          'Aetna\u2019s policies are silent on how recent the diagnostic evaluation must be, so diagnosis recency is a plan-document and utilization-review question rather than a published rule. The re-evaluation clock sits elsewhere: the ABA Medical Necessity Guide says \"A member\'s progress is to be evaluated every six months,\" and form GR-69017-4 (7-26) asks for standardized assessment results \"completed within the past 12 months.\" Reauthorization is commonly on a roughly six-month cadence, which is the practical clock intake should plan around.',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Precertification intake at Aetna (form GR-69017-4 via Availity or phone) \u2014 ask what evaluation age the reviewer will accept, and get the answer in writing per case.',
         blocker: 'per-case',
@@ -1154,18 +1157,17 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         value:
           'Aetna\u2019s ABA policies are silent on whether a referral, prescription or physician order is required; what is required is precertification for both assessment and treatment on form GR-69017-4, submitted through Availity or by phone. Tennessee\u2019s statute imposes no ordering requirement either \u2014 it names no treatment type at all. Many plans still ask for a physician order as a benefit-document term, so verify per plan rather than assuming none is needed.',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
+        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Tenn. Code Ann. \u00a7 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' }],
         verifyVia:
           'Live benefits verification and the plan document; Aetna precertification intake for the specific member.',
         blocker: 'per-case',
       },
       telehealth: {
         value:
-          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA codes, so there is no published Aetna rule to cite for Tennessee \u2014 and no Tennessee-specific Aetna ABA policy, form or supplement exists to supply one. Coverage and any place-of-service requirement fall to the member\u2019s benefit plan and Aetna\u2019s general telemedicine terms. Aetna’s June 2026 provider manual says only that "Aetna Behavioral Health offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services," and points to Aetna.com for approved telehealth services. It does not say which ABA codes, including the 97151/97152 assessment and 97155 supervision, may be billed remotely.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
-        verifyVia:
-          'Aetna\u2019s telemedicine policy and the member\u2019s benefit document, confirmed at precertification before scheduling remote sessions.',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. No Tennessee-specific Aetna ABA policy, form or supplement changes that list, so whether the member’s plan carries the telehealth benefit is a benefit-plan question. Aetna’s June 2026 provider manual says "Aetna Behavioral Health offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services," and points to Aetna.com for approved telehealth services.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }, { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
         blocker: 'per-case',
       },
       authTurnaround: {
@@ -1198,7 +1200,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         value:
           'Not published. Aetna\u2019s ABA policies set no supervision ratio, no supervisor-to-technician cap and no observation cadence. In Tennessee the binding supervision requirement is therefore the state licensure one: direct ABA must be delivered by a Licensed Behavior Analyst under T.C.A. \u00a7\u00a7 63-11-301 through 63-11-311, administered by the Applied Behavior Analyst Licensing Committee, with assistant-level LABAs practicing only under LBA supervision \u2014 the same gate that governs TennCare work.',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'TN Dept. of Health \u2014 LBA application (T.C.A. \u00a7\u00a7 63-11-301\u2013311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' }],
         verifyVia:
           'Aetna provider services and your participating-provider agreement; the TN Applied Behavior Analyst Licensing Committee for the licensure floor.',
         blocker: 'per-case',

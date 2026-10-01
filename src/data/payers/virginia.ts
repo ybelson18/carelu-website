@@ -1486,21 +1486,13 @@ export const virginiaPayers: Record<string, PayerConfig> = {
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the Va. Code § 38.2-3418.17 mandate layer.',
     assessmentPA: {
       value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
-      status: 'unverified',
-      cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-      ],
-      verifyVia: 'Aetna\'s Virginia participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
-      blocker: 'document',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
     },
     treatmentPA: {
       value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-      status: 'unverified',
-      cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-      ],
-      verifyVia: 'Aetna\'s Virginia participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
-      blocker: 'document',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
       value: 'Yes \u2014 ASD only (F84.0\u2013F84.9); ABA for other diagnoses considered experimental',
@@ -1536,6 +1528,9 @@ export const virginiaPayers: Record<string, PayerConfig> = {
         cites: [
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       {
@@ -1662,6 +1657,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           'Neither CPB 0554 nor CPB 0648 states a recency window on the ASD diagnosis, and the Virginia mandate sets none. What Virginia does date is review: the insurer may review the treatment plan not more than once every 12 months absent agreement with the treating physician or psychologist — twice as generous as Aetna\'s usual roughly 6-month reauthorization cadence, on plans the statute reaches.',
         status: 'plan-dependent',
         cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
@@ -1693,20 +1689,18 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           'Yes, and it is statutory rather than a carrier rule: treatment must be prescribed or ordered by a licensed physician or licensed psychologist who determines the care medically necessary, and that prescribing practitioner must be independent of the ABA provider. The insurer may review the treatment plan not more than once every 12 months unless the insurer and the individual\'s licensed physician or psychologist agree more frequent review is necessary, with the cost of any such review covered under the policy. Aetna separately requires precertification on form GR-69017-4 for both assessment and treatment.',
         status: 'verified',
         cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
           { title: 'Va. Code § 38.2-3418.17 (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3418.17/' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         ],
       },
       telehealth: {
         value:
-          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA, and the Virginia mandate is silent on modality. Aetna’s June 2026 provider manual says only that "Aetna Behavioral Health offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services," and points to Aetna.com for approved telehealth services. It does not say which ABA codes, including the 97151/97152 assessment and 97155 supervision, may be billed remotely.',
-        status: 'unverified',
-        cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
-          { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
-        ],
-        verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. The Virginia mandate is silent on modality. Aetna’s June 2026 provider manual says "Aetna Behavioral Health offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services," and points to Aetna.com for approved telehealth services.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }, { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
         blocker: 'per-case',
       },
       authTurnaround: {

@@ -144,6 +144,16 @@ const AETNA_CPB0648 = src(
   'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
   'Aetna CPB 0648 (Autism Spectrum Disorders) — national policy; 97151-97158 listed as covered if criteria met; no coding/reimbursement mechanics.'
 );
+
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
 const CIGNA_EN0499 = src(
   'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf',
   'Evernorth/Cigna EN0499 — national medical-necessity policy; no unit caps, POS codes, or telehealth modifiers published. Kansas has no Cigna Medicaid plan (Cigna cards are always commercial in KS).'
@@ -261,7 +271,7 @@ function inferredFromStatePattern(base: CodeGridEntry, verifyViaPortal: string):
 function aetnaEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification (form GR-69017-4), per national CPB 0554',
+    paRequired: 'Required — Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T; initiate on Availity or by phone, with form GR-69017-4 (7-26, eff. 8/1/2026) supplying the clinical information',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
@@ -270,13 +280,13 @@ function aetnaEntry(): CodeGridEntry {
     notes: 'Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are national medical-necessity policies only. Aetna no longer runs a KanCare Medicaid plan in Kansas (exited 1/1/2025) — every Aetna card in Kansas today is commercial.',
     fieldStatus: {
       covered: 'verified',
-      paRequired: 'unverified',
+      paRequired: 'verified',
       unitCap: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [AETNA_CPB0554, AETNA_CPB0648],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_CPB0554, AETNA_CPB0648],
   };
 }
 

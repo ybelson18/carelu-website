@@ -590,21 +590,13 @@ export const utahPayers: Record<string, PayerConfig> = {
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the Utah Code § 31A-22-642 mandate layer.',
     assessmentPA: {
       value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
-      status: 'unverified',
-      cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-      ],
-      verifyVia: 'Aetna\'s Utah participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
-      blocker: 'document',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
     },
     treatmentPA: {
       value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-      status: 'unverified',
-      cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-      ],
-      verifyVia: 'Aetna\'s Utah participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
-      blocker: 'document',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
       value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
@@ -641,6 +633,9 @@ export const utahPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       {
@@ -770,6 +765,7 @@ export const utahPayers: Record<string, PayerConfig> = {
           'Neither CPB 0554 nor CPB 0648 states a recency window on the ASD diagnosis, and the Utah mandate sets none. Where currency is tested is reauthorization, commonly on a roughly 6-month cadence, and the mandate separately gives the insurer the right to review the treatment plan at most once every 3 months.',
         status: 'plan-dependent',
         cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
@@ -799,6 +795,8 @@ export const utahPayers: Record<string, PayerConfig> = {
           'Aetna imposes no referral or physician order of its own — the gate is precertification on form GR-69017-4 for both assessment and treatment, via Availity or phone. The Utah mandate adds no order requirement, but it does put a clock on the practice: the treatment plan is due to the insurer within 14 business days of starting treatment.',
         status: 'plan-dependent',
         cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Utah Code § 31A-22-642 (current, eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.pdf' },
         ],
@@ -807,13 +805,10 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA, and the Utah mandate is silent on modality. Treat it as a plan and network question.',
-        status: 'unverified',
-        cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
-        ],
-        verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. The Utah mandate is silent on modality.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
         blocker: 'per-case',
       },
       authTurnaround: {

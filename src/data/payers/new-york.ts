@@ -1550,12 +1550,12 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     assessmentPA: {
       value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
       status: 'verified',
-      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
     },
     treatmentPA: {
       value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
       status: 'verified',
-      cites: [{ title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
       value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
@@ -1589,6 +1589,9 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       {
@@ -1645,9 +1648,9 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Aetna\u2019s policies are silent on how recent the diagnostic evaluation must be, and set no re-evaluation interval, so recency is a plan-document and utilization-review question. Reauthorization is commonly on a roughly six-month cadence, which is the practical clock intake should plan around. New York\u2019s mandate imposes no recency rule of its own on commercial plans.',
+          'Aetna\u2019s policies are silent on how recent the diagnostic evaluation must be, so diagnosis recency is a plan-document and utilization-review question. The re-evaluation clock sits elsewhere: the ABA Medical Necessity Guide says \"A member\'s progress is to be evaluated every six months,\" and form GR-69017-4 (7-26) asks for standardized assessment results \"completed within the past 12 months.\" Reauthorization is commonly on a roughly six-month cadence, which is the practical clock intake should plan around. New York\u2019s mandate imposes no recency rule of its own on commercial plans.',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia:
           'Aetna precertification intake (form GR-69017-4 via Availity or phone) \u2014 ask what evaluation age the reviewer will accept and get it in writing per case.',
         blocker: 'per-case',
@@ -1671,15 +1674,14 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         value:
           'Aetna\u2019s ABA policies are silent on referrals and orders, but New York supplies the requirement through two independent routes that ask for the same document. NYSED bars an LBA or CBAA from prescribing or ordering ABA, and DFS conditions coverage on ABA being provided or supervised by an LBA (or a CBAA supervised by one) \u2014 while the mandate itself defines covered treatment as that \u201cprescribed or ordered for an individual diagnosed with autism spectrum disorder by a licensed physician or a licensed psychologist.\u201d So no New York case should open without both the diagnostic report and a physician\u2019s or psychologist\u2019s order in hand. Precertification is separately required on form GR-69017-4 via Availity or phone.',
         status: 'verified',
-        cites: [{ title: 'NYSED Office of the Professions \u2014 Article 167 (Ed. Law \u00a7\u00a7 8800\u20138808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' }, { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'NYSED Office of the Professions \u2014 Article 167 (Ed. Law \u00a7\u00a7 8800\u20138808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' }, { title: 'DFS Insurance Circular Letter No. 6 (2014)', url: 'https://www.dfs.ny.gov/industry_guidance/circular_letters/cl2014_06' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
       },
       telehealth: {
         value:
-          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA codes, and Aetna publishes no New York-specific ABA policy, form or supplement that would supply one. New York\u2019s mandate is likewise silent on modality. Coverage and any place-of-service requirement therefore fall to the member\u2019s benefit plan and Aetna\u2019s general telemedicine terms.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
-        verifyVia:
-          'Aetna\u2019s telemedicine policy and the member\u2019s benefit document, confirmed at precertification before scheduling remote sessions.',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Aetna publishes no New York-specific ABA policy, form or supplement that changes that list, and New York’s mandate is silent on modality, so whether the member’s plan carries the telehealth benefit is a benefit-plan question.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
         blocker: 'per-case',
       },
       authTurnaround: {

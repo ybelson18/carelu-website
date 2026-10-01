@@ -4187,21 +4187,13 @@ export const texasPayers: Record<string, PayerConfig> = {
     cardDesc: 'CPB 0554 (ABA) + CPB 0648 (ASD) + the Tex. Ins. Code § 1355.015 mandate layer.',
     assessmentPA: {
       value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
-      status: 'unverified',
-      cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-      ],
-      verifyVia: 'Aetna\'s Texas participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
-      blocker: 'document',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
     },
     treatmentPA: {
       value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
-      status: 'unverified',
-      cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-      ],
-      verifyVia: 'Aetna\'s Texas participating-provider precertification list via Availity. CPB 0554 (read in full 9/17/2026) contains no precertification or prior-authorization language at all — it is a coverage/medical-necessity bulletin — so the “precertification required, form GR-69017-4” answer cannot be sourced to it.',
-      blocker: 'document',
+      status: 'verified',
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
       value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
@@ -4237,6 +4229,9 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       {
@@ -4366,6 +4361,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           'Neither CPB 0554 nor CPB 0648 states a recency window on the ASD diagnosis, and the Texas mandate sets none — it gates on the diagnosis having been made before the 10th birthday, not on how old it is. Reauthorization cadence, commonly about 6 months, is where currency is actually tested.',
         status: 'plan-dependent',
         cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
           { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
@@ -4394,6 +4390,8 @@ export const texasPayers: Record<string, PayerConfig> = {
           'Aetna\'s policies do not impose a referral or physician-order requirement of their own; what they require is precertification on form GR-69017-4 for both assessment and treatment. The Texas mandate adds no order requirement either. Referral requirements, where they exist, come from the plan\'s own network rules (for example HMO products).',
         status: 'plan-dependent',
         cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
         ],
@@ -4402,13 +4400,10 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Neither CPB 0554 nor CPB 0648 addresses telehealth delivery of ABA. Treat modality as a plan and network question, not a policy answer.',
-        status: 'unverified',
-        cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
-        ],
-        verifyVia: 'Aetna provider services or the plan document — CPB 0554 and CPB 0648 are silent on remote delivery of ABA codes.',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Whether the member\'s plan carries the telehealth benefit is still a plan question.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
         blocker: 'per-case',
       },
       authTurnaround: {

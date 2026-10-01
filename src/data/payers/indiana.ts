@@ -1281,6 +1281,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
         cites: [
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+      { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       {
@@ -1332,9 +1335,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: {
         value:
-          'Practitioners delivering ABA under CPB 0554 need BACB national certification or state behavior-analyst licensure, with unlicensed staff working under supervision per practice standards; Aetna publishes no numeric ratio. Indiana now supplies the licensure half: LBA and LABA applications went live May 13, 2025 and practising applied behavior analysis without the licence is prohibited, with direct-contact technicians exempt only while acting under the extended authority and direction of a licensed analyst.',
+          'Practitioners delivering ABA under Aetna\'s ABA Medical Necessity Guide need BACB national certification or state behavior-analyst licensure, with unlicensed staff working under supervision per practice standards; Aetna publishes no numeric ratio. Indiana now supplies the licensure half: LBA and LABA applications went live May 13, 2025 and practising applied behavior analysis without the licence is prohibited, with direct-contact technicians exempt only while acting under the extended authority and direction of a licensed analyst.',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Indiana PLA \u2014 Behavior Analyst licensure', url: 'https://www.in.gov/pla/professions/behavior-analyst/' }, { title: 'Ind. Code \u00a7 25-8.5-3-6 \u2014 practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Indiana PLA \u2014 Behavior Analyst licensure', url: 'https://www.in.gov/pla/professions/behavior-analyst/' }, { title: 'Ind. Code \u00a7 25-8.5-3-6 \u2014 practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' }],
       },
       concurrentBilling: {
         value:
@@ -1348,13 +1351,13 @@ export const indianaPayers: Record<string, PayerConfig> = {
         value:
           'Not published. CPB 0554 lists the covered ABA codes but sets no per-day unit ceiling, and Aetna publishes no ABA-specific MUE table. The operative ceiling is the precertification itself, which requires requested hours to be listed code by code \u2014 so the authorization, not a policy, is what bounds the day. CPB 0648 references intensive-intervention research norms of 25 hours a week, 12 months a year as clinical context rather than as a limit.',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
         verifyVia: 'The authorization letter itself, plus Availity Essentials for the plan\'s claim-editing and reimbursement policies. Ask whether CMS MUE limits are applied to ABA codes on this plan.',
         blocker: 'per-case',
       },
       noteSignature: {
         value:
-          'Not published. CPB 0554 and CPB 0648 set coverage criteria and precertification content; neither states what a session note must contain, who signs it, or by when.',
+          'Not published. CPB 0554 and CPB 0648 set coverage criteria, and form GR-69017-4 sets precertification content; none states what a session note must contain, who signs it, or by when.',
         status: 'unverified',
         cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
         verifyVia: 'Aetna provider services or Availity \u2014 ask for the documentation standard applied at audit, and keep to the precertification form\'s own data elements in the meantime.',
@@ -1362,17 +1365,17 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Not published as a payable-settings list. What CPB 0554 does make a submission requirement is adjacent and useful: the precertification form asks for concurrent services \u2014 PT, OT, speech and school services \u2014 plus how care is coordinated across them, so the school picture is data Aetna collects even though it publishes no school-versus-home rule.',
+          'Not published as a payable-settings list. What Aetna does make a submission requirement is adjacent and useful: precertification form GR-69017-4 (7-26) asks for concurrent services \u2014 PT, OT, speech and school services \u2014 plus how care is coordinated across them, and asks "Are any ABA hours being requested during class?" \u2014 so the school picture is data Aetna collects even though it publishes no school-versus-home rule. CPB 0648 adds that "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded under these plans."',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }],
         verifyVia: 'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA and whether school-based delivery is excluded.',
         blocker: 'per-case',
       },
       billAsProvider: {
         value:
-          'Not published for ABA. CPB 0554 sets who may deliver the service \u2014 BACB-certified or state-licensed behavior analysts, with unlicensed staff supervised \u2014 but does not state whose NPI carries a technician-delivered 97153 claim, or which degree-level modifiers apply, and Aetna publishes no Indiana-specific ABA supplement. Indiana supplies the licensure half: the supervising analyst must hold the state LBA (or LABA) licence, and direct-contact technicians are exempt from licensure only while acting under the extended authority and direction of a licensed behavior analyst.',
+          'Not published for ABA. Aetna\'s ABA Medical Necessity Guide sets who may deliver or bill the service \u2014 BACB-certified or state-licensed behavior analysts, with unlicensed staff supervised \u2014 but does not state whose NPI carries a technician-delivered 97153 claim, or which degree-level modifiers apply, and Aetna publishes no Indiana-specific ABA supplement. Indiana supplies the licensure half: the supervising analyst must hold the state LBA (or LABA) licence, and direct-contact technicians are exempt from licensure only while acting under the extended authority and direction of a licensed behavior analyst.',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Ind. Code \u00a7 25-8.5-3-6 \u2014 practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Ind. Code \u00a7 25-8.5-3-6 \u2014 practice restriction and exceptions', url: 'https://law.justia.com/codes/indiana/title-25/article-8-5/chapter-3/section-25-8-5-3-6/' }],
         verifyVia: 'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required degree-level modifiers before the first claim.',
         blocker: 'per-case',
       },
@@ -1388,9 +1391,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Aetna publishes no recency rule for the ASD diagnostic evaluation, and Indiana\'s mandate sets none for commercial plans \u2014 the one-year CDE rule in this state belongs to Indiana Medicaid, not to IC 27-8-14.2. Capture the evaluation date anyway: the precertification package asks for it.',
+          'Aetna publishes no recency rule for the ASD diagnostic evaluation, and Indiana\'s mandate sets none for commercial plans \u2014 the one-year CDE rule in this state belongs to Indiana Medicaid, not to IC 27-8-14.2. Capture the evaluation date anyway. Precertification form GR-69017-4 (7-26) asks for the diagnosis code and the diagnosing provider and credentials, and puts its date test on the standardized assessment instead: results \"completed within the past 12 months.\"',
         status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
+        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }],
         verifyVia: 'The precertification call or Availity, when submitting form GR-69017-4 \u2014 ask whether an evaluation of this age will be accepted for this plan.',
         blocker: 'per-case',
       },
@@ -1398,7 +1401,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
         value:
           'The diagnosis must come from a provider qualified to diagnose within their scope \u2014 a licensed psychologist, psychiatrist or physician. Aetna\'s precertification form (GR-69017-4 (7-26), effective 8/1/2026) asks for the DSM-5 diagnosis code, the diagnosing provider and their credentials. Indiana\'s mandate adds no diagnosing-credential requirement of its own; its only gate is that the treatment be prescribed by the insured\'s treating physician.',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'Aetna CPB 0648 \u2014 Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26), eff. 8/1/2026 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
+        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Ind. Code \u00a7 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26), eff. 8/1/2026 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
       },
       diagnosticTools: {
         value:
@@ -1418,9 +1421,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Aetna covers telehealth for 97151, 97153, 97155, 97156 and 97157 \u2014 97152 is excluded \u2014 billed with GT, 95 or FR modifiers per its telemedicine payment policy. Treat the answer as perishable: Aetna announced it would end ABA telehealth coverage in late 2023 and rescinded the change within weeks. Indiana\'s April 2026 ban on modifier 95 for 97151/97152/97153/97154/0373T is a Medicaid rule and does not reach a commercial Aetna plan.',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Indiana\'s April 2026 ban on modifier 95 for 97151/97152/97153/97154/0373T is a Medicaid rule and does not reach a commercial Aetna plan.',
         status: 'verified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
       },
       authTurnaround: {
         value:

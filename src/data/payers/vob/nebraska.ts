@@ -206,6 +206,16 @@ const AETNA_CPB0648 = src(
   'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
   "Aetna CPB 0648 (Autism Spectrum Disorders) — 97151-97158 listed as covered if selection criteria are met (0362T/0373T under \"other CPT codes related to the CPB\"); no unit caps, POS codes, telehealth modifiers, or precert form number given."
 );
+
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
 const NE_MANDATE = src(
   'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106',
   'Neb. Rev. Stat. § 44-7,106 (LB 254, eff. 1/1/2015) — requires coverage of ASD screening/diagnosis/treatment under 21 for state-regulated plans, with behavioral health treatment including ABA capped at 25 hrs/week; a benefits-layer cap distinct from any single CPT code\'s unit cap, and exempt for non-grandfathered individual/small-group ACA plans and self-funded ERISA plans.'
@@ -819,7 +829,7 @@ function aetnaNeEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
     paRequired:
-      'Required — precertification, per Aetna\'s national CPB 0554/0648. Cross-file note: nebraska.ts\'s own prose cites "form GR-69017-4," but georgia.ts\'s independent QA re-check of the SAME two CPBs found that form number does not actually appear in either document and removed it there — that correction is applied here too: the form number is NOT asserted as a verified fact.',
+      'Required — Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T; initiate on Availity or by phone, with form GR-69017-4 (7-26, eff. 8/1/2026) supplying the clinical information. (Re-check 2026-10-01: the form number is sourced to the form itself and to the BH precertification list, not to CPB 0554/0648.)',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
@@ -829,13 +839,13 @@ function aetnaNeEntry(): CodeGridEntry {
       'Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding/reimbursement policy located. Separately, Nebraska\'s mandate (Neb. Rev. Stat. § 44-7,106) caps behavioral health treatment including ABA at 25 hrs/week for state-regulated (large-group/grandfathered) plans — a benefits-layer cap, distinct from and not a substitute for any per-code unit cap, which remains unpublished by Aetna itself.',
     fieldStatus: {
       covered: 'verified',
-      paRequired: 'inferred',
+      paRequired: 'verified',
       unitCap: 'unverified',
       posAllowed: 'unverified',
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [AETNA_CPB0554, AETNA_CPB0648, NE_MANDATE],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_CPB0554, AETNA_CPB0648, NE_MANDATE],
   };
 }
 

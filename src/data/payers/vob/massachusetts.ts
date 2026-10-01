@@ -179,6 +179,16 @@ const AETNA_CPB0648 = src(
   'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
   'Aetna CPB 0648 (Autism Spectrum Disorders) — 97151-97158 listed as covered if selection criteria are met; no unit caps, POS codes, telehealth modifiers, or licensure-tier modifiers given. No separate Aetna ABA billing/reimbursement policy located.'
 );
+
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
 const OPTUM_SCC = src(
   'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf',
   'Optum ABA Supplemental Clinical Criteria, Policy BH803ABASCC082025, annual review 04/2026 — national criteria, contains zero CPT codes (ICD-10 F84.0 only); points to a separate Optum ABA Reimbursement Policy for coding detail.'
@@ -343,7 +353,7 @@ function aetnaEntry(): CodeGridEntry {
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [AETNA_CPB0554, AETNA_CPB0648],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_CPB0554, AETNA_CPB0648],
   };
 }
 

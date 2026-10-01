@@ -2696,15 +2696,10 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Not addressed. CPB 0554, CPB 0648 and the ABA medical necessity guide set no telehealth rules or place-of-service codes for ABA.',
-        status: 'unverified',
-        cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-        ],
-        verifyVia:
-          'Availity or the precertification line on the member ID card — ask which ABA codes Aetna will pay via telehealth on this plan, with which POS and modifier.',
-        blocker: 'per-case',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
       },
       authTurnaround: {
         value:

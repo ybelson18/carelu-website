@@ -1076,6 +1076,16 @@ const AETNA_CPB0648 = src(
   'https://www.aetna.com/cpb/medical/data/600_699/0648.html',
   'Aetna CPB 0648 (Autism Spectrum Disorders) — 97151-97158 listed as covered if selection criteria are met (0362T/0373T under "other CPT codes related to the CPB"); no unit caps, POS codes, telehealth modifiers, or licensure-tier modifiers given.'
 );
+
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
 const AETNA_ABA_CLAIMS_PAGE = src(
   'https://www.aetna.com/health-care-professionals/newsletters-news/office-link-updates-june-2022/behavioral-health-updates/applied-behavior-analysis-treatment-and-claims.html',
   "Aetna OfficeLink Updates (June 2022), \"Applied behavior analysis (ABA) treatment and claims\" — read directly. Describes only the ABA Medical Necessity Guide's purpose; contains no statement of whether ABA claims are administered in-house or via a third-party behavioral-health carve-out, and names no claims administrator. Absence of a named carve-out here is not confirmation of in-house administration."
@@ -1434,7 +1444,7 @@ const aetnaFlEdi: EdiRouting = {
 function aetnaFlCodeEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification (form GR-69017-4)',
+    paRequired: 'Required — Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T; initiate on Availity or by phone, with form GR-69017-4 (7-26, eff. 8/1/2026) supplying the clinical information',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
@@ -1450,7 +1460,7 @@ function aetnaFlCodeEntry(): CodeGridEntry {
       telehealth: 'unverified',
       modifiers: 'unverified',
     },
-    sources: [AETNA_CPB0554, AETNA_CPB0648],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_CPB0554, AETNA_CPB0648],
   };
 }
 

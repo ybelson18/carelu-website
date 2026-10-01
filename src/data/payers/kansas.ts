@@ -1079,18 +1079,12 @@ export const kansasPayers: Record<string, PayerConfig> = {
     assessmentPA: {
       value: 'Required — precertification (form GR-69017-4), per Aetna\'s behavioral health precertification list (eff. 8/1/2024) — CPB 0554 itself sets no precertification rule',
       status: 'verified',
-      cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
-      ],
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
     },
     treatmentPA: {
       value: 'Required — precertification; reauthorization commonly ~6 months (verify per plan)',
       status: 'verified',
-      cites: [
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
-      ],
+      cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
       value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
@@ -1131,6 +1125,9 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
           { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         ],
       },
       {
@@ -1255,11 +1252,11 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services" (provider manual, 6/26), but no ABA telehealth code list is published. For a fully insured Kansas plan issued or renewed on or after 1/1/2019, K.S.A. 40-2,213 bars excluding "an otherwise covered healthcare service from coverage solely because such service is provided through telemedicine" when a healthcare provider (which the act defines to include anyone licensed by the BSRB) delivers it, and lets the carrier set telemedicine payment "in the same manner" as in person; it does not reach self-funded ERISA plans.  Aetna\'s ABA Medical Necessity Guide and CPB 0554 set medical-necessity criteria and precertification requirements but say nothing about which ABA codes may be delivered remotely, or with which place-of-service code. What is published is the licensure condition. Aetna\'s Network Participation Criteria (5/26) require telehealth providers to \u201csatisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located,\u201d and to hold the licenses the law requires where they are physically located. Only codes on Aetna\'s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth unless law requires otherwise. The provider manual adds that telehealth providers \u201cmust act within the scope of their license and ensure that they have the proper licensure based on state requirements,\u201d and Kansas requires a BSRB license to \u201cpractice applied behavior analysis in this state\u201d (K.S.A. 65-7503) \u2014 so a BCBA outside Kansas needs a Kansas LBA before treating a Kansas child by video.',
+          'Aetna Behavioral Health "offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self-insured plan sponsors opt out of telehealth services" (provider manual, 6/26), and its Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth: on commercial plans 97151, 97153, 97155, 97156 and 97157, billed with modifier GT, 95 or FR (97152, 97154 and 97158 are checked for Medicare Advantage only; the posted policy shows a last review of June 2021). For a fully insured Kansas plan issued or renewed on or after 1/1/2019, K.S.A. 40-2,213 bars excluding "an otherwise covered healthcare service from coverage solely because such service is provided through telemedicine" when a healthcare provider (which the act defines to include anyone licensed by the BSRB) delivers it, and lets the carrier set telemedicine payment "in the same manner" as in person; it does not reach self-funded ERISA plans. Aetna\'s ABA Medical Necessity Guide says nothing about which ABA codes may be delivered remotely, or with which place-of-service code; the code list lives in the payment policy. What is published is the licensure condition. Aetna\'s Network Participation Criteria (5/26) require telehealth providers to \u201csatisfy all applicable license, registration, and certification requirements noted in the participation criteria for all states in which members to whom they are providing Telehealth services are located,\u201d and to hold the licenses the law requires where they are physically located. Only codes on Aetna\'s Telemedicine and Direct Patient Contact Payment Policy are payable by telehealth unless law requires otherwise. The provider manual adds that telehealth providers \u201cmust act within the scope of their license and ensure that they have the proper licensure based on state requirements,\u201d and Kansas requires a BSRB license to \u201cpractice applied behavior analysis in this state\u201d (K.S.A. 65-7503) \u2014 so a BCBA outside Kansas needs a Kansas LBA before treating a Kansas child by video.',
         status: 'plan-dependent',
         cites: [
           { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+          { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
           { title: 'Aetna Provider Manual (form 8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
           { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
@@ -1329,11 +1326,10 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Aetna does not publish a POS code list for ABA. The one place-of-service boundary it does state is the schools carve-out: pursuant to applicable law Aetna "is not required [to] provide services to a child under an individualized education program or any obligation imposed on a public school by the Individuals with Disabilities Education Act." That is a limit on paying for what the IEP owes, not a blanket ban on the school setting — and it yields to a stronger state mandate. Where ABA is payable in a school, in the community or in a group home is a benefit-document question on Aetna plans.',
+          'Aetna publishes no ABA place-of-service list. On school settings it says two things. CPB 0648: "Many Aetna plans exclude coverage of educational services. For example, speech therapy or ABA services during class would be excluded under these plans. Please check benefit plan exclusions." And precertification form GR-69017-4 asks "Are any ABA hours being requested during class?" and, if so, how many and for which codes. The IEP/IDEA carve-out in Aetna\'s ABA medical necessity guide sits in its Maryland exhibit, not in the national criteria. Where ABA is payable in a school, the community or a group home is a benefit-document question.',
         status: 'plan-dependent',
-        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
-        verifyVia:
-          'The member\'s benefit document, and Aetna provider services for whether school-setting ABA is payable on that plan.',
+        cites: [{ title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }],
+        verifyVia: 'The member\'s benefit document (educational-services exclusion), and Aetna provider services for whether school-setting ABA is payable on that plan.',
         blocker: 'per-case',
       },
       billAsProvider: {

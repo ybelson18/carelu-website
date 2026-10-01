@@ -1299,13 +1299,11 @@ export const oklahomaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'Not addressed. CPB 0554, CPB 0648 and the ABA medical necessity guide set no telehealth rule, code list or place-of-service code for ABA, and Nick’s Law is silent on modality.',
-        status: 'unverified',
-        cites: [
-          { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
-          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-        ],
-        verifyVia: 'The precertification line on the member ID card or Availity — ask which ABA codes Aetna pays by telehealth on this plan, with which POS code and modifier.',
+        value:
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. CPB 0554, CPB 0648 and the ABA medical necessity guide set no telehealth rule of their own, and Nick’s Law is silent on modality.',
+        status: 'plan-dependent',
+        cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
+        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
         blocker: 'per-case',
       },
       authTurnaround: {

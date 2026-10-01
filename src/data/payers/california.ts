@@ -3170,9 +3170,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No ABA-specific rule. Aetna’s manual: "Aetna Behavioral Health offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self- insured plan sponsors opt out," acting "within the scope of their license"; CPB 0554, CPB 0648 and the ABA guide are silent. California law (H&S § 1374.14) requires fully insured plans to cover telehealth on the same basis as in person.',
-        status: 'unverified',
+        value: 'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Aetna’s manual: "Aetna Behavioral Health offers telehealth services to all commercial fully insured members and to all commercial self-insured plan sponsors, unless those self- insured plan sponsors opt out," acting "within the scope of their license." California law (H&S § 1374.14) requires fully insured plans to cover telehealth on the same basis as in person.',
+        status: 'plan-dependent',
         cites: [
+          { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
           { title: 'Aetna Provider Manual (6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'Health & Safety Code § 1374.14 — telehealth coverage and payment parity', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.14' },
         ],

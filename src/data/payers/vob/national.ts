@@ -64,9 +64,28 @@ const AVAILITY_PAYER_LIST = src(
 );
 const AETNA_CPB0554 = src(
   'https://www.aetna.com/cpb/medical/data/500_599/0554.html',
-  'Aetna CPB 0554 — Applied Behavior Analysis (national commercial policy), already cited in src/data/payers/national.ts. Telehealth section covers 97151, 97153, 97155, 97156, 97157 via GT/95/FR modifiers per the telemedicine payment policy; 97152 explicitly excluded. No numeric unit cap, POS restriction, or BH carve-out administrator is named in this policy.'
+  'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025). A short policy: ABA is experimental, investigational or unproven for Down syndrome without ASD and for all other non-ASD indications; ASD coverage is in CPB 0648. It has no telehealth, precertification, unit-cap, POS or BH carve-out content.'
 );
 const AETNA_CPB0648 = src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders (national commercial policy), already cited in src/data/payers/national.ts.');
+
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
+const AETNA_ABA_MNG = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf',
+  'Aetna Applied Behavior Analysis Medical Necessity Guide (©2026): "A member\'s progress is to be evaluated every six months."'
+);
+const AETNA_TELEMED_POLICY = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf',
+  'Aetna Telemedicine and Direct Patient Contact Payment Policy (posted copy: last review June 2021). ABA table, Commercial column: 97151, 97153, 97155, 97156, 97157 with modifier GT, 95 or FR; 97152, 97154, 97158, 0362T and 0373T are checked for Medicare only. 99366 is not in the ABA rows.',
+  true
+);
 const CIGNA_EN0499 = src(
   'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf',
   "Evernorth/Cigna EN0499 — Intensive Behavioral Interventions coverage policy. Lists 97151-97158/0362T/0373T (not 99366) as \"considered medically necessary when criteria are met.\" Per the QA correction already recorded in vob/texas.ts, the document contains no per-code prior-authorization distinction and no coding/reimbursement mechanics (unit caps, POS, telehealth modifiers) — that finding is reused here rather than re-asserting the un-sourced \"no PA on assessment codes\" claim at the codeGrid layer."
@@ -131,11 +150,11 @@ const aetnaEdi: EdiRouting = {
   verifyVia: {
     supportsRealtime: 'Confirm real-time vs. batch via pVerify/Availity onboarding for this payer ID.',
     'bhCarveOut.administrator':
-      "No BH carve-out administrator is named for Aetna commercial ABA in any of the 19 states' guides in this corpus (see vob/carveouts.ts AETNA_COMMERCIAL_ROWS 'US' row) — CPB 0554/0648 govern directly with precertification via Availity (form GR-69017-4). Whether an internal Aetna BH unit or a named vendor adjudicates that precert was not confirmable from any primary source. Confirm via Aetna provider services precert line.",
+      "No BH carve-out administrator is named for Aetna commercial ABA in any of the 19 states' guides in this corpus (see vob/carveouts.ts AETNA_COMMERCIAL_ROWS 'US' row) — Aetna's national policies (CPB 0648 for ASD; CPB 0554 for non-ASD indications) and ABA Medical Necessity Guide govern directly, with precertification via Availity (BH precertification list; form GR-69017-4). Whether an internal Aetna BH unit or a named vendor adjudicates that precert was not confirmable from any primary source. Confirm via Aetna provider services precert line.",
     'payerId.pverify':
       "00001 is the generic national pVerify \"Aetna\" entry, reused from vob/texas.ts's aetna-texas commercial entry. pVerify separately lists \"TEXAS HEALTH AETNA\" (00875) and other regional joint-venture plans as distinct products — confirm the member's specific plan before routing.",
   },
-  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, AETNA_CPB0554, AETNA_CPB0648],
+  sources: [PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, AETNA_CPB0554, AETNA_CPB0648, AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017],
 };
 
 const AETNA_TELEHEALTH_CODES = new Set(['97151', '97153', '97155', '97156', '97157']);
@@ -146,7 +165,7 @@ function aetnaEntry(code: string): CodeGridEntry {
   return {
     covered: is99366
       ? 'unverified — 99366 (interdisciplinary team meeting) is not addressed in CPB 0554 or CPB 0648'
-      : 'Yes — for ASD (F84.0–F84.9) only, per national policy CPB 0554 (paired with CPB 0648)',
+      : 'Yes — for ASD (F84.0–F84.9) only, per CPB 0648 (CPB 0554 makes non-ASD indications experimental)',
     paRequired: is99366
       ? 'unverified — not addressed in CPB 0554/0648'
       : 'Required — precertification (form GR-69017-4 (7-26), eff. 8/1/2026; not for MD/MA), submitted via Availity or phone; reauthorization commonly ~6 months (verify per plan)',
@@ -154,10 +173,10 @@ function aetnaEntry(code: string): CodeGridEntry {
     capPeriod: 'plan-dependent',
     posAllowed: ['plan-dependent'],
     telehealth: is99366
-      ? 'unverified — not addressed in CPB 0554\'s telehealth section'
+      ? 'unverified — 99366 is not in the ABA rows of Aetna\'s telemedicine payment policy'
       : telehealthYes
-      ? "Yes — GT/95/FR modifiers per Aetna's telemedicine payment policy"
-      : "No — 97152 is explicitly excluded from Aetna's ABA telehealth coverage",
+      ? "Yes — GT/95/FR modifiers per Aetna's telemedicine payment policy (Commercial column; posted copy last reviewed June 2021)"
+      : "No — not checked in the Commercial column of Aetna's telemedicine payment policy ABA table (Medicare Advantage only)",
     modifiers: is99366 ? ['plan-dependent'] : telehealthYes ? ['GT', '95', 'FR (telehealth)'] : ['plan-dependent'],
     notes:
       'Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are national medical-necessity policies; unit caps, POS, and non-telehealth modifiers are governed by the specific plan document, not stated nationally.',
@@ -169,7 +188,7 @@ function aetnaEntry(code: string): CodeGridEntry {
       telehealth: is99366 ? 'unverified' : 'verified',
       modifiers: is99366 ? 'plan-dependent' : telehealthYes ? 'verified' : 'plan-dependent',
     },
-    sources: [AETNA_CPB0554, AETNA_CPB0648],
+    sources: [AETNA_CPB0554, AETNA_CPB0648, AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, AETNA_ABA_MNG, AETNA_TELEMED_POLICY],
   };
 }
 

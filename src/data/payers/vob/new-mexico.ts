@@ -265,10 +265,20 @@ function nmCignaEntry(pa: string): CodeGridEntry {
   };
 }
 
+/* Aetna precertification sources (fetched 2026-10-01): CPB 0554 (last review 11/26/2025) only addresses non-ASD indications and carries no precertification content. */
+const AETNA_PRECERT_LIST_ABA = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf',
+  'Aetna "Participating provider behavioral health precertification list," effective 8/1/2024 — item 3, Applied behavioral analysis (ABA): 97151, 97152, 97153, 97154, 97155, 97156, 97157, 97158, 0362T, 0373T require precertification.', true
+);
+const AETNA_ABA_FORM_GR69017 = src(
+  'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf',
+  'Aetna "Outpatient Behavioral Health (BH) – ABA Treatment Request: Required Information for Precertification," form GR-69017-4 (7-26): "Effective August 1, 2026, this form replaces all other" ABA precertification forms; initiate on Availity or by phone, then attach the form; "Don\'t use this form for Maryland and Massachusetts."'
+);
+
 function nmAetnaEntry(): CodeGridEntry {
   return {
     covered: 'Yes',
-    paRequired: 'Required — precertification (assessment and treatment), per national CPB 0554/0648; NM mandate NMSA §59A-22-49 governs fully-insured benefit terms.',
+    paRequired: 'Required — precertification (assessment and treatment): Aetna\'s behavioral health precertification list (eff. 8/1/2024) names 97151-97158, 0362T and 0373T, and form GR-69017-4 (7-26) supplies the clinical information; NM mandate NMSA §59A-22-49 governs fully-insured benefit terms.',
     unitCap: 'unverified',
     capPeriod: 'unverified',
     posAllowed: ['unverified'],
@@ -276,7 +286,7 @@ function nmAetnaEntry(): CodeGridEntry {
     modifiers: ['unverified'],
     notes: 'Verify via: Aetna provider services / precertification — CPB 0554 & 0648 are medical-necessity policies only; no ABA coding/reimbursement mechanics published, and Aetna runs no NM Medicaid plan.',
     fieldStatus: { covered: 'verified', paRequired: 'verified', unitCap: 'unverified', posAllowed: 'unverified', telehealth: 'unverified', modifiers: 'unverified' },
-    sources: [src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis.'), src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders.')],
+    sources: [AETNA_PRECERT_LIST_ABA, AETNA_ABA_FORM_GR69017, src('https://www.aetna.com/cpb/medical/data/500_599/0554.html', 'Aetna CPB 0554 — Applied Behavior Analysis.'), src('https://www.aetna.com/cpb/medical/data/600_699/0648.html', 'Aetna CPB 0648 — Autism Spectrum Disorders.')],
   };
 }
 
