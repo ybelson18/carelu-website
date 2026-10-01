@@ -46,7 +46,7 @@ const FORMS: Record<string, { label: string; team: 'sales' | 'marketing' }> = {
   'payer-directory': { label: 'Payer directory', team: 'marketing' },
   'payer-chat': { label: 'Payer directory chat (email to keep asking)', team: 'marketing' },
   contact: { label: 'Contact form (leadtrap.com)', team: 'sales' },
-  'product-page': { label: 'Product page (email to see the tour)', team: 'sales' },
+  'product-page': { label: 'Product page (email to see the tour)', team: 'marketing' },
 };
 
 /* The SMS disclosure printed next to the consent checkbox on leadtrap.com.
