@@ -3,6 +3,7 @@ import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
 import { Nav, ChannelsHub, ChecklistVisual, HandoffVisual, ProductPeek } from './Landing';
 import SiteFooter from '../components/SiteFooter';
+import { integrationCatalog } from '../data/integrationCatalog';
 import ChannelHub from '../components/product/ChannelHub';
 import SpeedTimeline from '../components/product/SpeedTimeline';
 import JourneyStepper, { type JourneyStep } from '../components/product/JourneyStepper';
@@ -86,7 +87,12 @@ const CHANNELS = [
   { c: 'Referrals', without: 'Doctors send families by fax and rarely hear what happened.', with: 'Coming soon: referrals land automatically, and referring doctors hear back when a family qualifies and finishes intake.' },
 ];
 
-const INTEGRATIONS = ['Salesforce', 'HubSpot', 'Zoho', 'GoHighLevel', 'Monday', 'ClickUp', 'Chorus', 'CallRail', 'CTM', 'Meta lead ads', 'Google Ads', 'Gmail', 'Outlook', 'Webhooks'];
+/* The native integrations, drawn from the same catalog (and logo files) as the
+   homepage's integrations wall. */
+const NATIVE = ['Salesforce', 'HubSpot', 'Zoho CRM', 'GoHighLevel', 'monday.com', 'ClickUp', 'Chorus', 'CallRail', 'Meta', 'Google Ads', 'Gmail', 'Microsoft Outlook', 'Google Calendar', 'Webhooks'];
+const INTEGRATIONS = integrationCatalog.flatMap(g => g.items)
+  .filter(it => it.logo && NATIVE.includes(it.name))
+  .sort((a, b) => NATIVE.indexOf(a.name) - NATIVE.indexOf(b.name));
 
 const CUSTOM = [
   'Rules per state: ZIPs, ages, insurers, diagnosis',
@@ -292,9 +298,15 @@ export default function ProductPage() {
               <Eyebrow>Works with your CRM</Eyebrow>
               <h3 style={{ ...H3, fontSize: 'clamp(26px, 2.6vw, 34px)' }}>Keep the system your team already uses</h3>
               <p style={BODY}>Carelu keeps it up to date with every family, answer, document and stage, from the first message to intake complete.</p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 22 }}>
-                {INTEGRATIONS.map(n => (
-                  <span key={n} style={{ fontSize: 13.5, color: INK, background: BONE, border: '1px solid rgba(43,42,38,0.12)', borderRadius: 100, padding: '6px 14px' }}>{n}</span>
+              <div className="pp-logos" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginTop: 24 }}>
+                {INTEGRATIONS.map(it => (
+                  <div key={it.name} title={it.name} style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', aspectRatio: '1 / 1',
+                    background: '#fff', borderRadius: 16, border: '1px solid rgba(43,42,38,0.07)',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.02), 0 4px 14px rgba(0,0,0,0.03)',
+                  }}>
+                    <img src={it.logo} alt={it.name} loading="lazy" style={{ width: `min(${it.logoWidth ?? 60}px, 72%)`, maxHeight: '50%', height: 'auto', objectFit: 'contain', display: 'block' }} />
+                  </div>
                 ))}
               </div>
               <a href="/integrations" style={{ display: 'inline-block', marginTop: 22, fontSize: 14, fontWeight: 600, color: INK }}>See all integrations →</a>
@@ -385,6 +397,7 @@ export default function ProductPage() {
           .pp-steps { grid-template-columns: 1fr !important; }
           .pp-chan { grid-template-columns: 1fr !important; gap: 8px !important; }
           .pp-chan-head { display: none !important; }
+          .pp-logos { grid-template-columns: repeat(4, 1fr) !important; }
         }
         .pp-chan-label { display: none; font-weight: 600; color: ${INK}; }
         @media (max-width: 768px) { .pp-chan-label { display: inline; } }
