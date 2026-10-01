@@ -223,6 +223,17 @@ instead of silently dropping the fact or, worse, publishing an unverified one.
 | `alliancehealthplan.org/document-library/<id>` | Serves a .docx as `application/octet-stream` | Unzip `word/document.xml` (cover sheet 97990). |
 | `mmis.georgia.gov` Provider Manuals list | ASP.NET postback-paged list | Replaying `__VIEWSTATE` with `__EVENTTARGET=...NextPageButton` then `...$Select` in a `requests.Session` returns the current Handbooks filename (found Telehealth Guidance Q4 - October 2026). |
 | `health.mil` Reference-Center publications | URL looks like an HTML page | Returns the PDF directly to curl with a browser UA (TRICARE ABA rates 2026) — check the file type. |
+| `horizonblue.com` medical-policy detail pages | r.jina.ai / WebFetch return only the "I AGREE" terms page; curl gets an Incapsula stub | curl with a cookie jar and a Chrome UA: GET the terms page, POST the agree form, then fetch the policy; or r.jina.ai with header `X-Set-Cookie: MP-<date>=medicalpolicy` (the cookie name carries a date and changes) — 2026-10-01. |
+| `provider.wellpoint.com` NJ provider manual | 41 MB image-only PDF | Render pages with pymupdf (page index = printed page + 1) and read the images. |
+| `r.jina.ai` → `web.archive.org` | Refused with AbuseAlleviationError (2026-10-01) | Use direct `curl` to web.archive.org when it is up; the jina route is dead. |
+| `martinspoint.org`, `tricare.triwest.com`, `humanamilitary.com` PDFs | — | Plain `curl -A 'Mozilla/5.0'` returns the real PDFs (2026-10-01). |
+| `manuals.dha.mil` TPT5 (TRICARE Policy Manual) | SPA shell | `https://r.jina.ai/https://manuals.dha.mil/View-Publication/TPT5/FileName/<chapter>` returns the chapter with its revision. |
+| `magellanprovider.com/media/<id>/provider_handbook.pdf` | Cloudflare to curl | r.jina.ai returns the full 2026 handbook text. |
+| `law.justia.com` | Cloudflare 403 to curl and r.jina.ai | Use `codes.findlaw.com` via r.jina.ai, or the enrolled bill PDF. |
+| `leg.colorado.gov` | 406 to plain curl | r.jina.ai. |
+| `mgaleg.maryland.gov` statutes, `dsd.maryland.gov` COMAR | — | Plain curl; fetch single sections only (DSD asks not to be scraped). |
+| `sos.mo.gov` CSR chapters, `dss.mo.gov` MO HealthNet forms | — | Plain curl (Chrome UA) — prefer sos.mo.gov over the Cornell mirror for 13 CSR 70-98. |
+| Molina NM manual | molinahealthcare.com 404 | The May 2024 edition is readable via r.jina.ai at medicare.centralhealthplan.com (Molina media path) — label it as the 2024 edition. |
 | `ecfr.gov` API | 406 without compression | `curl --compressed`, or r.jina.ai. |
 | `federalregister.gov` | 302s to an unblock interstitial | Use the JSON API (`/api/v1/documents.json`) for docket sweeps; `govinfo.gov` for document text. |
 
