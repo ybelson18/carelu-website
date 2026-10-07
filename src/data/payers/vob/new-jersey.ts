@@ -23,12 +23,14 @@
      through the 5 MCOs since 4/1/2020; the MCO authorizes a QHP
      assessment and then the treatment plan; NO prior authorization is
      required while a member is FFS pending MCO enrollment; the state's
-     "suggested" daily unit table (97151 32u, 97152 8u, 97153 32u,
-     97154 12u, 97155 24u, 97156 16u, 97157 16u, 97158 16u, 0362T 8u,
-     0373T 32u) is "guidance only" but the MCOs run it as MUE claim
-     edits. That unit table was corroborated by the Aetna Better Health
-     NJ 2020 rate sheet (which reproduces it verbatim), since the
-     founding DMAHS newsletter PDF now 404s.
+     2020 "suggested" daily unit table (97152 8u, 97154 12u, 0362T 8u
+     among them) was "guidance only"; the CURRENT NJ FamilyCare managed
+     care contract (01/2026, Appendix B.4.4 ABA service description,
+     re-read 2026-10-07) sets MUE limits 97151 32u, 97152 16u, 97153 32u,
+     97154 18u, 97155 24u, 97156 16u, 97157 16u, 97158 16u, 0362T 16u,
+     0373T 32u — NJ_DAILY_UNITS below carries the contract table. The
+     Aetna Better Health NJ 2020 rate sheet still reprints the older
+     newsletter numbers (kept as that plan's published figures).
    - Layer 4 (rates) is Medicaid-only. NJ publishes real FFS rates.
      97153 $15.00 (raised from $11.20 eff 2/1/2022), 97155 $21.25, and
      97156 $25.00 are confirmed CURRENT (NJMMIS Procedure Master Listing
@@ -121,6 +123,11 @@ const WELLPOINT_NJ_EDI = src(
   'https://www.provider.wellpoint.com/new-jersey-provider/claims/electronic-data-interchange',
   'Wellpoint NJ — EDI page: Availity is Wellpoint\'s sole EDI partner (supports 837 P/I/D, 835, 276/277, 270/271); claims payer ID WLPNT. Carelon Behavioral Health provides utilization-management (authorizations) only — BH/ABA claims still submit to WLPNT via Availity; there is no separate Carelon claims payer ID.'
 );
+const NJ_MCO_CONTRACT: SourceRef = {
+  url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf',
+  accessDate: '2026-10-07',
+  note: 'NJ FamilyCare Managed Care Contract ("01/2026 Accepted"), read 2026-10-07. Appendix B.4.4 ABA service description: ages 18 months to 21 (eligibility ends on the 21st birthday); services in the home, provider office or community settings; IEP-required school services excluded; MUE limits per day 97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16, 0373T 32 units. Art. 7.16.5: MCOs process claims under N.J.S.A. 17B:30-48 et seq.; behavioral health claims (incl. ABA/DIR) 90% of electronic clean claims within 15 days, 90% of paper within 30, 99.5% of all within 45. Required provider-contract language: claims within 180 days of service, corrected 365, COB 60 days from primary EOB or 180 from service. EVV limited to personal care services (PCA, home-based supportive care, in-home respite).',
+};
 const DMAHS_BH_CONTACTS = src(
   'https://www.nj.gov/humanservices/dmhas/documents/pdf/resources/providers/DMAHS-BH-Integration-Points-of-Contact.pdf',
   'DMAHS BH Integration Points of Contact V3.1 — per-MCO ABA UM/contracting contacts and payor IDs.'
@@ -248,9 +255,9 @@ function mcoBaselineRates(planName: string, extra?: string): RateTable {
    The state's suggested daily unit limits run as MUE claim edits, overridable
    under EPSDT medical necessity. */
 const NJ_DAILY_UNITS: Record<string, string> = {
-  '97151': '32 units/day', '97152': '8 units/day', '97153': '32 units/day', '97154': '12 units/day',
+  '97151': '32 units/day', '97152': '16 units/day', '97153': '32 units/day', '97154': '18 units/day',
   '97155': '24 units/day', '97156': '16 units/day', '97157': '16 units/day', '97158': '16 units/day',
-  '0362T': '8 units/day', '0373T': '32 units/day',
+  '0362T': '16 units/day', '0373T': '32 units/day',
 };
 
 function njBaselineEntry(code: string, notes?: string, extraSources: SourceRef[] = []): CodeGridEntry {
@@ -258,7 +265,7 @@ function njBaselineEntry(code: string, notes?: string, extraSources: SourceRef[]
     covered: 'Yes',
     paRequired:
       'Required via the MCO (assessment + treatment) — NO prior authorization while a member is FFS pending MCO enrollment (a real fast-start window for newly eligible children).',
-    unitCap: `${NJ_DAILY_UNITS[code]} — state "suggested" MUE limit, run by the MCOs as a claim edit; overridable under EPSDT medical necessity`,
+    unitCap: `${NJ_DAILY_UNITS[code]} — NJ FamilyCare managed care contract MUE limit (01/2026; the 2020 newsletter's "guidance" table was lower on 97152, 97154 and 0362T); overridable under EPSDT medical necessity`,
     capPeriod: 'day',
     posAllowed: ['home', 'office/clinic (11)', 'community', 'telehealth', 'school (outside normal school hours — see Optum NJ entry)'],
     telehealth: 'Allowed; school-setting services permitted outside normal school hours per Optum\'s Nov 2025 NJ entry (a looser position than the state\'s original 2020 no-school rule) — confirm per MCO.',
@@ -272,7 +279,7 @@ function njBaselineEntry(code: string, notes?: string, extraSources: SourceRef[]
       telehealth: 'verified',
       modifiers: 'verified',
     },
-    sources: [DMAHS_NEWSLETTER_V30N06, OPTUM_ABA_STATE_MANDATES, ...extraSources],
+    sources: [NJ_MCO_CONTRACT, DMAHS_NEWSLETTER_V30N06, OPTUM_ABA_STATE_MANDATES, ...extraSources],
   };
 }
 
@@ -406,7 +413,7 @@ const aetnaBetterHealthNjCodeGrid: Record<string, CodeGridEntry> = (() => {
   for (const code of Object.keys(NJ_DAILY_UNITS)) {
     g[code] = njBaselineEntry(
       code,
-      'Aetna\'s published ABA Program sheet adopts the state suggested daily limits verbatim as MUE (medically-unlikely-edit) claim limits. Urgent requests decided in 24h, routine in 7 days; submit via Availity or the BH prior authorization form; progress reports via Availity or fax (844) 404-3972.',
+      'Aetna\'s published ABA Program sheet (4/1/2020) reprints the state\'s 2020 suggested daily limits as MUE (medically-unlikely-edit) claim limits — lower than the current contract table on 97152 (8u), 97154 (12u) and 0362T (8u); confirm which edit the plan runs. Urgent requests decided in 24h, routine in 7 days; submit via Availity or the BH prior authorization form; progress reports via Availity or fax (844) 404-3972.',
       [AETNA_NJ_RATE_SHEET]
     );
   }

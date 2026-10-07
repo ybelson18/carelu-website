@@ -156,6 +156,14 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'Only where the member’s plan allows it. The Carelon Behavioral Health Provider Handbook (section 10.04): “When a provider/participating provider requests a retrospective review for services previously rendered, Carelon will first determine whether such a retrospective review is available under the member’s benefit plan and request the reason for the retrospective review (e.g., emergency admission, no presentation of a Carelon member identification card, etc.).” And: “In cases where a retrospective review is not available under the member’s benefit plan and/or and where the provider/participating provider fails to follow administrative process and requirements for authorization, certification, and/or notification, the request for retrospective review may be administratively denied.” Where a retro review is available, the handbook’s chart allows 30 calendar days for the decision. Ask on the benefits call whether this client’s plan permits retro review at all.',
         ],
       },
+      {
+        h2: 'Timely filing and claim appeals with Carelon',
+        body: [
+          'Carelon’s national provider handbook: “Unless otherwise identified in the provider agreement, participating providers must file or submit claims within 90 calendar days from the date of service,” or from the primary payer’s determination where Carelon is secondary; later claims “may be denied due to lack of timely filing.” Claims must match the authorization. The handbook also says participating providers “should not submit claims in their name for services that were provided by a physician’s assistant, nurse practitioner, psychological assistant, intern or another clinician.”',
+          'A payment dispute is a claim appeal on the Provider Claims Based Dispute Resolution Request form, and “A complete appeal request must be received within 60 calendar days from date of the payment determination,” unless the provider agreement or law allows longer. Carelon decides “within 30 calendar days from receipt of a complete appeal request.” Clinical (utilization) denials have a separate route: a Level I appeal within 180 calendar days of the adverse determination and, where available, a Level II appeal within 90 days of the Level I decision. The client plan, a government program or state law can change any of these.',
+        ],
+        cites: [{ title: 'Carelon Behavioral Health — Provider Handbook (102_0426) (PDF)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' }],
+      },
     ],
     collect: [
       { title: 'A photo of BOTH sides of the card', desc: 'The behavioral health administrator and its phone number live on the back. Front-only card photos are the root cause of most carve-out misroutes.' },
@@ -298,6 +306,8 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       { q: 'Where do I find Carelon’s ABA medical-necessity criteria?', a: 'There is no single national one. Carelon’s Corporate Quality Medical Management Committee approves criteria per client and regulatory requirement, and the criteria vary by state, contract and benefit — CMS criteria first for Medicare members, then custom client criteria, then ASAM, then InterQual, then Carelon’s national set. Ask which criteria set governs the specific client plan.' },
       { q: 'Which portal do I submit ABA authorizations through?', a: 'Availity Essentials, ProviderConnect or eServices, depending on the client plan — the handbook says you may need both Carelon portals. Link ProviderConnect and/or eServices to Availity once via single sign-on in the Availity payer space and you can reach everything from one login.' },
       { q: 'Does Carelon allow retro-authorization for ABA?', a: 'Only if the member’s benefit plan allows retrospective review, and Carelon will ask why authorization was not obtained. Where the plan does not allow it, or the provider skipped the authorization process, the request may be administratively denied. Get the authorization before services start.' },
+      { q: 'What is Carelon’s timely filing limit for ABA claims?', a: '90 calendar days from the date of service for participating providers, unless your provider agreement says otherwise. When Carelon is secondary, the clock runs from the primary payer’s determination.' },
+      { q: 'How long do we have to appeal a Carelon ABA claim?', a: '60 calendar days from the payment determination for a claim appeal, with a decision due within 30 days of a complete request. A clinical denial is appealed separately: Level I within 180 days, Level II within 90 days of the Level I decision.' },
     ],
   },
 
@@ -438,6 +448,14 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
           'Not without telling Magellan first. Magellan’s 2026 Handbook for the National Provider Network lists “providing services in a new state or via telehealth” among changes that may need a contract amendment. It then says: “Providing or billing for services in any of these situations should NOT commence until you have notified Network staff and received confirmation that all required changes have been implemented, which could include the amending of existing agreements or the need for new agreements to be issued.” To deliver telehealth at all, providers complete Magellan’s telehealth services provider attestation, and “The Magellan member must have a covered mental health benefit that permits telehealth in order for providers to receive payment for telehealth services.” Providers must also “Provide services in accordance with applicable state and federal laws, and licensing and certification bodies,” so the child’s state licensing law still decides whether the BCBA may practise there.',
         ],
       },
+      {
+        h2: 'Timely filing and claim appeals with Magellan',
+        body: [
+          'Magellan’s 2026 national provider handbook: “Most Magellan provider contracts require claims to be submitted within 60 days of the provision of covered services,” and Magellan “will deny payment for claims not received within applicable state mandated or contractually required timely filing limits.” A claim missing required information “will be denied.” Where state law defines a clean claim, Magellan uses that definition.',
+          'On disputes: “Magellan considers all payments final unless notice and claims appeal from the provider is received within 90 days of payment, subject to state and federal regulatory requirements and/or customer guidelines/requirements.” Because Magellan administers benefits for many client plans, check the client’s rules and your contract for a different limit.',
+        ],
+        cites: [{ title: 'Magellan — 2026 Handbook for the National Provider Network (11/25 v3) (PDF)', url: 'https://www.magellanprovider.com/media/11893/provider_handbook.pdf' }],
+      },
     ],
     collect: [
       { title: 'Both sides of the card plus the employer name', desc: 'Magellan tells providers to obtain a card copy at the first visit and to call “the appropriate toll-free number” — the plan/program number on the card is what routes you to the right ABA team and fax number.' },
@@ -564,6 +582,8 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       { q: 'Do RBTs have to be credentialed with Magellan?', a: 'No. Master’s and doctoral-level practitioners must credential before joining the network and re-credential every three years, and only credentialed providers may bill as in-network. Bachelor’s-level behavior analysts and support staff/technicians are not required to credential if they work under the supervision of the licensed, credentialed practitioner — with the supervisory relationship documented in writing.' },
       { q: 'Do Magellan’s national criteria always apply?', a: 'No. Magellan publishes a state/client-specific list — California, Hawaiʻi, Idaho, Louisiana, Nevada, New Mexico, North Carolina, Pennsylvania, Texas and Virginia among them — where modified criteria govern. In Louisiana, for Louisiana Healthcare Connections members, Magellan follows the Louisiana Department of Health ABA Provider Manual outright.' },
       { q: 'Can an out-of-state BCBA deliver ABA by telehealth to a Magellan member?', a: 'Only after Magellan confirms it. Serving a new state or adding telehealth may need a contract amendment, and Magellan says services should not start until network staff confirm the change. The provider must also complete the telehealth attestation, the member’s plan must cover telehealth, and the child’s state licensing law must allow the BCBA to practise there.' },
+      { q: 'What is Magellan’s timely filing limit for ABA claims?', a: 'Most Magellan contracts require claims within 60 days of the service, per its 2026 national provider handbook. State law or your contract can set a different limit.' },
+      { q: 'How long do we have to appeal a Magellan ABA claim?', a: '90 days from payment. Magellan treats payments as final unless a claims appeal arrives within 90 days, subject to state and federal rules and the client plan.' },
     ],
   },
 
