@@ -131,7 +131,7 @@ function LogoBand({ aba }: { aba: boolean }) {
 function SegmentContent({ config }: { config: SegmentConfig }) {
   useReveal();
   useSeo({
-    title: `Carelu for ${config.label} — AI Intake & Lead Response`,
+    title: config.metaTitle ?? `Carelu for ${config.label} — AI Intake & Lead Response`,
     description: config.sub,
     canonical: `/for/${config.slug}`,
   });

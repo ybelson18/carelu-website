@@ -7,6 +7,7 @@
 export interface SegmentConfig {
   slug: string;
   label: string;
+  metaTitle?: string;   // <title> override, phrased the way buyers search ("home care intake software")
   pill: string;
   headline: string;
   headlineAccent: string;
@@ -33,6 +34,7 @@ export const segments: Record<string, SegmentConfig> = {
   'aba-therapy': {
     slug: 'aba-therapy',
     label: 'ABA Therapy',
+    metaTitle: 'ABA Intake Software: AI Intake, Insurance Verification & Follow-Up | Carelu',
     pill: 'ABA Therapy Providers',
     headline: 'Stop losing families between diagnosis and',
     headlineAccent: 'first session.',
@@ -71,6 +73,7 @@ export const segments: Record<string, SegmentConfig> = {
   'home-care': {
     slug: 'home-care',
     label: 'Home Care',
+    metaTitle: 'Home Care Intake Software: Answer Every Referral and Inquiry 24/7 | Carelu',
     pill: 'Home Care Agencies',
     headline: 'Every missed referral is a family',
     headlineAccent: 'without care.',
@@ -109,6 +112,7 @@ export const segments: Record<string, SegmentConfig> = {
   'addiction-treatment': {
     slug: 'addiction-treatment',
     label: 'Addiction Treatment',
+    metaTitle: 'Addiction Treatment Intake Software: AI Admissions & Lead Response | Carelu',
     pill: 'Addiction Treatment Centers',
     headline: 'When someone asks for help,',
     headlineAccent: 'every second matters.',
@@ -147,6 +151,7 @@ export const segments: Record<string, SegmentConfig> = {
   'mental-health': {
     slug: 'mental-health',
     label: 'Mental Health',
+    metaTitle: 'Mental Health Intake Software: AI Patient Intake & Lead Response | Carelu',
     pill: 'Mental Health Providers',
     headline: 'They finally reached out.',
     headlineAccent: 'Don\'t lose them to a form.',
@@ -185,6 +190,7 @@ export const segments: Record<string, SegmentConfig> = {
   'hospice': {
     slug: 'hospice',
     label: 'Hospice',
+    metaTitle: 'Hospice Intake Software: AI Referral Intake & Family Response | Carelu',
     pill: 'Hospice Providers',
     headline: 'Families in their hardest moment deserve',
     headlineAccent: 'an immediate answer.',
@@ -223,6 +229,7 @@ export const segments: Record<string, SegmentConfig> = {
   'idd': {
     slug: 'idd',
     label: 'IDD Services',
+    metaTitle: 'IDD Services Intake Software: AI Intake for Families & Support Coordinators | Carelu',
     pill: 'IDD Service Providers',
     headline: 'Every family who calls deserves a clear path to',
     headlineAccent: 'the right support.',
@@ -261,6 +268,7 @@ export const segments: Record<string, SegmentConfig> = {
   'adult-day-programs': {
     slug: 'adult-day-programs',
     label: 'Adult Day Programs',
+    metaTitle: 'Adult Day Program Intake Software: AI Enrollment & Lead Response | Carelu',
     pill: 'Adult Day Programs',
     headline: 'Fill every open spot with the people',
     headlineAccent: 'who need it most.',
