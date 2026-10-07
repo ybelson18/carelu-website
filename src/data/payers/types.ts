@@ -158,4 +158,5 @@ export const STATE_META: StateMeta[] = [
   { code: 'AL', name: 'Alabama', mandate: 'Riley Ward Act (Ala. Code § 27-54A-2; large group, 18 and under, ABA caps $40K/$30K/$20K by age)', medicaidSlug: 'alabama-medicaid' },
   { code: 'SD', name: 'South Dakota', mandate: 'SDCL 58-17-154 to -162 (ABA; annual floors $36,000/$25,000/$12,500 through age 18; ACA individual/small-group exempt)', medicaidSlug: 'south-dakota-medicaid' },
   { code: 'NV', name: 'Nevada', mandate: 'NRS 689B.0335 autism mandate (under 18, or 22 in high school; $72,000/yr ABA cap)', medicaidSlug: 'nevada-medicaid' },
+  { code: 'MT', name: 'Montana', mandate: 'Montana autism mandate (MCA 33-22-515; group plans, through age 18, caps of $50,000/yr to age 8 and $20,000/yr ages 9–18 allowed)', medicaidSlug: 'montana-medicaid' },
 ];
