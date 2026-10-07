@@ -154,4 +154,5 @@ export const STATE_META: StateMeta[] = [
   { code: 'OR', name: 'Oregon', mandate: 'Oregon Laws 2013, ch. 771, § 2 (ABA up to 25 hr/wk, first requested under 9) + ORS 743A.168 parity', medicaidSlug: 'oregon-medicaid' },
   { code: 'MN', name: 'Minnesota', mandate: 'Minn. Stat. § 62A.3094 (large-employer plans, children under 18)', medicaidSlug: 'minnesota-medicaid' },
   { code: 'ME', name: 'Maine', mandate: 'Maine autism mandate (24-A M.R.S. §§ 2768, 2847-T, 4259; age 10 and under, $36,000/yr ABA cap allowed)', medicaidSlug: 'maine-medicaid' },
+  { code: 'VT', name: 'Vermont', mandate: '8 V.S.A. § 4082 (formerly § 4088i; birth to 21, no dollar or hour cap)', medicaidSlug: 'vermont-medicaid' },
 ];
