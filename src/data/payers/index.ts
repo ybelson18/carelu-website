@@ -53,6 +53,7 @@ import { wyomingPayers } from './wyoming.js';
 import { westVirginiaPayers } from './west-virginia.js';
 import { districtOfColumbiaPayers } from './district-of-columbia.js';
 import { mississippiPayers } from './mississippi.js';
+import { delawarePayers } from './delaware.js';
 
 export const payers: Record<string, PayerConfig> = {
   ...nationalPayers,
@@ -108,4 +109,5 @@ export const payers: Record<string, PayerConfig> = {
   ...westVirginiaPayers,
   ...districtOfColumbiaPayers,
   ...mississippiPayers,
+  ...delawarePayers,
 };
