@@ -116,6 +116,11 @@ const VA_MES_270271_CG = src(
   'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-07/MES%20EDI%20270-271%20Companion%20Guide_R100_20220509-PK%202.pdf',
   'Commonwealth of Virginia MES MMIS Companion Guide — 270/271 (ASC X12N 005010X279A1), Document Version 2.2, dated 2026-07-01, published by DMAS. Read in full. Notes: (1) the guide does NOT document a segment carrying the member\'s Cardinal Care MCO — Loop 2120C NM1 (NM108=PI, NM109 = TPL Carrier Code, NM103 = carrier name) is explicitly Third-Party Liability (other/commercial insurance), and MSG/2110C carries a 3-digit Aid Category / benefit-plan code (when EB01=1), not an MCO name; (2) no carrier-code → MCO-name table is published; (3) eligibility is queried by date (270 DTP01=291 plan date; 271 echoes DTP01=472), real-time (~60s) and batch (up to 100,000/day) both supported, with v2.2 adding DTP01=458 renewal/case-review date; (4) the guide — even the 7/1/2026 v2.2 — still names Conduent as the EDI fiscal agent (Virginia.EDISupport@Conduent.com, 1-866-352-0766), NOT Acentra; Acentra Health operates the FFS service-authorization Atrezzo portal, a separate function.'
 );
+const CCMC_CONTRACT_FY27: SourceRef = {
+  url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf',
+  accessDate: '2026-10-07',
+  note: 'DMAS Cardinal Care Managed Care Contract, July 1, 2026 - June 30, 2027 (file name says fy-2026): section 12.1.14 puts MHS on a minimum fee schedule at 100% of the Medicaid FFS fee schedule; section 12.2.4 requires MHS providers be paid no less than the current FFS rate, with 99% of clean MHS claims adjudicated in 14 days and 100% in 30; the 12.2.4.3 MHS table lists Applied Behavior Analysis (CMS-1500). DMAS memo of 12/4/2025 confirms only the Chapter 12 list carries a minimum fee schedule.',
+};
 const ANTHEM_VA_ABA_GRID = src(
   'https://providers.anthem.com/docs/gpp/VA_CAID_ABARequirements.pdf?v=202302021327',
   'Anthem HealthKeepers Plus (VA) — ABA requirements bulletin (Feb 2023): the state\'s clearest published ABA code/modifier/place-of-service grid — no SA on 97151/97152/0362T; SA required on 97153–97158 and 0373T; GT telehealth combinations payable on all eight 97xxx codes (97151–97158; only 0362T/0373T lack GT); school allowed as a place of service (POS 03) for 97151, 97155, 97156. (QA 2026-07-23: the grid was re-read in full — GT combinations appear for 97152/97154/97157/97158 as well, correcting an earlier reading that listed only 97151/97153/97155/97156.)'
@@ -268,16 +273,19 @@ const virginiaMedicaidRates: RateTable = {
   sources: [DMAS_FEE_FILE_97, DMAS_FEE_FILE_T, DMAS_FEE_FILE_INDEX, DMAS_ABA_BILLING_GUIDANCE],
 };
 
-/* MCO rate tables reference the DMAS schedule as the documented baseline. The
-   5 Cardinal Care MCOs run identical DMAS criteria/forms but are not required
-   to match the FFS fee schedule (contract-negotiated), so these are the
-   reference floor, not a plan-confirmed paid rate. */
+/* MCO rate tables reference the DMAS schedule as the documented floor. The
+   Cardinal Care contract (7/1/2026-6/30/2027, sections 12.1.14 and 12.2.4)
+   puts mental health services, ABA included, on a minimum fee schedule at 100%
+   of the current Medicaid FFS rate; the actual paid rate is contract-negotiated
+   at or above that floor, so this is the floor, not a plan-confirmed paid rate.
+   (Corrected 2026-10-07: the earlier note said MCOs were not required to match
+   the FFS schedule.) */
 function mcoRates(planName: string): RateTable {
   return {
-    source: `${virginiaMedicaidRates.source} No ${planName}-specific ABA fee schedule is publicly posted; the 5 Cardinal Care MCOs run identical DMAS criteria and standardized forms but are not required to match the FFS schedule — this table is the DMAS reference baseline, not a plan-confirmed paid rate.`,
+    source: `${virginiaMedicaidRates.source} No ${planName}-specific ABA fee schedule is publicly posted. The Cardinal Care Managed Care Contract (July 1, 2026 - June 30, 2027) lists ABA among the mental health services (section 12.2.4.3) that every MCO must pay "no less than the current Medicaid FFS rate" (section 12.2.4; minimum fee schedule at 100% of FFS, section 12.1.14) — so this DMAS table is the contractual floor; the plan's negotiated rate may be higher`,
     effectiveDate: virginiaMedicaidRates.effectiveDate,
     byCode: virginiaMedicaidRates.byCode,
-    sources: [DMAS_FEE_FILE_97, DMAS_FEE_FILE_T, DMAS_ABA_BILLING_GUIDANCE],
+    sources: [DMAS_FEE_FILE_97, DMAS_FEE_FILE_T, DMAS_ABA_BILLING_GUIDANCE, CCMC_CONTRACT_FY27],
   };
 }
 
@@ -436,8 +444,14 @@ const aetnaBetterHealthVaCodeGrid = dmasCodeGrid([AETNA_VA_ABA_DECK]);
 
 /* ==================== anthem-healthkeepers-plus ==================== */
 
+const ANTHEM_HKP_MANUAL_JUN2026: SourceRef = {
+  url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf',
+  accessDate: '2026-10-07',
+  note: 'Anthem HealthKeepers Plus provider manual (VABCBS-CD-PM-095530-25, June 2026), re-read 10/7/2026: its EDI section names Availity Essentials as the gateway for 837P/837I claims and 270/271 eligibility and prints "Payer ID: 00423", adding that providers using a clearinghouse, billing service or vendor should confirm the payer ID with that vendor.',
+};
+
 const anthemHkpEdi: EdiRouting = {
-  payerId: { pverify: '002467', availity: 'unverified', changeHealthcare: 'unverified' },
+  payerId: { pverify: '002467', availity: '00423', changeHealthcare: 'unverified' },
   supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: {
@@ -448,7 +462,7 @@ const anthemHkpEdi: EdiRouting = {
   },
   fieldStatus: {
     'payerId.pverify': 'verified',
-    'payerId.availity': 'unverified',
+    'payerId.availity': 'verified',
     'payerId.changeHealthcare': 'unverified',
     supports270271: 'verified',
     supportsRealtime: 'unverified',
@@ -456,11 +470,11 @@ const anthemHkpEdi: EdiRouting = {
   },
   verifyVia: {
     'payerId.pverify': 'pVerify 002467 = "Anthem Healthkeepers" (Medical, Eligibility=Yes) on the pVerify Mar-2026 list.',
-    'payerId.availity': 'The DMAS Anthem MCO Directory (2025-10-17) states the clearinghouse payer ID must be obtained from your clearinghouse — the published "058916206CMSCOS" is a direct-to-Anthem billing ID, not a clearinghouse ID. Anthem uses Availity as its exclusive EDI gateway; confirm the specific 270/271 payer ID via Availity Essentials / the Anthem VA EDI page.',
+    'payerId.availity': 'Anthem HealthKeepers Plus manual (June 2026) EDI section: Availity Essentials gateway, "Payer ID: 00423" (verified 10/7/2026). The DMAS Anthem MCO Directory (2025-10-17) notes the published "058916206CMSCOS" is a direct-to-Anthem billing ID, not a clearinghouse ID; a provider using another clearinghouse should confirm the ID it maps to.',
     'payerId.changeHealthcare': 'Clearinghouse-specific per the DMAS directory; confirm via the Change Healthcare/Optum payer finder for Anthem HealthKeepers Plus (VA Medicaid).',
     supportsRealtime: 'Confirm real-time vs. batch via Availity onboarding.',
   },
-  sources: [ANTHEM_VA_ABA_GRID, PVERIFY_PAYER_LIST],
+  sources: [ANTHEM_VA_ABA_GRID, PVERIFY_PAYER_LIST, ANTHEM_HKP_MANUAL_JUN2026],
 };
 
 /* Anthem publishes the state's clearest grid — capture its specific POS/telehealth facts. */
