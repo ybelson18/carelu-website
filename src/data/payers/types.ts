@@ -162,4 +162,5 @@ export const STATE_META: StateMeta[] = [
   { code: 'AK', name: 'Alaska', mandate: 'AS 21.42.397 autism coverage (under 21; no visit or dollar caps; small groups of 20 or fewer exempt)', medicaidSlug: 'alaska-medicaid' },
   { code: 'ND', name: 'North Dakota', mandate: 'No autism statute — Insurance Dept. Bulletin 2018-1 (insured plans may not exclude ABA as experimental; federal parity limits)', medicaidSlug: 'north-dakota-medicaid' },
   { code: 'AR', name: 'Arkansas', mandate: 'Ark. Code § 23-99-418 (Act 196 of 2011; ABA under 18 and $50,000/yr as enacted)', medicaidSlug: 'arkansas-medicaid' },
+  { code: 'RI', name: 'Rhode Island', mandate: 'R.I. Gen. Laws ch. 27-20.11 (group plans; until age 15; no dollar cap in current text)', medicaidSlug: 'rhode-island-medicaid' },
 ];
