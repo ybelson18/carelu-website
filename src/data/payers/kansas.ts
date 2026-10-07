@@ -143,6 +143,18 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
         ],
       },
+      {
+        h2: 'KanCare claims: filing deadlines, payment clock and disputes by plan',
+        body: [
+          'KanCare ABA claims go to the member’s managed care plan, and each plan publishes its own clock. Sunflower’s February 2026 manual: "Original provider claims (first-time claims) must be received by Sunflower within 180 calendar days from the date of service"; as secondary payer, within 180 days of the primary payer’s final determination; corrected claims within 365 calendar days of the notification of payment. It pays a Medicaid clean claim within 30 days, or a longer timeframe allowed by law or the provider agreement. To dispute a payment, an optional reconsideration must be requested within 120 calendar days of the notice of action (resolved within 30 calendar days), and a provider appeal filed in writing within 60 calendar days of the notice of action or reconsideration decision, each with three days added for mailing.',
+          'Healthy Blue’s June 2026 manual: "Generally, paper and electronic claims must be filed within 180 days," corrected claims and other rebilling within 365 days of the date of service, and retroactive-eligibility claims within 180 calendar days of the eligibility determination; your contract’s own filing period controls where it differs. A claim payment reconsideration (optional) is accepted by phone, online or in writing "within 120 calendar days (plus an additional three (3) calendar days to allow for mailing/sending) of the date on the Explanation of Payment (EOP)." UnitedHealthcare Community Plan’s 2026 KanCare manual: "Our standard timely filing requirement is 180 days from the date of service" (your participation agreement may set another), and "The standard turnaround time for clean claims is 30 business days from date of receipt." A claim reconsideration is due within 120 calendar days of the notice of action and an appeal within 63 calendar days of the notice of action (or of the reconsideration resolution); the appeal does not have to wait for the reconsideration to finish. Kansas electronic visit verification (AuthentiCare) is scoped to HCBS personal care and home health services; the three plans’ manuals do not apply it to ABA (CCTS/IIS).',
+        ],
+        cites: [
+          { title: 'Sunflower Health Plan Provider Manual (KDHE approved February 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+          { title: 'Healthy Blue Kansas Medicaid Provider Manual (June 2026)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
+          { title: 'UnitedHealthcare Community Plan KanCare Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'KanCare MCO', desc: 'Sunflower, UnitedHealthcare, or Healthy Blue — same CCTS/IIS baseline, different PA machinery. Anything saying "Aetna Better Health" is stale (moved to Healthy Blue 1/1/2025).' },
@@ -196,7 +208,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Since KMAP Bulletin 26140, for members age 20 and younger the ASD diagnosis must come from a Kansas Behavioral Sciences Regulatory Board (BSRB) licensed clinical psychologist or a qualified physician, with a multidisciplinary approach preferred. The bulletin lists the qualifying provider type/specialty codes: 11/112 Psychologist, 31/316 Family Practitioner, 31/318 General Practitioner, 31/326 Neurologist, 31/339 Psychiatrist, 31/345 General Pediatrician (Developmental), 31/349 Exempt License Physician and 31/351 Indian Health Services (the KMAP-hosted PDF of the updated bulletin omits 31/349, which Sunflower\'s repost and Optum\'s criteria both list — confirm an exempt-license physician with the MCO). A qualifying BSRB clinical psychologist needs a doctoral degree in psychology or equivalent training plus two years of supervised experience delivering BSRB-approved psychological services; qualifying physicians — developmental/behavioral pediatricians, psychiatrists, neurologists and primary care physicians — need documented additional training in ASD diagnosis, which Optum notes "may be subject to periodic audit/inquiry."',
+          'Since KMAP Bulletin 26140, for members age 20 and younger the ASD diagnosis must come from a Kansas Behavioral Sciences Regulatory Board (BSRB) licensed clinical psychologist or a qualified physician, with a multidisciplinary approach preferred. The bulletin lists the qualifying provider type/specialty codes: 11/112 Psychologist, 31/316 Family Practitioner, 31/318 General Practitioner, 31/326 Neurologist, 31/339 Psychiatrist, 31/345 General Pediatrician (Developmental), 31/349 Exempt License Physician and 31/351 Indian Health Services (the KMAP-hosted PDF of the updated bulletin omits 31/349, which Sunflower\'s repost and Optum\'s criteria both list — confirm an exempt-license physician with the MCO). A qualifying BSRB clinical psychologist needs a doctoral degree in psychology or equivalent training plus two years of supervised experience delivering BSRB-approved psychological services; qualifying physicians — developmental/behavioral pediatricians, psychiatrists, neurologists and primary care physicians — need documented additional training in ASD diagnosis, which Optum notes "may be subject to periodic Optum audit/inquiry."',
         status: 'verified',
         cites: [
           { title: 'KMAP Bulletin 26140 — ASD diagnosis credential requirement (UPDATED 8/31/2026, eff. 11/1/2026)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-26140.html' },
@@ -328,6 +340,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'What does Kansas Medicaid pay for ABA?', a: 'Mostly not reliably published. One exception: 97153 is verified at $16.25/15-minute unit ($65/hour) effective 7/1/2024 (KMAP Bulletin 24125). For every other code the last public anchor is $17.50/15-minute unit for 97151 effective 1/1/2019, raised 4/1/2019 without published amounts; the 2022 BH increase skipped the 9715x codes. Pull current figures from the KMAP interactive fee-schedule lookup — the only source of truth for the rest.' },
       { q: 'Can KanCare ABA (including the 97151 assessment) be done by telehealth?', a: 'Yes. KMAP Bulletin 21234 lists 97151, 97152, 97153, 97155 and 97156 as allowed with POS 10 (telehealth in the home), alongside POS 02 for other locations, from 1/1/2022. Group codes 97154, 97157 and 97158 are not on the list. K.S.A. 40-2,213 bars KMAP from excluding a covered service only because it is delivered by telemedicine. Confirm the modality with the member\'s MCO at authorization.' },
       { q: 'Can an out-of-state BCBA treat KanCare members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
+      { q: 'What is the timely filing limit for KanCare ABA claims?', a: '180 days from the date of service at all three KanCare plans — Sunflower, Healthy Blue and UnitedHealthcare Community Plan (each plan’s 2026 provider manual). Corrected claims: 365 days at Sunflower (from notification of payment) and Healthy Blue (from the date of service).' },
     ],
   },
 
@@ -465,6 +478,15 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Sunflower Health Plan — Provider Manual (KDHE approved Feb. 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline, payment clock and disputes',
+        body: [
+          'Sunflower’s February 2026 manual: "Original provider claims (first-time claims) must be received by Sunflower within 180 calendar days from the date of service"; as secondary payer, within 180 days of the primary payer’s final determination; corrected claims within 365 calendar days of the notification of payment. It pays a Medicaid clean claim within 30 days, or a longer timeframe allowed by law or the provider agreement. To dispute a payment, an optional reconsideration must be requested within 120 calendar days of the notice of action (resolved within 30 calendar days), and a provider appeal filed in writing within 60 calendar days of the notice of action or reconsideration decision, each with three days added for mailing. Kansas electronic visit verification (AuthentiCare) is scoped to HCBS personal care and home health services; Sunflower’s manual does not apply it to ABA (CCTS/IIS).',
+        ],
+        cites: [
+          { title: 'Sunflower Health Plan Provider Manual (KDHE approved February 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis date + diagnosing clinician', desc: 'KS.CP.01 says validated by an MD or licensed psychologist within the last 6 months; KMAP 26140 (eff. 11/1/2026) says no re-evaluation once a qualified diagnostician has diagnosed. Record the date and diagnostician, and ask Sunflower UM before ordering a refresh.' },
@@ -518,7 +540,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'KS.CP.01 requires the diagnosis to have been validated by an MD or a licensed psychologist. Since KMAP Bulletin 26140, for members age 20 and younger the ASD diagnosis must come from a Kansas Behavioral Sciences Regulatory Board (BSRB) licensed clinical psychologist or a qualified physician, with a multidisciplinary approach preferred. The bulletin lists the qualifying provider type/specialty codes: 11/112 Psychologist, 31/316 Family Practitioner, 31/318 General Practitioner, 31/326 Neurologist, 31/339 Psychiatrist, 31/345 General Pediatrician (Developmental), 31/349 Exempt License Physician and 31/351 Indian Health Services (the KMAP-hosted PDF of the updated bulletin omits 31/349, which Sunflower\'s repost and Optum\'s criteria both list — confirm an exempt-license physician with the MCO). A qualifying BSRB clinical psychologist needs a doctoral degree in psychology or equivalent training plus two years of supervised experience delivering BSRB-approved psychological services; qualifying physicians — developmental/behavioral pediatricians, psychiatrists, neurologists and primary care physicians — need documented additional training in ASD diagnosis, which Optum notes "may be subject to periodic audit/inquiry."',
+          'KS.CP.01 requires the diagnosis to have been validated by an MD or a licensed psychologist. Since KMAP Bulletin 26140, for members age 20 and younger the ASD diagnosis must come from a Kansas Behavioral Sciences Regulatory Board (BSRB) licensed clinical psychologist or a qualified physician, with a multidisciplinary approach preferred. The bulletin lists the qualifying provider type/specialty codes: 11/112 Psychologist, 31/316 Family Practitioner, 31/318 General Practitioner, 31/326 Neurologist, 31/339 Psychiatrist, 31/345 General Pediatrician (Developmental), 31/349 Exempt License Physician and 31/351 Indian Health Services (the KMAP-hosted PDF of the updated bulletin omits 31/349, which Sunflower\'s repost and Optum\'s criteria both list — confirm an exempt-license physician with the MCO). A qualifying BSRB clinical psychologist needs a doctoral degree in psychology or equivalent training plus two years of supervised experience delivering BSRB-approved psychological services; qualifying physicians — developmental/behavioral pediatricians, psychiatrists, neurologists and primary care physicians — need documented additional training in ASD diagnosis, which Optum notes "may be subject to periodic Optum audit/inquiry."',
         status: 'verified',
         cites: [
           { title: 'Sunflower KS.CP.01 — Applied Behavioral Analysis (clinical policy)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/policies/clinical-policies/KS.CP.01-Applied-Behavioral-Analysis.pdf' },
@@ -651,6 +673,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Is Sunflower accepting new ABA providers?', a: 'Sunflower publishes no ABA moratorium. Enroll with KMAP first and pick Sunflower; KMAP sends the file for credentialing and contracting, which Sunflower aims to finish within 30–45 days of a complete application. Ask Contracting (1-877-644-4623) about need in your area.' },
       { q: 'Can an out-of-state BCBA treat Sunflower members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
       { q: 'Can Sunflower authorize ABA retroactively?', a: 'Only for extenuating circumstances (such as a member who did not have the Sunflower card, or another payer later finding the member ineligible) or retroactive eligibility; decision within 30 days, no later than 180 days from the date of service.' },
+      { q: 'What is Sunflower Health Plan’s timely filing limit for ABA claims?', a: '180 calendar days from the date of service for a first-time claim, and 365 days from the notification of payment for a corrected claim (Sunflower provider manual, February 2026).' },
     ],
   },
 
@@ -731,6 +754,15 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline, payment turnaround and disputes',
+        body: [
+          'UnitedHealthcare Community Plan’s 2026 KanCare manual: "Our standard timely filing requirement is 180 days from the date of service" (your participation agreement may set another), and "The standard turnaround time for clean claims is 30 business days from date of receipt." A claim reconsideration is due within 120 calendar days of the notice of action and an appeal within 63 calendar days of the notice of action (or of the reconsideration resolution); the appeal does not have to wait for the reconsideration to finish.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan KanCare Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis report + evaluator credentials', desc: 'Kansas BSRB-licensed clinical psychologist or qualified physician, comprehensive evaluation with DSM severity and a validated tool (ADOS/CARS) — the initial-auth gate. No recency clock: an older report from a qualified diagnostician still counts.' },
@@ -773,7 +805,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Since KMAP Bulletin 26140, for members age 20 and younger the ASD diagnosis must come from a Kansas Behavioral Sciences Regulatory Board (BSRB) licensed clinical psychologist or a qualified physician, with a multidisciplinary approach preferred. The bulletin lists the qualifying provider type/specialty codes: 11/112 Psychologist, 31/316 Family Practitioner, 31/318 General Practitioner, 31/326 Neurologist, 31/339 Psychiatrist, 31/345 General Pediatrician (Developmental), 31/349 Exempt License Physician and 31/351 Indian Health Services (the KMAP-hosted PDF of the updated bulletin omits 31/349, which Sunflower\'s repost and Optum\'s criteria both list — confirm an exempt-license physician with the MCO). A qualifying BSRB clinical psychologist needs a doctoral degree in psychology or equivalent training plus two years of supervised experience delivering BSRB-approved psychological services; qualifying physicians — developmental/behavioral pediatricians, psychiatrists, neurologists and primary care physicians — need documented additional training in ASD diagnosis, which Optum notes "may be subject to periodic audit/inquiry." Optum adds that the evaluation must be a comprehensive diagnostic evaluation under K.S.A. 74-7501.',
+          'Since KMAP Bulletin 26140, for members age 20 and younger the ASD diagnosis must come from a Kansas Behavioral Sciences Regulatory Board (BSRB) licensed clinical psychologist or a qualified physician, with a multidisciplinary approach preferred. The bulletin lists the qualifying provider type/specialty codes: 11/112 Psychologist, 31/316 Family Practitioner, 31/318 General Practitioner, 31/326 Neurologist, 31/339 Psychiatrist, 31/345 General Pediatrician (Developmental), 31/349 Exempt License Physician and 31/351 Indian Health Services (the KMAP-hosted PDF of the updated bulletin omits 31/349, which Sunflower\'s repost and Optum\'s criteria both list — confirm an exempt-license physician with the MCO). A qualifying BSRB clinical psychologist needs a doctoral degree in psychology or equivalent training plus two years of supervised experience delivering BSRB-approved psychological services; qualifying physicians — developmental/behavioral pediatricians, psychiatrists, neurologists and primary care physicians — need documented additional training in ASD diagnosis, which Optum notes "may be subject to periodic Optum audit/inquiry." Optum adds that the evaluation must be a comprehensive diagnostic evaluation under K.S.A. 74-7501.',
         status: 'verified',
         cites: [
           { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
@@ -888,6 +920,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'How do I join the UHC KanCare ABA network?', a: 'Enroll in KMAP first — Optum retrieves your application from KMAP to start credentialing (~60 days). CCTS credentialing requires BACB certification proof plus your Kansas BSRB license number; contracting line 1-877-614-0484.' },
       { q: 'Can ABA for this plan\'s KanCare members be delivered by telehealth?', a: 'Under the state rule, yes. KMAP Bulletin 21234 allows 97151, 97152, 97153, 97155 and 97156 with POS 10 (telehealth in the home), alongside POS 02 elsewhere; group codes 97154, 97157 and 97158 are not listed. The plan publishes no ABA telehealth rule of its own, so confirm the modality at authorization.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
+      { q: 'What is UnitedHealthcare Community Plan of Kansas’s timely filing limit?', a: '180 days from the date of service, unless your participation agreement sets another; clean claims are turned around within 30 business days (2026 KanCare manual).' },
     ],
   },
 
@@ -969,6 +1002,15 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and payment disputes',
+        body: [
+          'Healthy Blue’s June 2026 manual: "Generally, paper and electronic claims must be filed within 180 days," corrected claims and other rebilling within 365 days of the date of service, and retroactive-eligibility claims within 180 calendar days of the eligibility determination; your contract’s own filing period controls where it differs. A claim payment reconsideration (optional) is accepted by phone, online or in writing "within 120 calendar days (plus an additional three (3) calendar days to allow for mailing/sending) of the date on the Explanation of Payment (EOP)." Healthy Blue’s manual scopes electronic visit verification to EVV-covered HCBS personal care and home health services, not ABA.',
+        ],
+        cites: [
+          { title: 'Healthy Blue Kansas Medicaid Provider Manual (June 2026)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Prior-payer history', desc: 'Ex-Aetna Better Health families landed here 1/1/2025 — check for transition-honored auths and stale card details.' },
@@ -1014,7 +1056,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       },
       diagnosingProviders: {
         value:
-          'Healthy Blue publishes no Kansas-specific ABA rule on this point — its public prior-authorization pages and its ASD testing form carry none — so the KanCare state floor governs: Since KMAP Bulletin 26140, for members age 20 and younger the ASD diagnosis must come from a Kansas Behavioral Sciences Regulatory Board (BSRB) licensed clinical psychologist or a qualified physician, with a multidisciplinary approach preferred. The bulletin lists the qualifying provider type/specialty codes: 11/112 Psychologist, 31/316 Family Practitioner, 31/318 General Practitioner, 31/326 Neurologist, 31/339 Psychiatrist, 31/345 General Pediatrician (Developmental), 31/349 Exempt License Physician and 31/351 Indian Health Services (the KMAP-hosted PDF of the updated bulletin omits 31/349, which Sunflower\'s repost and Optum\'s criteria both list — confirm an exempt-license physician with the MCO). A qualifying BSRB clinical psychologist needs a doctoral degree in psychology or equivalent training plus two years of supervised experience delivering BSRB-approved psychological services; qualifying physicians — developmental/behavioral pediatricians, psychiatrists, neurologists and primary care physicians — need documented additional training in ASD diagnosis, which Optum notes "may be subject to periodic audit/inquiry."',
+          'Healthy Blue publishes no Kansas-specific ABA rule on this point — its public prior-authorization pages and its ASD testing form carry none — so the KanCare state floor governs: Since KMAP Bulletin 26140, for members age 20 and younger the ASD diagnosis must come from a Kansas Behavioral Sciences Regulatory Board (BSRB) licensed clinical psychologist or a qualified physician, with a multidisciplinary approach preferred. The bulletin lists the qualifying provider type/specialty codes: 11/112 Psychologist, 31/316 Family Practitioner, 31/318 General Practitioner, 31/326 Neurologist, 31/339 Psychiatrist, 31/345 General Pediatrician (Developmental), 31/349 Exempt License Physician and 31/351 Indian Health Services (the KMAP-hosted PDF of the updated bulletin omits 31/349, which Sunflower\'s repost and Optum\'s criteria both list — confirm an exempt-license physician with the MCO). A qualifying BSRB clinical psychologist needs a doctoral degree in psychology or equivalent training plus two years of supervised experience delivering BSRB-approved psychological services; qualifying physicians — developmental/behavioral pediatricians, psychiatrists, neurologists and primary care physicians — need documented additional training in ASD diagnosis, which Optum notes "may be subject to periodic Optum audit/inquiry."',
         status: 'verified',
         cites: [
           { title: 'Healthy Blue Kansas — Prior Authorization Requirements', url: 'https://www.healthybluekansas.com/provider/state-federal/resources/prior-authorization-requirements' },
@@ -1135,6 +1177,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'How do I submit an ABA authorization to Healthy Blue Kansas?', a: 'Availity is preferred (Patient Registration > Authorizations & Referrals); behavioral-health outpatient fax is 1-866-852-8978, and the plan lists an ABA line at 877-563-9347. Assessment requests use the dedicated ASD Testing form KSHB-CD-066296-24.' },
       { q: 'Can ABA for this plan\'s KanCare members be delivered by telehealth?', a: 'Under the state rule, yes. KMAP Bulletin 21234 allows 97151, 97152, 97153, 97155 and 97156 with POS 10 (telehealth in the home), alongside POS 02 elsewhere; group codes 97154, 97157 and 97158 are not listed. The plan publishes no ABA telehealth rule of its own, so confirm the modality at authorization.' },
       { q: 'Can an out-of-state BCBA treat Healthy Blue members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
+      { q: 'What is Healthy Blue Kansas’s timely filing limit?', a: 'Generally 180 days from the date of service, and 365 days for corrected claims (June 2026 provider manual); your contract can set a different period.' },
     ],
   },
 
@@ -1153,15 +1196,13 @@ export const kansasPayers: Record<string, PayerConfig> = {
       cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
-      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
-      status: 'unverified',
+      value: 'Yes — ASD only. CPB 0554 (last review 11/26/2025) considers ABA "experimental, investigational, or unproven for all other non-ASD indications." On the code range Aetna’s documents differ: CPB 0648 lists "F84.0 - F84.9" as ICD-10 codes covered if selection criteria are met, while the ABA Medical Necessity Guide its behavioral-health reviewers apply requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)," which leaves out F84.1 and F84.2. Bill F84.0 where it fits.',
+      status: 'verified',
       cites: [
         { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
         { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       ],
-      verifyVia:
-        'Aetna CPB 0554 / CPB 0648 and the ABA Medical Necessity Guide. The substantive rule — ASD only, ABA for other diagnoses considered experimental — is sourced, but the code range printed here is NOT: the Medical Necessity Guide states "(ICD-10/ F84.0; F84.3 - F84.9)", which omits F84.1 and F84.2. Confirm the governing code set with Aetna before relying on "F84.0-F84.9".',
-      blocker: 'document',
     },
     payer: 'Aetna in Kansas',
     state: 'KS', kind: 'commercial',
@@ -1252,6 +1293,15 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in Kansas?',
+        body: [
+          'On fully insured Kansas coverage, the prompt payment act gives the insurer 30 days from receipt to "pay a clean claim for reimbursement" or send a written or electronic notice that it is denying all or part of the claim (with each reason) or needs specific additional information. Interest runs "at the rate of 1% per month" on any amount still unpaid 30 days after receipt, and is added without a separate claim. Once the provider supplies the requested information (due within 30 days of the request), the insurer has 15 days to pay or deny, again at 1% a month if it does not. The act exempts good-faith disputes and suspected fraud, and it binds insurers issuing accident and sickness policies, so a self-funded employer plan administered by Aetna follows its plan document instead (K.S.A. 40-2442).',
+        ],
+        cites: [
+          { title: 'K.S.A. 40-2442 — Kansas health care prompt payment act: claims procedures (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_024_0042.html' },
         ],
       },
     ],
@@ -1519,6 +1569,24 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in Kansas?',
+        body: [
+          'On fully insured Kansas coverage, the prompt payment act gives the insurer 30 days from receipt to "pay a clean claim for reimbursement" or send a written or electronic notice that it is denying all or part of the claim (with each reason) or needs specific additional information. Interest runs "at the rate of 1% per month" on any amount still unpaid 30 days after receipt, and is added without a separate claim. Once the provider supplies the requested information (due within 30 days of the request), the insurer has 15 days to pay or deny, again at 1% a month if it does not. The act exempts good-faith disputes and suspected fraud, and it binds insurers issuing accident and sickness policies, so a self-funded employer plan administered by Cigna follows its plan document instead (K.S.A. 40-2442).',
+        ],
+        cites: [
+          { title: 'K.S.A. 40-2442 — Kansas health care prompt payment act: claims procedures (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_024_0042.html' },
+        ],
+      },
+      {
+        h2: 'What is Cigna’s timely filing limit for ABA claims?',
+        body: [
+          'Cigna’s timely filing policy, for claims submitted directly to Cigna: it will consider "Participating provider claims submitted three (3) months [90 days] after the date of service" and out-of-network claims submitted six months (180 days) after the date of service. The limit is longer where applicable law requires it or your provider agreement allows more time, and in coordination-of-benefits cases it runs from the processing date on the primary carrier’s EOB.',
+        ],
+        cites: [
+          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1665,6 +1733,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'What does the Kansas autism mandate require?', a: 'For large-group (51+) fully-insured plans: coverage for members under 12, with ABA capped at 1,300 hours/year for 4 years when diagnosed by age 5, otherwise 520 hours/year — exceedable with prior approval when medically necessary. Federal parity analysis questions the age limit and hour caps, so treat cap denials as appealable.' },
       { q: 'What does Cigna pay for ABA in Kansas?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. KanCare\'s 97153 rate ($16.25 per 15 minutes, KMAP Bulletin 24125) is the public benchmark.' },
       { q: 'Can an out-of-state BCBA treat Cigna members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
+      { q: 'What is Cigna’s timely filing limit in Kansas?', a: '90 days from the date of service for a participating provider and 180 days out of network, unless your agreement or applicable law allows longer (Cigna’s When to File policy).' },
     ],
   },
 
@@ -1774,6 +1843,24 @@ export const kansasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
           { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in Kansas?',
+        body: [
+          'On fully insured Kansas coverage, the prompt payment act gives the insurer 30 days from receipt to "pay a clean claim for reimbursement" or send a written or electronic notice that it is denying all or part of the claim (with each reason) or needs specific additional information. Interest runs "at the rate of 1% per month" on any amount still unpaid 30 days after receipt, and is added without a separate claim. Once the provider supplies the requested information (due within 30 days of the request), the insurer has 15 days to pay or deny, again at 1% a month if it does not. The act exempts good-faith disputes and suspected fraud, and it binds insurers issuing accident and sickness policies, so a self-funded employer plan administered by UnitedHealthcare follows its plan document instead (K.S.A. 40-2442).',
+        ],
+        cites: [
+          { title: 'K.S.A. 40-2442 — Kansas health care prompt payment act: claims procedures (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_024_0042.html' },
+        ],
+      },
+      {
+        h2: 'What is the timely filing limit for UnitedHealthcare ABA claims?',
+        body: [
+          'UnitedHealthcare commercial ABA runs through Optum Behavioral Health, whose National Provider Network Manual (effective 9/1/2026) says "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Corrections are due within 90 days of the first claim’s receipt, and the member cannot be billed for a late claim. Clean claims are "Generally" paid within 45 calendar days. To dispute a decision, request reconsideration and then appeal; the two steps together must be filed within 12 months unless state law or your agreement sets a different deadline.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health — National Provider Network Manual (published 7/1/2026, effective 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
     ],
@@ -1927,6 +2014,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'What does UnitedHealthcare pay for ABA in Kansas?', a: 'UnitedHealthcare/Optum publishes no ABA rates. You are paid up to the Fee Maximum in your Optum agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) under Optum’s ABA reimbursement policy. Ask Optum network management for your rate sheet. KanCare\'s 97153 rate ($16.25 per 15 minutes, KMAP Bulletin 24125) is the public benchmark.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Kansas?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless state law, federal law or the member’s plan allows longer.' },
     ],
   },
 };

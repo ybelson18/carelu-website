@@ -234,6 +234,20 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           { title: 'GA DCH — Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date October 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf' },
         ],
       },
+      {
+        h2: 'Georgia Medicaid ABA claims: filing deadline, payment clock, appeals and EVV',
+        body: [
+          'Filing deadline: a fee-for-service claim must be received “within six (6) months after the month in which service was rendered,” or it is denied (Part I manual, 203.1.3). A claim denied “due to erroneous or missing information” can be resubmitted within six months of the month of service “or within three (3) months of the month in which the denial occurred, whichever is later,” with the denial remittance attached once six months have passed (205.3). Federal rules require the state to pay 90% of clean practitioner claims within 30 days of receipt and 99% within 90 days (42 CFR 447.45(d)). CMO members follow their CMO’s manual.',
+          'Appeals: for a denied claim, the rendering provider requests an initial review on a DMA-520 through the GAMMIS web portal “within thirty (30) days of the date of the denial of claim payment,” then has 30 days from that decision to request an Administrative Review; missing a step or leaving out documentation waives further appeal rights, including the right to a hearing (502.1). Prior-authorization decisions have their own route in the ASD manual: a reconsideration through the Medical Review Portal within 30 calendar days of a partial approval or a peer-consultant denial (only one reconsideration after the first peer denial; after a second, file a new PA), and within 10 calendar days of a technical denial that is not final.',
+          'Electronic Visit Verification does not reach ABA in Georgia. DCH’s EVV program covers Personal Support Services/Community Living Supports (T1019 and T1020) in the SOURCE, CCSP, NOW, COMP, ICWP and GAPP waivers, plus home health care (S5125 and S5126); ABA codes are not on the list. The October 2026 ASD manual adds no EVV step for ABS.',
+        ],
+        cites: [
+          { title: 'GA DCH — Part I Policies and Procedures for Medicaid/PeachCare for Kids (version date July 1, 2026), sections 203, 205 and 502 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/HANDBOOKS/Part%201%20Policies%20and%20Procedures%20for%20Medicaid%20PeachCare%20for%20Kids%20Q3%20July%202026%2020260706155614.pdf' },
+          { title: 'GA DCH — Part II Policies and Procedures for Autism Spectrum Disorder (ASD) Services, version date October 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Autism%20Spectrum%20Disorder%20Q4-October%202026%2020261001130506.pdf' },
+          { title: '42 CFR 447.45(d) — timely processing of Medicaid fee-for-service claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.45' },
+          { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID + CMO', desc: 'Which plan the child is on (CareSource, Peach State, Amerigroup, or FFS) — it decides the whole PA path.' },
@@ -256,6 +270,9 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'GA DCH — Part II Policies and Procedures for Telehealth Guidance, version date October 1, 2026 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/Handbooks/Telehealth%20Guidance%20Q4%20-%20October%202026%2020260921152812.pdf' },
       { title: 'Georgia Medicaid \u2014 Georgia Families Latest News (updated 4/23/2026)', url: 'https://medicaid.georgia.gov/programs/all-programs/georgia-families/georgia-families-latest-news' },
       { title: 'CareSource Georgia Medicaid Provider Manual (GA-MED-P-2890751a, July 2026)', url: 'https://www.caresource.com/documents/ga-provider-manual.pdf' },
+      { title: 'GA DCH — Part I Policies and Procedures for Medicaid/PeachCare for Kids (version date July 1, 2026), sections 203, 205 and 502 (GAMMIS)', url: 'https://www.mmis.georgia.gov/portal/Portals/0/StaticContent/Public/ALL/HANDBOOKS/Part%201%20Policies%20and%20Procedures%20for%20Medicaid%20PeachCare%20for%20Kids%20Q3%20July%202026%2020260706155614.pdf' },
+      { title: '42 CFR 447.45(d) — timely processing of Medicaid fee-for-service claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-447.45' },
+      { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
     ],
     faq: [
       { q: 'Does Georgia Medicaid cover ABA therapy?', a: 'Yes — for members under age 21 with a documented DSM-5 ASD diagnosis, under EPSDT, effective since January 2018. All services require prior authorization.' },
@@ -267,6 +284,10 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Georgia Medicaid members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. To enroll in Georgia Medicaid a BCBA needs a Georgia license and active BACB certification; since October 2026 there is no requirement to live in Georgia or within 50 miles of its border.' },
       { q: 'Can Georgia Medicaid ABA be authorized retroactively?', a: 'No. “PA effective dates cannot be made retroactive or backdated under any circumstance,” though you may set the effective date up to 30 days before the submission date. Retroactive eligibility does not change that: reinstated members and members who began services before Medicaid approval “are not eligible for retroactive prior authorizations”; the 30-day backdate is the only flexibility (ASD manual, October 2026).' },
       { q: 'Does a Georgia Medicaid assessment PA take longer to decide than a treatment PA?', a: 'Not under the current ASD manual (October 2026). It sets one clock for every ABS prior authorization request: “Please allow up to 7 calendar days for the PA request to be reviewed and a decision issued,” plus 10 more calendar days when you send supplemental documentation to cure a technical or peer denial. The manual’s revision log shows DCH “Updated the PA TAT from 45 days to 7 days” in April 2026, so longer waits remembered from before then no longer apply. CMO members follow their plan’s clock.' },
+      { q: 'What is Georgia Medicaid’s timely filing limit for ABA claims?', a: 'Six months: a fee-for-service claim must be received within six months after the month the service was rendered (DCH Part I manual, 203.1.3). A claim denied for erroneous or missing information can be resubmitted within six months of the month of service or three months of the month of the denial, whichever is later. CareSource, Peach State and Amerigroup each print a six-month filing limit too.' },
+      { q: 'How do I appeal a denied Georgia Medicaid ABA claim?', a: 'File an initial review on a DMA-520 through the GAMMIS portal within 30 days of the denial, then an Administrative Review within 30 days of that decision (Part I manual, 502.1). A PA decision is challenged by reconsideration in the Medical Review Portal: 30 calendar days for a partial approval or peer denial, 10 calendar days for a non-final technical denial (ASD manual).' },
+      { q: 'Does Georgia Medicaid require EVV for ABA?', a: 'No. DCH’s EVV program covers personal support services (T1019, T1020) in six waivers and home health care (S5125, S5126); ABA codes are not on the list, and the October 2026 ASD manual has no EVV requirement.' },
+      { q: 'What changed in Georgia Medicaid’s ABA rules on October 1, 2026?', a: 'DCH reissued the ASD manual with a version date of October 1, 2026. Its revision log lists: the requirement to live in Georgia or within 50 miles of its border removed from enrollment (601.1.2), a Georgia licence requirement added (601.1) and “licensed” added before BCBAs and BCaBAs (601.1.1); a provision on in-person supervision (601.3.1); telehealth guidance (903.3), under which providers delivering more than 25% of assessments or 50% of units by telehealth face more frequent audits; the Telehealth Readiness Checklist moved to Appendix D and updated; skill acquisition line graphs required with continued requests (803.10); an expanded progress-note section (602.3.3), with notes due within one business day; the Early Start Denver Model added (802); an updated treatment-plan template that drops the “supervision” reference from its ABA recommendations; and IEP guidance for private and homeschool students (804.12). In April 2026 DCH had already cut the PA review clock from 45 days to 7. CareSource’s separate 2026 reimbursement change is covered on the CareSource Georgia guide.' },
     ],
   },
 
@@ -309,10 +330,10 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Anthem’s ABA provider resource guide (June 2025) sets a treatment-plan clock rather than a diagnosis clock: “Documentation must show that the treatment plan was reviewed and/or updated at a min of every 6 months. Providers should review their guidelines if treatment plans are required more frequently.” It adds that standardized assessments are used “early in the course of treatment and at reviews during treatment thereafter,” but publishes no recency window on the ASD diagnostic evaluation and no re-diagnosis interval.',
+          'Anthem’s ABA provider resource guide (June 2025) sets a treatment-plan clock rather than a diagnosis clock: “Documentation must show that the treatment plan was reviewed and/or updated at a min of every 6 months. Providers should review their guidelines if treatment plans are required more frequently.” It adds that standardized assessments are used “early in the course of treatment and at reviews during treatment thereafter,” but publishes no recency window on the ASD diagnostic evaluation and no re-diagnosis interval. On a state-regulated plan, Ava’s Law sets the outer terms: the plan must cover “any assessments, evaluations, or tests by a licensed physician or licensed psychologist to diagnose whether an individual has an autism spectrum disorder,” and it may require “a licensed physician or licensed psychologist… to demonstrate ongoing medical necessity for coverage… at least annually.”',
         status: 'unverified',
         blocker: 'licensed',
-        cites: [{ title: 'Anthem BCBS — ABA Provider Resource Guide (Commercial; incl. Georgia), MULTI-BCBS-CM-084583-25-CPN83931, June 2025', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }, { title: 'Anthem Provider News (Georgia, Commercial) — MCG care guidelines 27th edition update, Feb. 1, 2024: CG-BEH-02 replaced by MCG B-806-T from 6/1/2024 (MULTI-BCBS-CM-047274-23)', url: 'https://providernews.anthem.com/georgia/articles/mcg-care-guidelines-27th-edition-update-17867-17867' }],
+        cites: [{ title: 'Anthem BCBS — ABA Provider Resource Guide (Commercial; incl. Georgia), MULTI-BCBS-CM-084583-25-CPN83931, June 2025', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' }, { title: 'Anthem Provider News (Georgia, Commercial) — MCG care guidelines 27th edition update, Feb. 1, 2024: CG-BEH-02 replaced by MCG B-806-T from 6/1/2024 (MULTI-BCBS-CM-047274-23)', url: 'https://providernews.anthem.com/georgia/articles/mcg-care-guidelines-27th-edition-update-17867-17867' }, { title: 'Georgia Code § 33-24-59.10 (Ava’s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' }],
         verifyVia:
           'Any diagnosis-recency requirement sits in MCG B-806-T, the licensed criteria Anthem has applied to commercial ABA reviews since 6/1/2024 — ask Anthem utilization management at authorization.',
       },
@@ -479,6 +500,20 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           { title: 'Anthem — ABA Provider Resource Guide (multi-state incl. Georgia and Indiana, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
         ],
       },
+      {
+        h2: 'How old can the diagnosis be, and does a doctor’s referral count, for Anthem in Georgia?',
+        body: [
+          'Anthem does not publish either answer. Since June 1, 2024 it has reviewed commercial ABA against MCG B-806-T, which is licensed and not public, and its June 2025 ABA resource guide states no diagnosis-recency rule and lists “physician orders” and “referrals” only as items the medical record should contain when they exist. Ask Anthem utilization management which diagnostic documentation the review needs before relying on a referral letter.',
+          'Ava’s Law sets the outer terms for a state-regulated plan: it must cover “any assessments, evaluations, or tests by a licensed physician or licensed psychologist to diagnose whether an individual has an autism spectrum disorder,” so a new evaluation is itself a covered benefit, and the plan may require “a licensed physician or licensed psychologist… to demonstrate ongoing medical necessity… at least annually.”',
+          'Payment clock: Georgia’s prompt-pay statute (O.C.G.A. 33-24-59.14) gives an insurer or administrator 15 working days for an electronic claim and 30 calendar days for a paper claim to pay it, or to send written notice of why it is denied and what is needed, with interest of 12 percent a year on late payments; any undisputed part of a claim must be paid on that clock. A self-funded employer plan may sit outside Georgia insurance law, so confirm the funding type first.',
+        ],
+        cites: [
+          { title: 'Anthem Provider News (Georgia, Commercial) — MCG care guidelines 27th edition update, Feb. 1, 2024: CG-BEH-02 replaced by MCG B-806-T from 6/1/2024 (MULTI-BCBS-CM-047274-23)', url: 'https://providernews.anthem.com/georgia/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
+          { title: 'Anthem BCBS — ABA Provider Resource Guide (Commercial; incl. Georgia), MULTI-BCBS-CM-084583-25-CPN83931, June 2025', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+          { title: 'Georgia Code § 33-24-59.10 (Ava’s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' },
+          { title: 'O.C.G.A. § 33-24-59.14 — claim payment deadlines and interest (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-14/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID + plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) vs. small group (≤10 employees, exempt) — this determines what the plan owes.' },
@@ -495,6 +530,8 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia Behavior Analyst Licensing Board', url: 'https://sos.ga.gov/georgia-behavior-analyst-licensing-board' },
       { title: 'Anthem Commercial Reimbursement Policy C-08002 — Virtual Visits, Professional and Facility (last approved 03/26/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/policy/reimb/C-08002.pdf' },
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+      { title: 'Georgia Code § 33-24-59.10 (Ava’s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' },
+      { title: 'O.C.G.A. § 33-24-59.14 — claim payment deadlines and interest (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-14/' },
     ],
     faq: [
       { q: 'Does Anthem BCBS Georgia cover ABA therapy?', a: 'Yes — Anthem reviews commercial ABA for medical necessity against MCG B-806-T, which replaced clinical guideline CG-BEH-02 for dates of service from June 1, 2024. Georgia\'s Ava\'s Law also mandates coverage in state-regulated plans for individuals 20 and under.' },
@@ -502,6 +539,8 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { q: 'Is the $35,000 ABA cap in Ava\'s Law enforceable?', a: 'Against large-group plans covered by federal parity law, generally not — MHPAEA prohibits treatment limits on mental-health benefits that are stricter than medical/surgical benefits. Treat a payer applying the cap to a large-group member as a red flag to escalate.' },
       { q: 'Which plans are exempt from Ava\'s Law?', a: 'Self-funded ERISA plans (federal preemption) and employers with 10 or fewer employees. That\'s why intake should always capture the employer and funding type, not just the insurance card.' },
       { q: 'Can an out-of-state BCBA treat Anthem members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Anthem’s ABA guide accepts BCBAs and providers “licensed or authorized by the state in which they practice”; confirm the license question with Anthem credentialing.' },
+      { q: 'How old can a diagnosis report be for Anthem BCBS Georgia ABA?', a: 'Anthem publishes no limit; its criteria (MCG B-806-T) are licensed and not public, so ask Anthem utilization management. On a state-regulated plan, Ava’s Law lets the plan ask a licensed physician or psychologist to show ongoing medical necessity at least once a year.' },
+      { q: 'Does a doctor’s referral count as the diagnosis for Anthem ABA in Georgia?', a: 'Anthem does not say. Its resource guide treats referrals as a record element, not a diagnosis standard, and its review criteria are licensed. Ava’s Law requires state-regulated plans to cover a diagnostic evaluation by a licensed physician or psychologist, so if Anthem asks for one, the evaluation is a covered service.' },
     ],
   },
 
@@ -665,9 +704,10 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       },
       {
         h2: 'The 2026 rate change',
-        cites: [{ title: 'Behavioral Health Business — Georgia ABA providers brace for 20% rate cut from CareSource (Apr. 8, 2026; secondary source)', url: 'https://bhbusiness.com/2026/04/08/georgia-aba-providers-brace-for-20-rate-cut-from-caresource/' }],
+        cites: [{ title: 'Behavioral Health Business — Georgia ABA providers brace for 20% rate cut from CareSource (Apr. 8, 2026; secondary source)', url: 'https://bhbusiness.com/2026/04/08/georgia-aba-providers-brace-for-20-rate-cut-from-caresource/' }, { title: 'CareSource GA MCD-MM-0212 (ABA policy, eff. 7/1/2026)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20260701' }, { title: 'CareSource Georgia Medicaid — current reimbursement policies list (checked October 7, 2026)', url: 'https://www.caresource.com/ga/providers/tools-resources/health-partner-policies/reimbursement-policies/medicaid/' }],
         body: [
           'CareSource told Behavioral Health Business it had “recently notified certain providers in our Georgia network of adjustments to reimbursement for applied behavior analysis therapy services”; the reported term is 80% of the then-current Georgia Medicaid fee schedule from May 2026. The amendment went to providers individually and is not published, and neither edition of CareSource’s ABA policy mentions it, so confirm the rate in your own CareSource agreement before modelling revenue. It does not change coverage.',
+          'The payment terms now sit in a policy nobody outside CareSource can read. The revision history of MCD-MM-0212 (effective 7/1/2026) says “Split payment info into PY-1634,” but as of October 7, 2026 PY-1634 is not on CareSource’s list of current Georgia Medicaid reimbursement policies, so its rules (rates, unit edits, modifiers) cannot be checked publicly. Ask CareSource provider services for a copy, and rely on your own CareSource letters for whether any 2026 rate change applies to your agreement.',
         ],
       },
       {
@@ -700,6 +740,19 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           { title: 'CareSource Georgia Medicaid Provider Manual (GA-MED-P-2890751a, DCH approved 7/22/2026)', url: 'https://www.caresource.com/documents/ga-provider-manual.pdf' },
         ],
       },
+      {
+        h2: 'CareSource Georgia ABA claims: filing deadline, payment, taxonomy, disputes and appeals',
+        body: [
+          'Filing deadline: in-network claims “must be submitted within six months from the month in which the services were rendered.” CareSource’s claim-processing rules also allow “90 days from the EOP date to submit a clean claim,” and a corrected claim for incomplete or incorrect information may be sent within 180 calendar days of the date of service; corrected claims do not go through appeal. Payment: among its own obligations CareSource lists “Paying clean claims within 15 business days of receipt.”',
+          'Taxonomy: CareSource matches each claim to the provider on three data elements — the NPI, the “billing taxonomy code, billing provider service location zip code +4 on file in CoreMMIS” — so the billing taxonomy on the claim has to match the provider’s GAMMIS record. On a CMS-1500 the rendering NPI goes in box 24J and the group NPI in box 33A.',
+          'Disputes and appeals: a payment amount (underpayment or overpayment) goes through the claim payment dispute process, in writing “within three months of the date of payment”; CareSource decides within 15 calendar days. A denied claim goes in as a claim appeal within 30 calendar days of the date the adverse action, denial, remittance advice or initial review determination was mailed. A clinical appeal of a medical-necessity decision is due within 60 calendar days of the notice and needs the member’s written consent. Once CareSource’s process is exhausted, a provider may request an Administrative Law Hearing within 30 calendar days of the appeal decision (O.C.G.A. 49-4-153) or choose binding arbitration (O.C.G.A. 33-21A-7).',
+          'Electronic Visit Verification does not reach ABA in Georgia. DCH’s EVV program covers Personal Support Services/Community Living Supports (T1019 and T1020) in the SOURCE, CCSP, NOW, COMP, ICWP and GAPP waivers, plus home health care (S5125 and S5126); ABA codes are not on the list. CareSource’s Georgia manual sets no EVV rule of its own.',
+        ],
+        cites: [
+          { title: 'CareSource Georgia Medicaid Provider Manual (GA-MED-P-2890751a, July 2026)', url: 'https://www.caresource.com/documents/ga-provider-manual.pdf' },
+          { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'CareSource member ID', desc: 'Confirm the family is on CareSource (vs. another GA CMO or FFS) — it decides the whole PA path.' },
@@ -715,6 +768,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'CareSource Georgia Medicaid Provider Manual (GA-MED-P-2890751a, July 2026)', url: 'https://www.caresource.com/documents/ga-provider-manual.pdf' },
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
     ],
     faq: [
       { q: 'Does CareSource Georgia cover ABA therapy?', a: 'Yes — CareSource administers the Georgia Medicaid ABA benefit under policy MCD-MM-0212, aligned to the DCH ASD manual, with in-house prior authorization and medical review. Members must be under 21 with an ASD diagnosis.' },
@@ -723,6 +777,9 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { q: 'Is the CareSource Georgia Medicaid ABA network open to new providers?', a: 'Enroll in Georgia Medicaid through GAMMIS, then request a CareSource contract (New Health Partner Contract Form or 1-855-202-1058). Credentialing is done by DCH’s centralized CVO, about 51 days for a complete application, and CareSource pays nothing before the approval date. CareSource does not publish whether its ABA network is open, so ask provider contracting.' },
       { q: 'Can an out-of-state BCBA treat CareSource members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. To enroll in Georgia Medicaid a BCBA needs a Georgia license and active BACB certification; since October 2026 there is no requirement to live in Georgia or within 50 miles of its border.' },
       { q: 'Can CareSource authorize ABA retroactively in Georgia?', a: 'Only if you request it within 30 calendar days of the service date; CareSource decides within 30 days and administratively denies late requests.' },
+      { q: 'What is CareSource Georgia’s reimbursement policy PY-1634?', a: 'It is the ABA payment policy CareSource split out of its clinical policy: the revision history of MCD-MM-0212 (effective 7/1/2026) says “Split payment info into PY-1634.” As of October 7, 2026, PY-1634 is not on CareSource’s list of current Georgia Medicaid reimbursement policies, so its terms cannot be read publicly. Ask CareSource provider services for a copy, and check the rate in your own CareSource agreement.' },
+      { q: 'What is CareSource Georgia’s timely filing limit for ABA claims?', a: 'Six months from the month the service was rendered, for in-network providers (CareSource Georgia provider manual). Corrected claims may be sent within 180 calendar days of the date of service, and the manual also allows 90 days from the EOP date to submit a clean claim.' },
+      { q: 'How do I dispute or appeal a CareSource Georgia ABA claim?', a: 'Payment-amount disputes: in writing within three months of the payment date; CareSource decides within 15 calendar days. Denials: a claim appeal within 30 calendar days of the denial or remittance; medical-necessity appeals within 60 calendar days, with member consent. Then an Administrative Law Hearing request within 30 calendar days of the appeal decision, or binding arbitration.' },
     ],
   },
 
@@ -914,6 +971,20 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           { title: 'Peach State Health Plan Provider Manual (2026)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/pdfs/GA-INT-11666%20Provider%20Handbook%20Update%202026%20FINAL%202_R.pdf' },
         ],
       },
+      {
+        h2: 'Peach State ABA claims: filing deadline, payment, taxonomy and appeals',
+        body: [
+          'Filing deadline: “All claims must be received by the plan within six (6) months from the date the service was provided.” A claim denied for erroneous or missing information may be resubmitted within six months of the month of service or three months of the month of the denial, whichever is later, with resubmission code 7 and the original claim number. When Peach State is secondary, the claim must arrive within 180 days of the primary carrier’s EOP, never more than 12 months from the month of service.',
+          'Payment: “Clean claims will be adjudicated (finalized as paid or denied) within fifteen (15) business days of the receipt of the claim.” A claim that is not clean is pended for information no later than the 15th business day, and non-clean claims are finalized within 30 days.',
+          'Taxonomy: required. “Providers must bill with both their provider Taxonomy Code and NPI in box 24J,” with the ID qualifier for the taxonomy in box 24I; claims whose billing information does not match Peach State’s files are returned and are not treated as clean.',
+          'Appeals: claim appeals “must be filed within thirty (30) Calendar days after the date of the claim denial” on the Provider Appeal Request Form; Peach State acknowledges within 10 calendar days and decides within 30. After that, an Administrative Law Hearing must be requested within 15 business days of receiving the plan’s decision (O.C.G.A. 49-4-153(e)(1)), or the provider may choose binding arbitration.',
+          'Electronic Visit Verification does not reach ABA in Georgia. DCH’s EVV program covers Personal Support Services/Community Living Supports (T1019 and T1020) in the SOURCE, CCSP, NOW, COMP, ICWP and GAPP waivers, plus home health care (S5125 and S5126); ABA codes are not on the list. Peach State’s manual sets no EVV rule of its own.',
+        ],
+        cites: [
+          { title: 'Peach State Health Plan Provider Manual (April 2026)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/pdfs/GA-INT-11666%20Provider%20Handbook%20Update%202026%20FINAL%202_R.pdf' },
+          { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Peach State member ID', desc: 'Confirm the plan — it determines the PA process and forms.' },
@@ -928,6 +999,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Peach State Health Plan Provider Manual (April 2026)', url: 'https://www.pshpgeorgia.com/content/dam/centene/peachstate/pdfs/GA-INT-11666%20Provider%20Handbook%20Update%202026%20FINAL%202_R.pdf' },
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
     ],
     faq: [
       { q: 'Does Peach State Health Plan cover ABA therapy?', a: 'Yes — Peach State administers the Georgia Medicaid ABA benefit under policy GA.CP.BH.504, with prior-authorization criteria based on the DCH ASD manual, for members under 21 with ASD.' },
@@ -936,6 +1008,8 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { q: 'Is the Peach State Georgia Medicaid ABA network open to new providers?', a: 'Get credentialed by DCH’s centralized CVO through the GAMMIS portal, then ask Peach State Provider Relations for a contract. Peach State does not publish whether its ABA network is open, so ask Provider Relations.' },
       { q: 'Can an out-of-state BCBA treat Peach State members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. To enroll in Georgia Medicaid a BCBA needs a Georgia license and active BACB certification; since October 2026 there is no requirement to live in Georgia or within 50 miles of its border.' },
       { q: 'Can Peach State authorize ABA retroactively?', a: 'No retro-authorization request route: submit the claim, let it deny for “services not authorized,” then appeal.' },
+      { q: 'What is Peach State’s timely filing limit for ABA claims?', a: 'Six months from the date of service (Peach State provider manual, April 2026). Denied claims with missing or wrong information can come back within six months of the month of service or three months of the denial month, whichever is later.' },
+      { q: 'Does Peach State require taxonomy on the claim?', a: 'Yes. Bill the taxonomy code and NPI in box 24J with the qualifier in box 24I; a claim whose billing information does not match Peach State’s file is returned as not clean.' },
     ],
   },
 
@@ -1116,6 +1190,19 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
         ],
       },
+      {
+        h2: 'Amerigroup Georgia ABA claims: filing deadline, payment, taxonomy and disputes',
+        body: [
+          'Filing deadline: “All claims must be submitted within six months after the month in which service was rendered”; corrected claims must be submitted within 90 days of the original claim submission. Payment: “Clean claims are adjudicated within 15 business days of receipt of a clean claim,” with interest if Amerigroup misses that clock, and a claim that is not clean is pended in writing within 15 business days.',
+          'Taxonomy: Amerigroup has “aligned our NPI and taxonomy code requirements with those of the state of Georgia,” and the required claim data include the “NPI and taxonomy code.”',
+          'Disputes: two steps. A reconsideration within 90 calendar days of the EOP date, online, in writing or by phone, which Amerigroup tries to resolve within 30 calendar days (extendable by 30); then a claim payment appeal within 30 calendar days of the reconsideration letter. A state fair hearing request must reach Amerigroup in writing within 15 business days of the payment dispute resolution letter (O.C.G.A. 49-4-153(e)). A medical-necessity appeal of a payment decision must be received within 30 calendar days of the EOB date.',
+          'Electronic Visit Verification does not reach ABA in Georgia. DCH’s EVV program covers Personal Support Services/Community Living Supports (T1019 and T1020) in the SOURCE, CCSP, NOW, COMP, ICWP and GAPP waivers, plus home health care (S5125 and S5126); ABA codes are not on the list. Amerigroup’s Georgia manual sets no EVV rule of its own.',
+        ],
+        cites: [
+          { title: 'Amerigroup Georgia Medicaid Provider Manual (GA-AGP-CD-PM-003925-26, March 2026)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_ProviderManual.pdf' },
+          { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Amerigroup member ID', desc: 'Confirm the plan and current CMO status at intake.' },
@@ -1130,12 +1217,15 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Amerigroup Georgia Medicaid Provider Manual (GA-AGP-CD-PM-003925-26)', url: 'https://provider.amerigroup.com/docs/gpp/GA_CAID_ProviderManual.pdf' },
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
     ],
     faq: [
       { q: 'Does Amerigroup Georgia cover ABA therapy?', a: 'Yes — Amerigroup administers the Georgia Medicaid ABA benefit under its CG-BEH-02 adaptive behavioral treatment guideline, aligned to the DCH ASD manual, with prior authorization and medical-necessity review.' },
       { q: 'Is Amerigroup\'s Georgia ABA guideline current?', a: 'The publicly available version is dated 2017/2018 and is likely superseded. Verify the current guideline on the Amerigroup provider portal before relying on specific requirements.' },
       { q: 'Is the Amerigroup Georgia Medicaid ABA network open to new providers?', a: 'Get credentialed by DCH’s centralized CVO, then sign a participating agreement through Availity (Provider Enrollment and Network Management) or the Join Our Network link. Amerigroup does not publish whether its ABA network is open, so ask network management.' },
       { q: 'Can an out-of-state BCBA treat Amerigroup members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. To enroll in Georgia Medicaid a BCBA needs a Georgia license and active BACB certification; since October 2026 there is no requirement to live in Georgia or within 50 miles of its border.' },
+      { q: 'What is Amerigroup Georgia’s timely filing limit for ABA claims?', a: 'Six months after the month the service was rendered; corrected claims within 90 days of the original submission (Amerigroup Georgia Medicaid provider manual).' },
+      { q: 'How do I dispute an Amerigroup Georgia ABA claim?', a: 'Ask for a reconsideration within 90 calendar days of the EOP, then a claim payment appeal within 30 calendar days of the reconsideration letter; a state fair hearing request is due within 15 business days of the dispute resolution letter.' },
     ],
   },
 
@@ -1345,6 +1435,17 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Aetna pay an ABA claim in Georgia?',
+        body: [
+          'Payment clock: Georgia’s prompt-pay statute (O.C.G.A. 33-24-59.14) gives an insurer or administrator 15 working days for an electronic claim and 30 calendar days for a paper claim to pay it, or to send written notice of why it is denied and what is needed, with interest of 12 percent a year on late payments; any undisputed part of a claim must be paid on that clock. A self-funded employer plan may sit outside Georgia insurance law, so confirm the funding type first.',
+          'Electronic Visit Verification does not reach ABA in Georgia. DCH’s EVV program covers Personal Support Services/Community Living Supports (T1019 and T1020) in the SOURCE, CCSP, NOW, COMP, ICWP and GAPP waivers, plus home health care (S5125 and S5126); ABA codes are not on the list. It is a Medicaid program; Aetna’s commercial provider manual sets no EVV rule.',
+        ],
+        cites: [
+          { title: 'O.C.G.A. § 33-24-59.14 — claim payment deadlines and interest (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-14/' },
+          { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1362,12 +1463,15 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna \u2014 Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+      { title: 'O.C.G.A. § 33-24-59.14 — claim payment deadlines and interest (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-14/' },
+      { title: 'GA DCH — Electronic Visit Verification (EVV) Member FAQs (last updated December 2020)', url: 'https://medicaid.georgia.gov/document/document/evv-faqs/download' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Georgia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Georgia\'s mandate (O.C.G.A. § 33-24-59.10 (Ava’s Law)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Georgia autism mandate require?', a: 'Ava’s Law requires state-regulated accident and sickness plans (including the state employee health plan) to cover ASD treatment for individuals 20 years of age or under, with ABA nominally cappable at $35,000 per year — and no limits allowed on the number of visits. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Georgia?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Georgia Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'Can an out-of-state BCBA treat Aetna members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
+      { q: 'How fast must Aetna pay an ABA claim in Georgia?', a: 'On a plan subject to Georgia law, within 15 working days of an electronic claim or 30 calendar days of a paper claim, or Aetna must say in writing why not; late payments carry 12% annual interest (O.C.G.A. 33-24-59.14). Aetna’s own filing deadline is set in your participation agreement.' },
     ],
   },
 
@@ -1582,6 +1686,17 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Does a doctor’s referral meet Cigna’s diagnosis requirement in Georgia?',
+        body: [
+          'Only if the doctor actually made and documented the diagnosis. Cigna’s policy EN0499 requires “a confirmed diagnosis of autism spectrum disorder (ASD)… based on the criteria in the… DSM-5-TR by a healthcare professional who is licensed to practice independently and whose licensure board considers diagnostics to be within their scope of practice,” together with “the name, credentials, and type of licensure of the individual who made the diagnosis” and “the date on which the diagnosis was most recently made.” A physician’s note that records a confirmed DSM-5-TR ASD diagnosis with those details can therefore serve; a referral “to evaluate for autism,” or one that calls the diagnosis “provisional,” “potential,” “at risk of” or “rule out,” does not, and an IEP or school eligibility alone “may not meet criteria as a formal diagnosis.” EN0499 sets no maximum age on the diagnosis.',
+          'Payment clock: Georgia’s prompt-pay statute (O.C.G.A. 33-24-59.14) gives an insurer or administrator 15 working days for an electronic claim and 30 calendar days for a paper claim to pay it, or to send written notice of why it is denied and what is needed, with interest of 12 percent a year on late payments; any undisputed part of a claim must be paid on that clock. A self-funded employer plan may sit outside Georgia insurance law, so confirm the funding type first.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'O.C.G.A. § 33-24-59.14 — claim payment deadlines and interest (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-14/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1597,6 +1712,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Georgia Association for Behavior Analysis — licensure (HB 412)', url: 'https://www.georgia-aba.org/licensure' },
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
       { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'O.C.G.A. § 33-24-59.14 — claim payment deadlines and interest (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-14/' },
     ],
     faq: [
       { q: 'Does Cigna cover ABA therapy in Georgia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Georgia\'s mandate (O.C.G.A. § 33-24-59.10 (Ava’s Law)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1604,6 +1720,8 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna\u2019s fee schedule for ABA in Georgia?', a: 'Evernorth (Cigna\u2019s behavioral health arm) publishes no ABA fee schedule. Its autism resource guide sends questions about credentialing, contracts or rates to your provider relations representative, so the rate is in your Evernorth contract.' },
       { q: 'How do I join Cigna\u2019s ABA network in Georgia?', a: 'Apply to Evernorth: individuals use the Evernorth Behavioral Provider Information Form and autism clinics the Screening Application for Autism Clinics. Allow up to 90 days for the application and another 60 to 90 days to credential each provider after the clinic contract. Technicians are not credentialed; their services bill under the supervising provider.' },
       { q: 'Can an out-of-state BCBA treat Cigna members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
+      { q: 'Does a doctor’s referral count as the diagnosis for Cigna ABA in Georgia, or is a new evaluation needed?', a: 'A referral counts only if it documents a confirmed DSM-5-TR ASD diagnosis made by an independently licensed clinician whose scope includes diagnosis, with that clinician’s name, credentials and licence type and the date the diagnosis was most recently made (Cigna EN0499). A referral for evaluation, or a provisional or “rule out” diagnosis, is not enough, so a full diagnostic evaluation is needed.' },
+      { q: 'How fast must Cigna pay an ABA claim in Georgia?', a: 'On a plan subject to Georgia law, within 15 working days of an electronic claim or 30 calendar days of a paper claim, or Cigna must say in writing why not, with 12% annual interest on late payments (O.C.G.A. 33-24-59.14).' },
     ],
   },
 
@@ -1643,12 +1761,12 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Not published. The Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis confirmed with at least one clinically validated tool, but set no maximum age on that diagnosis and no re-diagnosis interval. What Optum does clock is the review cycle — continued-service reviews every 4–6 months, with an operational flag when utilization falls below 80% of authorized hours — and the documentation standard that assessment instruments be norm-referenced against age-matched peers and used to “assess developmental gains as a result of interventions,” which implies current rather than historical scores without naming a window.',
-        status: 'unverified',
-        blocker: 'per-case',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum Behavioral Health provider services and Provider Express — ask whether an evaluation older than a given date triggers re-evaluation before an ABA authorization.',
+          'No maximum age on the diagnosis, but it must be current in form. The Supplemental Clinical Criteria (interim review April 2026) require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified clinician, confirmed with at least one clinically validated tool, and set no re-diagnosis interval. Optum’s ABA FAQ adds that “members need to have an updated DSM-5 diagnosis of Autism Spectrum Disorder to be eligible for ABA services unless state-specific mandates allow different diagnoses,” so an Asperger’s or PDD-NOS label from the DSM-IV era must be updated; that the diagnostic evaluation “must be comprehensive,” while “updated evaluations may target specific skill deficits and are not required to be comprehensive unless there is a question about an individual’s autism spectrum disorder diagnosis”; and that “there is no required frequency at which an assessment must take place.” What Optum does clock is the review cycle: continued-service reviews every 4–6 months.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
       },
       diagnosingProviders: {
         value:
@@ -1823,6 +1941,28 @@ export const georgiaPayers: Record<string, PayerConfig> = {
           { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
+      {
+        h2: 'Does a doctor’s referral meet UnitedHealthcare’s diagnosis requirement in Georgia?',
+        body: [
+          'Not by itself. Optum’s criteria require “a valid diagnosis of ASD… issued by a state licensed physician, psychologist, or other state licensed clinician qualified to make such diagnosis,” with the DSM-5 diagnosis and severity level “confirmed and documented by the diagnosing clinician using at least one clinically validated tool,” and the ABA record must hold the “comprehensive assessment establishing the autism diagnosis.” Optum’s ABA FAQ adds that the diagnostic evaluation “must be comprehensive,” while “updated evaluations may target specific skill deficits and are not required to be comprehensive unless there is a question about an individual’s autism spectrum disorder diagnosis.” A physician who made the diagnosis with a validated tool and documented it meets the rule; a referral that only asks for ABA or an evaluation does not.',
+          'How old the diagnosis may be: Optum sets no maximum age. The FAQ says members need “an updated DSM-5 diagnosis of Autism Spectrum Disorder” (an older DSM-IV label such as Asperger’s or PDD-NOS must be updated), and “there is no required frequency at which an assessment must take place.”',
+        ],
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      {
+        h2: 'UnitedHealthcare (Optum) ABA claims in Georgia: filing deadline, payment and appeals',
+        body: [
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, sets the claim rules in its National Network Manual (effective September 1, 2026): “All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” and corrections should be made within 90 days of initial receipt. Clean claims with any required authorization are “generally” paid within 45 calendar days, or as state law requires. To contest a claim or authorization decision on a commercial plan, request a reconsideration first and then an appeal; the two steps together allow 12 months unless state law or the participation agreement says otherwise. A non-urgent prior-authorization appeal can be filed within 180 days.',
+          'Payment clock: Georgia’s prompt-pay statute (O.C.G.A. 33-24-59.14) gives an insurer or administrator 15 working days for an electronic claim and 30 calendar days for a paper claim to pay it, or to send written notice of why it is denied and what is needed, with interest of 12 percent a year on late payments; any undisputed part of a claim must be paid on that clock. A self-funded employer plan may sit outside Georgia insurance law, so confirm the funding type first.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'O.C.G.A. § 33-24-59.14 — claim payment deadlines and interest (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-14/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1842,6 +1982,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
       { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
       { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'O.C.G.A. § 33-24-59.14 — claim payment deadlines and interest (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-14/' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Georgia?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Georgia\'s mandate (O.C.G.A. § 33-24-59.10 (Ava’s Law)) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1849,6 +1990,9 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare\u2019s fee schedule for ABA in Georgia?', a: 'There is no public one. Optum tells participating providers to bill “the applicable CPT code(s) listed on their fee schedule,” meaning the schedule in your Optum agreement, with payment subject to the member\u2019s benefits and prior authorization. Ask Optum network management for rates.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
+      { q: 'How old can a diagnosis report be for UnitedHealthcare (Optum) ABA in Georgia?', a: 'Optum publishes no age limit on the diagnosis. It must be a DSM-5 ASD diagnosis (an older Asperger’s or PDD-NOS label needs updating) from a licensed clinician who confirmed it with at least one validated tool; a later evaluation does not have to be comprehensive unless the diagnosis is in question (Optum ABA FAQ and Supplemental Clinical Criteria).' },
+      { q: 'Does a doctor’s referral count as the diagnosis for UnitedHealthcare ABA in Georgia, or is a new evaluation needed?', a: 'A referral alone is not enough. Optum needs the comprehensive diagnostic evaluation from a licensed physician, psychologist or other qualified clinician, with the diagnosis and severity confirmed by a validated tool. If the referring doctor did that evaluation, send it; if not, a diagnostic evaluation is needed.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Georgia?', a: 'Optum’s National Network Manual: 90 calendar days from the date of service, unless state law, the benefit plan or your agreement allows longer. Reconsideration and appeal together must be filed within 12 months.' },
     ],
   },
 };

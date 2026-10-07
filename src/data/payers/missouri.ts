@@ -143,6 +143,15 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'MO HealthNet hot tip — Important Information for Documenting and Billing for Applied Behavior Analysis Services (9/9/2026)', url: 'https://mydss.mo.gov/mhd/hot-tips/important-information-documenting-and-billing-applied-behavior-analysis-services' },
         ],
       },
+      {
+        h2: 'MO HealthNet claims: the filing deadline and the payment clock',
+        body: [
+          '"Claims from participating providers that request MO HealthNet reimbursement must be filed by the provider and received by the state agency within twelve (12) months from the date of service" (13 CSR 70-3.100). Claims for a participant with other primary insurance go to that payer first but must still reach MO HealthNet within 12 months of the date of service, with the other payer’s adjudication attached or on file. On payment, MO HealthNet commits to pay 90% of clean claims from practitioners within 30 days of receipt and 99% within 90 days, and all other claims within 12 months (13 CSR 70-3.105). Members enrolled in a MO HealthNet managed care plan are billed to that plan, under its own filing rules.',
+        ],
+        cites: [
+          { title: '13 CSR 70-3.100 and 70-3.105 — Filing of claims; timely payment of MO HealthNet claims (Code of State Regulations, chapter 70-3)', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/13csr/13c70-3.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'MO HealthNet eligibility — not the plan card', desc: 'Whichever MCO card the family shows, ABA is state FFS. Verify MO HealthNet eligibility; skip the MCO analysis entirely.' },
@@ -284,6 +293,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'What happens to a MO HealthNet ABA precertification if the family switches providers?', a: 'The manual does not say it transfers. Inside an Autism Clinic the precertification sits under the clinic number, so other performing providers there can continue care. For a new agency, call the Behavioral Health Services help desk at (573) 635-6516 before the first session.' },
       { q: 'Does MO HealthNet require ABA goals to be organized by DSM-5 criteria?', a: 'No DSM-5 template. 13 CSR 70-98.030 requires an individualized plan built on the ABA assessment, with assessment and treatment protocols for each target behavior and goals that address the deficits and symptoms of ASD.' },
       { q: 'Does MO HealthNet require parent training hours?', a: 'Parent/caregiver training is a required treatment-plan element under 13 CSR 70-98.030(7), but no hour minimum is set; the fee schedule caps 97156 at 16 units and 97157 at 8 units. Request 97156/97157 units on form 2575-045; the precertification sets the hours.' },
+      { q: 'What is MO HealthNet’s timely filing limit for ABA claims?', a: 'Twelve months from the date of service, measured to the date MO HealthNet receives the claim (13 CSR 70-3.100). Managed care plans set their own limits.' },
     ],
   },
 
@@ -308,14 +318,13 @@ export const missouriPayers: Record<string, PayerConfig> = {
       ],
     },
     dxRequired: {
-      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
-      status: 'unverified',
+      value: 'Yes — ASD only. CPB 0554 (last review 11/26/2025) considers ABA "experimental, investigational, or unproven for all other non-ASD indications." On the code range Aetna’s documents differ: CPB 0648 lists "F84.0 - F84.9" as ICD-10 codes covered if selection criteria are met, while the ABA Medical Necessity Guide its behavioral-health reviewers apply requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)," which leaves out F84.1 and F84.2. Bill F84.0 where it fits.',
+      status: 'verified',
       cites: [
         { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       ],
-      verifyVia: 'Two Aetna documents disagree on the code range and a human must settle which governs an ABA review: CPB 0554 and CPB 0648 both list "ICD-10 codes covered if selection criteria are met: F84.0 - F84.9", while the Applied behavior analysis medical necessity guide — the guideline Aetna’s behavioral-health reviewers apply — states "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)" in both its quality-of-care elements and its medical-necessity criteria, which leaves out F84.2 (Rett syndrome). The ASD-only half of the claim is not in doubt; the range is.',
-      blocker: 'document',
     },
     payer: 'Aetna in Missouri',
     state: 'MO', kind: 'commercial',
@@ -383,6 +392,17 @@ export const missouriPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
+      {
+        h2: 'Timely filing and prompt pay for Aetna ABA claims in Missouri',
+        body: [
+          'Missouri law sets the floor for health carriers, which the statute defines to include self-insured plans "to the extent allowed by federal law". A carrier must "Permit participating health care providers to file a claim for reimbursement for a health care service provided in this state for a period of up to six months from the date of service, unless the contract between the health carrier and health care provider specifies a different standard," and must give nonparticipating providers up to one year (RSMo 376.384). So the filing window in your Aetna agreement controls, and without one it is six months.',
+          'On payment, the carrier acknowledges an electronic claim within 48 hours and, within 30 processing days, tells you whether it is clean or what additional information it needs. Once it has the information it has ten processing days to pay or deny (or make a final request), then five more. A claim still unpaid on the 45th processing day earns "one percent interest per month and a penalty in an amount equal to one percent of the claim per day" (RSMo 376.383). Processing days stop counting while the carrier waits for your answer, and the 2003 electronic-filing rule means a paper claim falls outside these protections.',
+        ],
+        cites: [
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
+          { title: 'RSMo 376.383 — Health care claims: clean claims, status notices, interest and penalties (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.383' },
         ],
       },
     ],
@@ -491,10 +511,11 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Missouri\'s Medicaid telemedicine rule, which expressly allows technician-delivered ABA by telemedicine, is a different program and does not bind a commercial Aetna plan.',
-        status: 'verified',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. But the public copy of the policy shows a last review of June 2021 and a next review of June 2022; the current version sits behind Availity, so this list cannot be treated as today\'s rule until that copy is checked. Missouri\'s Medicaid telemedicine rule, which expressly allows technician-delivered ABA by telemedicine, is a different program and does not bind a commercial Aetna plan.',
+        status: 'plan-dependent',
         cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
-        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
+        verifyVia: 'Availity (Payer Spaces > Aetna > Resources) for the current Telemedicine and Direct Patient Contact Payment Policy, or Aetna behavioral health precertification — confirm the payable ABA telehealth codes, modifier and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
+        blocker: 'document',
       },
       authTurnaround: {
         value:
@@ -527,9 +548,10 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'What does the Missouri autism mandate require?', a: 'Coverage of ASD diagnosis and treatment including ABA, with a $40,000-per-year ABA cap through age 18 — a CPI-indexed statutory base that can be exceeded with plan approval when medically necessary. Treatment-plan reviews are limited to once every 6 months, and ABA must be supervised by a Chapter 337-licensed behavior analyst.' },
       { q: 'What does Aetna pay for ABA in Missouri?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the MO HealthNet fee schedule, and treat rate-setting as part of contracting.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
-      { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
+      { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'Possibly. The public copy of Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 for commercial plans with modifier GT, 95 or FR, but it was last reviewed in June 2021; the current policy is on Availity. Confirm the code list and the member\'s telehealth benefit before scheduling a remote assessment.' },
       { q: 'Does Aetna require ABA goals to be organized by DSM-5 criteria in Missouri?', a: 'No DSM-5 grouping is asked for. Aetna wants a DSM-5 ASD diagnosis and a plan with clearly defined target behaviors, baseline data and quantifiable progress criteria; GR-69017-4 asks for baseline, interim and current data for all goals.' },
       { q: 'Does Aetna set required parent training hours in Missouri?', a: 'No published minimum or cap. Parent commitment to participate is a medical-necessity criterion; request 97156/97157 in hours per week on GR-69017-4 and show measurable caregiver goals — the authorization sets the hours.' },
+      { q: 'What is the timely filing limit for Aetna ABA claims in Missouri?', a: 'Whatever your Aetna agreement says; without a contract term, Missouri law gives participating providers six months from the date of service and nonparticipating providers one year (RSMo 376.384).' },
     ],
   },
 
@@ -630,6 +652,27 @@ export const missouriPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      {
+        h2: 'Timely filing and prompt pay for Cigna ABA claims in Missouri',
+        body: [
+          'Missouri law sets the floor for health carriers, which the statute defines to include self-insured plans "to the extent allowed by federal law". A carrier must "Permit participating health care providers to file a claim for reimbursement for a health care service provided in this state for a period of up to six months from the date of service, unless the contract between the health carrier and health care provider specifies a different standard," and must give nonparticipating providers up to one year (RSMo 376.384). So the filing window in your Cigna agreement controls, and without one it is six months.',
+          'On payment, the carrier acknowledges an electronic claim within 48 hours and, within 30 processing days, tells you whether it is clean or what additional information it needs. Once it has the information it has ten processing days to pay or deny (or make a final request), then five more. A claim still unpaid on the 45th processing day earns "one percent interest per month and a penalty in an amount equal to one percent of the claim per day" (RSMo 376.383). Processing days stop counting while the carrier waits for your answer, and the 2003 electronic-filing rule means a paper claim falls outside these protections.',
+        ],
+        cites: [
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
+          { title: 'RSMo 376.383 — Health care claims: clean claims, status notices, interest and penalties (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.383' },
+        ],
+      },
+      {
+        h2: 'What is Cigna’s timely filing limit for ABA claims?',
+        body: [
+          'Cigna’s timely filing policy, for claims submitted directly to Cigna: it will consider "Participating provider claims submitted three (3) months [90 days] after the date of service" and out-of-network claims submitted six months (180 days) after the date of service. The limit is longer where applicable law requires it or your provider agreement allows more time. In Missouri the statute’s defaults are six months for participating providers absent a different contract standard and one year for nonparticipating providers, so check which term your agreement sets.',
+        ],
+        cites: [
+          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
         ],
       },
     ],
@@ -764,6 +807,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
       { q: 'Does Cigna require ABA goals to follow DSM-5 criteria in Missouri?', a: 'EN0499 requires every treatment goal to be "directly related to" the ASD diagnosis and the DSM-5-TR symptoms (social communication/interaction; restricted, repetitive behavior), with measurable targets, baseline data and mastery criteria.' },
       { q: 'Does Cigna set required parent training hours in Missouri?', a: 'No hour figure is published. EN0499 requires measurable stakeholder (parent/caregiver) training goals with mastery criteria and progress data, delivered by a BCBA or licensed clinician; the hours are set on the authorization.' },
+      { q: 'What is Cigna’s timely filing limit in Missouri?', a: 'Cigna’s policy says 90 days for participating providers and 180 days out of network, longer where law or your agreement allows; Missouri law gives nonparticipating providers up to one year (RSMo 376.384).' },
     ],
   },
 
@@ -873,6 +917,27 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A; history entry February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      {
+        h2: 'Timely filing and prompt pay for UnitedHealthcare ABA claims in Missouri',
+        body: [
+          'Missouri law sets the floor for health carriers, which the statute defines to include self-insured plans "to the extent allowed by federal law". A carrier must "Permit participating health care providers to file a claim for reimbursement for a health care service provided in this state for a period of up to six months from the date of service, unless the contract between the health carrier and health care provider specifies a different standard," and must give nonparticipating providers up to one year (RSMo 376.384). So the filing window in your UnitedHealthcare agreement controls, and without one it is six months.',
+          'On payment, the carrier acknowledges an electronic claim within 48 hours and, within 30 processing days, tells you whether it is clean or what additional information it needs. Once it has the information it has ten processing days to pay or deny (or make a final request), then five more. A claim still unpaid on the 45th processing day earns "one percent interest per month and a penalty in an amount equal to one percent of the claim per day" (RSMo 376.383). Processing days stop counting while the carrier waits for your answer, and the 2003 electronic-filing rule means a paper claim falls outside these protections.',
+        ],
+        cites: [
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
+          { title: 'RSMo 376.383 — Health care claims: clean claims, status notices, interest and penalties (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.383' },
+        ],
+      },
+      {
+        h2: 'What is the timely filing limit for UnitedHealthcare ABA claims?',
+        body: [
+          'UnitedHealthcare commercial ABA runs through Optum Behavioral Health, whose National Provider Network Manual (effective 9/1/2026) says "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Corrections are due within 90 days of the first claim’s receipt, clean claims are "Generally" paid within 45 calendar days, and reconsideration plus appeal must be filed within 12 months in total unless state law or your agreement says otherwise. Missouri’s statute allows nonparticipating providers up to one year to file.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health — National Provider Network Manual (published 7/1/2026, effective 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
         ],
       },
     ],
@@ -1030,6 +1095,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
       { q: 'Does UnitedHealthcare require ABA goals to be organized by DSM-5 criteria in Missouri?', a: 'No DSM-5 grouping is asked for. Optum wants clearly stated, measurable goals with baseline data and timeframes, prioritized by safety and quality-of-life risk, with new goals based on targeted symptoms and behaviors.' },
       { q: 'Does UnitedHealthcare set required parent training hours in Missouri?', a: 'Optum says "Parent training is required" (97156/97157) but sets no minimum or maximum — "It is based on the treatment plan and goals provided." Commercial claims are capped at 16 units (4 hours) per day for each of 97156 and 97157.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Missouri?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless law or the member’s plan allows longer; Missouri law gives nonparticipating providers up to one year (RSMo 376.384).' },
     ],
   },
 
@@ -1186,6 +1252,17 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Anthem — MCG care guidelines 27th edition update (Missouri, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/missouri/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
         ],
       },
+      {
+        h2: 'Timely filing and prompt pay for Anthem ABA claims in Missouri',
+        body: [
+          'Missouri law sets the floor for health carriers, which the statute defines to include self-insured plans "to the extent allowed by federal law". A carrier must "Permit participating health care providers to file a claim for reimbursement for a health care service provided in this state for a period of up to six months from the date of service, unless the contract between the health carrier and health care provider specifies a different standard," and must give nonparticipating providers up to one year (RSMo 376.384). So the filing window in your Anthem agreement controls, and without one it is six months.',
+          'On payment, the carrier acknowledges an electronic claim within 48 hours and, within 30 processing days, tells you whether it is clean or what additional information it needs. Once it has the information it has ten processing days to pay or deny (or make a final request), then five more. A claim still unpaid on the 45th processing day earns "one percent interest per month and a penalty in an amount equal to one percent of the claim per day" (RSMo 376.383). Processing days stop counting while the carrier waits for your answer, and the 2003 electronic-filing rule means a paper claim falls outside these protections.',
+        ],
+        cites: [
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
+          { title: 'RSMo 376.383 — Health care claims: clean claims, status notices, interest and penalties (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.383' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type, first', desc: 'Fully insured Missouri plan (mandate applies), a self-insured governmental, MEWA or school-district plan (the statute reaches these too, for plans established or renewed on or after 1/1/2020), or a private self-funded ERISA plan (preempted). An Anthem Missouri card can be any of these — RIT administers self-funded plans without underwriting them.' },
@@ -1331,6 +1408,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Does the Missouri mandate exempt small employers?', a: 'No. There is no small-group exemption in the current statute. The exclusions are supplemental and limited policy types — accident-only, specified disease, Medicare supplement, long-term care, short-term major medical of six months or less — plus MO HealthNet, and private self-funded plans to the extent federal law preempts them.' },
       { q: 'Does Anthem require ABA goals to be organized by DSM-5 criteria in Missouri?', a: 'Not on its public form. DSM-5-TR applies to the diagnosis; for treatment Anthem wants symptoms and behaviors requiring treatment, progress on goals with graphs and standardized assessments, and measurable generalization and discharge plans. Its MCG B-806-T criteria are licensed and not public.' },
       { q: 'Does Anthem set required parent training hours in Missouri?', a: 'No published figure. The request form asks for "measurable goals for parent training" and requests 97156/97157 per authorization period; the approved units are on the authorization.' },
+      { q: 'What is the timely filing limit for Anthem ABA claims in Missouri?', a: 'Your Anthem agreement sets it; without a contract term, Missouri law gives participating providers six months from the date of service and nonparticipating providers one year (RSMo 376.384).' },
     ],
   },
 };

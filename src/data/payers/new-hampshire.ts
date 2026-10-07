@@ -141,6 +141,15 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         ],
         cites: [S.heW500, S.bacbLic, S.form272A, S.acnhPM, S.wsPM, S.nhhfTip],
       },
+      {
+        h2: 'What is the New Hampshire Medicaid timely filing limit?',
+        body: [
+          'He-W 521.04(a): a provider "shall submit fee-for-service claims for payment to the department’s fiscal agent within 12 months of the earliest date of service, as required by 42 CFR 447.45." A denied claim that can be corrected may be resubmitted within 12 months of the earliest date of service, and MCO claims follow "the MCO contract obligation" instead, so each Granite Advantage or Medicaid Care Management plan’s manual sets its own limit.',
+        ],
+        cites: [
+          { title: 'N.H. Admin. Rules He-W 521.04 — Claim Submission (He-W 500 chapter)', url: 'https://www.gencourt.state.nh.us/rules/state_agencies/he-w500.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Medicaid card', desc: 'AmeriHealth Caritas NH, NH Healthy Families, WellSense, or fee-for-service. The plan owns authorization, credentialing and payment.' },
@@ -238,6 +247,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'What does New Hampshire Medicaid pay for ABA?', a: 'The 2026 fee-for-service schedule pays, per 15-minute unit: 97151, 97155 and 97156 $16.43; 97153 $17.79; 97154 $6.50; 0373T $35.58. The health plans pay contracted rates, which are not published.' },
       { q: 'Does a BCBA need a New Hampshire license?', a: 'No. New Hampshire does not license behavior analysts. Medicaid, the plans and the commercial mandate all rely on BACB certification (BCBA, BCaBA, RBT).' },
       { q: 'Can NH Medicaid ABA be done by telehealth, including the assessment?', a: 'Yes. RSA 167:4-d makes NH Medicaid cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise among the providers who may use it. That covers the 97151 assessment and 97155 supervision when medically necessary. No NH document sets an ABA code list or POS, so confirm billing details with NH MMIS or the health plan.' },
+      { q: 'What is the New Hampshire Medicaid timely filing limit?', a: 'Twelve months from the earliest date of service for fee-for-service claims (He-W 521.04). MCO claims follow each plan’s contract; the three NH MCOs allow 120 days.' },
     ],
   },
 
@@ -296,6 +306,15 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           'AmeriHealth Caritas New Hampshire says applicants will be notified of the credentialing decision "within 30 calendar days for PCPs and mental health providers (eff. January 1, 2026), and within 45 calendar days for specialty providers, of receipt of a clean and complete application," and new contracts receive a welcome letter within 30 business days of execution. For new members already in treatment, the plan covers a condition "currently being treated or a prior authorization has been issued for 60 calendar days after the member’s effective date," which protects a family that switches into the plan mid-course. New Hampshire does not license behavior analysts, so expect credentialing to rest on BACB certification.',
         ],
         cites: [S.acnhPM, S.bacbLic],
+      },
+      {
+        h2: 'What are AmeriHealth Caritas New Hampshire’s claim filing, payment and appeal deadlines?',
+        body: [
+          'AmeriHealth Caritas NH’s manual: in-network claims "must be submitted to AmeriHealth Caritas New Hampshire within 120 calendar days from the date of service," and claims need the NPI of the ordering, rendering and prescribing provider plus "NPI and Taxonomy." The plan pays or denies 95% of clean claims within 30 calendar days and pays 99% within 90. Provider appeals must be filed in writing "within 60 calendar days" of the plan’s adverse-action notice, with a written resolution within 30 calendar days (extendable by 30).',
+        ],
+        cites: [
+          { title: 'AmeriHealth Caritas New Hampshire — Provider Manual (Claims Submission Protocols; Provider Appeals)', url: 'https://www.amerihealthcaritasnh.com/content/dam/amerihealth-caritas/acnh/pdf/provider/provider-manual.pdf.coredownload.inline.pdf' },
+        ],
       },
     ],
     collect: [
@@ -402,6 +421,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does AmeriHealth Caritas NH require prior authorization for ABA?', a: 'The manual’s PA list doesn’t name ABA and points to the online lookup tool for the current list. Check each ABA code there before starting services.' },
       { q: 'How long does credentialing take?', a: 'The plan says it notifies mental health providers of the decision within 30 calendar days of a clean and complete application (effective January 1, 2026).' },
       { q: 'Can ABA be delivered by telehealth for this plan’s members?', a: 'Yes, under New Hampshire law. RSA 167:4-d requires NH Medicaid to cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise. That includes the 97151 assessment and 97155 supervision when medically necessary. The plan publishes no ABA-specific telehealth rule, so ask it which POS and modifier to bill.' },
+      { q: 'What is AmeriHealth Caritas New Hampshire’s timely filing limit?', a: '120 calendar days from the date of service; provider appeals within 60 calendar days of the notice.' },
     ],
   },
 
@@ -460,6 +480,15 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           'InterQual, since June 1, 2026. In an April 28, 2026 notice NH Healthy Families said it "will retire Clinical Policy CP.BH.104, Applied Behavioral Analysis (ABA) Services," and that "Beginning on June 1, 2026, InterQual® criteria will be utilized to evaluate medical necessity determinations for all authorization requests related to Applied Behavioral Analysis (ABA) services, inclusive of all applicable ABA service codes" — for initial and concurrent reviews. InterQual is licensed criteria the plan does not publish. What did not change: prior-authorization requirements stay as they were, determinations still follow the NH Medicaid managed care contract and EPSDT, and "CP.BH.105 (ABA Clinical Documentation Requirements) is not affected by this change." CP.BH.105 requires the treatment record to be complete before the claim is submitted and a dated, credentialed signature from the rendering clinician or technician on every note.',
         ],
         cites: [S.nhhfIQ, S.nhhf105],
+      },
+      {
+        h2: 'What are NH Healthy Families’ claim filing, payment and appeal deadlines?',
+        body: [
+          'NH Healthy Families’ January 2026 manual: "Claims will not be accepted for payment after one hundred and twenty (120) days from the date of service" (120 days from the primary payer’s disposition when it is secondary). Reconsiderations and corrected claims are due within 180 days of the payment or denial notice and no later than 15 months from the date of service, and claim appeals within 60 calendar days of the EOP. Clean claims are adjudicated 95% within 30 calendar days and 99% within 90. When a rendering provider is required, the rendering NPI goes in box 24Jb, and the plan encourages the taxonomy code in 24Ja.',
+        ],
+        cites: [
+          { title: 'NH Healthy Families — Provider Manual (January 2026): Timely Filing, Claim Payment, Reconsiderations and Appeals', url: 'https://www.nhhealthyfamilies.com/content/dam/centene/NH%20Healthy%20Families/Medicaid/pdfs/NHHF_Provider_Manual_January_2026_CLEAN_version.pdf' },
+        ],
       },
     ],
     collect: [
@@ -559,6 +588,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'How fast does NH Healthy Families decide an ABA authorization?', a: 'Within 7 calendar days for standard requests and 72 hours for urgent ones, per its January 2026 provider manual.' },
       { q: 'Can ABA be delivered by telehealth for this plan’s members?', a: 'Yes, under New Hampshire law. RSA 167:4-d requires NH Medicaid to cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise. That includes the 97151 assessment and 97155 supervision when medically necessary. The plan publishes no ABA-specific telehealth rule, so ask it which POS and modifier to bill.' },
       { q: 'What criteria does NH Healthy Families use to approve ABA?', a: 'InterQual Behavioral Health criteria, for initial and concurrent requests, since June 1, 2026; Centene’s CP.BH.104 was retired. Prior authorization requirements did not change, and the CP.BH.105 documentation rules (complete, signed notes before you bill) still apply.' },
+      { q: 'What is NH Healthy Families’ timely filing limit?', a: '120 days from the date of service. Reconsiderations: 180 days from the notice (15-month cap); appeals: 60 calendar days.' },
     ],
   },
 
@@ -613,6 +643,15 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           'WellSense’s July 2026 behavioral health matrix says the plan uses InterQual criteria (the 2026 sets from June 1, 2026), ASAM or internal medical policies, and for ABA refers New Hampshire Medicaid members to its medical policy "for additional requirements." That policy sits on WellSense’s PolicyTech site, which did not load for automated retrieval. Behavioral health claims also moved in-house: for New Hampshire Medicaid, dates of service through November 30, 2025 went to Carelon and dates of service from December 1, 2025 go to WellSense (inpatient excepted), so older Carelon-era billing instructions no longer apply. On credentialing, the provider manual lists "applied behavioral analysts" among the practitioners WellSense credentials when they are "permitted to practice independently under New Hampshire law."',
         ],
         cites: [S.wsMatrix, S.wsPM, S.wsBH],
+      },
+      {
+        h2: 'What are WellSense New Hampshire’s claim filing and payment deadlines?',
+        body: [
+          'WellSense’s NH manual (effective December 1, 2025): claims "must be submitted within one hundred 120 calendar days of service for NH Medicaid" (180 days for CCBHCs), and resubmissions within 240 days of the date of service. WellSense "seeks to process clean claims and reimburse providers within thirty (30) calendar days," and pays interest at the Medicare rate on clean claims unpaid after 30 days. Its CMS-1500 table marks box 24J, rendering provider ID/taxonomy code, as required. Timely-filing denials are disputed through the administrative claims appeal with a Request for Claim Review form.',
+        ],
+        cites: [
+          { title: 'WellSense Health Plan (NH) — Provider Manual (effective December 1, 2025), §§ 9.2, 9.7, 9.15', url: 'https://www.wellsense.org/hubfs/Provider/Provider%20Manual/NH_Provider_Manual_2026.pdf' },
+        ],
       },
     ],
     collect: [
@@ -713,6 +752,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'How long is a WellSense NH ABA authorization?', a: 'Up to 3 months for an initial request and 6 months for continued services, with units requested for the whole period rather than per week.' },
       { q: 'Who can diagnose for a WellSense ABA request?', a: 'A neurologist, pediatrician, psychiatrist, psychologist, or other licensed physician experienced in autism, via a comprehensive diagnostic evaluation.' },
       { q: 'Can ABA be delivered by telehealth for this plan’s members?', a: 'Yes, under New Hampshire law. RSA 167:4-d requires NH Medicaid to cover telehealth on the same basis as in-person care, from any site including the home, and names BACB-certified professionals and the staff they supervise. That includes the 97151 assessment and 97155 supervision when medically necessary. The plan publishes no ABA-specific telehealth rule, so ask it which POS and modifier to bill.' },
+      { q: 'What is WellSense New Hampshire’s timely filing limit for Medicaid ABA claims?', a: '120 calendar days from the date of service; resubmissions within 240 days.' },
     ],
   },
 
@@ -781,6 +821,15 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         h2: 'Credentialing, licensure and rates',
         body: [NH_LICENSURE_BODY],
         cites: [S.bacbLic, S.rsa420J, S.rsa417E, S.fee, S.wsForm],
+      },
+      {
+        h2: 'How fast must Anthem pay a clean ABA claim in New Hampshire?',
+        body: [
+          'New Hampshire’s RSA 420-J:8-a makes health carriers pay clean claims for services rendered in New Hampshire "within 30 calendar days upon receipt of a clean non-electronic claim or 15 calendar days upon receipt of a clean electronic claim," with 1.5% interest per month on overdue claims. A carrier is not in violation for a claim submitted more than 90 days after the service.',
+        ],
+        cites: [
+          { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+        ],
       },
     ],
     collect: [
@@ -887,6 +936,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does Anthem require prior authorization for ABA in New Hampshire?', a: 'Yes. All ABA codes (97151–97158, 0362T, 0373T) are on Anthem’s New Hampshire precertification list, reviewed by Anthem Behavioral Health (800-755-0851) on MCG criteria, though requirements can vary by product.' },
       { q: 'Does New Hampshire cap ABA benefits?', a: 'Not in the current law. The 2010 statute allowed caps of $36,000 a year (ages 0–12) and $27,000 (13–21), but that paragraph no longer appears in RSA 417-E:2. Self-funded plans follow their own documents.' },
       { q: 'Can a BCBA and RBT both bill for the same time with Anthem?', a: 'Yes, 97155 with 97153, but only when both are face-to-face with the patient at the same time and the BCBA is directing the technician.' },
+      { q: 'What is Anthem’s clean-claim payment turnaround in New Hampshire?', a: 'Fifteen calendar days for a clean electronic claim and 30 for paper (RSA 420-J:8-a), on plans subject to the Managed Care Law. Claims filed more than 90 days after service lose that protection.' },
     ],
   },
 
@@ -954,6 +1004,15 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           'Harvard Pilgrim publishes no ABA rate table. Point32Health’s ABA payment policy (rev. 05/2026) says: “Providers are reimbursed according to the applicable contracted rates and fee schedules.” Its telehealth payment policy (rev. 07/2026) pays New Hampshire behavioral health telehealth at 100% of the applicable fee schedule, the same as in person. Get your rates from your Harvard Pilgrim agreement or the Provider Service Center (800-708-4414). For a public benchmark, NH Medicaid’s 2026 fee-for-service schedule pays 97153 at $17.79 per 15 minutes; commercial contracts are negotiated separately.',
         ],
         cites: [S.hpPP, S.p32Tele, S.fee],
+      },
+      {
+        h2: 'How fast must Harvard Pilgrim pay a clean ABA claim in New Hampshire?',
+        body: [
+          'New Hampshire’s RSA 420-J:8-a makes health carriers pay clean claims for services rendered in New Hampshire "within 30 calendar days upon receipt of a clean non-electronic claim or 15 calendar days upon receipt of a clean electronic claim," with 1.5% interest per month on overdue claims. A carrier is not in violation for a claim submitted more than 90 days after the service.',
+        ],
+        cites: [
+          { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+        ],
       },
     ],
     collect: [
@@ -1072,6 +1131,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does Harvard Pilgrim pay H0031 or H0032 for ABA?', a: 'No. Since January 1, 2026 those codes are no longer covered for Harvard Pilgrim commercial plans.' },
       { q: 'Does Harvard Pilgrim pay for ABA by telehealth in New Hampshire?', a: 'Its general telehealth payment policy pays medically necessary telehealth when it is an appropriate substitute for in-person care, billed POS 02 or 10 with modifier 93, 95 or GT, at 100% of the fee schedule for behavioral health in NH. No ABA code list is published, so confirm the codes at authorization. Fully insured NH plans must also follow RSA 415-J.' },
       { q: 'What does Harvard Pilgrim pay for ABA in New Hampshire?', a: 'Point32Health pays ABA “according to the applicable contracted rates and fee schedules,” and publishes no ABA rate table. Telehealth for behavioral health in NH is paid at 100% of the fee schedule. NH Medicaid’s FFS rate for 97153 ($17.79 per 15 minutes) is the only public benchmark.' },
+      { q: 'What is Harvard Pilgrim’s clean-claim payment turnaround in New Hampshire?', a: 'Fifteen calendar days for a clean electronic claim and 30 for paper (RSA 420-J:8-a), on plans subject to the Managed Care Law. Claims filed more than 90 days after service lose that protection.' },
     ],
   },
 
@@ -1139,6 +1199,19 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           'Aetna publishes no ABA rate table. Its provider manual (6/26) treats payment as a contract term: “The rates and compensation under your agreement are subject to the Aetna coding/claim edit policies,” and where a provider has both an intermediary contract and a direct agreement, “your direct Aetna rates will apply unless we specifically notify you otherwise.” Even when a member’s benefits run out, the provider “cannot charge them more than the contracted rate.” Get the rates from your Aetna agreement or Aetna provider services. For a public benchmark, NH Medicaid’s 2026 fee-for-service schedule pays 97153 at $17.79 per 15 minutes; commercial contracts are negotiated separately.',
         ],
         cites: [S.aetnaOM, S.fee],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in New Hampshire?',
+        body: [
+          'New Hampshire’s RSA 420-J:8-a makes health carriers pay clean claims for services rendered in New Hampshire "within 30 calendar days upon receipt of a clean non-electronic claim or 15 calendar days upon receipt of a clean electronic claim," with 1.5% interest per month on overdue claims. A carrier is not in violation for a claim submitted more than 90 days after the service.',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+        ],
+        cites: [
+          { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Disagree with a claim decision?', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
       },
     ],
     collect: [
@@ -1244,6 +1317,8 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'What does the New Hampshire autism mandate require?', a: 'Coverage of autism treatment including ABA by or under a BACB-certified provider, on terms no less extensive than physical illness, without denial because services are habilitative. The current statute carries no age or dollar cap.' },
       { q: 'What does Aetna pay for ABA in New Hampshire?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. The only public benchmark is NH Medicaid’s fee-for-service schedule (97153 $17.79 per 15 minutes).' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s network criteria do not require the RBT credential by name: technicians may be paraprofessionals supervised by a BCBA or licensed provider, with at least 1 hour of face-to-face supervision per 10 hours of ABA and the supervisor onsite with the child at least 1 hour a month. Technicians must meet any state requirement, so check the state\'s licensure or Medicaid rules too.' },
+      { q: 'What is Aetna’s clean-claim payment turnaround in New Hampshire?', a: 'Fifteen calendar days for a clean electronic claim and 30 for paper (RSA 420-J:8-a), on plans subject to the Managed Care Law. Claims filed more than 90 days after service lose that protection.' },
+      { q: 'How long do I have to appeal an Aetna claim decision in New Hampshire?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
     ],
   },
 
@@ -1309,6 +1384,17 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           'Cigna publishes no ABA rate table. Evernorth, which runs Cigna’s behavioral health network, puts the rates in the contract: its Administrative Guidelines (September 2026) say the Provider Agreement and the guidelines set the terms, which “include the reimbursement rates applicable to covered services,” and tell ABA providers: “For your fee schedule and a listing of autism spectrum disorder–related services eligible for reimbursement, refer to Exhibit A in your Provider Agreement.” Fee-schedule and contract questions go to Provider Services at 800.926.2273. Virtual services are billed with modifier 95, which Evernorth says “will not change the reimbursement.” Non-credentialed technicians are paid only through the supervising provider’s claim. For a public benchmark, NH Medicaid’s 2026 fee-for-service schedule pays 97153 at $17.79 per 15 minutes; commercial contracts are negotiated separately.',
         ],
         cites: [S.ebhAdmin, S.fee],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in New Hampshire?',
+        body: [
+          'New Hampshire’s RSA 420-J:8-a makes health carriers pay clean claims for services rendered in New Hampshire "within 30 calendar days upon receipt of a clean non-electronic claim or 15 calendar days upon receipt of a clean electronic claim," with 1.5% interest per month on overdue claims. A carrier is not in violation for a claim submitted more than 90 days after the service.',
+          'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days.',
+        ],
+        cites: [
+          { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1380,9 +1466,9 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         cites: [S.cignaARG, S.en0499, S.rsa417E],
       },
       telehealth: {
-        value: 'All ABA CPT codes are covered telehealth services per the autism resource guide, and EN0499 allows in-person, telehealth or hybrid delivery chosen on clinical factors. The line-of-sight requirement does not apply to telehealth.',
+        value: 'All ABA CPT codes are covered telehealth services per the autism resource guide, and EN0499 allows in-person, telehealth or hybrid delivery chosen on clinical factors. The line-of-sight requirement does not apply to telehealth. Claim coding comes from Evernorth’s administrative guidelines (September 2026): when billing telehealth, use “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B.”',
         status: 'verified',
-        cites: [S.cignaARG, S.en0499],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, S.cignaARG, S.en0499],
       },
       authTurnaround: {
         value:
@@ -1408,6 +1494,8 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Does the Cigna ABA assessment need prior authorization in New Hampshire?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Does a BCBA need a New Hampshire license to bill Cigna?', a: 'New Hampshire issues no behavior-analyst license, and Cigna accepts a BCBA as the billing credential for ABA.' },
       { q: 'What does Cigna pay for ABA in New Hampshire?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. NH Medicaid’s fee-for-service rate for 97153 ($17.79 per 15 minutes) is the only public benchmark.' },
+      { q: 'What is Cigna’s clean-claim payment turnaround in New Hampshire?', a: 'Fifteen calendar days for a clean electronic claim and 30 for paper (RSA 420-J:8-a), on plans subject to the Managed Care Law. Claims filed more than 90 days after service lose that protection.' },
+      { q: 'What is Cigna’s timely filing limit in New Hampshire?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
     ],
   },
 
@@ -1475,6 +1563,17 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
           'UnitedHealthcare publishes no ABA rate table; its behavioral health network, Optum, pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the “Fee Maximum” as “The maximum amount a participating provider may be paid for a specific health care service provided to a member,” adding that “Reimbursement to clinicians is based upon licensure rather than degree.” Optum’s commercial ABA Reimbursement Policy (2022RP501A, updated 06/2026) makes the credential level part of every claim line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensed provider. It also says indirect work has no separate code and is bundled into the direct-service codes. Ask Optum network management for your rate sheet. For a public benchmark, NH Medicaid’s 2026 fee-for-service schedule pays 97153 at $17.79 per 15 minutes; commercial contracts are negotiated separately.',
         ],
         cites: [S.optumNNM, S.optumReimb, S.fee],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in New Hampshire?',
+        body: [
+          'New Hampshire’s RSA 420-J:8-a makes health carriers pay clean claims for services rendered in New Hampshire "within 30 calendar days upon receipt of a clean non-electronic claim or 15 calendar days upon receipt of a clean electronic claim," with 1.5% interest per month on overdue claims. A carrier is not in violation for a claim submitted more than 90 days after the service.',
+          'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
+        ],
+        cites: [
+          { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1579,6 +1678,8 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in New Hampshire?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 by telehealth (supervision and family training), billed POS 10 or 02. The 97151 assessment and 97153 are not on that list. Fully insured NH plans are also subject to RSA 415-J, which bars denying a covered service only because it is delivered by telemedicine, so ask Optum how it applies the list to your plan.' },
       { q: 'What does UnitedHealthcare pay for ABA in New Hampshire?', a: 'UnitedHealthcare/Optum publishes no ABA rates. You are paid up to the Fee Maximum in your Optum agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) under Optum’s ABA reimbursement policy. Ask Optum network management for your rate sheet. NH Medicaid’s fee-for-service rate for 97153 ($17.79 per 15 minutes) is the only public benchmark.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'For commercial plans, Optum\'s ABA reimbursement policy defines the technician line: the approved rendering provider for the HM modifier (less than a bachelor\'s degree) is "a Registered Behavior Technician (RBT)," and a BCaBA bills HN. The policy notes that state regulatory requirements "may supplement, modify or supersede" it. So plan on RBT-certified technicians for UHC commercial members.' },
+      { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in New Hampshire?', a: 'Fifteen calendar days for a clean electronic claim and 30 for paper (RSA 420-J:8-a), on plans subject to the Managed Care Law. Claims filed more than 90 days after service lose that protection.' },
+      { q: 'Does UnitedHealthcare require a taxonomy code on the claim in New Hampshire?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
     ],
   },
 };

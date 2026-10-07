@@ -139,6 +139,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
         ],
       },
+      {
+        h2: 'What is the New Mexico Medicaid timely filing limit?',
+        body: [
+          'For fee-for-service claims, 8.302.2.11 NMAC: "Claims for services must be received within 90 calendar days of the date of service unless an alternative filing limit is stated." When another payer is primary, the claim must arrive within 90 calendar days of that payer’s payment or denial, never more than 210 days from the date of service. Filing limits are not waived for a provider’s misunderstanding, short staffing or failure to track pending claims. Turquoise Care members’ claims go to their MCO under that plan’s manual.',
+        ],
+        cites: [
+          { title: '8.302.2.11 NMAC — Billing and claims filing limitations (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title08/08.302.0002.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Turquoise Care MCO (or FFS)', desc: 'BCBSNM, Molina, Presbyterian, UHC Community Plan, or FFS/TPA — same clinical criteria, different submission machinery.' },
@@ -291,6 +300,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Do ABA technicians need RBT certification for New Mexico Medicaid?', a: 'Not at the start. New Mexico Medicaid lets a non-certified behavior technician render ABA if they are 18 or older, have a high-school diploma, pass the New Mexico criminal background registry check, complete 4 hours of ASD training and at least 20 of the 40 RBT/BCAT training hours before serving, and then hold an RBT or BCAT certificate within their first six continuous months. If they miss that deadline they must stop until certified.' },
       { q: 'Does New Mexico Medicaid require ABA goals to be organized by DSM-5 criteria?', a: 'No. Supplement 24-13 asks for observable, measurable goals for each critical domain — developmental skill areas such as language and communication, adaptive and self-care, social relationships, coping and tolerance — prioritized by safety risk. DSM/ICD governs eligibility, not the goal structure.' },
       { q: 'How much parent training does New Mexico Medicaid require?', a: 'Every treatment plan "must include ample units" of 97156 and 97157 and a Family Set goal. 97156 needs no PA, up to 32 units (8 hours) per week for the whole Family Set and 16 units per day; 97157 is up to 16 units (4 hours) per day.' },
+      { q: 'What is the New Mexico Medicaid timely filing limit?', a: 'Ninety calendar days from the date of service for fee-for-service claims (8.302.2.11 NMAC); with a primary payer, 90 days from its EOB and no more than 210 days from service.' },
     ],
   },
 
@@ -381,6 +391,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'BCBSNM ABA Clinical Service Request Form', url: 'https://www.bcbsnm.com/docs/provider/nm/education/forms/aba-clinical-service-request.pdf' },
           { title: 'BCBSNM CPCP011 Applied Behavioral Analysis coding policy (eff. 3/20/2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
           { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
+      {
+        h2: 'What are BCBSNM Turquoise Care’s claim filing, taxonomy and appeal rules?',
+        body: [
+          'BCBSNM’s Medicaid manual (July 2026): participating providers "are expected to submit claims within 90 days of the date of service," and "Services billed beyond 180 days from the date of service are not eligible for reimbursement." Claims must carry the "Taxonomy code for the billing, rendering and attending NPI submitted on the claim," matching the provider’s HCA enrollment, plus NPIs for billing, ordering, referring and rendering providers "as required." BCBSNM aims to pay clean claims within the program’s time frames and asks that duplicates not be sent before the 30-day claims payment period. Provider grievances or appeals are resolved within 30 calendar days, extendable by 14.',
+        ],
+        cites: [
+          { title: 'BCBSNM — Medicaid (Turquoise Care) section of the Provider Reference Manual (updated July 2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/medicaid-prm.pdf' },
         ],
       },
     ],
@@ -541,6 +560,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Can BCBA supervision (97155) be done by telehealth for BCBSNM members?', a: 'Yes, under the state rule in MAD Supplement 24-13: 97155 may be delivered by real-time telemedicine with the recipient present, and by store-and-forward only where the agency documents no real-time option.' },
       { q: 'Does BCBSNM require ABA goals to be organized by DSM-5 criteria for Turquoise Care?', a: 'No. BCBSNM\'s request form counts skill-acquisition goals (social communication, adaptive skills, appropriate behaviors) by status and asks for maladaptive-behavior frequencies. The state standard (Supplement 24-13) wants measurable goals for each critical developmental domain.' },
       { q: 'How many parent training hours does BCBSNM expect?', a: 'Its request form asks how many hours per week the caregiver will train, with measurable parent goals. CPCP011 defaults to one hour per week (26 hours per 26-week authorization) and asks for documentation above that. For Turquoise Care, the state guidance allows 97156 without PA up to 32 units per week, so confirm which applies.' },
+      { q: 'What is BCBSNM Turquoise Care’s timely filing limit?', a: 'Submit within 90 days of the date of service; anything billed beyond 180 days from service is not reimbursable.' },
+      { q: 'Does BCBSNM Turquoise Care require taxonomy on the claim?', a: 'Yes, for the billing, rendering and attending NPIs, and it must match the provider’s New Mexico HCA enrollment.' },
     ],
   },
 
@@ -631,6 +652,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Presbyterian Provider Prior Authorization Guide (09.01.2026), p. 48 — Applied Behavior Analysis', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220' },
           { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
+      {
+        h2: 'What are Presbyterian Turquoise Care’s claim filing, payment and appeal deadlines?',
+        body: [
+          'Presbyterian’s 2026 manual: "Presbyterian requires that all claims from in-network providers are received within 90 days of the date of service." Resubmissions, corrections and adjustment requests must arrive within 12 months of the date of service, and "A provider has 12 months from the date of service to file an appeal regarding a claim," resolved within 30 calendar days. Clean electronic claims "will be reimbursed within 30 days of receipt," clean paper claims within 45. Providers with more than one Turquoise Care provider type on an NPI must report the NPI and taxonomy matching their New Mexico Medicaid registration, or the claim can be denied.',
+        ],
+        cites: [
+          { title: 'Presbyterian Turquoise Care Practitioner and Provider Manual (2026), Claims and Payment', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=OB_000000001114' },
         ],
       },
     ],
@@ -788,6 +818,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Can BCBA supervision (97155) be done by telehealth for Presbyterian members?', a: 'Yes, under the state rule in MAD Supplement 24-13: 97155 may be delivered by real-time telemedicine with the recipient present, and by store-and-forward only where the agency documents no real-time option.' },
       { q: 'Does Presbyterian require ABA goals to be organized by DSM-5 criteria for Turquoise Care?', a: 'Presbyterian publishes no format of its own; the state standard (Supplement 24-13) applies — measurable goals for each critical developmental domain, prioritized by safety risk, not DSM-5 criteria.' },
       { q: 'How much parent training does Presbyterian expect for Turquoise Care?', a: 'Presbyterian publishes no figure; the state rule applies — every plan "must include ample units" of 97156/97157, with 97156 up to 32 units per week for the Family Set. Presbyterian\'s PA guide lists 97156/97157 among its ABA codes, so confirm whether a request is needed.' },
+      { q: 'What is Presbyterian Turquoise Care’s timely filing limit?', a: 'Ninety days from the date of service for in-network claims; corrections and appeals within 12 months of the date of service.' },
     ],
   },
 
@@ -879,6 +910,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition, last updated May 2024)', url: 'https://medicare.centralhealthplan.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
           { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
+      {
+        h2: 'What is Molina New Mexico’s timely filing limit?',
+        body: [
+          'Molina’s Turquoise Care provider manual (2024 edition, the latest readable copy) sets clean-claim timely filing at "90 calendar days after the discharge for inpatient services or the Date of Service for outpatient services," and claims outside the timelines "will not be eligible for payment."',
+        ],
+        cites: [
+          { title: 'Molina Healthcare of New Mexico Turquoise Care Provider Manual (2024 edition), § 13 Claims and Compensation', url: 'https://medicare.centralhealthplan.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/Provider-Manual.pdf' },
         ],
       },
     ],
@@ -1037,6 +1077,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What does Molina pay for ABA in New Mexico?', a: 'At least the state FFS ABA fee schedule — LOD #53 makes the published rates a minimum for all Turquoise Care MCOs and their sub-vendors, retroactive to January 1, 2025.' },
       { q: 'Does Molina New Mexico require ABA goals to be organized by DSM-5 criteria?', a: 'No DSM-5 template. Molina follows the state standard — measurable goals for each critical developmental domain (Supplement 24-13) — and wants measurable skill gains or reductions in maladaptive behavior.' },
       { q: 'How much parent training does Molina New Mexico expect?', a: 'Molina requires caregivers able to "participate and commit meaningfully" to ABA; the hours follow the state rule — "ample units" of 97156/97157 in every plan, with 97156 up to 32 units per week without PA.' },
+      { q: 'What is Molina New Mexico’s timely filing limit for ABA claims?', a: 'Ninety calendar days from the date of service, per Molina’s Turquoise Care manual (2024 edition). Confirm against the current manual.' },
     ],
   },
 
@@ -1126,6 +1167,15 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'UnitedHealthcare Community Plan of New Mexico Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NM-UHCCP-Provider-Manual.pdf' },
           { title: 'NM Turquoise Care ABA Network Quick Reference Guide (BH0000747_12162024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf' },
           { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
+        ],
+      },
+      {
+        h2: 'What are UnitedHealthcare Community Plan of New Mexico’s claim dispute deadlines?',
+        body: [
+          'The 2026 Turquoise Care manual defers timely filing to the provider agreement ("If you don’t know your timely filing limit, refer to your Provider Agreement"), and treats a rejected claim not corrected within 90 days of the date of service as late billed. Disputes run in two steps: a claim reconsideration within 90 calendar days, answered within 30 calendar days, then a formal appeal within 60 calendar days of the occurrence, also answered within 30.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of New Mexico — 2026 Turquoise Care Care Provider Manual, Chapters 11–12', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NM-UHCCP-Provider-Manual.pdf' },
         ],
       },
     ],
@@ -1288,6 +1338,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Can BCBA supervision (97155) be done by telehealth for UnitedHealthcare Community Plan members?', a: 'Yes, under the state rule in MAD Supplement 24-13: 97155 may be delivered by real-time telemedicine with the recipient present, and by store-and-forward only where the agency documents no real-time option.' },
       { q: 'Does UnitedHealthcare Community Plan require ABA goals to be organized by DSM-5 criteria in New Mexico?', a: 'It publishes no format of its own; the state standard (Supplement 24-13) applies — measurable goals for each critical developmental domain, prioritized by safety risk, not DSM-5 criteria.' },
       { q: 'How much parent training does UnitedHealthcare Community Plan expect in New Mexico?', a: 'No plan-specific figure; the state rule applies — every plan "must include ample units" of 97156/97157, with 97156 PA-free up to 32 units per week for the Family Set.' },
+      { q: 'How long do I have to dispute a UnitedHealthcare Community Plan of New Mexico claim?', a: 'Ninety calendar days for a claim reconsideration, then 60 calendar days for a formal appeal; each is answered within 30 calendar days.' },
     ],
   },
 
@@ -1398,6 +1449,19 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in New Mexico?',
+        body: [
+          'New Mexico’s rule 13.10.28.9 NMAC requires a health carrier to reimburse a clean claim "within 30 days of the date of receipt if the clean claim has been submitted electronically or within 45 days of the date of receipt if the clean claim has been submitted manually," with interest on overdue clean claims, and to notify the provider within the same 30/45 days if it disputes liability.',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+        ],
+        cites: [
+          { title: '13.10.28.9 NMAC — Payment of claims, overdue claims and interest (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title13/13.010.0028.html' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Disagree with a claim decision?', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
         ],
       },
     ],
@@ -1548,6 +1612,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in New Mexico?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against New Mexico\'s published Medicaid fee schedule (LOD #53), which functions as a public rate floor on the Medicaid side.' },
       { q: 'Does Aetna require ABA goals to be organized by DSM-5 criteria in New Mexico?', a: 'No DSM-5 grouping is asked for. Aetna wants a DSM-5 ASD diagnosis and a plan with clearly defined target behaviors, baseline data and quantifiable progress criteria; GR-69017-4 asks for baseline, interim and current data for all goals.' },
       { q: 'Does Aetna set required parent training hours in New Mexico?', a: 'No published minimum or cap. Parent commitment to participate is a medical-necessity criterion; request 97156/97157 in hours per week on GR-69017-4 and show measurable caregiver goals — the authorization sets the hours.' },
+      { q: 'What is Aetna’s clean-claim payment turnaround in New Mexico?', a: 'Thirty days for an electronic clean claim and 45 for a manual one (13.10.28.9 NMAC), for state-regulated plans.' },
+      { q: 'How long do I have to appeal an Aetna claim decision in New Mexico?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
     ],
   },
 
@@ -1666,6 +1732,17 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in New Mexico?',
+        body: [
+          'New Mexico’s rule 13.10.28.9 NMAC requires a health carrier to reimburse a clean claim "within 30 days of the date of receipt if the clean claim has been submitted electronically or within 45 days of the date of receipt if the clean claim has been submitted manually," with interest on overdue clean claims, and to notify the provider within the same 30/45 days if it disputes liability.',
+          'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days.',
+        ],
+        cites: [
+          { title: '13.10.28.9 NMAC — Payment of claims, overdue claims and interest (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title13/13.010.0028.html' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1724,9 +1801,10 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'All ABA CPT codes are covered telehealth services per the Evernorth autism resource guide, and EN0499 allows delivery in person, via telehealth, or as a hybrid — the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The requirement that the ABA provider remain in line of sight and close proximity to the individual expressly does not apply to telehealth services. Where treatment is delivered in settings with additional behavioral expectations, telehealth included, the plan must document that the service still meets the definition of direct treatment and direct engagement. The assessment and supervision codes are included: the resource guide\'s "All ABA CPT codes" covers 97151 (initial assessment and reassessment) and 97155 (protocol modification / direct supervision) as much as 97153, and neither document caps the share of supervision that may be remote. Neither names a required telehealth POS code or modifier, so confirm claim coding with Evernorth Provider Services (800.926.2273).',
+        value: 'All ABA CPT codes are covered telehealth services per the Evernorth autism resource guide, and EN0499 allows delivery in person, via telehealth, or as a hybrid — the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. The requirement that the ABA provider remain in line of sight and close proximity to the individual expressly does not apply to telehealth services. Where treatment is delivered in settings with additional behavioral expectations, telehealth included, the plan must document that the service still meets the definition of direct treatment and direct engagement. The assessment and supervision codes are included: the resource guide\'s "All ABA CPT codes" covers 97151 (initial assessment and reassessment) and 97155 (protocol modification / direct supervision) as much as 97153, and neither document caps the share of supervision that may be remote. Neither of those two documents names a telehealth modifier or POS; Evernorth’s administrative guidelines (September 2026) do: use “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B.”',
         status: 'verified',
         cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
@@ -1806,6 +1884,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna pay for ABA delivered at school in New Mexico?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
       { q: 'Does Cigna require ABA goals to follow DSM-5 criteria in New Mexico?', a: 'EN0499 requires every treatment goal to be "directly related to" the ASD diagnosis and the DSM-5-TR symptoms (social communication/interaction; restricted, repetitive behavior), with measurable targets, baseline data and mastery criteria.' },
       { q: 'Does Cigna set required parent training hours in New Mexico?', a: 'No hour figure is published. EN0499 requires measurable stakeholder (parent/caregiver) training goals with mastery criteria and progress data, delivered by a BCBA or licensed clinician; the hours are set on the authorization.' },
+      { q: 'What is Cigna’s clean-claim payment turnaround in New Mexico?', a: 'Thirty days for an electronic clean claim and 45 for a manual one (13.10.28.9 NMAC), for state-regulated plans.' },
+      { q: 'What is Cigna’s timely filing limit in New Mexico?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
     ],
   },
 
@@ -1923,6 +2003,17 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
           { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review April 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A; history entry February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in New Mexico?',
+        body: [
+          'New Mexico’s rule 13.10.28.9 NMAC requires a health carrier to reimburse a clean claim "within 30 days of the date of receipt if the clean claim has been submitted electronically or within 45 days of the date of receipt if the clean claim has been submitted manually," with interest on overdue clean claims, and to notify the provider within the same 30/45 days if it disputes liability.',
+          'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
+        ],
+        cites: [
+          { title: '13.10.28.9 NMAC — Payment of claims, overdue claims and interest (srca.nm.gov)', url: 'https://www.srca.nm.gov/parts/title13/13.010.0028.html' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
     ],
@@ -2072,6 +2163,8 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in New Mexico?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
       { q: 'Does UnitedHealthcare require ABA goals to be organized by DSM-5 criteria in New Mexico?', a: 'No DSM-5 grouping is asked for. Optum wants clearly stated, measurable goals with baseline data and timeframes, prioritized by safety and quality-of-life risk, with new goals based on targeted symptoms and behaviors.' },
       { q: 'Does UnitedHealthcare set required parent training hours in New Mexico?', a: 'Optum says "Parent training is required" (97156/97157) but sets no minimum or maximum — "It is based on the treatment plan and goals provided." Commercial claims are capped at 16 units (4 hours) per day for each of 97156 and 97157.' },
+      { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in New Mexico?', a: 'Thirty days for an electronic clean claim and 45 for a manual one (13.10.28.9 NMAC), for state-regulated plans.' },
+      { q: 'Does UnitedHealthcare require a taxonomy code on the claim in New Mexico?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
     ],
   },
 };

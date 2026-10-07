@@ -220,6 +220,15 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Nebraska DHHS — Applied Behavior Analysis service definition (treatment, in force 7/1/2026)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'Nebraska DHHS — Medicaid Requirements for Substance Use Disorder and Applied Behavior Analysis Services', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Medicaid%20Requirements%20for%20Substance%20Use%20Disorder%20and%20Applied%20Behavior%20Analysis%20Services.pdf' }],
       },
+      {
+        h2: 'What is the Nebraska Medicaid timely filing limit?',
+        body: [
+          'For fee-for-service claims, the Nebraska Medicaid Provider Manual (§ 5.1.1): "all claims must be submitted within six months from the date of service"; adjustments must arrive within 90 days of the original claim’s payment or denial date (§ 5.2.1). For members in a Heritage Health MCO, § 5.3 sends providers to that MCO’s own manual and billing guidance, so the MCO’s filing limit governs those claims.',
+        ],
+        cites: [
+          { title: 'Nebraska Medicaid Provider Manual (August 2026), §§ 5.1.1, 5.2.1, 5.3', url: 'https://dhhs.ne.gov/Documents/Medicaid%20Provider%20Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Heritage Health MCO', desc: 'Nebraska Total Care, Molina, or UnitedHealthcare Community Plan — same state MSD rules, very different submission machinery.' },
@@ -254,6 +263,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'What does Nebraska Medicaid pay for ABA?', a: 'Per 15-minute unit, effective August 1, 2025: 97151 $38.16, 97153 $18.70, 97155 $22.72, 97156 $26.06 — a roughly 28–79% cut by code from prior rates, still in force in the SFY27 fee schedule. Rates are credential-flat, and MCOs are directed to track the state schedule.' },
       { q: 'How many hours per week does Nebraska Medicaid allow?', a: 'Up to 6 hours a day and 20 hours a week of direct ABA. The ABA treatment service definition in force since July 1, 2026 says direct service hours "may not exceed 6 hours in a single day or a total of 20 hours per week," and more can be requested with clinical justification through prior authorization. DHHS\'s public "Applied Behavior Analysis Facts" page still says "up to 30 hours per week" — that summary predates the July 2026 update and is out of date; the service definition is the rule.' },
       { q: 'What happens when a Nebraska Medicaid family switches ABA providers?', a: 'The state does not say whether the MCO authorization transfers, so ask the member\'s Heritage Health plan. The agency the family leaves must give the family and the next provider a copy of the discharge plan, and complete a signed discharge summary on a timeline that allows prompt transfer of clinical records.' },
+      { q: 'What is the Nebraska Medicaid timely filing limit?', a: 'Six months from the date of service for fee-for-service claims. Heritage Health MCO claims follow the MCO’s own limit (Nebraska Total Care, for example, allows 180 days).' },
     ],
   },
 
@@ -418,6 +428,16 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
           { title: 'Health Plan Advisory 25-08 — ABA Rates (to Heritage Health MCOs)', url: 'https://dhhs.ne.gov/Guidance%20Docs/Health%20Plan%20Advisory%2025-08%20-%20Applied%20Behavior%20Analysis%20Rates.pdf' },
         ],
       },
+      {
+        h2: 'What are Nebraska Total Care’s timely filing, payment and appeal deadlines?',
+        body: [
+          'Nebraska Total Care’s 2026 billing guide: "Providers must submit all claims and encounters within 180 calendar days of the date of service," or within 365 days when it is the secondary payer. Reconsiderations and corrected claims are due within 90 calendar days of the payment or denial notice, and claim appeals (after a reconsideration) within 60 calendar days. Clean claims are adjudicated 90% within 15 business days and 99% within 60 calendar days, with 12% annual interest past 60 days.',
+          'On the CMS-1500 the guide marks field 24J (shaded) as required, with the ZZ qualifier and the provider’s taxonomy code for typical providers. Field 17 (referring provider) is marked required only for PT/OT/ST, DME and hearing-aid claims.',
+        ],
+        cites: [
+          { title: 'Nebraska Total Care — 2026 Provider Billing Guide (Timely Filing; Claim Payment; Reconsiderations and Appeals; CMS-1500 field table)', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/PDFs/ProviderRelations/NTC_Provider_Billing_Guide_12152025_01132026_508.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'IDI + FBA for the assessment package', desc: 'NE.CP.BH.105 requires both in the behavior identification assessment — line them up before submission.' },
@@ -438,6 +458,8 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'Does Nebraska Total Care cover ABA therapy?', a: 'Yes — it administers the Nebraska Medicaid ABA benefit under the state Medicaid Service Definitions, with its NE.CP.BH.105 documentation policy layered on top. Its own policy says state provisions take precedence in any conflict.' },
       { q: 'How do I submit an ABA authorization to Nebraska Total Care?', a: 'Through the Outpatient Treatment Request (OTR) process — the ABA Form via the secure provider portal (provider.nebraskatotalcare.com) or fax 866-593-1955, with hours per code, clinical justification, titration/discharge and crisis plans, and coordination-of-care documentation.' },
       { q: 'Does the ABA assessment itself need PA at Nebraska Total Care?', a: 'Yes. Nebraska Total Care\'s published Medicaid prior-authorization list (effective 12/31/2025) names 97151 and 97152 among the behavioral health codes that need pre-approval. NE.CP.BH.105 then sets what the assessment package must contain — the IDI and an FBA with direct assessment and data analysis.' },
+      { q: 'What is Nebraska Total Care’s timely filing limit?', a: '180 calendar days from the date of service (365 when Nebraska Total Care is secondary). Reconsiderations: 90 days; appeals: 60 days.' },
+      { q: 'Does Nebraska Total Care require a taxonomy code on ABA claims?', a: 'Its billing guide marks CMS-1500 field 24J (shaded) as required, with qualifier ZZ and the provider’s taxonomy code.' },
     ],
   },
 
@@ -800,6 +822,17 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
           { title: 'ProPublica — UnitedHealth limiting ABA access in Medicaid', url: 'https://www.propublica.org/article/unitedhealthcare-insurance-autism-denials-applied-behavior-analysis-medicaid' },
         ],
       },
+      {
+        h2: 'What are UnitedHealthcare Community Plan of Nebraska’s claim filing, taxonomy and dispute rules?',
+        body: [
+          'Optum’s Nebraska ABA quick reference guide: claims go on a Form 1500 and "Submission should occur within 180 days of date of service"; claim appeals "must be requested within 60 calendar days of disposition on the remittance report."',
+          'The 2026 UHC Community Plan of Nebraska manual adds the claim data rules: the rendering and billing provider NPI combination must match the provider’s DHHS enrollment, or electronic claims are rejected and paper claims denied, and "Claims must include the correct billing taxonomy code and 9-digit office ZIP code registered with DHHS." Its dispute grid allows a claim reconsideration within 365 calendar days of the claim processing date, then a formal appeal within 60 calendar days of the remittance or reconsideration decision.',
+        ],
+        cites: [
+          { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' },
+          { title: 'UnitedHealthcare Community Plan of Nebraska — 2026 Care Provider Manual, Chapters 11–12', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NE-Care-Provider-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnostic evaluation / IDI / FBA', desc: 'Must attach to the written assessment request — the two-step funnel starts with this packet.' },
@@ -822,6 +855,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan of Nebraska cover ABA?', a: 'Yes — it administers the Heritage Health ABA benefit under the state Medicaid Service Definitions, with the autism network managed by Optum Behavioral Health since 2017. All autism services, the assessment included, require prior authorization.' },
       { q: 'Does the ABA assessment need PA at UHC Community Plan of Nebraska?', a: 'Yes — the initial assessment needs a written request (the treatment request form marked as an assessment request) with the diagnostic evaluation, IDI, or FBA attached. Treatment is a second, separate authorization.' },
       { q: 'How do I submit an ABA authorization to UHC/Optum in Nebraska?', a: 'Through Optum\'s online ABA treatment-request portal or fax 1-888-541-6691, with the full treatment-plan package (baseline/mastery criteria, transition and discharge plans, parent goals, supervision hours, coordination of care). Claims use payer ID 87726 with 180-day timely filing.' },
+      { q: 'Does UnitedHealthcare Community Plan of Nebraska require taxonomy on the claim?', a: 'Yes. The billing taxonomy code and 9-digit office ZIP registered with DHHS must be on the claim, and the rendering/billing NPI pair must match DHHS enrollment.' },
     ],
   },
 
@@ -1016,6 +1050,20 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Provider Bulletin 25-14 — ABA Rates (July 1, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in Nebraska?',
+        body: [
+          'Nebraska’s Health Care Prompt Payment Act requires an insurer to pay, deny or settle a clean claim "within thirty calendar days after receipt by the insurer if submitted electronically and within forty-five calendar days after receipt if submitted in a form other than electronically" (§ 44-8004). The clock tolls while requested information is outstanding. The Act covers insurers and HMOs but not the Medicaid program or a self-insured employer plan (§ 44-8002).',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+        ],
+        cites: [
+          { title: 'Neb. Rev. Stat. § 44-8004 — Health Care Prompt Payment Act, clean-claim deadlines', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8004' },
+          { title: 'Neb. Rev. Stat. § 44-8002 — Health Care Prompt Payment Act, definitions', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8002' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Disagree with a claim decision?', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Large-group/grandfathered state-regulated (mandate applies) vs. small-group/individual ACA or self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -1040,6 +1088,8 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in Nebraska?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Nebraska\'s Medicaid schedule is an unusually low benchmark after the August 2025 cuts, so treat commercial rate-setting as a first-order contracting conversation.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
       { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
+      { q: 'What is Aetna’s clean-claim payment turnaround in Nebraska?', a: 'Thirty calendar days for an electronic clean claim, 45 for paper (Neb. Rev. Stat. § 44-8004). The Act does not reach self-insured employer plans.' },
+      { q: 'How long do I have to appeal an Aetna claim decision in Nebraska?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
     ],
   },
 
@@ -1150,9 +1200,9 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. One Nebraska-specific point does exist, and it sits in the statute rather than the carrier policy: § 44-7,106 requires that ABA be "provided or supervised by a nationally certified behavior analyst or licensed psychologist" and says so expressly of care delivered "in person or by telehealth," so remote delivery is contemplated by the mandate for state-regulated plans even where the carrier publishes no code list. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth.',
+          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. One Nebraska-specific point does exist, and it sits in the statute rather than the carrier policy: § 44-7,106 requires that ABA be "provided or supervised by a nationally certified behavior analyst or licensed psychologist" and says so expressly of care delivered "in person or by telehealth," so remote delivery is contemplated by the mandate for state-regulated plans even where the carrier publishes no code list. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth. Claim coding comes from Evernorth’s administrative guidelines (September 2026): when billing telehealth, use “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B.”',
         status: 'verified',
-        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
       },
       authTurnaround: {
         value:
@@ -1242,6 +1292,18 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in Nebraska?',
+        body: [
+          'Nebraska’s Health Care Prompt Payment Act requires an insurer to pay, deny or settle a clean claim "within thirty calendar days after receipt by the insurer if submitted electronically and within forty-five calendar days after receipt if submitted in a form other than electronically" (§ 44-8004). The clock tolls while requested information is outstanding. The Act covers insurers and HMOs but not the Medicaid program or a self-insured employer plan (§ 44-8002).',
+          'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days.',
+        ],
+        cites: [
+          { title: 'Neb. Rev. Stat. § 44-8004 — Health Care Prompt Payment Act, clean-claim deadlines', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8004' },
+          { title: 'Neb. Rev. Stat. § 44-8002 — Health Care Prompt Payment Act, definitions', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8002' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Large-group/grandfathered state-regulated (mandate applies) vs. small-group/individual ACA or self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -1262,6 +1324,8 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in Nebraska?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Nebraska\'s Medicaid schedule is an unusually low benchmark after the August 2025 cuts, so treat commercial rate-setting as a first-order contracting conversation.' },
       { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
+      { q: 'What is Cigna’s clean-claim payment turnaround in Nebraska?', a: 'Thirty calendar days for an electronic clean claim, 45 for paper (Neb. Rev. Stat. § 44-8004). The Act does not reach self-insured employer plans.' },
+      { q: 'What is Cigna’s timely filing limit in Nebraska?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
     ],
   },
 
@@ -1466,6 +1530,18 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Provider Bulletin 25-14 — ABA Rates (July 1, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf' },
         ],
       },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in Nebraska?',
+        body: [
+          'Nebraska’s Health Care Prompt Payment Act requires an insurer to pay, deny or settle a clean claim "within thirty calendar days after receipt by the insurer if submitted electronically and within forty-five calendar days after receipt if submitted in a form other than electronically" (§ 44-8004). The clock tolls while requested information is outstanding. The Act covers insurers and HMOs but not the Medicaid program or a self-insured employer plan (§ 44-8002).',
+          'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
+        ],
+        cites: [
+          { title: 'Neb. Rev. Stat. § 44-8004 — Health Care Prompt Payment Act, clean-claim deadlines', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8004' },
+          { title: 'Neb. Rev. Stat. § 44-8002 — Health Care Prompt Payment Act, definitions', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8002' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Large-group/grandfathered state-regulated (mandate applies) vs. small-group/individual ACA or self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -1494,6 +1570,8 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On plans the Nebraska mandate reaches, the insurer may review treatment at most once every 6 months, at its own cost.' },
       { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
+      { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Nebraska?', a: 'Thirty calendar days for an electronic clean claim, 45 for paper (Neb. Rev. Stat. § 44-8004). The Act does not reach self-insured employer plans.' },
+      { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Nebraska?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
     ],
   },
   'bcbs-nebraska': {
@@ -1676,6 +1754,16 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
           { title: 'SFY27 Mental Health & Substance Use Fee Schedule (REVISED edition, republished Sept. 2026)', url: 'https://dhhs.ne.gov/Medicaid%20Practitioner%20Fee%20Schedules/REVISED%20MHSUD%20SFY27%20Fee%20Schedule.xlsx' },
         ],
       },
+      {
+        h2: 'How fast must Blue Cross and Blue Shield of Nebraska pay a clean ABA claim in Nebraska?',
+        body: [
+          'Nebraska’s Health Care Prompt Payment Act requires an insurer to pay, deny or settle a clean claim "within thirty calendar days after receipt by the insurer if submitted electronically and within forty-five calendar days after receipt if submitted in a form other than electronically" (§ 44-8004). The clock tolls while requested information is outstanding. The Act covers insurers and HMOs but not the Medicaid program or a self-insured employer plan (§ 44-8002).',
+        ],
+        cites: [
+          { title: 'Neb. Rev. Stat. § 44-8004 — Health Care Prompt Payment Act, clean-claim deadlines', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8004' },
+          { title: 'Neb. Rev. Stat. § 44-8002 — Health Care Prompt Payment Act, definitions', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8002' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'State-regulated large-group or grandfathered (mandate applies), ACA individual/small-group (mandate does not apply), or self-funded (plan document governs). I.178 covers ABA only where a mandate or the plan does.' },
@@ -1702,6 +1790,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'Does BCBS Nebraska allow ABA by telehealth?', a: 'Only for 97151, 97155 and 97156, billed with POS 02 or 10 and modifier 95. BCBSNE considers all other codes, including 97153, not appropriate for telehealth. I.178 limits ABA to an office setting or telehealth.' },
       { q: 'Does the 25-hour cap apply to every BCBS Nebraska member?', a: 'No. It comes from the state mandate, which covers state-regulated plans. ACA individual and small-group plans are outside the mandate, and self-funded groups follow their plan documents. I.178 itself caps treatment plans at 40 hours a week.' },
       { q: 'Does this guide cover Nebraska Medicaid members?', a: 'No. Nebraska Medicaid ABA runs through the Heritage Health MCOs and has its own guides in this directory, with different criteria and rates.' },
+      { q: 'What is Blue Cross and Blue Shield of Nebraska’s clean-claim payment turnaround in Nebraska?', a: 'Thirty calendar days for an electronic clean claim, 45 for paper (Neb. Rev. Stat. § 44-8004). The Act does not reach self-insured employer plans.' },
     ],
   },
 
@@ -1872,6 +1961,16 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
           { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Nebraska copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Nebraska/ambetter/policies/clinical-policies/CP.BH.104.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Ambetter from Nebraska Total Care pay a clean ABA claim in Nebraska?',
+        body: [
+          'Nebraska’s Health Care Prompt Payment Act requires an insurer to pay, deny or settle a clean claim "within thirty calendar days after receipt by the insurer if submitted electronically and within forty-five calendar days after receipt if submitted in a form other than electronically" (§ 44-8004). The clock tolls while requested information is outstanding. The Act covers insurers and HMOs but not the Medicaid program or a self-insured employer plan (§ 44-8002).',
+        ],
+        cites: [
+          { title: 'Neb. Rev. Stat. § 44-8004 — Health Care Prompt Payment Act, clean-claim deadlines', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8004' },
+          { title: 'Neb. Rev. Stat. § 44-8002 — Health Care Prompt Payment Act, definitions', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8002' },
+        ],
+      },
     ],
     collect: [
       { title: 'Ambetter or Heritage Health Medicaid', desc: 'Same operator name, different products — this decides which rulebook, network and authorization route apply.' },
@@ -1895,6 +1994,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'Does the Nebraska 25-hour cap apply to Ambetter?', a: 'No. The Nebraska autism mandate excludes non-grandfathered individual and small-group plans that must include essential health benefits, which covers Marketplace plans. Ambetter\'s own criteria (CP.BH.104) look for 6 hours a day and 30 hours a week or less unless more is clinically justified.' },
       { q: 'Is this the same as Nebraska Total Care Medicaid?', a: 'No. Nebraska Total Care operates the Heritage Health Medicaid plan, while Ambetter is a Marketplace product underwritten by Celtic Insurance Company, with its own benefits, network, prior-authorization route and cost sharing. This directory has a separate guide for the Medicaid plan.' },
       { q: 'Which ABA codes need prior authorization on Ambetter Nebraska?', a: 'All of them: Ambetter\'s Pre-Auth Needed tool returns "Pre-authorization is required for all providers" for 97151 through 97158, 0362T and 0373T.' },
+      { q: 'What is Ambetter from Nebraska Total Care’s clean-claim payment turnaround in Nebraska?', a: 'Thirty calendar days for an electronic clean claim, 45 for paper (Neb. Rev. Stat. § 44-8004). The Act does not reach self-insured employer plans.' },
     ],
   },
 };

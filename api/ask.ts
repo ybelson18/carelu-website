@@ -241,7 +241,7 @@ const STATE_NAMES: Record<string, string> = {
   oh: 'ohio', nj: 'new jersey', md: 'maryland', co: 'colorado', ut: 'utah', az: 'arizona',
   ny: 'new york', nm: 'new mexico', mo: 'missouri', tx: 'texas', ma: 'massachusetts',
   fl: 'florida', ks: 'kansas', ne: 'nebraska',
-  id: 'idaho', ca: 'california', mi: 'michigan', pa: 'pennsylvania', hi: 'hawaii', ia: 'iowa', ok: 'oklahoma', nh: 'new hampshire',
+  id: 'idaho', ca: 'california', mi: 'michigan', pa: 'pennsylvania', hi: 'hawaii', ia: 'iowa', ok: 'oklahoma', nh: 'new hampshire', de: 'delaware', ms: 'mississippi', dc: 'district of columbia', wv: 'west virginia', wy: 'wyoming', ri: 'rhode island', ar: 'arkansas', nd: 'north dakota', ak: 'alaska', mt: 'montana', nv: 'nevada', sd: 'south dakota', al: 'alabama', vt: 'vermont', me: 'maine', mn: 'minnesota', or: 'oregon', la: 'louisiana', il: 'illinois', ct: 'connecticut', wa: 'washington', ky: 'kentucky', sc: 'south carolina', wi: 'wisconsin',
 };
 
 function retrieve(question: string, prevUser: string | undefined, limit = 14): Chunk[] {

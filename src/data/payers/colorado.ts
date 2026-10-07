@@ -132,6 +132,16 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'Health First Colorado — General Provider Information manual (Out-of-State Providers; Out-of-State Benefits)', url: 'https://hcpf.colorado.gov/gen-info-manual' },
         ],
       },
+      {
+        h2: 'Claims: timely filing, resubmission and appeals',
+        body: [
+          'Health First Colorado’s filing limit is 365 days: “Effective June 1, 2018, timely filing for Health First Colorado claim submission is 365 days from the date of service,” and a claim past that needs a timely filing waiver. An approved PAR is not a waiver — waiting for prior authorization or for the Department “is not an acceptable reason for late filing.” Once the original period has run out, a claim stays alive only if each re-bill or adjustment is received within 60 days of the last action, with the previous ICN entered on the claim. Medicare-denied services must be filed within 365 days of the date of service or 120 days of the Medicare denial, whichever is longer.',
+          'Disputes run in two steps. After exhausting the fiscal agent’s re-bill and adjustment routes, a provider files a Request for Reconsideration with the fiscal agent, within 60 days of the last action if initial timely filing has expired; if that fails, the provider may file a written appeal with the Office of Administrative Courts.',
+        ],
+        cites: [
+          { title: 'HCPF — General Provider Information Manual (Timely Filing; Requests for Reconsideration)', url: 'https://hcpf.colorado.gov/gen-info-manual' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which of the three pathways applies', desc: 'ASD diagnosis, functional interference (with a standardized assessment), or safety risk — no autism dx needed, so screen for all three instead of gating on diagnosis.' },
@@ -206,7 +216,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Covered, on any modality. "Pediatric Behavioral Therapists are covered under the telemedicine policy," and "Home Health Agency services and therapies, Hospice, and Pediatric Behavioral Treatment may be provided via any telemedicine modality" — unlike outpatient PT/OT/speech, which must have interactive audio-visual. Every PBT code is on the allowable-telemedicine list: 97151, 97153, 97154, 97155 and 97158. POS 02 is on the PBT allowed-place-of-service table and the telemedicine manual directs POS 02 or 10. Two conditions travel with it: "the use of telecommunications equipment for delivery of services does not change prior authorization requirements," and before the first telemedicine treatment the provider must furnish the member (or legal representative) signed written disclosure statements, after which the initial face-to-face requirement may be waived.',
+          'Covered, on any modality. "Pediatric Behavioral Therapists are covered under the telemedicine policy," and "Home Health Agency services and therapies, Hospice, and Pediatric Behavioral Treatment may be provided via any telemedicine modality" — unlike outpatient PT/OT/speech, which must have interactive audio-visual. Every PBT code is on the allowable-telemedicine list: 97151, 97153, 97154, 97155 and 97158. POS 02 is on the PBT allowed-place-of-service table, and the telemedicine billing page directs every rendering provider to bill “Place of Service code 02 or 10 and the appropriate modifiers FQ, FR, 93 or 95” — 95 for real-time audio-video, 93 or FQ for audio-only, FR when a supervising practitioner is present by two-way audio-video. GT is not the PBT modifier: Colorado limits GT to a listed set of provider types (physicians, clinics, psychologists, FQHCs, RHCs and similar), which does not include the Type 83/84 PBT enrollments. Two conditions travel with it: "the use of telecommunications equipment for delivery of services does not change prior authorization requirements," and before the first telemedicine treatment the provider must furnish the member (or legal representative) signed written disclosure statements, after which the initial face-to-face requirement may be waived.',
         status: 'verified',
         cites: [
           { title: 'Pediatric Behavioral Therapies Billing Manual (HCPF)', url: 'https://hcpf.colorado.gov/pbt-manual' },
@@ -310,6 +320,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Health First Colorado members in Colorado, including by telehealth?', a: 'Colorado has no behavior analyst license yet; HB26-1425 makes one mandatory from July 1, 2028. Health First Colorado enrolls out-of-state providers but pays for out-of-state services only in listed cases (border localities, services unavailable in Colorado with PA, and a few others).' },
       { q: 'Can Health First Colorado ABA (PBT) be authorized retroactively?', a: 'Plan on no. The PBT billing manual says providers “must submit, and have approved, PARs for medically necessary services prior to rendering the services,” and PAR approval “does not serve as a timely filing waiver.” We have not verified a retro-PAR route for a member made retroactively eligible; ask Acentra (ColoradoPAR) first.' },
       { q: 'Does Colorado require insurance to cover autism treatment?', a: 'For commercial plans, yes: C.R.S. 10-16-104(1.4) says “All health benefit plans issued or renewed in this state must provide coverage for the assessment, diagnosis, and treatment of autism spectrum disorders for a child,” and its definition of treatment includes applied behavior analysis by autism services providers. Health First Colorado covers ABA separately, through its Pediatric Behavioral Therapies benefit.' },
+      { q: 'What is Health First Colorado’s timely filing limit for ABA (PBT) claims?', a: '365 days from the date of service. After that, each re-bill or adjustment must be received within 60 days of the last action to keep the claim alive, and an approved PAR is not a timely filing waiver.' },
     ],
   },
 
@@ -408,6 +419,24 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean claim in Colorado?',
+        body: [
+          'Colorado’s prompt-pay statute, C.R.S. § 10-16-106.5, requires clean claims to be “paid, denied, or settled within thirty calendar days after receipt by the carrier if submitted electronically and within forty-five calendar days after receipt by the carrier if submitted by any other means.” A claim that needs more information must get a written explanation of what is missing within thirty calendar days, and absent fraud every claim must be paid, denied or settled within ninety calendar days. A carrier that misses the clean-claim deadline owes 10% annual interest on the amount ultimately allowed, and one that misses the ninety-day deadline owes a penalty of 20% of that amount. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -422,6 +451,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
       { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+      { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -546,6 +576,8 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna require an autism diagnosis for ABA in Colorado?', a: 'Yes — ASD only (F84.0-F84.9) per the national policy, unlike Health First Colorado, which opens its benefit without an autism diagnosis. If a family lacks a diagnosis and holds a commercial Aetna plan, the diagnostic evaluation comes first.' },
       { q: 'What does Aetna pay for ABA in Colorado?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Health First Colorado fee schedule, and treat rate-setting as part of contracting.' },
       { q: 'Can an out-of-state BCBA treat Aetna members in Colorado, including by telehealth?', a: 'Colorado has no behavior analyst license yet; HB26-1425 makes one mandatory from July 1, 2028. Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
+      { q: 'What is Aetna’s timely filing limit in Colorado?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
+      { q: 'How fast must Aetna pay a clean ABA claim in Colorado?', a: 'Colorado law (C.R.S. § 10-16-106.5) gives a fully insured plan 30 calendar days to pay, deny or settle a clean electronic claim (45 for paper), 90 days for any claim absent fraud, with 10% interest and a 20% penalty after 90 days. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 
@@ -652,6 +684,24 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean claim in Colorado?',
+        body: [
+          'Colorado’s prompt-pay statute, C.R.S. § 10-16-106.5, requires clean claims to be “paid, denied, or settled within thirty calendar days after receipt by the carrier if submitted electronically and within forty-five calendar days after receipt by the carrier if submitted by any other means.” A claim that needs more information must get a written explanation of what is missing within thirty calendar days, and absent fraud every claim must be paid, denied or settled within ninety calendar days. A carrier that misses the clean-claim deadline owes 10% annual interest on the amount ultimately allowed, and one that misses the ninety-day deadline owes a penalty of 20% of that amount. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -665,6 +715,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'C.R.S. § 10-16-104 (FindLaw, current through 1/1/2025)', url: 'https://codes.findlaw.com/co/title-10-insurance/co-rev-st-sect-10-16-104/' },
       { title: 'HB26-1425 — Applied Behavior Analysis Services (Colorado General Assembly)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
       { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -800,6 +851,8 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Is Cigna accepting new ABA providers in Colorado?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
       { q: 'Does Cigna pay for ABA delivered at school in Colorado?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
       { q: 'Can an out-of-state BCBA treat Cigna members in Colorado, including by telehealth?', a: 'Colorado has no behavior analyst license yet; HB26-1425 makes one mandatory from July 1, 2028. Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
+      { q: 'What is Cigna’s timely filing limit in Colorado?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'How fast must Cigna pay a clean ABA claim in Colorado?', a: 'Colorado law (C.R.S. § 10-16-106.5) gives a fully insured plan 30 calendar days to pay, deny or settle a clean electronic claim (45 for paper), 90 days for any claim absent fraud, with 10% interest and a 20% penalty after 90 days. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 
@@ -903,6 +956,24 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean claim in Colorado?',
+        body: [
+          'Colorado’s prompt-pay statute, C.R.S. § 10-16-106.5, requires clean claims to be “paid, denied, or settled within thirty calendar days after receipt by the carrier if submitted electronically and within forty-five calendar days after receipt by the carrier if submitted by any other means.” A claim that needs more information must get a written explanation of what is missing within thirty calendar days, and absent fraud every claim must be paid, denied or settled within ninety calendar days. A carrier that misses the clean-claim deadline owes 10% annual interest on the amount ultimately allowed, and one that misses the ninety-day deadline owes a penalty of 20% of that amount. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -921,6 +992,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1054,6 +1126,8 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in Colorado?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
       { q: 'Does UnitedHealthcare pay for ABA in school in Colorado?', a: 'Mostly no. Optum\'s ABA FAQ says school-based services are reviewed for medical necessity, but "school-based ABA services or services that are otherwise covered under the Individuals with Disabilities Education Act (IDEA) are not covered (e.g., a 1:1 aid in the school setting)." Coordination is covered: teacher training, meetings with school staff and observations in school.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Colorado, including by telehealth?', a: 'Colorado has no behavior analyst license yet; HB26-1425 makes one mandatory from July 1, 2028. Optum (UnitedHealthcare) requires telehealth providers to “be licensed in the state where the member is located at the time of service”; ask Optum how it applies that before Colorado licensing starts.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit in Colorado?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
+      { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Colorado?', a: 'Colorado law (C.R.S. § 10-16-106.5) gives a fully insured plan 30 calendar days to pay, deny or settle a clean electronic claim (45 for paper), 90 days for any claim absent fraud, with 10% interest and a 20% penalty after 90 days. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 
@@ -1185,6 +1259,15 @@ export const coloradoPayers: Record<string, PayerConfig> = {
           { title: 'Anthem Blue Cross and Blue Shield Colorado — ABA Provider Resource Guide (June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-co.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Anthem Blue Cross and Blue Shield pay a clean claim in Colorado?',
+        body: [
+          'Colorado’s prompt-pay statute, C.R.S. § 10-16-106.5, requires clean claims to be “paid, denied, or settled within thirty calendar days after receipt by the carrier if submitted electronically and within forty-five calendar days after receipt by the carrier if submitted by any other means.” A claim that needs more information must get a written explanation of what is missing within thirty calendar days, and absent fraud every claim must be paid, denied or settled within ninety calendar days. A carrier that misses the clean-claim deadline owes 10% annual interest on the amount ultimately allowed, and one that misses the ninety-day deadline owes a penalty of 20% of that amount. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type, first', desc: 'Fully insured Colorado plan (mandate applies) vs. self-funded ERISA (preempted, federal parity only). Anthem\'s Colorado precert list applies to local fully-insured members and only to ASO members whose group purchased the medical-management program — so funding type also decides whether the precert rules on this page apply at all.' },
@@ -1202,6 +1285,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { title: 'Colorado HB26-1425 — Applied Behavior Analysis Services (Became Law)', url: 'https://leg.colorado.gov/bills/HB26-1425' },
       { title: 'Colorado DORA — Behavior Analyst program page', url: 'https://dpo.colorado.gov/BehaviorAnalyst' },
       { title: 'Anthem Colorado — MCG Care Guidelines 27th edition update (Feb 1, 2024)', url: 'https://files.providernews.elevancehealth.com/3731/COBCBS-CM-047275-23-MCG-Care-Gdlns-27th-Ed-6.1.24-Updte-BH_FINALv2.pdf' },
+      { title: 'C.R.S. § 10-16-106.5 — Prompt payment of claims (CRS 2024 official printout, Title 10)', url: 'https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-10.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1328,6 +1412,7 @@ export const coloradoPayers: Record<string, PayerConfig> = {
       { q: 'Is there a dollar cap on ABA under Colorado\'s autism mandate?', a: 'No. The cap language was struck effective January 1, 2017, and the statute now requires that coverage not be subject to dollar limits, deductibles or coinsurance less favorable than those applied to physical illness generally. There is also no small-employer exemption in the autism subsection.' },
       { q: 'Does Colorado license behavior analysts?', a: 'Not yet, but it will. HB26-1425 became law in 2026 and creates the Colorado Behavior Analyst Licensing Board; on and after July 1, 2028 practising applied behavior analysis without a board-issued license is prohibited. Until then the statutory "autism services provider" ladder, built on BACB certification, is the operative standard.' },
       { q: 'Can an out-of-state BCBA treat Anthem members in Colorado, including by telehealth?', a: 'Colorado has no behavior analyst license yet; HB26-1425 makes one mandatory from July 1, 2028. Anthem’s ABA guide accepts BCBAs and providers “licensed or authorized by the state in which they practice”; confirm the license question with Anthem credentialing.' },
+      { q: 'How fast must Anthem Blue Cross and Blue Shield pay a clean ABA claim in Colorado?', a: 'Colorado law (C.R.S. § 10-16-106.5) gives a fully insured plan 30 calendar days to pay, deny or settle a clean electronic claim (45 for paper), 90 days for any claim absent fraud, with 10% interest and a 20% penalty after 90 days. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 };

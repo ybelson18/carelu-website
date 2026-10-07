@@ -150,6 +150,17 @@ export const idahoPayers: Record<string, PayerConfig> = {
         ],
         cites: [ID_HB],
       },
+      {
+        h2: 'Claims: filing limit and appeals',
+        body: [
+          'Twelve months. IDAPA 16.03.26.025.01.d conditions payment on “not more than twelve (12) months” having elapsed since the service; for a participant found retroactively eligible, the claim must be submitted within twelve months of the eligibility determination. Medicare crossover claims are excluded from the limit.',
+          'Disputes run in three steps. A Claim Review Request to Gainwell — used, among other things, when the provider disagrees with a timely-filing denial — must be submitted within two years of the date of service, by mail on Gainwell’s form. A reconsideration request goes to the reviewing agent within 28 days of the mailing date of the Notice of Decision, and a formal appeal must be filed in writing within 28 days of the decision letter.',
+        ],
+        cites: [
+          { title: 'IDAPA 16.03.26 — Medicaid Plan Benefits, Section 025 (Conditions for Payment; eff. 7-1-26)', url: 'https://proddfmmainsa.blob.core.windows.net/dfm-admin-website/rules/current/16/160326.pdf' },
+          { title: 'Idaho Medicaid Provider Handbook — General Information and Requirements for Providers (Dec. 23, 2025), Section 4: Appeals', url: 'https://www.idmedicaid.com/General%20Information/General%20Information%20and%20Requirements%20for%20Providers.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Vineland-3 screening (or proof of prior eligibility)', desc: 'The eligibility gate. It needs deficits of 1.5+ SD in three or more areas. A Katie Beckett or DD eligibility assessment by the Independent Assessment Provider counts instead.' },
@@ -158,7 +169,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { title: 'Other insurance', desc: 'Medicaid pays last. Record any employer plan, TRICARE or CHAMPVA and bill it first.' },
       { title: 'Age and CHIS history', desc: 'Birth through the month of the 21st birthday. Ask whether the child used CHIS in the last 365 days, because a longer gap means a new order and screening.' },
     ],
-    sources: [ID_RULE, ID_HB, ID_GEN, ID_FS_DDA, ID_FS_IND, ID_MAG, ID_TEL, ID_TEL_EXP, ID_TEL_SIG, ID_DHW_CHIS, CFR_440_230, CFR_433_139, BACB_LIC],
+    sources: [ID_RULE, ID_HB, ID_GEN, ID_FS_DDA, ID_FS_IND, ID_MAG, ID_TEL, ID_TEL_EXP, ID_TEL_SIG, ID_DHW_CHIS, CFR_440_230, CFR_433_139, BACB_LIC, { title: 'IDAPA 16.03.26 — Medicaid Plan Benefits, Section 025 (Conditions for Payment; eff. 7-1-26)', url: 'https://proddfmmainsa.blob.core.windows.net/dfm-admin-website/rules/current/16/160326.pdf' }, { title: 'Idaho Medicaid Provider Handbook — General Information and Requirements for Providers (Dec. 23, 2025), Section 4: Appeals', url: 'https://www.idmedicaid.com/General%20Information/General%20Information%20and%20Requirements%20for%20Providers.pdf' }],
     deliveryRules: {
       supervision: {
         value:
@@ -251,6 +262,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'What does Idaho Medicaid pay?', a: 'For agencies, individual Behavioral Intervention (H0004) pays $24.68 per 15 minutes for a BCBA-level EBM professional, $18.51 for an EBM specialist and $14.34 for an RBT-level paraprofessional (effective 9/1/2025). Independent providers receive lower rates, for example $17.24 for H0004 TG.' },
       { q: 'What happens to an Idaho Medicaid CHIS authorization when a family switches providers?', a: 'The authorization cycle carries on. The handbook says the switch does not by itself need a new six-month request, the next request keeps the existing date cycle, and a new provider without the old provider\'s data should state that the child continues to need intervention services. Changes go on the PA Amendment Form, which does not reset the dates.' },
       { q: 'Is Idaho Medicaid accepting new CHIS (ABA) providers?', a: 'There is no MCO network to close: CHIS is fee-for-service. Agencies need state DDA certification; BCBAs, BCaBAs and other specialists can also enroll as independent CHIS providers with an NPI, a signed Medicaid provider agreement and a DHW background check clearance. The handbook names no enrollment cap.' },
+      { q: 'What is Idaho Medicaid’s timely filing limit?', a: 'Twelve months from the date of service (IDAPA 16.03.26.025.01.d), or twelve months from a retroactive eligibility determination. A Claim Review Request to Gainwell can be filed within two years of the date of service, including to dispute a timely-filing denial.' },
     ],
   },
 
@@ -313,6 +325,17 @@ export const idahoPayers: Record<string, PayerConfig> = {
         ],
         cites: [BACB_LIC],
       },
+      {
+        h2: 'How fast must Blue Cross of Idaho pay a clean claim in Idaho?',
+        body: [
+          'Idaho’s prompt-pay clock depends on how fast the provider files. Under Idaho Code § 41-5602, if an electronic claim is submitted within thirty days of the date of service, the insurer “shall pay or deny the claim not later than thirty (30) days after receipt”; a paper claim submitted within forty-five days of service must be paid or denied within forty-five days. A denial or request for more information must be sent in writing within the same thirty or forty-five days and must describe everything needed, after which the insurer has thirty days from receiving it. Late claims accrue interest at the statutory contract rate (§ 41-5603). The time limits do not apply where the insurer is complying with a provider contract that sets different payment terms (§ 41-5605(3)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' },
+          { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' },
+          { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and group', desc: 'Fully insured (Bulletin 18-02 applies) or self-funded. BCI says groups and ASC policy holders may adopt none, some or all of its behavioral health management.' },
@@ -321,7 +344,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and prescription', desc: 'Bulletin 18-02 keys coverage to care "prescribed or ordered" by a licensed physician or psychologist for a child diagnosed with ASD.' },
       { title: 'Other coverage', desc: 'Medicaid (CHIS), TRICARE or a second parent’s plan changes the billing order. Idaho uses the birthday rule for children on two parents’ plans.' },
     ],
-    sources: [BCI_PAP902, BCI_PAP241, BCI_FEP_FORM, BCI_MP301501, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE],
+    sources: [BCI_PAP902, BCI_PAP241, BCI_FEP_FORM, BCI_MP301501, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE, { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' }, { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' }, { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' }],
     deliveryRules: {
       supervision: {
         value: 'No commercial ABA supervision standard is published by Blue Cross of Idaho. The FEP-only request form asks providers to attest to qualifications such as the case being supervised by a state-licensed or Board Certified Behavior Analyst, and to their planned supervision frequency, but the clinical rules behind it are InterQual criteria, which are licensed and not public.',
@@ -428,6 +451,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'Does Blue Cross of Idaho cover ABA therapy?', a: 'On state-regulated plans that cover rehabilitative or habilitative services, Idaho’s Bulletin 18-02 bars excluding autism treatment. Self-funded groups set their own terms. BCI publishes no commercial ABA medical policy, so verify the member’s group every time.' },
       { q: 'Does Blue Cross of Idaho require prior authorization for ABA?', a: 'Its behavioral health PA policy (PAP902) lists ABA as requiring PA for Federal Employee Program members, with InterQual criteria and 6-month approvals. For commercial groups it is group-specific. Check BCI’s PA procedure-code lookup, because BCI does not accept retrospective authorizations.' },
       { q: 'Does Idaho have an autism insurance mandate?', a: 'Not by statute. Idaho relies on Department of Insurance Bulletin No. 18-02 (2018), which treats an autism-treatment exclusion as prohibited discrimination when a plan covers rehabilitative or habilitative services, and bars separate dollar or visit limits.' },
+      { q: 'How fast must Blue Cross of Idaho pay a clean ABA claim in Idaho?', a: 'Idaho law (Idaho Code § 41-5602) requires a fully insured plan to pay or deny an electronic claim within 30 days of receipt (45 for paper) — but only when the claim was filed within 30 days of the service (45 for paper), and a contract with different payment terms overrides it. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 
@@ -488,6 +512,17 @@ export const idahoPayers: Record<string, PayerConfig> = {
         ],
         cites: [BACB_LIC, REG_BH18],
       },
+      {
+        h2: 'How fast must Regence BlueShield of Idaho pay a clean claim in Idaho?',
+        body: [
+          'Idaho’s prompt-pay clock depends on how fast the provider files. Under Idaho Code § 41-5602, if an electronic claim is submitted within thirty days of the date of service, the insurer “shall pay or deny the claim not later than thirty (30) days after receipt”; a paper claim submitted within forty-five days of service must be paid or denied within forty-five days. A denial or request for more information must be sent in writing within the same thirty or forty-five days and must describe everything needed, after which the insurer has thirty days from receiving it. Late claims accrue interest at the statutory contract rate (§ 41-5603). The time limits do not apply where the insurer is complying with a provider contract that sets different payment terms (§ 41-5605(3)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' },
+          { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' },
+          { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' },
+        ],
+      },
     ],
     collect: [
       { title: 'ASD diagnosis + functional impairment', desc: 'From a qualified treating professional (pediatrician, pediatric neurologist, developmental pediatrician, psychologist), showing safety risk or inability to join age-appropriate activities.' },
@@ -496,7 +531,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA history', desc: 'BH18 asks for the most recent date of service with any previous ABA provider and the reason for discharge.' },
       { title: 'FEP or not, and plan funding type', desc: 'FEP members need assessment PA. Self-funded groups may differ from the fully insured rules.' },
     ],
-    sources: [REG_BH18, REG_BH33, REG_FORM, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE],
+    sources: [REG_BH18, REG_BH33, REG_FORM, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE, { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' }, { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' }, { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' }],
     deliveryRules: {
       supervision: {
         value: 'BCBAs and BCBA-Ds "are considered independently qualified providers and may oversee all aspects of assessment, treatment planning, and supervision of support staff in accordance with BACB guidelines." BCaBAs "must work under the supervision of a BCBA or BCBA-D." Behavior analysts in training must be supervised by a BCBA or BCBA-D. Behavior Technicians and RBTs "must be under the ongoing supervision of a BCBA, BCBA-D, or qualified supervisor." "All supervision must be conducted in accordance with the Behavior Analyst Certification Board’s Professional and Ethical Compliance Code and current supervision standards." No numeric ratio is set, but the treatment plan must justify the "hours per week of direct face-to-face supervision," and "clinical justification is required for excessive hours" of supervision.',
@@ -588,6 +623,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'What assessment does Regence require for ABA treatment?', a: 'At least one standardized assessment, such as Vineland-3 or ABAS-3. Curriculum-based tools like VB-MAPP or ABLLS-R are encouraged for planning, but on their own they are "insufficient" per form 5385ID.' },
       { q: 'Does Regence cover ABA for teenagers?', a: 'There is no age cap, but the Idaho form says evidence for people 13 and older is limited and asks for added justification, such as severe risk of injury related to ASD.' },
       { q: 'What does Regence need when a child switches from another ABA provider?', a: 'BH18 asks for documentation of the member\'s most recent date of service with any previous ABA provider and the reason for discharge from that provider, along with the new provider\'s own request for the services, units and authorization dates. It says nothing about an existing authorization transferring, so ask Regence behavioral health UM.' },
+      { q: 'How fast must Regence BlueShield of Idaho pay a clean ABA claim in Idaho?', a: 'Idaho law (Idaho Code § 41-5602) requires a fully insured plan to pay or deny an electronic claim within 30 days of receipt (45 for paper) — but only when the claim was filed within 30 days of the service (45 for paper), and a contract with different payment terms overrides it. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 
@@ -646,6 +682,26 @@ export const idahoPayers: Record<string, PayerConfig> = {
         ],
         cites: [AETNA_GUIDE, BACB_LIC],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean claim in Idaho?',
+        body: [
+          'Idaho’s prompt-pay clock depends on how fast the provider files. Under Idaho Code § 41-5602, if an electronic claim is submitted within thirty days of the date of service, the insurer “shall pay or deny the claim not later than thirty (30) days after receipt”; a paper claim submitted within forty-five days of service must be paid or denied within forty-five days. A denial or request for more information must be sent in writing within the same thirty or forty-five days and must describe everything needed, after which the insurer has thirty days from receiving it. Late claims accrue interest at the statutory contract rate (§ 41-5603). The time limits do not apply where the insurer is complying with a provider contract that sets different payment terms (§ 41-5605(3)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' },
+          { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' },
+          { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Bulletin 18-02 applies) or self-funded ERISA (outside it). Ask for the employer and check the card.' },
@@ -654,7 +710,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functioning measure within 12 months', desc: 'For example Vineland-3, ABAS, VB-MAPP or ABLLS, showing impairment at least 1 SD below the mean.' },
       { title: 'Prescription', desc: 'Bulletin 18-02 frames coverage around care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [AETNA_GUIDE, AETNA_PRECERT, AETNA_0648, AETNA_TELE, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE],
+    sources: [AETNA_GUIDE, AETNA_PRECERT, AETNA_0648, AETNA_TELE, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE, { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' }, { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' }, { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' }, { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Services must be provided directly or billed by licensed behavior analysts (in licensure states), board-certified behavior analysts, or licensed psychologists with behavior analysis in scope, unless state mandates, plan documents or contracts require otherwise. Where they allow services by unlicensed or non-certified staff, "there must be supervision and direction of the unlicensed or non-certified providers in line with practice standards." Aetna publishes no numeric supervision ratio.',
@@ -749,6 +805,8 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'Does Idaho have an autism insurance mandate?', a: 'No statute. Idaho relies on DOI Bulletin 18-02 (2018): no autism exclusion where rehab or habilitative services are covered, and no separate dollar or visit limits. It sets no age limit and does not reach self-funded ERISA plans.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
       { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
+      { q: 'What is Aetna’s timely filing limit in Idaho?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
+      { q: 'How fast must Aetna pay a clean ABA claim in Idaho?', a: 'Idaho law (Idaho Code § 41-5602) requires a fully insured plan to pay or deny an electronic claim within 30 days of receipt (45 for paper) — but only when the claim was filed within 30 days of the service (45 for paper), and a contract with different payment terms overrides it. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 
@@ -812,6 +870,26 @@ export const idahoPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean claim in Idaho?',
+        body: [
+          'Idaho’s prompt-pay clock depends on how fast the provider files. Under Idaho Code § 41-5602, if an electronic claim is submitted within thirty days of the date of service, the insurer “shall pay or deny the claim not later than thirty (30) days after receipt”; a paper claim submitted within forty-five days of service must be paid or denied within forty-five days. A denial or request for more information must be sent in writing within the same thirty or forty-five days and must describe everything needed, after which the insurer has thirty days from receiving it. Late claims accrue interest at the statutory contract rate (§ 41-5603). The time limits do not apply where the insurer is complying with a provider contract that sets different payment terms (§ 41-5605(3)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' },
+          { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' },
+          { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Bulletin 18-02 applies) or self-funded ERISA (outside it).' },
@@ -820,7 +898,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { title: 'Member ID + card photo', desc: 'Confirm the plan covers ABA, since the assessment PA waiver depends on it.' },
       { title: 'Prescription', desc: 'Bulletin 18-02 frames coverage around care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [CIGNA_EN0499, CIGNA_ARG, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE],
+    sources: [CIGNA_EN0499, CIGNA_ARG, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE, { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' }, { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' }, { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is performed by a BCBA, a Licensed Behavior Analyst, or an independently licensed mental health professional with documented ABA training. Direct and indirect case supervision run at "the generally accepted standard of care of one to two hours per ten hours of direct treatment," and when direct treatment is 10 hours a week or less, at least one to two hours a week of direct case supervision is provided. The supervisor’s name and credentials must be documented.',
@@ -909,6 +987,8 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'Can Cigna ABA be delivered by telehealth?', a: 'Yes. Evernorth’s autism resource guide says all ABA CPT codes are covered telehealth services.' },
       { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
+      { q: 'What is Cigna’s timely filing limit in Idaho?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'How fast must Cigna pay a clean ABA claim in Idaho?', a: 'Idaho law (Idaho Code § 41-5602) requires a fully insured plan to pay or deny an electronic claim within 30 days of receipt (45 for paper) — but only when the claim was filed within 30 days of the service (45 for paper), and a contract with different payment terms overrides it. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 
@@ -969,6 +1049,26 @@ export const idahoPayers: Record<string, PayerConfig> = {
         ],
         cites: [BACB_LIC, OPTUM_SCC],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean claim in Idaho?',
+        body: [
+          'Idaho’s prompt-pay clock depends on how fast the provider files. Under Idaho Code § 41-5602, if an electronic claim is submitted within thirty days of the date of service, the insurer “shall pay or deny the claim not later than thirty (30) days after receipt”; a paper claim submitted within forty-five days of service must be paid or denied within forty-five days. A denial or request for more information must be sent in writing within the same thirty or forty-five days and must describe everything needed, after which the insurer has thirty days from receiving it. Late claims accrue interest at the statutory contract rate (§ 41-5603). The time limits do not apply where the insurer is complying with a provider contract that sets different payment terms (§ 41-5605(3)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' },
+          { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' },
+          { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Bulletin 18-02 applies) or self-funded ERISA (outside it).' },
@@ -977,7 +1077,7 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { title: 'Baseline measure', desc: 'Treatment intensity must be set from a validated baseline tool, such as VB-MAPP, ABLLS-R, Vineland or SRS.' },
       { title: 'Prescription', desc: 'Bulletin 18-02 frames coverage around care prescribed or ordered by a licensed physician or psychologist.' },
     ],
-    sources: [OPTUM_SCC, OPTUM_SM, OPTUM_PE, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' }],
+    sources: [OPTUM_SCC, OPTUM_SM, OPTUM_PE, ID_BULLETIN, BACB_LIC, ID_3930, ERISA_503, ID_COB_RULE, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' }, { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' }, { title: 'Idaho Code § 41-5602 — Prompt payment of claims', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5602/' }, { title: 'Idaho Code § 41-5603 — Interest payments', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5603/' }, { title: 'Idaho Code § 41-5605 — Exceptions', url: 'https://legislature.idaho.gov/statutesrules/idstat/Title41/T41CH56/SECT41-5605/' }, { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards of care, "direct case supervision is required 1–2 hours for every 10 hours of direct" treatment. Technicians must be under the supervision of a BCBA or licensed behavioral health clinician and should be RBTs or another appropriately certified technician. Optum does not recommend that parents serve as RBTs for their own child.',
@@ -1083,6 +1183,8 @@ export const idahoPayers: Record<string, PayerConfig> = {
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit in Idaho?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
+      { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Idaho?', a: 'Idaho law (Idaho Code § 41-5602) requires a fully insured plan to pay or deny an electronic claim within 30 days of receipt (45 for paper) — but only when the claim was filed within 30 days of the service (45 for paper), and a contract with different payment terms overrides it. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 };

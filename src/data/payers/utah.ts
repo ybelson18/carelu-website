@@ -117,6 +117,16 @@ export const utahPayers: Record<string, PayerConfig> = {
           { title: 'Utah Medicaid Provider Manual — Autism Spectrum Disorder Services (updated January 2026)', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid%20Provider%20Manuals/Autism%20Spectrum%20Disorder%20Services/AutismSpectrumDisorder.pdf' },
         ],
       },
+      {
+        h2: 'What is the Utah Medicaid timely filing limit, and how are claim denials appealed?',
+        body: [
+          'Section I § 11-6.4: "a claim must be submitted to Medicaid within 365 days from the date of service," counted from the "from" date, and adjustments or corrections must also arrive within the 365 days. Claims received after the deadline are denied; a review for payment is possible only in listed situations with documentation.',
+          'Section I § 5-4: when Medicaid issues a determination on a claim, "the aggrieved person has 30 days to request a hearing"; adjustments or resubmissions do not extend that clock. For a denial by a managed care entity, the provider must finish the MCE’s appeal first, then request a hearing within 120 calendar days of the MCE’s written notice. Electronic Visit Verification (§ 11-9) applies to Home Health and Personal Care Services, including similar waiver services; ABA is not in that list.',
+        ],
+        cites: [
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information (updated September 2026), §§ 5-4, 11-6.4, 11-9', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Written ASD diagnosis + completed diagnostic tool', desc: 'Both attach to the initial PA — the diagnosis must rest on evidence-based standardized measures, though no specific instrument is mandated.' },
@@ -283,6 +293,8 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Can the 97151 assessment or BCBA supervision be done by telehealth under Utah Medicaid?', a: 'Yes, when clinically appropriate. The ASD manual allows behavior identification assessments and supervision of a technician or assistant analyst by synchronous two-way video, plus parent training. Technician-delivered 97153/97154 and group 97158 are not covered by telehealth. Bill POS 02 (or POS 10); from January 1, 2027 add modifier 95.' },
       { q: 'Is Utah Medicaid accepting new ABA providers?', a: 'The June 2026 enrollment moratorium names only new SUD and mental-health rehabilitation providers, not ABA. ABA providers enroll with Utah Medicaid in PRISM, now under High-Risk screening (owner fingerprinting, site visits).' },
       { q: 'Does Utah Medicaid pay for ABA in school?', a: 'Not fee-for-service. ASD services in school go through the School-Based Skills Development benefit; the analyst\'s participation in the school care-plan meeting is the only school-setting ABA service billable fee-for-service.' },
+      { q: 'What is the timely filing limit for Utah Medicaid ABA claims?', a: 'Three hundred sixty-five days from the date of service, including adjustments and corrections (Section I § 11-6.4).' },
+      { q: 'Does Utah Medicaid require EVV for ABA?', a: 'Section I limits the EVV requirement to Home Health and Personal Care Services (including similar waiver services); ABA is not one of them.' },
     ],
   },
 
@@ -383,6 +395,17 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'PRISM Coverage and Reimbursement Lookup (rates & PA flags)', url: 'https://health.utah.gov/stplan/lookup/CoverageLookup.php' },
+        ],
+      },
+      {
+        h2: 'What are Select Health’s claim filing and appeal deadlines?',
+        body: [
+          'Select Health’s provider reference manual: claims "must be submitted to Select Health on UB-92/04 or HCFA 1500 claim forms within 12 months of the date of service," and later claims are denied unless the provider shows notice was given as soon as reasonably possible. For Select Health Community Care (Medicaid) "Appeals must be filed within 60 days of the Adverse Benefit Determination," and a provider appeal gets a written response within 60 days of receipt.',
+          'Utah Medicaid’s Section I adds the state step: after the plan’s appeal is finished, a hearing request goes to the Office of Administrative Hearings within 120 calendar days of the MCE’s written notice.',
+        ],
+        cites: [
+          { title: 'Select Health — Provider Reference Manual, Commercial and Government Plans (January 2025)', url: 'https://selecthealth.org/content/dam/selecthealth/Provider/PDFs/Reference%20Manuals/prm-comm-govt.pdf' },
+          { title: 'Utah Medicaid Provider Manual — Section I: General Information (updated September 2026), §§ 5-4, 11-6.4, 11-9', url: 'https://medicaid-documents.dhhs.utah.gov/Documents/manuals/pdfs/Medicaid+Provider+Manuals/All+Providers+General+Information+Section+I/AllProvidersGeneralInfo_Section_1.pdf' },
         ],
       },
     ],
@@ -581,6 +604,7 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'How do I submit an ABA prior authorization to Select Health commercial?', a: 'Select Health\'s ABA Preauthorization Form, emailed to commercialUMintake@imail.org (fax 801-442-0825 as backup). Decisions on Utah commercial plans are due within 14 days.' },
       { q: 'Does Select Health require RBT certification for ABA technicians?', a: 'Depends on the product. Community Care (Medicaid) ABA follows Utah Medicaid, which requires technicians to be fully certified (RBT, QABA or BICC) before serving any member. For commercial members, Policy #630 requires ABA to be delivered or supervised by a licensed behavior analyst, BCBA or licensed psychologist and, where unlicensed or non-certified staff are allowed, supervision in line with practice standards (at least 5% of direct hours, monthly); it names no RBT requirement.' },
       { q: 'What does Select Health pay for ABA?', a: 'No published fee schedule exists for either product. Community Care members\' ABA is paid at Utah Medicaid\'s own PRISM rates (not a Select Health rate); commercial rates are negotiated in your participating-provider agreement.' },
+      { q: 'What is Select Health’s timely filing limit?', a: 'Twelve months from the date of service (Select Health provider reference manual).' },
     ],
   },
 
@@ -664,6 +688,19 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Behavior Analyst Licensing Act — Utah Code 58-61 Part 7 (official)', url: 'https://le.utah.gov/xcode/Title58/Chapter61/C58-61-P7_2015051220150701.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in Utah?',
+        body: [
+          'Utah Code § 31A-26-301.6 requires an insurer, including an HMO, to pay a claim or deny it with a written explanation "within 30 days of the day on which the insurer receives a written claim," extendable by 15 days for matters beyond its control with written notice.',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law. For fully insured Utah members, Aetna’s state exception allows 12 months to file an initial claim-payment dispute (24 months for coordination-of-benefits errors, 36 months for Medicaid/Medicare recoveries).',
+        ],
+        cites: [
+          { title: 'Utah Code § 31A-26-301.6 — Health care claims practices (eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter26/31A-26-S301.6.html' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Disagree with a claim decision?', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
         ],
       },
     ],
@@ -839,6 +876,8 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in Utah?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Utah\'s mandate (Utah Code § 31A-22-642) for individual and large-group fully-insured plans. Small-group and self-funded employer plans sit outside the mandate, so always verify market segment and funding type first.' },
       { q: 'What does the Utah autism mandate require?', a: 'For individual and large-group plans entered or renewed since 1/1/2020: coverage for ASD diagnosis and treatment with no age limit and no cap on ABA hours, a treatment plan due within 14 business days of starting treatment, insurer reviews at most every 3 months, and networks that include BCBAs. Small group is not covered by the statute.' },
       { q: 'What does Aetna pay for ABA in Utah?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against Utah Medicaid\'s published PRISM rates ($19.67/unit on 97153, $37.51 on 97151/97155/97156, effective 7/1/2026) and treat rate-setting as part of contracting.' },
+      { q: 'What is Aetna’s clean-claim payment turnaround in Utah?', a: 'Within 30 days of receiving the claim, extendable once by 15 days with notice (Utah Code § 31A-26-301.6).' },
+      { q: 'How long do I have to appeal an Aetna claim decision in Utah?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal. Fully insured Utah members: 12 months for an initial claim-payment dispute.' },
     ],
   },
 
@@ -938,6 +977,17 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in Utah?',
+        body: [
+          'Utah Code § 31A-26-301.6 requires an insurer, including an HMO, to pay a claim or deny it with a written explanation "within 30 days of the day on which the insurer receives a written claim," extendable by 15 days for matters beyond its control with written notice.',
+          'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days.',
+        ],
+        cites: [
+          { title: 'Utah Code § 31A-26-301.6 — Health care claims practices (eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter26/31A-26-S301.6.html' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
     ],
@@ -1055,9 +1105,10 @@ export const utahPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          '"All ABA CPT codes are covered telehealth services," per Evernorth\'s autism resource guide (March 2025). EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements; the line-of-sight and close-proximity requirement on direct treatment expressly does not apply to telehealth services. The assessment and supervision codes are included: the resource guide\'s "All ABA CPT codes" covers 97151 (initial assessment and reassessment) and 97155 (protocol modification / direct supervision) as much as 97153, and neither document caps the share of supervision that may be remote. Neither names a required telehealth POS code or modifier, so confirm claim coding with Evernorth Provider Services (800.926.2273).',
+          '"All ABA CPT codes are covered telehealth services," per Evernorth\'s autism resource guide (March 2025). EN0499 treats ABA as deliverable in person, by telehealth, or as a hybrid, with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements; the line-of-sight and close-proximity requirement on direct treatment expressly does not apply to telehealth services. The assessment and supervision codes are included: the resource guide\'s "All ABA CPT codes" covers 97151 (initial assessment and reassessment) and 97155 (protocol modification / direct supervision) as much as 97153, and neither document caps the share of supervision that may be remote. Neither of those two documents names a telehealth modifier or POS; Evernorth’s administrative guidelines (September 2026) do: use “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B.”',
         status: 'verified',
         cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
           { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
@@ -1095,6 +1146,8 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with Cigna in Utah?', a: 'Yes. Evernorth\'s autism resource guide says all ABA CPT codes are covered telehealth services, and EN0499 allows in-person, telehealth or hybrid delivery. No POS code or modifier is published; confirm claim coding with Provider Services (800.926.2273).' },
       { q: 'Is Cigna accepting new ABA providers in Utah?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
       { q: 'Does Cigna pay for ABA delivered at school in Utah?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
+      { q: 'What is Cigna’s clean-claim payment turnaround in Utah?', a: 'Within 30 days of receiving the claim, extendable once by 15 days with notice (Utah Code § 31A-26-301.6).' },
+      { q: 'What is Cigna’s timely filing limit in Utah?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
     ],
   },
 
@@ -1191,6 +1244,17 @@ export const utahPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in Utah?',
+        body: [
+          'Utah Code § 31A-26-301.6 requires an insurer, including an HMO, to pay a claim or deny it with a written explanation "within 30 days of the day on which the insurer receives a written claim," extendable by 15 days for matters beyond its control with written notice.',
+          'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
+        ],
+        cites: [
+          { title: 'Utah Code § 31A-26-301.6 — Health care claims practices (eff. 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter26/31A-26-S301.6.html' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
     ],
@@ -1359,6 +1423,8 @@ export const utahPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in Utah?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
       { q: 'What is UnitedHealthcare\'s ABA fee schedule in Utah?', a: 'There is no public one. Optum pays contracted providers at the rate on the fee schedule in their Optum agreement.' },
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in Utah?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
+      { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Utah?', a: 'Within 30 days of receiving the claim, extendable once by 15 days with notice (Utah Code § 31A-26-301.6).' },
+      { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Utah?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
     ],
   },
 };

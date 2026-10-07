@@ -215,6 +215,15 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'Carelon/MBHP Performance Specifications — Applied Behavior Analysis (upd. Feb 15, 2026)', url: 'https://providers.masspartnership.com/pdf/PerfSpec-ABA.pdf' },
         ],
       },
+      {
+        h2: 'What is MassHealth’s timely filing limit?',
+        body: [
+          'For claims billed to MassHealth directly, 90 days: “all claims must be received by the MassHealth agency within 90 days from the date of service or the date of the explanation of benefits from another insurer,” measured from the latest date when a service runs on consecutive dates (130 CMR 450.309, under M.G.L. c. 118E, § 38). Late claims that fit a listed exception need a 90-day waiver request, submitted electronically. Members whose ABA runs through MBHP or a managed care plan follow that administrator’s filing limit.',
+        ],
+        cites: [
+          { title: '130 CMR 450.309 — Claims: billing deadlines (MassHealth)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-309' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan → BH administrator', desc: 'PCC/ACO/HNE → MBHP; Fallon → Carelon; WellSense → in-house (since 1/1/2026, previously Carelon); Tufts Together → Point32 internal; MGB → Optum. It decides the form and portal.' },
@@ -245,6 +254,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Point32Health — Tufts Health Public Plans Provider Manual, Behavioral Health chapter (2026)', url: 'https://www.point32health.org/documents/thpp-08-bh-pm' },
       { title: 'MassHealth All Provider Bulletin 379 — Access to Health Services through Telehealth Options (October 2023)', url: 'https://www.mass.gov/doc/all-provider-bulletin-379-access-to-health-services-through-telehealth-options-0/download' },
       { title: 'MassHealth Managed Care Entity Bulletin 115 — Telehealth for members enrolled in managed care entities (April 2024)', url: 'https://www.mass.gov/doc/managed-care-entity-bulletin-115-access-to-health-services-through-telehealth-options-for-members-enrolled-in-managed-care-entities-0/download' },
+      { title: '130 CMR 450.309 — Claims: billing deadlines (MassHealth)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-309' },
     ],
     faq: [
       { q: 'Does MassHealth cover ABA therapy?', a: 'Yes — for members under 21 (under 19 on Family Assistance) through EPSDT, with no annual or lifetime dollar or unit caps. Prior authorization is required for all ABA services, submitted to the behavioral-health administrator behind the member\'s plan.' },
@@ -253,6 +263,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { q: 'What is the MassHealth 1:10 supervision rule?', a: 'MassHealth\'s CY2024 audit enforced a minimum one hour of 97155 supervision per ten hours of 97153 direct treatment; ratios above that drew partial or full recoupment (letters issued Feb–Mar 2026, currently disputed by provider groups). Staff and schedule to at least 1:10.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth under MassHealth?', a: 'Yes. MassHealth\'s telehealth bulletin (All Provider Bulletin 379) excludes no ABA code, every managed-care plan must be at least as generous (MCE Bulletin 115), and the ABA performance specification allows telehealth at the family\'s request when clinically appropriate. Bill POS 02 or 10 with modifier 95 (video) or 93 (audio-only). Telehealth must not replace in-person availability.' },
       { q: 'What happens to a MassHealth ABA authorization if the family switches providers?', a: 'No MassHealth document says whether it transfers, so ask the member\'s behavioral-health administrator before the switch. The agency the family leaves must give the family an up-to-date treatment plan on the last day of service and send it to the child\'s other current providers within seven days.' },
+      { q: 'What is MassHealth’s timely filing limit?', a: '90 days from the date of service, or from the other insurer’s explanation of benefits, for claims billed to MassHealth directly (130 CMR 450.309). Plan- and MBHP-administered ABA follows the administrator’s own limit.' },
     ],
   },
 
@@ -1548,6 +1559,25 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean claim in Massachusetts?',
+        body: [
+          'Massachusetts gives the payer 45 days. An HMO’s provider contract must require it, within 45 days after receiving completed claim forms, to pay, to say in writing why it is not paying, or to say what additional information it needs; if it misses that window it owes interest “at the rate of 1.5 per cent per month, not to exceed 18 per cent per year” from day 45 (M.G.L. c. 176G, § 6). Insured accident and sickness policies carry the same 45-day notice rule and the same 1.5%-a-month interest (c. 175, § 110(G)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+          { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1568,6 +1598,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Aetna CPB state deviations page', url: 'https://www.aetna.com/health-care-professionals/cpb-state-deviations.html' },
       { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+      { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+      { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Massachusetts?', a: 'Yes — under the carrier\'s national policy for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1577,6 +1610,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
       { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
       { q: 'Does Aetna cover ABA for Down syndrome in Massachusetts?', a: 'It depends on the plan. Aetna\'s national policy CPB 0554 (last reviewed 11/26/2025) still calls ABA experimental for Down syndrome without an autism co-morbidity and publishes no Massachusetts exception. Chapter 388 requires fully insured Massachusetts plans to cover sole-diagnosis Down syndrome from 1/1/2026, so on a fully insured plan a denial on CPB 0554 grounds is worth escalating on the mandate.' },
+      { q: 'What is Aetna’s timely filing limit in Massachusetts?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
+      { q: 'How fast must Aetna pay a clean ABA claim in Massachusetts?', a: 'Massachusetts law gives a fully insured plan 45 days from receiving a completed claim to pay it, explain the non-payment or ask for what is missing, with interest of 1.5% a month (capped at 18% a year) after that (M.G.L. c. 176G, § 6; c. 175, § 110(G)). Self-funded employer plans are not bound by the statute.' },
     ],
   },
 
@@ -1775,6 +1810,25 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision. Its Massachusetts addendum writes the 45-day pay-or-explain rule and the 1.5%-a-month interest into the provider agreement.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean claim in Massachusetts?',
+        body: [
+          'Massachusetts gives the payer 45 days. An HMO’s provider contract must require it, within 45 days after receiving completed claim forms, to pay, to say in writing why it is not paying, or to say what additional information it needs; if it misses that window it owes interest “at the rate of 1.5 per cent per month, not to exceed 18 per cent per year” from day 45 (M.G.L. c. 176G, § 6). Insured accident and sickness policies carry the same 45-day notice rule and the same 1.5%-a-month interest (c. 175, § 110(G)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+          { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1789,6 +1843,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Session Law — Acts of 2010, Chapter 207 (malegislature.gov)', url: 'https://malegislature.gov/Laws/SessionLaws/Acts/2010/Chapter207' },
       { title: 'The Arc of Massachusetts — Down syndrome ABA expansion', url: 'https://thearcofmass.org/post/expansion-of-coverage-of-applied-behavior-analysis-aba-for-individuals-with-down-syndrome/' },
       { title: '262 CMR 10.00 — LABA/LAABA licensure requirements (mass.gov)', url: 'https://www.mass.gov/regulations/262-CMR-1000-requirements-for-licensure-as-an-applied-behavior-analyst-and-assistant-applied-behavior-analyst' },
+      { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+      { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     faq: [
       { q: 'Does Cigna cover ABA therapy in Massachusetts?', a: 'Yes — under national policy EN0499 for ASD (no PA on assessment codes), layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1796,6 +1853,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { q: 'Does EN0499 apply differently in Massachusetts?', a: 'No — unlike Virginia, EN0499 carries no Massachusetts carve-out, so the standard policy (including the no-PA assessment path) applies, with ARICA controlling for fully-insured plans where they diverge.' },
       { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
+      { q: 'What is Cigna’s timely filing limit in Massachusetts?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'How fast must Cigna pay a clean ABA claim in Massachusetts?', a: 'Massachusetts law gives a fully insured plan 45 days from receiving a completed claim to pay it, explain the non-payment or ask for what is missing, with interest of 1.5% a month (capped at 18% a year) after that (M.G.L. c. 176G, § 6; c. 175, § 110(G)). Self-funded employer plans are not bound by the statute.' },
     ],
   },
 
@@ -1999,6 +2058,25 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: '262 CMR 10.00 — LABA/LAABA licensure requirements (mass.gov)', url: 'https://www.mass.gov/regulations/262-CMR-1000-requirements-for-licensure-as-an-applied-behavior-analyst-and-assistant-applied-behavior-analyst' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean claim in Massachusetts?',
+        body: [
+          'Massachusetts gives the payer 45 days. An HMO’s provider contract must require it, within 45 days after receiving completed claim forms, to pay, to say in writing why it is not paying, or to say what additional information it needs; if it misses that window it owes interest “at the rate of 1.5 per cent per month, not to exceed 18 per cent per year” from day 45 (M.G.L. c. 176G, § 6). Insured accident and sickness policies carry the same 45-day notice rule and the same 1.5%-a-month interest (c. 175, § 110(G)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+          { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2019,6 +2097,9 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'M.G.L. c. 175, § 110(G) — Accident and sickness claims', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section110' },
+      { title: 'M.G.L. c. 176G, § 6 — HMO provider contracts (45-day payment)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176G/Section6' },
+      { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Massachusetts?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -2029,6 +2110,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
       { q: 'Does UnitedHealthcare pay for ABA in a school?', a: 'Not for classroom aide work or anything owed under IDEA: Optum\'s criteria exclude "1:1 aid delivered simultaneously during classroom instruction" and "services covered under the Individuals with Disabilities Education Act." School-related coordination is covered, such as teacher training, meetings with school personnel and observations in the school setting.' },
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit in Massachusetts?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
+      { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Massachusetts?', a: 'Massachusetts law gives a fully insured plan 45 days from receiving a completed claim to pay it, explain the non-payment or ask for what is missing, with interest of 1.5% a month (capped at 18% a year) after that (M.G.L. c. 176G, § 6; c. 175, § 110(G)). Self-funded employer plans are not bound by the statute.' },
     ],
   },
 };

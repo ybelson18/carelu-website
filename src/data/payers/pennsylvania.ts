@@ -135,6 +135,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'OMHSAS IBHS Frequently Asked Questions (updated February 2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/intensive-behavioral-health-services-(ibhs)/ibhs-faq-updated-02-22-22.pdf' },
         ],
       },
+      {
+        h2: 'What is the Pennsylvania Medical Assistance timely filing limit?',
+        body: [
+          '55 Pa. Code § 1101.68: a provider "shall submit original or initial invoices to be received by the Department within a maximum of 180 days after the date the services were rendered," and resubmissions of a rejected claim or adjustments within 365 days of the date of service. HealthChoices members’ IBHS ABA claims go to the county’s behavioral health MCO, whose own limits are shorter (60 to 90 days).',
+        ],
+        cites: [
+          { title: '55 Pa. Code § 1101.68 — Invoicing for services (MA time frames)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.68.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'County of residence', desc: 'Decides the BH-MCO (CBH, Community Care, Magellan, PerformCare or Carelon) that authorizes and pays ABA — the physical-health plan card does not.' },
@@ -302,6 +311,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Is Pennsylvania Medicaid accepting new ABA providers?', a: 'An agency needs an OMHSAS IBHS licence (with a county letter of support requested), MA enrollment as an IBHS provider, and, for HealthChoices members, a contract with the county\u2019s BH-MCO, which decides network admission.' },
       { q: 'If a family changes ABA agencies, what carries over?', a: 'The state sets no transfer procedure. The new agency works from a valid written order, gets fresh consent, and completes its own assessment (30 days) and ITP (45 days). If an agency cannot provide ordered services it must tell the BH-MCO, which helps the family find another provider. Ask the BH-MCO about the authorization.' },
       { q: 'What does Pennsylvania Medicaid pay for ABA?', a: 'The FFS IBHS table (OMHSAS-21-03, January 2021) lists 97153 at $12.73 per 15 minutes for a BHT-ABA ($15.76 for an Assistant BC-ABA) and 97151/97155/97156 at $22.09 ($24.73 for a BCBA). HealthChoices rates are set in each BH-MCO\'s provider contract.' },
+      { q: 'What is the Pennsylvania Medicaid timely filing limit?', a: '180 days from the date of service for fee-for-service claims (55 Pa. Code § 1101.68); HealthChoices BH-MCOs set their own, shorter limits.' },
     ],
   },
 
@@ -396,6 +406,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Community Care — Intensive Behavioral Health Services Performance Standards', url: 'https://providers.ccbh.com/uploads/files/CCBH-IBHS-Performance-Standards.pdf' },
         ],
       },
+      {
+        h2: 'What is Community Care’s timely filing limit?',
+        body: [
+          'Community Care’s February 2026 manual sets it by county contract, counted from the date of service: Allegheny, Blair, Carbon/Monroe/Pike, Erie, Lycoming/Clinton, North Central, Northeast and York/Adams allow 90 days (180 days to complete the claim process); Berks allows 60 days (120 to complete); Chester and Delaware allow 60 days (180 to complete). Non-participating contracts get 365 days, and no claim at 365 days or more from the date of service is considered. COB claims outside the county limit must arrive within 30 calendar days of the primary payer’s decision.',
+        ],
+        cites: [
+          { title: 'Community Care Provider Manual (February 2026), Timely Filing Guidelines', url: 'https://providers.ccbh.com/uploads/files/202602-providermanual_2026-02-03-153100_lbib.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'County of residence and MA ID', desc: 'Community Care covers 41 counties; a family in Philadelphia, a Magellan, PerformCare or Carelon county has a different BH-MCO. Confirm eligibility at every visit.' },
@@ -429,6 +448,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Is Community Care accepting new ABA providers?', a: 'Only through a needs-based review. Every applicant completes network management screening, and Community Care reviews it with its county partners before deciding on network inclusion, based on member needs and geography.' },
       { q: 'What happens if a family switches ABA providers under Community Care?', a: 'It is handled as a transfer of care: a treatment-team meeting, and signed releases so the Written Order, Assessment and ITP are filed at the new agency. Confirm the authorization with Community Care before the new agency starts.' },
       { q: 'Can ABA be delivered in a center?', a: 'Yes, one-to-one center-based ABA by an OMHSAS-approved IBHS provider, when the written order and assessment both recommend it. Community Care’s July 2026 guidelines expect mostly under-6 children with documented neurodevelopmental delays and a plan to taper center hours.' },
+      { q: 'What is Community Care’s timely filing limit for ABA claims?', a: 'It depends on the county: 90 days in most counties, 60 days in Berks, Chester and Delaware. Nothing at or beyond 365 days from service is paid.' },
     ],
     state: 'PA',
     kind: 'medicaid-mco',
@@ -687,6 +707,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'CBH Provider Manual (updated August 2026)', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Manual_2026-08-28.pdf' },
         ],
       },
+      {
+        h2: 'What are CBH’s claim filing and payment deadlines?',
+        body: [
+          'CBH’s August 2026 manual: "Providers must submit a clean claim within 90 days of the service date." With other insurance, the provider must get the primary payer’s final determination within 180 days of service and file with CBH within 90 days of it. "CBH will adjudicate all clean claims within 45 days and adjudicate all claims within 90 days."',
+        ],
+        cites: [
+          { title: 'CBH Provider Manual (updated August 28, 2026), §§ 6.2.1.1 and 6.2.4.1', url: 'https://cbhphilly.org/wp-content/uploads/2022/10/CBH_Provider-Manual_2026-08-28.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Philadelphia residence and MA ID', desc: 'CBH covers Philadelphia County only; confirm HealthChoices eligibility in EVS before each authorization.' },
@@ -726,6 +755,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Is CBH accepting new ABA providers?', a: 'Only by invitation. CBH\u2019s manual says parent organizations \u201cwill be invited to join\u201d under its Network Entry policy, and new programs sometimes enter through a procurement; credentialing starts after the agency is licensed and enrolled in PA Medicaid.' },
       { q: 'Is telehealth ABA covered by CBH?', a: 'Only as a supplement. CBH expects IBHS to be delivered primarily in person; telehealth may support contact with collaterals or act as a rare backup. Bill POS 10 for the member’s home, POS 02 elsewhere, and add FQ for audio-only.' },
       { q: 'The child has private insurance. Does CBH still review medical necessity?', a: 'Usually not. When the primary plan authorizes ABA, CBH matches that authorization at the same frequency and duration without a separate medical-necessity decision. It reviews as primary only if the primary denies (after its appeals), doesn’t cover the service, or the annual benefit cap is exhausted.' },
+      { q: 'What is CBH’s timely filing limit?', a: 'Ninety days from the date of service for a clean claim (90 days from the primary EOB for TPL claims).' },
     ],
     state: 'PA',
     kind: 'medicaid-mco',
@@ -1284,6 +1314,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PerformCare HealthChoices Provider Manual (updated February 2023)', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
         ],
       },
+      {
+        h2: 'What are PerformCare’s claim filing and taxonomy rules?',
+        body: [
+          'PerformCare’s manual: original claims must be received within 60 days for the Capital Area (Cumberland, Dauphin, Lancaster, Lebanon, Perry) and TCMA (Franklin, Fulton) contracts; third-party-liability claims within 365 days of service and no more than 60 days after the EOB. Claims 365 days or more past the date of service are not considered, and claim appeals filed more than 60 days after the denial notice are denied. Every claim needs a taxonomy code with its qualifier: billing NPI in box 33a with ZZ and the billing taxonomy in 33b, and the rendering NPI and taxonomy in 24J when the rendering provider differs.',
+        ],
+        cites: [
+          { title: 'PerformCare HealthChoices Provider Manual (updated February 2023), claims and CMS-1500 completion guidelines', url: 'https://pa.performcare.org/content/dam/amerihealth-caritas/performcare-pa/pdf/providers/resources-information/provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'PerformCare covers Cumberland, Dauphin, Franklin, Fulton, Lancaster, Lebanon and Perry; CANS rules differ between the CABHC and Franklin/Fulton contracts.' },
@@ -1318,6 +1357,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Can a family switch ABA agencies under PerformCare?', a: 'Yes. Members may change network providers. Families pick an agency on a Provider Choice Acknowledgment Form, and an agency that cannot start the assessment within 7 days must offer a transfer to one that can. Ask PerformCare how an existing authorization is handled.' },
       { q: 'Does my child need an autism diagnosis for PerformCare ABA?', a: 'No — IBHS ABA is available for a behavioral health diagnosis on the written order. An autism diagnosis matters mainly for coordination with private insurance under Act 62.' },
       { q: 'What does PerformCare need when private insurance is primary?', a: 'Seek authorization from both plans, bill the private plan first, and attach the EOB. For ABA/Act 62, PerformCare needs one denial or non-covered letter per CPT code per calendar year (plus an EOB denial per code per year if the letter spans years) before it pays as primary for the rest of that year.' },
+      { q: 'What is PerformCare’s timely filing limit?', a: 'Sixty days for original claims under the Capital Area and TCMA contracts; nothing 365 or more days past the date of service.' },
+      { q: 'Does PerformCare require taxonomy on the claim?', a: 'Yes. Billing taxonomy (ZZ qualifier) in box 33b on every CMS-1500, and the rendering taxonomy in 24J when the rendering provider differs from the billing provider.' },
     ],
     state: 'PA',
     kind: 'medicaid-mco',
@@ -1565,6 +1606,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Carelon Health of Pennsylvania Provider Manual \u2014 Member Right to Continuing Course of Treatment', url: 'https://providers.pa.carelon.com/providers/provider-manual/4-member-right-to-continuing-course-of-treatment/' },
         ],
       },
+      {
+        h2: 'What are Carelon’s claim filing and payment deadlines?',
+        body: [
+          'Carelon’s billing guide: initial HealthChoices claims are due "within 90 days of" the date of service, the date of discharge, or the primary carrier’s EOB for secondary claims, and Carelon encourages billing within 30 days. Its standard is to adjudicate 90% of clean claims within 30 days, 100% of clean claims within 45 days and all claims within 90 days. Exceptions to the 90-day rule go to the Timely Filing Committee with documentation.',
+        ],
+        cites: [
+          { title: 'Carelon Health of Pennsylvania — Billing Guide (rev. 06/27/2019)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Billing-Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID and county', desc: 'Carelon covers 11 western PA counties; a county change needs an authorization under the new eligibility line.' },
@@ -1581,7 +1631,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Carelon Health of PA Policy CN.48 — Intensive Behavioral Health Services (DHS approved 9/26/2024)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/CN-48-IBHS-Beacon-Policy-and-Procedure.pdf' },
       { title: 'Carelon Health of PA — Intensive Behavioral Health Services (IBHS) provider page', url: 'https://providers.pa.carelon.com/providers/intensive-behavioral-health-services-ibhs/' },
       { title: 'Carelon Health of PA — IBHS Packet Documentation Checklist', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/IBHS-Packet-Documentation-Checklist.docx' },
-      { title: 'Carelon Health of PA — Authorization Requirements by service class', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Authorization-Requirements.docx' },
+      { title: 'Carelon Health of PA — Authorization Requirements by service class', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Authorization-Requirements.pdf' },
       { title: 'Carelon Pennsylvania HealthChoices Covered Services Grid (PV 07/22/2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Pennsylvania-HealthChoices-Covered-Services-Grid-PV-07222026.xlsx' },
       { title: 'Carelon Health of PA — Act 62 Frequently Asked Questions', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/ACT-62-Frequently-Asked-Questions.pdf' },
       { title: 'Carelon Health of PA — Autism Coverage: Acceptable Benefit Verification Information', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/ACT-62-Autism-Coverage-Acceptable-Benefit-Verification-Information.pdf' },
@@ -1601,6 +1651,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Is Carelon accepting new ABA providers?', a: 'Only where its network is open. Carelon accepts applications \u201conly for those counties and levels of care in which the network is active,\u201d so ask Provider Relations about IBHS-ABA in your county first. You also need a PROMISe number and the right licence.' },
       { q: 'What is Carelon\u2019s fee schedule for ABA?', a: 'There is no public one. Carelon pays its contracted rate under your provider agreement.' },
       { q: 'How do we bill ABA telehealth to Carelon?', a: 'Identify telehealth by place of service only — POS 10 in the member’s home, POS 02 elsewhere; Carelon discontinued the GT modifier (Alert 03.26.01, Jan. 2026). The grid lists FQ variants of the ABA codes on POS 02/10 for audio-only.' },
+      { q: 'What is Carelon Pennsylvania’s timely filing limit?', a: 'Ninety days from the date of service, discharge, or primary EOB.' },
     ],
     state: 'PA',
     kind: 'medicaid-mco',
@@ -1611,7 +1662,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Carelon Health of PA Policy CN.48 — Intensive Behavioral Health Services (DHS approved 9/26/2024)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/CN-48-IBHS-Beacon-Policy-and-Procedure.pdf' },
-        { title: 'Carelon Health of PA — Authorization Requirements by service class', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Authorization-Requirements.docx' },
+        { title: 'Carelon Health of PA — Authorization Requirements by service class', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Authorization-Requirements.pdf' },
         { title: 'Carelon Pennsylvania HealthChoices Covered Services Grid (PV 07/22/2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Carelon-Pennsylvania-HealthChoices-Covered-Services-Grid-PV-07222026.xlsx' },
       ],
     },
@@ -1620,7 +1671,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Carelon Health of PA Policy CN.48 — Intensive Behavioral Health Services (DHS approved 9/26/2024)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/CN-48-IBHS-Beacon-Policy-and-Procedure.pdf' },
-        { title: 'Carelon Health of PA — Authorization Requirements by service class', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Authorization-Requirements.docx' },
+        { title: 'Carelon Health of PA — Authorization Requirements by service class', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Authorization-Requirements.pdf' },
         { title: 'Carelon Health of PA — IBHS Packet Documentation Checklist', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/IBHS-Packet-Documentation-Checklist.docx' },
       ],
     },
@@ -1886,6 +1937,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Highmark Medical Policy Z-27-037 — Eligible Providers (PA commercial, eff. October 13, 2025)', url: 'https://securecms.highmark.com/content/medpolicy/en/highmark/pa/commercial/policies/Miscellaneous/Z-27/Z-27-037.html' },
         ],
       },
+      {
+        h2: 'How fast must Highmark pay a clean ABA claim in Pennsylvania?',
+        body: [
+          'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+        ],
+        cites: [
+          { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type and group size', desc: 'Fully insured large group (51+) or CHIP means Act 62 applies. Self-funded (ASO), individual or small-group means the benefit contract and whether the ASO elected V-37 decide. Ask for the employer name and read the card.' },
@@ -2052,6 +2112,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Does Highmark require prior authorization for ABA?', a: 'Yes. Since March 1, 2026, all ABA codes (97151–97158, 0362T, 0373T) are on Highmark’s prior authorization list, managed by Highmark Behavioral Health. That includes the assessment. Submit through Availity.' },
       { q: 'Does Highmark Wholecare cover ABA?', a: 'No. Highmark Wholecare is a Medicaid physical-health plan. Its handbook says behavioral health services come through the county BH-MCO, which manages ABA (IBHS) for Medicaid children in Pennsylvania.' },
       { q: 'What does Highmark pay for ABA in Pennsylvania?', a: 'Commercial ABA rates are negotiated. One exception is published: from October 16, 2026, CPT 97153 for PA PPO pays $16.59 in the office and $15.73 outside the office. Other codes and products are set by your contract.' },
+      { q: 'What is Highmark’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
     ],
   },
 
@@ -2169,6 +2230,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
           { title: '49 Pa. Code Ch. 18 Subch. N (§§ 18.521–18.527) — Behavior Specialists', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/049/chapter18/chap18toc.html' },
           { title: 'Capital Blue Cross — Provider Manual 2026', url: 'https://www.capbluecross.com/wps/portal/cap/provider/provider-hub/provider-manual/provider-manual' },
+        ],
+      },
+      {
+        h2: 'How fast must Capital Blue Cross pay a clean ABA claim in Pennsylvania?',
+        body: [
+          'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+        ],
+        cites: [
+          { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
         ],
       },
     ],
@@ -2334,6 +2404,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Does Capital Blue Cross require prior authorization for ABA?', a: 'Yes, before treatment starts. 97151–97158, 0362T and 0373T are on the Single Source Preauthorization List for Commercial/CHIP. Submit through the Provider Portal with the plan of care and clinical notes.' },
       { q: 'How long does Capital take to decide an ABA request?', a: 'For commercial members, the manual allows up to 15 calendar days for a standard request and 72 hours for an expedited one, with a missing-information notice within 48 hours. CHIP requests are decided within two business days.' },
       { q: 'What does Capital Blue Cross pay for ABA?', a: 'Capital publishes no ABA fee schedule. Commercial ABA rates are negotiated in the Provider Agreement.' },
+      { q: 'What is Capital Blue Cross’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
     ],
   },
 
@@ -2448,6 +2519,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
           { title: 'IBX Claim Payment Policy 00.10.41q — Telemedicine Services (effective 1/1/2026)', url: 'https://medpolicy.ibx.com/ibc/Commercial/Pages/Policy/dbc419ce-5ff7-4009-8913-a65cb35c75ed.aspx' },
+        ],
+      },
+      {
+        h2: 'How fast must Independence Blue Cross pay a clean ABA claim in Pennsylvania?',
+        body: [
+          'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+        ],
+        cites: [
+          { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
         ],
       },
     ],
@@ -2616,6 +2696,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Does IBX still use Magellan for ABA?', a: 'No. From April 1, 2026, IBX’s own Autism Case Management team manages ABA for IBX and Independence Administrators members. Use the 2026 ABA Prior Authorization Form, fax 215-238-2500, call 1-800-688-1911. Magellan’s old ABA fax closed May 1, 2026.' },
       { q: 'Does the ABA assessment need prior authorization with IBX?', a: 'Yes. 97151, 97152 and 0362T are on IBX’s commercial precertification list with every other ABA code, and the PA form has a separate "Assessment request" option.' },
       { q: 'What does IBX pay for ABA?', a: 'Commercial ABA rates are not published; they are negotiated in your IBX provider agreement. The one published rule is that behavioral health delivered by telemedicine is paid at 100% of your contracted fee schedule.' },
+      { q: 'What is Independence Blue Cross’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
     ],
   },
 
@@ -2723,6 +2804,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'UPMC Health Plan Provider Manual — Chapter L, Behavioral Health Services (updated 08-20-25)', url: 'https://www.upmchealthplan.com/docs/providers/2025_ProviderManual_L.pdf' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
           { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
+        ],
+      },
+      {
+        h2: 'How fast must UPMC Health Plan pay a clean ABA claim in Pennsylvania?',
+        body: [
+          'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+        ],
+        cites: [
+          { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
         ],
       },
     ],
@@ -2880,6 +2970,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'Who manages ABA for UPMC commercial members?', a: 'UPMC Health Plan Behavioral Health Services manages commercial behavioral health in-house. Community Care Behavioral Health handles network credentialing and after-hours authorizations. UPMC for You and Community HealthChoices members get behavioral health from their county BH-MCO instead.' },
       { q: 'Can ABA be delivered by telehealth for UPMC members?', a: 'UPMC’s telemedicine policy MP.148 lists 97151–97158, 0362T and 0373T for commercial members, but audio-video is mandatory — audio-only sessions are denied. Bill with POS 02 or 10.' },
       { q: 'What does UPMC Health Plan pay for ABA?', a: 'UPMC publishes no commercial ABA rates; they are negotiated in your provider agreement.' },
+      { q: 'What is UPMC Health Plan’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
     ],
   },
 
@@ -2982,6 +3073,15 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA Insurance Department Notice 2026-06 — Autism coverage CPI-U adjustment and parity reminder (56 Pa.B. 1396)', url: 'https://www.pacodeandbulletin.gov/secure/pabulletin/data/vol56/56-10/352.html' },
           { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts (PA absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+        ],
+      },
+      {
+        h2: 'How fast must Geisinger Health Plan pay a clean ABA claim in Pennsylvania?',
+        body: [
+          'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+        ],
+        cites: [
+          { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
         ],
       },
     ],
@@ -3157,6 +3257,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'What criteria does Geisinger use for ABA?', a: 'Policy MP232 says ABA coverage follows the Pennsylvania OMHSAS Medical Necessity Guideline for ABA (bulletin OMHSAS-17-01, January 13, 2017). It was written for Medical Assistance and asks for a recent evaluation, a prescription and an individualized treatment plan.' },
       { q: 'Does Geisinger cover ABA under Act 62?', a: 'Yes — insured Geisinger groups with 51 or more employees, and GHP Kids (CHIP), must cover ASD assessment and treatment, including ABA, for members under 21. Individual, small-group and self-funded plans fall outside Act 62; MP232 still governs ABA criteria where the benefit exists.' },
       { q: 'What does Geisinger pay for ABA?', a: 'Commercial ABA rates are not published; they are negotiated in your GHP provider agreement.' },
+      { q: 'What is Geisinger Health Plan’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
     ],
   },
 
@@ -3314,7 +3415,20 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
           { title: '49 Pa. Code Ch. 18 Subch. N (§§ 18.521–18.527) — Behavior Specialists', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/049/chapter18/chap18toc.html' }
         ]
-      }
+      },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in Pennsylvania?',
+        body: [
+          'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+        ],
+        cites: [
+          { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Disagree with a claim decision?', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
     ],
     collect: [
       {
@@ -3507,7 +3621,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       {
         q: 'What does Aetna pay for ABA in Pennsylvania?',
         a: 'Commercial ABA rates are not published. They are negotiated in your participating-provider agreement.'
-      }
+      },
+      { q: 'What is Aetna’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
+      { q: 'How long do I have to appeal an Aetna claim decision in Pennsylvania?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
     ],
   },
 
@@ -3649,7 +3765,18 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
           { title: '49 Pa. Code Ch. 18 Subch. N (§§ 18.521–18.527) — Behavior Specialists', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/049/chapter18/chap18toc.html' }
         ]
-      }
+      },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in Pennsylvania?',
+        body: [
+          'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+          'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days.',
+        ],
+        cites: [
+          { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       {
@@ -3737,9 +3864,10 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         ]
       },
       telehealth: {
-        value: '“All ABA CPT codes are covered telehealth services” per the Evernorth autism resource guide. EN0499 allows in-person, telehealth or hybrid delivery, chosen on individual characteristics, the treatment plan, caregiver participation, environment, efficacy and safety evidence, and technology. The line-of-sight and close-proximity requirement does not apply to telehealth. A telehealth service must still meet the direct-treatment definition.',
+        value: '“All ABA CPT codes are covered telehealth services” per the Evernorth autism resource guide. EN0499 allows in-person, telehealth or hybrid delivery, chosen on individual characteristics, the treatment plan, caregiver participation, environment, efficacy and safety evidence, and technology. The line-of-sight and close-proximity requirement does not apply to telehealth. A telehealth service must still meet the direct-treatment definition. Claim coding comes from Evernorth’s administrative guidelines (September 2026): when billing telehealth, use “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B.”',
         status: 'verified',
         cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Cigna / Evernorth autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }
         ]
@@ -3835,7 +3963,9 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       {
         q: 'What does Cigna pay for ABA in Pennsylvania?',
         a: 'Commercial ABA rates are not published. They are negotiated in your participating-provider agreement.'
-      }
+      },
+      { q: 'What is Cigna’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
+      { q: 'What is Cigna’s timely filing limit in Pennsylvania?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
     ],
   },
 
@@ -3989,7 +4119,18 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'PA State Board of Medicine — Behavior Specialist Licensure Requirements Snapshot', url: 'https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/medicine/behavior-specialist-licensure-snapshot' },
           { title: '49 Pa. Code Ch. 18 Subch. N (§§ 18.521–18.527) — Behavior Specialists', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/049/chapter18/chap18toc.html' }
         ]
-      }
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in Pennsylvania?',
+        body: [
+          'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
+          'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
+        ],
+        cites: [
+          { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       {
@@ -4191,6 +4332,8 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         a: 'Commercial ABA rates are not published. They are negotiated in your participating-provider agreement.'
       },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On Act 62 plans the insurer may review the treatment plan once every six months unless a different interval is agreed.' },
+      { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
+      { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Pennsylvania?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
     ],
   },
 

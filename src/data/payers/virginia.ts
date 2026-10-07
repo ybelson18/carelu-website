@@ -85,10 +85,11 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Watch: a pending 20-hour/week ABA cap and diagnosis requirement',
         body: [
-          'Item 291.WW.2 of Virginia\'s 2026 Appropriation Act directs DMAS to impose a cumulative 20-hour-per-week limit on ABA services per recipient (effective July 1, 2026 as drafted, but exceedable based on documented medical necessity under EPSDT) and to require a diagnosis of autism spectrum disorder before authorizing ABA — with children age 5 and younger allowed a one-year provisional ASD diagnosis under a protocol DMAS will designate. DMAS\'s own SPA notice states plainly that the department is still seeking CMS approval for these changes, and that "the effective date for ABA service changes will be announced in a subsequent notice," with the implementing detail to follow in an update to the Mental Health Services manual. As of October 1, 2026 no such notice or manual update has been published, so none of this is in effect yet — the current Appendix D admission criteria (autism-agnostic, no hard hour cap) remain the operative rule. Treat this as a near-term watch item rather than a live requirement, and re-check before relying on either the current "no diagnosis restriction" or "no hour cap" facts past early 2027.',
+          'Item 291.WW.2 of Virginia\'s 2026 Appropriation Act directs DMAS to impose a cumulative 20-hour-per-week limit on ABA services per recipient (effective July 1, 2026 as drafted, but exceedable based on documented medical necessity under EPSDT) and to require a diagnosis of autism spectrum disorder before authorizing ABA — with children age 5 and younger allowed a one-year provisional ASD diagnosis under a protocol DMAS will designate. DMAS\'s own SPA notice states plainly that the department is still seeking CMS approval for these changes, and that "the effective date for ABA service changes will be announced in a subsequent notice," with the implementing detail to follow in an update to the Mental Health Services manual. As of October 1, 2026 no such notice or manual update has been published, so none of this is in effect yet — the current Appendix D admission criteria (autism-agnostic, no hard hour cap) remain the operative rule. Treat this as a near-term watch item rather than a live requirement, and re-check before relying on either the current "no diagnosis restriction" or "no hour cap" facts past early 2027. DMAS’s July 28, 2026 bulletin to providers and MCOs says the same, and adds that “no changes will be made to the current authorization process until these changes are approved by CMS and updates to the DMAS Mental Health Services Manual have been finalized.” The Chapter IV revision DMAS posted on October 2, 2026 makes no ABA change.',
         ],
         cites: [
           { title: 'DMAS — SPA 26-018, Autism Spectrum Disorder Service Updates notice (Item 291.WW.2; pending CMS approval, accessed 10/1/2026)', url: 'https://dmas.virginia.gov/media/unifn0g3/spa-26-018_autism-spectrum-disorder-service-updates.pdf' },
+          { title: 'DMAS bulletin — Applied Behavior Analysis (ABA) Policy Changes (7/28/2026; re-checked 10/7/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-changes' },
         ],
       },
       {
@@ -137,8 +138,43 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           'In practice: avoid a gap longer than 31 days between the outgoing and incoming agency, or the family starts over with a new assessment, ISP and authorization. Ask Acentra (FFS) or the family\'s Cardinal Care MCO whether the incoming agency needs its own authorization. Some Cardinal Care MCOs publish their own steps for a change of provider or supervisor; see each MCO\'s guide.',
         ],
         cites: [
-          { title: 'DMAS — Mental Health Services Manual, Chapter IV (rev. 7/17/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Chapter%204%20%28updated%207.17.25%29_Final.pdf' },
+          { title: 'DMAS — Mental Health Services Manual, Chapter IV (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%204%20%28updated%2010.2.26%29_Final.pdf' },
           { title: 'DMAS — Mental Health Services Manual, Appendix D (rev. 7/17/2025), Applied Behavior Analysis', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+        ],
+      },
+      {
+        h2: 'Billing a DMAS fee-for-service ABA claim: timely filing, taxonomy and the rendering NPI',
+        body: [
+          'DMAS requires the first submission of every claim “within 12 months from the date of service” (42 CFR 447.45(d)). The exceptions cover retroactive and delayed eligibility, and a denied claim that was filed on time can be resubmitted up to 13 months from the denial. When the member has other insurance, bill it first, but the DMAS claim is still due within 12 months of the date of service. Claims go in electronically or by direct data entry in the MES Provider Portal; paper is accepted only when DMAS asks for it.',
+          'Every claim needs a valid provider taxonomy code. On the CMS-1500, the rendering provider’s NPI goes in 24J, with the taxonomy code in the shaded area under qualifier ZZ. The referring physician’s name and NPI (boxes 17 and 17b) are required where applicable. To ask DMAS to reconsider an NCCI or ClaimsXten edit, email claimcheck@dmas.virginia.gov within 30 calendar days of the denial.',
+        ],
+        cites: [
+          { title: 'DMAS — Mental Health Services Manual, Chapter V: Billing Instructions (rev. 12/5/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-12/MHS%20-%20Chapter%205%20%28updated%2012.5.25%29_Final.pdf' },
+        ],
+      },
+      {
+        h2: 'Can a Virginia Medicaid member get ABA while staying across the border in North Carolina?',
+        body: [
+          'DMAS’s ABA rules (Appendix D) and its billing chapter say nothing about ABA delivered in another state. The federal rule DMAS operates under pays for services furnished in another state only when one of four conditions is met: a medical emergency; the member’s health would be endangered by travelling home; DMAS decides on medical advice that the services are more readily available in the other state; or it is “general practice for beneficiaries in a particular locality to use medical resources in another State” (42 CFR 431.52). For a Cardinal Care member the MCO contract is narrower. The plan “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, general local practice, medically necessary services not available in-network in Virginia, or a transition-of-care plan. Providers located in another state within 50 miles of the Virginia border may be allowed to enroll with DMAS.',
+          'The other half is the license. North Carolina makes practicing behavior analysis without an NC license a Class 2 misdemeanor (G.S. 90-746). A behavior analyst licensed or certified in another state can apply for a temporary NC license, but only for “a limited and defined period of service approved by the Board” (G.S. 90-740). Technicians are exempt only while working under the direction of a licensed behavior analyst or other licensed professional (G.S. 90-745). Before scheduling weekend sessions across the border, get written approval from DMAS (fee-for-service) or the member’s MCO and settle NC licensure.',
+        ],
+        cites: [
+          { title: 'eCFR — 42 CFR 431.52: payments for services furnished out of state', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-431/subpart-B/section-431.52' },
+          { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+          { title: 'DMAS — Mental Health Services Manual, Chapter II: Provider Participation Requirements (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%202%20%28updated%2010.2.26%29_Final.pdf' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+        ],
+      },
+      {
+        h2: 'Does Virginia Medicaid pay for CPT 96112?',
+        body: [
+          'Yes, in fee-for-service. DMAS’s CPT fee file (updated October 2026) lists 96112, developmental test administration by a physician or qualified health professional, first hour, at $128.05 on the outpatient row and $109.27 on the inpatient row. Add-on 96113 is $57.36 and $46.10. Both rates took effect July 1, 2026, with no prior-authorization flag and no age limit. 96112 is not among the ABA procedure codes in MHS Appendix D, the appendix that sets ABA licensure modifiers and service authorizations. For a Cardinal Care member, check the MCO’s own rules; Humana Healthy Horizons, for one, puts 96112 on its prior-authorization list.',
+        ],
+        cites: [
+          { title: 'DMAS — procedure fee files (CPT codes), CPT fee file updated 10/6/2026', url: 'https://www.dmas.virginia.gov/for-providers/rates-and-rate-setting/procedure-fee-files-cpt-codes/' },
+          { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
+          { title: 'Humana Healthy Horizons in Virginia — Prior Authorization and Notification List (eff. 7/1/2025, rev. 9/4/2025)', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
         ],
       },
     ],
@@ -170,7 +206,14 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'VirginiaABA — July 1, 2025 Medicaid changes (Molina exit, Humana entry)', url: 'https://virginiaaba.org/july-1st-medicaid-changes-what-providers-need-to-know/' },
       { title: 'VirginiaABA — October 2025 Medicaid changes (per-code SAs)', url: 'https://virginiaaba.org/october-2025-medicaid-changes-what-providers-need-to-know/' },
       { title: 'DMAS — ABA billing guidance (modifier tiers)', url: 'https://virginiaaba.org/wp-content/uploads/2021/11/ABA-Billing-Guidance-from-DMAS-Nov21.pdf' },
-      { title: 'DMAS — Mental Health Services Manual, Chapter IV (rev. 7/17/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Chapter%204%20%28updated%207.17.25%29_Final.pdf' },
+      { title: 'DMAS — Mental Health Services Manual, Chapter IV (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%204%20%28updated%2010.2.26%29_Final.pdf' },
+      { title: 'DMAS — Mental Health Services Manual, Chapter V: Billing Instructions (rev. 12/5/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-12/MHS%20-%20Chapter%205%20%28updated%2012.5.25%29_Final.pdf' },
+      { title: 'DMAS — Mental Health Services Manual, Chapter II: Provider Participation Requirements (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%202%20%28updated%2010.2.26%29_Final.pdf' },
+      { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+      { title: 'eCFR — 42 CFR 431.52: payments for services furnished out of state', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-431/subpart-B/section-431.52' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'DMAS — Electronic Visit Verification', url: 'https://dmas.virginia.gov/for-providers/benefits-services-for-providers/long-term-care/programs-and-initiatives/electronic-visit-verification/' },
+      { title: 'DMAS bulletin — Applied Behavior Analysis (ABA) Policy Changes (7/28/2026)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-changes' },
     ],
     deliveryRules: {
       supervision: {
@@ -284,7 +327,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
           { title: 'DMAS — Telehealth Services Supplement (rev. 1/5/2026), Table 2', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-01/Telehealth%20Services%20Supplement%20(updated%201.5.26)_Final.pdf' },
           { title: 'DMAS bulletin — ABA Policy and Regulatory Clarifications (12/16/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-and-regulatory-clarifications' },
-          { title: 'DMAS — MHS manual Chapter IV (rev. 7/17/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Chapter%204%20%28updated%207.17.25%29_Final.pdf' },
+          { title: 'DMAS — MHS manual Chapter IV (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%204%20%28updated%2010.2.26%29_Final.pdf' },
         ],
       },
       authTurnaround: {
@@ -322,6 +365,10 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'How fast must Virginia Medicaid decide an ABA prior-authorization request?', a: 'Under the CMS Interoperability and Prior Authorization Final Rule (effective 1/1/2026), DMAS FFS and every Cardinal Care MCO must decide expedited requests within 72 hours and standard requests within 7 calendar days — extendable to 14 days only if the member/provider requests it, or DMAS/the MCO needs more evidence in the member\'s interest.' },
       { q: 'Is Virginia Medicaid about to cap ABA at 20 hours a week or require an autism diagnosis?', a: 'Not yet. The 2026 Appropriation Act (Item 291.WW.2) directs DMAS to add a 20-hour/week cumulative cap (exceedable for documented medical necessity under EPSDT) and an ASD-diagnosis requirement (a one-year provisional diagnosis allowed under 6), but DMAS\'s own SPA notice says the changes are pending CMS approval and that the effective date "will be announced in a subsequent notice." As of October 1, 2026 no effective date has been published, so the current rules — no hard hour cap, no diagnosis restriction — still apply. Check back before assuming either one.' },
       { q: 'What happens to the authorization when switching ABA providers in Virginia Medicaid?', a: 'DMAS publishes no transfer rule. If services lapse for more than 31 consecutive days, the provider must discharge the youth and notify Acentra or the MCO, and resuming needs a new service authorization with a new assessment and ISP. A readmitted youth follows the contractor\'s or MCO\'s initial-authorization rules. Ask Acentra or the MCO whether the new agency needs its own authorization.' },
+      { q: 'What is Virginia Medicaid’s timely filing limit for ABA claims?', a: 'For fee-for-service: 12 months from the date of service (42 CFR 447.45(d)), with exceptions for retroactive and delayed eligibility, and 13 months from the denial to resubmit a timely denied claim. Cardinal Care MCOs set their own limit between 3 and 12 months under the DMAS contract; see each MCO guide.' },
+      { q: 'Can a Virginia Medicaid client receive ABA while staying across the North Carolina border on weekends?', a: 'Only in narrow cases. Federal rules let DMAS pay out-of-state services for emergencies, health risk in travelling home, services more readily available there on medical advice, or general local practice (42 CFR 431.52). Cardinal Care MCOs are not responsible for out-of-state services outside similar exceptions. The clinician also needs North Carolina licensure, and a temporary NC license covers only a Board-approved, limited period (G.S. 90-740, 90-746). Get written approval first.' },
+      { q: 'Does Virginia Medicaid cover CPT 96112?', a: 'Fee-for-service, yes: DMAS’s CPT fee file lists 96112 at $128.05 (outpatient row) and 96113 at $57.36, effective 7/1/2026, with no prior-authorization flag. It is not an ABA code under MHS Appendix D. MCOs set their own rules; Humana requires prior authorization.' },
+      { q: 'Does EVV apply to ABA in Virginia Medicaid?', a: 'No. DMAS applies Electronic Visit Verification to personal care, respite and companion services and to home health care services. ABA is not among them.' },
     ],
   },
 
@@ -389,6 +436,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health VA — prior authorization page', url: 'https://www.aetnabetterhealth.com/virginia/providers/prior-authorization.html' },
         ],
       },
+      {
+        h2: 'What are Aetna Better Health of Virginia’s claim deadlines, and must it pay at least the DMAS rate?',
+        body: [
+          'Virginia’s Cardinal Care contract (July 2026 – June 2027) lists ABA as a mental health service billed on the CMS-1500. It requires every MCO to pay mental health service providers “no less than the current Medicaid FFS rate,” and puts those services on a minimum fee schedule at 100% of the fee-for-service rate. DMAS’s December 2025 memo removed a broader pay-at-least-FFS line from Chapter V, but the minimum still applies to the contract’s Chapter 12 list, which includes mental health services. The MCO must adjudicate 99% of clean mental health claims within 14 calendar days and all of them within 30. Its timely filing limit must be at least three and at most twelve months from the date of service, counted from the primary payer’s payment or denial when the member has other coverage.',
+        ],
+        cites: [
+          { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+          { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+        ],
+      },
     ],
     collect: [
       { title: 'Supervising LBA/LMHP NPI', desc: 'The auth binds to it — track it per case, and treat supervisor changes as authorization events.' },
@@ -402,6 +459,9 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
       { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
       { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+      { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+      { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -524,7 +584,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health VA — ABA provider collaboration deck', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/virginia/provider/pdf/abhva_applied_behavioral_analysis_providers.pdf' },
           { title: 'DMAS — Telehealth Services Supplement (rev. 1/5/2026), Table 2', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-01/Telehealth%20Services%20Supplement%20(updated%201.5.26)_Final.pdf' },
           { title: 'DMAS bulletin — ABA Policy and Regulatory Clarifications (12/16/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-and-regulatory-clarifications' },
-          { title: 'DMAS — MHS manual Chapter IV (rev. 7/17/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Chapter%204%20%28updated%207.17.25%29_Final.pdf' },
+          { title: 'DMAS — MHS manual Chapter IV (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%204%20%28updated%2010.2.26%29_Final.pdf' },
         ],
       },
       authTurnaround: {
@@ -555,6 +615,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What happens if our supervising BCBA changes mid-authorization?', a: 'The authorization is tied to the rendering LBA/LMHP\'s NPI — a change closes the existing auth and requires a new one. Request it before the transition to avoid denied claims.' },
       { q: 'How do I join Aetna Better Health VA\'s network?', a: 'Enroll with DMAS via the PRSS portal, select Aetna, then email AetnaBetterHealth-VAProviderRelations@Aetna.com to start credentialing.' },
       { q: 'What happens to the authorization when switching ABA providers on Aetna Better Health of Virginia?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask Aetna Better Health of Virginia whether the incoming agency needs its own authorization. Aetna Better Health also ties the authorization to the rendering LBA/LMHP NPI, so a change of supervising clinician needs a new authorization.' },
+      { q: 'Can a Aetna Better Health of Virginia member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get Aetna Better Health of Virginia’s written approval before scheduling sessions in North Carolina.' },
+      { q: 'Must Aetna Better Health of Virginia pay at least the DMAS fee schedule for ABA?', a: 'Yes. The Cardinal Care contract requires MCOs to pay mental health service providers, ABA included, no less than the current Medicaid fee-for-service rate.' },
     ],
   },
 
@@ -622,6 +684,18 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Anthem VA — provider news: ABA authorization submission changes', url: 'https://providernews.anthem.com/virginia/articles/important-changes-to-applied-behavioral-analysis-aba-authori-26746' },
         ],
       },
+      {
+        h2: 'What are Anthem HealthKeepers Plus’s claim deadlines, and must it pay at least the DMAS rate?',
+        body: [
+          'Virginia’s Cardinal Care contract (July 2026 – June 2027) lists ABA as a mental health service billed on the CMS-1500. It requires every MCO to pay mental health service providers “no less than the current Medicaid FFS rate,” and puts those services on a minimum fee schedule at 100% of the fee-for-service rate. DMAS’s December 2025 memo removed a broader pay-at-least-FFS line from Chapter V, but the minimum still applies to the contract’s Chapter 12 list, which includes mental health services. The MCO must adjudicate 99% of clean mental health claims within 14 calendar days and all of them within 30. Its timely filing limit must be at least three and at most twelve months from the date of service, counted from the primary payer’s payment or denial when the member has other coverage.',
+          'Anthem’s own manual (June 2026): claims must be submitted “within 12 months from the date of discharge for inpatient services, 12 months from the date of service for outpatient services, or as otherwise stated in the provider contract.” With other coverage, the clock starts at the primary payer’s determination. Clean mental health claims are adjudicated within 14 days. Payment disputes run one claim payment reconsideration, then one claim payment appeal, then an external appeal to DMAS. Members cannot be billed when a provider misses the 365-day payment reconsideration period. Electronic claims go through Availity Essentials, payer ID 00423.',
+        ],
+        cites: [
+          { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+          { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+          { title: 'Anthem HealthKeepers Plus — Provider Manual (VABCBS-CD-PM-095530-25, June 2026)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Prior ABA episodes (12 months)', desc: 'The initial SA form requires them across all providers — ask at intake.' },
@@ -636,6 +710,10 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Anthem VA — provider news: ABA authorization submission changes', url: 'https://providernews.anthem.com/virginia/articles/important-changes-to-applied-behavioral-analysis-aba-authori-26746' },
       { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
       { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+      { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+      { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Anthem HealthKeepers Plus — Provider Manual (VABCBS-CD-PM-095530-25, June 2026)', url: 'https://providers.anthem.com/docs/gpp/VA_CAID_ProviderManual.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -758,7 +836,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
           { title: 'DMAS — Telehealth Services Supplement (rev. 1/5/2026), Table 2', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-01/Telehealth%20Services%20Supplement%20(updated%201.5.26)_Final.pdf' },
           { title: 'DMAS bulletin — ABA Policy and Regulatory Clarifications (12/16/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-and-regulatory-clarifications' },
-          { title: 'DMAS — MHS manual Chapter IV (rev. 7/17/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Chapter%204%20%28updated%207.17.25%29_Final.pdf' },
+          { title: 'DMAS — MHS manual Chapter IV (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%204%20%28updated%2010.2.26%29_Final.pdf' },
         ],
       },
       authTurnaround: {
@@ -789,6 +867,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Anthem HealthKeepers Plus cover ABA?', a: 'Yes — Virginia\'s Cardinal Care ABA benefit on DMAS criteria and standardized forms: no authorization on assessment codes, SA on treatment codes 97153–97158 and 0373T, submitted via Availity\'s Interactive Care Reviewer.' },
       { q: 'Does Anthem HealthKeepers Plus cover ABA by telehealth or in schools?', a: 'Its published grid pays GT telehealth combinations on 97151, 97153, 97155, and 97156, and allows school as a place of service (POS 03) for 97151, 97155, and 97156. The grid dates from February 2023; under the current DMAS Telehealth Services Supplement, 97151 and 97152 may be delivered by telemedicine for reassessments only — the initial assessment must be in person.' },
       { q: 'What happens to the authorization when switching ABA providers on Anthem HealthKeepers Plus?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask Anthem HealthKeepers Plus whether the incoming agency needs its own authorization.' },
+      { q: 'Can a Anthem HealthKeepers Plus member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get Anthem HealthKeepers Plus’s written approval before scheduling sessions in North Carolina.' },
+      { q: 'What is Anthem HealthKeepers Plus’s timely filing limit?', a: '12 months from the date of service for outpatient services such as ABA, unless the provider contract says otherwise (provider manual, June 2026).' },
     ],
   },
 
@@ -855,6 +935,18 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons VA — PA and notification list (eff. 7/1/2025)', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
         ],
       },
+      {
+        h2: 'What are Humana Healthy Horizons in Virginia’s claim deadlines, and must it pay at least the DMAS rate?',
+        body: [
+          'Virginia’s Cardinal Care contract (July 2026 – June 2027) lists ABA as a mental health service billed on the CMS-1500. It requires every MCO to pay mental health service providers “no less than the current Medicaid FFS rate,” and puts those services on a minimum fee schedule at 100% of the fee-for-service rate. DMAS’s December 2025 memo removed a broader pay-at-least-FFS line from Chapter V, but the minimum still applies to the contract’s Chapter 12 list, which includes mental health services. The MCO must adjudicate 99% of clean mental health claims within 14 calendar days and all of them within 30. Its timely filing limit must be at least three and at most twelve months from the date of service, counted from the primary payer’s payment or denial when the member has other coverage.',
+          'Humana’s own provider resource guide: “Claims must be submitted within 365 days from the date of service, and corrected claims should be submitted within 180 days of receipt of the explanation of payment.” Claim disputes, also called reconsiderations, are due within 60 calendar days “from the date of service or discharge,” as the guide words it. Humana pays clean claims within 30 days unless a signed agreement sets another timeframe. Electronic claims use payer ID 61101. Missing or incorrect NPI, ZIP code or taxonomy is a common rejection reason, and a service-location address that does not match the state Medicaid file denies the claim.',
+        ],
+        cites: [
+          { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+          { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+          { title: 'Humana Healthy Horizons in Virginia — Provider Resource Guide (VAHMAKWEN0126)', url: 'https://assets.humana.com/is/content/humana/VA_Provider_Resource_Guidepdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan identity on "Molina" inquiries', desc: 'Molina exited 6/30/2025 — those members are Humana now; verify the current card.' },
@@ -869,6 +961,10 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
       { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
       { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+      { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+      { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Humana Healthy Horizons in Virginia — Provider Resource Guide (VAHMAKWEN0126)', url: 'https://assets.humana.com/is/content/humana/VA_Provider_Resource_Guidepdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -991,7 +1087,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Humana Healthy Horizons VA — PA and notification list', url: 'https://assets.humana.com/is/content/humana/VA%20Medicaid%20PALpdf' },
           { title: 'DMAS — Telehealth Services Supplement (rev. 1/5/2026), Table 2', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-01/Telehealth%20Services%20Supplement%20(updated%201.5.26)_Final.pdf' },
           { title: 'DMAS bulletin — ABA Policy and Regulatory Clarifications (12/16/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-and-regulatory-clarifications' },
-          { title: 'DMAS — MHS manual Chapter IV (rev. 7/17/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Chapter%204%20%28updated%207.17.25%29_Final.pdf' },
+          { title: 'DMAS — MHS manual Chapter IV (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%204%20%28updated%2010.2.26%29_Final.pdf' },
         ],
       },
       authTurnaround: {
@@ -1023,6 +1119,9 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What happened to Molina members in Virginia?', a: 'DMAS terminated Molina\'s contract effective June 30, 2025; members auto-transitioned to Humana with a 90-day plan-change window and authorizations honored at least 30 days. Verify plan identity on any inquiry that mentions Molina.' },
       { q: 'Does Humana require PA on ABA assessments?', a: 'Not on 97151/97152 — but unlike DMAS, its PA list flags 0362T as PA-required. Request the auth for 0362T rather than assuming the state rule carries.' },
       { q: 'What happens to the authorization when switching ABA providers on Humana Healthy Horizons in Virginia?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask Humana Healthy Horizons in Virginia whether the incoming agency needs its own authorization.' },
+      { q: 'Can a Humana Healthy Horizons in Virginia member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get Humana Healthy Horizons in Virginia’s written approval before scheduling sessions in North Carolina.' },
+      { q: 'Does Humana Healthy Horizons in Virginia cover CPT 96112?', a: 'Yes, with prior authorization. Humana’s Virginia Medicaid prior authorization and notification list (eff. 7/1/2025, rev. 9/4/2025) lists 96112 and 96113 under neuropsychological testing.' },
+      { q: 'What is Humana Healthy Horizons in Virginia’s timely filing limit?', a: '365 days from the date of service; corrected claims within 180 days of the explanation of payment; claim disputes within 60 calendar days (provider resource guide).' },
     ],
   },
 
@@ -1084,6 +1183,16 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Sentara — BH authorization fax numbers and forms update (eff. 8/1/2025)', url: 'https://www.sentarahealthplans.com/en/providers/updates/behavioral-health-authorization-fax-numbers-and-forms' },
         ],
       },
+      {
+        h2: 'What are Sentara Community Plan’s claim deadlines, and must it pay at least the DMAS rate?',
+        body: [
+          'Virginia’s Cardinal Care contract (July 2026 – June 2027) lists ABA as a mental health service billed on the CMS-1500. It requires every MCO to pay mental health service providers “no less than the current Medicaid FFS rate,” and puts those services on a minimum fee schedule at 100% of the fee-for-service rate. DMAS’s December 2025 memo removed a broader pay-at-least-FFS line from Chapter V, but the minimum still applies to the contract’s Chapter 12 list, which includes mental health services. The MCO must adjudicate 99% of clean mental health claims within 14 calendar days and all of them within 30. Its timely filing limit must be at least three and at most twelve months from the date of service, counted from the primary payer’s payment or denial when the member has other coverage.',
+        ],
+        cites: [
+          { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+          { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+        ],
+      },
     ],
     collect: [
       { title: 'ASD diagnosis', desc: 'Then book the assessment — no authorization needed on assessment codes.' },
@@ -1098,6 +1207,9 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
       { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
       { title: 'Sentara — BH authorization fax numbers and forms update (eff. 8/1/2025)', url: 'https://www.sentarahealthplans.com/en/providers/updates/behavioral-health-authorization-fax-numbers-and-forms' },
+      { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+      { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -1220,7 +1332,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Sentara — DMAS ABA preservice SA form (DOS 9/1/2025+)', url: 'https://shc-p-001.sitecorecontenthub.cloud/api/public/content/c4fe04b9052647fb8655708609cc9e7f?v=4adf8dd1' },
           { title: 'DMAS — Telehealth Services Supplement (rev. 1/5/2026), Table 2', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-01/Telehealth%20Services%20Supplement%20(updated%201.5.26)_Final.pdf' },
           { title: 'DMAS bulletin — ABA Policy and Regulatory Clarifications (12/16/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-and-regulatory-clarifications' },
-          { title: 'DMAS — MHS manual Chapter IV (rev. 7/17/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Chapter%204%20%28updated%207.17.25%29_Final.pdf' },
+          { title: 'DMAS — MHS manual Chapter IV (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%204%20%28updated%2010.2.26%29_Final.pdf' },
         ],
       },
       authTurnaround: {
@@ -1251,6 +1363,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Is Optima Family Care the same as Sentara Community Plan?', a: 'Yes — Optima Family Care and Virginia Premier merged into Sentara Community Plan under the Cardinal Care rebrand. Anything still labeled Optima is stale.' },
       { q: 'How do I change the supervising BCBA on a Sentara authorization?', a: 'Use the plan\'s dedicated BCBA Change Request Form (updated March 2026) — a standing administrative workflow rather than a new authorization.' },
       { q: 'What happens to the authorization when switching ABA providers on Sentara Community Plan?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask Sentara Community Plan whether the incoming agency needs its own authorization. For a change of supervising BCBA within the same agency, Sentara uses its BCBA Change Request Form.' },
+      { q: 'Can a Sentara Community Plan member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get Sentara Community Plan’s written approval before scheduling sessions in North Carolina.' },
+      { q: 'What is Sentara Community Plan’s timely filing limit?', a: 'We could not read a current Sentara claims document. The Cardinal Care contract requires every MCO’s limit to fall between 3 and 12 months from the date of service, so confirm Sentara’s number in your provider agreement or with Sentara provider services.' },
     ],
   },
 
@@ -1309,6 +1423,18 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'UHC Community Plan of Virginia — 2026 provider manual (BH chapter)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
         ],
       },
+      {
+        h2: 'What are UnitedHealthcare Community Plan of Virginia’s claim deadlines, and must it pay at least the DMAS rate?',
+        body: [
+          'Virginia’s Cardinal Care contract (July 2026 – June 2027) lists ABA as a mental health service billed on the CMS-1500. It requires every MCO to pay mental health service providers “no less than the current Medicaid FFS rate,” and puts those services on a minimum fee schedule at 100% of the fee-for-service rate. DMAS’s December 2025 memo removed a broader pay-at-least-FFS line from Chapter V, but the minimum still applies to the contract’s Chapter 12 list, which includes mental health services. The MCO must adjudicate 99% of clean mental health claims within 14 calendar days and all of them within 30. Its timely filing limit must be at least three and at most twelve months from the date of service, counted from the primary payer’s payment or denial when the member has other coverage.',
+          'UnitedHealthcare’s 2026 Virginia manual: “Unless otherwise specified in your contract,” it must receive all claim information no more than 365 days from the date of service. Out-of-network claims submitted 12 months after service are denied. Resubmitted claims and reconsiderations are accepted within 365 days of the date of service or within 180 days of the last processing, whichever is later, and reconsiderations are answered within 45 business days. Payer ID 87726.',
+        ],
+        cites: [
+          { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+          { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+          { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'ASD diagnosis', desc: 'Then book the assessment — no authorization needed on assessment codes.' },
@@ -1322,6 +1448,9 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'DMAS — MHS manual Appendix D (ABA)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Appendix%20D%20(updated%207.17.25)_Final.pdf' },
       { title: 'DMAS — Project BRAVO ABA FAQ', url: 'https://www.dmas.virginia.gov/media/4271/project-bravo-services-faqs-aba.pdf' },
       { title: 'DMAS — ABA service authorization update (eff. 10/15/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/service-authorization-update-applied-behavior-analysis-aba-effective-october-15-2025' },
+      { title: 'DMAS — Cardinal Care Managed Care Contract (July 1, 2026 – June 30, 2027)', url: 'https://www.dmas.virginia.gov/media/cdclvnox/virginia-cardinal-care-managed-care-contract-fy-2026.pdf' },
+      { title: 'DMAS memo — Update to Chapter 5, Correction Regarding MCO Payment Rates (12/4/2025)', url: 'https://vamedicaid.dmas.virginia.gov/node/3748' },
+      { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
     ],
     deliveryRules: {
       supervision: {
@@ -1445,7 +1574,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'UHC Community Plan of Virginia — 2026 provider manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/VA-UHCCP-Care-Provider-Manual.pdf' },
           { title: 'DMAS — Telehealth Services Supplement (rev. 1/5/2026), Table 2', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-01/Telehealth%20Services%20Supplement%20(updated%201.5.26)_Final.pdf' },
           { title: 'DMAS bulletin — ABA Policy and Regulatory Clarifications (12/16/2025)', url: 'https://vamedicaid.dmas.virginia.gov/bulletin/applied-behavior-analysis-aba-policy-and-regulatory-clarifications' },
-          { title: 'DMAS — MHS manual Chapter IV (rev. 7/17/2025)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2025-07/MHS%20-%20Chapter%204%20%28updated%207.17.25%29_Final.pdf' },
+          { title: 'DMAS — MHS manual Chapter IV (rev. 10/2/2026)', url: 'https://vamedicaid.dmas.virginia.gov/sites/default/files/2026-10/MHS%20-%20Chapter%204%20%28updated%2010.2.26%29_Final.pdf' },
         ],
       },
       authTurnaround: {
@@ -1477,6 +1606,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Do I use the standard UHC portal for Virginia ABA authorizations?', a: 'No — the plan\'s PA list routes ABA specifically to fax or Optum\'s Provider Express, unlike its other services.' },
       { q: 'What credentialing does UHC Virginia ABA require?', a: 'Optum behavioral-network credentialing via providerexpress.com plus DMAS PRSS enrollment — a different path than UHC medical.' },
       { q: 'What happens to the authorization when switching ABA providers on UnitedHealthcare Community Plan of Virginia?', a: 'The DMAS rule applies to the MCO by name: if ABA lapses for more than 31 consecutive days, the provider must discharge the youth and notify the MCO, and resuming needs a new service authorization with a new assessment and ISP. DMAS publishes no rule moving an authorization between agencies, so ask UnitedHealthcare Community Plan of Virginia whether the incoming agency needs its own authorization.' },
+      { q: 'Can a UnitedHealthcare Community Plan of Virginia member receive ABA while staying across the border in North Carolina, for example on weekends?', a: 'Only with the plan’s agreement. The Cardinal Care contract says the MCO “is not responsible for services obtained outside the Commonwealth” except emergency or crisis care, where using another state’s medical resources is general practice in the member’s locality, where medically necessary services are not available in-network in Virginia, or under a transition-of-care plan. The clinician also needs North Carolina licensure to practice there (G.S. 90-746). A temporary NC license covers only “a limited and defined period of service approved by the Board” (G.S. 90-740). Get UnitedHealthcare Community Plan of Virginia’s written approval before scheduling sessions in North Carolina.' },
+      { q: 'What is UnitedHealthcare Community Plan of Virginia’s timely filing limit?', a: '365 days from the date of service unless your contract says otherwise; resubmissions and reconsiderations within 365 days of service or 180 days of the last processing, whichever is later (2026 provider manual).' },
     ],
   },
 
@@ -1558,6 +1689,17 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
         ],
       },
+      {
+        h2: 'Aetna claims in Virginia: payment clock, clean claims and filing limits',
+        body: [
+          'Virginia writes minimum claim standards into every carrier’s provider contracts (Va. Code § 38.2-3407.15). The carrier must pay a claim within 40 days of receipt unless it is not clean or is fraudulent, and must flag any defect within 30 days. A clean claim must identify “billing and rendering provider names, identification numbers, and address,” the service codes and modifiers, the date and place of service, and proof of prior authorization where required. The statute covers health plans subject to Virginia regulation, not Medicare, Medicaid or CHIP coverage. A self-funded employer plan follows its own terms. Virginia’s statute sets no minimum filing window.',
+          'Aetna’s provider manual (June 2026) prints no filing deadline. It defines a clean claim as one “received in a timely manner” with all CMS-1500 data elements, including the NPI, and asks that disputes be filed “within contractual timeframes.” Your participation agreement sets the filing limit and any taxonomy rule.',
+        ],
+        cites: [
+          { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
+          { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1575,6 +1717,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: '18VAC85-150-120 — supervisory responsibilities', url: 'https://www.law.cornell.edu/regulations/virginia/18VAC85-150-120' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
     ],
     deliveryRules: {
       supervision: {
@@ -1735,6 +1878,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What does the Virginia autism mandate require?', a: 'Virginia’s mandate covers individual and group policies and HMO plans, and since January 1, 2020 it applies at any age — the old age caps were removed by 2019’s HB 2577. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Virginia?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Virginia Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s ABA medical necessity guide does not require a technician credential. Services must be provided directly or billed by a licensed behavior analyst (where the state licenses them), a BCBA or a licensed psychologist. Where plans or state law allow services by people who are not licensed or BACB-certified, they must be supervised and directed in line with practice standards. State law or the plan can require more.' },
+      { q: 'How fast must Aetna pay an ABA claim in Virginia?', a: 'For plans Virginia regulates: within 40 days of receiving a clean claim, with any defect flagged within 30 days (Va. Code § 38.2-3407.15). A clean claim must name the billing and rendering providers with their identification numbers.' },
     ],
   },
 
@@ -1847,6 +1991,17 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Cigna claims in Virginia: payment clock, clean claims and filing limits',
+        body: [
+          'Virginia writes minimum claim standards into every carrier’s provider contracts (Va. Code § 38.2-3407.15). The carrier must pay a claim within 40 days of receipt unless it is not clean or is fraudulent, and must flag any defect within 30 days. A clean claim must identify “billing and rendering provider names, identification numbers, and address,” the service codes and modifiers, the date and place of service, and proof of prior authorization where required. The statute covers health plans subject to Virginia regulation, not Medicare, Medicaid or CHIP coverage. A self-funded employer plan follows its own terms. Virginia’s statute sets no minimum filing window.',
+          'Evernorth’s Virginia regulatory addendum, which covers insured plans but not self-funded ones, requires claims subject to § 38.2-3407.15 within twelve months of the date of service. It repeats the 40-day payment and 30-day defect-notice rules. Elsewhere the guidelines set a 90-day limit unless the provider agreement or a longer state law says otherwise, with appeals due within 180 calendar days of the decision. A complete CMS-1500 claim must show the rendering provider’s name, NPI and license type.',
+        ],
+        cites: [
+          { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1861,6 +2016,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Autism Speaks — Virginia state-regulated coverage', url: 'https://www.autismspeaks.org/virginia-state-regulated-insurance-coverage' },
       { title: 'Va. Code § 54.1-2957.16 — behavior analyst licensure (official)', url: 'https://law.lis.virginia.gov/vacode/title54.1/chapter29/section54.1-2957.16/' },
       { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
     ],
     deliveryRules: {
       supervision: {
@@ -2021,6 +2177,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in Virginia?', a: 'Evernorth (Cigna behavioral health) publishes no ABA rate table. Its administrative guidelines say your fee schedule and the list of reimbursable autism services are in Exhibit A of your Evernorth provider agreement; call Provider Services at 800.926.2273 with fee schedule questions.' },
       { q: 'Is Cigna (Evernorth) accepting new ABA providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Individuals file the Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; processing can take up to 90 days, plus 60 to 90 days of credentialing per provider after a clinic contract.' },
       { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth\'s autism resource guide does not name a technician credential. It says Evernorth "does not credential nonlicensed/noncertified staff" and that their services "must be billed under the supervising provider." Case supervision must come from a BCBA, LBA or independently licensed clinician with ABA training. State licensure rules can add requirements.' },
+      { q: 'How fast must Cigna pay an ABA claim in Virginia?', a: 'For plans Virginia regulates: within 40 days of receiving a clean claim, with any defect flagged within 30 days (Va. Code § 38.2-3407.15). A clean claim must name the billing and rendering providers with their identification numbers.' },
+      { q: 'What is Cigna’s timely filing limit in Virginia?', a: 'Twelve months from the date of service for insured plans under Evernorth’s Virginia regulatory addendum. Self-funded plans follow the 90-day standard unless your provider agreement says otherwise.' },
     ],
   },
 
@@ -2133,6 +2291,18 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
+      {
+        h2: 'UnitedHealthcare claims in Virginia: payment clock, clean claims and filing limits',
+        body: [
+          'Virginia writes minimum claim standards into every carrier’s provider contracts (Va. Code § 38.2-3407.15). The carrier must pay a claim within 40 days of receipt unless it is not clean or is fraudulent, and must flag any defect within 30 days. A clean claim must identify “billing and rendering provider names, identification numbers, and address,” the service codes and modifiers, the date and place of service, and proof of prior authorization where required. The statute covers health plans subject to Virginia regulation, not Medicare, Medicaid or CHIP coverage. A self-funded employer plan follows its own terms. Virginia’s statute sets no minimum filing window.',
+          'Optum Behavioral Health’s National Network Manual requires claim information within 90 calendar days of the date of service, “or as allowed by state or federal law or the member’s specific benefit plan.” UnitedHealthcare’s 2026 administrative guide requires “a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims and encounters.”',
+        ],
+        cites: [
+          { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2151,6 +2321,9 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
+      { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2304,6 +2477,8 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers?', a: 'Optum publishes its ABA credentialing criteria and an application route ("Join Our Autism/ABA Network" on Provider Express), not an open or closed status. Credentialing takes 45 to 120 days, and new agencies also need an Optum audit, which can take up to 90 days to schedule. Ask the Provider Service Line (1-877-614-0484) about need in your area.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'Yes, or an equivalent. Optum\'s ABA FAQ says technicians working directly with children 1:1 must be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT) or a certified Applied Behavior Analysis Technician (ABAT), or hold another certification approved by network management. State rules may add to or override this.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth with UnitedHealthcare?', a: 'On commercial plans Optum allows ABA telehealth only for 97155, 97156 and 97157. That covers BCBA supervision of the technician (97155), but not the assessment codes 97151 and 97152. The provider must have completed Optum\'s virtual-visits attestation, and claims carry POS 02 or POS 10.' },
+      { q: 'How fast must UnitedHealthcare pay an ABA claim in Virginia?', a: 'For plans Virginia regulates: within 40 days of receiving a clean claim, with any defect flagged within 30 days (Va. Code § 38.2-3407.15). A clean claim must name the billing and rendering providers with their identification numbers.' },
+      { q: 'Does UnitedHealthcare require taxonomy on the claim in Virginia?', a: 'Yes. Its 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims and encounters.' },
     ],
   },
 
@@ -2412,6 +2587,15 @@ export const virginiaPayers: Record<string, PayerConfig> = {
           'The other current change: effective January 1, 2026, Anthem reimburses ABA on weekly approved units rather than total authorized units. Claims should reflect units rendered within each week up to the weekly medically necessary limit as approved by prior approval, and units above it are ineligible for reimbursement and get adjusted. The affected code set is all ten. Together with the 14-calendar-day lead time on non-urgent requests, that makes a realistic weekly schedule an intake question with direct billing consequences.',
         ],
       },
+      {
+        h2: 'Anthem Blue Cross and Blue Shield claims in Virginia: payment clock, clean claims and filing limits',
+        body: [
+          'Virginia writes minimum claim standards into every carrier’s provider contracts (Va. Code § 38.2-3407.15). The carrier must pay a claim within 40 days of receipt unless it is not clean or is fraudulent, and must flag any defect within 30 days. A clean claim must identify “billing and rendering provider names, identification numbers, and address,” the service codes and modifiers, the date and place of service, and proof of prior authorization where required. The statute covers health plans subject to Virginia regulation, not Medicare, Medicaid or CHIP coverage. A self-funded employer plan follows its own terms. Virginia’s statute sets no minimum filing window.',
+        ],
+        cites: [
+          { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Product type and funding type', desc: 'HMO, EPO or PPO changes both the criteria set and whether precert is mandatory or merely "highly recommended" with pre-payment review. Fully insured vs self-funded ERISA changes whether the mandate applies at all.' },
@@ -2433,6 +2617,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { title: 'Anthem — MCG care guidelines 27th edition update (Virginia, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/virginia/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
       { title: 'Anthem Virginia — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/virginia/articles/streamlined-aba-claim-process-starts-january-1-2026-27882' },
       { title: 'Anthem Virginia — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/virginia/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27236' },
+      { title: 'Va. Code § 38.2-3407.15 — ethics and fairness in carrier business practices (official — Virginia LIS)', url: 'https://law.lis.virginia.gov/vacode/title38.2/chapter34/section38.2-3407.15/' },
     ],
     deliveryRules: {
       supervision: {
@@ -2573,6 +2758,7 @@ export const virginiaPayers: Record<string, PayerConfig> = {
       { q: 'What age does the Virginia autism mandate cover?', a: 'Any age, for policies delivered, issued for delivery, reissued or extended on or after January 1, 2020. The amendment removed the old lower bound of age two as well as the upper limit.' },
       { q: 'Does Anthem cover all of Virginia?', a: 'No. Anthem and its affiliate HealthKeepers, Inc. serve all of Virginia except the City of Fairfax, the Town of Vienna, and the area east of State Route 123. A family in that Northern Virginia sliver holding a Blue card is on a different plan.' },
       { q: 'Who is allowed to deliver covered ABA in Virginia?', a: 'A board certified behavior analyst who is also licensed by the Virginia Board of Medicine, or someone under that person\'s supervision — and the practitioner prescribing the ABA must be independent of the ABA provider. Anthem\'s multi-state ABA guide lists a broader set of approved providers; in Virginia the statute is the narrower and controlling standard.' },
+      { q: 'How fast must Anthem Blue Cross and Blue Shield pay an ABA claim in Virginia?', a: 'For plans Virginia regulates: within 40 days of receiving a clean claim, with any defect flagged within 30 days (Va. Code § 38.2-3407.15). A clean claim must name the billing and rendering providers with their identification numbers.' },
     ],
   },
 };

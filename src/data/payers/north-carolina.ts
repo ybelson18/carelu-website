@@ -161,6 +161,18 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
+      {
+        h2: 'Claims: timely filing, payment speed and EVV',
+        body: [
+          'NC Medicaid sets the claim clock for every plan that pays RB-BHT. Its prompt-payment fact sheet gives Standard Plans a 365-day timely filing window (since July 1, 2023) and Tailored Plans the same 365 days (since July 1, 2024). For NC Medicaid Direct, the LME/MCO window moved from 90 to 365 days on July 1, 2024. The window covers the original claim and any corrected claim. State-funded services stay at 90 calendar days.',
+          'Plans must tell the provider within 18 calendar days whether a medical claim is clean or pend it for information. They must pay or deny a clean claim within 30 days, deny the claim if requested information has not arrived within 90 days, and pay 18% annual interest on late payments.',
+          'Electronic Visit Verification is not an RB-BHT requirement. NC Medicaid’s EVV page says the Cures Act requires EVV for Personal Care Services and Home Health Care Services, and lists PCS, CAP/C, CAP/DA, Home Health and the Innovations and TBI waivers as the services that use it. RB-BHT is not on that list.',
+        ],
+        cites: [
+          { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+          { title: 'NC Medicaid — Electronic Visit Verification (EVV)', url: 'https://medicaid.ncdhhs.gov/providers/programs-and-services/long-term-care/electronic-visit-verification' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid ID & health plan', desc: 'Standard Plan, Tailored Plan, CFSP, or NC Medicaid Direct — it decides the portal, forms, and UM contacts.' },
@@ -193,6 +205,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Alliance Health — Provider Enrollment (Closed Network section)', url: 'https://www.alliancehealthplan.org/providers/network/become-a-provider/provider-enrollment/' },
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
+      { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+      { title: 'NC Medicaid — Electronic Visit Verification (EVV)', url: 'https://medicaid.ncdhhs.gov/providers/programs-and-services/long-term-care/electronic-visit-verification' },
     ],
     intakeGates: {
       ageLimit: {
@@ -322,6 +336,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Can NC Medicaid ABA (RB-BHT) be delivered at school?', a: 'Yes, school is one of the payable settings, chosen with the family and clinically justified in the Treatment Plan. CCP 8F excludes services available through IDEA or other educational programs that duplicate or supplant the authorized Treatment Plan, teaching academic subjects, and acting as a substitute for a teacher, aide or tutor.' },
       { q: 'Can an out-of-state BCBA treat NC Medicaid members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e), from S.L. 2026-1).' },
       { q: 'Can NC Medicaid ABA be authorized retroactively?', a: 'Only for retroactive Medicaid eligibility. CCP 8F: services without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility.” Get approval before the first session, including 97151.' },
+      { q: 'What is the timely filing limit for NC Medicaid ABA (RB-BHT) claims?', a: '365 days from the date of service for Standard Plans (since 7/1/2023), for Tailored Plans and for NC Medicaid Direct claims the LME/MCOs process (both since 7/1/2024). The window covers corrected claims too. State-funded services are 90 days. Plans must pay or deny a clean claim within 30 days.' },
+      { q: 'Does EVV apply to ABA in North Carolina Medicaid?', a: 'No. NC Medicaid applies EVV to Personal Care Services, Home Health, CAP/C, CAP/DA and the Innovations and TBI waivers. RB-BHT is not on its list.' },
     ],
   },
 
@@ -424,6 +440,16 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Healthy Blue (NC) — Medicaid Provider Manual', url: 'https://provider.healthybluenc.com/docs/gpp/NCNC_CAID_ProviderManual.pdf' },
         ],
       },
+      {
+        h2: 'What is Healthy Blue’s timely filing limit and claim payment turnaround?',
+        body: [
+          'NC Medicaid sets these for every Standard Plan, Healthy Blue included. Its prompt-payment fact sheet gives Standard Plans a 365-day timely filing window (in effect since July 1, 2023), covering the original claim and any corrected claim. A late claim is not invalidated if filing on time was not reasonably possible, as long as it is filed as soon as possible and within a year of the original deadline.',
+          'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it and ask for what is missing. It must pay or deny a clean claim within 30 days, and deny a claim when requested information has not arrived within 90 days. Late payment carries 18% annual interest, without the provider having to ask. Check your own contract too, since a provider agreement can set its own terms.',
+        ],
+        cites: [
+          { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Standard Healthy Blue vs. Care Together (CFSP)', desc: 'Child-welfare-involved members are on the specialty plan — confirm which ID the family holds.' },
@@ -439,6 +465,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
     ],
     intakeGates: {
       ageLimit: {
@@ -555,6 +582,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What happens to the authorization when switching ABA agencies on Healthy Blue?', a: 'Healthy Blue applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, bases prior approval on the Treatment Plan submitted with the request, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Healthy Blue utilization management.' },
       { q: 'Can an out-of-state BCBA treat Healthy Blue members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Healthy Blue authorize ABA retroactively?', a: 'Plan on no. CCP 8F excludes services provided without the plan’s prior authorization except for retroactive Medicaid eligibility. Healthy Blue decides retrospective review requests within 30 days; confirm the qualifying circumstances with its UM team.' },
+      { q: 'What is Healthy Blue’s timely filing limit for ABA claims?', a: '365 days from the date of service, the window NC Medicaid requires of every Standard Plan since July 1, 2023, corrected claims included. Clean claims must be paid or denied within 30 days. Check your Healthy Blue contract for any agreed terms.' },
     ],
   },
 
@@ -646,11 +674,21 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         h2: 'Can AmeriHealth Caritas NC authorize ABA retroactively?',
         body: [
           'NC Medicaid’s rule binds the plans: CCP 8F (amended 8/1/2026) requires prior approval before RB-BHT services, says services provided without prior authorization “are not considered for payment or reimbursement except in the case of retroactive Medicaid eligibility,” and lists “services provided without prior authorization by the PHP” among the services Medicaid does not cover.',
-          'AmeriHealth Caritas NC publishes the exceptions. Its provider manual says “A retrospective/post-service Utilization Management (UM) review will only be performed in the following circumstances: When the member obtains retroactive eligibility; When pertinent coverage information is not available, or is incorrect, upon admission or at the time of the service ...; When an out-of-state facility treats the member emergently/urgently; When a provider can show that attempts were made to submit the request prior to the service, but the plan did not receive the request.” Separately, ACNC “may conduct retrospective reviews of claims for services that did not receive prior authorization to ensure medical necessity.”',
+          'AmeriHealth Caritas NC publishes the exceptions. Its provider manual says “A retrospective/post-service Utilization Management (UM) review will only be performed in the following circumstances: When the member obtains retroactive eligibility; When pertinent coverage information is not available, or is incorrect, upon admission or at the time of the service ...; When an out-of-state facility treats the member emergently/urgently; When a provider can show that attempts were made to submit the request prior to the service, but the plan did not receive the request.” Separately, ACNC “may conduct retrospective reviews of claims for services that did not receive prior authorization to determine medical necessity,” and when it does, it completes the review within 90 days of the date the claim is paid.',
         ],
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'AmeriHealth Caritas North Carolina — Provider Manual', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'What is AmeriHealth Caritas NC’s timely filing limit, and what must the claim show?',
+        body: [
+          'AmeriHealth Caritas NC’s provider manual (Version 18, September 2026) says “All original paper and electronic claims must be submitted ACNC within 365 calendar days from the date services were rendered.” Corrected claims also go in within 365 days of the original date of service. Claims carrying a primary insurer’s EOB are due within 180 days of the EOB date.',
+          'ACNC must tell the provider within 18 calendar days whether a medical claim is clean or pend it. It must pay or deny a clean medical claim within the lesser of 30 calendar days or the first scheduled reimbursement cycle after adjudication, and pay a pended claim within 30 days of receiving the missing information. The manual lists the National Provider Identifier (NPI) and taxonomy among the required claim elements.',
+        ],
+        cites: [
+          { title: 'AmeriHealth Caritas NC — Provider Manual (Version 18, revision log 9/17/2026)', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
         ],
       },
     ],
@@ -668,6 +706,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'AmeriHealth Caritas NC — Provider Manual (Version 18, revision log 9/17/2026)', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -713,10 +752,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       authTurnaround: {
-        value: 'AmeriHealth Caritas’ manual (Version 16, October 2025) says standard decisions come "no later than 14 calendar days after AmeriHealth Caritas North Carolina receives the request", extendable up to 14 more calendar days, and expedited decisions "no later than 72 hours after receipt of the request for service" (also extendable up to 14 calendar days); its BH UM Guide lists 14 calendar days as the expected determination time for RB-BHT under 8F. A missed deadline counts as an adverse benefit determination the family can appeal. The federal managed-care ceiling for rating periods starting on or after January 1, 2026 is 7 calendar days standard, which reaches NC plans from July 1, 2026 — newer than this manual edition, so expect 7 and confirm with ACNC UM. No reauthorization lead time is published; CCP 8F requires the reauth before the current authorization expires.',
+        value: 'AmeriHealth Caritas’ manual (Version 18, revision log 9/17/2026) now says standard decisions come "no later than 7 calendar days after ACNC receives the request", extendable up to 14 more calendar days when the provider or member asks or ACNC justifies the need, and expedited decisions "no later than 72 hours after receipt of the request for service" (also extendable up to 14 calendar days). That matches the federal managed-care ceiling for rating periods starting on or after January 1, 2026, which reaches NC plans from July 1, 2026. Its January 2025 BH UM Guide still lists 14 calendar days for RB-BHT under 8F, so treat that guide as out of date. A missed deadline counts as an adverse benefit determination the family can appeal. No reauthorization lead time is published; CCP 8F requires the reauth before the current authorization expires.',
         status: 'verified',
         cites: [
-          { title: 'AmeriHealth Caritas NC — Provider Manual (Version 16, published 10/2/2025)', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
+          { title: 'AmeriHealth Caritas NC — Provider Manual (Version 18, revision log 9/17/2026)', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
           { title: 'AmeriHealth Caritas NC — Behavioral Health UM Guide (Jan 2025)', url: 'https://www.amerihealthcaritasnc.com/content/dam/amerihealth-caritas/acnc/pdf/provider/resources/utilization-management-guide.pdf.coredownload.inline.pdf' },
           { title: '42 CFR 438.210(d) — Medicaid managed care authorization decision timeframes', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
           { title: 'NC Medicaid Standard Plan contract, Amendment 17(18) — "Rating Period" defined as July 1 to June 30', url: 'https://medicaid.ncdhhs.gov/contract-30-190029-dhb-prepaid-health-plan-services-amendment-1718/open' },
@@ -727,7 +766,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         value: 'ACNC pays last: "health care providers are required to bill the Primary Insurer first and obtain an Explanation of Benefits (EOB) or Claim Adjustment Reason Codes (CARC)" and claims carrying the primary EOB must reach ACNC "within 180 days of the date on the primary insurer\'s EOB." ACNC "will pay and then chase" for EPSDT, "Diagnostic and Treatment (Medical Necessity) after Early and Periodic Screening", and child support enforcement. The manual does not say whether its own prior authorization is still needed when it pays second; CCP 8F requires prior approval before rendering RB-BHT and carves out no exception for members with other insurance, so get the plan’s authorization on file unless the plan confirms in writing that it is waived. Under federal rules TRICARE pays before Medicaid and CHAMPVA pays first when the child is also Medicaid-eligible.',
         status: 'verified',
         cites: [
-          { title: 'AmeriHealth Caritas NC — Provider Manual (Version 16, published 10/2/2025)', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
+          { title: 'AmeriHealth Caritas NC — Provider Manual (Version 18, revision log 9/17/2026)', url: 'https://www.amerihealthcaritasnc.com/assets/pdf/provider/provider-manual.pdf' },
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
           { title: 'TRICARE — Using Other Health Insurance (updated 10/17/2025)', url: 'https://www.tricare.mil/Plans/OHI' },
           { title: 'VA — CHAMPVA Guidebook (updated 1/1/2025), CHAMPVA as secondary payer', url: 'https://www.va.gov/files/2025-12/CHAMPVA-Guidebook.pdf' },
@@ -786,6 +825,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What happens to the authorization when switching ABA agencies on AmeriHealth Caritas NC?', a: 'AmeriHealth Caritas NC applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, bases prior approval on the Treatment Plan submitted with the request, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with AmeriHealth Caritas NC utilization management.' },
       { q: 'Can an out-of-state BCBA treat AmeriHealth Caritas NC members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can AmeriHealth Caritas NC authorize ABA retroactively?', a: 'Only in its listed cases: retroactive eligibility, coverage information missing or wrong at the time of service, emergent out-of-state facility care, or proof you tried to submit before the service and the plan did not receive it.' },
+      { q: 'What is AmeriHealth Caritas NC’s timely filing limit?', a: '365 calendar days from the date of service for original and corrected claims, and 180 days from the primary insurer’s EOB date when ACNC pays second (provider manual, Version 18).' },
+      { q: 'Does AmeriHealth Caritas NC require taxonomy on the claim?', a: 'Yes. Its provider manual lists NPI and taxonomy among the required claim elements.' },
     ],
   },
 
@@ -881,6 +922,16 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Carolina Complete Health — Provider Manual 2026 (last updated 06/29/2026)', url: 'https://network.carolinacompletehealth.com/content/dam/centene/carolinacompletehealth/pdfs/CCHE_PRV15_Provider_Manual_2026.pdf' },
         ],
       },
+      {
+        h2: 'What is Carolina Complete Health’s timely filing limit and claim payment turnaround?',
+        body: [
+          'NC Medicaid sets these for every Standard Plan, Carolina Complete Health included. Its prompt-payment fact sheet gives Standard Plans a 365-day timely filing window (in effect since July 1, 2023), covering the original claim and any corrected claim. A late claim is not invalidated if filing on time was not reasonably possible, as long as it is filed as soon as possible and within a year of the original deadline.',
+          'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it and ask for what is missing. It must pay or deny a clean claim within 30 days, and deny a claim when requested information has not arrived within 90 days. Late payment carries 18% annual interest, without the provider having to ask. Check your own contract too, since a provider agreement can set its own terms.',
+        ],
+        cites: [
+          { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member plan history', desc: 'Members transitioning from WellCare of North Carolina land here after the 4/1/2026 merger — confirm which card/ID the family currently holds.' },
@@ -896,6 +947,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1015,6 +1067,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What happens to the authorization when switching ABA agencies on Carolina Complete Health?', a: 'Carolina Complete Health applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, bases prior approval on the Treatment Plan submitted with the request, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Carolina Complete Health utilization management.' },
       { q: 'Can an out-of-state BCBA treat Carolina Complete Health members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Carolina Complete Health authorize ABA retroactively?', a: 'Only for extenuating circumstances (late DHHS eligibility notification is one), requested within 90 days of the date of service with the reason the authorization was not obtained; decision within 30 calendar days.' },
+      { q: 'What is Carolina Complete Health’s timely filing limit for ABA claims?', a: '365 days from the date of service, the window NC Medicaid requires of every Standard Plan since July 1, 2023, corrected claims included. Clean claims must be paid or denied within 30 days. Check your Carolina Complete Health contract for any agreed terms.' },
     ],
   },
 
@@ -1109,6 +1162,16 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'UnitedHealthcare Community Plan of North Carolina — Care Provider Manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NC-UHCCP-Care-Provider-Manual.pdf' },
         ],
       },
+      {
+        h2: 'What is UnitedHealthcare Community Plan of North Carolina’s timely filing limit and claim payment turnaround?',
+        body: [
+          'NC Medicaid sets these for every Standard Plan, UnitedHealthcare Community Plan of North Carolina included. Its prompt-payment fact sheet gives Standard Plans a 365-day timely filing window (in effect since July 1, 2023), covering the original claim and any corrected claim. A late claim is not invalidated if filing on time was not reasonably possible, as long as it is filed as soon as possible and within a year of the original deadline.',
+          'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it and ask for what is missing. It must pay or deny a clean claim within 30 days, and deny a claim when requested information has not arrived within 90 days. Late payment carries 18% annual interest, without the provider having to ask. Check your own contract too, since a provider agreement can set its own terms.',
+        ],
+        cites: [
+          { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID + plan confirmation', desc: 'UHC Community Plan members route through Optum — different portal and forms than every other NC plan.' },
@@ -1125,6 +1188,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1242,6 +1306,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Is UnitedHealthcare Community Plan of North Carolina accepting new ABA providers?', a: 'For RB-BHT, NC law has required a closed network since July 7, 2026 (S.L. 2026-41 §9E.22), so UnitedHealthcare Community Plan of North Carolina may decline new providers. It had published no notice on how it is applying this as of October 1, 2026; ask its provider contracting team directly.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can UnitedHealthcare Community Plan of NC authorize ABA retroactively?', a: 'Plan on no. CCP 8F excludes services without the plan’s prior authorization except for retroactive Medicaid eligibility; UHC decides retrospective reviews within 30 calendar days of receiving the clinical information. Confirm the qualifying circumstances with the plan.' },
+      { q: 'What is UnitedHealthcare Community Plan of North Carolina’s timely filing limit for ABA claims?', a: '365 days from the date of service, the window NC Medicaid requires of every Standard Plan since July 1, 2023, corrected claims included. Clean claims must be paid or denied within 30 days. Check your UnitedHealthcare Community Plan of North Carolina contract for any agreed terms.' },
     ],
   },
 
@@ -1582,6 +1647,16 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Alliance Health — Tailored Plan/PIHP Provider Manual (V.26, March 2026)', url: 'https://www.alliancehealthplan.org/document-library/79431/' },
         ],
       },
+      {
+        h2: 'What is Alliance Health’s timely filing limit and claim payment turnaround?',
+        body: [
+          'NC Medicaid sets the floor for every Tailored Plan and LME/MCO, Alliance Health included. Its prompt-payment fact sheet gives Tailored Plans a 365-day timely filing window from July 1, 2024. NC Medicaid Direct claims the LME/MCOs process also moved from 90 to 365 days on July 1, 2024. The window covers the original claim and any corrected claim. State-funded services must be filed within 90 calendar days.',
+          'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it for more information. It must pay or deny a clean claim within 30 days, and deny the claim if requested information has not arrived within 90 days. Late payment carries 18% annual interest.',
+        ],
+        cites: [
+          { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnostic instrument check', desc: 'Confirm the diagnosis used BOSA, Tele-ASD-Peds, ADOS-2 or CARS2-ST/CARS2-HF (CCP 8F 3.2.4) — ADI-R alone is not on the state list, and screeners alone cannot start services.' },
@@ -1599,6 +1674,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1729,6 +1805,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What happens to the authorization when switching ABA agencies on Alliance Health?', a: 'Alliance Health applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Alliance Health utilization management.' },
       { q: 'Can an out-of-state BCBA treat Alliance Health members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Alliance Health authorize ABA retroactively?', a: 'Only if the member became eligible with Alliance retroactively (or for emergency treatment when the payer was unknown); Alliance decides retrospective requests within 30 calendar days.' },
+      { q: 'What is Alliance Health’s timely filing limit for ABA claims?', a: '365 days from the date of service for Tailored Plan and NC Medicaid Direct claims since July 1, 2024, corrected claims included, under NC Medicaid’s rule for LME/MCOs. State-funded services are 90 days. Clean claims must be paid or denied within 30 days.' },
     ],
   },
 
@@ -1828,6 +1905,47 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Trillium Health Resources — Tailored Plan Provider Manual', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Provider-Manual/Trillium-TP-Provider-Manual.pdf' },
         ],
       },
+      {
+        h2: 'Does Trillium have a timely filing window?',
+        body: [
+          'Yes. Trillium’s 2026 Claims Billing Guide tells contracted providers to “reference their contract with Trillium for the days to file a claim timely.” Non-contracted providers have 365 days to submit a Medicaid-funded claim, and state-funded claims are due within 90 calendar days. The guide restates the Tailored Plan rule: Trillium may require claims within 365 calendar days of the date of service but may not set a limit shorter than 180 days. A late claim still counts if filing on time was not reasonably possible, as long as it is filed as soon as possible and within a year of the original deadline. NC Medicaid’s prompt-payment fact sheet puts the Tailored Plan window at 365 days since July 1, 2024, corrected claims included. To ask for a time-limit override, use Trillium’s Claims Request Form (CRF).',
+          'Payment clock: Trillium has 18 calendar days to say whether a claim is clean or pend it. It must pay or deny a clean claim within the lesser of 30 calendar days or the first scheduled reimbursement cycle after adjudication. It pays 18% annual interest on late Medicaid-funded clean claims; state-funded claims earn none.',
+        ],
+        cites: [
+          { title: 'Trillium Health Resources — Claims Billing Guide 2026', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Claims-Billing-Guide.pdf' },
+          { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+        ],
+      },
+      {
+        h2: 'Setting up Trillium’s iTransact portal: Vendor ID, access code and the new payer ID',
+        body: [
+          'From October 1, 2026 Trillium moved Tailored Plan claims, behavioral health included, to a unified claims system. Providers enter claims and authorizations in the iTransact portal (provider.trilliumitransact.com), upload 837s by SFTP, or bill through Optum/Change Healthcare, The SSI Group or Availity under the new Tailored Plan payer ID 43072. NC Medicaid Direct and state-funded claims stay in Trillium’s Business System through Provider Direct, under payer IDs 56089 (Change Healthcare) and 43071 (SSI and Availity). A Tailored Plan claim sent to the Medicaid Direct system is denied. Tailored Plan claims for dates of service back to July 1, 2024 that are still within timely filing go to the new system.',
+          'Access starts with the agency’s system administrator, who completes the iTransact System Administrator training in My Learning Campus and the Provider Profile Readiness Form. Third-party billers cannot be system administrators, and logins are issued per EIN. Trillium’s FAQ answers the setup question directly: asked where to get the “Vendor ID and access code” the new login asks for, Trillium says “Vendor ID’s and any additional codes needed are emailed to the requestor during the onboarding process.” Trillium publishes no format for either. If the email has not arrived, use the Contact Us button on the provider onboarding portal.',
+        ],
+        cites: [
+          { title: 'Trillium Health Resources — Unified Claims System Provider FAQ (revised 9/30/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Unified-Claims-Platform-Questions-Answer.pdf' },
+          { title: 'Trillium Health Resources — Claims Submission Guidelines (effective 10/1/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Medicaid-Direct-Tailored-Plan-Claims-Submission-Protocol.pdf' },
+          { title: 'Trillium Health Resources — Special announcement: Onboarding into the Trillium Provider Claims System (8/5/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Special-Announcement-Providers/080526-Onboarding-Trillium-Provider-Claims.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Trillium require taxonomy codes on the claim, and whose NPI goes in box 24J?',
+        body: [
+          'Yes, taxonomy is required. Trillium’s billing guide says “Taxonomy codes are required on claim forms,” and the taxonomy for the billing, rendering and attending providers must be one the provider is enrolled for with NCTracks. On the CMS-1500, “the individual rendering the service is reported in 24J”: NPI in the unshaded area, rendering taxonomy in the shaded area with qualifier ZZ in 24I. The billing provider’s taxonomy goes in 33b. A missing or invalid taxonomy denies the claim. Trillium checks the claim’s taxonomy against the provider enrollment file and prices the claim on it.',
+        ],
+        cites: [
+          { title: 'Trillium Health Resources — Claims Billing Guide 2026', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Claims-Billing-Guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How do I dispute a Trillium claim decision?',
+        body: [
+          'Start with a reconsideration request to the Claims Relations Team at ClaimsSupport@trilliumnc.org. Include the provider name and number, the member, the claim numbers and the reason. To appeal a claim action such as a denial or underpayment, send a written appeal naming the claim numbers and the action appealed. Send it through the provider portal for Medicaid Direct, by fax to (252) 215-6879, by secure email to Appeals@TrilliumNC.org, or by mail to Trillium Health Resources, Attn: Appeals Department, PO Box 12797, Durham, NC 27709. Trillium says the appeal filing timeframes are printed on the remittance advice.',
+        ],
+        cites: [
+          { title: 'Trillium Health Resources — Claims Billing Guide 2026', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Claims-Billing-Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Assessment + service order', desc: 'Written assessment, validated-tool diagnosis documentation, and the MD/DO/LP order — all required at the initial TAR.' },
@@ -1844,6 +1962,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'Trillium Health Resources — Claims Billing Guide 2026', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Claims-Billing-Guide.pdf' },
+      { title: 'Trillium Health Resources — Unified Claims System Provider FAQ (revised 9/30/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Unified-Claims-Platform-Questions-Answer.pdf' },
+      { title: 'Trillium Health Resources — Claims Submission Guidelines (effective 10/1/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Medicaid-Direct-Tailored-Plan-Claims-Submission-Protocol.pdf' },
+      { title: 'Trillium Health Resources — Special announcement: Onboarding into the Trillium Provider Claims System (8/5/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Special-Announcement-Providers/080526-Onboarding-Trillium-Provider-Claims.pdf' },
+      { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1961,10 +2084,11 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
         ],
       },
       billAsProvider: {
-        value: 'Follows the NC Medicaid rule: a professional CMS-1500/837P claim through the plan, with Attachment B fixing which provider type may render each code; behavior technicians must hold RBT or ABAT certification within 120 calendar days of hire or of the agency’s first Medicaid enrollment, and all LQASPs and C-QPs must enroll as in-state NC providers as of August 2, 2026.',
+        value: 'Follows the NC Medicaid rule: a professional CMS-1500/837P claim through the plan, with Attachment B fixing which provider type may render each code; behavior technicians must hold RBT or ABAT certification within 120 calendar days of hire or of the agency’s first Medicaid enrollment, and all LQASPs and C-QPs must enroll as in-state NC providers as of August 2, 2026. Trillium’s 2026 billing guide adds the claim mechanics: “the individual rendering the service is reported in 24J” with NPI and rendering taxonomy (qualifier ZZ), the billing provider’s taxonomy goes in 33b, and a missing or invalid taxonomy denies the claim.',
         status: 'verified',
         cites: [
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
+          { title: 'Trillium Health Resources — Claims Billing Guide 2026', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Claims-Billing-Guide.pdf' },
           { title: 'Trillium — Medicaid Child BH Services Benefit Plan (rev. 7/2026)', url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf' },
         ],
       },
@@ -1978,6 +2102,10 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What happens to the authorization when switching ABA agencies on Trillium?', a: 'Trillium applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Trillium utilization management.' },
       { q: 'Can an out-of-state BCBA treat Trillium members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Trillium authorize ABA retroactively?', a: 'Plan on no outside retroactive Medicaid eligibility (CCP 8F). Trillium does retrospective reviews, but confirm the qualifying circumstances with its UM team.' },
+      { q: 'Does Trillium Medicaid have a timely filing window?', a: 'Yes. Contracted providers file within the window in their Trillium contract. Non-contracted providers have 365 days for Medicaid-funded claims, and state-funded claims are due in 90 days. NC Medicaid sets the Tailored Plan window at 365 days, and Trillium may not set fewer than 180. Use the Claims Request Form for a time-limit override.' },
+      { q: 'What Vendor ID and access code do I need to set up Trillium’s iTransact platform?', a: 'Trillium emails them. Its Unified Claims System FAQ (rev. 9/30/2026) says “Vendor ID’s and any additional codes needed are emailed to the requestor during the onboarding process.” Your system administrator must first complete the iTransact training in My Learning Campus and the Provider Profile Readiness Form. Logins are per EIN, and third-party billers cannot be system administrators.' },
+      { q: 'What payer ID do I use for Trillium Tailored Plan ABA claims?', a: 'From October 1, 2026: 43072 at Optum/Change Healthcare, The SSI Group and Availity, or direct entry in iTransact. NC Medicaid Direct and state-funded claims keep 56089 (Change Healthcare) or 43071 (SSI, Availity) through Provider Direct.' },
+      { q: 'Does Trillium require taxonomy on the claim?', a: 'Yes. Billing, rendering and attending taxonomy codes are required and must match the provider’s NCTracks enrollment: rendering in box 24J (shaded, qualifier ZZ) and billing in 33b. A missing or invalid taxonomy denies the claim.' },
     ],
   },
 
@@ -2074,6 +2202,16 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
+      {
+        h2: 'What is Vaya Health’s timely filing limit and claim payment turnaround?',
+        body: [
+          'NC Medicaid sets the floor for every Tailored Plan and LME/MCO, Vaya Health included. Its prompt-payment fact sheet gives Tailored Plans a 365-day timely filing window from July 1, 2024. NC Medicaid Direct claims the LME/MCOs process also moved from 90 to 365 days on July 1, 2024. The window covers the original claim and any corrected claim. State-funded services must be filed within 90 calendar days.',
+          'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it for more information. It must pay or deny a clean claim within 30 days, and deny the claim if requested information has not arrived within 90 days. Late payment carries 18% annual interest.',
+        ],
+        cites: [
+          { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member county', desc: 'Vaya\'s footprint is western NC — confirm the county maps to Vaya before intake.' },
@@ -2091,6 +2229,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2222,6 +2361,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What happens to the authorization when switching ABA agencies on Vaya Health?', a: 'Vaya Health applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Vaya Health utilization management.' },
       { q: 'Can an out-of-state BCBA treat Vaya Health members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Vaya Health authorize ABA retroactively?', a: 'Plan on no outside retroactive Medicaid eligibility (CCP 8F); confirm any retrospective-review option with Vaya UM.' },
+      { q: 'What is Vaya Health’s timely filing limit for ABA claims?', a: '365 days from the date of service for Tailored Plan and NC Medicaid Direct claims since July 1, 2024, corrected claims included, under NC Medicaid’s rule for LME/MCOs. State-funded services are 90 days. Clean claims must be paid or denied within 30 days.' },
     ],
   },
 
@@ -2316,6 +2456,16 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'NC Medicaid — Clinical Coverage Policy 8F (RB-BHT), rewritten & published, Amended Date 8/1/2026', url: 'https://medicaid.ncdhhs.gov/8f-research-based-behavioral-health-treatment-rb-bht-autism-spectrum-disorder-asd/open' },
         ],
       },
+      {
+        h2: 'What is Partners Health Management’s timely filing limit and claim payment turnaround?',
+        body: [
+          'NC Medicaid sets the floor for every Tailored Plan and LME/MCO, Partners Health Management included. Its prompt-payment fact sheet gives Tailored Plans a 365-day timely filing window from July 1, 2024. NC Medicaid Direct claims the LME/MCOs process also moved from 90 to 365 days on July 1, 2024. The window covers the original claim and any corrected claim. State-funded services must be filed within 90 calendar days.',
+          'Within 18 calendar days of receiving a medical claim the plan must say whether it is clean or pend it for more information. It must pay or deny a clean claim within 30 days, and deny the claim if requested information has not arrived within 90 days. Late payment carries 18% annual interest.',
+        ],
+        cites: [
+          { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Treatment-plan alignment', desc: 'The ALL-codes auth only protects billing that matches the approved plan — keep the plan current as services shift.' },
@@ -2332,6 +2482,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Session Law 2026-1 (H.B. 696), §3C.18(c) — new G.S. 108C-9(e): no out-of-state Medicaid enrollment for BCBAs/QASP supervisors', url: 'https://www.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2025-2026/SL2026-1.pdf' },
       { title: 'NC Medicaid — Updated reminder: RB-BHT service delivery requirements (8/31/2026)', url: 'https://medicaid.ncdhhs.gov/blog/2026/08/31/updated-reminder-requirements-research-based-behavioral-health-treatment-service-delivery-aug-31' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'NC Medicaid Managed Care Provider Playbook — Prompt Payment fact sheet (Standard Plans, NC Medicaid Direct, Tailored Plans)', url: 'https://medicaid.ncdhhs.gov/provider-playbook-prompt-payment-fact-sheet/download' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2463,6 +2614,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What happens to the authorization when switching ABA agencies on Partners?', a: 'Partners applies CCP 8F, which does not say an authorization transfers. CCP 8F treats needing "a different RB-BHT provider agency" as a transition or discharge reason, requires the Treatment Plan to be reviewed on a change in service provider, and will not pay two providers for duplicate services. Expect the new agency to submit its own request, and confirm with Partners utilization management.' },
       { q: 'Can an out-of-state BCBA treat Partners Health Management members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). NC Medicaid no longer enrolls BCBAs as out-of-state providers (G.S. 108C-9(e)), and plan network providers must be enrolled with the state (42 CFR 438.602(b)(1)).' },
       { q: 'Can Partners authorize ABA retroactively?', a: 'Plan on no outside retroactive Medicaid eligibility (CCP 8F); confirm any retrospective-review option with Partners UM.' },
+      { q: 'What is Partners Health Management’s timely filing limit for ABA claims?', a: '365 days from the date of service for Tailored Plan and NC Medicaid Direct claims since July 1, 2024, corrected claims included, under NC Medicaid’s rule for LME/MCOs. State-funded services are 90 days. Clean claims must be paid or denied within 30 days.' },
     ],
   },
 
@@ -2565,6 +2717,18 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
         ],
       },
+      {
+        h2: 'Aetna claims in North Carolina: filing deadline, payment clock and what the claim must show',
+        body: [
+          'Aetna’s provider manual (June 2026) prints no filing deadline. It defines a clean claim as one “received in a timely manner” with all the data elements of the CMS-1500, including the NPI, and claims must also carry the billing provider’s tax ID. Claim disputes must be filed “within contractual timeframes.” For insured North Carolina plans the state sets the floor: an insurer may require claims within 180 days of the date of care but “may not limit the time in which claims may be submitted to fewer than 180 days” (G.S. 58-3-225(f)). Within 30 calendar days of receiving a claim it must pay it, deny it, or say what is missing, and late payment carries 18% annual interest. For a self-funded employer plan, check the plan’s own terms.',
+          'Aetna’s public documents do not say whose NPI goes in the rendering field (box 24J) when a technician delivers 97153, or whether facility and individual taxonomy codes are required. Its ABA medical necessity guide says only that services must be “provided directly or billed by” a licensed behavior analyst, a BCBA, or a licensed psychologist where behavior analysis is in scope, unless the plan or contract says otherwise. Get the rendering and taxonomy rules from your Aetna participation agreement or Aetna provider services before the first claim.',
+        ],
+        cites: [
+          { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2584,6 +2748,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+      { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2720,6 +2885,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in North Carolina?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the North Carolina Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s ABA medical necessity guide does not require a technician credential. Services must be provided directly or billed by a licensed behavior analyst (where the state licenses them), a BCBA or a licensed psychologist. Where plans or state law allow services by people who are not licensed or BACB-certified, they must be supervised and directed in line with practice standards. State law or the plan can require more.' },
       { q: 'Can an out-of-state BCBA treat Aetna members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
+      { q: 'Who do ABA services have to be billed under for Aetna commercial in North Carolina, supervising or rendering provider?', a: 'Aetna does not publish a rendering-versus-supervising NPI rule for ABA. Its ABA medical necessity guide says services must be provided directly or billed by a licensed behavior analyst, a BCBA, or a licensed psychologist where in scope. Whether a technician’s NPI ever goes in box 24J is set by your Aetna contract, so confirm with Aetna provider services.' },
+      { q: 'Does Aetna commercial in North Carolina require facility and individual provider taxonomy on the claim?', a: 'Aetna’s public provider manual does not say. It requires the NPI and the billing provider’s tax ID on claims, but sets no taxonomy rule. Ask Aetna provider services or check your participation agreement.' },
+      { q: 'What is Aetna’s timely filing limit in North Carolina?', a: 'Aetna’s manual leaves it to your contract. For insured North Carolina plans, G.S. 58-3-225(f) bars any limit shorter than 180 days from the date of care and requires a decision or a request for information within 30 days of receiving the claim.' },
     ],
   },
 
@@ -2840,6 +3008,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Cigna (Evernorth) claims in North Carolina: filing deadline, appeals and the rendering provider',
+        body: [
+          'Evernorth’s Behavioral Health Administrative Guidelines (September 2026) consider claims “submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement,” or longer where state law allows. The North Carolina regulatory addendum, which covers insured plans but not self-funded ones, sets 180 days after the date of service. A claim filed late still counts if filing on time was not reasonably possible, as long as it is filed as soon as possible and within a year. Appeals of payment or denial decisions go in writing within 180 calendar days of the decision. For insured plans, G.S. 58-3-225 also requires the insurer to pay, deny or request information within 30 calendar days.',
+          'Evernorth defines a complete CMS-1500 claim as including the “rendering provider’s name, NPI, and license type” and the billing provider’s name, address and NPI. Any rendering or referring provider on an 837 must carry name and NPI. Where supervisee billing is allowed, “the fully credentialed provider should be listed on the claim as the rendering provider.”',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2855,6 +3034,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'North Carolina Behavior Analyst Licensure Board', url: 'https://ncbehavioranalystboard.org/' },
       { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2984,6 +3164,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Is Cigna (Evernorth) accepting new ABA providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Individuals file the Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; processing can take up to 90 days, plus 60 to 90 days of credentialing per provider after a clinic contract.' },
       { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth\'s autism resource guide does not name a technician credential. It says Evernorth "does not credential nonlicensed/noncertified staff" and that their services "must be billed under the supervising provider." Case supervision must come from a BCBA, LBA or independently licensed clinician with ABA training. State licensure rules can add requirements.' },
       { q: 'Can an out-of-state BCBA treat Cigna members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
+      { q: 'What is Cigna’s timely filing limit in North Carolina?', a: '180 days after the date of service for insured North Carolina plans, under Evernorth’s NC regulatory addendum. Self-funded plans follow the standard 90 days unless your provider agreement says otherwise. Appeals are due within 180 calendar days of the payment or denial decision.' },
     ],
   },
 
@@ -3098,6 +3279,18 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
+      {
+        h2: 'UnitedHealthcare claims in North Carolina: filing deadline, payment clock and taxonomy',
+        body: [
+          'Optum Behavioral Health’s National Network Manual (effective September 1, 2026) requires all claim information “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan.” UnitedHealthcare’s administrative guide adds that timely filing limits “vary based on state requirements and contracts.” For insured North Carolina plans, G.S. 58-3-225(f) bars a limit shorter than 180 days from the date of care, and the insurer must pay, deny or request information within 30 calendar days or owe 18% annual interest.',
+          'UnitedHealthcare’s 2026 administrative guide says: “you must submit a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims and encounters.” It also encourages, but does not require, the referring provider’s NPI.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'UnitedHealthcare — 2026 Care Provider Administrative Guide (Commercial, eff. 4/1/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -3116,6 +3309,9 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'UnitedHealthcare — 2026 Care Provider Administrative Guide (Commercial, eff. 4/1/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+      { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3251,6 +3447,8 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'Yes, or an equivalent. Optum\'s ABA FAQ says technicians working directly with children 1:1 must be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT) or a certified Applied Behavior Analysis Technician (ABAT), or hold another certification approved by network management. State rules may add to or override this.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth with UnitedHealthcare?', a: 'On commercial plans Optum allows ABA telehealth only for 97155, 97156 and 97157. That covers BCBA supervision of the technician (97155), but not the assessment codes 97151 and 97152. The provider must have completed Optum\'s virtual-visits attestation, and claims carry POS 02 or POS 10.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
+      { q: 'Does UnitedHealthcare require taxonomy on the claim in North Carolina?', a: 'Yes. Its 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims and encounters.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in North Carolina?', a: 'Optum’s manual sets 90 calendar days unless state or federal law or the benefit plan allows longer. For insured North Carolina plans, G.S. 58-3-225(f) bars a limit shorter than 180 days.' },
     ],
   },
   'medcost': {
@@ -3372,6 +3570,17 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
           { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
         ],
       },
+      {
+        h2: 'MedCost claims: filing deadline, appeals and the rendering provider',
+        body: [
+          'MedCost’s provider manual (October 2025) says “Provider will file claims within ninety (90) days of the date of service,” extended for North Carolina providers to 180 days on fully insured plans under G.S. 58-3-225. It adds that a member should not be penalized for a timely filing denial. Payment appeals for MedCost Benefit Services go in writing within 180 days of receiving the EOB. Benefit denials, timely filing denials included, go to the payer named on the member’s ID card, and code-editing disputes go to Zelis (appeals.integrity@zelis.com).',
+          'On electronic claims MedCost asks for the rendering provider’s name, credentials and NPI in loop 2310B, sent only when the rendering provider differs from the billing provider. The manual does not say whether a technician or the supervising BCBA is the rendering provider for ABA.',
+        ],
+        cites: [
+          { title: 'MedCost — Provider Manual (October 2025)', url: 'https://www.medcost.com/sites/default/files/2025-10/MedCost%20Provider%20Manual%20Version%20October%202025.pdf' },
+          { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'ID card, front and back', desc: 'Shows who the payer is (MedCost or a network-leasing partner) and whether the plan has a precertification program and who to call.' },
@@ -3395,6 +3604,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { title: 'N.C.G.S. § 58-3-167 — "health benefit plan" defined', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-167.html' },
       { title: 'NCBALB — Requirements for Licensure', url: 'https://ncbehavioranalystboard.org/requirements-for-licensure/' },
       { title: 'N.C.G.S. Chapter 90, Article 43 — behavior analyst licensure (G.S. 90-740, 90-741, 90-745, 90-746)', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_90/Article_43.html' },
+      { title: 'N.C. Gen. Stat. § 58-3-225 — prompt claim payments under health benefit plans', url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_58/GS_58-3-225.html' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3541,6 +3751,7 @@ export const northCarolinaPayers: Record<string, PayerConfig> = {
       { q: 'Does the North Carolina autism mandate apply to a MedCost plan?', a: 'Often not. N.C.G.S. § 58-3-192 applies to "health benefit plans", a term that reaches other benefit arrangements only to the extent ERISA allows, so a self-funded private employer plan generally follows its own plan document. Establish funding type and employer type first.' },
       { q: 'The card says MedCost, but MedCost is not the payer. Why?', a: 'MedCost leases its provider network to dozens of other administrators and insurers. The ID card shows who the payer is; if it is unclear, MedCost\'s provider contact center (1-800-824-7406) can help identify the claim administrator.' },
       { q: 'Can an out-of-state BCBA treat MedCost members in North Carolina, including by telehealth?', a: 'North Carolina requires an NC license to practice behavior analysis (G.S. 90-746), with no telehealth exception; temporary and reciprocity licenses exist (G.S. 90-740, 90-741). We have not verified this plan’s own credentialing rule for out-of-state BCBAs; ask provider relations.' },
+      { q: 'What is MedCost’s timely filing limit?', a: '90 days from the date of service, or 180 days for North Carolina providers on fully insured plans under G.S. 58-3-225 (MedCost provider manual, October 2025). Self-funded plans served through MedCost may set their own limits, so check the payer on the ID card.' },
     ],
   },
 };

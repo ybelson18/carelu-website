@@ -30,6 +30,30 @@ import { hawaiiPayers } from './hawaii.js';
 import { californiaPayers } from './california.js';
 import { pennsylvaniaPayers } from './pennsylvania.js';
 import { newHampshirePayers } from './new-hampshire.js';
+import { wisconsinPayers } from './wisconsin.js';
+import { southCarolinaPayers } from './south-carolina.js';
+import { kentuckyPayers } from './kentucky.js';
+import { washingtonPayers } from './washington.js';
+import { connecticutPayers } from './connecticut.js';
+import { illinoisPayers } from './illinois.js';
+import { louisianaPayers } from './louisiana.js';
+import { oregonPayers } from './oregon.js';
+import { minnesotaPayers } from './minnesota.js';
+import { mainePayers } from './maine.js';
+import { vermontPayers } from './vermont.js';
+import { alabamaPayers } from './alabama.js';
+import { southDakotaPayers } from './south-dakota.js';
+import { nevadaPayers } from './nevada.js';
+import { montanaPayers } from './montana.js';
+import { alaskaPayers } from './alaska.js';
+import { northDakotaPayers } from './north-dakota.js';
+import { arkansasPayers } from './arkansas.js';
+import { rhodeIslandPayers } from './rhode-island.js';
+import { wyomingPayers } from './wyoming.js';
+import { westVirginiaPayers } from './west-virginia.js';
+import { districtOfColumbiaPayers } from './district-of-columbia.js';
+import { mississippiPayers } from './mississippi.js';
+import { delawarePayers } from './delaware.js';
 
 export const payers: Record<string, PayerConfig> = {
   ...nationalPayers,
@@ -62,4 +86,28 @@ export const payers: Record<string, PayerConfig> = {
   ...californiaPayers,
   ...pennsylvaniaPayers,
   ...newHampshirePayers,
+  ...wisconsinPayers,
+  ...southCarolinaPayers,
+  ...kentuckyPayers,
+  ...washingtonPayers,
+  ...connecticutPayers,
+  ...illinoisPayers,
+  ...louisianaPayers,
+  ...oregonPayers,
+  ...minnesotaPayers,
+  ...mainePayers,
+  ...vermontPayers,
+  ...alabamaPayers,
+  ...southDakotaPayers,
+  ...nevadaPayers,
+  ...montanaPayers,
+  ...alaskaPayers,
+  ...northDakotaPayers,
+  ...arkansasPayers,
+  ...rhodeIslandPayers,
+  ...wyomingPayers,
+  ...westVirginiaPayers,
+  ...districtOfColumbiaPayers,
+  ...mississippiPayers,
+  ...delawarePayers,
 };

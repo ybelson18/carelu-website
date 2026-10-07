@@ -356,6 +356,15 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [AC_PA, AC_AUTH, AC_MAN, CFR_438_210],
       },
+      {
+        h2: 'Claims: filing deadline and provider appeals',
+        body: [
+          'AlohaCare’s QUEST manual: "Claims where AlohaCare is the primary payer must be received within 365 days of date of service," and resubmissions must also arrive within 365 days of the date of service; third-party-liability claims need the other carrier’s EOB attached. Exceptions are granted "only for unusual and extenuating circumstances," by resubmitting with a letter explaining the delay. Provider grievances and appeals "must be filed within one year from the date of the occurrence," are acknowledged within ten calendar days, and decided in writing within sixty days.',
+        ],
+        cites: [
+          { title: 'AlohaCare QUEST (Medicaid) Provider Manual (9/10/2025)', url: 'https://www.alohacare.org/userfiles/2025%20Updates/2025%20Provider%20Publications%20and%20docs/Quest%20Provider%20Manual_9.10.25%20.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'AlohaCare member ID and QUEST enrollment', desc: 'Confirm QUEST Integration enrollment and that AlohaCare is the assigned plan.' },
@@ -447,6 +456,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Does AlohaCare cover ABA therapy?', a: 'Yes — under EPSDT for members under 21 with ASD, following Med-QUEST memo QI-2431 and AlohaCare’s own ABA policy MP-37 (effective March 22, 2026).' },
       { q: 'Does AlohaCare require prior authorization for the ABA assessment?', a: 'Yes. AlohaCare’s PA lookup lists 97151, 97152 and 0362T as prior-authorization codes for QUEST. The diagnostic evaluation needs none.' },
       { q: 'What diagnosis documentation does AlohaCare want?', a: 'A DSM-5 ASD diagnosis with documented early symptoms and a standardized tool — ADOS-2, CARS-2 or ADI-R — from a developmental-behavioral or developmental pediatrician, pediatrician, neurologist, psychologist or psychiatrist.' },
+      { q: 'What is AlohaCare’s timely filing limit for ABA claims?', a: '365 days from the date of service, for original claims and resubmissions alike (AlohaCare QUEST provider manual, 9/10/2025).' },
     ],
   },
 
@@ -509,6 +519,15 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           'Not yet read: HMSA’s ABA medical policy and its code-level prior-authorization list — both now at hmsa.policytransparency.com, which asks users to accept HMSA’s medical policy terms of use before it shows content, so we did not open them. So the following are unknown here: whether 97151 itself is precertified, HMSA’s clinical criteria and diagnostic-tool requirements, hour thresholds, telehealth rules, and whether behavioral health is handled in-house. Note for maintainers: pVerify spells this payer "Hawaii Medical Service Assoc (HMSA)" and the payer name matches that spelling on purpose; a separate "BCBS of Hawaii" row in that directory is not covered by this name.',
         ],
         cites: [HMSA_POLICIES, HMSA_PT],
+      },
+      {
+        h2: 'How fast must HMSA pay a clean ABA claim in Hawaii?',
+        body: [
+          'Hawaii’s prompt-pay statute covers mutual benefit societies such as HMSA, as well as insurers and HMOs. "Unless shorter payment timeframes are otherwise specified in a contract," a claim that is not contested or denied must be paid within thirty calendar days of receiving a written claim or fifteen calendar days of receiving an electronic one. A contested or denied claim must be flagged within 15 days (written) or 7 days (electronic), naming the contested part and the reason, unless the plan sends at least a monthly reimbursement report carrying that information. After you supply requested information the same 30- or 15-day clock applies, and late payments carry interest "at a rate of fifteen per cent a year," added automatically once it reaches $2. Before recouping a payment the plan must give 30 days’ written notice, and you have 60 days from that notice to appeal (HRS § 431:13-108). Self-funded employer plans are not covered by the statute.',
+        ],
+        cites: [
+          { title: 'HRS § 431:13-108 — Reimbursement for accident and health or sickness insurance benefits (Hawaii Revised Statutes)', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol09_Ch0431-0435H/HRS0431/HRS_0431-0013-0108.htm' },
+        ],
       },
     ],
     collect: [
@@ -681,6 +700,15 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [OH_PA, OH_AUTH, MQ_MEMO],
       },
+      {
+        h2: 'Claim payment disputes and appeals',
+        body: [
+          'ʻOhana’s 2026 QUEST quick reference guide sends claim payment disputes (untimely filing, unlisted or non-covered codes and the like) in writing through the provider portal or to P.O. Box 31370, Tampa, FL 33631-3370, "within the time frame as indicated in the ʻOhana Provider Manual or as specified in your provider contract". A provider may appeal on its own behalf "within 90 calendar days of a claims denial" for lack of prior authorization, services exceeding the authorization, insufficient documentation or late notification, and on the member’s behalf, with written consent, within 60 calendar days of the notice of adverse benefit determination. The guide does not state a timely filing limit; it is in the provider manual or your contract.',
+        ],
+        cites: [
+          { title: 'ʻOhana Health Plan — QUEST Provider Quick Reference Guide (2026)', url: 'https://www.ohanahealthplan.com/content/dam/centene/wellcare/hi/pdfs/provider/HI_Caid_Quest_Provider_Quick_Reference_Guide_2026_R.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which plan the family is moving to', desc: 'ʻOhana coverage ends December 31, 2026. Ask which plan they picked in the October 1–20 enrollment, or which one they were assigned.' },
@@ -842,6 +870,15 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [OPT_HI, OPT_HI_ORIENT, OPT_HI_QRG, OPT_SCC, UHCCP_PA, UHCCP_MAN],
       },
+      {
+        h2: 'Claims: filing deadline and payment disputes',
+        body: [
+          'UnitedHealthcare Community Plan’s 2026 Hawai‘i QUEST manual: "All primary claims must be filed to us within 1 year from the date of service," claims involving coordination of benefits within 1 year of the other payer’s EOB, and a rejected claim not corrected within 365 days is denied as late. Disputes run in two steps, a claim reconsideration and then an appeal "within 60 days of the date of the health plan’s notice of adverse benefit determination or decision", and the plan allows one year in total to complete both steps, counted from the first EOB.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan — 2026 Care Provider Manual, Hawai‘i QUEST', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/HI-Care-Provider-Manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Optum benefits check', desc: 'Verify ABA eligibility in Provider Express or through the behavioral health number on the card — not the medical line.' },
@@ -938,6 +975,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Does the assessment need prior authorization?', a: 'Optum’s documents conflict — its 2022 orientation says no, its 2022 quick reference guide says all autism services need PA. Confirm with Optum before the assessment.' },
       { q: 'Can the ABA assessment (97151) be done by telehealth with UnitedHealthcare Community Plan of Hawaii?', a: 'Optum\'s Hawaii QUEST orientation allows telehealth only for BCBA supervision (97155) and caregiver training (97156), after a virtual-visits attestation, billed with POS 02 (or 10 at home). The assessment is not on that list.' },
       { q: 'Is UnitedHealthcare Community Plan of Hawaii accepting new ABA providers?', a: 'Through Optum\'s ABA credentialing: BCBAs need active BACB certification, Hawaii licensure, 6 months of supervised ABA experience and $1M/$1M liability cover; groups need a BCBA on staff, RBTs meeting state requirements, higher liability limits and a record and site audit. Optum\'s orientation does not say whether the network is open or closed.' },
+      { q: 'What is UnitedHealthcare Community Plan of Hawaii’s timely filing limit?', a: 'One year from the date of service for primary claims (2026 Hawai‘i QUEST care provider manual).' },
     ],
   },
 
@@ -988,6 +1026,15 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           'The benefit follows Med-QUEST’s memo: under 21, the memo’s diagnosing providers, a treatment plan with standardized goal measurement, 26-week periods, supervision at 1–2 hours per 10 RBT hours, Medicaid secondary to other coverage. The memo lists Kaiser’s Health Coordination line as (808) 432-5330.',
         ],
         cites: [KP_MAN, MQ_MEMO, KP_QI],
+      },
+      {
+        h2: 'Claims: when to submit',
+        body: [
+          'Kaiser’s QUEST provider manual: "Claims for services provided to Members should be submitted for payment within ninety (90) days of such service," but all claims and encounter data must arrive no later than 365 days after the date of service (or a longer period your agreement or the law sets). Payment disputes go to Kaiser’s Claims Administration Department with the signed waiver of liability, the original claim and the denial remittance.',
+        ],
+        cites: [
+          { title: 'Kaiser Permanente Hawaii — QUEST Provider Manual (KP25-013)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/hi/ever/quest-integration-provider-manual-en.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1096,6 +1143,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Kaiser Permanente Hawaii QUEST cover ABA?', a: 'Yes — its QUEST manual describes EPSDT intensive behavioral therapy, including ABA, for children with an ASD diagnosis, under the Med-QUEST benefit for members under 21.' },
       { q: 'Can an outside ABA agency treat a Kaiser QUEST child?', a: 'Only with a Kaiser authorization through Authorization and Referral Management, naming the services, frequency and duration. Kaiser does not process retro authorizations except in narrow cases, including members transferring from another QUEST plan.' },
+      { q: 'What is Kaiser Permanente Hawaii’s timely filing limit for QUEST claims?', a: 'Submit within 90 days of the service; the hard limit is 365 days after the date of service unless your agreement or the law allows longer (Kaiser QUEST provider manual).' },
     ],
   },
 
@@ -1148,6 +1196,15 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           'Aetna does not publish commercial ABA fee schedules for Hawaii; rates are set in your participating-provider agreement. Med-QUEST’s published FFS ABA rates (97153 at $17.66 per 15 minutes for 2025) are a public reference point, not a commercial floor.',
         ],
         cites: [MQ_MEMO],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in Hawaii?',
+        body: [
+          'Hawaii’s prompt-pay statute covers insurers issuing comprehensive medical plans, as well as mutual benefit societies and HMOs. "Unless shorter payment timeframes are otherwise specified in a contract," a claim that is not contested or denied must be paid within thirty calendar days of receiving a written claim or fifteen calendar days of receiving an electronic one. A contested or denied claim must be flagged within 15 days (written) or 7 days (electronic), naming the contested part and the reason, unless the plan sends at least a monthly reimbursement report carrying that information. After you supply requested information the same 30- or 15-day clock applies, and late payments carry interest "at a rate of fifteen per cent a year," added automatically once it reaches $2. Before recouping a payment the plan must give 30 days’ written notice, and you have 60 days from that notice to appeal (HRS § 431:13-108). Self-funded employer plans are not covered by the statute.',
+        ],
+        cites: [
+          { title: 'HRS § 431:13-108 — Reimbursement for accident and health or sickness insurance benefits (Hawaii Revised Statutes)', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol09_Ch0431-0435H/HRS0431/HRS_0431-0013-0108.htm' },
+        ],
       },
     ],
     collect: [
@@ -1305,6 +1362,24 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
           CIG_ARG,
         ],
       },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in Hawaii?',
+        body: [
+          'Hawaii’s prompt-pay statute covers insurers issuing comprehensive medical plans, as well as mutual benefit societies and HMOs. "Unless shorter payment timeframes are otherwise specified in a contract," a claim that is not contested or denied must be paid within thirty calendar days of receiving a written claim or fifteen calendar days of receiving an electronic one. A contested or denied claim must be flagged within 15 days (written) or 7 days (electronic), naming the contested part and the reason, unless the plan sends at least a monthly reimbursement report carrying that information. After you supply requested information the same 30- or 15-day clock applies, and late payments carry interest "at a rate of fifteen per cent a year," added automatically once it reaches $2. Before recouping a payment the plan must give 30 days’ written notice, and you have 60 days from that notice to appeal (HRS § 431:13-108). Self-funded employer plans are not covered by the statute.',
+        ],
+        cites: [
+          { title: 'HRS § 431:13-108 — Reimbursement for accident and health or sickness insurance benefits (Hawaii Revised Statutes)', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol09_Ch0431-0435H/HRS0431/HRS_0431-0013-0108.htm' },
+        ],
+      },
+      {
+        h2: 'What is Cigna’s timely filing limit for ABA claims?',
+        body: [
+          'Cigna’s timely filing policy, for claims submitted directly to Cigna: it will consider "Participating provider claims submitted three (3) months [90 days] after the date of service" and out-of-network claims submitted six months (180 days) after the date of service. The limit is longer where applicable law requires it or your provider agreement allows more time, and in coordination-of-benefits cases it runs from the processing date on the primary carrier’s EOB.',
+        ],
+        cites: [
+          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Luke’s Law applies) or self-funded employer plan (exempt).' },
@@ -1404,6 +1479,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Is Cigna accepting new ABA providers in Hawaii?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
       { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth credentials only certified or licensed clinicians (BCBA, BCBA-D, BCaBA, licensed behavior analyst or other licensure). It does not credential technicians; their services are billed under the supervising provider. EN0499 describes direct supervision of the RBT or BCaBA delivering treatment.' },
       { q: 'Does Cigna pay for ABA delivered at school in Hawaii?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
+      { q: 'What is Cigna’s timely filing limit in Hawaii?', a: '90 days from the date of service for a participating provider and 180 days out of network, unless your agreement or applicable law allows longer (Cigna’s When to File policy).' },
     ],
   },
 
@@ -1465,6 +1541,24 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in Hawaii?',
+        body: [
+          'Hawaii’s prompt-pay statute covers insurers issuing comprehensive medical plans, as well as mutual benefit societies and HMOs. "Unless shorter payment timeframes are otherwise specified in a contract," a claim that is not contested or denied must be paid within thirty calendar days of receiving a written claim or fifteen calendar days of receiving an electronic one. A contested or denied claim must be flagged within 15 days (written) or 7 days (electronic), naming the contested part and the reason, unless the plan sends at least a monthly reimbursement report carrying that information. After you supply requested information the same 30- or 15-day clock applies, and late payments carry interest "at a rate of fifteen per cent a year," added automatically once it reaches $2. Before recouping a payment the plan must give 30 days’ written notice, and you have 60 days from that notice to appeal (HRS § 431:13-108). Self-funded employer plans are not covered by the statute.',
+        ],
+        cites: [
+          { title: 'HRS § 431:13-108 — Reimbursement for accident and health or sickness insurance benefits (Hawaii Revised Statutes)', url: 'https://www.capitol.hawaii.gov/hrscurrent/Vol09_Ch0431-0435H/HRS0431/HRS_0431-0013-0108.htm' },
+        ],
+      },
+      {
+        h2: 'What is the timely filing limit for UnitedHealthcare ABA claims?',
+        body: [
+          'UnitedHealthcare commercial ABA runs through Optum Behavioral Health, whose National Provider Network Manual (effective 9/1/2026) says "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Corrections are due within 90 days of the first claim’s receipt, the member cannot be billed for a late claim, and reconsideration plus appeal must be filed within 12 months in total unless state law or your agreement says otherwise.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health — National Provider Network Manual (published 7/1/2026, effective 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
     ],
@@ -1578,6 +1672,7 @@ export const hawaiiPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment (97151) or BCBA supervision (97155) be done by telehealth with UnitedHealthcare in Hawaii?', a: 'Supervision yes, assessment no. For commercial plans Optum allows telehealth only on 97155, 97156 and 97157, after a virtual-visits attestation, billed with POS 02 or 10. The 97151 assessment is not on that list.' },
       { q: 'What is UnitedHealthcare\'s ABA fee schedule in Hawaii?', a: 'There is no public one. Optum pays contracted providers at the rate on the fee schedule in their Optum agreement.' },
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in Hawaii?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Hawaii?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless law or the member’s plan allows longer.' },
     ],
   },
 };

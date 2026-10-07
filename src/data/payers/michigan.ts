@@ -124,6 +124,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'MDHHS — PIHP county designations table (FY27 PIHP contract, May 2025)', url: 'https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Keeping-Michigan-Healthy/BH-DD/PIHPs/PIHP-Region-Table.pdf' },
         ],
       },
+      {
+        h2: 'What is the Michigan Medicaid timely filing limit?',
+        body: [
+          'The Medicaid Provider Manual (October 1, 2026): "A claim must be initially received and acknowledged (i.e., assigned a TCN) by MDHHS within 12 months from the date of service." That governs claims billed to MDHHS through CHAMPS. The manual lists narrow exceptions, such as a claim submitted within 120 days of a primary insurer’s letter taking back its payment after the filing limit passed.',
+        ],
+        cites: [
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — General Information for Providers, claim filing limit', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'County of residence', desc: 'Decides the PIHP and CMHSP that owns the evaluation and the ABA authorization — the health plan name on the card does not.' },
@@ -297,6 +306,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Is there a limit on ABA hours?', a: 'No preset cap. The manual describes focused intervention averaging 5–15 hours a week and comprehensive intervention averaging 16–25, and says a PIHP may not deny services based solely on preset limits.' },
       { q: 'Can ABA be done by telehealth under Michigan Medicaid?', a: 'Only analyst-level services: 97155, 97156, 97157 and 97158. Technician-delivered 97153/97154, the 97151 assessment and 0362T were removed from the MDHHS telemedicine database in 2023.' },
       { q: 'What is Michigan Medicaid\'s fee schedule for ABA?', a: 'There is no public ABA fee screen. ABA is paid by the PIHP or CMHSP under your network contract, and the Medicaid Provider Manual (Section 18.13) says only that "All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract." Ask the PIHP/CMHSP contracting office for its ABA rates.' },
+      { q: 'What is the Michigan Medicaid timely filing limit?', a: 'Twelve months from the date of service for claims billed to MDHHS. ABA billed to a PIHP or CMHSP follows that entity’s own claims rules, which this guide has not yet verified.' },
     ],
   },
 
@@ -1730,6 +1740,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'BCBSM / BCN — Autism services: Billing guidelines and procedure codes (rev. November 2025)', url: 'https://authorizations.bcbsm.com/static-assets/documents/autism-billing-guidelines-procedure-codes.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Blue Cross Blue Shield of Michigan pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
+        ],
+      },
     ],
     collect: [
       { title: 'BCN (HMO) or Blue Cross PPO, and funding type', desc: 'All BCN HMO plans require ABA prior authorization; PPO depends on the group. Self-funded groups may sit outside the mandate.' },
@@ -1912,6 +1931,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Does the diagnosis have to come from an approved autism evaluation center?', a: 'No. Michigan members can use an AAEC or a primary care provider and/or independent evaluators, as long as the comprehensive evaluation meets Blue Cross’s requirements and shows the DSM criteria.' },
       { q: 'Is prior authorization always required?', a: 'For all BCN HMO plans, yes. For Blue Cross PPO it depends on the group: fully insured groups and select self-funded groups require it. Check the member’s autism coverage.' },
       { q: 'Is there an hour or unit limit?', a: 'Blue Cross says there are no limits for billable ABA services beyond the units authorized. A fully insured plan may still apply the mandate’s annual dollar maximums for members through age 18 if its certificate does.' },
+      { q: 'What is Blue Cross Blue Shield of Michigan’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
     ],
   },
 
@@ -1995,6 +2015,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'LARA — Michigan Board of Behavior Analysts (Public Health Code Part 182A; R 338.1801–338.1835)', url: 'https://www.michigan.gov/lara/bureau-list/bpl/health/hp-lic-health-prof/behavior-analysts' },
           { title: 'LARA — Michigan Behavior Analyst Licensing Guide (rev. 1/26/2026)', url: 'https://www.michigan.gov/lara/-/media/Project/Websites/lara/bpl/Behavior-Analysts/Licensing-Info-and-Forms/Behavior-Analyst-Licensing-Guide-FAQ-12626.pdf' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+        ],
+      },
+      {
+        h2: 'How fast must Priority Health pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
         ],
       },
     ],
@@ -2173,6 +2202,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Does Priority Health require prior authorization for the ABA assessment?', a: 'Yes. Policy 91615 lists 97151 through 97158 under "ABA treatment services – in center, office, or home – prior authorization required."' },
       { q: 'What supervision does Priority Health require?', a: 'A BCBA must supervise the treatment plan, with line-staff supervision of at least one hour for every 15 hours of treatment.' },
       { q: 'My child has Priority Medicaid. Does Priority Health approve ABA?', a: 'No. Priority Health’s policy notes that these services for Priority Medicaid and Healthy Michigan Plan members are paid through the state’s community mental health system (the PIHP).' },
+      { q: 'What is Priority Health’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
     ],
   },
 
@@ -2264,6 +2294,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'LARA — Michigan Board of Behavior Analysts (Public Health Code Part 182A; R 338.1801–338.1835)', url: 'https://www.michigan.gov/lara/bureau-list/bpl/health/hp-lic-health-prof/behavior-analysts' },
           { title: 'LARA — Michigan Behavior Analyst Licensing Guide (rev. 1/26/2026)', url: 'https://www.michigan.gov/lara/-/media/Project/Websites/lara/bpl/Behavior-Analysts/Licensing-Info-and-Forms/Behavior-Analyst-Licensing-Guide-FAQ-12626.pdf' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+        ],
+      },
+      {
+        h2: 'How fast must HAP pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
         ],
       },
     ],
@@ -2469,6 +2508,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Does HAP require prior authorization for ABA?', a: 'Yes. ABA treatment is on HAP’s prior-authorization list; the detailed behavioral health list and criteria are in the provider portal.' },
       { q: 'How fast must HAP decide?', a: 'HAP says non-urgent requests are approved if it takes no action within 7 calendar days and urgent requests within 72 hours, per Michigan’s prior-authorization law. Self-funded employer plans follow federal ERISA timelines.' },
       { q: 'My child has HAP CareSource. Who approves ABA?', a: 'HAP CareSource is a Medicaid plan; Michigan Medicaid assigns ABA to the PIHP for the child’s county, not the health plan.' },
+      { q: 'What is HAP’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
     ],
   },
 
@@ -2557,6 +2597,19 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'LARA — Michigan Board of Behavior Analysts (Public Health Code Part 182A; R 338.1801–338.1835)', url: 'https://www.michigan.gov/lara/bureau-list/bpl/health/hp-lic-health-prof/behavior-analysts' },
           { title: 'LARA — Michigan Behavior Analyst Licensing Guide (rev. 1/26/2026)', url: 'https://www.michigan.gov/lara/-/media/Project/Websites/lara/bpl/Behavior-Analysts/Licensing-Info-and-Forms/Behavior-Analyst-Licensing-Guide-FAQ-12626.pdf' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Disagree with a claim decision?', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
         ],
       },
     ],
@@ -2733,6 +2786,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA in Michigan?', a: 'Yes, for ASD under its national policy, with precertification on all ABA codes. For fully insured plans Michigan’s mandate (MCL 500.3406s) also applies; self-funded employer plans are exempt.' },
       { q: 'Is there an age or dollar limit?', a: 'Aetna’s policy sets none, but Michigan’s mandate lets a fully insured plan limit treatment coverage to members through age 18 and cap annual benefits at $50,000 (through 6), $40,000 (7–12) and $30,000 (13–18). Check the certificate.' },
       { q: 'What does Aetna pay for ABA in Michigan?', a: 'Commercial rates are not published; they are negotiated in the participating-provider agreement.' },
+      { q: 'What is Aetna’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
+      { q: 'How long do I have to appeal an Aetna claim decision in Michigan?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
     ],
   },
 
@@ -2816,6 +2871,17 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'LARA — Michigan Board of Behavior Analysts (Public Health Code Part 182A; R 338.1801–338.1835)', url: 'https://www.michigan.gov/lara/bureau-list/bpl/health/hp-lic-health-prof/behavior-analysts' },
           { title: 'LARA — Michigan Behavior Analyst Licensing Guide (rev. 1/26/2026)', url: 'https://www.michigan.gov/lara/-/media/Project/Websites/lara/bpl/Behavior-Analysts/Licensing-Info-and-Forms/Behavior-Analyst-Licensing-Guide-FAQ-12626.pdf' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+          'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days. Evernorth’s Michigan Regulatory Addendum is longer for state-regulated plans: "Claims for Covered Services must be submitted within one (1) year of the date of service."',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
     ],
@@ -2948,9 +3014,10 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          '"All ABA CPT codes are covered telehealth services," per Cigna’s autism resource guide, with EN0499 governing the documentation for services delivered via telehealth.',
+          '"All ABA CPT codes are covered telehealth services," per Cigna’s autism resource guide, with EN0499 governing the documentation for services delivered via telehealth. Claim coding comes from Evernorth’s administrative guidelines (September 2026): when billing telehealth, use “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B.”',
         status: 'verified',
         cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
           { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
@@ -2987,6 +3054,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna require prior authorization for the ABA assessment in Michigan?', a: 'No, for 97151, 97152 and 0362T when the provider is independently licensed or a BCBA and the member’s policy covers ABA. Treatment requires prior authorization.' },
       { q: 'Can ABA be delivered by telehealth with Cigna?', a: 'Cigna’s autism resource guide says all ABA CPT codes are covered telehealth services, with EN0499 documentation rules.' },
       { q: 'Does Michigan’s mandate apply to my Cigna plan?', a: 'Only to fully insured plans. Many Cigna employer plans are self-funded and exempt; verify funding type first.' },
+      { q: 'What is Cigna’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
+      { q: 'What is Cigna’s timely filing limit in Michigan?', a: 'One year from the date of service for state-regulated plans under Evernorth’s Michigan Regulatory Addendum; 90 days is Evernorth’s general limit.' },
     ],
   },
 
@@ -3076,6 +3145,17 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'LARA — Michigan Board of Behavior Analysts (Public Health Code Part 182A; R 338.1801–338.1835)', url: 'https://www.michigan.gov/lara/bureau-list/bpl/health/hp-lic-health-prof/behavior-analysts' },
           { title: 'LARA — Michigan Behavior Analyst Licensing Guide (rev. 1/26/2026)', url: 'https://www.michigan.gov/lara/-/media/Project/Websites/lara/bpl/Behavior-Analysts/Licensing-Info-and-Forms/Behavior-Analyst-Licensing-Guide-FAQ-12626.pdf' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in Michigan?',
+        body: [
+          'Michigan’s prompt-pay statute, MCL 500.2006(8), governs insured health plans (it excludes administrative-services-only arrangements): "A clean claim must be paid within 45 days after receipt of the claim by the health plan," with 12% simple annual interest after that; the plan must flag defects within 30 days, and the provider gets 45 days to fix them. A provider "must bill a health plan within 1 year after the date of service" for the claim to be a clean claim.',
+          'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
+        ],
+        cites: [
+          { title: 'MCL 500.2006 — timely payment of claims (Michigan Insurance Code)', url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-500-2006' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
         ],
       },
     ],
@@ -3255,6 +3335,8 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Can the BCBA and technician bill at the same time?', a: 'Yes. Optum allows 97153 and 97155 (and 97154 with supervision) to be billed concurrently when supervision is provided.' },
       { q: 'Is there a Michigan-specific Optum ABA program?', a: 'Optum publishes no Michigan ABA program page and its state-mandates supplement has no Michigan entry; the national criteria and Michigan’s statute apply.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Michigan?', a: 'Within 45 days of receipt for a clean claim on an insured plan (MCL 500.2006(8)), with 12% interest after that. Self-funded plans are not covered.' },
+      { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Michigan?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
     ],
   },
 };
