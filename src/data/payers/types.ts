@@ -163,4 +163,5 @@ export const STATE_META: StateMeta[] = [
   { code: 'ND', name: 'North Dakota', mandate: 'No autism statute — Insurance Dept. Bulletin 2018-1 (insured plans may not exclude ABA as experimental; federal parity limits)', medicaidSlug: 'north-dakota-medicaid' },
   { code: 'AR', name: 'Arkansas', mandate: 'Ark. Code § 23-99-418 (Act 196 of 2011; ABA under 18 and $50,000/yr as enacted)', medicaidSlug: 'arkansas-medicaid' },
   { code: 'RI', name: 'Rhode Island', mandate: 'R.I. Gen. Laws ch. 27-20.11 (group plans; until age 15; no dollar cap in current text)', medicaidSlug: 'rhode-island-medicaid' },
+  { code: 'WY', name: 'Wyoming', mandate: 'No autism statute — DOI Bulletin 01-2019 (mental-health parity, W.S. 26-20-701; no ABA exclusions from 7/1/2019)', medicaidSlug: 'wyoming-medicaid' },
 ];
