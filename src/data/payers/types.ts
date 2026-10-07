@@ -149,7 +149,7 @@ export const STATE_META: StateMeta[] = [
   { code: 'KY', name: 'Kentucky', mandate: 'KRS 304.17A-142 autism coverage (no age, annual-benefit or visit caps since 2019)', medicaidSlug: 'kentucky-medicaid' },
   { code: 'WA', name: 'Washington', mandate: 'Mental health parity (RCW 48.44.341 et al.; RCW 48.43.766 from 2027); no stand-alone autism statute', medicaidSlug: 'washington-medicaid' },
   { code: 'CT', name: 'Connecticut', mandate: 'Conn. Gen. Stat. §§ 38a-514b / 38a-488b (behavioral therapy under 21, under 26 from 1/1/2027; no dollar cap)', medicaidSlug: 'connecticut-medicaid' },
-  { code: 'IL', name: 'Illinois', mandate: 'Illinois autism mandate (215 ILCS 5/356z.14)', medicaidSlug: 'illinois-medicaid' },
+  { code: 'IL', name: 'Illinois', mandate: 'Illinois autism mandate (215 ILCS 5/356z.14; under 21, $36,000/yr CPI-adjusted)', medicaidSlug: 'illinois-medicaid' },
   { code: 'LA', name: 'Louisiana', mandate: 'La. R.S. 22:1050 (under 21, $36,000/yr cap)', medicaidSlug: 'louisiana-medicaid' },
   { code: 'OR', name: 'Oregon', mandate: 'Oregon Laws 2013, ch. 771, § 2 (ABA up to 25 hr/wk, first requested under 9) + ORS 743A.168 parity', medicaidSlug: 'oregon-medicaid' },
   { code: 'MN', name: 'Minnesota', mandate: 'Minn. Stat. § 62A.3094 (large-employer plans, children under 18)', medicaidSlug: 'minnesota-medicaid' },
