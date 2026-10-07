@@ -156,4 +156,5 @@ export const STATE_META: StateMeta[] = [
   { code: 'ME', name: 'Maine', mandate: 'Maine autism mandate (24-A M.R.S. §§ 2768, 2847-T, 4259; age 10 and under, $36,000/yr ABA cap allowed)', medicaidSlug: 'maine-medicaid' },
   { code: 'VT', name: 'Vermont', mandate: '8 V.S.A. § 4082 (formerly § 4088i; birth to 21, no dollar or hour cap)', medicaidSlug: 'vermont-medicaid' },
   { code: 'AL', name: 'Alabama', mandate: 'Riley Ward Act (Ala. Code § 27-54A-2; large group, 18 and under, ABA caps $40K/$30K/$20K by age)', medicaidSlug: 'alabama-medicaid' },
+  { code: 'SD', name: 'South Dakota', mandate: 'SDCL 58-17-154 to -162 (ABA; annual floors $36,000/$25,000/$12,500 through age 18; ACA individual/small-group exempt)', medicaidSlug: 'south-dakota-medicaid' },
 ];
