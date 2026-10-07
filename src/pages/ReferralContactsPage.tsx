@@ -112,8 +112,8 @@ const PLAYBOOK_CARDS = [
 export default function ReferralContactsPage() {
   useReveal();
   useSeo({
-    title: `Free Pediatric Referral Contact List — ${STATS.total.toLocaleString()} Contacts, ${STATS.stateCount} States | Carelu`,
-    description: `The most complete referral-outreach dataset for ABA and pediatric therapy providers: ${STATS.total.toLocaleString()} pediatricians and child-development professionals across ${STATS.stateCount} states, with verified emails, direct phones and LinkedIn. Free CSV downloads.`,
+    title: `Free Pediatrician Email & Phone List: ${STATS.total.toLocaleString()} Pediatric Referral Contacts by State | Carelu`,
+    description: `Free pediatrician contact list for ABA and pediatric therapy referral outreach: ${STATS.total.toLocaleString()} pediatricians and child-development professionals in all 50 states and D.C., with ${STATS.emails.toLocaleString()} verified emails and ${STATS.phones.toLocaleString()} phone numbers. Browse by state or download the CSV.`,
     canonical: '/resources/pediatrician-referral-contacts',
   });
   useDatasetJsonLd();
@@ -152,7 +152,7 @@ export default function ReferralContactsPage() {
             fontWeight: 400, color: INK, lineHeight: 1.08,
             letterSpacing: '-0.022em', margin: '26px auto 0', maxWidth: 880,
           }}>
-            Every pediatric referral contact your growth team needs.
+            The free pediatrician contact list, every state.
           </h1>
           <p className="rv d2" style={{
             fontSize: 'clamp(16px, 1.6vw, 18.5px)', color: 'rgba(43,42,38,0.72)',

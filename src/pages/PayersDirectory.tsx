@@ -5,6 +5,7 @@ import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
 import { Nav } from './Landing';
 import { payers, PAYER_REVIEWED, STATE_META } from '../data/payers';
+import { paShort } from '../lib/payerPa';
 import SiteFooter from '../components/SiteFooter';
 
 /* ================================================================
@@ -33,7 +34,11 @@ const STATES = STATE_META.map((meta) => ({
   mcos: ALL.filter((p) => p.kind === 'medicaid-mco' && p.state === meta.code),
   commercial: ALL.filter((p) => p.kind === 'commercial' && p.state === meta.code),
 }));
-const ROADMAP = ['New Jersey', 'Colorado', 'Arizona', 'Utah', 'Texas', 'Florida', 'TRICARE (Autism Care Demonstration)'];
+/* States queued for a guide. Anything already in STATE_META drops off, so
+   the box never names a state that is live (it listed seven live ones until
+   2026-10). Empty = the "Next up" sentence is simply not rendered. */
+const ROADMAP: string[] = ([] as string[])
+  .filter((name) => !STATE_META.some((s) => s.name === name));
 
 /* Directory-wide filters: state, guide type, and insurance provider. The
    provider list groups by carrier family where one exists (so "Anthem"
@@ -136,9 +141,9 @@ function GuideCard({ href, name, desc, assessmentPA }: { href: string; name: str
 export default function PayersDirectory() {
   useReveal();
   useSeo({
-    title: 'ABA Payer Directory: Coverage & Prior-Auth Policies by Insurer | Carelu',
+    title: `ABA Prior Authorization & Coverage by Payer: ${ALL.length} Insurer Guides by State | Carelu`,
     description:
-      'Search every ABA payer policy in one place — Medicaid and commercial coverage, prior authorization, documentation, CPT codes, supervision, and telehealth rules by insurer and state, each linked to its primary source.',
+      `Does this payer need prior auth for ABA? Assessment and treatment prior authorization, CPT codes, documentation, supervision and telehealth rules for ${ALL.length} Medicaid and commercial plans, by state, each linked to its primary source.`,
     canonical: '/payers',
   });
 
@@ -196,7 +201,7 @@ export default function PayersDirectory() {
   // Rendered right under the search bar while searching/filtering; parked
   // below the guide catalog when idle.
   const policyDb = (
-    <section style={{ paddingBottom: 'clamp(40px, 6vw, 64px)' }}>
+    <section id="policies" style={{ paddingBottom: 'clamp(40px, 6vw, 64px)', scrollMarginTop: 110 }}>
       <div style={W}>
         <h2 className="rv" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(21px, 2.4vw, 28px)', fontWeight: 400, color: INK, letterSpacing: '-0.012em', margin: '0 0 4px' }}>
           Policy database
@@ -275,6 +280,11 @@ export default function PayersDirectory() {
             commercial plans state by state — plus {POLICY_DB.length} searchable policy rules, each
             linked to its primary source. Compiled from primary documents, last reviewed {PAYER_REVIEWED}.
           </p>
+          <div className="rv d2" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center', marginTop: 18 }}>
+            {[{ href: '#guides', label: 'Guides by state' }, { href: '#prior-auth', label: 'Prior auth by payer' }, { href: '#policies', label: 'Policy database' }].map((l) => (
+              <a key={l.href} href={l.href} style={{ fontSize: 12.5, fontWeight: 600, color: '#2e5a26', background: 'rgba(63,122,52,0.08)', padding: '6px 13px', borderRadius: 100, textDecoration: 'none' }}>{l.label}</a>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -332,7 +342,7 @@ export default function PayersDirectory() {
       {searching && policyDb}
 
       {/* Guide cards — state-first */}
-      <section style={{ paddingBottom: 'clamp(28px, 4vw, 44px)' }}>
+      <section id="guides" style={{ paddingBottom: 'clamp(28px, 4vw, 44px)', scrollMarginTop: 110 }}>
         <div style={W}>
           <h2 className="rv" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(21px, 2.4vw, 28px)', fontWeight: 400, color: INK, letterSpacing: '-0.012em', margin: '0 0 4px' }}>Payer guides, by state</h2>
           <p className="rv" style={{ fontSize: 13.5, color: 'rgba(43,42,38,0.6)', margin: '0 0 20px' }}>Every state lists its Medicaid program, each Medicaid MCO, and the commercial plans operating there — each with its own intake-focused guide.</p>
@@ -402,6 +412,51 @@ export default function PayersDirectory() {
         </div>
       </section>
 
+
+      {/* Prior auth by payer — collapsed per state, but in the DOM so it is crawlable */}
+      <section id="prior-auth" style={{ paddingBottom: 'clamp(40px, 6vw, 64px)', scrollMarginTop: 110 }}>
+        <div style={W}>
+          <h2 className="rv" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(21px, 2.4vw, 28px)', fontWeight: 400, color: INK, letterSpacing: '-0.012em', margin: '0 0 4px' }}>
+            Prior authorization for ABA, by payer
+          </h2>
+          <p className="rv" style={{ fontSize: 13.5, color: 'rgba(43,42,38,0.6)', margin: '0 0 18px', maxWidth: 760 }}>
+            Whether the assessment (97151) and treatment need prior auth, for every guide. Only source-verified
+            answers are shown; open the guide for portals, forms, turnaround and the full citation.
+          </p>
+          {[
+            ...visibleStates.map((st) => ({ key: st.meta.code, name: st.meta.name, rows: [...st.medicaid, ...st.mcos, ...st.commercial] })),
+            ...(visibleNational.length > 0 ? [{ key: 'US', name: 'National plans', rows: visibleNational }] : []),
+          ].map((g) => (
+            <details key={g.key} className="pa-group" open={anyFilter}>
+              <summary>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(17px, 1.8vw, 20px)', color: INK }}>{g.name}</span>
+                <span style={{ fontSize: 12, color: 'rgba(43,42,38,0.5)' }}>{g.rows.length} {g.rows.length === 1 ? 'payer' : 'payers'}</span>
+              </summary>
+              <div style={{ overflowX: 'auto' }}>
+                <table className="pa-table">
+                  <thead>
+                    <tr><th>Payer</th><th>Assessment (97151)</th><th>Treatment</th></tr>
+                  </thead>
+                  <tbody>
+                    {g.rows.map((p) => {
+                      const a = paShort(p.assessmentPA);
+                      const tr = paShort(p.treatmentPA);
+                      return (
+                        <tr key={p.slug}>
+                          <td><a href={`/payers/${p.slug}`}>{p.payer}</a></td>
+                          <td>{a ?? <a href={`/payers/${p.slug}`} className="pa-see">See guide</a>}</td>
+                          <td>{tr ?? <a href={`/payers/${p.slug}`} className="pa-see">See guide</a>}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+
       {/* Policy database (idle position — full list, crawlable) */}
       {!searching && policyDb}
 
@@ -411,7 +466,7 @@ export default function PayersDirectory() {
           <div className="rv" style={{ background: 'rgba(63,122,52,0.05)', border: '1px dashed rgba(63,122,52,0.35)', borderRadius: 16, padding: 'clamp(18px, 2.4vw, 26px)', marginBottom: 16 }}>
             <div style={{ fontSize: 13, fontWeight: 700, color: INK, marginBottom: 6 }}>More payers & states on the way</div>
             <p style={{ fontSize: 13.5, color: 'rgba(43,42,38,0.65)', lineHeight: 1.6, margin: 0 }}>
-              Next up: {ROADMAP.join(' · ')}. New guides are added on a rolling basis, and every published
+              {ROADMAP.length > 0 && <>Next up: {ROADMAP.join(' · ')}. </>}New guides are added on a rolling basis, and every published
               guide’s sources are automatically re-checked on a schedule. Need a payer covered sooner?{' '}
               <a href="/demo" style={{ color: '#2e5a26', fontWeight: 600 }}>Tell us which one</a>.
             </p>
@@ -459,6 +514,19 @@ export default function PayersDirectory() {
       <style>{`
         @media (max-width: 900px) { .dir-grid { grid-template-columns: 1fr 1fr !important; } }
         @media (max-width: 580px) { .dir-grid { grid-template-columns: 1fr !important; } }
+        .pa-group { background: #fff; border-radius: 14px; margin-bottom: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03); }
+        .pa-group > summary { display: flex; align-items: baseline; gap: 10px; padding: 14px 18px; cursor: pointer; list-style: none; }
+        .pa-group > summary::-webkit-details-marker { display: none; }
+        .pa-group > summary::before { content: '+'; font-weight: 700; color: ${GREEN}; width: 12px; }
+        .pa-group[open] > summary::before { content: '−'; }
+        .pa-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 520px; }
+        .pa-table th { text-align: left; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(43,42,38,0.5); padding: 8px 18px; border-top: 1px solid rgba(43,42,38,0.08); }
+        .pa-table td { padding: 10px 18px; border-top: 1px solid rgba(43,42,38,0.06); color: rgba(43,42,38,0.78); line-height: 1.45; vertical-align: top; }
+        .pa-table th, .pa-table td { width: 31%; }
+        .pa-table th:first-child, .pa-table td:first-child { width: 38%; }
+        .pa-table td:first-child a { color: ${INK}; font-weight: 600; text-decoration: none; }
+        .pa-table td:first-child a:hover { text-decoration: underline; }
+        .pa-see { color: rgba(43,42,38,0.5); font-size: 12.5px; }
       `}</style>
     </div>
   );

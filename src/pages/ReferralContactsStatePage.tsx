@@ -115,7 +115,7 @@ function StatePage({ meta }: { meta: (typeof STATS.states)[number] }) {
   useReveal();
 
   useSeo({
-    title: `${meta.name} Pediatrician Contact List — ${meta.count.toLocaleString()} Pediatric Referral Contacts (Free) | Carelu`,
+    title: `${meta.name} Pediatrician ${meta.emails > 0 ? 'Email & Phone' : 'Contact'} List: ${meta.count.toLocaleString()} Pediatric Referral Contacts (Free) | Carelu`,
     description: `Free ${meta.name} pediatric referral list: ${meta.count.toLocaleString()} pediatricians and child-development professionals with ${meta.emails.toLocaleString()} verified emails and ${meta.phones.toLocaleString()} direct phone numbers. Browse online or download the CSV.`,
     canonical: `${HUB}/${meta.slug}`,
   });
@@ -164,7 +164,7 @@ function StatePage({ meta }: { meta: (typeof STATS.states)[number] }) {
             fontWeight: 400, color: INK, lineHeight: 1.08,
             letterSpacing: '-0.022em', margin: '24px auto 0', maxWidth: 860,
           }}>
-            {meta.name} pediatric referral contacts
+            {meta.name} pediatrician {meta.emails > 0 ? 'email and phone' : 'contact'} list
           </h1>
           <p className="rv d2" style={{
             fontSize: 'clamp(16px, 1.6vw, 18px)', color: 'rgba(43,42,38,0.72)',

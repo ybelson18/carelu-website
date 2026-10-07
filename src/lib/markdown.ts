@@ -12,6 +12,7 @@
    "Not published / unverified" note, as the page does.
    ================================================================ */
 
+import { paShort } from './payerPa';
 import { payers, PAYER_REVIEWED, STATE_META } from '../data/payers/index.js';
 import type { PayerConfig, PayerRuleFact, PayerSource } from '../data/payers/index.js';
 import { vob } from '../data/payers/vob/index.js';
@@ -479,7 +480,10 @@ export function payerDirectoryMarkdown(): string {
     const u = `${SITE}/payers/${p.slug}`;
     const kind = p.kind ? KIND_LABEL[p.kind] : '';
     const desc = clean(p.cardDesc);
-    return `- [${clean(p.payer)}](${u}) ([Markdown](${u}.md))${kind ? ` — ${kind}` : ''}${desc ? `. ${desc}` : ''}`;
+    const a = paShort(p.assessmentPA);
+    const t = paShort(p.treatmentPA);
+    const pa = a || t ? ` Prior auth: assessment ${a ?? 'see guide'}; treatment ${t ?? 'see guide'}.` : '';
+    return `- [${clean(p.payer)}](${u}) ([Markdown](${u}.md))${kind ? ` — ${kind}` : ''}${desc ? `. ${desc}` : ''}${pa}`;
   };
   const group = (code: string) =>
     all
@@ -490,7 +494,7 @@ export function payerDirectoryMarkdown(): string {
   out.push(frontMatter([
     ['title', 'ABA Payer Directory'],
     ['url', `${SITE}/payers`],
-    ['description', 'ABA therapy coverage and prior-authorization guides per payer: state Medicaid programs, Medicaid managed care plans, and commercial insurers, sourced from primary documents.'],
+    ['description', 'ABA therapy coverage and prior-authorization guides per payer, with whether the assessment and treatment need prior auth: state Medicaid programs, Medicaid managed care plans, and commercial insurers, sourced from primary documents.'],
     ['last_reviewed', PAYER_REVIEWED],
     ['guides', String(all.length)],
   ]));

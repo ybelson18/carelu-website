@@ -30,9 +30,9 @@ export const growthResources: Record<string, ResourceConfig> = {
     slug: 'how-to-grow-an-aba-practice',
     pill: 'Playbook · Practice Growth',
     h1: 'How to grow an ABA practice: five channels, and the one thing they all depend on.',
-    metaTitle: 'How to Grow an ABA Practice: The Complete Playbook | Carelu',
+    metaTitle: 'ABA Practice Growth: How to Grow and Scale an ABA Practice | Carelu',
     metaDescription:
-      'The five channels that bring families to an ABA practice — Google Ads, Meta, SEO, physician referrals, and the families you already have — what each one is good at, where each one leaks, and the operational work that decides whether any of it converts.',
+      'How to grow and scale an ABA practice: the five channels that bring families in (Google Ads, Meta, SEO, physician referrals, and the families you already have), where each one leaks, and the operational work that decides whether any of it converts.',
     answer:
       'Fix operations before buying demand: answer every inquiry fast on every channel, qualify instantly and get documents finished, then grow through Google Ads, Meta, SEO, referrals and the families you already have. Demand isn’t the constraint (the median provider’s inquiries grew 35% year over year), but 48% of family contacts arrive outside business hours, when most practices are a voicemail.',
     updated: '2026-09-23',
@@ -508,7 +508,7 @@ export const growthResources: Record<string, ResourceConfig> = {
     slug: 'seo-for-aba-practices',
     pill: 'Playbook · SEO & AI Search',
     h1: 'SEO for ABA practices — and what changes when parents ask an AI instead.',
-    metaTitle: 'SEO for ABA Practices (and AI Search) | Carelu',
+    metaTitle: 'SEO for ABA Practices: Local SEO, Google Business Profile & AI Search | Carelu',
     metaDescription:
       'The pages that actually rank for ABA searches, why Google Business Profile outranks your website for "near me," and how to be the practice an AI assistant names when a parent asks who takes their plan.',
     answer:
