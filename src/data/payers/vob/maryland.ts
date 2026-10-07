@@ -25,9 +25,10 @@
      Claim.MD's clearinghouse payer registry ("Additional IDs:
      OMDBH"). That transmittal is written for the Health Homes
      program specifically — no ABA-specific MDH transmittal naming
-     BHOMD was found this pass, so administratorPayerId ships
-     'inferred' (same BHASO/PBHS umbrella), not 'verified', pending a
-     document that names BHOMD for ABA claims specifically.
+     BHOMD was found. UPDATE 2026-10-07: administratorPayerId is now
+     'verified'. Carelon's ABA Guides and Forms page links the "BHOMD
+     837P Companion Guide" (Oct 2024), whose ISA08/GS03 receiver is
+     BHOMD (see CARELON_BHOMD_837P_CG).
    - pVerify's payer-list page (pverify.com/payer-list/) returned a
      literal Cloudflare bot-block page on direct retrieval this pass
      — any pVerify-sourced number for a Maryland guide is therefore
@@ -83,6 +84,11 @@ const CLAIM_MD_BHOMD = src(
   'https://www.claim.md/payer/BHOMD/MARYLAND%20PUBLIC%20BEHAVIORAL%20HEALTH%20SYSTEM.html',
   'Claim.MD clearinghouse payer directory — Payer ID BHOMD, "MARYLAND PUBLIC BEHAVIORAL HEALTH SYSTEM," lists Eligibility/Benefits plus Professional (1500) and Institutional (UB) claims support; "Additional IDs: OMDBH" confirms the same payer record absorbed the prior Optum-era ID.'
 );
+const CARELON_BHOMD_837P_CG: SourceRef = {
+  url: 'https://s18637.pcdn.co/wp-content/uploads/sites/75/Maryland-Medicaid-Companion-Guide-Transaction-Information-837P-Professional.pdf',
+  accessDate: '2026-10-07',
+  note: 'Carelon "BHOMD 837P Companion Guide" (October 2024), linked under "837 Companion Guides" on Carelon Maryland\'s ABA Guides and Forms page (maryland.carelonbh.com/aba-providers/aba-resources/guides-and-forms/). Interchange Receiver ID (ISA08), Application Receiver (GS03) and Loop 1000B Receiver Name are all "BHOMD"; clearinghouses "must route all files through Carelon, which has the connectivity directly with the BHOMD" system. No PRV (taxonomy) segment is listed among its requirements. This is the ABA-specific confirmation that ABA professional claims go to BHOMD.',
+};
 const PVERIFY_PAYER_LIST = src(
   'https://pverify.com/payer-list/',
   'pVerify public payer-list page — returned a Cloudflare bot-block page on direct automated retrieval this pass (confirmed via curl, Ray ID logged). No payer ID for any Maryland guide could be independently verified from this source this pass; treat every pverify field below as unverified rather than filled from an unconfirmed scrape.',
@@ -344,7 +350,7 @@ const marylandMedicaidEdi: EdiRouting = {
     supports270271: 'verified',
     supportsRealtime: 'verified',
     'bhCarveOut.administrator': 'verified',
-    'bhCarveOut.administratorPayerId': 'inferred',
+    'bhCarveOut.administratorPayerId': 'verified',
     'bhCarveOut.abaRidesOn': 'verified',
     'bhCarveOut.twoHopRequired': 'verified',
     'medicaid271Notes.mcoSegmentLocation': 'verified',
@@ -356,25 +362,23 @@ const marylandMedicaidEdi: EdiRouting = {
     'payerId.availity': 'No Maryland Medicaid entry found in the (unofficial, third-party-mirrored) Availity 837 payer list retrieved this pass — confirm via Availity onboarding directly.',
     'payerId.changeHealthcare':
       "A candidate 'MDMCD' ID surfaced via an Optum/UHC-affiliated payer list, but the exact source URL/page for that specific line could not be independently re-confirmed this pass — treat as a lead, not a shipped fact.",
-    'bhCarveOut.administratorPayerId':
-      "BHOMD is confirmed by MDH's own PT 54-25 transmittal as Carelon's Maryland submitter ID, but that transmittal is written for the Health Homes program specifically — no ABA-specific MDH transmittal naming BHOMD was found this pass. Confirm directly with Carelon provider services (800-888-1965) or ProviderConnect onboarding that ABA claims use the same BHOMD ID.",
     supportsRealtime:
       'This value (true) describes Maryland MMIS\'s OWN 270/271 per the 2013 companion guide (single-subscriber real-time inquiries supported). It does NOT describe the Carelon/BHOMD hop — Carelon\'s national companion guide states it does not support real-time eligibility transactions (batch only); no Maryland-specific Carelon companion guide was found to confirm this for the BHOMD line specifically. Treat the BHASO hop as batch-only pending direct confirmation.',
   },
-  sources: [MD_270_271_CG_2013, PT_54_25, CARELON_MD_ASO_FAQ, CARELON_NATIONAL_270271_CG, CLAIM_MD_BHOMD, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, UHC_PAYER_LIST_2026],
+  sources: [MD_270_271_CG_2013, PT_54_25, CARELON_MD_ASO_FAQ, CARELON_NATIONAL_270271_CG, CLAIM_MD_BHOMD, CARELON_BHOMD_837P_CG, PVERIFY_PAYER_LIST, AVAILITY_PAYER_LIST, UHC_PAYER_LIST_2026],
 };
 
 const marylandMedicaidCodeGrid: Record<string, CodeGridEntry> = {
   '97151': mdMedicaidEntry('97151', '32 units/day', 'Gated by a preceding Comprehensive Diagnostic Evaluation (CDE) from a QHCP confirming ASD (F84.0/.5/.8/.9); only a psychologist, BCBA-D, or BCBA may complete this assessment.'),
   '97152': mdMedicaidEntry('97152', '32 units/day', 'QA 2026-07-23: corrected from "unverified" — the MD ABA Provider Manual fee schedule (eff. 2/1/2026) states the daily max for 97152 verbatim: "97152 Behavior Identification ... BCaBA/RBT/BT $19.17 15 minutes 32 units Supporting Assessment." The earlier "no daily cap found" reading was wrong; 32 units/day is stated and matches the fieldStatus:verified.'),
-  '97153': mdMedicaidEntry('97153', '32 units/day', 'Direct treatment; billed at BCBA, BCaBA, or RBT/BT tier depending on rendering staff credential.'),
-  '97154': mdMedicaidEntry('97154', '16 units/day', 'Group adaptive behavior treatment; group limited to 2–8 ABA participants.'),
-  '97155': mdMedicaidEntry('97155', '24 units/day', 'Protocol modification; GT modifier available for remote direction of a technician (same rate as in-person).'),
-  '97156': mdMedicaidEntry('97156', '16 units/day', 'Parent training — billed 97156-U2 when the child is present (higher rate) vs. without the child present (lower rate).'),
+  '97153': mdMedicaidEntry('97153', '32 units/day', 'Direct treatment; billed at BCBA, BCaBA, or RBT/BT tier depending on rendering staff credential. Up to three rendering providers per day within the 32-unit cap; can be billed concurrently with 97155 or 97156 (not 97156-U2); not on the same date as 90870 or 96156/96158/96159. (Carelon Description of Services Codes, updated April 2026; MDH Combination of Services Review, rev. Feb 2026.)'),
+  '97154': mdMedicaidEntry('97154', '16 units/day', 'Group adaptive behavior treatment; group limited to 2–8 ABA participants. Requires clinical justification; supervised via 97155 (not 97158). (Carelon Description of Services Codes, updated April 2026; MDH Combination of Services Review, rev. Feb 2026.)'),
+  '97155': mdMedicaidEntry('97155', '24 units/day', 'Protocol modification; GT modifier available for remote direction of a technician (same rate as in-person). Can be billed concurrently with 97153; in-person 97155 and 97155-GT cannot be billed on the same date; 0362T/0373T cannot be billed concurrently with 97155. (Carelon Description of Services Codes, updated April 2026; MDH Combination of Services Review, rev. Feb 2026.)'),
+  '97156': mdMedicaidEntry('97156', '16 units/day', 'Parent training — billed 97156-U2 when the child is present (higher rate) vs. without the child present (lower rate). 97156-U2 cannot be billed concurrently with 97153; 97156 without U2 can. One 97156 and one 97156-U2 may be billed the same day. (Carelon Description of Services Codes, updated April 2026; MDH Combination of Services Review, rev. Feb 2026.)'),
   '97157': mdMedicaidEntry('97157', '10 units/day', 'Multiple-family group parent training; group limited to 2–8 families.'),
   '97158': mdMedicaidEntry('97158', '10 units/day', 'Group adaptive behavior treatment with protocol modification; group limited to 2–8 ABA participants.'),
-  '0362T': mdMedicaidEntry('0362T', '32 units/day'),
-  '0373T': mdMedicaidEntry('0373T', '24 units/day', 'Extra-technician/intensifying protocol.'),
+  '0362T': mdMedicaidEntry('0362T', '32 units/day', 'Requires clinical justification; all-inclusive code billed under the NPI of the highest certification among the team; cannot be billed concurrently with 97155. (Carelon Description of Services Codes, updated April 2026; MDH Combination of Services Review, rev. Feb 2026.)'),
+  '0373T': mdMedicaidEntry('0373T', '24 units/day', 'Extra-technician/intensifying protocol. Requires clinical justification; all-inclusive code billed under the NPI of the highest certification among the team; cannot be billed concurrently with 97155. (Carelon Description of Services Codes, updated April 2026; MDH Combination of Services Review, rev. Feb 2026.)'),
 };
 
 const marylandMedicaidVobContact: VobContact = {
