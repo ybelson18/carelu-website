@@ -152,4 +152,5 @@ export const STATE_META: StateMeta[] = [
   { code: 'IL', name: 'Illinois', mandate: 'Illinois autism mandate (215 ILCS 5/356z.14)', medicaidSlug: 'illinois-medicaid' },
   { code: 'LA', name: 'Louisiana', mandate: 'La. R.S. 22:1050 (under 21, $36,000/yr cap)', medicaidSlug: 'louisiana-medicaid' },
   { code: 'OR', name: 'Oregon', mandate: 'Oregon Laws 2013, ch. 771, § 2 (ABA up to 25 hr/wk, first requested under 9) + ORS 743A.168 parity', medicaidSlug: 'oregon-medicaid' },
+  { code: 'MN', name: 'Minnesota', mandate: 'Minn. Stat. § 62A.3094 (large-employer plans, children under 18)', medicaidSlug: 'minnesota-medicaid' },
 ];
