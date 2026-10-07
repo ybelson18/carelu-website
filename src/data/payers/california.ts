@@ -124,6 +124,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
         ],
       },
+      {
+        h2: 'Fee-for-service claims: the six-month billing limit and appeals',
+        body: [
+          'For BHT billed directly to fee-for-service Medi-Cal, "Original (or initial) Medi-Cal claims must be received by Medi-Cal within six months following the month in which services were rendered." Without an allowed delay reason, claims received in months seven to nine are paid at 75 percent, months ten to twelve at 50 percent, and after month twelve they are denied (W&I § 14115). A denied claim can be followed up with a Claims Inquiry Form within six months of the Remittance Advice, and an appeal is due within 90 days of the RAD or the claims-inquiry response. Members in a Medi-Cal managed care plan are billed to that plan under its own filing rules, not this one.',
+        ],
+        cites: [
+          { title: 'Medi-Cal Provider Manual — Claim Submission and Timeliness Overview (claim sub), updated 2024–2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=claimsub.pdf' },
+          { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Medi-Cal plan', desc: 'The plan name on the card (L.A. Care, Health Net, IEHP, Kaiser, CalOptima …) — or fee-for-service. The plan, not DHCS, authorizes BHT for managed-care members.' },
@@ -290,6 +300,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does California license behavior analysts?', a: 'No. California has no behavior analyst license; BCBAs practice as qualified autism service providers on national certification, with QAS professionals and paraprofessionals working under their supervision.' },
       { q: 'Can the ABA assessment (97151) or supervision (97155) be done by telehealth under Medi-Cal?', a: 'Yes under the state rule, when clinically appropriate: APL 23-007 lets any covered code be delivered by telehealth (POS 02 or 10, modifier 95 or 93, documented consent, in-person option preserved). Each plan can add its own BHT telehealth limits, so check the member\'s plan.' },
       { q: 'Can a Medi-Cal family keep its ABA provider when switching providers or plans?', a: 'For up to 12 months, yes in most cases: APL 23-010 requires plans to offer continued access to out-of-network BHT providers (continuity of care) under APL 23-022. Whether an authorization follows the child to a new agency inside the plan is the plan\'s call; ask before switching.' },
+      { q: 'What is the timely filing limit for fee-for-service Medi-Cal BHT claims?', a: 'Six months following the month of service. Late claims without an approved delay reason are cut to 75% (months 7–9) or 50% (months 10–12) and denied after month 12. Managed-care members are billed to their plan, which sets its own limit.' },
     ],
   },
 
@@ -350,6 +361,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'L.A. Care — BHT/ABA Authorization Request Form LA5480 (05/26)', url: 'https://www.lacare.org/sites/default/files/la5480_bht_authorization_form_202605.pdf' },
           { title: 'L.A. Care — BHT Coverage for Members Under 21 (PCP flyer PL1757, 11/23)', url: 'https://www.lacare.org/sites/default/files/pl1757_bht_pcp_flyer_202311_0.pdf' },
           { title: 'L.A. Care — Behavioral Health Treatment Reporting Template (PL6030, 09/25)', url: 'https://www.lacare.org/sites/default/files/la6030_lac_bht_reporting_template_202509.pdf' },
+          { title: 'L.A. Care — 2026 Universal Provider Manual (LA4289)', url: 'https://www.lacare.org/sites/default/files/la4289_upm_202512.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing limit, payment and provider disputes',
+        body: [
+          'L.A. Care’s 2026 Universal Provider Manual sets the Medi-Cal (MCLA) timely filing limit at "Within 180 calendar days from the date of service," with late claims denied unless the provider shows good cause, and secondary (COB) claims due within 180 calendar days of the primary’s determination. Clean claims are processed within 30 calendar days (DHCS and DMHC standard). Billing for services not authorized, or not on the authorization, "may result in a denial of the service and/or the entire claim," and authorizations are valid only if the member is eligible on the date of service.',
+          'Provider disputes — "a written notice challenging, appealing or requesting reconsideration of a claim’s initial determination" — must be filed "within 365 calendar days of the health plan’s last action." L.A. Care acknowledges within 15 working days and sends a written determination within 45 business days for Medi-Cal. A second-level dispute goes to L.A. Care (P.O. Box 811610, Los Angeles, CA 90081) marked "Second Level Dispute"; once a dispute is upheld twice, the provider "is advised to seek relief with the DMHC."',
+        ],
+        cites: [
           { title: 'L.A. Care — 2026 Universal Provider Manual (LA4289)', url: 'https://www.lacare.org/sites/default/files/la4289_upm_202512.pdf' },
         ],
       },
@@ -414,7 +435,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'No BHT-specific rule. L.A. Care’s general telehealth section requires a participating provider, disallows telehealth "when the Member and participating Provider are in the same physical location," and excludes "texting, facsimile or email only." Beyond that the Medi-Cal telehealth rule applies, which does not settle technician-delivered 97153/H2019 by video.',
+        value: 'No BHT-specific rule. L.A. Care’s general telehealth section requires a participating provider, disallows telehealth "when the Member and participating Provider are in the same physical location," and excludes "texting, facsimile or email only." Beyond that the Medi-Cal telehealth rule applies: modifier 95 for video, 93 for audio-only, GQ for store-and-forward, and POS 02 (outside the home) or 10 (in the home). That rule does not settle technician-delivered 97153/H2019 by video.',
         status: 'plan-dependent',
         cites: [
           { title: 'L.A. Care — 2026 Universal Provider Manual (LA4289)', url: 'https://www.lacare.org/sites/default/files/la4289_upm_202512.pdf' },
@@ -500,6 +521,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'How do I request ABA from L.A. Care?', a: 'Fax form LA5480 (05/26) with the recommendation and documentation to (213) 438-5054, or call the BHT team at 1-888-347-2264. The FBA is requested as H0032, up to 12 hours.' },
       { q: 'Does the member’s medical group handle ABA?', a: 'No. For L.A. Care’s direct Medi-Cal members, BHT goes through L.A. Care’s own BHT network, not the IPA. Members on a Plan Partner card (Anthem Blue Cross, Blue Shield Promise) may follow that plan’s process.' },
       { q: 'What happens when a family is switching providers or plans with L.A. Care?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask L.A. Care for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
+      { q: 'What are L.A. Care’s ABA prior authorization and diagnostic requirements?', a: 'Fax form LA5480 (05/26) to (213) 438-5054. All four criteria must be met: the member is under 21; a licensed physician, surgeon or psychologist recommends BHT "with documentation demonstrating medical necessity"; the child is medically stable (e.g. a physician note); and no 24-hour or ICF/ID care is needed. No autism diagnosis is required, no instrument is required behind the recommendation, and L.A. Care publishes no recency window for it. The FBA is H0032, up to 12 hours (48 units); treatment is requested as hours per month on H2019, H0031 and S5111. Decisions follow the state clock — five business days, 72 hours urgent, never more than 7 calendar days from 2026.' },
+      { q: 'What is L.A. Care’s timely filing limit for Medi-Cal ABA claims?', a: 'Within 180 calendar days from the date of service for Medi-Cal (MCLA) claims, per the 2026 Universal Provider Manual. Clean claims are processed within 30 calendar days, and provider disputes are due within 365 calendar days of L.A. Care’s last action.' },
     ],
   },
 
@@ -771,6 +794,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'IEHP — 2026 Medi-Cal Provider Manual Summary of Changes (11/17/2025)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services-rd/en/documents/providers/provider-manual/2026/summary-of-changes/2026%20Summary%20of%20Changes_11-17-25.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing limit, payment and provider disputes',
+        body: [
+          'IEHP’s Medi-Cal claims policy (MC_20A, January 2024 edition): contracted providers submit claims "within the timely filing period specified in their Provider contract," which "must allow a minimum of 90 days from the date of service"; non-contracted providers have one year from the date of service, with full reimbursement only for claims received within 180 days after the month of service. Claims paid late carry interest of 15% per annum from the first calendar day after the 45th working day.',
+          'Provider disputes can be filed within 365 days of payment or denial; they are acknowledged within two working days (electronic) or 15 working days (paper) and resolved within 45 working days. A dispute over a timely-filing denial must include proof of timely filing or documented good cause.',
+        ],
+        cites: [
+          { title: 'IEHP Provider Policy and Procedure Manual — Medi-Cal Section 20, Claims Processing (MC_20A, 01/24 edition)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services/en/documents/providers/provider-manual/2024/medi-cal/approved/20%20-%20CLAIMS%20PROCESSING_01-01-24%20APPROVED.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Physician or psychologist request', desc: 'A formal request describing the behavioral excesses/deficits that interfere at home or in the community — no autism diagnosis needed.' },
@@ -921,6 +954,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'How do I request ABA from IEHP?', a: 'Through the IEHP Provider Portal "BH Referral Request" — H0031 for the FBA, then 6-month unit requests for treatment on IEHP’s progress-report template.' },
       { q: 'How much supervision does IEHP authorize?', a: 'Up to two hours of case supervision (H0032) per 10 hours of direct treatment; more needs clinical justification.' },
       { q: 'What happens when a family is switching providers or plans with IEHP?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask IEHP for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
+      { q: 'What is IEHP’s timely filing limit for Medi-Cal ABA claims?', a: 'Whatever your IEHP contract says, but never less than 90 days from the date of service for contracted providers; non-contracted providers have one year (full payment only within 180 days after the month of service). Disputes are due within 365 days of payment or denial.' },
     ],
   },
 
@@ -1197,6 +1231,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Anthem Blue Cross California — Prior Authorization Requirements (provider page)', url: 'https://providers.anthem.com/california-provider/claims/prior-authorization-requirements' },
         ],
       },
+      {
+        h2: 'Claims: filing limit, payment, reconsideration and EVV',
+        body: [
+          'Anthem’s July 2026 Medi-Cal manual: the provider "shall bill Anthem within 180 days from … the date of service for outpatient and professional claims," with the four W&I § 14115 exceptions, and COB claims within 180 days for professional providers. Anthem pays clean claims "within 30 calendar days of receipt" and otherwise owes "interest at the rate of 15 percent per annum." Claims go out with valid NPIs for the billing, rendering and referring providers; the rendering individual is reported in box 24J.',
+          'Disputes: a written claim reconsideration must reach Anthem "within 12 months of the last action on a claim"; Anthem acknowledges within 15 business days and decides within 30 calendar days. If that fails, a claim payment appeal is due "within 60 calendar days of the reconsideration outcome." The manual’s EVV section covers services "delivered during in-home visits," requires the six federal data elements and points providers to the state CalEVV (Sandata) system "subject to federal EVV requirements"; it does not name BHT, so confirm with Anthem before treating in-home ABA as EVV-applicable.',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross Medi-Cal Managed Care Provider Manual (eff. 7/1/2026)', url: 'https://providers.anthem.com/docs/gpp/california-provider/CA_CAID_ProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Recommendation or evaluation', desc: 'Anthem Recommendation Form, diagnostic evaluation, MD note or letter recommending ABA — from a physician or licensed psychologist.' },
@@ -1259,7 +1303,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       telehealth: {
-        value: 'General rule only: "Utilizing telehealth does not require prior authorization," and Anthem pays live video, audio-only and asynchronous telehealth with the appropriate modifier. For ABA the request form’s place-of-service boxes read "Telehealth (if allowed)" — Anthem publishes no list of which ABA codes it will pay remotely.',
+        value: 'General rule only: "Utilizing telehealth does not require prior authorization," and Anthem pays live video, audio-only and asynchronous telehealth with the appropriate modifier. The manual sets the modifier: 95 for synchronous video, 93 for audio-only, GQ for store-and-forward. For ABA the request form’s place-of-service boxes read "Telehealth (if allowed)" — Anthem publishes no list of which ABA codes it will pay remotely.',
         status: 'plan-dependent',
         cites: [
           { title: 'Anthem Blue Cross Medi-Cal Managed Care Provider Manual (eff. 7/1/2026)', url: 'https://providers.anthem.com/docs/gpp/california-provider/CA_CAID_ProviderManual.pdf' },
@@ -1305,14 +1349,13 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       dailyLimits: {
-        value: 'No Anthem hour cap is published; direct codes are authorized per week on the request form, and APL 23-010 prohibits "caps on number of hours." Claim-level unit edits (MUEs) are not addressed in the documents read.',
-        status: 'plan-dependent',
+        value: 'No hour cap — APL 23-010 prohibits "caps on number of hours" — but the claim ceiling is weekly. Direct codes are authorized per week on the request form, and from January 1, 2026 Anthem California (Commercial and Medicaid) pays ABA "based on weekly approved units rather than total authorized units": units billed over the weekly approved limit "will be considered ineligible for reimbursement" (97151–97158, 0362T, 0373T). No per-day unit edit is published.',
+        status: 'verified',
         cites: [
+          { title: 'Anthem Blue Cross Provider News — Streamlined ABA claim process starts January 1, 2026 (Commercial and Medi-Cal)', url: 'https://providernews.anthem.com/california/articles/streamlined-aba-claim-process-starts-january-1-2026-27876' },
           { title: 'Anthem Blue Cross — Treatment Plan Request Form for Autism Spectrum Disorders, Medi-Cal (May 2026)', url: 'https://providers.anthem.com/docs/gpp/california-provider/CA_CAID_ASDTreatmentRequestForm.pdf' },
           { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
         ],
-        verifyVia: 'Anthem Medi-Cal provider services or the Availity claim-edit tools — ask whether unit edits apply to 97153/97155 per day.',
-        blocker: 'per-case',
       },
       noteSignature: {
         value: 'Not addressed in the Anthem ABA documents beyond the provider signature and license on the request form.',
@@ -1347,6 +1390,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment need prior authorization with Anthem Medi-Cal?', a: 'Yes. Anthem runs the assessment (97151/97152/0362T) through the same ASD Treatment Plan Request Form as treatment, via Availity or fax 855-473-7902.' },
       { q: 'How fast does Anthem Medi-Cal decide an ABA request?', a: 'Its July 2026 manual says 7 calendar days (up to 14 if information is missing) and 72 hours for urgent requests; an older policy says 5 business days. Plan on the shorter clock.' },
       { q: 'What happens when a family is switching providers or plans with Anthem Blue Cross Medi-Cal?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Anthem Blue Cross Medi-Cal for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
+      { q: 'What is Anthem Blue Cross Medi-Cal’s timely filing limit for ABA claims?', a: 'Within 180 days of the date of service for professional claims, per Anthem’s July 2026 Medi-Cal manual. Clean claims are paid within 30 calendar days, and reconsideration requests are due within 12 months of the last action on the claim.' },
     ],
   },
 
@@ -1637,6 +1681,15 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
         ],
       },
+      {
+        h2: 'Claims: filing limit and provider disputes',
+        body: [
+          'Kaiser’s 2026 Southern California HMO provider manual says KP follows "the Knox-Keene Act, Medicare, or Medi-Cal requirements for claim processing, as applicable" and instructs: "Submit all claims for services provided to KP Members within 90 calendar days after the date of service or discharge, unless a different submission period is specified in your Agreement or required by law." Provider dispute notices "must be received by KP within 365 calendar days from our action" and are resolved within 45 business days.',
+        ],
+        cites: [
+          { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Kaiser referral status', desc: 'Has a Kaiser physician referred for BHT? If not, send the family to their KP pediatrician or behavioral health first.' },
@@ -1855,6 +1908,18 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Partnership MCUP3126 — Behavioral Health Treatment (BHT) for Members Under 21 (reviewed 4/8/2026)', url: 'https://public.powerdms.com/PHC/documents/1850144' },
         ],
       },
+      {
+        h2: 'Claims: billing limit, payment standard and disputes',
+        body: [
+          'Partnership’s claims policy CLPM-05: "Partnership Healthplan of California (Partnership) has a 12 month billing limit. Providers have 365 days from the date of service to submit claims to Partnership for payment consideration." Under CLPM-15, 95% of clean claims are paid or denied within 45 working days, 90% of clean claims from individual or group practitioners are paid within 30 days of receipt and 99% within 90 days, and late payments on complete claims carry interest at 15% per annum.',
+          'Disputes (CLPM-41): providers "have 365 calendar days to dispute a claim from the original date on the Partnership RA"; Partnership acknowledges within 2 working days for electronic submissions (15 for paper) and sends a Claims Dispute Response Letter within 45 working days.',
+        ],
+        cites: [
+          { title: 'Partnership HealthPlan CLPM-05 — Partnership HealthPlan of California Billing Limit (approved 9/1/2025)', url: 'https://public.powerdms.com/PHC/documents/3548907' },
+          { title: 'Partnership HealthPlan CLPM-15 — Claims Processing and Payment Standards (last reviewed 4/23/2026)', url: 'https://public.powerdms.com/PHC/documents/3548943' },
+          { title: 'Partnership HealthPlan CLPM-41 — Provider Claims Dispute Resolution Mechanism (approved 9/1/2025)', url: 'https://public.powerdms.com/PHC/documents/3548969' },
+        ],
+      },
     ],
     collect: [
       { title: 'Signed release of information', desc: 'Required with every BHT TAR or clinical document; renew yearly.' },
@@ -1998,6 +2063,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'What does Partnership need with a BHT request?', a: 'A signed release of information (valid one year), a physician/surgeon/psychologist recommendation, a diagnosis, the H&P and diagnostic testing, and a BCBA’s functional behavior assessment — records older than 12 months only earn a one-time single visit.' },
       { q: 'How fast does Partnership decide a BHT TAR?', a: 'Within 7 calendar days of receipt (up to 14 if information is missing), and within 72 hours for urgent requests.' },
       { q: 'What happens when a family is switching providers or plans with Partnership HealthPlan?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Partnership HealthPlan for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
+      { q: 'What is Partnership HealthPlan’s timely filing limit for BHT claims?', a: '365 days from the date of service (a 12-month billing limit, policy CLPM-05). Disputes are due within 365 calendar days of the date on the Partnership remittance advice and are answered within 45 working days.' },
     ],
   },
 
@@ -2090,6 +2156,18 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts (California absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
           { title: 'KP NCAL HMO Provider Manual 2026 — Section 12, Additional Service Specific Information (§ 12.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
           { title: 'KP SCAL — Notice on BHT/ABA Cost Share Collection and Classification', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/cost-share-collection-and-classification-behavorial-health-notice-en.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing limit and provider disputes',
+        body: [
+          'Kaiser’s 2026 HMO Provider Manual (Section 5, Claim Billing and Payment) says that in Northern and Southern California KP follows the Knox-Keene Act and instructs: "Submit all claims for services provided to KP Members within 90 calendar days after the date of service or discharge, unless a different submission period is specified in your Agreement or required by law." Professional claims go on the CMS-1500 with the KP authorization number for any prior-authorized service; COB information for California is due within 90 calendar days of the primary carrier’s EOB. Provider dispute notices "must be received by KP within 365 calendar days from our action," are acknowledged within 15 business days (two for online submissions), and are resolved within 45 business days. The DMHC floor underneath bars deadlines shorter than 90 days for contracted providers (180 for non-contracted) and requires payment of a complete claim within 30 working days (45 for an HMO).',
+        ],
+        cites: [
+          { title: 'KP HMO Provider Manual 2026 — Section 5, Claim Billing and Payment Policies and Procedures', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-billing-and-payment-en.pdf' },
+          { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
+          { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
+          { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
       },
     ],
@@ -2239,14 +2317,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       billAsProvider: {
-        value: 'Not published for BHT. Claims for prior-authorized services must carry the authorization number; in NCAL Kaiser places BHT through partner agencies (primarily Catalight Care Services, a network manager of 100+ providers), so a small agency’s contract may be with Catalight rather than Kaiser. The NCAL billing & payment section is image-only.',
+        value: 'Not published for BHT. Kaiser’s 2026 HMO Provider Manual billing section (now text-readable) asks for a NUCC-standard CMS-1500 with the authorization number on every prior-authorized service, but sets no rule on whose NPI goes on technician time; in NCAL Kaiser places BHT through partner agencies (primarily Catalight Care Services, a network manager of 100+ providers), so a small agency’s contract may be with Catalight rather than Kaiser. The NCAL billing & payment section is image-only.',
         status: 'unverified',
         cites: [
           { title: 'KP Southern California HMO Provider Manual 2026 (rev. 10-25)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/scal/ever/hmo-provider-manual-2026-en-scal.pdf' },
           { title: 'TPMG My Doctor Online (NCAL) — Interventions and Services for Children With ASD', url: 'https://mydoctor.kaiserpermanente.org/ncal/structured-content/interventions-and-services-for-children-with-autism-spectrum-disorder-asd-2263667' },
         ],
-        verifyVia: 'KP NCAL "Billing and Payment" provider manual section (image PDF — needs a human read: healthy.kaiserpermanente.org …/ncal/ever/hmo-billing-and-payment-en.pdf), Catalight contracting, or SCAL-BH-Panel@kp.org.',
-        blocker: 'document',
+        verifyVia: 'Your Kaiser or Catalight agreement, or SCAL-BH-Panel@kp.org — the billing section of the 2026 manual was read in October 2026 and does not address rendering vs. supervising NPI.',
+        blocker: 'per-case',
       },
     },
     faq: [
@@ -2254,6 +2332,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Can we take a Kaiser family directly?', a: 'Only once Kaiser has referred the child and issued a written authorization to your agency. Send new Kaiser families to their Kaiser pediatrician for a BHT referral first.' },
       { q: 'What does the California autism mandate require?', a: 'H&S § 1374.73 / Ins. Code § 10144.51 require fully insured plans to cover behavioral health treatment, including ABA, for autism — with no age or dollar caps, a treatment plan reviewed at least every six months, and (from 2026) no forced rediagnosis to keep coverage. Self-funded ERISA plans and Medi-Cal plans are exempt.' },
       { q: 'Does California license behavior analysts?', a: 'No. BCBAs practice as qualified autism service providers on national certification; technicians are unlicensed QAS paraprofessionals working under supervision.' },
+      { q: 'What is Kaiser Permanente California’s timely filing limit for ABA claims?', a: 'Kaiser’s 2026 Southern California provider manual says 90 calendar days after the date of service unless your agreement says otherwise; disputes are due within 365 calendar days of Kaiser’s action. Your ABA agreement with Kaiser controls if it sets a different period.' },
     ],
   },
 
@@ -2262,10 +2341,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Magellan out 1/1/2026 — Blue Shield manages ABA itself; PA on assessment + treatment; BSC3.01; 2:10 supervision ceiling.',
     assessmentPA: {
-      value: 'Required — 97151, 97152 and 0362T are on the Blue Shield prior authorization list (eff. 9/1/2026), and policy BSC3.01 says "The provider must request authorization for the initial assessment"; more than 20 assessment hours needs a written justification',
+      value: 'Required — 97151, 97152 and 0362T are on the Blue Shield prior authorization list (eff. 10/1/2026), and policy BSC3.01 says "The provider must request authorization for the initial assessment"; more than 20 assessment hours needs a written justification',
       status: 'verified',
       cites: [
-        { title: 'Blue Shield of California — Prior Authorization List (eff. 9/1/2026)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/BSC-Prior-Auth-List.pdf' },
+        { title: 'Blue Shield of California — Prior Authorization List (eff. 10/1/2026)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/BSC-Prior-Auth-List.pdf' },
         { title: 'Blue Shield Medical Policy BSC3.01 — BHT for ASD or PDD (eff. 12/1/2025)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/medical-policies/Behavioral-Health-TX-Autism-Spectrum-Disorders.pdf' },
       ],
     },
@@ -2274,7 +2353,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       status: 'plan-dependent',
       cites: [
         { title: 'Blue Shield Independent Physician and Provider Manual (PPO / direct HMO), July 2026', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/7-26-A11421-IPP-Manual.pdf' },
-        { title: 'Blue Shield of California — Prior Authorization List (eff. 9/1/2026)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/BSC-Prior-Auth-List.pdf' },
+        { title: 'Blue Shield of California — Prior Authorization List (eff. 10/1/2026)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/BSC-Prior-Auth-List.pdf' },
       ],
       verifyVia: 'The member ID card (DMHC plan vs. CDI-regulated Blue Shield of California Life & Health policy) plus the AuthAccel "does this need auth" lookup or Provider Customer Service (800) 541-6652.',
       blocker: 'per-case',
@@ -2347,6 +2426,18 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Blue Shield Independent Physician and Provider Manual (PPO / direct HMO), July 2026', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/7-26-A11421-IPP-Manual.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing limit and provider disputes',
+        body: [
+          'Blue Shield’s July 2026 Independent Physician and Provider Manual: "you must submit your claims to Blue Shield within 12 months of the date of service(s) unless otherwise stated by contract"; claims filed later without an explanation may be denied, and members are not responsible for charges denied for late filing. Clean claims must identify the rendering provider.',
+          'Provider disputes must be submitted "within 365 days, or the time specified in the provider’s Blue Shield agreement, whichever is greater," of Blue Shield’s contest, denial, notice or payment; Blue Shield acknowledges paper disputes within 15 working days (electronic within two) and "will resolve disputes within 45 working days." The DMHC rule underneath: no filing deadline shorter than 90 days for contracted providers (180 for non-contracted) and payment of a complete claim within 30 working days (45 for HMO lines).',
+        ],
+        cites: [
+          { title: 'Blue Shield Independent Physician and Provider Manual (PPO / direct HMO), July 2026', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/7-26-A11421-IPP-Manual.pdf' },
+          { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
+          { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type on the card', desc: 'DMHC plan (HMO/PPO — PA required) vs. CDI-regulated Blue Shield Life & Health policy vs. self-funded/ASO vs. FEP — each routes differently.' },
@@ -2358,7 +2449,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Blue Shield Medical Policy BSC3.01 — BHT for ASD or PDD (eff. 12/1/2025)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/medical-policies/Behavioral-Health-TX-Autism-Spectrum-Disorders.pdf' },
       { title: 'Blue Shield — Prior Authorization Request Form, Applied Behavioral Analysis (Commercial, 12/2025)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/forms/PA-ABA.pdf' },
-      { title: 'Blue Shield of California — Prior Authorization List (eff. 9/1/2026)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/BSC-Prior-Auth-List.pdf' },
+      { title: 'Blue Shield of California — Prior Authorization List (eff. 10/1/2026)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/BSC-Prior-Auth-List.pdf' },
       { title: 'Blue Shield — Transitioning Behavioral Health Services Management to Blue Shield (provider webinar, Oct 21, 2025)', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/Transitioning-Behavioral-Health-Services-Management-to-Blue-Shield-of-California-October-2025.pdf' },
       { title: 'Blue Shield Independent Physician and Provider Manual (PPO / direct HMO), July 2026', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/7-26-A11421-IPP-Manual.pdf' },
       { title: 'Blue Shield HMO IPA/Medical Group Procedures Manual, July 2026', url: 'https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/7-26-A12060-HMO-Manual.pdf' },
@@ -2500,6 +2591,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Magellan still handle Blue Shield ABA?', a: 'No. Since January 1, 2026, Blue Shield manages ABA itself for commercial HMO, PPO, self-funded and Shared Advantage plans. Use AuthAccel, fax (844) 742-1155 (urgent (844) 729-1416), or Blue Shield Behavioral Health at (877) 263-9952.' },
       { q: 'How fast does Blue Shield decide an ABA request?', a: 'Five business days for standard requests and 72 hours for urgent ones, per Blue Shield’s ABA form and 2026 manual — the H&S § 1367.01 floor.' },
       { q: 'What does the California autism mandate require?', a: 'Fully insured plans must cover behavioral health treatment, including ABA, for autism with no age or dollar caps, a treatment plan reviewed at least every six months, and — from 2026 — no forced rediagnosis to keep coverage. Self-funded ERISA and Medi-Cal plans are exempt.' },
+      { q: 'What is Blue Shield of California’s timely filing limit for ABA claims?', a: 'Twelve months from the date of service unless your contract says otherwise, per Blue Shield’s July 2026 provider manual. Provider disputes are due within 365 days of Blue Shield’s action (or longer if your agreement allows) and are resolved within 45 working days.' },
     ],
   },
 
@@ -2508,7 +2600,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
     family: 'anthem',
     cardDesc: 'PA on every ABA code; fully insured reviewed on AACAP criteria (SB 855), self-funded on licensed MCG B-806-T.',
     assessmentPA: {
-      value: 'Required — 97151, 97152 and 0362T are on Anthem’s California PPO precertification list (eff. 9/1/2026) with Anthem as the responsible party; "Although most services do not require preauthorization, ABA services do"',
+      value: 'Required — 97151, 97152 and 0362T are on Anthem’s California PPO precertification list (updated 9/22/2026, eff. 10/1/2026) with Anthem — not Carelon — as the responsible party; "Although most services do not require preauthorization, ABA services do"',
       status: 'verified',
       cites: [
         { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
@@ -2555,7 +2647,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Anthem’s ABA rules in California',
         body: [
-          'Anthem’s California PPO precertification list (updated August 24, 2026, effective September 1, 2026) lists every ABA code — 97151–97158, 0362T, 0373T, H0031, H0032, H0046, H2012, H2014 and H2019 — with Anthem as the responsible party and "Contact Behavioral Health at the number on the member’s ID card." Its criteria column reads "American Academy of Child and Adolescent Psychiatry (AACAP)," with the comment "California Self-insured (ASO) benefit plans use MCG B-806-T Applied Behavioral Analysis." That is Anthem’s answer to SB 855’s requirement that fully insured plans use nonprofit-association criteria. Anthem’s national adaptive-behavior guideline (CG-BEH-02) is not on its California guideline index and is not cited for California. The list applies to "local fully-insured Anthem members and select members who are covered under self-insured (ASO) benefit plans" — not to HMO, BlueCard (out-of-state Blue cards follow the home plan), Medicare, Medicaid or FEP.',
+          'Anthem’s California PPO precertification list (updated September 22, 2026, effective October 1, 2026) lists every ABA code — 97151–97158, 0362T, 0373T, H0031, H0032, H0046, H2012, H2014 and H2019 — with Anthem as the responsible party and "Contact Behavioral Health at the number on the member’s ID card." Its criteria column reads "American Academy of Child and Adolescent Psychiatry (AACAP)," with the comment "California Self-insured (ASO) benefit plans use MCG B-806-T Applied Behavioral Analysis." That is Anthem’s answer to SB 855’s requirement that fully insured plans use nonprofit-association criteria. Anthem’s national adaptive-behavior guideline (CG-BEH-02) is not on its California guideline index and is not cited for California. The list applies to "local fully-insured Anthem members and select members who are covered under self-insured (ASO) benefit plans" — not to HMO, BlueCard (out-of-state Blue cards follow the home plan), Medicare, Medicaid or FEP. Carelon is not the ABA reviewer on this list: the list names Carelon Medical Benefits Management only for cardiology, genetic testing, sleep, imaging, radiation oncology, musculoskeletal and similar programs, while every ABA row names Anthem.',
           'Anthem’s behavioral health group guide adds: "Always obtain authorization prior to rendering ABA services"; "ABA services are authorized by CPT® code, and claims will be processed by CPT code"; units must be whole numbers; and "Include the individual NPI of the rendering provider." Submit through Interactive Care Reviewer on Availity or "fill out the Adaptive Behavioral Treatment Request and fax the completed form to 866-582-2287." Some Anthem plans carve mental health out to another company — the ID card says so.',
         ],
         cites: [
@@ -2588,6 +2680,18 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Business & Professions Code § 4999.202 — Qualified autism service paraprofessional (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.202' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts (California absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
           { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing limit, payment clock and disputes',
+        body: [
+          'Anthem’s behavioral health group guide says: "Submit original claims within 90 days of performed services" (payer ID 47198, CMS-1500, the rendering provider’s individual NPI, ICD-10 autism diagnosis), adding that when behavioral health is carved out to another plan the filing limit may differ. Disagreements with an adjudicated claim go on the Provider Dispute Resolution Request form after customer service or an Availity secure message fails.',
+          'For Blue Cross of California (the DMHC-licensed entity), the regulator sets the outer limits: a plan may not impose a filing deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; it must pay a complete claim within 30 working days of receipt (45 working days for an HMO line, though PPO/POS lines of an HMO stay at 30); and providers have 365 days from the plan’s action to file a provider dispute, which the plan must decide within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated Anthem Blue Cross Life and Health policies follow the Insurance Code instead, and self-funded plans their own plan document.',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
+          { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
+          { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
       },
     ],
@@ -2645,8 +2749,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
         ],
-        verifyVia: 'Self-funded plans: MCG B-806-T (licensed, not publishable); fully insured: the Adaptive Behavioral Treatment Request checklist in Availity or Anthem UM 800-274-7767.',
-        blocker: 'licensed',
+        verifyVia: 'Fully insured: the current California commercial "Adaptive Behavioral Treatment Request" form (Anthem’s BH guide says to "Use the current form"; not found on a public URL in October 2026) or Anthem UM 800-274-7767. Self-funded plans: MCG B-806-T (licensed, not publishable).',
+        blocker: 'document',
       },
       referral: {
         value: 'No Anthem referral or order requirement for PPO ABA was found; the statute’s requirement that BHT be prescribed by a physician or developed by a psychologist works as the order. HMO members may route through their medical group — confirm on the card.',
@@ -2659,13 +2763,14 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       telehealth: {
-        value: 'No Anthem California ABA telehealth policy was found (its reimbursement policy library sits behind Availity). The statutory floor: DMHC plans must cover services "appropriately delivered through telehealth services on the same basis and to the same extent" as in person and pay the same rate (H&S § 1374.14; Ins. § 10123.855 for CDI policies). BCBAs and QAS professionals are telehealth providers under B&P § 2290.5; technicians are not named.',
+        value: 'No Anthem California ABA telehealth policy was found (its reimbursement policy library sits behind Availity). The statutory floor: DMHC plans must cover services "appropriately delivered through telehealth services on the same basis and to the same extent" as in person and pay the same rate (H&S § 1374.14; Ins. § 10123.855 for CDI policies). BCBAs and QAS professionals are telehealth providers under B&P § 2290.5; technicians are not named. Anthem’s California ABA Provider Resource Guide gives the place of service — POS 10 when the member is at home, POS 02 when the member is elsewhere — and sends providers to its Virtual Visits reimbursement policy and "Allowed virtual services" list for which codes and modifier apply.',
         status: 'plan-dependent',
         cites: [
           { title: 'Health & Safety Code § 1374.14 — telehealth coverage and payment parity', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.14' },
           { title: 'Insurance Code § 10123.855 — telehealth (CDI)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10123.855' },
+          { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
         ],
-        verifyVia: 'Anthem California commercial reimbursement policy "Telehealth" in Availity (Payer Spaces > Anthem > Policies), and which 971xx codes may be remote at the ICR request.',
+        verifyVia: 'Anthem California commercial reimbursement policy "Virtual Visits" and its Allowed virtual services list in Availity (Payer Spaces > Anthem > Policies), and which 971xx codes may be remote at the ICR request.',
         blocker: 'document',
       },
       authTurnaround: {
@@ -2694,9 +2799,10 @@ export const californiaPayers: Record<string, PayerConfig> = {
     },
     deliveryRules: {
       supervision: {
-        value: 'Anthem California publishes no supervision ratio. Its H-code descriptors encode the QAS tiers — H0031 assessment/plan by a "Qualified Autism Service Provider (licensed clinician or Board Certified Behavioral Analyst (BCBA))," H0032 "supervision of a Qualified Autism Service Professional or Paraprofessional by a Qualified Autism Service Provider," H0046 direct treatment by a QAS professional, H2019 by a QAS paraprofessional. The statute requires only supervision meeting "professionally recognized standards of practice."',
+        value: 'Anthem California publishes no supervision ratio. Its H-code descriptors encode the QAS tiers — H0031 assessment/plan by a "Qualified Autism Service Provider (licensed clinician or Board Certified Behavioral Analyst (BCBA))," H0032 "supervision of a Qualified Autism Service Professional or Paraprofessional by a Qualified Autism Service Provider," H0046 direct treatment by a QAS professional, H2019 by a QAS paraprofessional. The statute requires only supervision meeting "professionally recognized standards of practice." Anthem’s California ABA Provider Resource Guide adds one operational rule — a QHP billing 97155 "can only add code 97153 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician" — but still sets no ratio or hours-per-week floor.',
         status: 'plan-dependent',
         cites: [
+          { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
           { title: 'Anthem Blue Cross — Local PPO Precertification/Prior Authorization List, California Commercial (updated 9/22/2026, eff. 10/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_PPO_PA_List.pdf' },
           { title: 'Business & Professions Code § 4999.202 — Qualified autism service paraprofessional (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.202' },
         ],
@@ -2704,56 +2810,55 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'document',
       },
       concurrentBilling: {
-        value: 'Not addressed in any public Anthem California document.',
-        status: 'unverified',
+        value: 'Anthem’s California ABA Provider Resource Guide: "A physician or other QHP billing for 97155 can only add code 97153 if both the technician and QHP are face-to-face with the patient at the same time and the QHP is directing the technician." Supervised or directed services billed with a QHP procedure fall under Anthem’s Incident To Services and Billing reimbursement policy, and ABA codes are subject to NCCI edits under its Code and Clinical Editing Guidelines policy.',
+        status: 'verified',
         cites: [
-          { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
+          { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
         ],
-        verifyVia: 'Anthem California commercial reimbursement policies (Availity) and the group agreement’s fee schedule exhibit.',
-        blocker: 'document',
       },
       dailyLimits: {
-        value: 'No per-day cap published; units are limited to what is authorized per CPT code, and "billings with units that include fractions or decimals cannot be processed."',
-        status: 'plan-dependent',
+        value: 'No per-day hour cap is published; the ceiling is weekly. From January 1, 2026 Anthem California pays ABA "based on weekly approved units rather than total authorized units": claims "should reflect the units rendered within each week, up to the weekly medically necessary limit," and units over the weekly limit "will be considered ineligible for reimbursement" (97151–97158, 0362T, 0373T). ABA codes "may have associated MUE limits" under Anthem’s NCCI editing, and "billings with units that include fractions or decimals cannot be processed."',
+        status: 'verified',
         cites: [
+          { title: 'Anthem Blue Cross Provider News — Streamlined ABA claim process starts January 1, 2026 (Commercial and Medi-Cal)', url: 'https://providernews.anthem.com/california/articles/streamlined-aba-claim-process-starts-january-1-2026-27876' },
+          { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
           { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
         ],
-        verifyVia: 'The ICR authorization (units per code) and Anthem’s reimbursement policy on MUEs in Availity.',
-        blocker: 'per-case',
       },
       noteSignature: {
-        value: 'Nothing published by Anthem California on who signs ABA session notes or when.',
-        status: 'unverified',
+        value: 'Anthem’s California ABA Provider Resource Guide (citing its Documentation Standards for Episodes of Care policy): each entry must carry "author identification of the physician or other qualified healthcare provider," which may be a handwritten signature, unique electronic identifier, or initials with credentials; entries are expected at the time of service and "should not exceed 30 days"; "Signature date within 30 days of the date of service." Record total minutes for timed codes and "the start and stop times." Treatment plans must show review or update at least every six months.',
+        status: 'verified',
         cites: [
-          { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
+          { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
         ],
-        verifyVia: 'Anthem California provider manual (Availity-gated) or the ABA group agreement.',
-        blocker: 'document',
       },
       placeOfService: {
-        value: 'Nothing published by Anthem California on ABA settings. The statute: the treatment plan may not be used "for … respite, daycare, or educational services" (§ 1374.73), but the plan "shall not limit benefits … on the basis that those services should be or could be covered by … special education or an individualized education program" (§ 1374.72(h)).',
+        value: 'Anthem’s California ABA Provider Resource Guide lists the POS codes "frequently used for ABA": 12 home, 11 office/clinic, 99 community, 03 school, 10 telehealth in the home and 02 telehealth outside the home — "Subject to the member’s coverage and reviews by the plan." The statute: the treatment plan may not be used "for … respite, daycare, or educational services" (§ 1374.73), but the plan "shall not limit benefits … on the basis that those services should be or could be covered by … special education or an individualized education program" (§ 1374.72(h)).',
         status: 'plan-dependent',
         cites: [
           { title: 'Health & Safety Code § 1374.73 (as amended by SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.73' },
           { title: 'Health & Safety Code § 1374.72 — mental health parity (SB 855)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.72' },
+          { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
         ],
-        verifyVia: 'Anthem UM at the ICR request — whether school-setting hours are approvable for this member.',
+        verifyVia: 'Anthem UM at the ICR request — whether school-setting (POS 03) hours are approvable for this member.',
         blocker: 'per-case',
       },
       billAsProvider: {
-        value: 'Anthem’s guide: "Include the individual NPI of the rendering provider" (CMS-1500, payer ID 47198), with ABA contracted under the Commercial Behavioral Health and ABA Group Agreement and credentialing via CAQH ProView. For SB 855 supervised associates: "We do not directly contract with these provider types; however, they can render services to members if the supervising licensed provider is contracted with Anthem. The claim form should only include the licensed, contracted provider information." Whether technicians appear as rendering on ABA claims is not stated.',
-        status: 'plan-dependent',
+        value: 'Anthem’s guide: "Include the individual NPI of the rendering provider" (CMS-1500, payer ID 47198), with ABA contracted under the Commercial Behavioral Health and ABA Group Agreement and credentialing via CAQH ProView. For SB 855 supervised associates: "We do not directly contract with these provider types; however, they can render services to members if the supervising licensed provider is contracted with Anthem. The claim form should only include the licensed, contracted provider information." The rendering NPI "should be the provider named in the authorization," and the California ABA Provider Resource Guide settles technician time: "ABA therapy performed by therapy assistants/behavioral technicians/paraprofessionals must show the supervising BCBA or other QHP in box 31 of the CMS claim form," with modifiers HM (less than bachelor’s), HN (bachelor’s) and HO (master’s) for the rendering level. Each BCBA "must have an individual NPI and a BCBA certification" to be added to the group.',
+        status: 'verified',
         cites: [
           { title: 'Anthem Blue Cross — Behavioral Health Guide: Commercial BH and ABA Group Agreement (CABC-CM-082371-25)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/CA_BHG_Groups.pdf' },
+          { title: 'Anthem Blue Cross — Applied Behavior Analysis Provider Resource Guide, California Commercial (CABC-CM-084582-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/anthembluecross/provider/commercial/guides/aba-provider-resource-guide-abc-ca.pdf' },
         ],
-        verifyVia: 'Anthem provider services or the ABA group agreement — whether RBT/paraprofessional time is billed under the BCBA or the group.',
-        blocker: 'per-case',
       },
     },
     faq: [
       { q: 'Does Anthem Blue Cross cover ABA therapy in California?', a: 'Yes — for autism, with precertification on every ABA code. Fully insured plans are reviewed on AACAP criteria to comply with SB 855; self-funded employer plans use MCG guideline B-806-T.' },
       { q: 'How do I request ABA authorization from Anthem Blue Cross?', a: 'Through Interactive Care Reviewer on Availity, or by faxing the Adaptive Behavioral Treatment Request to 866-582-2287. UM questions: 800-274-7767.' },
       { q: 'What does the California autism mandate require?', a: 'Fully insured plans must cover behavioral health treatment, including ABA, for autism with no age or dollar caps, a treatment plan reviewed at least every six months, and — from 2026 — no forced rediagnosis to keep coverage. Self-funded ERISA and Medi-Cal plans are exempt.' },
+      { q: 'What are Anthem Blue Cross of California’s ABA prior auth and diagnostic requirements?', a: 'Every ABA code needs precertification — 97151, 97152, 0362T for the assessment and 97153–97158, 0373T plus the QAS H-codes for treatment — and Anthem itself, not Carelon, is the responsible reviewer on the October 2026 list, using AACAP criteria for fully insured plans and MCG B-806-T for self-funded ones. Claims bill on an autism diagnosis and the mandate needs a physician prescription or psychologist-developed plan. Anthem California publishes no diagnosing-credential list, no required instrument and no recency window for commercial members; for fully insured contracts renewed from 2026 it may not demand a rediagnosis to keep coverage. The commercial Adaptive Behavioral Treatment Request form (fax 866-582-2287, or ICR on Availity) carries the document checklist.' },
+      { q: 'Whose NPI goes on an Anthem Blue Cross California ABA claim when a technician delivers the session?', a: 'The rendering NPI should be the provider named on the authorization, and Anthem’s California ABA Provider Resource Guide says technician-delivered ABA "must show the supervising BCBA or other QHP in box 31," with HM/HN/HO modifiers for the technician’s education level.' },
+      { q: 'What is Anthem Blue Cross of California’s timely filing limit for ABA claims?', a: 'Anthem’s behavioral health group guide says to submit original claims within 90 days of the service. For the DMHC-licensed plan, state regulation bars deadlines shorter than 90 days for contracted providers (180 for non-contracted) and requires payment of a complete claim within 30 working days (45 for HMO lines).' },
     ],
   },
 
@@ -2846,6 +2951,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Business & Professions Code § 4999.202 — Qualified autism service paraprofessional (SB 402, eff. 1/1/2026)', url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=4999.202' },
           { title: 'BACB — U.S. Licensure of Behavior Analysts (California absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
           { title: 'Health Net — Behavioral Health Contact Information (updated 4/10/2026)', url: 'https://providerlibrary.healthnetcalifornia.com/contacts/behavioral-health-contact-information-.html' },
+        ],
+      },
+      {
+        h2: 'Claims: what California law guarantees on filing, payment and disputes',
+        body: [
+          'Health Net does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. For Health Net’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 working days of receipt (45 working days for an HMO line, with PPO/POS lines of an HMO at 30); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies and self-funded ERISA plans are outside these DMHC rules.',
+        ],
+        cites: [
+          { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
+          { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
       },
     ],
@@ -2959,13 +3074,12 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       dailyLimits: {
-        value: 'No commercial per-day cap is published; units are authorized as hours per week or month per code. Claim-level code editing sits in Health Net’s "Claims Coding Policies › Code Editing," which was not read for ABA values.',
-        status: 'unverified',
+        value: 'No commercial per-day cap is published; units are authorized as hours per week or month per code. At the claim level Health Net’s code-editing software applies the CMS National Correct Coding Initiative edits "for professional and facility claims," including "medically unlikely edits (MUE)" — the maximum units "a provider would bill under most circumstances for a single member, on a single date of service" — so the CMS practitioner MUE for each ABA code is the per-day ceiling to plan against.',
+        status: 'verified',
         cites: [
           { title: 'Health Net — ABA Prior Authorization Request Form (24-992)', url: 'https://providerlibrary.healthnetcalifornia.com/content/dam/centene/healthnet/pdfs/providerlibrary/500234-ABA-Prior-Auth-Request-Form-MCL.pdf' },
+          { title: 'Health Net provider library — Claims Coding Policies: Code Editing (updated 7/1/2024)', url: 'https://providerlibrary.healthnetcalifornia.com/hmo/provider-manual/claims-coding-policies/code-editing.html' },
         ],
-        verifyVia: 'Health Net provider library — Claims Coding Policies › Code Editing (providerlibrary.healthnetcalifornia.com/hmo/provider-manual/claims-coding-policies/code-editing.html).',
-        blocker: 'document',
       },
       noteSignature: {
         value: 'Centene policy CP.BH.500, listed on Health Net’s Commercial & Medi-Cal policy index (rev. April 2026), requires every behavioral health record entry to be "dated and signed/authenticated (including licensure and/or certification) by the rendering provider prior to submission of the claim," with "Exact start and stop times of the service"; "Billed units not fully supported by documentation may be subject to payment denial or recoupment."',
@@ -3098,6 +3212,17 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'BACB — U.S. Licensure of Behavior Analysts (California absent; checked September 2026)', url: 'https://www.bacb.com/u-s-licensure-of-behavior-analysts/' },
           { title: 'Aetna Provider Manual (6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
           { title: 'Aetna Provider Manual State Supplement (7/26) — California section', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/ProviderManual-StateSpplmt.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: what California law guarantees on filing, payment and disputes',
+        body: [
+          'Aetna does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. Aetna’s national provider manual says claim disputes "Must be submitted within contractual timeframes." For Aetna’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 working days of receipt (45 working days for an HMO line, with PPO/POS lines of an HMO at 30); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies and self-funded ERISA plans are outside these DMHC rules.',
+        ],
+        cites: [
+          { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
+          { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
+          { title: 'Aetna Provider Manual (6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
         ],
       },
     ],
@@ -3365,6 +3490,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
           { title: 'Cigna / Evernorth autism resource guide for behavioral health providers (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'Claims: what California law guarantees on filing, payment and disputes',
+        body: [
+          'Cigna does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. For Cigna’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 working days of receipt (45 working days for an HMO line, with PPO/POS lines of an HMO at 30); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies and self-funded ERISA plans are outside these DMHC rules.',
+        ],
+        cites: [
+          { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
+          { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -3623,6 +3758,16 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: what California law guarantees on filing, payment and disputes',
+        body: [
+          'UnitedHealthcare does not publish an ABA-specific filing limit in the documents read; the number sits in the provider agreement. For UnitedHealthcare’s DMHC-licensed products (its HMOs and any DMHC-regulated PPO/EPO), state regulation sets the floor: no claim deadline "less than 90 days for contracted providers and 180 days for non-contracted providers after the date of service"; payment of a complete claim within 30 working days of receipt (45 working days for an HMO line, with PPO/POS lines of an HMO at 30); and at least 365 days from the plan’s action to file a provider dispute, which must be decided within 45 working days (28 CCR §§ 1300.71, 1300.71.38). CDI-regulated insurance policies and self-funded ERISA plans are outside these DMHC rules.',
+        ],
+        cites: [
+          { title: '28 CCR § 1300.71 — Claims settlement practices (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71' },
+          { title: '28 CCR § 1300.71.38 — Provider dispute resolution mechanism (DMHC plans)', url: 'https://www.law.cornell.edu/regulations/california/28-CCR-1300.71.38' },
         ],
       },
     ],
