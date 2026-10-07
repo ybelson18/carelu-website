@@ -63,6 +63,19 @@ const S: Record<string, PayerSource> = {
   ihnBH: { title: 'Samaritan Health Plans — Behavioral health providers (IHN-CCO directed payments incl. ABA minimum fee schedule)', url: 'https://samhealthplans.org/providers/behavioral-health-providers/' },
   ihnAuth: { title: 'Samaritan Health Plans — Authorizations (IHN-CCO prior approval lists and forms)', url: 'https://samhealthplans.org/providers/care-management/authorizations/' },
   uhaFAQ: { title: 'Umpqua Health Alliance — Prior Authorizations, Behavioral Health: Frequently Asked Questions (February 2026)', url: 'https://www.umpquahealth.com/form/behavioral-health-prior-authorization-provider-faq' },
+  ahPM: { title: 'Advanced Health — Provider Manual 2026–2027 (Rev. 3.2026)', url: 'https://advancedhealth.b-cdn.net/wp-content/uploads/2025/12/26-27-Provider-Manual-20260414-1.pdf' },
+  ahBH: { title: 'Advanced Health — Behavioral Health Authorization Request form and instructions (Rev. 10/25)', url: 'https://advancedhealth.b-cdn.net/wp-content/uploads/2025/12/MH-BH-AUTH-FORM-10.14.25.pdf' },
+  ahRes: { title: 'Advanced Health — Provider resources (forms and manuals)', url: 'https://advancedhealth.com/providers/resources/' },
+  chaPM: { title: 'Cascade Health Alliance — Provider Manual (revised 5/2026)', url: 'https://www.cascadehealthalliance.com/media/1a2062f7ef9f4b5f81ca4b78c0d6f592/provider-manual-2026-03.pdf' },
+  chaGrid: { title: 'Cascade Health Alliance — Behavioral Health (BH) Auth Grid (revision date 6/24/2026)', url: 'https://www.cascadehealthalliance.com/media/7d5f9172bf6e4bac931e7c7dee354bf4/auth-grid-bh-62426.pdf' },
+  eoPM: { title: 'Eastern Oregon CCO — Provider Manual 2026 (incl. GOBHI Applied Behavior Analysis program)', url: 'https://www.eocco.com/-/media/EOCCO/PDFs/provider_manual.pdf' },
+  eoPA: { title: 'EOCCO Prior Authorization List — September 2026', url: 'https://www.eocco.com/-/media/EOCCO/PDFs/priorauth.pdf' },
+  eoBH: { title: 'EOCCO — Behavioral Health Authorization Form (GOBHI utilization management)', url: 'https://www.eocco.com/-/media/EOCCO/PDFs/providers/behavioral_auth.pdf' },
+  eoAuth: { title: 'EOCCO — Referrals and authorizations (provider)', url: 'https://www.eocco.com/providers/referral-auths' },
+  ycPA: { title: 'Yamhill Community Care — Prior Authorizations (provider guidelines, policies and forms)', url: 'https://yamhillcco.org/for-providers/guidelines-policies-and-forms/prior-authorizations/' },
+  ycABA: { title: 'Yamhill Community Care — ABA Prior Authorization Request and ABA Authorization Request Addendum (form dated 05/28/2024)', url: 'https://yamhillcco.org/wp-content/uploads/2025/11/YCCO-ABA-PA-Form-3-Fillable-Form.pdf' },
+  ycList: { title: 'Yamhill Community Care — PA list, active and termed codes, as of 01.29.2026 (Behavioral Health tab)', url: 'https://yamhillcco.org/wp-content/uploads/2026/03/YCCO-PA-list-active-and-termed-as-of-01.29.2026-1.xlsx' },
+  acDP: { title: 'AllCare CCO — Behavioral Health Provider Directed Payment Increase (2025 guidance; ABA minimum fee schedule)', url: 'https://www.allcarehealth.com/media/6210/2023accco-bh-provider-directed-payment-increase.pdf' },
   // Commercial
   aetnaGuide: { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026; state exhibit for Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
   aetnaPrecert: { title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
@@ -1299,6 +1312,708 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { q: 'Does Umpqua Health Alliance require prior authorization for ABA?', a: 'Yes. ABA is on its behavioral health PA list, in network and out, with six-month authorizations. Check the PA Grid for the assessment codes.' },
       { q: 'What if Umpqua is the secondary insurance?', a: 'Umpqua does not require its own PA when the primary insurer’s authorization guidelines are met.' },
       { q: 'Can I get a retro authorization from Umpqua?', a: 'Umpqua reviews retro requests up to 90 days from the date of service; later requests go through the provider appeal process.' },
+    ],
+  },
+
+  'eastern-oregon-cco': {
+    slug: 'eastern-oregon-cco',
+    cardDesc: '12-county eastern Oregon CCO (Moda/GOBHI): every ABA code 97151–97158 on the September 2026 PA list; GOBHI runs an ABA program with a PCP-prescription front door.',
+    assessmentPA: {
+      value: 'Yes: EOCCO’s Prior Authorization List (September 2026) lists 97151 through 97158 "Applied Behavior Analysis for Autism Spectrum Disorder"',
+      status: 'verified',
+      cites: [S.eoPA],
+    },
+    treatmentPA: {
+      value: 'Yes: the same list covers 97153–97158; behavioral health authorization requests go to GOBHI by fax (541-296-1036) or secure e-mail (um@gobhi.org)',
+      status: 'verified',
+      cites: [S.eoPA, S.eoBH],
+    },
+    dxRequired: {
+      value: 'Yes: before services start, GOBHI’s ABA program needs a "Diagnosis from a medical professional (MD, FNP, Psychiatrist with experience in the diagnosis of ASD in children)"',
+      status: 'verified',
+      cites: [S.eoPM],
+    },
+    payer: 'Eastern Oregon CCO (EOCCO)',
+    state: 'OR', kind: 'medicaid-mco', parent: 'Oregon Health Plan (Coordinated Care Organizations)',
+    pill: 'Payer Guide · Eastern Oregon CCO',
+    h1: 'Eastern Oregon CCO ABA coverage: the intake guide.',
+    metaTitle: 'Eastern Oregon CCO (EOCCO) ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How Eastern Oregon CCO covers ABA for OHP members in 12 eastern Oregon counties: prior authorization for every ABA code, GOBHI’s ABA program and its diagnosis, prescription and screening requirements, 7-day decisions and 120-day timely filing.',
+    intro: [
+      'Eastern Oregon Coordinated Care Organization (EOCCO) serves OHP members in Baker, Gilliam, Grant, Harney, Lake, Malheur, Morrow, Sherman, Umatilla, Union, Wallowa and Wheeler counties. Moda Health administers the plan; Greater Oregon Behavioral Health, Inc. (GOBHI) handles behavioral health authorizations and runs an Applied Behavior Analysis program for children with autism.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes: GOBHI’s ABA program for children with ASD, under OHP rules' },
+      { label: 'Service area', value: '12 eastern Oregon counties' },
+      { label: 'Prior auth', value: 'All ABA codes, 97151–97158 (September 2026 list)' },
+      { label: 'Front door', value: 'Diagnosis (MD, FNP or psychiatrist), PCP prescription, well-child visits, hearing and vision screening' },
+      { label: 'Decision clock', value: '7 calendar days (plus up to 14)' },
+      { label: 'Timely filing', value: '120 days from the date of service' },
+    ],
+    sections: [
+      {
+        h2: 'GOBHI’s ABA program and the authorization path',
+        body: [
+          'EOCCO’s 2026 provider manual describes "GOBHI’s Applied Behavior Analysis (ABA) Program," which "offers comprehensive medically necessary ABA treatment services to children diagnosed with Autism Spectrum Disorder (ASD)," with parent coaching and 1:1 teaching. Before services start it requires: "1. Diagnosis from a medical professional (MD, FNP, Psychiatrist with experience in the diagnosis of ASD in children); 2. Primary Care Physician writes prescription for ABA therapy; and 3. Collect necessary documentation: well child visits, audio and vision screening, diagnosis paperwork." Referrals "can be made by any provider and/or individual" through gobhi.org/applied-behavior-analysis; GOBHI then reports waitlist placement or schedules the initial assessment.',
+          'EOCCO’s Prior Authorization List (September 2026) includes 97151, 97152, 97153, 97154, 97155, 97156, 97157 and 97158. Behavioral health authorization requests go to GOBHI by fax to 541-296-1036 or secure e-mail to um@gobhi.org with the assessment, treatment plan and progress notes. EOCCO notifies providers of an approval, denial or need for information "within 7 calendar days of receipt of the request," with up to 14 more days when justified. Retroactive authorization requires the request "within ninety (90) days of the date of service." Claims must be received "within 120 days of the date of service," with listed exceptions.',
+        ],
+        cites: [S.eoPM, S.eoPA, S.eoBH, S.eoAuth],
+      },
+    ],
+    collect: [
+      { title: 'Member ID', desc: 'Confirm EOCCO on the date of service.' },
+      { title: 'Diagnosis', desc: 'From an MD, FNP or psychiatrist experienced in diagnosing ASD in children; also meet OAR 410-172-0770.' },
+      { title: 'PCP prescription', desc: 'GOBHI requires the primary care physician to prescribe ABA.' },
+      { title: 'Well-child, hearing and vision', desc: 'Well-child visit records plus audio and vision screening.' },
+      { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
+    ],
+    sources: [S.eoPM, S.eoPA, S.eoBH, S.eoAuth, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
+    deliveryRules: {
+      supervision: {
+        value: 'EOCCO and GOBHI publish no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
+        status: 'verified',
+        cites: [S.eoPM, S.oar0760, S.oar824sup],
+      },
+      concurrentBilling: {
+        value: 'Not addressed in EOCCO’s provider manual or PA list.',
+        status: 'unverified',
+        cites: [S.eoPM],
+        verifyVia: 'GOBHI utilization management, 541-298-2101, or EOCCO provider services (888-788-9821).',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'EOCCO publishes no ABA unit or hour limit.',
+        status: 'unverified',
+        cites: [S.eoPM, S.eoPA],
+        verifyVia: 'GOBHI utilization management, 541-298-2101: ask how ABA units are authorized.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value: 'EOCCO publishes no ABA session-note rule. The OHP floor applies: each note "signed or initialed by the individual providing the service" (OAR 410-172-0620(4)).',
+        status: 'verified',
+        cites: [S.eoPM, S.oar0620],
+      },
+      placeOfService: {
+        value: 'EOCCO publishes no ABA setting rule.',
+        status: 'unverified',
+        cites: [S.eoPM],
+        verifyVia: 'GOBHI ABA program (gobhi.org/applied-behavior-analysis): ask which settings it serves and pays.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value: 'EOCCO publishes no ABA rendering-provider rule; its BH authorization form asks for the provider’s billing NPI. The OHP rule applies: only a Licensed Behavior Analyst, licensed health care professional or declarant is eligible for direct payment (OAR 410-172-0760(3)–(4)).',
+        status: 'verified',
+        cites: [S.eoBH, S.oar0760],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'GOBHI describes the program as serving children with ASD but states no age cut-off. OHP rules require ABA beyond Guideline Note 75 when medically appropriate "including individuals age 13 and older," and under 21 EPSDT bars age-group-wide denials.',
+        status: 'verified',
+        cites: [S.eoPM, S.oar0770, S.epsdt],
+      },
+      dxRecency: {
+        value: 'No recency rule for the diagnosis. GOBHI asks for well-child visit records and audio and vision screening; the OHP rule dates the physical exam (1 year for ages 1–6, 2 years for 6–18) and hearing test (1 year for 2–5, 2 years for 6–18).',
+        status: 'verified',
+        cites: [S.eoPM, S.oar0770],
+      },
+      diagnosingProviders: {
+        value: 'An MD, FNP or psychiatrist "with experience in the diagnosis of ASD in children" (GOBHI). OHP’s rule lists a physician, psychologist, or developmental-medicine NP or PA (OAR 410-172-0770(1)).',
+        status: 'verified',
+        cites: [S.eoPM, S.oar0770],
+      },
+      diagnosticTools: {
+        value: 'EOCCO names no instrument, so the OHP rule applies: a standardized, validated tool such as the ADOS plus developmental status on assessments such as the Vineland (OAR 410-172-0770(1)(b), (g)).',
+        status: 'verified',
+        cites: [S.eoPM, S.oar0770],
+      },
+      referral: {
+        value: 'Yes: the "Primary Care Physician writes prescription for ABA therapy." Referrals to the program can come from any provider or individual through gobhi.org.',
+        status: 'verified',
+        cites: [S.eoPM],
+      },
+      telehealth: {
+        value: 'EOCCO’s current documents publish no ABA telehealth rule of their own (its posted telemedicine overview dates from 2020). ' + STATE_TELE,
+        status: 'verified',
+        cites: [S.eoPM, S.oar0850, S.fee],
+      },
+      authTurnaround: {
+        value: 'EOCCO notifies providers of an approval, denial or need for more information "within 7 calendar days of receipt of the request," and may take 14 more calendar days with justification to OHA.',
+        status: 'verified',
+        cites: [S.eoPM, S.oar3835],
+      },
+      coordinationOfBenefits: {
+        value: 'EOCCO’s manual adds only that it will seek a refund when a third-party carrier paid, so the state rule applies. ' + STATE_COB,
+        status: 'verified',
+        cites: [S.eoPM, S.oar1280, S.cfr433],
+      },
+    },
+    faq: [
+      { q: 'Who provides ABA for Eastern Oregon CCO members?', a: 'GOBHI runs an ABA program for EOCCO children with autism; referrals go through gobhi.org/applied-behavior-analysis.' },
+      { q: 'Does EOCCO require prior authorization for ABA?', a: 'Yes. Its September 2026 Prior Authorization List includes every ABA code from 97151 to 97158.' },
+      { q: 'What does EOCCO need before ABA starts?', a: 'A diagnosis from an MD, FNP or psychiatrist experienced with ASD in children, a PCP prescription for ABA, well-child visit records, and audio and vision screening.' },
+    ],
+  },
+
+  'yamhill-community-care': {
+    slug: 'yamhill-community-care',
+    cardDesc: 'Yamhill County CCO: PA on 97151–97156, 97158, 0362T, 0373T; its own ABA PA form caps the initial 97151 at 32 units and asks for program setting.',
+    assessmentPA: {
+      value: 'Yes: YCCO’s PA list (as of 1/29/2026) carries 97151, 97152 and 0362T as active "Applied Behavioral Analysis" codes, and its ABA form has an "Initial Assessment" request type (97151 up to 32 units initial, 24 for reassessment)',
+      status: 'verified',
+      cites: [S.ycList, S.ycABA],
+    },
+    treatmentPA: {
+      value: 'Yes: 97153–97156, 97158 and 0373T are on the PA list; requests use the YCCO ABA PA form with a complete treatment plan (97157 is not on the list)',
+      status: 'verified',
+      cites: [S.ycList, S.ycABA],
+    },
+    dxRequired: {
+      value: 'Yes. The ABA form asks for ICD-10 codes with "diagnostic evaluation, treatment plan, and recent progress notes by qualified professional" and cites OAR 410-172-0770; the OHP rule requires ASD on the HERC ASD line or stereotyped movement disorder with self-injury',
+      status: 'verified',
+      cites: [S.ycABA, S.oar0770],
+    },
+    payer: 'Yamhill Community Care (YCCO)',
+    state: 'OR', kind: 'medicaid-mco', parent: 'Oregon Health Plan (Coordinated Care Organizations)',
+    pill: 'Payer Guide · Yamhill Community Care',
+    h1: 'Yamhill Community Care ABA coverage: the intake guide.',
+    metaTitle: 'Yamhill Community Care (YCCO) ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How Yamhill Community Care covers ABA for OHP members in Yamhill County and parts of Polk and Washington: which ABA codes need prior authorization, its ABA PA form and unit limits, supervision expectations, and what intake should collect.',
+    intro: [
+      'Yamhill Community Care Organization (YCCO) serves OHP members in Yamhill County and some ZIP codes in Polk and Washington counties. It publishes an ABA-specific prior-authorization form and a code-level PA list.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes, under OHP rules' },
+      { label: 'Service area', value: 'Yamhill County; parts of Polk and Washington' },
+      { label: 'Prior auth', value: '97151–97156, 97158, 0362T, 0373T (PA list as of 1/29/2026)' },
+      { label: 'Assessment units', value: '97151 up to 32 units initial, 24 for reassessment' },
+      { label: 'Submit via', value: 'CIM portal, or fax the ABA PA form to 503-850-9398' },
+      { label: 'Decision clock', value: 'Per OAR 410-141-3835 (7 days standard, 72 hours expedited)' },
+    ],
+    sections: [
+      {
+        h2: 'Prior authorization at YCCO',
+        body: [
+          'YCCO’s PA list (active and termed codes as of January 29, 2026) shows 0362T, 0373T, 97151, 97152, 97153, 97154, 97155, 97156 and 97158 as "Applied Behavioral Analysis" codes requiring PA since January 1, 2022, with no termination date; the list notes the Prioritized List can require review for other codes too. Since November 15, 2025, "Providers are required to initiate all referral and PA requests," through the CIM portal or by fax. Non-participating providers must request prior authorization for all services.',
+          'The YCCO ABA Prior Authorization Request (fax 503-850-9398) asks for requesting and servicing provider NPIs and whether each holds an active DMAP (OHP) number, ICD-10 codes with the diagnostic evaluation, treatment plan and recent progress notes, and an addendum used "for both initial and concurrent requests" with the program setting (home, facility/clinic, school, other) and hours per week. 97151 is "up to 32 units for initial, up to 24 units for reassessment," with more allowed only with documentation under OAR 410-172-0770(1); 97152, 0362T and 0373T need clinical justification. Non-contracted providers need an out-of-network exception and must say whether they accept DMAP rates.',
+        ],
+        cites: [S.ycList, S.ycPA, S.ycABA],
+      },
+    ],
+    collect: [
+      { title: 'Member ID', desc: 'Confirm YCCO; some Polk and Washington ZIP codes belong to it.' },
+      { title: 'Diagnostic evaluation', desc: 'Attach the evaluation (meeting OAR 410-172-0770), treatment plan and recent progress notes.' },
+      { title: 'DMAP numbers', desc: 'Requesting and servicing providers’ OHP enrollment status is asked on the form.' },
+      { title: 'Program setting and hours', desc: 'Home, clinic, school or other, with hours per week by code.' },
+      { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
+    ],
+    sources: [S.ycPA, S.ycABA, S.ycList, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
+    deliveryRules: {
+      supervision: {
+        value: 'YCCO’s ABA form describes 97153 as technician treatment "receiving 1 hour of supervision for every 5 to 10 hours of direct treatment." The state floor also applies: interventionists supervised at least 5 percent of service hours, with direct supervision monthly (OAR 824-040-0010); assistant behavior analysts and interventionists are not directly payable (OAR 410-172-0760(4)).',
+        status: 'verified',
+        cites: [S.ycABA, S.oar824sup, S.oar0760],
+      },
+      concurrentBilling: {
+        value: 'Not addressed in YCCO’s ABA form or PA page, beyond describing 97155 as usable "for Direction of Technician (Supervision) face-to-face with one patient."',
+        status: 'unverified',
+        cites: [S.ycABA],
+        verifyVia: 'YCCO Customer Service, 855-722-8205, or your YCCO provider agreement.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: '97151 up to 32 units for an initial assessment and 24 for a reassessment; requests above that need documentation. Treatment units are requested by hours per day, days per week or hours per week on the addendum; no weekly cap is stated.',
+        status: 'verified',
+        cites: [S.ycABA],
+      },
+      noteSignature: {
+        value: 'YCCO publishes no ABA session-note rule. The OHP floor applies: each note "signed or initialed by the individual providing the service" (OAR 410-172-0620(4)).',
+        status: 'verified',
+        cites: [S.ycABA, S.oar0620],
+      },
+      placeOfService: {
+        value: 'The ABA addendum asks for the program setting: home, facility/clinic, school or other. It does not exclude any setting.',
+        status: 'verified',
+        cites: [S.ycABA],
+      },
+      billAsProvider: {
+        value: 'The form lists requesting provider, servicing provider and servicing facility, each with TIN, NPI and DMAP status. The OHP rule applies: only a Licensed Behavior Analyst, licensed health care professional or declarant is eligible for direct payment (OAR 410-172-0760(3)–(4)).',
+        status: 'verified',
+        cites: [S.ycABA, S.oar0760],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'YCCO publishes no age limit. OHP rules require ABA beyond Guideline Note 75 when medically appropriate "including individuals age 13 and older," and under 21 EPSDT bars age-group-wide denials.',
+        status: 'verified',
+        cites: [S.ycABA, S.oar0770, S.epsdt],
+      },
+      dxRecency: {
+        value: 'YCCO sets no recency rule; it wants "recent progress notes." The OHP rule dates only the physical exam and hearing test (OAR 410-172-0770(1)(h)–(i)).',
+        status: 'verified',
+        cites: [S.ycABA, S.oar0770],
+      },
+      diagnosingProviders: {
+        value: 'YCCO asks for an evaluation "by qualified professional" and cites OAR 410-172-0770, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism.',
+        status: 'verified',
+        cites: [S.ycABA, S.oar0770, S.oar0760],
+      },
+      diagnosticTools: {
+        value: 'YCCO names assessment tools for treatment planning (VB-MAPP, ABLLS-R, FBA, functional analysis) but no diagnostic instrument, so the OHP rule applies: a standardized, validated tool such as the ADOS plus developmental status such as the Vineland (OAR 410-172-0770(1)(b), (g)).',
+        status: 'verified',
+        cites: [S.ycABA, S.oar0770],
+      },
+      referral: {
+        value: 'YCCO adds no referral rule beyond its form’s PCP field and the OAR 410-172-0770 citation, so the OHP rule applies. ' + STATE_REFERRAL,
+        status: 'verified',
+        cites: [S.ycABA, S.oar0770, S.oar0760],
+      },
+      telehealth: {
+        value: 'YCCO publishes no ABA telehealth rule of its own. ' + STATE_TELE,
+        status: 'verified',
+        cites: [S.ycPA, S.oar0850, S.fee],
+      },
+      authTurnaround: {
+        value: 'YCCO cites OAR 410-141-3835 for its authorization process and publishes no shorter clock: notice within 7 calendar days for standard requests and 72 hours for expedited, with one 14-day extension.',
+        status: 'verified',
+        cites: [S.ycPA, S.oar3835],
+      },
+      coordinationOfBenefits: {
+        value: 'YCCO’s ABA documents add nothing on other insurance, so the state rule applies. ' + STATE_COB,
+        status: 'verified',
+        cites: [S.ycPA, S.oar1280, S.cfr433],
+      },
+    },
+    faq: [
+      { q: 'Does Yamhill Community Care require prior authorization for the ABA assessment?', a: 'Yes. 97151 and 97152 are on YCCO’s PA list; the initial 97151 is limited to 32 units unless documented need supports more.' },
+      { q: 'How do I submit an ABA request to YCCO?', a: 'Through the CIM portal or by faxing the YCCO ABA PA form with its addendum and a complete treatment plan to 503-850-9398. Providers must start every request themselves.' },
+    ],
+  },
+
+  'cascade-health-alliance': {
+    slug: 'cascade-health-alliance',
+    cardDesc: 'Klamath County CCO: ABA for ASD needs PA every 6 months on 97151–97156 (BH auth grid, 6/24/2026); 7-day decisions; 120-day filing.',
+    assessmentPA: {
+      value: 'Yes: CHA’s BH Auth Grid (6/24/2026) requires "PA every 6 months for codes: 97151, 97152, 97153, 97154, 97155, 97156"',
+      status: 'verified',
+      cites: [S.chaGrid],
+    },
+    treatmentPA: {
+      value: 'Yes: same grid row, PA every six months for 97153–97156',
+      status: 'verified',
+      cites: [S.chaGrid],
+    },
+    dxRequired: {
+      value: 'Yes: the grid row is "Applied Behavioral Analysis (ABA) for Autism Spectrum Disorder (ASD)"; CHA publishes no other ABA criteria, so OHP’s evaluation rule (OAR 410-172-0770) applies',
+      status: 'verified',
+      cites: [S.chaGrid, S.oar0770],
+    },
+    payer: 'Cascade Health Alliance',
+    state: 'OR', kind: 'medicaid-mco', parent: 'Oregon Health Plan (Coordinated Care Organizations)',
+    pill: 'Payer Guide · Cascade Health Alliance',
+    h1: 'Cascade Health Alliance ABA coverage: the intake guide.',
+    metaTitle: 'Cascade Health Alliance ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How Cascade Health Alliance covers ABA for OHP members in Klamath County: six-month prior authorizations on 97151–97156, decision timeframes, timely filing, payment standards and other-insurance rules.',
+    intro: [
+      'Cascade Health Alliance (CHA) is the OHP CCO for most of Klamath County. Its behavioral health authorization grid lists ABA for autism spectrum disorder as requiring prior authorization every six months.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes, for ASD, under OHP rules' },
+      { label: 'Service area', value: 'Klamath County (listed ZIP codes)' },
+      { label: 'Prior auth', value: 'Every 6 months for 97151–97156' },
+      { label: 'Decision clock', value: '7 days standard, 72 hours urgent' },
+      { label: 'Timely filing', value: '120 days (365 when CHA is secondary)' },
+      { label: 'Payment', value: '90% of valid claims in 30 days, 99% in 90' },
+    ],
+    sections: [
+      {
+        h2: 'Authorization and claims at CHA',
+        body: [
+          'CHA’s Behavioral Health Auth Grid (revision 6/24/2026) lists "Applied Behavioral Analysis (ABA) for Autism Spectrum Disorder (ASD)" as "YES," with "PA every 6 months for codes: 97151, 97152, 97153, 97154, 97155, 97156"; 97157 and 97158 are not named. The grid tells providers to check MMIS for eligibility first, and says authorization "does not guarantee reimbursement." CHA’s provider manual (revised 5/2026) sets prior-authorization decisions at "Standard: 7days" and "Urgent: 72 hours," lists the licensed assistant behavior analyst among credentialed practitioner types, and encourages use of the provider portal.',
+          'Claims must be received "within 120 days from the date of service per OAR 410-141-3565 (1)," or within 365 days when CHA is secondary. CHA "pays or denies at least 90 percent of valid claims within 30 days of receipt and at least 99 percent of valid claims within 90 days." "CHA is always payor of last resort": bill other coverage first, attach the primary EOP, and submit within 365 days of the primary’s processing date; CHA pays the Medicaid allowable minus the primary’s payment.',
+        ],
+        cites: [S.chaGrid, S.chaPM],
+      },
+    ],
+    collect: [
+      { title: 'Member ID and eligibility', desc: 'CHA asks providers to check MMIS for eligibility and benefit coverage before services.' },
+      { title: 'Diagnostic evaluation and referral', desc: 'Meets OAR 410-172-0770; referral from a physician, psychologist, or developmental-medicine NP/PA.' },
+      { title: 'Six-month plan', desc: 'Authorizations run six months; plan reauthorization before they lapse.' },
+      { title: 'Other insurance', desc: 'CHA pays last; attach the primary EOP.' },
+    ],
+    sources: [S.chaGrid, S.chaPM, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
+    deliveryRules: {
+      supervision: {
+        value: 'CHA publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
+        status: 'verified',
+        cites: [S.chaPM, S.oar0760, S.oar824sup],
+      },
+      concurrentBilling: {
+        value: 'Not addressed in CHA’s BH auth grid or provider manual.',
+        status: 'unverified',
+        cites: [S.chaGrid, S.chaPM],
+        verifyVia: 'CHA Provider Services, 541-883-2947.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'CHA publishes no ABA unit or hour limit; authorizations run six months.',
+        status: 'unverified',
+        cites: [S.chaGrid],
+        verifyVia: 'CHA Provider Services, 541-883-2947: ask how ABA units are set within the six-month authorization.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value: 'CHA publishes no ABA session-note rule. The OHP floor applies: each note "signed or initialed by the individual providing the service" (OAR 410-172-0620(4)).',
+        status: 'verified',
+        cites: [S.chaPM, S.oar0620],
+      },
+      placeOfService: {
+        value: 'CHA publishes no ABA setting rule.',
+        status: 'unverified',
+        cites: [S.chaGrid],
+        verifyVia: 'CHA Provider Services, 541-883-2947: ask which settings and place-of-service codes it pays for ABA.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value: 'CHA publishes no ABA rendering-provider rule. The OHP rule applies: only a Licensed Behavior Analyst, licensed health care professional or declarant is eligible for direct payment (OAR 410-172-0760(3)–(4)).',
+        status: 'verified',
+        cites: [S.chaPM, S.oar0760],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'CHA publishes no age limit. OHP rules require ABA beyond Guideline Note 75 when medically appropriate "including individuals age 13 and older," and under 21 EPSDT bars age-group-wide denials (CHA’s grid notes MD review for EPSDT members).',
+        status: 'verified',
+        cites: [S.chaGrid, S.oar0770, S.epsdt],
+      },
+      dxRecency: {
+        value: 'CHA publishes no recency rule. The OHP rule dates only the physical exam and hearing test (OAR 410-172-0770(1)(h)–(i)).',
+        status: 'verified',
+        cites: [S.chaGrid, S.oar0770],
+      },
+      diagnosingProviders: {
+        value: 'CHA publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)).',
+        status: 'verified',
+        cites: [S.chaGrid, S.oar0770, S.oar0760],
+      },
+      diagnosticTools: {
+        value: 'CHA publishes nothing different, so the OHP rule applies: a standardized, validated tool such as the ADOS plus developmental status such as the Vineland (OAR 410-172-0770(1)(b), (g)).',
+        status: 'verified',
+        cites: [S.chaGrid, S.oar0770],
+      },
+      referral: {
+        value: 'CHA adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        status: 'verified',
+        cites: [S.chaGrid, S.oar0770, S.oar0760],
+      },
+      telehealth: {
+        value: 'CHA publishes no ABA telehealth rule of its own. ' + STATE_TELE,
+        status: 'verified',
+        cites: [S.chaPM, S.oar0850, S.fee],
+      },
+      authTurnaround: {
+        value: 'Prior authorizations: "Standard: 7days," "Urgent: 72 hours"; CHA may extend a standard decision by up to 14 calendar days when the member or provider requests it.',
+        status: 'verified',
+        cites: [S.chaPM, S.oar3835],
+      },
+      coordinationOfBenefits: {
+        value: '"CHA is always payor of last resort. Bill all prior resources (third-party liability, or TPL) before billing CHA." Include the primary EOP and file within 365 days of the primary’s processing date; CHA pays the Medicaid allowable minus the primary’s payment, and nothing more if the primary paid at least that much.',
+        status: 'verified',
+        cites: [S.chaPM, S.oar1280],
+      },
+    },
+    faq: [
+      { q: 'Does Cascade Health Alliance require prior authorization for ABA?', a: 'Yes. Its BH auth grid requires PA every six months for 97151 through 97156, including the assessment.' },
+      { q: 'What is CHA’s timely filing limit?', a: '120 days from the date of service, or 365 days when CHA is the secondary payer.' },
+    ],
+  },
+
+  'advanced-health': {
+    slug: 'advanced-health',
+    cardDesc: 'Coos and Curry County CCO: ABA requests go on its Behavioral Health Authorization form; 7-day decisions; 120-day timely filing.',
+    assessmentPA: {
+      value: 'Not stated per code. Advanced Health’s Behavioral Health Authorization Request lists ABA as a request type (with inpatient, residential and out-of-network visits), but no published list says whether 97151/97152 need it',
+      status: 'unverified',
+      cites: [S.ahBH, S.ahPM],
+      verifyVia: 'Advanced Health Medical Management, 541-269-7400: ask whether 97151 and 97152 need authorization.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'ABA is one of four request types on Advanced Health’s BH Authorization Request (fax 541-269-7147, with a BH assessment and treatment plan); the form also says in-network outpatient visits need no PA, so confirm which ABA codes need it',
+      status: 'unverified',
+      cites: [S.ahBH],
+      verifyVia: 'Advanced Health Medical Management, 541-269-7400: confirm which ABA codes require authorization.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes. Advanced Health publishes no ABA criteria of its own and reviews coverage against the Prioritized List, so the OHP rule applies: ASD on the HERC ASD line or stereotyped movement disorder with self-injury (OAR 410-172-0770)',
+      status: 'verified',
+      cites: [S.ahPM, S.oar0770, S.gn],
+    },
+    payer: 'Advanced Health',
+    state: 'OR', kind: 'medicaid-mco', parent: 'Oregon Health Plan (Coordinated Care Organizations)',
+    pill: 'Payer Guide · Advanced Health',
+    h1: 'Advanced Health ABA coverage: the intake guide.',
+    metaTitle: 'Advanced Health (Coos & Curry) ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How Advanced Health covers ABA for OHP members in Coos and Curry counties: its behavioral health authorization form, decision timeframes, timely filing, other-insurance rules, and the OHP rules it applies.',
+    intro: [
+      'Advanced Health is the OHP CCO for Coos and Curry counties. It publishes no ABA-specific policy, but its Behavioral Health Authorization Request form (rev. 10/25) names ABA as a request type, and its 2026–2027 provider manual sets the authorization and claims rules.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes, under OHP rules' },
+      { label: 'Service area', value: 'Coos and Curry counties' },
+      { label: 'Authorization', value: 'BH Authorization Request (ABA box), fax 541-269-7147' },
+      { label: 'Decision clock', value: '7 calendar days standard (plus up to 14)' },
+      { label: 'Timely filing', value: '120 days; 365 days for listed exceptions' },
+      { label: 'Other insurance', value: 'Advanced Health is payer of last resort' },
+    ],
+    sections: [
+      {
+        h2: 'Authorization and claims at Advanced Health',
+        body: [
+          'Advanced Health’s Behavioral Health Authorization Request asks providers to "Mark one" of Hospital Inpatient, Residential, ABA or Out of Network OP visit, and to fax it to Medical Management at 541-269-7147 with a behavioral health treatment plan, assessment and supporting documentation; the instructions add that "In-network providers do not require prior authorization for outpatient visits." The provider manual (2026–2027, rev. 3.2026) says Advanced Health processes standard authorization requests "no later than 7 calendar days following receipt of the request," extendable by up to 14 days, and that "An authorization may be required if Advanced Health is secondary to primary health coverage," with Advanced Health as "a payer of last resort unless the Member also has Indian Health coverage."',
+          'Claims must reach Advanced Health "within 120 days from the date of service," or within 365 days for pregnancy, retroactive eligibility, secondary/tertiary claims and other approved delays.',
+        ],
+        cites: [S.ahBH, S.ahPM],
+      },
+    ],
+    collect: [
+      { title: 'Member ID', desc: 'Confirm Advanced Health (Coos or Curry county) on the date of service.' },
+      { title: 'BH assessment and treatment plan', desc: 'Required with the BH Authorization Request.' },
+      { title: 'Diagnostic evaluation and referral', desc: 'Meets OAR 410-172-0770; referral from a physician, psychologist, or developmental-medicine NP/PA.' },
+      { title: 'Other insurance', desc: 'Bill the primary first; Advanced Health may still require an authorization as secondary.' },
+    ],
+    sources: [S.ahBH, S.ahPM, S.ahRes, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    deliveryRules: {
+      supervision: {
+        value: 'Advanced Health publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
+        status: 'verified',
+        cites: [S.ahPM, S.oar0760, S.oar824sup],
+      },
+      concurrentBilling: {
+        value: 'Not addressed in Advanced Health’s provider manual or BH authorization form.',
+        status: 'unverified',
+        cites: [S.ahPM, S.ahBH],
+        verifyVia: 'Advanced Health provider services (providerservices@advancedhealth.com) or your participation agreement.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'Advanced Health publishes no ABA unit or hour limit.',
+        status: 'unverified',
+        cites: [S.ahPM],
+        verifyVia: 'Advanced Health Medical Management, 541-269-7400: ask how ABA units are authorized.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value: 'Advanced Health publishes no ABA session-note rule. The OHP floor applies: each note "signed or initialed by the individual providing the service" (OAR 410-172-0620(4)).',
+        status: 'verified',
+        cites: [S.ahPM, S.oar0620],
+      },
+      placeOfService: {
+        value: 'Advanced Health publishes no ABA setting rule.',
+        status: 'unverified',
+        cites: [S.ahPM],
+        verifyVia: 'Advanced Health provider services: ask which settings and place-of-service codes it pays for ABA.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value: 'Advanced Health publishes no ABA rendering-provider rule; its form asks for the performing provider and NPI. The OHP rule applies: only a Licensed Behavior Analyst, licensed health care professional or declarant is eligible for direct payment (OAR 410-172-0760(3)–(4)).',
+        status: 'verified',
+        cites: [S.ahBH, S.oar0760],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'Advanced Health publishes no age limit. OHP rules require ABA beyond Guideline Note 75 when medically appropriate "including individuals age 13 and older," and under 21 EPSDT bars age-group-wide denials.',
+        status: 'verified',
+        cites: [S.ahPM, S.oar0770, S.epsdt],
+      },
+      dxRecency: {
+        value: 'Advanced Health publishes no recency rule. The OHP rule dates only the physical exam and hearing test (OAR 410-172-0770(1)(h)–(i)).',
+        status: 'verified',
+        cites: [S.ahPM, S.oar0770],
+      },
+      diagnosingProviders: {
+        value: 'Advanced Health publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)).',
+        status: 'verified',
+        cites: [S.ahPM, S.oar0770, S.oar0760],
+      },
+      diagnosticTools: {
+        value: 'Advanced Health publishes nothing different, so the OHP rule applies: a standardized, validated tool such as the ADOS plus developmental status such as the Vineland (OAR 410-172-0770(1)(b), (g)).',
+        status: 'verified',
+        cites: [S.ahPM, S.oar0770],
+      },
+      referral: {
+        value: 'Advanced Health adds no ABA referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        status: 'verified',
+        cites: [S.ahPM, S.oar0770, S.oar0760],
+      },
+      telehealth: {
+        value: 'Advanced Health publishes no ABA telehealth rule of its own. ' + STATE_TELE,
+        status: 'verified',
+        cites: [S.ahPM, S.oar0850, S.fee],
+      },
+      authTurnaround: {
+        value: 'Standard authorization requests "no later than 7 calendar days following receipt of the request," extendable by up to 14 additional days when more information is needed or on request.',
+        status: 'verified',
+        cites: [S.ahPM, S.oar3835],
+      },
+      coordinationOfBenefits: {
+        value: 'Advanced Health is "a payer of last resort unless the Member also has Indian Health coverage," may still require an authorization when it is secondary, and needs no PA when Medicare is primary and covers the service. Secondary claims may be filed within 365 days.',
+        status: 'verified',
+        cites: [S.ahPM, S.oar1280],
+      },
+    },
+    faq: [
+      { q: 'Does Advanced Health cover ABA?', a: 'Yes, under OHP rules. ABA requests go on its Behavioral Health Authorization Request, faxed to Medical Management at 541-269-7147.' },
+      { q: 'What is Advanced Health’s timely filing limit?', a: '120 days from the date of service, or 365 days for exceptions such as secondary claims and retroactive eligibility.' },
+    ],
+  },
+
+  'allcare-cco': {
+    slug: 'allcare-cco',
+    cardDesc: 'Southern Oregon CCO (Curry, Jackson, Josephine, south Douglas): no ABA policy published; ABA paid at least the OHA FFS rate; OHP rules apply.',
+    assessmentPA: {
+      value: 'Not published: AllCare posts no ABA prior-authorization list or policy on its public site (its site search returns no ABA document)',
+      status: 'unverified',
+      cites: [S.acDP],
+      verifyVia: 'AllCare CCO provider portal or customer service (888-460-0185): ask whether 97151/97152 need prior authorization.',
+      blocker: 'document',
+    },
+    treatmentPA: {
+      value: 'Not published on AllCare’s public site; OHP allows CCOs to require PA for ABA treatment',
+      status: 'unverified',
+      cites: [S.acDP, S.oar3835],
+      verifyVia: 'AllCare CCO provider portal or customer service (888-460-0185): ask which ABA codes need prior authorization and how to submit.',
+      blocker: 'document',
+    },
+    dxRequired: {
+      value: 'Yes. AllCare publishes no ABA criteria of its own, so the OHP rule applies: ASD on the HERC ASD line or stereotyped movement disorder with self-injury, from an evaluation meeting OAR 410-172-0770',
+      status: 'verified',
+      cites: [S.oar0770, S.gn],
+    },
+    payer: 'AllCare CCO',
+    state: 'OR', kind: 'medicaid-mco', parent: 'Oregon Health Plan (Coordinated Care Organizations)',
+    pill: 'Payer Guide · AllCare CCO',
+    h1: 'AllCare CCO ABA coverage: the intake guide.',
+    metaTitle: 'AllCare CCO ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How AllCare CCO covers ABA for OHP members in Curry, Jackson, Josephine and southern Douglas counties: what AllCare publishes (an ABA minimum-rate commitment), what it does not, and the OHP rules that apply.',
+    intro: [
+      'AllCare CCO serves OHP members in Curry, Jackson and Josephine counties and two southern Douglas County ZIP codes. Its public site publishes no ABA policy, prior-authorization list or provider manual we could find, so the OHP rules carry most of this guide. What AllCare does publish is its behavioral health directed-payment notice, which commits to paying ABA at least the OHA fee-for-service rate.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes, under OHP rules (CCOs cover the Prioritized List)' },
+      { label: 'Service area', value: 'Curry, Jackson, Josephine; Douglas ZIPs 97410 and 97442' },
+      { label: 'Prior auth', value: 'Not published; ask AllCare' },
+      { label: 'ABA rates', value: 'At least the OHA FFS State Plan rate (directed payment)' },
+      { label: 'Decision clock', value: 'OAR 410-141-3835: 7 days standard, 72 hours expedited' },
+      { label: 'Timely filing', value: 'OAR 410-141-3565: 120 days (365 for exceptions)' },
+    ],
+    sections: [
+      {
+        h2: 'What AllCare publishes, and what applies by default',
+        body: [
+          'AllCare’s behavioral health directed-payment notice (2025 guidance) says OHA’s minimum fee schedule directed payment "will require BH providers in A&D Residential, Applied Behavior Analysis, MH Children’s Wraparound to be paid at least the FFS State Plan fee schedule rate," and that ABA is among the services eligible for the culturally and linguistically specific services add-on (22% of the OHP fee schedule for non-rural and 27% for rural qualifying providers). ' + OR_FEE_LINE,
+          'We found no AllCare ABA policy, PA list or provider manual on its public site, so the OHP rules apply: the OAR 410-172-0770 evaluation and referral, Guideline Note 75, CCO authorization notice within 7 calendar days (OAR 410-141-3835), and claims within 120 days of the date of service (OAR 410-141-3565). Ask AllCare which ABA codes need authorization before you start.',
+        ],
+        cites: [S.acDP, S.fee, S.plans, S.oar0770, S.gn, S.oar3835, S.oar3565],
+      },
+    ],
+    collect: [
+      { title: 'Member ID', desc: 'Confirm AllCare CCO (Jackson County members may instead have Jackson Care Connect).' },
+      { title: 'Authorization rules', desc: 'AllCare publishes none for ABA: call before the assessment.' },
+      { title: 'Diagnostic evaluation and referral', desc: 'Meets OAR 410-172-0770; referral from a physician, psychologist, or developmental-medicine NP/PA.' },
+      { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
+    ],
+    sources: [S.acDP, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    deliveryRules: {
+      supervision: {
+        value: 'AllCare publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
+        status: 'verified',
+        cites: [S.oar0760, S.oar824sup, S.oar824def],
+      },
+      concurrentBilling: {
+        value: 'Not published by AllCare; OHA publishes no rule either.',
+        status: 'unverified',
+        cites: [S.acDP],
+        verifyVia: 'AllCare CCO provider services (888-460-0185) or your AllCare contract.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'Not published by AllCare; OHA’s fee schedule sets no ABA unit maximum.',
+        status: 'unverified',
+        cites: [S.fee],
+        verifyVia: 'AllCare CCO utilization management (888-460-0185): ask how ABA units are authorized.',
+        blocker: 'per-case',
+      },
+      noteSignature: {
+        value: 'AllCare publishes no ABA session-note rule. The OHP floor applies: each note "signed or initialed by the individual providing the service" (OAR 410-172-0620(4)).',
+        status: 'verified',
+        cites: [S.oar0620],
+      },
+      placeOfService: {
+        value: 'Not published by AllCare.',
+        status: 'unverified',
+        cites: [S.acDP],
+        verifyVia: 'AllCare CCO provider services: ask which settings and place-of-service codes it pays for ABA.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value: 'AllCare publishes no ABA rendering-provider rule. The OHP rule applies: only a Licensed Behavior Analyst, licensed health care professional or declarant is eligible for direct payment (OAR 410-172-0760(3)–(4)).',
+        status: 'verified',
+        cites: [S.oar0760],
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'AllCare publishes no age limit. OHP rules require ABA beyond Guideline Note 75 when medically appropriate "including individuals age 13 and older," and under 21 EPSDT bars age-group-wide denials.',
+        status: 'verified',
+        cites: [S.oar0770, S.epsdt],
+      },
+      dxRecency: {
+        value: 'No AllCare rule. The OHP rule dates only the physical exam and hearing test (OAR 410-172-0770(1)(h)–(i)).',
+        status: 'verified',
+        cites: [S.oar0770],
+      },
+      diagnosingProviders: {
+        value: 'AllCare publishes nothing different, so the OHP rule applies: a physician, psychologist, or developmental-medicine NP or PA experienced in autism (OAR 410-172-0770(1), 0760(1)).',
+        status: 'verified',
+        cites: [S.oar0770, S.oar0760],
+      },
+      diagnosticTools: {
+        value: 'AllCare publishes nothing different, so the OHP rule applies: a standardized, validated tool such as the ADOS plus developmental status such as the Vineland (OAR 410-172-0770(1)(b), (g)).',
+        status: 'verified',
+        cites: [S.oar0770],
+      },
+      referral: {
+        value: 'AllCare publishes no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        status: 'verified',
+        cites: [S.oar0770, S.oar0760],
+      },
+      telehealth: {
+        value: 'AllCare publishes no ABA telehealth rule of its own. ' + STATE_TELE,
+        status: 'verified',
+        cites: [S.oar0850, S.fee],
+      },
+      authTurnaround: {
+        value: 'AllCare publishes no ABA clock, so the CCO rule applies: notice "no later than seven (7) calendar days following receipt," expedited within 72 hours, one 14-day extension (OAR 410-141-3835).',
+        status: 'verified',
+        cites: [S.oar3835],
+      },
+      coordinationOfBenefits: {
+        value: 'AllCare publishes nothing ABA-specific, so the state rule applies. ' + STATE_COB,
+        status: 'verified',
+        cites: [S.oar1280, S.cfr433],
+      },
+    },
+    faq: [
+      { q: 'Does AllCare CCO cover ABA?', a: 'Yes, as an OHP CCO it covers ABA under OHP rules, and it commits to paying ABA providers at least the OHA fee-for-service rate. It publishes no ABA-specific policy, so ask AllCare about authorization before starting.' },
+      { q: 'What does AllCare pay for ABA?', a: 'At least the OHA fee-for-service State Plan rate under OHA’s directed payment; for example 97153 at $14.70 per 15 minutes on the July 2026 schedule.' },
     ],
   },
 
