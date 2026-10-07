@@ -166,4 +166,5 @@ export const STATE_META: StateMeta[] = [
   { code: 'WY', name: 'Wyoming', mandate: 'No autism statute — DOI Bulletin 01-2019 (mental-health parity, W.S. 26-20-701; no ABA exclusions from 7/1/2019)', medicaidSlug: 'wyoming-medicaid' },
   { code: 'WV', name: 'West Virginia', mandate: 'W. Va. Code § 33-24-7k et al. (group plans; ages 18 months–18, dx by 8, $30,000/yr ABA cap for 3 years then $2,000/month)', medicaidSlug: 'west-virginia-medicaid' },
   { code: 'DC', name: 'District of Columbia', mandate: 'D.C. Code §§ 31-3271–31-3272 (habilitative services incl. autism, under 21; ABA named in DC EHB benchmark)', medicaidSlug: 'district-of-columbia-medicaid' },
+  { code: 'MS', name: 'Mississippi', mandate: 'Miss. Code Ann. § 83-9-26 (HB 885, 2015; ABA may stop at age 8 and 25 hr/wk unless medically necessary)', medicaidSlug: 'mississippi-medicaid' },
 ];
