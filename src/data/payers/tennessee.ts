@@ -90,6 +90,27 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           { title: 'BACB RBT Handbook', url: 'https://assets.bacb.com/wp-content/uploads/2022/01/RBTHandbook_230622-a.pdf' },
         ],
       },
+      {
+        h2: 'TennCare ABA claims: filing deadline, payment clock, disputes and EVV',
+        body: [
+          'TennCare’s contract with its MCOs sets the floor for every claim: a provider has “one hundred twenty (120) calendar days from the date of rendering a covered service to file a claim,” with the clock starting later for coordination-of-benefits cases and retroactive enrollment (CRA 2.12.9.28, 2.22.4.9); the MCO must pay 90% of clean claims within 30 calendar days of receipt and process 99.5% of all claims within 60 calendar days (2.22.4.2–2.22.4.3, under Tenn. Code Ann. 56-32-126). A provider who disputes a claim decision may use the TennCare Provider Independent Review of Disputed Claims process through the Tennessee Department of Commerce and Insurance (Tenn. Code Ann. 56-32-126(b)); an overturned claim must be paid within 20 calendar days of the decision (2.22.5.2).',
+          'EVV does not apply to ABA. The TennCare contract requires an electronic visit verification system for personal care and home health services that require an in-home visit, as the 21st Century Cures Act requires (CRA 2.9.17.1); ABA is neither.',
+        ],
+        cites: [
+          { title: 'TennCare — Statewide MCO Contract (Contractor Risk Agreement), with Amendment 25, July 1, 2026', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+        ],
+      },
+      {
+        h2: 'Does TennCare require CPR or first-aid certification for BCBAs or ABA technicians?',
+        body: [
+          'No CPR or first-aid certificate is required for BCBAs or technicians in TennCare ABA. The shared TennCare MCO ABA Program Description asks for current BCBA certification with MCO credential verification, a Tennessee Licensed Behavior Analyst licence for the analyst, BACB-compliant RBTs, and a Crisis/Emergency Plan “in accordance with BACB best practices”; it names no CPR or first-aid training. Tennessee’s behavior-analyst licensing rules (1180-05) carry none either. The only CPR and first-aid requirement in the TennCare MCO contract is for workers hired through consumer direction in CHOICES and ECF CHOICES (CRA 2.9.8.7.7), not ABA staff. An employer or the setting (a school or day program) can still require it.',
+        ],
+        cites: [
+          { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
+          { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
+          { title: 'TennCare — Statewide MCO Contract (Contractor Risk Agreement), with Amendment 25, July 1, 2026', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'TennCare MCO', desc: 'BlueCare, UnitedHealthcare, or Wellpoint — clinically identical program, but the portal, fax, and mechanics differ per plan.' },
@@ -109,6 +130,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'BACB — Meeting RBT Requirements During the 2026 Transition (updated 08/2025)', url: 'https://www.bacb.com/wp-content/uploads/2025/07/RBT-2026-Requirements_250723-a.pdf' },
       { title: 'BACB RBT Handbook', url: 'https://assets.bacb.com/wp-content/uploads/2022/01/RBTHandbook_230622-a.pdf' },
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
+      { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -220,6 +242,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Are TennCare\'s ABA rules different per MCO?', a: 'The clinical rules are deliberately unified — one shared program description and one universal request form across BlueCare, UnitedHealthcare, and Wellpoint. What differs is submission mechanics (portal, fax, forms, timelines) and UnitedHealthcare\'s additional Level of Care guidelines — see each MCO\'s guide.' },
       { q: 'What does TennCare pay for ABA?', a: 'TennCare publishes no ABA fee schedule — each MCO negotiates rates in its provider contracts. Your contract is the only source of truth on reimbursement.' },
       { q: 'Does TennCare require RBT certification for ABA technicians?', a: 'The shared TennCare program description sets credential expectations for "RBT paraprofessionals": RBTs and their supervising BCBAs "must comply with ALL of the current Behavior Analyst Certification Board (BACB) requirements for credentialing, ethics, competency, supervision, and maintenance of the RBT credential." Direct ABA must be delivered or supervised by a TN Licensed Behavior Analyst. Technicians do not bill under their own NPI: the universal form collects the group (or solo servicing) NPI, and technician codes carry the HM modifier.' },
+      { q: 'Do you need CPR certification to be a BCBA for TennCare ABA in Tennessee?', a: 'No source requires it. The shared TennCare MCO ABA Program Description and Tennessee’s behavior-analyst licensing rules (1180-05) set no CPR or first-aid requirement; the TennCare MCO contract requires CPR and first aid only for consumer-directed CHOICES and ECF CHOICES workers. Your employer or a school setting may still require it.' },
+      { q: 'What is the timely filing limit for TennCare ABA claims?', a: '120 calendar days from the date of service, under TennCare’s contract with its MCOs (CRA 2.12.9.28), with later start dates for coordination of benefits and retroactive enrollment.' },
+      { q: 'How fast must a TennCare MCO pay an ABA claim?', a: '90% of clean claims within 30 calendar days and 99.5% of all claims within 60 calendar days (TennCare MCO contract 2.22.4, under Tenn. Code Ann. 56-32-126).' },
     ],
   },
 
@@ -306,6 +331,29 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/13/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
         ],
       },
+      {
+        h2: 'ABA claims: filing deadline, payment clock, disputes and EVV',
+        body: [
+          'BlueCare’s own manual (rev. October 1, 2026) applies the 120 days: “Contracted and non-contracted Providers must submit all claims for medical services… within 120 days of the date of service… or within 60 days from the date of the original rejection notice, whichever is later,” and corrected bills must be received within 120 days of the original BlueCare remittance. Taxonomy: “Professional claims need a taxonomy code to be submitted for the billing and rendering NPIs,” and both must match the taxonomy codes BlueCare has on file. Besides BlueCare’s internal dispute process, providers may ask the Commissioner of Commerce and Insurance for independent review under Tenn. Code Ann. 56-32-126.',
+          'TennCare’s contract with its MCOs sets the floor for every claim: a provider has “one hundred twenty (120) calendar days from the date of rendering a covered service to file a claim,” with the clock starting later for coordination-of-benefits cases and retroactive enrollment (CRA 2.12.9.28, 2.22.4.9); the MCO must pay 90% of clean claims within 30 calendar days of receipt and process 99.5% of all claims within 60 calendar days (2.22.4.2–2.22.4.3, under Tenn. Code Ann. 56-32-126). A provider who disputes a claim decision may use the TennCare Provider Independent Review of Disputed Claims process through the Tennessee Department of Commerce and Insurance (Tenn. Code Ann. 56-32-126(b)); an overturned claim must be paid within 20 calendar days of the decision (2.22.5.2).',
+          'EVV does not apply to ABA. The TennCare contract requires an electronic visit verification system for personal care and home health services that require an in-home visit, as the 21st Century Cures Act requires (CRA 2.9.17.1); ABA is neither.',
+        ],
+        cites: [
+          { title: 'BlueCare Tennessee Provider Administration Manual (H3259, rev. 10/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
+          { title: 'TennCare — Statewide MCO Contract (Contractor Risk Agreement), with Amendment 25, July 1, 2026', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+        ],
+      },
+      {
+        h2: 'Is CPR or first-aid certification required for ABA staff?',
+        body: [
+          'No CPR or first-aid certificate is required for BCBAs or technicians in TennCare ABA. The shared TennCare MCO ABA Program Description asks for current BCBA certification with MCO credential verification, a Tennessee Licensed Behavior Analyst licence for the analyst, BACB-compliant RBTs, and a Crisis/Emergency Plan “in accordance with BACB best practices”; it names no CPR or first-aid training. Tennessee’s behavior-analyst licensing rules (1180-05) carry none either. The only CPR and first-aid requirement in the TennCare MCO contract is for workers hired through consumer direction in CHOICES and ECF CHOICES (CRA 2.9.8.7.7), not ABA staff. An employer or the setting (a school or day program) can still require it.',
+        ],
+        cites: [
+          { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
+          { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
+          { title: 'TennCare — Statewide MCO Contract (Contractor Risk Agreement), with Amendment 25, July 1, 2026', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'BlueCare vs. TennCareSelect vs. CoverKids', desc: 'Same BCBST machinery, different fax lines — confirm the exact program.' },
@@ -323,6 +371,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
       { title: 'ABA Provider Requirements & Program Description \u2014 TennCare MCOs (rev. 06/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
       { title: 'BCBST \u2014 ABA Therapy Services Assessment Request Form', url: 'https://content.bcbst.com/api/public/content/aba_therapy_assessment_request_form.pdf' },
+      { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
+      { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -430,6 +480,9 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'What is BlueCare Tennessee\'s fee schedule for ABA?', a: 'There is no public ABA fee schedule. TennCare publishes none, and BlueCare pays according to the fee schedule in your BlueCare provider agreement; its telehealth guide says telehealth payment for many services is consistent with that same fee schedule. Your contract, or BlueCare network management, is the source for rates.' },
       { q: 'Does BlueCare require RBT certification for ABA technicians?', a: 'Yes, in practice. The shared TennCare program description sets credential expectations for "RBT paraprofessionals" who must keep the RBT credential under BACB rules, and BlueCare\'s manual says "the RBT service codes can be utilized by Registered Behavior Technicians, Board Certified Assistant Behavior Analysts (BCaBA) or by a Provider who has completed their training in Applied Behavior Analysis and is waiting to take the exam to become a Board Certified Behavior Analyst (BCBA)." TennCare does not pay immediate family members to deliver ABA.' },
       { q: 'Is BlueCare accepting new ABA providers?', a: 'There is no published open or closed status. BlueCare Tennessee\'s manual says it may "maintain a separate network and not include any willing Provider," and that it can deny participation for network need. Apply through BCBST credentialing and attest to the TennCare ABA program description, then ask provider network operations about need in your area.' },
+      { q: 'What is BlueCare Tennessee’s timely filing limit for ABA claims?', a: '120 days from the date of service, or 60 days from the original rejection notice if later; corrected bills within 120 days of the original remittance (BlueCare Tennessee provider manual, October 2026).' },
+      { q: 'Does BlueCare require taxonomy on ABA claims?', a: 'Yes. Professional claims need taxonomy codes for both the billing and rendering NPIs, matching what BlueCare has on file (BlueCare Tennessee provider manual).' },
+      { q: 'Does BlueCare Tennessee require CPR certification for BCBAs or RBTs?', a: 'Not in any published source. The shared TennCare MCO ABA Program Description and Tennessee’s licensing rules (1180-05) name no CPR or first-aid training for ABA staff; the TennCare MCO contract requires it only for consumer-directed CHOICES and ECF CHOICES workers. Your employer may still require it.' },
     ],
   },
 
@@ -490,6 +543,29 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
         ],
       },
+      {
+        h2: 'ABA claims: filing deadline, payment clock, disputes and EVV',
+        body: [
+          'UnitedHealthcare’s TennCare manual applies the same 120 days (when other coverage is primary, the period starts on the date of the primary carrier’s EOB) and requires the NPI, the “taxonomy codes(s) for the billing health care providers, and Medicaid ID number for your TIN” on every claim. It points providers to the Department of Commerce and Insurance independent review process under Tenn. Code Ann. 56-32-126 for denied claims.',
+          'TennCare’s contract with its MCOs sets the floor for every claim: a provider has “one hundred twenty (120) calendar days from the date of rendering a covered service to file a claim,” with the clock starting later for coordination-of-benefits cases and retroactive enrollment (CRA 2.12.9.28, 2.22.4.9); the MCO must pay 90% of clean claims within 30 calendar days of receipt and process 99.5% of all claims within 60 calendar days (2.22.4.2–2.22.4.3, under Tenn. Code Ann. 56-32-126). A provider who disputes a claim decision may use the TennCare Provider Independent Review of Disputed Claims process through the Tennessee Department of Commerce and Insurance (Tenn. Code Ann. 56-32-126(b)); an overturned claim must be paid within 20 calendar days of the decision (2.22.5.2).',
+          'EVV does not apply to ABA. The TennCare contract requires an electronic visit verification system for personal care and home health services that require an in-home visit, as the 21st Century Cures Act requires (CRA 2.9.17.1); ABA is neither.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Tennessee — TennCare Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TN-TennCare-Care-Provider-Administrative-Manual.pdf' },
+          { title: 'TennCare — Statewide MCO Contract (Contractor Risk Agreement), with Amendment 25, July 1, 2026', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+        ],
+      },
+      {
+        h2: 'Is CPR or first-aid certification required for ABA staff?',
+        body: [
+          'No CPR or first-aid certificate is required for BCBAs or technicians in TennCare ABA. The shared TennCare MCO ABA Program Description asks for current BCBA certification with MCO credential verification, a Tennessee Licensed Behavior Analyst licence for the analyst, BACB-compliant RBTs, and a Crisis/Emergency Plan “in accordance with BACB best practices”; it names no CPR or first-aid training. Tennessee’s behavior-analyst licensing rules (1180-05) carry none either. The only CPR and first-aid requirement in the TennCare MCO contract is for workers hired through consumer direction in CHOICES and ECF CHOICES (CRA 2.9.8.7.7), not ABA staff. An employer or the setting (a school or day program) can still require it.',
+        ],
+        cites: [
+          { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
+          { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
+          { title: 'TennCare — Statewide MCO Contract (Contractor Risk Agreement), with Amendment 25, July 1, 2026', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Physician order for ABA', desc: 'UHC explicitly requires the order/script at initiation — chase it at intake, not at submission.' },
@@ -506,6 +582,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
       { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/13/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
+      { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -614,6 +691,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'How do I submit a UHC TennCare ABA authorization?', a: 'The universal tri-MCO ABA request form via Provider Express, fax (877) 217-6068, or secure email tn_medicaid_aba@uhc.com; ABA line (800) 690-1606.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth in TennCare?', a: 'It can be requested. The universal TennCare ABA request form has an "Indicate if Hours are telehealth" checkbox on every code row, including the 97151/97152 assessment and 97155 supervision, so telehealth hours are authorized code by code. The shared program description asks providers to judge clinical appropriateness and use HIPAA-compliant technology.' },
       { q: 'Does TennCare require RBT certification for ABA technicians?', a: 'The shared TennCare program description sets credential expectations for "RBT paraprofessionals": RBTs and their supervising BCBAs "must comply with ALL of the current Behavior Analyst Certification Board (BACB) requirements for credentialing, ethics, competency, supervision, and maintenance of the RBT credential." Direct ABA must be delivered or supervised by a TN Licensed Behavior Analyst. Technicians do not bill under their own NPI: the universal form collects the group (or solo servicing) NPI, and technician codes carry the HM modifier.' },
+      { q: 'What is UnitedHealthcare Community Plan of Tennessee’s timely filing limit for ABA?', a: '120 days from the date of service (from the primary carrier’s EOB when other coverage pays first), per the TennCare contract and UnitedHealthcare’s TennCare manual.' },
+      { q: 'Does UnitedHealthcare Community Plan of Tennessee require CPR certification for BCBAs or RBTs?', a: 'Not in any published source. The shared TennCare MCO ABA Program Description and Tennessee’s licensing rules (1180-05) name no CPR or first-aid training for ABA staff; the TennCare MCO contract requires it only for consumer-directed CHOICES and ECF CHOICES workers. Your employer may still require it.' },
     ],
   },
 
@@ -674,6 +753,29 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
         ],
       },
+      {
+        h2: 'ABA claims: filing deadline, payment clock, disputes and EVV',
+        body: [
+          'Wellpoint’s Tennessee manual: “Timely filing is within 120 days of the date of service,” except for coordination of benefits or retroactive eligibility, and a corrected or replacement claim may be sent within 120 calendar days of the payment notice. A clean claim must include “NPI and taxonomy information for rendering, attending, and billing providers.” Disputes start with a reconsideration within 365 calendar days of the EOP date, which Wellpoint tries to resolve within 30 calendar days; independent review under Tenn. Code Ann. 56-32-126 is also available.',
+          'TennCare’s contract with its MCOs sets the floor for every claim: a provider has “one hundred twenty (120) calendar days from the date of rendering a covered service to file a claim,” with the clock starting later for coordination-of-benefits cases and retroactive enrollment (CRA 2.12.9.28, 2.22.4.9); the MCO must pay 90% of clean claims within 30 calendar days of receipt and process 99.5% of all claims within 60 calendar days (2.22.4.2–2.22.4.3, under Tenn. Code Ann. 56-32-126). A provider who disputes a claim decision may use the TennCare Provider Independent Review of Disputed Claims process through the Tennessee Department of Commerce and Insurance (Tenn. Code Ann. 56-32-126(b)); an overturned claim must be paid within 20 calendar days of the decision (2.22.5.2).',
+          'EVV does not apply to ABA. The TennCare contract requires an electronic visit verification system for personal care and home health services that require an in-home visit, as the 21st Century Cures Act requires (CRA 2.9.17.1); ABA is neither.',
+        ],
+        cites: [
+          { title: 'Wellpoint Tennessee Provider Manual (TNWP-CD-PM-086546-25-B, Dec 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_ProviderManual.pdf' },
+          { title: 'TennCare — Statewide MCO Contract (Contractor Risk Agreement), with Amendment 25, July 1, 2026', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+        ],
+      },
+      {
+        h2: 'Is CPR or first-aid certification required for ABA staff?',
+        body: [
+          'No CPR or first-aid certificate is required for BCBAs or technicians in TennCare ABA. The shared TennCare MCO ABA Program Description asks for current BCBA certification with MCO credential verification, a Tennessee Licensed Behavior Analyst licence for the analyst, BACB-compliant RBTs, and a Crisis/Emergency Plan “in accordance with BACB best practices”; it names no CPR or first-aid training. Tennessee’s behavior-analyst licensing rules (1180-05) carry none either. The only CPR and first-aid requirement in the TennCare MCO contract is for workers hired through consumer direction in CHOICES and ECF CHOICES (CRA 2.9.8.7.7), not ABA staff. An employer or the setting (a school or day program) can still require it.',
+        ],
+        cites: [
+          { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
+          { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
+          { title: 'TennCare — Statewide MCO Contract (Contractor Risk Agreement), with Amendment 25, July 1, 2026', url: 'https://www.tn.gov/content/dam/tn/tenncare/documents/MCOStatewideContract.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'MD order / provider recommendation', desc: 'Required on the assessment request — collect it with the diagnostic report.' },
@@ -687,6 +789,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Tri-MCO ABA Overview of Updates (Sept 2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABAOverviewofUpdates.pdf' },
       { title: 'Wellpoint TN — ABA provider page', url: 'https://www.provider.wellpoint.com/tennessee-provider/patient-care/behavioral-health/applied-behavior-analysis' },
       { title: 'TennCare Kids (EPSDT) \u2014 birth through age 20', url: 'https://www.tn.gov/tenncare/tenncare-kids.html' },
+      { title: 'TN ABA Program Description (shared tri-MCO, UHC copy 6/2024)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/tn/behavioral-health/TN-ABA-Program-Description.pdf' },
+      { title: 'Tenn. Comp. R. & Regs. 1180-05 — Applied Behavior Analyst Licensing Committee rules (May 2025 revision)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -794,6 +898,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Is Wellpoint\'s ABA policy different from TennCare\'s?', a: 'Clinically, no — it\'s the shared TennCare baseline. The plan-specific layer is workflow: Availity ICR, fax lines, the MD-order emphasis, and the sub-90% unit-utilization explanation rule at continuation.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth in TennCare?', a: 'It can be requested. The universal TennCare ABA request form has an "Indicate if Hours are telehealth" checkbox on every code row, including the 97151/97152 assessment and 97155 supervision, so telehealth hours are authorized code by code. The shared program description asks providers to judge clinical appropriateness and use HIPAA-compliant technology.' },
       { q: 'Does TennCare require RBT certification for ABA technicians?', a: 'The shared TennCare program description sets credential expectations for "RBT paraprofessionals": RBTs and their supervising BCBAs "must comply with ALL of the current Behavior Analyst Certification Board (BACB) requirements for credentialing, ethics, competency, supervision, and maintenance of the RBT credential." Direct ABA must be delivered or supervised by a TN Licensed Behavior Analyst. Technicians do not bill under their own NPI: the universal form collects the group (or solo servicing) NPI, and technician codes carry the HM modifier.' },
+      { q: 'What is Wellpoint Tennessee’s timely filing limit for ABA claims?', a: '120 days from the date of service; corrected claims within 120 calendar days of the payment notice; reconsiderations within 365 calendar days of the EOP (Wellpoint Tennessee provider manual).' },
+      { q: 'Does Wellpoint Tennessee require CPR certification for BCBAs or RBTs?', a: 'Not in any published source. The shared TennCare MCO ABA Program Description and Tennessee’s licensing rules (1180-05) name no CPR or first-aid training for ABA staff; the TennCare MCO contract requires it only for consumer-directed CHOICES and ECF CHOICES workers. Your employer may still require it.' },
     ],
   },
 
@@ -895,6 +1001,15 @@ export const tennesseePayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'BlueCare Tennessee Provider Administration Manual (H3259, rev. 10/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
           { title: 'ABA Provider Requirements & Program Description — TennCare MCOs (rev. 06/13/2024)', url: 'https://www.provider.wellpoint.com/docs/gpp/TN_WLP_CAID_BH_ABARequirements.pdf' },
+        ],
+      },
+      {
+        h2: 'TennCare Select ABA claims: filing deadline, taxonomy and disputes',
+        body: [
+          'BlueCare’s provider manual covers TennCareSelect and sets its claim rules: claims must be received “within 120 days of the date of service,” or within 60 days of the original rejection notice if later; corrected bills within 120 days of the original remittance; professional claims need billing and rendering taxonomy codes that match the codes on file. Providers may ask the Commissioner of Commerce and Insurance for independent review of a disputed TennCare claim under Tenn. Code Ann. 56-32-126.',
+        ],
+        cites: [
+          { title: 'BlueCare Tennessee Provider Administration Manual (H3259, rev. 10/01/2026) — covers BlueCare, TennCareSelect and CoverKids', url: 'https://content.bcbst.com/api/public/content/prov-bct-pam.pdf' },
         ],
       },
     ],
@@ -1023,6 +1138,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'How do I submit an ABA prior authorization to TennCare Select?', a: 'The shared tri-MCO universal ABA request form, via Availity (Tennessee providers) or Cohere (out-of-state providers). TennCare Select\'s own Provider Service Line is 1-800-276-1978 and PA phone is 1-800-711-4104 — both distinct from BlueCare\'s numbers.' },
       { q: 'Does TennCare Select require RBT certification for ABA technicians?', a: 'Yes, in practice. The shared TennCare program description sets credential expectations for "RBT paraprofessionals" who must keep the RBT credential under BACB rules, and BlueCare\'s manual says "the RBT service codes can be utilized by Registered Behavior Technicians, Board Certified Assistant Behavior Analysts (BCaBA) or by a Provider who has completed their training in Applied Behavior Analysis and is waiting to take the exam to become a Board Certified Behavior Analyst (BCBA)." TennCare does not pay immediate family members to deliver ABA.' },
       { q: 'Is TennCare Select accepting new ABA providers?', a: 'There is no published open or closed status. BlueCare Tennessee\'s manual says it may "maintain a separate network and not include any willing Provider," and that it can deny participation for network need. Apply through BCBST credentialing and attest to the TennCare ABA program description, then ask provider network operations about need in your area.' },
+      { q: 'What is TennCare Select’s timely filing limit for ABA claims?', a: '120 days from the date of service, or 60 days from the original rejection notice if later (BlueCare Tennessee provider manual, which covers TennCareSelect).' },
     ],
   },
 
@@ -1104,6 +1220,15 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Aetna pay an ABA claim in Tennessee?',
+        body: [
+          'Payment clock: Tennessee’s prompt-pay law (Tenn. Code Ann. 56-7-109) gives a health insurance entity 21 calendar days for a claim submitted electronically and 30 calendar days for a paper claim to pay a clean claim, pay the undisputed part, or say what is missing, with 1% interest a month on late amounts. A claim submitted more than 90 days after the date of service is not a “clean claim” under the statute, so file early. A self-funded employer plan may sit outside Tennessee insurance law, so confirm the funding type first.',
+        ],
+        cites: [
+          { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1118,6 +1243,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Provider and behavioral health manual (June 2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1253,6 +1379,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'What does the Tennessee autism mandate require?', a: 'Tennessee’s statute is the weakest of the states we cover — it’s a parity rule, not an ABA mandate. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Tennessee?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Tennessee Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s ABA medical necessity guide does not require a technician credential. Services must be provided directly or billed by a licensed behavior analyst (where the state licenses them), a BCBA or a licensed psychologist. Where plans or state law allow services by people who are not licensed or BACB-certified, they must be supervised and directed in line with practice standards. State law or the plan can require more.' },
+      { q: 'How fast must Aetna pay an ABA claim in Tennessee?', a: 'On a plan subject to Tennessee law, 21 calendar days for an electronic claim and 30 for a paper one, with 1% monthly interest on late payments; a claim filed more than 90 days after the date of service is not a clean claim under the statute (Tenn. Code Ann. 56-7-109).' },
     ],
   },
 
@@ -1353,6 +1480,15 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           { title: 'Evernorth — Autism resource guide for behavioral health providers (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Cigna pay an ABA claim in Tennessee?',
+        body: [
+          'Payment clock: Tennessee’s prompt-pay law (Tenn. Code Ann. 56-7-109) gives a health insurance entity 21 calendar days for a claim submitted electronically and 30 calendar days for a paper claim to pay a clean claim, pay the undisputed part, or say what is missing, with 1% interest a month on late amounts. A claim submitted more than 90 days after the date of service is not a “clean claim” under the statute, so file early. A self-funded employer plan may sit outside Tennessee insurance law, so confirm the funding type first.',
+        ],
+        cites: [
+          { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1366,6 +1502,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Tenn. Code Ann. § 56-7-2367 (autism/neurological parity)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-2367/' },
       { title: 'TN Dept. of Health — LBA application (T.C.A. §§ 63-11-301–311)', url: 'https://www.tn.gov/content/dam/tn/health/healthprofboards/behavior-analyst/LBA-Application.pdf' },
       { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1482,6 +1619,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in Tennessee?', a: 'Evernorth (Cigna behavioral health) publishes no ABA rate table. Its administrative guidelines say your fee schedule and the list of reimbursable autism services are in Exhibit A of your Evernorth provider agreement; call Provider Services at 800.926.2273 with fee schedule questions.' },
       { q: 'Is Cigna (Evernorth) accepting new ABA providers?', a: 'Evernorth says it is "committed to expanding our network of autism providers." Individuals file the Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; processing can take up to 90 days, plus 60 to 90 days of credentialing per provider after a clinic contract.' },
       { q: 'Does Cigna require RBT certification for ABA technicians?', a: 'Evernorth\'s autism resource guide does not name a technician credential. It says Evernorth "does not credential nonlicensed/noncertified staff" and that their services "must be billed under the supervising provider." Case supervision must come from a BCBA, LBA or independently licensed clinician with ABA training. State licensure rules can add requirements.' },
+      { q: 'How fast must Cigna pay an ABA claim in Tennessee?', a: 'On a plan subject to Tennessee law, 21 calendar days for an electronic claim and 30 for a paper one, with 1% monthly interest on late payments; a claim filed more than 90 days after the date of service is not a clean claim under the statute (Tenn. Code Ann. 56-7-109).' },
     ],
   },
 
@@ -1580,6 +1718,17 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
         ],
       },
+      {
+        h2: 'UnitedHealthcare (Optum) ABA claims in Tennessee: filing deadline, payment and appeals',
+        body: [
+          'Optum, which runs UnitedHealthcare’s commercial behavioral network, sets the claim rules in its National Network Manual (effective September 1, 2026): “All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” and corrections should be made within 90 days of initial receipt. Clean claims with any required authorization are “generally” paid within 45 calendar days, or as state law requires. To contest a claim or authorization decision on a commercial plan, request a reconsideration first and then an appeal; the two steps together allow 12 months unless state law or the participation agreement says otherwise. A non-urgent prior-authorization appeal can be filed within 180 days.',
+          'Payment clock: Tennessee’s prompt-pay law (Tenn. Code Ann. 56-7-109) gives a health insurance entity 21 calendar days for a claim submitted electronically and 30 calendar days for a paper claim to pay a clean claim, pay the undisputed part, or say what is missing, with 1% interest a month on late amounts. A claim submitted more than 90 days after the date of service is not a “clean claim” under the statute, so file early. A self-funded employer plan may sit outside Tennessee insurance law, so confirm the funding type first.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1597,6 +1746,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1723,6 +1874,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers?', a: 'Optum publishes its ABA credentialing criteria and an application route ("Join Our Autism/ABA Network" on Provider Express), not an open or closed status. Credentialing takes 45 to 120 days, and new agencies also need an Optum audit, which can take up to 90 days to schedule. Ask the Provider Service Line (1-877-614-0484) about need in your area.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'Yes, or an equivalent. Optum\'s ABA FAQ says technicians working directly with children 1:1 must be a Registered Behavior Technician (RBT), a Board-Certified Autism Technician (BCAT) or a certified Applied Behavior Analysis Technician (ABAT), or hold another certification approved by network management. State rules may add to or override this.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth with UnitedHealthcare?', a: 'On commercial plans Optum allows ABA telehealth only for 97155, 97156 and 97157. That covers BCBA supervision of the technician (97155), but not the assessment codes 97151 and 97152. The provider must have completed Optum\'s virtual-visits attestation, and claims carry POS 02 or POS 10.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Tennessee?', a: 'Optum’s National Network Manual: 90 calendar days from the date of service unless state law, the plan or your agreement allows longer. Tennessee’s prompt-pay law does not treat a claim filed more than 90 days after service as clean.' },
     ],
   },
   'bluecross-blueshield-of-tennessee': {
@@ -1934,6 +2086,17 @@ export const tennesseePayers: Record<string, PayerConfig> = {
           { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective October 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' },
         ],
       },
+      {
+        h2: 'BCBST commercial ABA claims: filing deadline, taxonomy, appeals and payment clock',
+        body: [
+          'Filing deadline: “Our commercial timely filing period is six months from the date of service for individual providers”; when BCBST is secondary, it is 60 days from the date of service or 60 days from the primary carrier’s notice of payment. Taxonomy: “professional claims need a taxonomy code to be submitted for the billing and rendering providers,” and both must match the contracted provider. Appeals: a medical-necessity denial may be appealed within 180 days of the denial notice, and a denial for failing to get authorization within 60 days; neither extends the filing deadline.',
+          'Payment clock: Tennessee’s prompt-pay law (Tenn. Code Ann. 56-7-109) gives a health insurance entity 21 calendar days for a claim submitted electronically and 30 calendar days for a paper claim to pay a clean claim, pay the undisputed part, or say what is missing, with 1% interest a month on late amounts. A claim submitted more than 90 days after the date of service is not a “clean claim” under the statute, so file early. A self-funded employer plan may sit outside Tennessee insurance law, so confirm the funding type first.',
+        ],
+        cites: [
+          { title: 'BlueCross BlueShield of Tennessee Provider Administration Manual — Commercial and Medicare Advantage (effective October 1, 2026)', url: 'https://content.bcbst.com/api/public/content/prov-bcbst-pam.pdf' },
+          { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Commercial BCBST or BlueCare', desc: 'Same company, different rulebooks — BlueCare and TennCareSelect are TennCare plans with their own guides.' },
@@ -1954,6 +2117,7 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { title: 'Tenn. Code Ann. 56-7-3705 — Prior Authorization Fairness Act timeframes', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-3705/' },
       { title: 'Tenn. Comp. R. & Regs. 0780-01-53 — Coordination of Benefits (group contracts)', url: 'https://publications.tnsosfiles.com/rules/0780/0780-01/0780-01-53.pdf' },
       { title: 'Rules of the TN Applied Behavior Analyst Licensing Committee, Ch. 1180-05 (rev. May 2025)', url: 'https://publications.tnsosfiles.com/rules/1180/1180-05.20250507.pdf' },
+      { title: 'Tenn. Code Ann. § 56-7-109 — prompt payment of health insurance claims (FindLaw)', url: 'https://codes.findlaw.com/tn/title-56-insurance/tn-code-sect-56-7-109/' },
     ],
     faq: [
       { q: 'Does BCBS Tennessee cover ABA therapy?', a: 'Yes on fully insured BlueCross BlueShield of Tennessee plans (since 1/1/2018), FEP and PSHB. Self-funded employer plans "may vary," so verify the member\'s group in Availity. ABA needs prior authorization and an autism spectrum disorder diagnosis.' },
@@ -1962,6 +2126,8 @@ export const tennesseePayers: Record<string, PayerConfig> = {
       { q: 'Can 97155 be billed at the same time as 97153 with BCBST?', a: 'Yes, when the BCBA is directing the RBT, the client is present and at least one protocol is modified — BCBST\'s manual says 97155 "may be billed concurrently with the RBT codes" in that case.' },
       { q: 'Is BCBS Tennessee accepting new ABA providers?', a: 'There is no published open or closed status. BCBST\'s manual says it may maintain a network that does not include any willing provider and can deny participation for network need. For an individual Behavior Analyst its credentialing list requires a Tennessee license and BCBA-D certification, so ask BCBST provider network about joining as a group.' },
       { q: 'Can BCBA supervision (97155) be done by telehealth with BCBS Tennessee?', a: 'Generally yes. BCBST pays telehealth for codes on Medicare\'s telehealth list, and 97155 is on the 2026 list along with the other ABA codes. Bill POS 10 or 02 and include the telehealth hours in the authorization. BCBST publishes no cap on the share of supervision done remotely; BACB supervision rules still apply, and some self-funded groups exclude telehealth.' },
+      { q: 'What is BCBS of Tennessee’s timely filing limit for ABA claims?', a: 'Six months from the date of service for commercial claims; 60 days when BCBST is secondary (BCBST Provider Administration Manual, October 2026).' },
+      { q: 'Does BCBS of Tennessee require taxonomy on ABA claims?', a: 'Yes. Professional claims need billing and rendering taxonomy codes that match the contracted provider (BCBST Provider Administration Manual).' },
     ],
   },
 };
