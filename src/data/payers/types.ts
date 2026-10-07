@@ -147,4 +147,5 @@ export const STATE_META: StateMeta[] = [
   { code: 'WI', name: 'Wisconsin', mandate: 'Wis. Stat. § 632.895(12m) + Ins 3.36 (intensive start ages 2–9; 2026 floors $74,240 / $37,119)', medicaidSlug: 'wisconsin-medicaid' },
   { code: 'SC', name: 'South Carolina', mandate: 'Ryan’s Law (S.C. Code § 38-71-280; group plans, dx by age 8, under 16, $73,400 behavioral-therapy cap for 2026)', medicaidSlug: 'south-carolina-medicaid' },
   { code: 'KY', name: 'Kentucky', mandate: 'KRS 304.17A-142 autism coverage (no age, annual-benefit or visit caps since 2019)', medicaidSlug: 'kentucky-medicaid' },
+  { code: 'WA', name: 'Washington', mandate: 'Mental health parity (RCW 48.44.341 et al.; RCW 48.43.766 from 2027); no stand-alone autism statute', medicaidSlug: 'washington-medicaid' },
 ];
