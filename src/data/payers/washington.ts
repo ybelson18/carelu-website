@@ -304,6 +304,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
 
   'community-health-plan-of-washington': {
     slug: 'community-health-plan-of-washington',
+    family: 'chpw',
     cardDesc: 'Apple Health MCO: ABA needs PA on its 2026 BH list; fax the ABA Initial Request Form with the COE evaluation; 12-month timely filing.',
     assessmentPA: {
       value: 'Not stated for 97151 separately: the 2026 behavioral PA list puts "Applied Behavior Analysis (ABA) for Autism Spectrum Disorder" under prior authorization required without breaking out codes, and HCA notes an MCO may require PA for the COE evaluation',

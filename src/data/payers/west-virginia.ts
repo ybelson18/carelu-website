@@ -419,6 +419,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
 
   'the-health-plan-west-virginia': {
     slug: 'the-health-plan-west-virginia',
+    family: 'the-health-plan',
     cardDesc: 'Wheeling-based MHT MCO in all 55 counties; its PA list names no ABA code, which clashes with BMS policy, so confirm in the portal.',
     assessmentPA: {
       value: 'Unclear. THP’s Medical and Behavioral Health PA list (effective 8/1/2026) does not list H0031 or any ABA CPT code, and says unlisted codes need no PA, yet BMS Policy 519.23 requires PA for every ABA code and THP says it covers behavioral health "as required by BMS"',

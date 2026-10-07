@@ -457,6 +457,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
 
   'healthpartners-minnesota': {
     slug: 'healthpartners-minnesota',
+    family: 'healthpartners',
     cardDesc: 'HealthPartners MHCP: EIDBI policy mirrors DHS criteria; PA by fax with the CMDE; claims need rendering and QSP loops.',
     assessmentPA: {
       value: 'No for 97151 per HealthPartners’ EIDBI policy, whose prior-authorization code list covers 0373T and 97153–97157 only; the FAQ asks for the CMDE as the document for authorization review',
@@ -596,6 +597,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
 
   'hennepin-health-minnesota': {
     slug: 'hennepin-health-minnesota',
+    family: 'hennepin-health',
     cardDesc: 'Medical Assistance plan: EIDBI PA by fax, 1:16 supervision, and QSP notes due every three months since July 2026.',
     assessmentPA: {
       value: 'Not on Hennepin Health’s EIDBI prior-authorization list, which names 97153, 97154, 0373T, 97155, 97156, 97157 and H0046 but not 97151',
@@ -723,6 +725,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
 
   'imcare-minnesota': {
     slug: 'imcare-minnesota',
+    family: 'imcare',
     cardDesc: 'Itasca County’s local county health plan: EIDBI authorized by fax or secure email; most plan-specific EIDBI rules are unpublished.',
     assessmentPA: {
       value: 'Not stated. DHS’s grid says only that "Select services require authorization" at IMCare (and all services for noncontracted providers); IMCare publishes no EIDBI code list',
@@ -837,6 +840,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
 
   'medica-minnesota': {
     slug: 'medica-minnesota',
+    family: 'medica',
     cardDesc: 'Medica’s Medical Assistance plans: behavioral health and EIDBI run through Optum; fax the CMDE and ITP to 855-454-8155.',
     assessmentPA: {
       value: 'Not stated. DHS’s grid says "Select services require authorization" at Medica and asks for the ITP and CMDE by fax; Medica publishes no EIDBI code list',
@@ -949,6 +953,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
 
   'medica-one-health-plan-minnesota': {
     slug: 'medica-one-health-plan-minnesota',
+    family: 'medica',
     cardDesc: 'The former UCare Medical Assistance plans, under Medica since Oct. 1, 2026; EIDBI through Optum with the same fax as Medica.',
     assessmentPA: {
       value: 'Not stated. DHS’s grid says "Select services require authorization" and asks for the ITP and CMDE by fax; no plan EIDBI code list is published',
@@ -1055,6 +1060,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
 
   'primewest-health-minnesota': {
     slug: 'primewest-health-minnesota',
+    family: 'primewest',
     cardDesc: 'Medical Assistance plan with a full EIDBI manual chapter: portal authorization, no retro auths, O&D near 20%, POS 02 telehealth.',
     assessmentPA: {
       value: 'No: "The annual CMDE" is on PrimeWest’s list of services that "do not require authorization prior to service delivery" (also ITP development, care conferences and travel time)',
@@ -1188,6 +1194,7 @@ export const minnesotaPayers: Record<string, PayerConfig> = {
 
   'south-country-health-alliance-minnesota': {
     slug: 'south-country-health-alliance-minnesota',
+    family: 'south-country',
     cardDesc: 'Medical Assistance plan: EIDBI on its BH prior-auth list with form #4894, the CMDE and ITP; 5-business-day decisions; 180-day filing.',
     assessmentPA: {
       value: '97151 UB appears on South Country’s EIDBI prior-authorization row with the DHS threshold "80 units per calendar year (1 CMDE allowed annually)"; the row reads "Thresholds vary, see DHS Billing Grid," so authorization applies above the grid’s free annual CMDE',

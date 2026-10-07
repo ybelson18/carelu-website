@@ -296,6 +296,7 @@ export const rhodeIslandPayers: Record<string, PayerConfig> = {
 
   'neighborhood-health-plan-rhode-island': {
     slug: 'neighborhood-health-plan-rhode-island',
+    family: 'neighborhood-health-plan-ri',
     cardDesc: 'RI Medicaid plan; ABA is a subset of HBTS (HCPCS codes), managed in-house since 9/1/2025; its exchange plans cover ABA to age 20.',
     assessmentPA: {
       value: 'Not stated. Neighborhood’s HBTS/ABA policies set admission criteria (an initial evaluation by a licensed analyst must support the request) but its published prior authorization reference guide dates from 2021 and lists no behavioral health services',

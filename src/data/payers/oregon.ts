@@ -313,6 +313,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'health-share-of-oregon': {
     slug: 'health-share-of-oregon',
+    family: 'health-share',
     cardDesc: 'Portland-metro CCO; CareOregon runs its behavioral health UM: PA for the ABA assessment and treatment, ADOS/CARS-2, Medical Director review at 13+ or over 25 hours.',
     assessmentPA: {
       value: 'Yes. CareOregon’s BH UM handbook requires an ABA assessment authorization with clinical documentation showing the diagnosis and tool; for Health Share members it may be submitted with "TBD Behavioral Health Provider" as the rendering provider',
@@ -618,6 +619,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'pacificsource-community-solutions-oregon': {
     slug: 'pacificsource-community-solutions-oregon',
+    family: 'pacificsource',
     cardDesc: 'CCO for Central Oregon, Columbia Gorge and Marion-Polk with a written Medicaid ABA policy: no PA for 97151 up to 32 units, six-month treatment PAs.',
     assessmentPA: {
       value: 'Not for a standard assessment: PA "is not required if CPT code 97151 is billed for 32 or fewer units (8 hours or less)"; above 32 units, PA and MD review. 97152 above 16 units in 6 months goes to medical necessity review',
@@ -757,6 +759,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'jackson-care-connect': {
     slug: 'jackson-care-connect',
+    family: 'careoregon',
     cardDesc: 'Jackson County CCO (CareOregon): ABA assessments approved without clinical documentation; treatment PA with a full plan; 7-day decisions.',
     assessmentPA: {
       value: 'An authorization is submitted, but CareOregon approves ABA assessment requests for JCC members "without the requirement of clinical documentation" (submit via Connect)',
@@ -896,6 +899,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'columbia-pacific-cco': {
     slug: 'columbia-pacific-cco',
+    family: 'careoregon',
     cardDesc: 'Clatsop/Columbia/Tillamook CCO (CareOregon): ABA assessments approved without clinical documentation; treatment PA; 7-day decisions.',
     assessmentPA: {
       value: 'An authorization is submitted, but CareOregon approves ABA assessment requests for CPCCO members "without the requirement of clinical documentation" (submit via Connect)',
@@ -1034,6 +1038,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'intercommunity-health-network-cco': {
     slug: 'intercommunity-health-network-cco',
+    family: 'ihn-cco',
     cardDesc: 'Benton/Lincoln/Linn CCO (Samaritan): every ABA code including 97151 on the 2026 PA code list; ABA rates kept at or above OHA FFS.',
     assessmentPA: {
       value: 'Yes: IHN’s 2026 Prior Authorization Code List puts 97151 and 97152 under "Applied Behavioral therapy (ABA) services," and the 2026 Prior Approval List requires prior approval for ABA services',
@@ -1175,6 +1180,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'umpqua-health-alliance': {
     slug: 'umpqua-health-alliance',
+    family: 'umpqua-health',
     cardDesc: 'Douglas County CCO: ABA on its behavioral health PA list with six-month authorizations; InterQual plus the Prioritized List; 90-day retro window.',
     assessmentPA: {
       value: 'Not settled by the FAQ: it lists Applied Behavior Analysis among behavioral health services requiring PA, and code-level rules sit in the online Prior Authorization Grid',
@@ -1317,6 +1323,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'eastern-oregon-cco': {
     slug: 'eastern-oregon-cco',
+    family: 'eocco',
     cardDesc: '12-county eastern Oregon CCO (Moda/GOBHI): every ABA code 97151–97158 on the September 2026 PA list; GOBHI runs an ABA program with a PCP-prescription front door.',
     assessmentPA: {
       value: 'Yes: EOCCO’s Prior Authorization List (September 2026) lists 97151 through 97158 "Applied Behavior Analysis for Autism Spectrum Disorder"',
@@ -1458,6 +1465,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'yamhill-community-care': {
     slug: 'yamhill-community-care',
+    family: 'yamhill-community-care',
     cardDesc: 'Yamhill County CCO: PA on 97151–97156, 97158, 0362T, 0373T; its own ABA PA form caps the initial 97151 at 32 units and asks for program setting.',
     assessmentPA: {
       value: 'Yes: YCCO’s PA list (as of 1/29/2026) carries 97151, 97152 and 0362T as active "Applied Behavioral Analysis" codes, and its ABA form has an "Initial Assessment" request type (97151 up to 32 units initial, 24 for reassessment)',
@@ -1594,6 +1602,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'cascade-health-alliance': {
     slug: 'cascade-health-alliance',
+    family: 'cascade-health-alliance',
     cardDesc: 'Klamath County CCO: ABA for ASD needs PA every 6 months on 97151–97156 (BH auth grid, 6/24/2026); 7-day decisions; 120-day filing.',
     assessmentPA: {
       value: 'Yes: CHA’s BH Auth Grid (6/24/2026) requires "PA every 6 months for codes: 97151, 97152, 97153, 97154, 97155, 97156"',
@@ -1733,6 +1742,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'advanced-health': {
     slug: 'advanced-health',
+    family: 'advanced-health',
     cardDesc: 'Coos and Curry County CCO: ABA requests go on its Behavioral Health Authorization form; 7-day decisions; 120-day timely filing.',
     assessmentPA: {
       value: 'Not stated per code. Advanced Health’s Behavioral Health Authorization Request lists ABA as a request type (with inpatient, residential and out-of-network visits), but no published list says whether 97151/97152 need it',
@@ -1876,6 +1886,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
 
   'allcare-cco': {
     slug: 'allcare-cco',
+    family: 'allcare',
     cardDesc: 'Southern Oregon CCO (Curry, Jackson, Josephine, south Douglas): no ABA policy published; ABA paid at least the OHA FFS rate; OHP rules apply.',
     assessmentPA: {
       value: 'Not published: AllCare posts no ABA prior-authorization list or policy on its public site (its site search returns no ABA document)',

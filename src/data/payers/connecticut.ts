@@ -1097,6 +1097,7 @@ export const connecticutPayers: Record<string, PayerConfig> = {
 
   'connecticare-connecticut': {
     slug: 'connecticare-connecticut',
+    family: 'connecticare',
     cardDesc: 'Connecticut’s local carrier, now owned by Molina: Optum Behavioral Health manages ABA; 2026 PA lists put ABA codes through Optum.',
     assessmentPA: {
       value: '97151 is on neither 2026 ConnectiCare list. 97152 appears among the ABA codes on the commercial preauthorization list but not on the Marketplace list. Optum’s criteria require PA for ABA unless otherwise specified',

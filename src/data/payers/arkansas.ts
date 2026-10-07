@@ -576,6 +576,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
 
   'empower-healthcare-solutions-arkansas': {
     slug: 'empower-healthcare-solutions-arkansas',
+    family: 'empower',
     cardDesc: 'Empower PASSE: PA required on 97151, 97153, 97155 and 97156 (BH/IDD form or portal); otherwise the state ABA manual applies.',
     assessmentPA: {
       value: 'Yes: 97151 is on Empower’s PA list (service category “AUTISM-EPSDT,” PA required; list dated 4.24.26)',
@@ -723,6 +724,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
 
   'summit-community-care-arkansas': {
     slug: 'summit-community-care-arkansas',
+    family: 'summit-community-care',
     cardDesc: 'Summit Community Care PASSE: PA on 97151–97156 and 97158 (list updated 2/11/2026); otherwise the state ABA manual applies.',
     assessmentPA: {
       value: 'Yes: 97151 and 97152 are on Summit’s list of services requiring prior authorization (updated 2/11/2026)',
