@@ -151,4 +151,5 @@ export const STATE_META: StateMeta[] = [
   { code: 'CT', name: 'Connecticut', mandate: 'Conn. Gen. Stat. §§ 38a-514b / 38a-488b (behavioral therapy under 21, under 26 from 1/1/2027; no dollar cap)', medicaidSlug: 'connecticut-medicaid' },
   { code: 'IL', name: 'Illinois', mandate: 'Illinois autism mandate (215 ILCS 5/356z.14)', medicaidSlug: 'illinois-medicaid' },
   { code: 'LA', name: 'Louisiana', mandate: 'La. R.S. 22:1050 (under 21, $36,000/yr cap)', medicaidSlug: 'louisiana-medicaid' },
+  { code: 'OR', name: 'Oregon', mandate: 'Oregon Laws 2013, ch. 771, § 2 (ABA up to 25 hr/wk, first requested under 9) + ORS 743A.168 parity', medicaidSlug: 'oregon-medicaid' },
 ];
