@@ -554,7 +554,10 @@ re-confirmed in #4333; add to this list whenever LeadTrap makes a new one):
      cigna-indiana, sentara-community-plan. No dialed phone may change in the diff.
   4. `vob/carveouts.ts` keeps the `IOWA_INDIANA_HAWAII_ROWS` block (array spreads, not a keyed Record,
      so `sync.py` drops it).
-  5. LeadTrap-only `changelog.ts` entries stay, and the LAST entry's `totals` equals the guide count
+  5. `florida.ts` (sunshine-health-florida, Ambetter section): LeadTrap words the intake line as
+     "Because “Sunshine” and “Ambetter” come up often in Florida intake" — the website's "roughly a quarter of
+     Carelu's Florida intake" is a Carelu self-reference (item 2). Re-applied by hand in the 2026-10-11 sync.
+  6. LeadTrap-only `changelog.ts` entries stay, and the LAST entry's `totals` equals the guide count
      LeadTrap serves (guides outside `AWAITING_VOB`), not the website's count.
 Also: add every new website slug without a VOB layer to `AWAITING_VOB`, keep LeadTrap's looser
 `types.ts` unions, and delete the duplicate "LeadTrap-only guides" comment line `sync.py` adds to
