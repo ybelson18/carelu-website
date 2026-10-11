@@ -48,6 +48,13 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { label: 'Provider bar', value: 'BACB certification or state BA licensure' },
       { label: 'Telehealth', value: 'Covered for 97151, 97153, 97155, 97156, 97157' },
       { label: 'Reauth cadence', value: 'Commonly ~6 months (verify per plan)' },
+      {
+        h2: 'Does Aetna require a referring provider on ABA claims?',
+        body: [
+          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): clean claims, referrals, behavioral health access', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     sections: [
       {
@@ -248,6 +255,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna require a referring provider on ABA claims?', a: 'Only when the member\u2019s plan requires a referral. Aetna\u2019s June 2026 provider manual counts a referral as part of a clean claim only "if required for the applicable claim," and members can reach behavioral health care by direct access. Open Access plans need no referral. Check the member\u2019s plan on the eligibility response.' },
       { q: 'Does Aetna cover ABA therapy?', a: 'Yes — for autism spectrum disorder (ICD-10 F84.0–F84.9) under clinical policy CPB 0554, with precertification. Aetna considers ABA experimental for non-ASD indications.' },
       { q: 'Does Aetna require prior authorization for ABA?', a: 'Yes. Precertification is initiated on Availity or by phone, and form GR-69017-4 (7-26 revision, eff. 8/1/2026) supplies diagnosis details, requested hours per CPT code, the supervising clinician, and concurrent services.' },
       { q: 'Does Aetna cover ABA by telehealth?', a: 'Yes, for codes 97151, 97153, 97155, 97156, and 97157 (not 97152) — but the policy has shifted before, so confirm the current rule during each benefits verification.' },
@@ -302,6 +310,13 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { label: 'Telehealth', value: '"All ABA CPT codes are covered telehealth services"' },
       { label: 'Policy', value: 'EN0499 (eff. 5/15/2026) + autism resource guide' },
       { label: 'Assessment recency', value: 'Standardized assessment within 60 days of treatment start' },
+      {
+        h2: 'Does Cigna require a referring provider on ABA claims?',
+        body: [
+          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — NPI on 837 claims', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     sections: [
       {
@@ -492,6 +507,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna require a referring provider on ABA claims?', a: 'No. Evernorth\u2019s September 2026 administrative guidelines require only the billing provider\u2019s TIN and NPI; a referring provider is optional, but if you report one it "must include the name and NPI."' },
       { q: 'Does Cigna require prior authorization for ABA?', a: 'Not for assessment codes (97151, 97152, 0362T) when there\'s an autism diagnosis and the provider is independently licensed or a BCBA. Treatment services do require authorization — assessment plus treatment plan with the PA form.' },
       { q: 'Does Cigna cover ABA by telehealth?', a: 'Yes — its March 2025 provider guide states all ABA CPT codes are covered telehealth services, with delivery (in-person, telehealth, hybrid) based on the individual\'s needs.' },
       { q: 'Can a child receive ABA and speech therapy under Cigna?', a: 'Yes, but not at the same time of day — Cigna doesn\'t cover ABA delivered concurrently with another therapy session. Intake should capture the existing therapy schedule to plan around it.' },
@@ -550,6 +566,13 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { label: 'Code structure', value: '4 clusters; units shift within a cluster' },
       { label: 'Supervision', value: '1–2 hrs per 10 direct hrs; min 1 hr 97155/case/month' },
       { label: 'Utilization flag', value: '<80% of authorized hours (2-week window) gets scrutiny' },
+      {
+        h2: 'Does UnitedHealthcare / Optum require a referring provider on ABA claims?',
+        body: [
+          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
+        ],
+        cites: [{ title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026) — claim submission requirements', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
+      },
     ],
     sections: [
       {
@@ -751,6 +774,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare / Optum require a referring provider on ABA claims?', a: 'No. Optum\u2019s National Network Manual lists the required claim fields for behavioral health claims without a referring provider, and UnitedHealthcare\u2019s 2026 Administrative Guide only encourages the referring NPI. It is mandatory there only on lab, DME, imaging and home health claims.' },
       { q: 'Does UnitedHealthcare require prior authorization for ABA?', a: 'Yes — a two-step process via Optum\'s Provider Express portal: an assessment authorization first, then a treatment authorization, generally under Optum\'s Supplemental Clinical Criteria unless state law specifies otherwise.' },
       { q: 'How often does Optum review ABA authorizations?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'What happens if a family uses fewer hours than authorized?', a: 'Utilization below 80% of authorized hours over a two-week period draws scrutiny at review. Intake should capture realistic availability so the requested intensity matches what the family can actually attend.' },

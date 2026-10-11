@@ -657,6 +657,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Published rates', value: '97151/97156 $25.00 · 97155 $21.25 · 97153 $11.20 on the 2020 sheet (state since raised to $15.00 — verify)' },
       { label: 'Unit limits', value: 'State suggested limits adopted verbatim as MUE claim edits' },
       { label: 'Submission', value: 'Availity (provider ID 46320); ABA fax (844) 404-3972' },
+      {
+        h2: 'Does Aetna Better Health of New Jersey require a referring provider on ABA claims?',
+        body: [
+          'Aetna Better Health of New Jersey publishes no rule that every ABA claim must name a referring provider, but it has published what happens when one is named. From October 1, 2026 it enforces the NJ Medicaid (Gainwell) claim edits, including edit 1270: \u201cReferring NPI Same as Billing/Servicing NPI \u2013 The referring provider NPI cannot be the same as the billing and/or servicing provider NPI.\u201d Edits 1269 and 1271 do the same for attending and \u201cOther\u201d provider NPIs. Claims that break them are rejected at EDI or denied on paper, and providers \u201care not permitted to balance-bill the Medicaid beneficiary.\u201d So never put your own agency or BCBA NPI in box 17b; if you report a referring provider, it is the clinician who referred or diagnosed the child. The manual\u2019s prior authorization request list separately asks for the \u201cName, address, phone and fax number and signature, if applicable, of the referring provider.\u201d Claim-edit questions go to the Claims Inquiry/Claims Research department at 1-855-232-3596.',
+        ],
+        cites: [{ title: 'Aetna Better Health of New Jersey — Provider Notification: Upcoming Enforcement of NJ Medicaid Claim Edits (July 16, 2026; effective Oct. 1, 2026)', url: 'https://es.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/providers/pdf/abhnj_Self_Referral_Claim_Edits_7-16-26.pdf' }, { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }],
+      },
     ],
     sections: [
       {
@@ -731,6 +738,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
     ],
     faq: [
+      { q: 'Can the referring provider on an Aetna Better Health of New Jersey ABA claim be our own BCBA or agency?', a: 'No. From October 1, 2026 Aetna Better Health of New Jersey enforces NJ Medicaid edit 1270: "The referring provider NPI cannot be the same as the billing and/or servicing provider NPI." EDI claims are rejected and paper claims denied. Use the referring or diagnosing clinician\u2019s NPI, or leave the field empty if no one referred.' },
       { q: 'Does Aetna Better Health of New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit closest to the state baseline of all five MCOs, with a published rate sheet and unit limits copied from the DMAHS schedule. PA is required, via Availity or the BH prior auth form.' },
       { q: 'What does Aetna Better Health NJ pay for ABA?', a: 'Its published 2020 sheet mirrors the state FFS schedule: $25.00 for 97151/97156, $21.25 for 97155, and $11.20 for 97153. The state raised 97153 to $15.00 in February 2022 — whether Aetna followed is unverified, so confirm in your contract.' },
       { q: 'How fast does Aetna Better Health NJ decide ABA authorizations?', a: 'Urgent requests within 24 hours; routine requests within 7 days. Progress reports go via Availity or fax (844) 404-3972.' },
@@ -1096,6 +1104,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Ages', value: '18 months to 21 years, by medical necessity — no stated hour caps' },
       { label: 'School setting', value: 'Permitted outside normal school hours (newer than the state\'s 2020 rule)' },
       { label: 'Submission', value: 'Provider Express NJ ABA path; BH intake 1-888-362-3368 (opt. 3); payer ID 87726' },
+      {
+        h2: 'Does UnitedHealthcare Community Plan of New Jersey require a referring provider on ABA claims?',
+        body: [
+          'UnitedHealthcare Community Plan of New Jersey\u2019s care provider manual (2025) carries the referring provider in its 837P layout (\u201cReferring Physician Primary Identifier NPI Loop 2310A\u201d) and names \u201cNo referring care provider ID or NPI number\u201d among the \u201cCommon reasons for rejected claims.\u201d It does not say which services need one, and nothing in it ties the requirement to ABA. If an ABA claim rejects for this reason, add the referring or diagnosing clinician\u2019s NPI and resubmit it as a new claim, which is what the manual says to do with a rejected claim.',
+        ],
+        cites: [{ title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025), Chapter 15: Billing and submission', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' }],
+      },
     ],
     sections: [
       {
@@ -1158,6 +1173,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
     ],
     faq: [
+      { q: 'Does UnitedHealthcare Community Plan of New Jersey require a referring provider on ABA claims?', a: 'Its manual lists a missing referring care provider ID or NPI among the common reasons claims are rejected, but does not say ABA claims always need one. If an ABA claim rejects for it, add the referring or diagnosing clinician\u2019s NPI and resubmit.' },
       { q: 'Does UnitedHealthcare Community Plan of New Jersey cover ABA?', a: 'Yes — the NJ FamilyCare ABA benefit, administered by Optum Behavioral Health under Optum\'s criteria plus a dedicated NJ Medicaid entry (revised November 2025). Requests go through Provider Express\'s NJ ABA path.' },
       { q: 'Does UHC NJ Medicaid require a comprehensive diagnostic evaluation for ABA?', a: 'No — Optum\'s NJ entry says so explicitly. An ASD diagnosis (F84.0–F84.9) from any physician or psychologist opens the benefit for members 18 months to 21 years.' },
       { q: 'Can ABA be delivered in schools for UHC NJ members?', a: 'Yes, outside normal school hours — Optum\'s NJ entry permits school-setting services as long as they don\'t occur during the school day, a looser position than the state\'s original 2020 rule.' },
@@ -1312,6 +1328,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'BH network / UM', value: 'Carelon Behavioral Health — a separate contracting funnel' },
       { label: 'Unit caps / rates', value: 'Unverified — nothing published; confirm directly with the plan' },
       { label: 'Claims', value: 'Availity, payor ID WLPNT; provider services (833) 731-2149' },
+      {
+        h2: 'Does Wellpoint New Jersey require the referring provider on ABA claims?',
+        body: [
+          'Only \u201cif applicable,\u201d and Wellpoint publishes nothing that makes it applicable to ABA. The October 2026 manual\u2019s list of what a clean claim must include ends with the \u201cName of referring physician or source NPI and other non-NPI identifier of the referring, ordering or supervising provider or attending and operating provider name and tax ID, if applicable.\u201d Elsewhere it says \u201cWellpoint does not require a paper referral process,\u201d and that NJ FamilyCare benefits need no Wellpoint referral for \u201cEPSDT services from a Wellpoint provider.\u201d The state\u2019s ABA rule has no physician order in it either: once a qualified healthcare professional diagnoses ASD, \u201cthe MCO shall authorize a QHP to assess the child,\u201d and the managed care contract\u2019s ABA service description lists no referral or order. Wellpoint\u2019s claim edits are not public, so if an ABA claim rejects for a missing referring provider, report the diagnosing clinician in box 17/17b and ask Wellpoint provider services (833-731-2149) to confirm the rule in writing.',
+        ],
+        cites: [{ title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+      },
     ],
     sections: [
       {
@@ -1371,6 +1394,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
     ],
     faq: [
+      { q: 'Does Wellpoint Medicaid of New Jersey require referring providers on ABA claims?', a: 'Wellpoint lists the referring provider among clean-claim elements only "if applicable," says it does not run a paper referral process, and needs no referral for EPSDT services from its own providers. NJ FamilyCare sets no physician order for ABA. No Wellpoint document makes box 17/17b mandatory for ABA; if a claim rejects for it, report the diagnosing clinician and confirm the rule with Wellpoint provider services (833-731-2149).' },
       { q: 'Does Wellpoint New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit on the state baseline (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan), with authorization via Availity or (800) 454-3730. No plan-specific ABA criteria are published.' },
       { q: 'Is Wellpoint NJ the same as Amerigroup?', a: 'Yes — Amerigroup New Jersey rebranded to Wellpoint under Elevance. Cards and directories may still carry the old name.' },
       { q: 'How do I join Wellpoint NJ\'s ABA network?', a: 'Through Carelon Behavioral Health (provider.relations.NJ@carelon.com) — a separate contracting funnel from the Wellpoint medical plan. Being contracted for medical services doesn\'t put you in the ABA network.' },
@@ -1432,12 +1456,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published. Aetna\'s ABA Medical Necessity Guide and its ABA clinical policy bulletin set a diagnosis requirement, a precertification requirement and a provider-licensure requirement, but state no referral or physician order as a condition of coverage. The gate that does exist is precertification itself — required for both the assessment and treatment.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
-        verifyVia:
-          'Aetna precertification/provider services at the number on the member\'s ID card, and the member\'s benefit document — ask whether the plan layers a referral requirement on behavioral health.',
-        blocker: 'per-case',
+          'No referral or physician order from Aetna. Aetna\u2019s ABA Medical Necessity Guide names no referral or order; what it requires is precertification, which its behavioral health precertification list applies to every ABA code, assessment and treatment alike, with form GR-69017-4 supplying the clinical information. The guide\u2019s only state exhibit is Maryland\u2019s, so no New Jersey-specific order requirement is layered on by Aetna. New Jersey adds a document rather than a referral on fully insured plans: P.L. 2009, c.115 covers ABA for children under 21 \u201cas prescribed through a treatment plan,\u201d and that plan must include \u201ca diagnosis; proposed treatment by type, frequency, and duration; the anticipated outcomes stated as goals; the frequency by which the treatment plan will be updated; and the treating physician\u2019s signature.\u201d The carrier \u201cmay only request an updated treatment plan once every six months from the treating physician,\u201d unless both agree more frequent review is needed. No state form exists; the plan is the provider\u2019s own document. Self-funded ERISA plans are outside the state mandate, so for them the carrier\u2019s own rule above is the whole answer.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026; Exhibit A covers Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'P.L. 2009, c.115 — New Jersey autism and developmental disability coverage (enrolled law)', url: 'https://pub.njleg.state.nj.us/Bills/2008/PL09/115_.PDF' },
+          { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
+        ],
       },
       telehealth: {
         value:
@@ -1539,6 +1566,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (may exclude ABA entirely)' },
       { label: 'Licensure', value: 'NJ Licensed Applied Behavior Analyst (Consumer Affairs board)' },
       { label: 'Fee schedule', value: 'Not public — Aetna pays the contracted rate in your participation agreement' },
+      {
+        h2: 'Does Aetna (New Jersey) require a referring provider on ABA claims?',
+        body: [
+          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): clean claims, referrals, behavioral health access', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     sections: [
       {
@@ -1647,6 +1681,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
     ],
     faq: [
+      { q: 'Does Aetna (New Jersey) require a referring provider on ABA claims?', a: 'Only when the member\u2019s plan requires a referral. Aetna\u2019s June 2026 provider manual counts a referral as part of a clean claim only "if required for the applicable claim," and members can reach behavioral health care by direct access. Open Access plans need no referral. Check the member\u2019s plan on the eligibility response.' },
       { q: 'Does Aetna cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA), since New Jersey treats autism as a biologically-based mental illness. In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
       { q: 'What does Aetna pay for ABA in New Jersey?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. NJ FamilyCare\'s fee-for-service schedule (see the New Jersey Medicaid guide) is the public benchmark.' },
@@ -1708,12 +1743,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published as a requirement. EN0499 gates coverage on a confirmed DSM-5-TR diagnosis, a qualifying assessment and a compliant treatment plan, and Evernorth\'s front door is famously open on the assessment side — no prior authorization on 97151, 97152 or 0362T. Neither document states a referral or physician order as a condition.',
-        status: 'unverified',
-        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'Evernorth Provider Services at 800.926.2273 and the member\'s benefit document — referral rules, where they exist, are a plan-design feature rather than a policy feature.',
-        blocker: 'per-case',
+          'No referral or physician order from Cigna. EN0499 requires none, and no prior authorization is needed on assessment codes 97151, 97152 and 0362T when there is an autism diagnosis on file and the provider is independently licensed or a BCBA. Treatment is the gated step: the completed assessment plus a treatment plan on Cigna\u2019s ABA prior authorization form. New Jersey adds a document rather than a referral on fully insured plans: P.L. 2009, c.115 covers ABA for children under 21 \u201cas prescribed through a treatment plan,\u201d and that plan must include \u201ca diagnosis; proposed treatment by type, frequency, and duration; the anticipated outcomes stated as goals; the frequency by which the treatment plan will be updated; and the treating physician\u2019s signature.\u201d The carrier \u201cmay only request an updated treatment plan once every six months from the treating physician,\u201d unless both agree more frequent review is needed. No state form exists; the plan is the provider\u2019s own document. Self-funded ERISA plans are outside the state mandate, so for them the carrier\u2019s own rule above is the whole answer.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'P.L. 2009, c.115 — New Jersey autism and developmental disability coverage (enrolled law)', url: 'https://pub.njleg.state.nj.us/Bills/2008/PL09/115_.PDF' },
+          { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
+        ],
       },
       telehealth: {
         value:
@@ -1757,9 +1794,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Yes \u2014 and Evernorth writes it as an explicit carve-out from its general rule: \u201cOnly one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).\u201d Both must be with the patient; analyst time away from the patient is not inside the exception.',
+          'Yes \u2014 and Evernorth writes it as an explicit carve-out from its general rule: \u201cOnly one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).\u201d Both must be with the patient; analyst time away from the patient is not inside the exception. Overlap with other therapies is a separate exclusion in EN0499: \u201cProvision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy).\u201d',
         status: 'verified',
-        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
       dailyLimits: {
         value:
@@ -1810,6 +1847,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (may exclude ABA entirely)' },
       { label: 'Licensure', value: 'NJ Licensed Applied Behavior Analyst (Consumer Affairs board)' },
       { label: 'Fee schedule', value: 'Not public — your ABA fee schedule is Exhibit A of your Evernorth Provider Agreement; fee questions to Evernorth Provider Services, 800.926.2273' },
+      {
+        h2: 'Does Cigna (New Jersey) require a referring provider on ABA claims?',
+        body: [
+          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — NPI on 837 claims', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     sections: [
       {
@@ -1904,6 +1948,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
     ],
     faq: [
+      { q: 'Does Cigna (New Jersey) require a referring provider on ABA claims?', a: 'No. Evernorth\u2019s September 2026 administrative guidelines require only the billing provider\u2019s TIN and NPI; a referring provider is optional, but if you report one it "must include the name and NPI."' },
       { q: 'Does Cigna cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national EN0499 policy for ASD (no PA on assessment codes 97151/97152/0362T), layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does EN0499 apply to New Jersey fully-insured plans?', a: 'Yes — unlike Virginia, New Jersey has no carve-out in the current EN0499. NJ fully-insured plans sit under the policy\'s generic state-mandate language, with P.L. 2009, c.115 controlling as the state mandate.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA). In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
@@ -1971,12 +2016,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published as a coverage condition. Optum gates ABA on prior authorization — "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)" — delivered as a two-step assessment-then-treatment workflow on Provider Express, with a valid diagnosis rather than a referral as the clinical trigger. What the criteria do require is coordination: documentation of communication with day care, preschool, school, early intervention and allied health providers to avoid duplication.',
-        status: 'unverified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum via Provider Express and the member\'s benefit document — referral requirements, where they exist, are a plan-design feature.',
-        blocker: 'per-case',
+          'No referral or physician order from UnitedHealthcare. Optum\u2019s ABA Supplemental Clinical Criteria require none: prior authorization runs in two steps on Provider Express, the assessment first and then treatment based on what it produced. Optum\u2019s ABA State Mandates document carries a New Jersey entry only for Medicaid members, so the standard criteria govern commercial plans. New Jersey adds a document rather than a referral on fully insured plans: P.L. 2009, c.115 covers ABA for children under 21 \u201cas prescribed through a treatment plan,\u201d and that plan must include \u201ca diagnosis; proposed treatment by type, frequency, and duration; the anticipated outcomes stated as goals; the frequency by which the treatment plan will be updated; and the treating physician\u2019s signature.\u201d The carrier \u201cmay only request an updated treatment plan once every six months from the treating physician,\u201d unless both agree more frequent review is needed. No state form exists; the plan is the provider\u2019s own document. Self-funded ERISA plans are outside the state mandate, so for them the carrier\u2019s own rule above is the whole answer.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA State Mandates (BH 803ABA STM72026, effective July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'P.L. 2009, c.115 — New Jersey autism and developmental disability coverage (enrolled law)', url: 'https://pub.njleg.state.nj.us/Bills/2008/PL09/115_.PDF' },
+          { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
+        ],
       },
       telehealth: {
         value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor beyond Optum’s own rule. For a New Jersey fully insured plan, N.J.S.A. 26:2S-29 (as amended by P.L.2021, c.310) requires a carrier to cover telehealth "on the same basis as" in person for otherwise covered services, bars restrictions on the originating or distant site except to keep the in-person standard of care, and lets the carrier limit coverage to in-network providers; self-funded employer plans are outside it.',
@@ -2078,6 +2125,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Self-funded ERISA plans (may exclude ABA entirely)' },
       { label: 'Licensure', value: 'NJ Licensed Applied Behavior Analyst (Consumer Affairs board)' },
       { label: 'Fee schedule', value: 'Not public — Optum pays up to the “Fee Maximum” in your agreement, by credential level (HM/HN/HO/HP modifiers)' },
+      {
+        h2: 'Does UnitedHealthcare (New Jersey) require a referring provider on ABA claims?',
+        body: [
+          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
+        ],
+        cites: [{ title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026) — claim submission requirements', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
+      },
     ],
     sections: [
       {
@@ -2181,6 +2235,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
     ],
     faq: [
+      { q: 'Does UnitedHealthcare (New Jersey) require a referring provider on ABA claims?', a: 'No. Optum\u2019s National Network Manual lists the required claim fields for behavioral health claims without a referring provider, and UnitedHealthcare\u2019s 2026 Administrative Guide only encourages the referring NPI. It is mandatory there only on lab, DME, imaging and home health claims.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national policy for ASD (Optum\'s two-step Provider Express authorization), layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Optum have New Jersey-specific ABA criteria?', a: 'Only for Medicaid — its State Mandates document carries a dedicated NJ FamilyCare entry (no comprehensive evaluation required, ages 18 months to 21). There is no NJ commercial entry, so commercial members follow the national Supplemental Clinical Criteria plus the state mandate.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA). In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
@@ -2267,14 +2322,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published. Horizon\'s ABA medical policy, reimbursement policy and form 40001 require a QHP diagnosis, a BCBA-signed treatment plan ("Signature of the ordering health care provider (i.e., BCBA)") and prior authorization, but state no PCP referral or physician order. Whether an HMO-type plan adds a referral is a plan-document question.',
-        status: 'unverified',
+          'No PCP referral or physician order in Horizon\u2019s own documents. Medical Policy 165, the reimbursement policy and form 40001 require a QHP diagnosis, a treatment plan signed by the BCBA (\u201cSignature of the ordering health care provider (i.e., BCBA)\u201d) and prior authorization. The New Jersey mandate Horizon applies to fully insured plans, P.L. 2009, c.115, covers ABA under 21 \u201cas prescribed through a treatment plan\u201d that must include \u201ca diagnosis; proposed treatment by type, frequency, and duration; the anticipated outcomes stated as goals; the frequency by which the treatment plan will be updated; and the treating physician\u2019s signature,\u201d and lets the carrier request an updated plan only once every six months. Horizon\u2019s form treats the BCBA as the ordering provider. Whether an HMO-type product adds a PCP referral is set in the member\u2019s plan document, not in the ABA policy.',
+        status: 'verified',
         cites: [
           { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
           { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+          { title: 'P.L. 2009, c.115 — New Jersey autism and developmental disability coverage (enrolled law)', url: 'https://pub.njleg.state.nj.us/Bills/2008/PL09/115_.PDF' },
         ],
-        verifyVia: 'Horizon Behavioral Health (1-800-626-2212) or the member\'s plan document: ask whether the member\'s product requires a PCP referral for behavioral health.',
-        blocker: 'per-case',
       },
       telehealth: {
         value:
@@ -2477,6 +2531,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
         ],
       },
+      {
+        h2: 'Out-of-state Blue members in New Jersey: how does BlueCard work for ABA?',
+        body: [
+          'Members of other Blue plans who are treated in New Jersey are billed to Horizon through BlueCard. Horizon\u2019s Professional Provider Manual: \u201cHorizon is your one point of contact for claims or claims-related questions,\u201d and \u201cIf services are rendered in New Jersey and your office does not participate with the Plan through which the member is enrolled, submit claims to Horizon.\u201d The one exception is a practice that also contracts directly with the member\u2019s own Blue plan, which bills that plan. For ABA specifically: \u201cAll behavioral health and substance use disorder claim submissions and inquiries for your BlueCard\u00ae patients (those enrolled in another state\u2019s Blue Cross and/or Blue Shield Plan) must be handled through the BlueCard\u00ae program,\u201d electronically through Availity with payer ID 22099, or on paper to Horizon BCBSNJ BlueCard Claims, Three Penn Plaza East, Suite 1, Newark, NJ 07105-2248. Include the full member ID with its prefix.',
+          'Prior authorization stays with the member\u2019s home plan: patients \u201cwho have BlueCard\u00ae benefits, are responsible for obtaining prior authorizations,\u201d and \u201cYou may choose to contact the Blue Cross and/or Blue Shield Plan in which your patient is enrolled to obtain the prior authorization.\u201d Check eligibility through BlueCard Eligibility at 1-800-676-BLUE (2583), which connects you to the member\u2019s plan, or a 270 transaction to Horizon. Horizon routes the claim to the home plan, which approves it, and Horizon pays you and sends the EOP. \u201cBilling charges in excess of the allowance is not permitted.\u201d',
+        ],
+        cites: [{ title: 'Horizon BCBSNJ Professional Provider Manual — The BlueCard Program', url: 'https://www.horizonblue.com/providers/resources/working-us-information-education-resources/manuals-user-guides/professional-provider-manual/bluecard-program' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured, self-funded that opted into the NJ mandate, or self-funded that did not. It decides which rules apply. SHBP/SEHBP members use a separate phone line.' },
@@ -2505,6 +2567,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
     ],
     faq: [
+      { q: 'How do I bill ABA for an out-of-state Blue Cross member I treat in New Jersey?', a: 'Through Horizon\u2019s BlueCard program. Horizon says all behavioral health claims for BlueCard patients must go through BlueCard: submit to Horizon on Availity (payer ID 22099) with the full member ID and prefix, unless your practice also contracts directly with the member\u2019s own Blue plan. Get the prior authorization from the member\u2019s home plan, which you can reach through 1-800-676-BLUE (2583).' },
       { q: 'Does Horizon BCBSNJ cover ABA therapy?', a: 'Yes, for autism spectrum disorder, under Horizon Medical Policy 165 and the New Jersey autism mandate for fully insured plans and self-funded groups that opted in. Every ABA code needs prior authorization.' },
       { q: 'Does Horizon NJ commercial have any restrictions on ABA in school?', a: 'Yes. Until November 30, 2026, Horizon pays ABA only outside the school setting; the school is responsible for ABA during the school day, and IEP or Early Intervention services are not covered. From December 1, 2026, school-based ABA may be approved during non-instructional periods (lunch, recess, transitions) if it is not duplicative of the IEP and you justify the setting. ABA during core instruction is generally not medically necessary.' },
       { q: 'Does Horizon allow retroactive authorization for ABA?', a: 'Not routinely. Its ABA reimbursement policy says a service without prior authorization gets a claim denial and then a medical-necessity review once records arrive. On fully insured plans, NJ law bars a no-authorization denial if Horizon missed its decision deadline, and a new payer must honor an existing authorization when a child switches plans.' },

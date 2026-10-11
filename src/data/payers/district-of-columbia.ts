@@ -75,6 +75,7 @@ const S: Record<string, PayerSource> = {
   cfMPU1224: { title: 'CareFirst — Medical Policy Update, December 2024 (8.01.011A Habilitative Services, MD and DC Mandates, revised)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/medical-policy-update-december-2024.pdf' },
   cfPre: { title: 'CareFirst — Pre-Cert/Pre-Auth (In-Network): BlueChoice HMO and PPO lists, PAL tool', url: 'https://provider.carefirst.com/providers/medical/in-network-precertification-preauthorization.page' },
   cfMedPol: { title: 'CareFirst — Medical Policy Reference Manual (portal page)', url: 'https://provider.carefirst.com/providers/medical/medical-policy.page' },
+  cfBlueCard: { title: 'CareFirst Provider Manual, Chapter 2: Product Descriptions — BlueCard Program (January 2025 edition)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-2-product-descriptions.pdf' },
   cfCh2: { title: 'CareFirst Provider Manual, Chapter 2: Product Descriptions (FEP services requiring prior authorization)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-2-product-descriptions.pdf' },
   cfCh3: { title: 'CareFirst Provider Manual, Chapter 3: Provider Network Requirements / Administrative Functions (credentialing; payment policy index)', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-3-administrative-functions.pdf' },
   cfCh5: { title: 'CareFirst Provider Manual, Chapter 5: Claims, Billing and Payments', url: 'https://provider.carefirst.com/carefirst-resources/provider/pdf/provider-manual-chapter-5-claims-billing-and-payments.pdf' },
@@ -808,6 +809,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Federal employee health plans, Medicare, and self-funded ERISA employer plans' },
       { label: 'Licensure', value: 'DC Board of Psychology licenses behavior analysts (D.C. Law 25-191, 2024); confirm licenses are being issued' },
       { label: 'Fee schedule', value: 'Not public — Aetna pays the contracted rate in your participation agreement' },
+      {
+        h2: 'Does Aetna (DC) require a referring provider on ABA claims?',
+        body: [
+          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
+        ],
+        cites: [S.aetnaOM],
+      },
     ],
     sections: [
       {
@@ -930,6 +938,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Aetna (DC) require a referring provider on ABA claims?', a: 'Only when the member\u2019s plan requires a referral. Aetna\u2019s June 2026 provider manual counts a referral as part of a clean claim only "if required for the applicable claim," and members can reach behavioral health care by direct access. Open Access plans need no referral. Check the member\u2019s plan on the eligibility response.' },
       { q: 'Does Aetna cover ABA therapy in Washington, DC?', a: 'Yes, under its national ABA guide for ASD. Fully insured DC plans must also cover habilitative services for autism for children under 21 under D.C. Code § 31-3272. Federal employee and self-funded plans follow their own terms.' },
       { q: 'Does the DC autism mandate cap ABA hours or dollars?', a: 'No. § 31-3272 bars limits on habilitative coverage that are more restrictive than those for other conditions. Its age limit is under 21.' },
       { q: 'How fast must Aetna pay a clean claim in DC?', a: 'Within 30 days under D.C. Code § 31-3132, with interest after that, and insurers must give you at least 180 days to file. Self-funded plans follow their own terms.' },
@@ -974,6 +983,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Federal employee health plans, Medicare, and self-funded ERISA employer plans' },
       { label: 'Licensure', value: 'DC Board of Psychology licenses behavior analysts (D.C. Law 25-191, 2024); confirm licenses are being issued' },
       { label: 'Fee schedule', value: 'Not public — Exhibit A of your Evernorth Provider Agreement; Provider Services 800.926.2273' },
+      {
+        h2: 'Does Cigna (DC) require a referring provider on ABA claims?',
+        body: [
+          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
+        ],
+        cites: [S.ebhAdmin],
+      },
     ],
     sections: [
       {
@@ -1016,9 +1032,9 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.en0499],
       },
       concurrentBilling: {
-        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)."',
+        value: '"Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Overlap with other therapies is excluded separately by EN0499: "Provision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)."',
         status: 'verified',
-        cites: [S.cignaARG],
+        cites: [S.cignaARG, S.en0499],
       },
       dailyLimits: {
         value: 'No per-day cap is published. All ABA codes are 15-minute units and ABA must be billed only with 97151–97158, 0362T and 0373T.',
@@ -1090,6 +1106,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Cigna (DC) require a referring provider on ABA claims?', a: 'No. Evernorth\u2019s September 2026 administrative guidelines require only the billing provider\u2019s TIN and NPI; a referring provider is optional, but if you report one it "must include the name and NPI."' },
       { q: 'Does Cigna cover ABA therapy in Washington, DC?', a: 'Yes, under EN0499 for ASD. Fully insured DC plans must also cover habilitative services for autism for children under 21 under D.C. Code § 31-3272. Self-funded and federal employee plans follow their own terms.' },
       { q: 'Does the Cigna ABA assessment need prior authorization in DC?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'What is Cigna’s timely filing limit for DC claims?', a: 'Evernorth’s default is 90 days, but it defers to a longer state limit, and D.C. Code § 31-3132 requires at least 180 days for District-regulated plans. Self-funded plans may hold you to 90.' },
@@ -1136,6 +1153,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       { label: 'Exempt from mandate', value: 'Federal employee health plans, Medicare, and self-funded ERISA employer plans' },
       { label: 'Licensure', value: 'DC Board of Psychology licenses behavior analysts (D.C. Law 25-191, 2024); confirm licenses are being issued' },
       { label: 'Fee schedule', value: 'Not public — Optum pays up to the “Fee Maximum” in your agreement, by credential (HM/HN/HO/HP modifiers)' },
+      {
+        h2: 'Does UnitedHealthcare (DC) require a referring provider on ABA claims?',
+        body: [
+          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
+        ],
+        cites: [S.optumNNM, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
+      },
     ],
     sections: [
       {
@@ -1255,6 +1279,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare (DC) require a referring provider on ABA claims?', a: 'No. Optum\u2019s National Network Manual lists the required claim fields for behavioral health claims without a referring provider, and UnitedHealthcare\u2019s 2026 Administrative Guide only encourages the referring NPI. It is mandatory there only on lab, DME, imaging and home health claims.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Washington, DC?', a: 'Yes, under Optum’s national ABA criteria for ASD. Fully insured DC plans must also cover habilitative services for autism for children under 21 under D.C. Code § 31-3272.' },
       { q: 'Does Optum have DC-specific ABA criteria?', a: 'No. Optum’s ABA State Mandates supplement (July 2026) has no District of Columbia entry.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in DC?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157, billed POS 02 or 10. DC law bars denying a covered service only because it is delivered by telehealth for District-regulated plans, so ask Optum how it applies the list.' },
@@ -1331,6 +1356,15 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         h2: 'Licensure, out-of-state BCBAs and rates',
         body: [DC_LICENSURE_BODY],
         cites: [S.dc1202_11, S.dc1207_71, S.bacbLic, S.dcPsy, S.cfCh3, S.teleGuide],
+      },
+      {
+        h2: 'Can I see an Anthem or other out-of-state Blue member as a CareFirst provider in the District? (BlueCard)',
+        body: [
+          'Yes, through BlueCard. CareFirst\u2019s Provider Manual (Chapter 2, BlueCard Program) defines BlueCard as \u201ca national program that enables members of one BCBS Plan to obtain healthcare service benefits while traveling or living in another BCBS Plan\u2019s service area,\u201d and tells participating providers \u201cThe program lets you submit claims for patients from other BCBS Plans, domestic and international, to CareFirst.\u201d Its own example is a member with employer coverage through another Blue plan who lives in, or travels to, CareFirst\u2019s area. Traditional, PPO, EPO, POS and HMO products can run through BlueCard; the Federal Employee Program (FEP), standalone dental and vendor-delivered vision and drug programs are excluded, and \u201cEPO products may have limited benefits out-of-area.\u201d The member gets in-network PPO benefits by seeing a BlueCard PPO provider \u2014 a CareFirst participating provider in its Maryland, District and Northern Virginia area.',
+          'Prior authorization and medical policy belong to the member\u2019s home plan, not CareFirst. The manual: \u201cYou should remind patients that they are responsible for obtaining pre-authorization/pre-certification for outpatient services from their Blue Plan.\u201d To find out what the home plan requires for ABA, use the Out-of-Area Medical Policy and Pre-Authorization/Pre-Certification Router at carefirst.com/preauth with the three-character prefix on the card; call BlueCard Eligibility at 800-676-BLUE (2583), which is \u201cfor eligibility, benefit and pre-authorization inquiries only\u201d and transfers you to the home plan\u2019s Behavioral Health review area; or use Electronic Provider Access in CareFirst Direct, which routes you into the home plan\u2019s own portal to submit the request. So for an Anthem member from Ohio or any other state, the ABA authorization follows that Anthem plan\u2019s rules and goes to that plan (or the vendor it names).',
+          'Claims go to CareFirst. \u201cAfter the member of another Blue Plan receives services from you, file the claim with CareFirst. We will work with the member\u2019s plan to process the claim,\u201d and \u201cCareFirst is your sole contact for claims payment, adjustments and issue resolution.\u201d Bill the full member ID with its prefix \u2014 \u201cclaims with incorrect or missing prefixes and member ID numbers cannot be processed\u201d \u2014 follow CareFirst billing guidelines, and do not collect more than the member\u2019s cost share up front. CareFirst pays you \u201cunder the terms of our contract and based on the members benefits and coverage.\u201d',
+        ],
+        cites: [S.cfBlueCard],
       },
     ],
     collect: [
@@ -1444,6 +1478,7 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does an out-of-state Blue plan (for example Anthem) work if I am a CareFirst provider in DC?', a: 'Yes, through the BlueCard program, unless it is an FEP card or an EPO with no out-of-area benefits. Get the ABA prior authorization from the member\u2019s home plan, using carefirst.com/preauth with the card prefix, BlueCard Eligibility at 800-676-BLUE, or Electronic Provider Access in CareFirst Direct. Then file the claim with CareFirst with the full ID and prefix; CareFirst pays you under your CareFirst contract based on the member\u2019s home-plan benefits.' },
       { q: 'Does CareFirst require prior authorization for ABA in DC?', a: 'Yes. ABA (policy 3.01.015) is on the BlueChoice HMO authorization list, habilitative services (8.01.011A) need pre-service review on PPO, and FEP plans require prior authorization for ABA. Check codes in the PAL tool or at 1-866-773-2884.' },
       { q: 'Does the DC mandate apply to a federal employee’s CareFirst plan?', a: 'No. D.C. Code § 31-3271 excludes federal employee health plans. FEP plans still list ABA as needing prior authorization, so follow the FEP rules.' },
       { q: 'Can a DC-based BCBA join CareFirst’s network?', a: 'CareFirst requires practitioners to be licensed where the member receives care, and its credentialing list names licensed BCBAs in Maryland and Virginia only. The District began licensing behavior analysts in 2024, so ask CareFirst credentialing how it handles DC BCBAs.' },

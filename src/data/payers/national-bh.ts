@@ -356,6 +356,13 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       { label: 'Supervision', value: '1–2 hours of direct and indirect supervision authorized per 10 hours of direct care' },
       { label: 'Code gotcha', value: '97152 is “not a covered code”; 97155 overlap with the technician IS accepted' },
       { label: 'Credentialing', value: 'Master’s/doctoral analysts credentialed and recredentialed every 3 years; only credentialed providers may bill' },
+      {
+        h2: 'Does Magellan require a referring provider on ABA claims?',
+        body: [
+          'Yes, on the standard list. Magellan\u2019s Elements of a Clean Claim (National Provider Handbook, rev. 11/23) lists, among \u201cThe required elements of a clean claim\u201d on the CMS-1500, the \u201cName of referring provider or other source (field 17)\u201d and \u201cReferring provider NPI number (field 17b).\u201d It also says \u201cState guidelines may supersede these requirements,\u201d so check the state or client plan addendum for Medicaid and public-sector contracts.',
+        ],
+        cites: [{ title: 'Magellan National Provider Handbook — Elements of a Clean Claim (rev. 11/23)', url: 'https://magellanprovider.com/media/11924/f_cleanclaim.pdf' }],
+      },
     ],
     sections: [
       {
@@ -575,6 +582,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Magellan require the referring provider in box 17 on ABA claims?', a: 'Its clean-claim standard lists the referring provider\u2019s name (field 17) and NPI (field 17b) among the required CMS-1500 elements, while noting that state guidelines may supersede them.' },
       { q: 'Are Magellan’s ABA criteria public?', a: 'Yes. The “Outpatient Applied Behavior Analysis” guideline sits inside the Magellan Care Guidelines, which carry an effective date and a last-review date — the current edition is effective November 8, 2025 (last reviewed June 17, 2025), and the 2026–2027 edition takes effect October 10, 2026. The Magellan Healthcare Guidelines half is publicly downloadable; the MCG half is proprietary and supplied on request during a clinical review.' },
       { q: 'Does Magellan require prior authorization for the ABA assessment?', a: 'Yes. The provider faxes an ABA Request for Initial Authorization with the diagnostic report, and Magellan will typically authorize 8–12 hours for the functional behavior assessment, with additional hours available on clinical justification. Direct treatment is a second, separate pre-authorization.' },
       { q: 'How many ABA hours per week will Magellan authorize?', a: 'Focused interventions are generally authorized at 10–25 hours per week of direct treatment and comprehensive ABA at up to 40 hours per week, with more approved where medically necessary. Supervision is authorized on top, at 1 to 2 hours per 10 hours of direct care, along with caregiver training.' },

@@ -396,6 +396,13 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { label: 'Assessment clock', value: 'Assessment must start within 28 days of approval and 97151 completed within 14 days of the first service date' },
       { label: 'Parent training', value: 'Six parent/caregiver sessions every six months; first within 30 days of each treatment authorization' },
       { label: 'Fee schedule', value: 'Published by DHA per locality (eff. 5/1/2026), e.g. Nebraska 97153 by a technician $23.55/15 min' },
+      {
+        h2: 'Does TriWest require the referring provider on ABA claims?',
+        body: [
+          'Not as a claim field. TriWest\u2019s ACD provider guide lists what every ABA claim must carry: the HIPAA taxonomy for each provider type (103K00000X, 106E00000X, 106S00000X), \u201cthe provider\u2019s full name and National Provider Identifier (NPI) \u2026 for all providers authorized under the ACD,\u201d a TIN that matches the authorization, the rendering provider (\u201cthe ABA supervisor, assistant behavior analyst, or BT\u201d), session start and end times in military format on every line, one line per session, GT or 95 for remote parent sessions and 99 on outcome-measure units, and the place of service. A referring provider is not on that list. The referral does its work before the claim: the diagnosing provider\u2019s referral is what TriWest verifies before it authorizes the assessment, and it lasts two years.',
+        ],
+        cites: [{ title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }],
+      },
     ],
     sections: [
       {
@@ -637,6 +644,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does TRICARE West (TriWest) require the referring provider on ABA claims?', a: 'TriWest\u2019s ACD provider guide does not list one among the claim requirements. It requires each provider\u2019s taxonomy, name and NPI, a TIN matching the authorization, the rendering provider, session times on every line, one line per session, the right modifiers and the place of service. The referral is checked when TriWest authorizes care, not on the claim.' },
       { q: 'Who administers TRICARE West now?', a: 'TriWest Healthcare Alliance, under contracts that began Jan. 1, 2025. Six states — Arkansas, Illinois, Louisiana, Oklahoma, Texas and Wisconsin — moved from the East Region to the West on that date. TRICARE resolves the boundary by ZIP code lookup.' },
       { q: 'Can ABA be delivered in a school in the West Region?', a: 'Yes, but narrowly. Only the authorized ABA supervisor may deliver, under CPT 97153, with a current IEP submitted alongside the treatment plan, specific school-setting goals targeting core ASD symptoms, a short expected duration and a planned fade. Providers may not duplicate IEP services or target academic goals.' },
       { q: 'What is the 97155 monthly rule?', a: 'At least one 97155 session per month must be performed by the authorized ABA supervisor and cannot be delegated to an assistant behavior analyst. If that is not met, TriWest applies a 10% penalty to all ABA claims for that beneficiary for the entire six-month authorization period.' },
@@ -711,17 +719,16 @@ export const militaryPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — ABA treatment is on CHAMPVA’s pre-authorization list; request it through CHAMPVA before treatment starts',
+      value:
+        'Required — ABA treatment is on CHAMPVA\u2019s pre-authorization list (the evaluation is not). The CHAMPVA Operational Policy Manual adds: \u201cPreauthorization for ABA services must include an ABA TP. Upon receipt of the ABA TP, preauthorization may be granted for one year of ABA services.\u201d',
       status: 'verified',
-      cites: [
-        { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
-      ],
+      cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
     },
     dxRequired: {
-      value: 'Not published — the Guidebook lists ABA as a covered benefit but does not publish diagnosis criteria; confirm what documentation CHAMPVA wants when you request pre-authorization',
-      status: 'unverified',
-      verifyVia: 'The CHAMPVA Operational Policy Manual (behavioral health chapter) at vha.cc.va.gov — a JavaScript portal that returns an empty shell to automated retrieval; the Jan. 1, 2025 Guidebook, which is fetchable, states no diagnosis criteria for ABA. Human retrieval via carelu.com/sources; interim answer from CHAMPVA on 800-733-8387 or VHAHAC.preauthorizationFM@va.gov.',
-      blocker: 'document',
+      value:
+        'Yes — \u201cThe beneficiary must be diagnosed with ASD using the current Diagnostic and Statistical Manual of Mental Disorders (DSM) criteria\u201d (CHAMPVA Operational Policy Manual Ch. 2 Sec. 18.6). ABA \u201cfor all other diagnoses that are not ASD\u201d is excluded, and so are \u201cDiagnoses and referrals from Nurse Practitioners (NPs), Physician Assistants (PAs), or other providers not having the qualifications listed in Operational Policy.\u201d',
+      status: 'verified',
+      cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
     },
     pill: 'Payer Guide · CHAMPVA',
     h1: 'CHAMPVA and ABA: what is actually published.',
@@ -730,7 +737,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       'CHAMPVA is a VA program, not TRICARE. What the CHAMPVA Guidebook actually says about ABA: pre-authorization for treatment only, 25% cost-share after a $50/$100 deductible, the $3,000 catastrophic cap, and what intake must verify directly.',
     intro: [
       'CHAMPVA is the Civilian Health and Medical Program of the Department of Veterans Affairs. It is not TRICARE, it is not administered by a TRICARE regional contractor, and none of the Autism Care Demonstration machinery applies to it. The VA says so directly: "CHAMPVA is a VA program, while TRICARE is a regionally managed health care program for active duty and retired members of the uniformed services." The two are mutually exclusive — if you are eligible for or enrolled in TRICARE, you cannot get CHAMPVA benefits.',
-      'This is a deliberately short page, because CHAMPVA publishes deliberately little. The Guidebook confirms that applied behavior analysis is a covered benefit, that treatment requires pre-authorization while the evaluation does not, and what the family pays. It does not publish an ABA clinical policy, a diagnosis standard, an authorization interval, a provider-qualification tier or a place-of-service rule. Writing those in from TRICARE would be wrong, so this guide tells you what is verified and where to call for the rest.',
+      'This is a deliberately short page, because CHAMPVA publishes deliberately little. The Guidebook confirms that applied behavior analysis is a covered benefit, that treatment requires pre-authorization while the evaluation does not, and what the family pays. The detailed ABA rules are in the CHAMPVA Operational Policy Manual (Ch. 2 Sec. 18.6): a DSM diagnosis of ASD, a treatment plan with every pre-authorization request, approval for up to a year, BCBA-level authorized providers who bill for their technicians, and no per-code unit caps. Writing in TRICARE\u2019s rules would be wrong, so this guide tells you what is verified and where to call for the rest.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — listed as a covered benefit in the CHAMPVA Guidebook' },
@@ -763,6 +770,22 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'ABA appears twice in the current Guidebook, updated Jan. 1, 2025. It is listed among the services that require pre-authorization, as "Applied behavior analysis (ABA) for treatment only (not the evaluation)." And it has its own line in the Behavioral Health Services benefit table — "Autism – Applied Behavioral Analysis (ABA) requires pre-authorization for treatment only (not evaluation)" — with the cost-share shown alongside.',
           'That split is the operationally useful fact. The diagnostic evaluation does not need to be pre-authorized, so a family can be evaluated without waiting on CHAMPVA. Treatment does, and CHAMPVA takes pre-authorization requests directly: by phone on 800-733-8387, by email to VHAHAC.preauthorizationFM@va.gov, or by mail to VHA Office of Integrated Veteran Care, CHAMPVA Beneficiary Claims, P.O. Box 500, Spring City, PA 19475.',
           'Two exceptions to the pre-authorization requirement are published. Services listed as requiring pre-authorization do not require it when provided through CITI, the CHAMPVA In-house Treatment Initiative at a VA medical center — and CITI services are also exempt from beneficiary cost sharing. And where other health insurance has already authorized the service, CHAMPVA does not require its own pre-authorization; but if that other insurer denies for failure to follow its rules or for lack of medical necessity, CHAMPVA will deny as well.',
+        ],
+      },
+      {
+        h2: 'What the CHAMPVA Operational Policy Manual says about ABA',
+        cites: [
+          { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' },
+          { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.1, Treatment of Mental Disorders — Transmittal 153, 6/12/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009341/02-18-01-TREATMENT-OF-MENTAL-DISORDERS' },
+          { title: 'CHAMPVA Operational Policy Manual, Ch. 3 Sec. 1.1, Claims Processing — General (Transmittal 139)', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009404/03-01-01-CLAIMS-PROCESSING-GENERAL' },
+        ],
+        body: [
+          'The detailed rules sit in the CHAMPVA Operational Policy Manual, Chapter 2, Section 18.6 (Psychological Testing), last changed by Transmittal 152 in May 2025. The child \u201cmust be diagnosed with ASD using the current Diagnostic and Statistical Manual of Mental Disorders (DSM) criteria.\u201d Pre-authorization \u201cmust include an ABA TP,\u201d and once CHAMPVA has the plan, \u201cpreauthorization may be granted for one year of ABA services.\u201d',
+          'Who may provide it: BCBAs, BCBA-Ds or other qualified CHAMPVA-authorized independent providers with a master\u2019s degree or above and a current state licence (or BACB certification where the state does not license), who employ or contract with assistant behavior analysts (LABA, BCaBA, QASP) and technicians (RBT, ABAT, BCAT) and supervise them directly. \u201cOnly one authorized ABA provider is authorized to provide ABA services for each beneficiary at a time,\u201d and that provider \u201cis the sole provider authorized to bill for ABA services.\u201d',
+          'Unit caps: none per code. The manual sets no daily or weekly maximum for any ABA code; the limit is what the one-year pre-authorization approves. The mental-health section records that on \u201cMay 30, 2024, quantitative limits are removed for covered mental health and substance use disorder (SUD) care,\u201d with documentation available on request to support the level of care.',
+          'What is excluded: ABA for any diagnosis other than ASD; diagnoses and referrals from nurse practitioners or physician assistants; training of the technicians; billing for e-mails, driving, or office and therapeutic supplies; \u201cBilling for multiple providers\u2019 time during one ABA session with a child when more than one ABA provider is present\u201d; educational ABA and school tuition; restraints; custodial, personal and child care; group ABA with three or more children and one or two providers; and indirect supervision.',
+          'Claims: the claims chapter (Ch. 3 Sec. 1.1) asks for the provider\u2019s name and address, remittance address, the physical location where services were rendered, the individual provider\u2019s professional status, TIN and NPI. A referring provider and a taxonomy code are not on that list; the referring provider\u2019s name belongs in the assessment and treatment plan.',
+          'Licensure: \u201cIf a state requires licensure or certification, the ABA provider is required to possess that state licensure or certification to be a CHAMPVA-authorized provider,\u201d and where the state does not license, current BCBA or BCBA-D certification from the BACB qualifies.',
         ],
       },
       {
@@ -840,51 +863,41 @@ export const militaryPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       concurrentBilling: {
         value:
-          'Not published. The CHAMPVA Guidebook lists ABA as a covered benefit with pre-authorization for treatment only, and says nothing about billing two ABA codes for the same clock time. Do not import TRICARE\u2019s ACD concurrent-billing matrix \u2014 CHAMPVA is a VA program under a different statute, and the two are mutually exclusive for any given beneficiary.',
-        status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+          'No overlapping provider time. The CHAMPVA Operational Policy Manual\u2019s ABA section (Ch. 2 Sec. 18.6) excludes \u201cBilling for multiple providers\u2019 time during one ABA session with a child when more than one ABA provider is present,\u201d so a BCBA\u2019s 97155 cannot be billed for the same session time as the technician\u2019s 97153. It also excludes \u201cIndirect supervision\u201d and \u201cGroup ABA services, which are defined as multiple beneficiaries with fewer providers, such as three or more children with one or two providers.\u201d Do not import TRICARE\u2019s ACD matrix \u2014 CHAMPVA is a separate VA program.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
       },
       dailyLimits: {
         value:
-          'Not published. No per-day unit ceiling, MUE table or hour band for ABA appears in the Guidebook. What is published is the money: CHAMPVA pays 75 percent of the allowable amount as primary, the patient pays a $50 individual / $100 family annual deductible plus a 25 percent cost-share, and beneficiary cost sharing is capped at $3,000 a year, after which CHAMPVA pays 100 percent of allowable costs for the rest of the year.',
-        status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+          'No per-code unit cap is published. The CHAMPVA Operational Policy Manual\u2019s ABA section (Ch. 2 Sec. 18.6, Transmittal 152, May 2025) sets no daily or weekly maximum for 97151\u201397158; it says pre-authorization \u201cmust include an ABA TP\u201d and \u201cmay be granted for one year of ABA services,\u201d so the ceiling is the weekly hours CHAMPVA approves on the treatment plan. The mental-health section (Ch. 2 Sec. 18.1) adds: \u201cMay 30, 2024, quantitative limits are removed for covered mental health and substance use disorder (SUD) care. Documentation may be requested to determine medical necessity and to support the level of care.\u201d Psychological testing is \u201cnot counted against the number of weekly hours allowed for ABA.\u201d Bill only the units on the approval letter.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.1, Treatment of Mental Disorders — Transmittal 153, 6/12/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009341/02-18-01-TREATMENT-OF-MENTAL-DISORDERS' }],
       },
       noteSignature: {
         value:
-          'Not published. The Guidebook states no session-note content or signature standard for ABA. With nothing published, the pre-authorization decision and your own contemporaneous record of the call are the operative documentation guidance.',
+          'No session-note signature rule is published. The CHAMPVA Operational Policy Manual\u2019s ABA section sets a signature rule for the treatment plan instead: \u201cThe TP and updates shall contain signatures by the authorized ABA supervisor and the parent/caregiver,\u201d and the assessment and TP must show the date they were completed and the name of the referring provider.',
         status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
+        verifyVia: 'CHAMPVA pre-authorization line, 800-733-8387: ask what session-note content and signatures CHAMPVA expects on a records request.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
-          'Not published. The Guidebook does not define who may render or supervise ABA, nor whose NPI a technician-delivered claim must carry. One structural fact does bear on it: CHAMPVA \u201cdoes not have a network of health care providers, so you can visit most authorized providers\u201d \u2014 so the gate is pre-authorization and provider authorization, not network status.',
-        status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+          'The authorized ABA provider bills. Under the CHAMPVA Operational Policy Manual (Ch. 2 Sec. 18.6), authorized ABA providers are BCBAs, BCBA-Ds \u201cor other qualified CHAMPVA-authorized independent providers\u201d who employ or contract with assistant behavior analysts and behavior technicians and \u201cserve as direct supervisors\u201d of them. \u201cOnly one authorized ABA provider is authorized to provide ABA services for each beneficiary at a time,\u201d and that primary provider \u201cis the sole provider authorized to bill for ABA services,\u201d even when it consults another. The general rule for employees (Ch. 2 Sec. 15.4) is the same: \u201cThe authorized provider must bill for the services rendered by the employees.\u201d The claims chapter asks for the provider\u2019s NPI, TIN, professional status and the physical location of service; it does not say whether a technician\u2019s own NPI also goes on the line.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 15.4, Services Rendered by Employees of Authorized Independent Professional Providers', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009010/02-15-04-SERVICES-RENDERED-BY-EMPLOYEES-OF-AUTHORIZED-INDEPENDENT-PROFESSIONAL-PROVIDERS' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 3 Sec. 1.1, Claims Processing — General (Transmittal 139)', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009404/03-01-01-CLAIMS-PROCESSING-GENERAL' }],
       },
       supervision: {
-        value: 'CHAMPVA does not publish supervision requirements, provider tiers or supervision ratios for ABA in the Guidebook. Do not assume TRICARE’s ACD tiers apply — CHAMPVA is a separate VA program.',
-        status: 'unverified',
-        cites: [
-          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
-        ],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook',
-        blocker: 'document',
+        value:
+          'Authorized ABA providers \u201cserve as direct supervisors of the assistant behavior analysts and BTs and ensure that the quality of the ABA services provided by assistant behavior analysts and BTs meets the minimum standards of recommendations and rules promulgated by the applicable certifying body\u201d (CHAMPVA Operational Policy Manual Ch. 2 Sec. 18.6). Qualified assistants are LABAs, BCaBAs and QASPs; technicians are high-school-level paraprofessionals such as RBTs, ABATs and BCATs. \u201cIndirect supervision\u201d is excluded, and so is \u201cTraining of the BTs.\u201d No CHAMPVA supervision ratio or percentage is set beyond the certifying body\u2019s.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
       },
       placeOfService: {
-        value: 'No place-of-service policy for ABA is published in the Guidebook. The one setting rule that is published is CITI: services delivered in a VA medical center under the CHAMPVA In-house Treatment Initiative are exempt from pre-authorization and from beneficiary cost sharing.',
+        value:
+          'No list of allowed settings is published. The CHAMPVA Operational Policy Manual\u2019s ABA section excludes \u201cEducational/academic and vocational rehabilitation,\u201d \u201cEducational ABA services,\u201d school tuition that includes ABA, and \u201cCustodial care, personal care, and/or child care.\u201d Services delivered in a VA medical center under CITI are exempt from pre-authorization and cost sharing (Guidebook).',
         status: 'unverified',
-        cites: [
-          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
-        ],
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
         verifyVia: 'Confirm allowable settings in the pre-authorization decision before scheduling home, school or community sessions; CHAMPVA 800-733-8387',
         blocker: 'per-case',
       },
@@ -898,49 +911,47 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Not published. The Guidebook states no ASD diagnosis requirement and no recency rule for the diagnostic evaluation. Capture the evaluation date and the diagnosing provider anyway and expect to send them with the treatment request \u2014 the evaluation itself does not need pre-authorization, so there is no reason to wait on CHAMPVA before getting one.',
+          'Not set. The CHAMPVA Operational Policy Manual\u2019s ABA section requires an ASD diagnosis \u201cusing the current Diagnostic and Statistical Manual of Mental Disorders (DSM) criteria\u201d but sets no maximum age for the diagnostic evaluation. Capture the evaluation date and the diagnosing provider anyway; the assessment and treatment plan must name the referring provider.',
         status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
-          'Not published. The Guidebook does not state who may make the ASD diagnosis for ABA purposes. Do not apply TRICARE\u2019s closed ACD diagnosing-provider list here \u2014 different department, different statute, different rules \u2014 and ask CHAMPVA which credentials it will recognise for the diagnosing, rendering and supervising roles on the same call as the pre-authorization.',
-        status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+          'The CHAMPVA Operational Policy Manual\u2019s ABA section excludes \u201cDiagnoses and referrals from Nurse Practitioners (NPs), Physician Assistants (PAs), or other providers not having the qualifications listed in Operational Policy.\u201d It does not list the qualifying diagnosing credentials itself; the mental-health section lists the qualified mental-health providers as physicians (MD/DO), clinical psychologists, certified psychiatric nurse specialists, certified clinical social workers, certified marriage and family therapists, TRICARE-certified mental health counselors, and pastoral or mental health counselors under a physician\u2019s supervision. Do not apply TRICARE\u2019s ACD list.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.1, Treatment of Mental Disorders — Transmittal 153, 6/12/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009341/02-18-01-TREATMENT-OF-MENTAL-DISORDERS' }],
       },
       diagnosticTools: {
         value:
-          'Not published. The Guidebook names no required assessment instruments and no outcome measures for ABA. None of the ACD\u2019s four-measure regime applies.',
+          'None required. The CHAMPVA Operational Policy Manual\u2019s ABA section requires a DSM diagnosis of ASD and names no required instrument. It defines the PDDBI (an informant rating scale for ages 2\u201318.5) in its descriptions but does not make it a condition of coverage, and none of the ACD\u2019s outcome-measure regime applies.',
         status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'per-case',
       },
       referral: {
         value:
-          'The split is the operationally useful fact, and it is published twice. ABA appears among the services requiring pre-authorization as \u201cApplied behavior analysis (ABA) for treatment only (not the evaluation),\u201d and again in the Behavioral Health Services benefit table as \u201cAutism \u2013 Applied Behavioral Analysis (ABA) requires pre-authorization for treatment only (not evaluation).\u201d So a family can be evaluated without waiting on CHAMPVA. Treatment requests go directly to CHAMPVA by phone on 800-733-8387, by email to VHAHAC.preauthorizationFM@va.gov, or by mail to the VHA Office of Integrated Veteran Care. Two published exceptions remove the requirement entirely: services provided through CITI, the CHAMPVA In-house Treatment Initiative at a VA medical center (also exempt from beneficiary cost sharing), and services another health insurer has already authorized \u2014 though if that insurer denies for failure to follow its rules or for lack of medical necessity, CHAMPVA will deny as well.',
+          'The split is the operationally useful fact, and it is published twice. ABA appears among the services requiring pre-authorization as \u201cApplied behavior analysis (ABA) for treatment only (not the evaluation),\u201d and again in the Behavioral Health Services benefit table as \u201cAutism \u2013 Applied Behavioral Analysis (ABA) requires pre-authorization for treatment only (not evaluation).\u201d So a family can be evaluated without waiting on CHAMPVA. Treatment requests go directly to CHAMPVA by phone on 800-733-8387, by email to VHAHAC.preauthorizationFM@va.gov, or by mail to the VHA Office of Integrated Veteran Care. Two published exceptions remove the requirement entirely: services provided through CITI, the CHAMPVA In-house Treatment Initiative at a VA medical center (also exempt from beneficiary cost sharing), and services another health insurer has already authorized \u2014 though if that insurer denies for failure to follow its rules or for lack of medical necessity, CHAMPVA will deny as well. There is no separate physician-order form; the referral travels inside the treatment plan. The CHAMPVA Operational Policy Manual requires the ABA assessment and treatment plan to show the \u201cDate the initial ABA assessment and initial TP was completed, and name of the referring provider,\u201d and excludes \u201cDiagnoses and referrals from Nurse Practitioners (NPs), Physician Assistants (PAs), or other providers not having the qualifications listed.\u201d No validity period for the referral is set.',
         status: 'verified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
       },
       telehealth: {
         value:
-          'Not published for ABA. The Guidebook states no telehealth policy, code list or modifier requirement for applied behavior analysis.',
+          'Not settled for ABA. The CHAMPVA Operational Policy Manual describes ABA specialized interventions as delivered \u201cduring one-on-one in-person (i.e., face to face) interactions with the beneficiary.\u201d The mental-health section says \u201cMental health services or advice provided as telehealth, including by audio-only telephone, are a covered benefit,\u201d and psychological testing by telehealth is covered. No ABA code list, modifier or POS is published, so ask before delivering any ABA code remotely.',
         status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.1, Treatment of Mental Disorders — Transmittal 153, 6/12/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009341/02-18-01-TREATMENT-OF-MENTAL-DISORDERS' }],
+        verifyVia: 'CHAMPVA pre-authorization line, 800-733-8387: name the codes and the delivery mode in the request and get the answer in writing.',
+        blocker: 'per-case',
       },
       authTurnaround: {
         value:
-          'CHAMPVA requires pre-authorization for “Applied behavior analysis (ABA) for treatment only (not the evaluation),” requested by phone, email or mail to the pre-authorization unit. Neither the CHAMPVA Guidebook nor the CHAMPVA regulation (38 CFR 17.273) states how long VA has to decide an ABA request, and no reauthorization lead time is published. One exception removes the clock entirely: when the child’s other insurance is primary and has authorized the service, CHAMPVA does not require its own pre-authorization.',
+          'CHAMPVA requires pre-authorization for \u201cApplied behavior analysis (ABA) for treatment only (not the evaluation).\u201d Once CHAMPVA has the treatment plan, \u201cpreauthorization may be granted for one year of ABA services\u201d (Operational Policy Manual Ch. 2 Sec. 18.6). Neither the manual, the Guidebook nor 38 CFR 17.273 states how long VA has to decide, and no reauthorization lead time is published. When the child\u2019s other insurance is primary and has authorized the service, CHAMPVA does not require its own pre-authorization.',
         status: 'unverified',
-        cites: [{ title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' }, { title: 'eCFR — 38 CFR 17.273, Preauthorization', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/subject-group-ECFRd3f6f5d27d7b5ae/section-17.273' }],
-        verifyVia: 'The CHAMPVA Operational Policy Manual, Chapter 2 (Benefits), Section 18 Mental Health — ABA article on vha.cc.va.gov, or the CHAMPVA pre-authorization line (833-930-0816) — ask the decision turnaround and how far ahead to submit each renewal.',
-        blocker: 'document',
+        cites: [{ title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'eCFR — 38 CFR 17.273, Preauthorization', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/subject-group-ECFRd3f6f5d27d7b5ae/section-17.273' }],
+        verifyVia: 'CHAMPVA pre-authorization line (833-930-0816 / 800-733-8387): ask the decision turnaround and how far ahead to submit each renewal.',
+        blocker: 'per-case',
       },
       coordinationOfBenefits: {
         value:
@@ -950,15 +961,18 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does CHAMPVA require a taxonomy code on ABA claims?', a: 'CHAMPVA publishes no taxonomy rule. Its Operational Policy Manual claims chapter lists the provider information a claim needs (name and address, remittance address, physical location of service, professional status, TIN and NPI) and taxonomy is not among them. Ask the pre-authorization unit if a claim rejects.' },
       { q: 'Does CHAMPVA cover ABA therapy?', a: 'Yes. Applied behavior analysis appears in the CHAMPVA Guidebook as a covered behavioral health benefit, with pre-authorization required for treatment only, not for the evaluation.' },
       { q: 'Is CHAMPVA the same as TRICARE?', a: 'No. CHAMPVA is a VA program and TRICARE is the Department of Defense program. They are mutually exclusive: a person eligible for or enrolled in TRICARE cannot receive CHAMPVA benefits. None of the TRICARE Autism Care Demonstration rules apply to CHAMPVA.' },
       { q: 'What does a CHAMPVA family pay for ABA?', a: 'When CHAMPVA is the primary payer, the annual deductible of $50 per individual or $100 per family, then a 25% cost-share, with CHAMPVA paying 75% of the allowable amount. Beneficiary cost sharing is capped at $3,000 a year. When CHAMPVA is secondary or tertiary, the patient pays nothing in most cases.' },
       { q: 'Does CHAMPVA have a provider network?', a: 'No. The VA states that CHAMPVA does not have a network of health care providers and beneficiaries can visit most authorized providers. Pre-authorization, not network status, is the gate for ABA treatment.' },
-      { q: 'How long does a CHAMPVA ABA authorization last?', a: 'CHAMPVA does not publish an authorization interval for ABA in the Guidebook. Ask when you request pre-authorization on 800-733-8387 and get the period, the renewal requirements and any credential or setting limits in writing.' },
+      { q: 'How long does a CHAMPVA ABA authorization last?', a: 'Up to a year. The CHAMPVA Operational Policy Manual says pre-authorization for ABA "must include an ABA TP" and, once CHAMPVA has it, "may be granted for one year of ABA services." Ask on 800-733-8387 what the renewal needs.' },
+      { q: 'What are CHAMPVA\u2019s maximum unit caps for ABA?', a: 'CHAMPVA publishes no per-code daily or weekly unit cap. Its Operational Policy Manual approves ABA for up to a year on the treatment plan, so the cap is the weekly hours on the approval letter, and its mental-health section says quantitative limits were removed for covered mental health care from May 30, 2024. It does exclude billing two providers\u2019 time in the same session and group ABA with three or more children per one or two providers.' },
+      { q: 'Does CHAMPVA require the referring provider on ABA claims?', a: 'Not as a claim field. The CHAMPVA claims chapter lists the provider\u2019s name, address, service location, professional status, TIN and NPI, with no referring provider. The referring provider\u2019s name must appear in the ABA assessment and treatment plan instead, and CHAMPVA excludes diagnoses and referrals from nurse practitioners and physician assistants.' },
       { q: 'Can a BCBA licensed in another state provide ABA by telehealth to a CHAMPVA family?', a: 'CHAMPVA publishes no rule on it. Its test is that the provider is licensed or certified by a state (or nationally certified where the state does not license) and works within the scope of that licence. Whether the licence reaches a child in another state depends on the state laws involved. Name the delivery mode and licence state in the pre-authorization request and get CHAMPVA’s answer in writing.' },
       { q: 'Does CHAMPVA allow retroactive authorization for ABA?', a: 'Not as a routine. ABA treatment needs pre-authorization before it starts. The regulation allows a retrospective medical-necessity review only in coordination of benefits: when CHAMPVA turns out to be the responsible payer, pre-authorization was not obtained, and the claim is filed within one year.' },
       { q: 'What is CHAMPVA’s timely filing limit for ABA claims?', a: 'One year after the date of service. Claims filed after that are denied, and a timely-filing denial goes through CHAMPVA’s appeal process. If eligibility was granted retroactively, there are 180 days from the first CHAMPVA card to file for the earlier dates.' },
-      { q: 'Does CHAMPVA want ABA claims billed under the supervising BCBA or the rendering technician?', a: 'CHAMPVA does not say. The Guidebook and VA’s CHAMPVA provider claim tips publish no rendering-versus-supervising rule for ABA; they ask for the provider’s nine-digit TIN and the physical service address, and CHAMPVA pays authorized providers working within the scope of their licence. Ask the pre-authorization unit (833-930-0816) which NPI it expects in the rendering field before the first claim, and get the answer in writing.' },
+      { q: 'Does CHAMPVA want ABA claims billed under the supervising BCBA or the rendering technician?', a: 'Under the authorized ABA provider. CHAMPVA\u2019s Operational Policy Manual makes the BCBA, BCBA-D or other authorized independent provider the only one who may bill: technicians and assistants work under that provider, and the primary authorized ABA provider "is the sole provider authorized to bill for ABA services." The manual does not say whether a technician\u2019s own NPI also goes on the line, so ask the pre-authorization unit (833-930-0816) before the first claim.' },
       { q: 'How do we appeal a CHAMPVA ABA denial?', a: 'For a claim decided in the last year, request a higher-level review, file a supplemental claim with new evidence, or appeal to the Board of Veterans’ Appeals. For a denied pre-authorization, write to CHAMPVA Appeals within one year of the VA notice with the denial letter and any new documentation.' },
     ],
   },
