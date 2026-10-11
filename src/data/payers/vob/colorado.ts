@@ -157,6 +157,8 @@ const PROVIDER_EXPRESS_CO_CONTACT = src(
   'Optum Provider Express Colorado state-specific contact page — fetched this pass; contains no distinct Colorado phone number, directing providers instead to the member\'s ID card and the Provider Express secure portal login for network-management questions.'
 );
 
+const CO_TELEMED = { url: 'https://hcpf.colorado.gov/telemedicine-provider-information', accessDate: '2026-10-07', note: 'HCPF Telemedicine - Provider Information (fetched 2026-10-07): "Pediatric Behavioral Therapists are covered under the telemedicine policy"; rendering providers bill "Place of Service code 02 or 10 and the appropriate modifiers FQ, FR, 93 or 95"; modifier GT is limited to listed provider types (05, 16, 26, 32, 37, 38, 39, 41, 45).' };
+
 /* -------------------- Colorado Medicaid (PBT FFS) codeGrid -------------------- */
 
 /* Covered PBT codes: PAR required on everything (incl. 97151). Single rate
@@ -171,9 +173,9 @@ function coPbtEntry(unitCap: string, capPeriod: string, notes: string, unitCapSt
     paRequired: 'Required — ALL PBT services need a Prior Authorization Request (PAR) via Acentra (Atrezzo / ColoradoPAR.com); approvals valid up to 6 months, reauth needs charts-and-graphs progress data.',
     unitCap,
     capPeriod,
-    posAllowed: ['home', 'clinic', 'school', 'community', 'telehealth (modality; POS numbers not published in retrievable sources)'],
-    telehealth: 'unverified — PBT telehealth POS/modifier mechanics not published in the sources retrievable this pass; EVV is mandatory for home/community delivery.',
-    modifiers: ['TJ (97151 per-15-min variant only)', 'No credential-tier modifiers — single rate per code'],
+    posAllowed: ['home', 'clinic', 'school', 'community', 'telehealth (POS 02 / 10)'],
+    telehealth: 'Allowed — PBT is covered under the telemedicine policy on any modality; bill POS 02 (not at home) or 10 (at home) with modifier 95 (audio-video), 93/FQ (audio-only) or FR as appropriate; GT is not a PBT-provider modifier. PAR requirements unchanged; EVV is mandatory for home/community in-person delivery.',
+    modifiers: ['TJ (97151 per-15-min variant only)', 'No credential-tier modifiers — single rate per code', 'Telehealth: 95 / 93 / FQ / FR with POS 02 or 10'],
     notes,
     fieldStatus: {
       covered: 'verified',
@@ -181,10 +183,10 @@ function coPbtEntry(unitCap: string, capPeriod: string, notes: string, unitCapSt
       unitCap: unitCapStatus,
       capPeriod: unitCapStatus,
       posAllowed: 'verified',
-      telehealth: 'unverified',
+      telehealth: 'verified',
       modifiers: 'verified',
     },
-    sources: [CO_PBT_BILLING_MANUAL, CO_FEE_SCHEDULE],
+    sources: [CO_PBT_BILLING_MANUAL, CO_FEE_SCHEDULE, CO_TELEMED],
   };
 }
 

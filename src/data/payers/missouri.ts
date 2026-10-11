@@ -143,6 +143,25 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'MO HealthNet hot tip — Important Information for Documenting and Billing for Applied Behavior Analysis Services (9/9/2026)', url: 'https://mydss.mo.gov/mhd/hot-tips/important-information-documenting-and-billing-applied-behavior-analysis-services' },
         ],
       },
+      {
+        h2: 'MO HealthNet claims: the filing deadline and the payment clock',
+        body: [
+          '"Claims from participating providers that request MO HealthNet reimbursement must be filed by the provider and received by the state agency within twelve (12) months from the date of service" (13 CSR 70-3.100). Claims for a participant with other primary insurance go to that payer first but must still reach MO HealthNet within 12 months of the date of service, with the other payer’s adjudication attached or on file. On payment, MO HealthNet commits to pay 90% of clean claims from practitioners within 30 days of receipt and 99% within 90 days, and all other claims within 12 months (13 CSR 70-3.105). Members enrolled in a MO HealthNet managed care plan are billed to that plan, under its own filing rules.',
+        ],
+        cites: [
+          { title: '13 CSR 70-3.100 and 70-3.105 — Filing of claims; timely payment of MO HealthNet claims (Code of State Regulations, chapter 70-3)', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/13csr/13c70-3.pdf' },
+        ],
+      },
+      {
+        h2: 'Does MO HealthNet require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Yes. The Behavioral Health Services Manual\'s CMS-1500 instructions (§3.1) mark fields 17, 17a and 17b with a single asterisk, which "indicates required fields. These fields must be completed, or the claim is denied." Field 17: "Enter the name of the referring MO HealthNet enrolled primary care provider." Field 17b: "Enter the NPI number of the referring or ordering provider." Field 17a carries the ZZ qualifier and taxonomy only when the provider in 17b must report one to MHD.',
+          'The same section governs every behavioral health claim, ABA included, so get the child\'s MO HealthNet-enrolled PCP (name and NPI) at intake, alongside the diagnostic evaluation by a licensed physician or psychologist that the precertification needs. The medical-record rules separately require "The name of the referring entity, when applicable."',
+        ],
+        cites: [
+          { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 and §3.1 CMS-1500 Claim Filing Instructions (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
+        ],
+      },
     ],
     collect: [
       { title: 'MO HealthNet eligibility — not the plan card', desc: 'Whichever MCO card the family shows, ABA is state FFS. Verify MO HealthNet eligibility; skip the MCO analysis entirely.' },
@@ -284,6 +303,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'What happens to a MO HealthNet ABA precertification if the family switches providers?', a: 'The manual does not say it transfers. Inside an Autism Clinic the precertification sits under the clinic number, so other performing providers there can continue care. For a new agency, call the Behavioral Health Services help desk at (573) 635-6516 before the first session.' },
       { q: 'Does MO HealthNet require ABA goals to be organized by DSM-5 criteria?', a: 'No DSM-5 template. 13 CSR 70-98.030 requires an individualized plan built on the ABA assessment, with assessment and treatment protocols for each target behavior and goals that address the deficits and symptoms of ASD.' },
       { q: 'Does MO HealthNet require parent training hours?', a: 'Parent/caregiver training is a required treatment-plan element under 13 CSR 70-98.030(7), but no hour minimum is set; the fee schedule caps 97156 at 16 units and 97157 at 8 units. Request 97156/97157 units on form 2575-045; the precertification sets the hours.' },
+      { q: 'What is MO HealthNet’s timely filing limit for ABA claims?', a: 'Twelve months from the date of service, measured to the date MO HealthNet receives the claim (13 CSR 70-3.100). Managed care plans set their own limits.' },
+      { q: 'Does MO HealthNet require a referring provider on ABA claims?', a: 'Yes. In the Behavioral Health Services Manual\'s CMS-1500 instructions, fields 17 and 17b are required ("These fields must be completed, or the claim is denied"). Field 17 takes the referring MO HealthNet-enrolled primary care provider and 17b the referring or ordering NPI.' },
+      { q: 'Can ABA overlap with speech or OT under MO HealthNet?', a: 'MO HealthNet publishes no clock-time rule against it. 13 CSR 70-98.030 requires services to "give consideration to the child\'s age, school attendance requirements, and other daily activities as documented in the treatment plan," and bills only active ABA time. Show the other therapies in the plan and keep separate start and stop times.' },
     ],
   },
 
@@ -308,14 +330,13 @@ export const missouriPayers: Record<string, PayerConfig> = {
       ],
     },
     dxRequired: {
-      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
-      status: 'unverified',
+      value: 'Yes — ASD only. CPB 0554 (last review 11/26/2025) considers ABA "experimental, investigational, or unproven for all other non-ASD indications." On the code range Aetna’s documents differ: CPB 0648 lists "F84.0 - F84.9" as ICD-10 codes covered if selection criteria are met, while the ABA Medical Necessity Guide its behavioral-health reviewers apply requires "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)," which leaves out F84.1 and F84.2. Bill F84.0 where it fits.',
+      status: 'verified',
       cites: [
         { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
         { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       ],
-      verifyVia: 'Two Aetna documents disagree on the code range and a human must settle which governs an ABA review: CPB 0554 and CPB 0648 both list "ICD-10 codes covered if selection criteria are met: F84.0 - F84.9", while the Applied behavior analysis medical necessity guide — the guideline Aetna’s behavioral-health reviewers apply — states "a DSM-V diagnosis of Autism Spectrum Disorder (ICD-10: F84.0; F84.3 - F84.9)" in both its quality-of-care elements and its medical-necessity criteria, which leaves out F84.2 (Rett syndrome). The ASD-only half of the claim is not in doubt; the range is.',
-      blocker: 'document',
     },
     payer: 'Aetna in Missouri',
     state: 'MO', kind: 'commercial',
@@ -385,6 +406,48 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Timely filing and prompt pay for Aetna ABA claims in Missouri',
+        body: [
+          'Missouri law sets the floor for health carriers, which the statute defines to include self-insured plans "to the extent allowed by federal law". A carrier must "Permit participating health care providers to file a claim for reimbursement for a health care service provided in this state for a period of up to six months from the date of service, unless the contract between the health carrier and health care provider specifies a different standard," and must give nonparticipating providers up to one year (RSMo 376.384). So the filing window in your Aetna agreement controls, and without one it is six months.',
+          'On payment, the carrier acknowledges an electronic claim within 48 hours and, within 30 processing days, tells you whether it is clean or what additional information it needs. Once it has the information it has ten processing days to pay or deny (or make a final request), then five more. A claim still unpaid on the 45th processing day earns "one percent interest per month and a penalty in an amount equal to one percent of the claim per day" (RSMo 376.383). Processing days stop counting while the carrier waits for your answer, and the 2003 electronic-filing rule means a paper claim falls outside these protections.',
+        ],
+        cites: [
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
+          { title: 'RSMo 376.383 — Health care claims: clean claims, status notices, interest and penalties (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.383' },
+        ],
+      },
+      {
+        h2: 'Does Aetna require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Aetna publishes no ABA-specific referring-provider rule. Its provider manual defines a clean claim as including "A corresponding referral (whether in paper or electronic format), if required for the applicable claim" plus all CMS-1500 data elements, and it treats behavioral health as direct access: members "may access behavioral health care" "Through direct access to the behavioral health provider," through a PCP recommendation, or through an EAP referral. PCP referrals are a feature of plans "that require the issuance of referrals for specialist care," and even there they apply "other than for direct-access services."',
+          'So box 17 is not a published condition of an Aetna ABA claim in Missouri. If a plan design does require a referral, the eligibility-and-benefits response shows it; enter the referring provider only when one exists.',
+        ],
+        cites: [
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under Aetna?',
+        body: [
+          'Aetna publishes no rule on ABA delivered at the same clock time as speech, OT or PT. What it asks for is coordination. Precertification form GR-69017-4 (7-26) asks whether the member gets physical, occupational or speech therapy, mental health services or school services, and "Do you collaborate with all the providers above?" (if not, explain why). The Medical Necessity Guide expects "ongoing collaboration and coordination with existing providers and/or the school district."',
+          'Report the other therapies and their schedule on the precertification request, and ask Aetna\'s precertification line before billing ABA minutes that overlap another therapy.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'What goes in an Aetna ABA assessment (97151) precertification request?',
+        body: [
+          'Start on Availity with the Authorization (Precertification) Add transaction, or call the precertification department. Form GR-69017-4 (7-26) is not used to start a request. It supplies the clinicals when a case pends, attached on Availity or faxed to FaxHub 833-596-0339. Since August 1, 2026 it "replaces all other Applied Behavior Health Analysis (ABA) precertification information request documents and forms" (not for Maryland or Massachusetts plans).',
+          'For the assessment, request 97151, 97152 and 0362T in hours per authorization period. Treatment codes are requested in hours per week. The form also asks for the current DSM-5 diagnosis codes, the "Diagnosing Provider (name and credentials)," who will supervise, whether any hours fall during class, and the child\'s other services (PT, OT, speech, mental health, PCP, school). Supporting documents, "where applicable," include a standardized assessment (Vineland, ABAS, VB-MAPP) "completed within the past 12 months," the treatment plan with baseline data, caregiver goals, and titration and discharge criteria. Questions: 1-800-424-4047.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -401,6 +464,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
       { title: 'Aetna — Applied behavior analysis medical necessity guide (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -461,11 +525,14 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Aetna publishes no recency rule for the ASD diagnostic evaluation, and \u00a7 376.1224 sets none either \u2014 its six-month clock runs on plan review of the treatment plan, not on the age of the diagnosis. Capture the evaluation date anyway: the precertification package asks for it.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia: 'The precertification call or Availity, when submitting form GR-69017-4 \u2014 ask whether an evaluation of this age will be accepted for this plan.',
-        blocker: 'per-case',
+          'Twelve months, and it runs on the functional measure rather than the diagnosis. Aetna\'s ABA Medical Necessity Guide requires "demonstration of functional impairment on a standardized scale of functioning in the past 12 months" (for instance Vineland-3, ABAS, VB-MAPP or ABLLS), at least one standard deviation below the mean or a significant risk of harm. Precertification form GR-69017-4 (7-26) asks for "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," a re-evaluation every 6 months and a repeat validated assessment every 6–12 months. The ASD diagnosis itself has no stated shelf life. Aetna\'s provider manual expects "a comprehensive diagnostic evaluation prior to the initiation of treatment" and diagnoses on claims that are "current and consistent with the most recent" DSM. RSMo § 376.1224 adds no recency rule; its six-month clock governs plan review of the treatment plan.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
       },
       diagnosingProviders: {
         value:
@@ -483,18 +550,22 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Yes on a plan the mandate reaches, and the statute is specific about who writes it: ABA \u201cmust be ordered by the treating licensed physician or psychologist\u201d in a treatment plan, and must be supervised by a board-certified behavior analyst licensed under chapter 337. Capture the ordering physician or psychologist and the treatment plan they signed. Two Missouri rules work in the provider\'s favour once the order exists: the carrier may review the treatment plan no more than once every six months unless the provider agrees otherwise, and the cost of obtaining any review or treatment plan is borne by the plan. Self-funded private ERISA plans are outside the statute.',
-        status: 'plan-dependent',
-        cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm first whether RSMo § 376.1224 reaches this plan. Where it does, capture the ordering licensed physician or psychologist and the treatment plan they signed, and the supervising chapter 337 licensed behavior analyst. Where it does not (a private self-funded ERISA plan), ask the carrier whether it requires a physician or psychologist order and in what form.',
-        blocker: 'per-case',
+          'No Aetna referral, but the state mandate wants an order. Aetna\'s provider manual treats behavioral health as direct access: members "may access behavioral health care" "Through direct access to the behavioral health provider," through a PCP recommendation, or through an EAP referral. PCP referrals apply only on plans that require them for specialist care, "other than for direct-access services." Aetna\'s ABA Medical Necessity Guide asks only for a DSM-5 ASD diagnosis "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Form GR-69017-4 (7-26) records the "Diagnosing Provider (name and credentials)" rather than an order. Missouri\'s mandate requires ABA to be "ordered by the insured\'s treating licensed physician or licensed psychologist, pursuant to the powers granted under such licensed physician\'s or licensed psychologist\'s license, in accordance with a treatment plan" (RSMo § 376.1224). Keep that order and the treatment plan on file for any plan the statute reaches. It does not reach private self-funded ERISA plans, but it does reach self-insured governmental plans. Aetna publishes no order form and sets no validity period for one. Precertification on Availity is the real gate. The same statute requires the ABA to be supervised by a board-certified behavior analyst licensed under chapter 337, limits the carrier to reviewing the treatment plan once every six months unless the provider agrees otherwise, and puts the cost of any review or treatment plan on the plan.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
       },
       telehealth: {
         value:
-          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. The posted policy shows a last review of June 2021, so treat the list as perishable. Missouri\'s Medicaid telemedicine rule, which expressly allows technician-delivered ABA by telemedicine, is a different program and does not bind a commercial Aetna plan.',
-        status: 'verified',
+          'Aetna\'s Telemedicine and Direct Patient Contact Payment Policy lists the ABA codes it pays by telehealth, by line of business. On commercial plans the eligible codes are 97151 (the assessment), 97153, 97155 (protocol modification, the code for BCBA direction of the technician), 97156 and 97157, billed with modifier GT, 95 or FR; 97152, 97154 and 97158 are checked for Medicare Advantage only. But the public copy of the policy shows a last review of June 2021 and a next review of June 2022; the current version sits behind Availity, so this list cannot be treated as today\'s rule until that copy is checked. Missouri\'s Medicaid telemedicine rule, which expressly allows technician-delivered ABA by telemedicine, is a different program and does not bind a commercial Aetna plan.',
+        status: 'plan-dependent',
         cites: [{ title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' }],
-        verifyVia: 'Aetna provider services or Availity — confirm the payment policy is still current and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
+        verifyVia: 'Availity (Payer Spaces > Aetna > Resources) for the current Telemedicine and Direct Patient Contact Payment Policy, or Aetna behavioral health precertification — confirm the payable ABA telehealth codes, modifier and that the member\'s plan carries a telehealth benefit before scheduling remote hours.',
+        blocker: 'document',
       },
       authTurnaround: {
         value:
@@ -527,9 +598,13 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'What does the Missouri autism mandate require?', a: 'Coverage of ASD diagnosis and treatment including ABA, with a $40,000-per-year ABA cap through age 18 — a CPI-indexed statutory base that can be exceeded with plan approval when medically necessary. Treatment-plan reviews are limited to once every 6 months, and ABA must be supervised by a Chapter 337-licensed behavior analyst.' },
       { q: 'What does Aetna pay for ABA in Missouri?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the MO HealthNet fee schedule, and treat rate-setting as part of contracting.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
-      { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
+      { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'Possibly. The public copy of Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 for commercial plans with modifier GT, 95 or FR, but it was last reviewed in June 2021; the current policy is on Availity. Confirm the code list and the member\'s telehealth benefit before scheduling a remote assessment.' },
       { q: 'Does Aetna require ABA goals to be organized by DSM-5 criteria in Missouri?', a: 'No DSM-5 grouping is asked for. Aetna wants a DSM-5 ASD diagnosis and a plan with clearly defined target behaviors, baseline data and quantifiable progress criteria; GR-69017-4 asks for baseline, interim and current data for all goals.' },
       { q: 'Does Aetna set required parent training hours in Missouri?', a: 'No published minimum or cap. Parent commitment to participate is a medical-necessity criterion; request 97156/97157 in hours per week on GR-69017-4 and show measurable caregiver goals — the authorization sets the hours.' },
+      { q: 'What is the timely filing limit for Aetna ABA claims in Missouri?', a: 'Whatever your Aetna agreement says; without a contract term, Missouri law gives participating providers six months from the date of service and nonparticipating providers one year (RSMo 376.384).' },
+      { q: 'Does Aetna require a referring provider NPI on ABA claims?', a: 'No published rule requires one. Aetna treats behavioral health as direct access, and its clean-claim definition asks for a referral only "if required for the applicable claim." Precertification is the gate.' },
+      { q: 'Does Aetna allow ABA at the same time as speech or OT?', a: 'No published rule either way. Aetna\'s precertification form asks which PT, OT, speech and other services the child gets and whether you coordinate with them, so disclose them and confirm with precertification before overlapping sessions.' },
+      { q: 'Which form does Aetna use for an ABA assessment request?', a: 'Form GR-69017-4 (7-26), which since August 1, 2026 replaces all other Aetna ABA precertification forms (except in Maryland and Massachusetts). Start the request on Availity or by phone first, then attach the form if the case pends. Request 97151, 97152 and 0362T in hours per authorization period.' },
     ],
   },
 
@@ -632,6 +707,38 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      {
+        h2: 'Timely filing and prompt pay for Cigna ABA claims in Missouri',
+        body: [
+          'Missouri law sets the floor for health carriers, which the statute defines to include self-insured plans "to the extent allowed by federal law". A carrier must "Permit participating health care providers to file a claim for reimbursement for a health care service provided in this state for a period of up to six months from the date of service, unless the contract between the health carrier and health care provider specifies a different standard," and must give nonparticipating providers up to one year (RSMo 376.384). So the filing window in your Cigna agreement controls, and without one it is six months.',
+          'On payment, the carrier acknowledges an electronic claim within 48 hours and, within 30 processing days, tells you whether it is clean or what additional information it needs. Once it has the information it has ten processing days to pay or deny (or make a final request), then five more. A claim still unpaid on the 45th processing day earns "one percent interest per month and a penalty in an amount equal to one percent of the claim per day" (RSMo 376.383). Processing days stop counting while the carrier waits for your answer, and the 2003 electronic-filing rule means a paper claim falls outside these protections.',
+        ],
+        cites: [
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
+          { title: 'RSMo 376.383 — Health care claims: clean claims, status notices, interest and penalties (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.383' },
+        ],
+      },
+      {
+        h2: 'What is Cigna’s timely filing limit for ABA claims?',
+        body: [
+          'Cigna’s timely filing policy, for claims submitted directly to Cigna: it will consider "Participating provider claims submitted three (3) months [90 days] after the date of service" and out-of-network claims submitted six months (180 days) after the date of service. The limit is longer where applicable law requires it or your provider agreement allows more time. In Missouri the statute’s defaults are six months for participating providers absent a different contract standard and one year for nonparticipating providers, so check which term your agreement sets.',
+        ],
+        cites: [
+          { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
+        ],
+      },
+      {
+        h2: 'Does Cigna require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Cigna (Evernorth) publishes no referring-provider requirement for ABA. Its autism resource guide gives the ABA paper-claim instructions field by field and names only box 31 (your name), the claims mailing address and box 33 ("List only a BCBA or other licensed provider in box 33"); box 17 is not mentioned. The Evernorth administrative guidelines state for SureFit, Connect and HMO/POS plans alike that "Referrals are not required for behavioral health services."',
+          'Leave box 17 blank unless a referral actually exists for the service. Bill technician time under the supervising provider: "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider."',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -644,6 +751,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
       { title: 'RSMo § 337.315 — behavior analyst licensure', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=337.315' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -718,11 +826,14 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Yes on a plan the mandate reaches, and the statute is specific about who writes it: ABA \u201cmust be ordered by the treating licensed physician or psychologist\u201d in a treatment plan, and must be supervised by a board-certified behavior analyst licensed under chapter 337. Capture the ordering physician or psychologist and the treatment plan they signed. Two Missouri rules work in the provider\'s favour once the order exists: the carrier may review the treatment plan no more than once every six months unless the provider agrees otherwise, and the cost of obtaining any review or treatment plan is borne by the plan. Self-funded private ERISA plans are outside the statute.',
-        status: 'plan-dependent',
-        cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm first whether RSMo § 376.1224 reaches this plan. Where it does, capture the ordering licensed physician or psychologist and the treatment plan they signed, and the supervising chapter 337 licensed behavior analyst. Where it does not (a private self-funded ERISA plan), ask the carrier whether it requires a physician or psychologist order and in what form.',
-        blocker: 'per-case',
+          'No Cigna referral, but the state mandate wants an order. The Evernorth administrative guidelines state for SureFit, Connect and HMO/POS plans alike that "Referrals are not required for behavioral health services." EN0499 gates ABA on a confirmed ASD diagnosis, a standardized assessment and a compliant treatment plan, not on a physician order. Assessment codes 97151, 97152 and 0362T need no prior authorization when the provider is independently licensed or a BCBA. Missouri\'s mandate requires ABA to be "ordered by the insured\'s treating licensed physician or licensed psychologist, pursuant to the powers granted under such licensed physician\'s or licensed psychologist\'s license, in accordance with a treatment plan" (RSMo § 376.1224). Keep that order and the treatment plan on file for any plan the statute reaches. It does not reach private self-funded ERISA plans, but it does reach self-insured governmental plans. Cigna publishes no order form and sets no validity period for one. The gate is the Applied Behavior Analysis Prior Authorization Form, filed with the assessment and treatment plan. The same statute requires the ABA to be supervised by a board-certified behavior analyst licensed under chapter 337, limits the carrier to reviewing the treatment plan once every six months unless the provider agrees otherwise, and puts the cost of any review or treatment plan on the plan.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
       },
       telehealth: {
         value:
@@ -764,6 +875,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
       { q: 'Does Cigna require ABA goals to follow DSM-5 criteria in Missouri?', a: 'EN0499 requires every treatment goal to be "directly related to" the ASD diagnosis and the DSM-5-TR symptoms (social communication/interaction; restricted, repetitive behavior), with measurable targets, baseline data and mastery criteria.' },
       { q: 'Does Cigna set required parent training hours in Missouri?', a: 'No hour figure is published. EN0499 requires measurable stakeholder (parent/caregiver) training goals with mastery criteria and progress data, delivered by a BCBA or licensed clinician; the hours are set on the authorization.' },
+      { q: 'What is Cigna’s timely filing limit in Missouri?', a: 'Cigna’s policy says 90 days for participating providers and 180 days out of network, longer where law or your agreement allows; Missouri law gives nonparticipating providers up to one year (RSMo 376.384).' },
+      { q: 'Does Cigna require a referring provider NPI on ABA claims?', a: 'No. Cigna\'s ABA billing instructions cover boxes 31 and 33 only, and Evernorth states that referrals are not required for behavioral health services.' },
     ],
   },
 
@@ -875,6 +988,49 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A; history entry February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
+      {
+        h2: 'Timely filing and prompt pay for UnitedHealthcare ABA claims in Missouri',
+        body: [
+          'Missouri law sets the floor for health carriers, which the statute defines to include self-insured plans "to the extent allowed by federal law". A carrier must "Permit participating health care providers to file a claim for reimbursement for a health care service provided in this state for a period of up to six months from the date of service, unless the contract between the health carrier and health care provider specifies a different standard," and must give nonparticipating providers up to one year (RSMo 376.384). So the filing window in your UnitedHealthcare agreement controls, and without one it is six months.',
+          'On payment, the carrier acknowledges an electronic claim within 48 hours and, within 30 processing days, tells you whether it is clean or what additional information it needs. Once it has the information it has ten processing days to pay or deny (or make a final request), then five more. A claim still unpaid on the 45th processing day earns "one percent interest per month and a penalty in an amount equal to one percent of the claim per day" (RSMo 376.383). Processing days stop counting while the carrier waits for your answer, and the 2003 electronic-filing rule means a paper claim falls outside these protections.',
+        ],
+        cites: [
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
+          { title: 'RSMo 376.383 — Health care claims: clean claims, status notices, interest and penalties (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.383' },
+        ],
+      },
+      {
+        h2: 'What is the timely filing limit for UnitedHealthcare ABA claims?',
+        body: [
+          'UnitedHealthcare commercial ABA runs through Optum Behavioral Health, whose National Provider Network Manual (effective 9/1/2026) says "All information necessary to process claims must be received by Optum no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan." Corrections are due within 90 days of the first claim’s receipt, clean claims are "Generally" paid within 45 calendar days, and reconsideration plus appeal must be filed within 12 months in total unless state law or your agreement says otherwise. Missouri’s statute allows nonparticipating providers up to one year to file.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health — National Provider Network Manual (published 7/1/2026, effective 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Neither UnitedHealthcare\'s 2026 commercial administrative guide nor Optum\'s commercial ABA reimbursement policy sets a referring-provider requirement for ABA claims. On plans that do require PCP referrals, the administrative guide lists "Mental health/substance use disorder services with network behavioral health clinicians" among the services members can get without one, and Optum manages the ABA benefit through its own two-step authorization.',
+          'So box 17 is not a published condition of a UnitedHealthcare ABA claim in Missouri; the authorization is. Enter a referring provider only when one exists.',
+        ],
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under UnitedHealthcare (Optum)?',
+        body: [
+          'Optum\'s criteria publish no clock-time rule for ABA against speech, OT or PT, but they do rule out duplication. The Supplemental Clinical Criteria state that "ABA services do not duplicate the services provided to or available to the individual by other medical or behavioral services." They require coordination with "speech/occupational therapists and others," and they size intensity on "The individual\'s ability to participate in ABA, given participation in other therapies and engagements."',
+          'In practice, list the child\'s other therapies, with their schedule, in the treatment plan, and show the ABA hours fit around them. Optum\'s own same-time rules cover ABA codes only: 97153 or 97154 with 97155 concurrently, but never by a single QHP.',
+        ],
+        cites: [
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -895,6 +1051,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -976,11 +1133,13 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Yes on a plan the mandate reaches, and the statute is specific about who writes it: ABA \u201cmust be ordered by the treating licensed physician or psychologist\u201d in a treatment plan, and must be supervised by a board-certified behavior analyst licensed under chapter 337. Capture the ordering physician or psychologist and the treatment plan they signed. Two Missouri rules work in the provider\'s favour once the order exists: the carrier may review the treatment plan no more than once every six months unless the provider agrees otherwise, and the cost of obtaining any review or treatment plan is borne by the plan. Self-funded private ERISA plans are outside the statute.',
-        status: 'plan-dependent',
-        cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm first whether RSMo § 376.1224 reaches this plan. Where it does, capture the ordering licensed physician or psychologist and the treatment plan they signed, and the supervising chapter 337 licensed behavior analyst. Where it does not (a private self-funded ERISA plan), ask the carrier whether it requires a physician or psychologist order and in what form.',
-        blocker: 'per-case',
+          'No UnitedHealthcare referral, but the state mandate wants an order. UnitedHealthcare\'s 2026 administrative guide lists "Mental health/substance use disorder services with network behavioral health clinicians" among the services a member on a referral-required plan may get without a PCP referral. Optum gates ABA on prior authorization, assessment first and treatment second. Missouri\'s mandate requires ABA to be "ordered by the insured\'s treating licensed physician or licensed psychologist, pursuant to the powers granted under such licensed physician\'s or licensed psychologist\'s license, in accordance with a treatment plan" (RSMo § 376.1224). Keep that order and the treatment plan on file for any plan the statute reaches. It does not reach private self-funded ERISA plans, but it does reach self-insured governmental plans. Neither UnitedHealthcare nor Optum publishes an order form or a validity period for one. The same statute requires the ABA to be supervised by a board-certified behavior analyst licensed under chapter 337, limits the carrier to reviewing the treatment plan once every six months unless the provider agrees otherwise, and puts the cost of any review or treatment plan on the plan.',
+        status: 'verified',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
       },
       telehealth: {
         value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth, and neither is the 97151 assessment or the technician-assisted 97152: plan the assessment in person. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” Missouri’s Medicaid telemedicine rule does not reach a commercial UnitedHealthcare plan.',
@@ -1030,6 +1189,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
       { q: 'Does UnitedHealthcare require ABA goals to be organized by DSM-5 criteria in Missouri?', a: 'No DSM-5 grouping is asked for. Optum wants clearly stated, measurable goals with baseline data and timeframes, prioritized by safety and quality-of-life risk, with new goals based on targeted symptoms and behaviors.' },
       { q: 'Does UnitedHealthcare set required parent training hours in Missouri?', a: 'Optum says "Parent training is required" (97156/97157) but sets no minimum or maximum — "It is based on the treatment plan and goals provided." Commercial claims are capped at 16 units (4 hours) per day for each of 97156 and 97157.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Missouri?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless law or the member’s plan allows longer; Missouri law gives nonparticipating providers up to one year (RSMo 376.384).' },
+      { q: 'Does UnitedHealthcare require a referring provider NPI on ABA claims?', a: 'No published rule requires one. UnitedHealthcare exempts network mental health services from PCP referral requirements, and Optum gates ABA on prior authorization instead.' },
+      { q: 'Can ABA overlap with speech therapy under UnitedHealthcare?', a: 'Optum publishes no clock-time rule, but its criteria say ABA must not duplicate other medical or behavioral services, and they weigh participation in other therapies when setting hours. Document the other therapies and schedule around them.' },
     ],
   },
 
@@ -1186,6 +1348,39 @@ export const missouriPayers: Record<string, PayerConfig> = {
           { title: 'Anthem — MCG care guidelines 27th edition update (Missouri, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/missouri/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
         ],
       },
+      {
+        h2: 'Timely filing and prompt pay for Anthem ABA claims in Missouri',
+        body: [
+          'Missouri law sets the floor for health carriers, which the statute defines to include self-insured plans "to the extent allowed by federal law". A carrier must "Permit participating health care providers to file a claim for reimbursement for a health care service provided in this state for a period of up to six months from the date of service, unless the contract between the health carrier and health care provider specifies a different standard," and must give nonparticipating providers up to one year (RSMo 376.384). So the filing window in your Anthem agreement controls, and without one it is six months.',
+          'On payment, the carrier acknowledges an electronic claim within 48 hours and, within 30 processing days, tells you whether it is clean or what additional information it needs. Once it has the information it has ten processing days to pay or deny (or make a final request), then five more. A claim still unpaid on the 45th processing day earns "one percent interest per month and a penalty in an amount equal to one percent of the claim per day" (RSMo 376.383). Processing days stop counting while the carrier waits for your answer, and the 2003 electronic-filing rule means a paper claim falls outside these protections.',
+        ],
+        cites: [
+          { title: 'RSMo 376.384 — Claim filing periods for participating and nonparticipating providers (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.384' },
+          { title: 'RSMo 376.383 — Health care claims: clean claims, status notices, interest and penalties (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.383' },
+        ],
+      },
+      {
+        h2: 'Does Anthem require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Anthem\'s Missouri provider manual asks for the referring NPI on paper claims: "Claims must be submitted with complete provider information, including referring, rendering and billing NPI; tax identification number; name; and servicing and billing addresses on all pages." The same manual tells providers to verify a PCP referral "as required by certain Health Benefit Plans." Neither the manual nor Anthem\'s ABA provider resource guide says whether an ABA claim must carry a referring provider when no referral exists.',
+          'So enter the referring provider in box 17 whenever the plan required a referral or a physician ordered the ABA. On a plan RSMo § 376.1224 reaches, ABA must be ordered by the treating physician or psychologist, so that clinician is the natural entry.',
+        ],
+        cites: [
+          { title: 'Anthem Missouri Provider Manual (effective January 1, 2026): Paper Claims Submissions; BlueCard Program Overview; Pre-certification', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_00010.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
+      },
+      {
+        h2: 'BlueCard: out-of-area Blue members, and where the claim goes',
+        body: [
+          'For a member of another Blue plan, Anthem\'s Missouri manual says BlueCard "allows Providers and Facilities to submit Claims for Members from other Blue Plans, domestic and international, to Anthem. Anthem is the sole contact for Claims payment, adjustments, and issue resolution."',
+          'Medical policy and prior authorization follow the member\'s home plan, not Anthem\'s. For BlueCard out-of-area members, find the "medical policy and clinical UM guidelines and prior authorization requirements" under Prior Authorization > Medical Policy and Prior Authorization for Blue Plans, entering the member\'s alpha prefix. Appeals of medical-necessity and precertification decisions "are the responsibility of the Blue Plan, insuring or administering benefits for non-Anthem Members (the Member\'s Home Plan)."',
+          'So an out-of-state Blue member\'s ABA authorization follows the home plan\'s ABA policy, and the claim still goes to Anthem.',
+        ],
+        cites: [
+          { title: 'Anthem Missouri Provider Manual (effective January 1, 2026): Paper Claims Submissions; BlueCard Program Overview; Pre-certification', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_00010.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type, first', desc: 'Fully insured Missouri plan (mandate applies), a self-insured governmental, MEWA or school-district plan (the statute reaches these too, for plans established or renewed on or after 1/1/2020), or a private self-funded ERISA plan (preempted). An Anthem Missouri card can be any of these — RIT administers self-funded plans without underwriting them.' },
@@ -1208,6 +1403,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Anthem Missouri — submit behavioral health authorizations through Availity Essentials', url: 'https://providernews.anthem.com/missouri/articles/streamline-your-workflow-submit-behavioral-health-authorizat-27237' },
       { title: 'Anthem — MCG care guidelines 27th edition update (Missouri, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/missouri/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
       { title: 'Anthem — Treatment Plan Request Form for Autism Spectrum Disorders (commercial, December 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/NY_BH_00001.pdf' },
+      { title: 'Anthem Missouri Provider Manual (effective January 1, 2026): Paper Claims Submissions; BlueCard Program Overview; Pre-certification', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_00010.pdf' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -1282,10 +1478,13 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Yes on a plan the mandate reaches, and the statute is specific about who writes it: ABA \u201cmust be ordered by the treating licensed physician or psychologist\u201d in a treatment plan, and must be supervised by a board-certified behavior analyst licensed under chapter 337. Capture the ordering physician or psychologist and the treatment plan they signed. Two Missouri rules work in the provider\'s favour once the order exists: the carrier may review the treatment plan no more than once every six months unless the provider agrees otherwise, and the cost of obtaining any review or treatment plan is borne by the plan. Self-funded private ERISA plans are outside the statute.',
+          'It depends on the plan, and Anthem says so in its manual: providers "shall verify that the Member\'s primary care physician has provided a referral as required by certain Health Benefit Plans." Anthem\'s ABA documents add no referral or order of their own. The ASD Treatment Plan Request Form asks for a diagnostic evaluation on an initial assessment-only request. Missouri\'s mandate requires ABA to be "ordered by the insured\'s treating licensed physician or licensed psychologist, pursuant to the powers granted under such licensed physician\'s or licensed psychologist\'s license, in accordance with a treatment plan" (RSMo § 376.1224). Keep that order and the treatment plan on file for any plan the statute reaches. It does not reach private self-funded ERISA plans, but it does reach self-insured governmental plans. Anthem publishes no order form and sets no validity period for one. The same statute requires the ABA to be supervised by a board-certified behavior analyst licensed under chapter 337, limits the carrier to reviewing the treatment plan once every six months unless the provider agrees otherwise, and puts the cost of any review or treatment plan on the plan.',
         status: 'plan-dependent',
-        cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
-        verifyVia: 'Benefits verification on the specific plan, via the payer portal or the number on the member’s card — confirm first whether RSMo § 376.1224 reaches this plan. Where it does, capture the ordering licensed physician or psychologist and the treatment plan they signed, and the supervising chapter 337 licensed behavior analyst. Where it does not (a private self-funded ERISA plan), ask the carrier whether it requires a physician or psychologist order and in what form.',
+        cites: [
+          { title: 'Anthem Missouri Provider Manual (effective January 1, 2026): Paper Claims Submissions; BlueCard Program Overview; Pre-certification', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_MO_00010.pdf' },
+          { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+        ],
+        verifyVia: 'Availity Essentials eligibility and benefits, or the number on the member\'s card: ask whether this plan requires a PCP referral for behavioral health and whether RSMo § 376.1224 reaches it. If it does, file the treating physician\'s or psychologist\'s order and the treatment plan with the ASD Treatment Plan Request Form.',
         blocker: 'per-case',
       },
       telehealth: {
@@ -1331,6 +1530,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Does the Missouri mandate exempt small employers?', a: 'No. There is no small-group exemption in the current statute. The exclusions are supplemental and limited policy types — accident-only, specified disease, Medicare supplement, long-term care, short-term major medical of six months or less — plus MO HealthNet, and private self-funded plans to the extent federal law preempts them.' },
       { q: 'Does Anthem require ABA goals to be organized by DSM-5 criteria in Missouri?', a: 'Not on its public form. DSM-5-TR applies to the diagnosis; for treatment Anthem wants symptoms and behaviors requiring treatment, progress on goals with graphs and standardized assessments, and measurable generalization and discharge plans. Its MCG B-806-T criteria are licensed and not public.' },
       { q: 'Does Anthem set required parent training hours in Missouri?', a: 'No published figure. The request form asks for "measurable goals for parent training" and requests 97156/97157 per authorization period; the approved units are on the authorization.' },
+      { q: 'What is the timely filing limit for Anthem ABA claims in Missouri?', a: 'Your Anthem agreement sets it; without a contract term, Missouri law gives participating providers six months from the date of service and nonparticipating providers one year (RSMo 376.384).' },
+      { q: 'Does Anthem Missouri want the referring provider on ABA claims?', a: 'Its provider manual says paper claims must carry "complete provider information, including referring, rendering and billing NPI." Where a referral or a mandate order exists, put that clinician in box 17.' },
+      { q: 'How does BlueCard work for an out-of-state Blue member getting ABA in Missouri?', a: 'File the claim with Anthem, the local plan, which is "the sole contact for Claims payment, adjustments, and issue resolution." The member\'s home Blue plan sets the medical policy and prior-authorization rules, so look them up by alpha prefix on Anthem\'s "Medical Policy and Prior Authorization for Blue Plans" tool. Clinical appeals go to the home plan.' },
     ],
   },
 };

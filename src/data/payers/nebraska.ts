@@ -220,6 +220,37 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Nebraska DHHS — Applied Behavior Analysis service definition (treatment, in force 7/1/2026)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' }, { title: 'Nebraska DHHS — Medicaid Requirements for Substance Use Disorder and Applied Behavior Analysis Services', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Medicaid%20Requirements%20for%20Substance%20Use%20Disorder%20and%20Applied%20Behavior%20Analysis%20Services.pdf' }],
       },
+      {
+        h2: 'What is the Nebraska Medicaid timely filing limit?',
+        body: [
+          'For fee-for-service claims, the Nebraska Medicaid Provider Manual (§ 5.1.1): "all claims must be submitted within six months from the date of service"; adjustments must arrive within 90 days of the original claim’s payment or denial date (§ 5.2.1). For members in a Heritage Health MCO, § 5.3 sends providers to that MCO’s own manual and billing guidance, so the MCO’s filing limit governs those claims.',
+        ],
+        cites: [
+          { title: 'Nebraska Medicaid Provider Manual (August 2026), §§ 5.1.1, 5.2.1, 5.3', url: 'https://dhhs.ne.gov/Documents/Medicaid%20Provider%20Manual.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Nebraska Medicaid require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Nebraska\'s rule is conditional. The provider manual (republished October 9, 2026) says "All claims to Nebraska Medicaid for payment for items and services that are ordered, rendered, or referred must contain the National Provider Identifier (NPI) of the physician or other professional who ordered, rendered, provided, or referred each item or service," and "Providers must be enrolled in Medicaid for the service provided, ordered, referred to, or rendered to be covered."',
+          'The ABA service definitions require no physician order or referral. The gate is the Initial Diagnostic Interview plus the ABA assessment and treatment plan. So there is no separate ABA referral to report. If a clinician did refer or order the service, report that clinician\'s NPI, and make sure they are enrolled with Nebraska Medicaid. Each Heritage Health plan runs its own claim edits: Nebraska Total Care\'s billing guide requires field 17 only for PT/OT/ST, DME and hearing-aid claims.',
+        ],
+        cites: [
+          { title: 'Nebraska Medicaid Provider Manual (republished October 9, 2026), § 3.4 NPI and § 3.6 enrollment', url: 'https://dhhs.ne.gov/Documents/Medicaid%20Provider%20Manual.pdf' },
+          { title: 'ABA Medicaid Service Definition (treatment MSD, effective July 1, 2026)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' },
+          { title: 'Nebraska Total Care — 2026 Provider Billing Guide (PROV16-NE-00025, 01/01/2026): Referring / Ordering Physician Requirements; CMS-1500 field 17', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/PDFs/ProviderRelations/NTC_Provider_Billing_Guide_12152025_01132026_508.pdf' },
+        ],
+      },
+      {
+        h2: 'How much parent or caregiver participation does Nebraska Medicaid require?',
+        body: [
+          'Nebraska sets a monthly floor, which is rare among state Medicaid programs. The July 1, 2026 ABA service definition requires providers to "Ensure family participation. For individuals receiving 10 hours or less per month of ABA services, 1 hour per month is required. For individuals receiving more than 10 hours per month of ABA services, 2-4 hours per month at minimum is required. Inability to meet this requirement must be documented and will be considered on a case-by-case basis." Continued-stay criteria repeat it: "Caregivers are participating in treatment a minimum of 2-4 hours per month."',
+          'Providers must also include family-involvement goals in the treatment plan, document the family\'s agreement to participate, assess and plan for barriers, and offer weekend and evening availability. Teachers can count as caregivers, but teacher training "may not account for more than 25% of required parent or caregiver training hours," and IEP meetings neither bill nor count. ABA "will not be denied solely on the basis of lack of parent or caregiver involvement," but involvement is weighed at reauthorization.',
+        ],
+        cites: [
+          { title: 'ABA Medicaid Service Definition (treatment MSD, effective July 1, 2026)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Heritage Health MCO', desc: 'Nebraska Total Care, Molina, or UnitedHealthcare Community Plan — same state MSD rules, very different submission machinery.' },
@@ -247,6 +278,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — NE Heritage Health Medicaid Autism/ABA Program provider training (NE_4556)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/NE_4556_ABA-HeritageTrain.pdf' },
       { title: 'Initial Diagnostic Interview Medicaid Service Definition', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Initial%20Diagnostic%20Interview.pdf' },
       { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
+      { title: 'Nebraska Medicaid Provider Manual (republished October 9, 2026), § 3.4 NPI and § 3.6 enrollment', url: 'https://dhhs.ne.gov/Documents/Medicaid%20Provider%20Manual.pdf' },
     ],
     faq: [
       { q: 'Does Nebraska Medicaid cover ABA therapy?', a: 'Yes — for members under 21 through EPSDT, administered entirely by the three Heritage Health MCOs under the state\'s ABA Medicaid Service Definitions (effective February 2025). Prior authorization runs through the member\'s MCO.' },
@@ -254,6 +286,10 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'What does Nebraska Medicaid pay for ABA?', a: 'Per 15-minute unit, effective August 1, 2025: 97151 $38.16, 97153 $18.70, 97155 $22.72, 97156 $26.06 — a roughly 28–79% cut by code from prior rates, still in force in the SFY27 fee schedule. Rates are credential-flat, and MCOs are directed to track the state schedule.' },
       { q: 'How many hours per week does Nebraska Medicaid allow?', a: 'Up to 6 hours a day and 20 hours a week of direct ABA. The ABA treatment service definition in force since July 1, 2026 says direct service hours "may not exceed 6 hours in a single day or a total of 20 hours per week," and more can be requested with clinical justification through prior authorization. DHHS\'s public "Applied Behavior Analysis Facts" page still says "up to 30 hours per week" — that summary predates the July 2026 update and is out of date; the service definition is the rule.' },
       { q: 'What happens when a Nebraska Medicaid family switches ABA providers?', a: 'The state does not say whether the MCO authorization transfers, so ask the member\'s Heritage Health plan. The agency the family leaves must give the family and the next provider a copy of the discharge plan, and complete a signed discharge summary on a timeline that allows prompt transfer of clinical records.' },
+      { q: 'What is the Nebraska Medicaid timely filing limit?', a: 'Six months from the date of service for fee-for-service claims. Heritage Health MCO claims follow the MCO’s own limit (Nebraska Total Care, for example, allows 180 days).' },
+      { q: 'Does Nebraska Medicaid require a referring provider on ABA claims?', a: 'Only when the service was actually ordered or referred: claims must carry the NPI of whoever "ordered, rendered, provided, or referred" the service, and that clinician must be enrolled with Medicaid. The ABA service definitions require no order, so a referring provider is not a standing ABA claim requirement. Check your MCO\'s claim edits.' },
+      { q: 'How many parent training hours does Nebraska Medicaid require?', a: 'A minimum: 1 hour a month when the child receives 10 or fewer ABA hours a month, and 2–4 hours a month above that (ABA service definition, July 1, 2026). Shortfalls must be documented and are judged case by case.' },
+      { q: 'Can ABA run at the same time as speech, OT or PT under Nebraska Medicaid?', a: 'No. The ABA service definition excludes "Services delivered concurrently (at the same time) as another treatment modality (i.e. ST, OT, PT)." Schedule ABA around the other therapies, and document how ABA fits around them: the treatment plan must justify hours against the child\'s availability "given other commitments (i.e. school, other therapies, family engagements)."' },
     ],
   },
 
@@ -418,6 +454,16 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
           { title: 'Health Plan Advisory 25-08 — ABA Rates (to Heritage Health MCOs)', url: 'https://dhhs.ne.gov/Guidance%20Docs/Health%20Plan%20Advisory%2025-08%20-%20Applied%20Behavior%20Analysis%20Rates.pdf' },
         ],
       },
+      {
+        h2: 'What are Nebraska Total Care’s timely filing, payment and appeal deadlines?',
+        body: [
+          'Nebraska Total Care’s 2026 billing guide: "Providers must submit all claims and encounters within 180 calendar days of the date of service," or within 365 days when it is the secondary payer. Reconsiderations and corrected claims are due within 90 calendar days of the payment or denial notice, and claim appeals (after a reconsideration) within 60 calendar days. Clean claims are adjudicated 90% within 15 business days and 99% within 60 calendar days, with 12% annual interest past 60 days.',
+          'On the CMS-1500 the guide marks field 24J (shaded) as required, with the ZZ qualifier and the provider’s taxonomy code for typical providers. Field 17 (referring provider) is marked required only for PT/OT/ST, DME and hearing-aid claims.',
+        ],
+        cites: [
+          { title: 'Nebraska Total Care — 2026 Provider Billing Guide (Timely Filing; Claim Payment; Reconsiderations and Appeals; CMS-1500 field table)', url: 'https://www.nebraskatotalcare.com/content/dam/centene/Nebraska/PDFs/ProviderRelations/NTC_Provider_Billing_Guide_12152025_01132026_508.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'IDI + FBA for the assessment package', desc: 'NE.CP.BH.105 requires both in the behavior identification assessment — line them up before submission.' },
@@ -438,6 +484,9 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'Does Nebraska Total Care cover ABA therapy?', a: 'Yes — it administers the Nebraska Medicaid ABA benefit under the state Medicaid Service Definitions, with its NE.CP.BH.105 documentation policy layered on top. Its own policy says state provisions take precedence in any conflict.' },
       { q: 'How do I submit an ABA authorization to Nebraska Total Care?', a: 'Through the Outpatient Treatment Request (OTR) process — the ABA Form via the secure provider portal (provider.nebraskatotalcare.com) or fax 866-593-1955, with hours per code, clinical justification, titration/discharge and crisis plans, and coordination-of-care documentation.' },
       { q: 'Does the ABA assessment itself need PA at Nebraska Total Care?', a: 'Yes. Nebraska Total Care\'s published Medicaid prior-authorization list (effective 12/31/2025) names 97151 and 97152 among the behavioral health codes that need pre-approval. NE.CP.BH.105 then sets what the assessment package must contain — the IDI and an FBA with direct assessment and data analysis.' },
+      { q: 'What is Nebraska Total Care’s timely filing limit?', a: '180 calendar days from the date of service (365 when Nebraska Total Care is secondary). Reconsiderations: 90 days; appeals: 60 days.' },
+      { q: 'Does Nebraska Total Care require a taxonomy code on ABA claims?', a: 'Its billing guide marks CMS-1500 field 24J (shaded) as required, with qualifier ZZ and the provider’s taxonomy code.' },
+      { q: 'Can ABA overlap with speech, OT or PT for a Nebraska Total Care member?', a: 'No. This follows the Nebraska Medicaid rule: the ABA service definition (effective July 1, 2026) excludes "Services delivered concurrently (at the same time) as another treatment modality (i.e. ST, OT, PT)," and Nebraska Total Care\'s own ABA documents add nothing different. Schedule ABA around the other therapies.' },
     ],
   },
 
@@ -800,6 +849,40 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
           { title: 'ProPublica — UnitedHealth limiting ABA access in Medicaid', url: 'https://www.propublica.org/article/unitedhealthcare-insurance-autism-denials-applied-behavior-analysis-medicaid' },
         ],
       },
+      {
+        h2: 'What are UnitedHealthcare Community Plan of Nebraska’s claim filing, taxonomy and dispute rules?',
+        body: [
+          'Optum’s Nebraska ABA quick reference guide: claims go on a Form 1500 and "Submission should occur within 180 days of date of service"; claim appeals "must be requested within 60 calendar days of disposition on the remittance report."',
+          'The 2026 UHC Community Plan of Nebraska manual adds the claim data rules: the rendering and billing provider NPI combination must match the provider’s DHHS enrollment, or electronic claims are rejected and paper claims denied, and "Claims must include the correct billing taxonomy code and 9-digit office ZIP code registered with DHHS." Its dispute grid allows a claim reconsideration within 365 calendar days of the claim processing date, then a formal appeal within 60 calendar days of the remittance or reconsideration decision.',
+        ],
+        cites: [
+          { title: 'NE Heritage Health Medicaid ABA Program Quick Reference Guide (Optum BH4233)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/neaba/neNEMedicaidQRG.pdf' },
+          { title: 'UnitedHealthcare Community Plan of Nebraska — 2026 Care Provider Manual, Chapters 11–12', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NE-Care-Provider-Manual.pdf' },
+        ],
+      },
+      {
+        h2: 'Does the plan require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Follows the Nebraska Medicaid rule. Claims must carry the NPI of the professional who "ordered, rendered, provided, or referred" a service, and that professional must be enrolled with Medicaid. The ABA service definitions require no order or referral, so there is no separate ABA referral to report.',
+          'UnitedHealthcare Community Plan\'s 2026 Nebraska manual adds no ABA referring-provider rule of its own. It says "No referral is required to access specialist services" and lists applied behavioral analysis among its covered mental health services.',
+        ],
+        cites: [
+          { title: 'Nebraska Medicaid Provider Manual (republished October 9, 2026), § 3.4 NPI and § 3.6 enrollment', url: 'https://dhhs.ne.gov/Documents/Medicaid%20Provider%20Manual.pdf' },
+          { title: 'ABA Medicaid Service Definition (treatment MSD, effective July 1, 2026)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis.pdf' },
+          { title: 'UnitedHealthcare Community Plan of Nebraska — 2026 Care Provider Manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NE-Care-Provider-Manual.pdf' },
+        ],
+      },
+      {
+        h2: 'Which modifier and place of service go on an ABA telehealth claim?',
+        body: [
+          'UnitedHealthcare Community Plan\'s 2026 Nebraska manual defers to the state: "Claims for services provided via telehealth must include the specific telehealth modifiers and place-of-service codes outlined in the fee schedules. The location of the telehealth service is the physical location of the member."',
+          'The state\'s SFY27 Mental Health and Substance Use fee schedule lists telehealth modifier 95 with POS 02 or 10 on 97151, 97155 and 97156 only. Use POS 02 when the child is somewhere other than home and POS 10 when the child is at home. The telehealth modifier is informational and goes after any payment modifier. No telehealth modifier is listed for 97153.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of Nebraska — 2026 Care Provider Manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NE-Care-Provider-Manual.pdf' },
+          { title: 'SFY27 Mental Health & Substance Use Fee Schedule (REVISED), ABA and TeleHealth Information tabs', url: 'https://dhhs.ne.gov/Medicaid%20Practitioner%20Fee%20Schedules/REVISED%20MHSUD%20SFY27%20Fee%20Schedule.xlsx' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnostic evaluation / IDI / FBA', desc: 'Must attach to the written assessment request — the two-step funnel starts with this packet.' },
@@ -817,11 +900,18 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'ABA Behavior Identification Assessment MSD', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Applied%20Behavior%20Analysis%20Behavior%20Identification%20Assessment.pdf' },
       { title: 'Medicaid Requirements for Substance Use Disorder and Applied Behavior Analysis Services (umbrella staffing document)', url: 'https://dhhs.ne.gov/Behavioral%20Health%20Service%20Definitions/Medicaid%20Requirements%20for%20Substance%20Use%20Disorder%20and%20Applied%20Behavior%20Analysis%20Services.pdf' },
       { title: 'ProPublica — UnitedHealth limiting ABA access in Medicaid', url: 'https://www.propublica.org/article/unitedhealthcare-insurance-autism-denials-applied-behavior-analysis-medicaid' },
+      { title: 'Nebraska Medicaid Provider Manual (republished October 9, 2026), § 3.4 NPI and § 3.6 enrollment', url: 'https://dhhs.ne.gov/Documents/Medicaid%20Provider%20Manual.pdf' },
+      { title: 'UnitedHealthcare Community Plan of Nebraska — 2026 Care Provider Manual', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NE-Care-Provider-Manual.pdf' },
+      { title: 'SFY27 Mental Health & Substance Use Fee Schedule (REVISED), ABA and TeleHealth Information tabs', url: 'https://dhhs.ne.gov/Medicaid%20Practitioner%20Fee%20Schedules/REVISED%20MHSUD%20SFY27%20Fee%20Schedule.xlsx' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare Community Plan of Nebraska cover ABA?', a: 'Yes — it administers the Heritage Health ABA benefit under the state Medicaid Service Definitions, with the autism network managed by Optum Behavioral Health since 2017. All autism services, the assessment included, require prior authorization.' },
       { q: 'Does the ABA assessment need PA at UHC Community Plan of Nebraska?', a: 'Yes — the initial assessment needs a written request (the treatment request form marked as an assessment request) with the diagnostic evaluation, IDI, or FBA attached. Treatment is a second, separate authorization.' },
       { q: 'How do I submit an ABA authorization to UHC/Optum in Nebraska?', a: 'Through Optum\'s online ABA treatment-request portal or fax 1-888-541-6691, with the full treatment-plan package (baseline/mastery criteria, transition and discharge plans, parent goals, supervision hours, coordination of care). Claims use payer ID 87726 with 180-day timely filing.' },
+      { q: 'Does UnitedHealthcare Community Plan of Nebraska require taxonomy on the claim?', a: 'Yes. The billing taxonomy code and 9-digit office ZIP registered with DHHS must be on the claim, and the rendering/billing NPI pair must match DHHS enrollment.' },
+      { q: 'Does UnitedHealthcare Community Plan of Nebraska require a referring provider on ABA claims?', a: 'Not as a standing rule. It follows Nebraska Medicaid: report an ordering or referring NPI only when someone actually ordered or referred the service, and that clinician must be enrolled with Medicaid. The plan\'s manual adds no ABA-specific rule.' },
+      { q: 'Can ABA overlap with speech, OT or PT for a UnitedHealthcare Community Plan of Nebraska member?', a: 'No. This follows the Nebraska Medicaid rule: the ABA service definition (effective July 1, 2026) excludes "Services delivered concurrently (at the same time) as another treatment modality (i.e. ST, OT, PT)," and UnitedHealthcare Community Plan of Nebraska\'s own ABA documents add nothing different. Schedule ABA around the other therapies.' },
+      { q: 'What telehealth modifier does UnitedHealthcare Community Plan of Nebraska use for ABA?', a: 'The one on the state fee schedule, which the plan\'s manual adopts: modifier 95 with POS 02 (not at home) or 10 (at home), listed for 97151, 97155 and 97156 only.' },
     ],
   },
 
@@ -922,12 +1012,14 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published. Aetna\'s ABA Medical Necessity Guide and its ABA clinical policy bulletin set a diagnosis requirement, a precertification requirement and a provider-licensure requirement, but state no referral or physician order as a condition of coverage. The gate that does exist is precertification itself — required for both the assessment and treatment.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
-        verifyVia:
-          'Aetna precertification/provider services at the number on the member\'s ID card, and the member\'s benefit document — ask whether the plan layers a referral requirement on behavioral health.',
-        blocker: 'per-case',
+          'No Aetna referral, but the state mandate wants an order. Aetna\'s provider manual treats behavioral health as direct access: members "may access behavioral health care" "Through direct access to the behavioral health provider," through a PCP recommendation, or through an EAP referral. PCP referrals apply only on plans that require them for specialist care, "other than for direct-access services." Aetna\'s ABA Medical Necessity Guide asks only for a DSM-5 ASD diagnosis "obtained by an appropriate provider (i.e. licensed psychologist/psychiatrist, physician or other health care professional qualified to diagnose mental health conditions within their scope of practice)." Form GR-69017-4 (7-26) records the "Diagnosing Provider (name and credentials)" rather than an order. Nebraska\'s mandate defines covered treatment as care "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist" (Neb. Rev. Stat. § 44-7,106(1)(i)). Keep that physician\'s or psychologist\'s order on file for any plan the statute reaches. The statute exempts non-grandfathered ACA individual and small-group plans, and self-funded ERISA plans only to the extent federal law preempts it. Aetna publishes no order form and sets no validity period for one. Precertification on Availity is the real gate.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
+        ],
       },
       telehealth: {
         value:
@@ -1016,6 +1108,51 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Provider Bulletin 25-14 — ABA Rates (July 1, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Aetna pay a clean ABA claim in Nebraska?',
+        body: [
+          'Nebraska’s Health Care Prompt Payment Act requires an insurer to pay, deny or settle a clean claim "within thirty calendar days after receipt by the insurer if submitted electronically and within forty-five calendar days after receipt if submitted in a form other than electronically" (§ 44-8004). The clock tolls while requested information is outstanding. The Act covers insurers and HMOs but not the Medicaid program or a self-insured employer plan (§ 44-8002).',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+        ],
+        cites: [
+          { title: 'Neb. Rev. Stat. § 44-8004 — Health Care Prompt Payment Act, clean-claim deadlines', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8004' },
+          { title: 'Neb. Rev. Stat. § 44-8002 — Health Care Prompt Payment Act, definitions', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8002' },
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Clean claims; Disagree with a claim decision?', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
+          { title: 'Aetna — Provider appeals: state exceptions to the 180-day dispute filing standard', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/provider-appeals.html' },
+        ],
+      },
+      {
+        h2: 'Does Aetna require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Aetna publishes no ABA-specific referring-provider rule. Its provider manual defines a clean claim as including "A corresponding referral (whether in paper or electronic format), if required for the applicable claim" plus all CMS-1500 data elements, and it treats behavioral health as direct access: members "may access behavioral health care" "Through direct access to the behavioral health provider," through a PCP recommendation, or through an EAP referral. PCP referrals are a feature of plans "that require the issuance of referrals for specialist care," and even there they apply "other than for direct-access services."',
+          'So box 17 is not a published condition of an Aetna ABA claim in Nebraska. If a plan design does require a referral, the eligibility-and-benefits response shows it; enter the referring provider only when one exists.',
+        ],
+        cites: [
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under Aetna?',
+        body: [
+          'Aetna publishes no rule on ABA delivered at the same clock time as speech, OT or PT. What it asks for is coordination. Precertification form GR-69017-4 (7-26) asks whether the member gets physical, occupational or speech therapy, mental health services or school services, and "Do you collaborate with all the providers above?" (if not, explain why). The Medical Necessity Guide expects "ongoing collaboration and coordination with existing providers and/or the school district."',
+          'Report the other therapies and their schedule on the precertification request, and ask Aetna\'s precertification line before billing ABA minutes that overlap another therapy.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'What goes in an Aetna ABA assessment (97151) precertification request?',
+        body: [
+          'Start on Availity with the Authorization (Precertification) Add transaction, or call the precertification department. Form GR-69017-4 (7-26) is not used to start a request. It supplies the clinicals when a case pends, attached on Availity or faxed to FaxHub 833-596-0339. Since August 1, 2026 it "replaces all other Applied Behavior Health Analysis (ABA) precertification information request documents and forms" (not for Maryland or Massachusetts plans).',
+          'For the assessment, request 97151, 97152 and 0362T in hours per authorization period. Treatment codes are requested in hours per week. The form also asks for the current DSM-5 diagnosis codes, the "Diagnosing Provider (name and credentials)," who will supervise, whether any hours fall during class, and the child\'s other services (PT, OT, speech, mental health, PCP, school). Supporting documents, "where applicable," include a standardized assessment (Vineland, ABAS, VB-MAPP) "completed within the past 12 months," the treatment plan with baseline data, caregiver goals, and titration and discharge criteria. Questions: 1-800-424-4047.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Large-group/grandfathered state-regulated (mandate applies) vs. small-group/individual ACA or self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -1033,6 +1170,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
       { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
     ],
     faq: [
       { q: 'Does Aetna cover ABA therapy in Nebraska?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Nebraska\'s mandate (Neb. Rev. Stat. § 44-7,106) for state-regulated plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1040,6 +1178,11 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'What does Aetna pay for ABA in Nebraska?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Nebraska\'s Medicaid schedule is an unusually low benchmark after the August 2025 cuts, so treat commercial rate-setting as a first-order contracting conversation.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Not by name. Aetna\'s ABA medical necessity guide says services must be provided directly or billed by licensed behavior analysts, BCBAs or licensed psychologists "unless state mandates, plan documents or contracts require otherwise." Where those allow services by unlicensed or non-certified staff, "there must be supervision and direction" in line with practice standards. Your contract and any state licensure law decide the technician credential.' },
       { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
+      { q: 'What is Aetna’s clean-claim payment turnaround in Nebraska?', a: 'Thirty calendar days for an electronic clean claim, 45 for paper (Neb. Rev. Stat. § 44-8004). The Act does not reach self-insured employer plans.' },
+      { q: 'How long do I have to appeal an Aetna claim decision in Nebraska?', a: '180 calendar days from the initial claim decision to request a reconsideration, then 60 calendar days from the reconsideration decision to appeal.' },
+      { q: 'Does Aetna require a referring provider NPI on ABA claims?', a: 'No published rule requires one. Aetna treats behavioral health as direct access, and its clean-claim definition asks for a referral only "if required for the applicable claim." Precertification is the gate.' },
+      { q: 'Does Aetna allow ABA at the same time as speech or OT?', a: 'No published rule either way. Aetna\'s precertification form asks which PT, OT, speech and other services the child gets and whether you coordinate with them, so disclose them and confirm with precertification before overlapping sessions.' },
+      { q: 'Which form does Aetna use for an ABA assessment request?', a: 'Form GR-69017-4 (7-26), which since August 1, 2026 replaces all other Aetna ABA precertification forms (except in Maryland and Massachusetts). Start the request on Availity or by phone first, then attach the form if the case pends. Request 97151, 97152 and 0362T in hours per authorization period.' },
     ],
   },
 
@@ -1141,18 +1284,20 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published as a requirement. EN0499 gates coverage on a confirmed DSM-5-TR diagnosis, a qualifying assessment and a compliant treatment plan, and Evernorth\'s front door is famously open on the assessment side — no prior authorization on 97151, 97152 or 0362T. Neither document states a referral or physician order as a condition.',
-        status: 'unverified',
-        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'Evernorth Provider Services at 800.926.2273 and the member\'s benefit document — referral rules, where they exist, are a plan-design feature rather than a policy feature.',
-        blocker: 'per-case',
+          'No Cigna referral, but the state mandate wants an order. The Evernorth administrative guidelines state for SureFit, Connect and HMO/POS plans alike that "Referrals are not required for behavioral health services." EN0499 gates ABA on a confirmed ASD diagnosis, a standardized assessment and a compliant treatment plan, not on a physician order. Assessment codes 97151, 97152 and 0362T need no prior authorization when the provider is independently licensed or a BCBA. Nebraska\'s mandate defines covered treatment as care "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist" (Neb. Rev. Stat. § 44-7,106(1)(i)). Keep that physician\'s or psychologist\'s order on file for any plan the statute reaches. The statute exempts non-grandfathered ACA individual and small-group plans, and self-funded ERISA plans only to the extent federal law preempts it. Cigna publishes no order form and sets no validity period for one. The gate is the Applied Behavior Analysis Prior Authorization Form, filed with the assessment and treatment plan.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
+        ],
       },
       telehealth: {
         value:
-          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. One Nebraska-specific point does exist, and it sits in the statute rather than the carrier policy: § 44-7,106 requires that ABA be "provided or supervised by a nationally certified behavior analyst or licensed psychologist" and says so expressly of care delivered "in person or by telehealth," so remote delivery is contemplated by the mandate for state-regulated plans even where the carrier publishes no code list. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth.',
+          'The most permissive telehealth position of the three national carriers, stated in one line: "All ABA CPT codes are covered telehealth services." EN0499 backs it structurally — "ABA treatment may be rendered via traditional in-person service delivery, telehealth, or a hybrid of in-person and telehealth service modalities," with the modality chosen on individual characteristics, the treatment plan, caregiver participation, environment, evidence of efficacy and safety, and technological requirements. Two qualifications worth carrying into scheduling: telehealth delivery is one of the settings the policy expects treatment goals to address, and the requirement to have the treatment plan signed does not apply to telehealth services. No POS code list is published. One Nebraska-specific point does exist, and it sits in the statute rather than the carrier policy: § 44-7,106 requires that ABA be "provided or supervised by a nationally certified behavior analyst or licensed psychologist" and says so expressly of care delivered "in person or by telehealth," so remote delivery is contemplated by the mandate for state-regulated plans even where the carrier publishes no code list. That includes the 97151 assessment and 97155 protocol modification. EN0499 describes direct case supervision as occurring "concurrently with the delivery of direct treatment," with the BCBA "face-to-face with the individual and either the Registered Behavior Technician® [RBT®] or the Board Certified Assistant Behavior Analyst® [BCaBA®]," at one to two hours per ten hours of direct treatment; it publishes no separate in-person minimum for supervision delivered by telehealth. Claim coding comes from Evernorth’s administrative guidelines (September 2026): when billing telehealth, use “Modifier 95 in Field 24-D to specify telehealth” and “02 for Place of Service in Field 24-B.”',
         status: 'verified',
-        cites: [{ title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191) — telehealth claim coding', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
       },
       authTurnaround: {
         value:
@@ -1242,6 +1387,40 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Behavioral Health — Autism resource guide (March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
       },
+      {
+        h2: 'How fast must Cigna pay a clean ABA claim in Nebraska?',
+        body: [
+          'Nebraska’s Health Care Prompt Payment Act requires an insurer to pay, deny or settle a clean claim "within thirty calendar days after receipt by the insurer if submitted electronically and within forty-five calendar days after receipt if submitted in a form other than electronically" (§ 44-8004). The clock tolls while requested information is outstanding. The Act covers insurers and HMOs but not the Medicaid program or a self-insured employer plan (§ 44-8002).',
+          'Evernorth "will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement," and a longer state-law limit applies where one exists. Appeals are initiated in writing within 180 calendar days of the initial payment or denial decision, and most are resolved within 60 calendar days.',
+        ],
+        cites: [
+          { title: 'Neb. Rev. Stat. § 44-8004 — Health Care Prompt Payment Act, clean-claim deadlines', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8004' },
+          { title: 'Neb. Rev. Stat. § 44-8002 — Health Care Prompt Payment Act, definitions', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8002' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Cigna require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Cigna (Evernorth) publishes no referring-provider requirement for ABA. Its autism resource guide gives the ABA paper-claim instructions field by field and names only box 31 (your name), the claims mailing address and box 33 ("List only a BCBA or other licensed provider in box 33"); box 17 is not mentioned. The Evernorth administrative guidelines state for SureFit, Connect and HMO/POS plans alike that "Referrals are not required for behavioral health services."',
+          'Leave box 17 blank unless a referral actually exists for the service. Bill technician time under the supervising provider: "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider."',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under Cigna?',
+        body: [
+          'No. EN0499 (effective 5/15/2026): "Provision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." The policy defines that overlap as concurrent billing: "multiple providers bill for services rendered to the same patient when those services occur at the same time."',
+          'Schedule ABA hours around speech, OT and PT, and keep session start and stop times that show no overlap. The only same-time billing EN0499 and Cigna\'s autism resource guide allow is within ABA: 97153 or 97154 alongside 97155 when the BCBA directs the technician face-to-face.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Large-group/grandfathered state-regulated (mandate applies) vs. small-group/individual ACA or self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -1255,6 +1434,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
       { title: 'NE DHHS — Behavior Analyst licensure page', url: 'https://dhhs.ne.gov/licensure/Pages/Behavior-Analyst.aspx' },
       { title: 'Provider Bulletin 25-14 — ABA Rates (July 1, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
     faq: [
       { q: 'Does Cigna cover ABA therapy in Nebraska?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Nebraska\'s mandate (Neb. Rev. Stat. § 44-7,106) for state-regulated plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1262,6 +1442,10 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in Nebraska?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Nebraska\'s Medicaid schedule is an unusually low benchmark after the August 2025 cuts, so treat commercial rate-setting as a first-order contracting conversation.' },
       { q: 'Is Cigna accepting new ABA providers?', a: 'Evernorth, which runs Cigna\'s behavioral network, says it is "committed to expanding our network of autism providers." Individual providers submit the Evernorth Behavioral Provider Information Form and clinics the Screening Application for Autism Clinics; allow up to 90 days for the application plus 60 to 90 days of credentialing per provider.' },
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
+      { q: 'What is Cigna’s clean-claim payment turnaround in Nebraska?', a: 'Thirty calendar days for an electronic clean claim, 45 for paper (Neb. Rev. Stat. § 44-8004). The Act does not reach self-insured employer plans.' },
+      { q: 'What is Cigna’s timely filing limit in Nebraska?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'Does Cigna require a referring provider NPI on ABA claims?', a: 'No. Cigna\'s ABA billing instructions cover boxes 31 and 33 only, and Evernorth states that referrals are not required for behavioral health services.' },
+      { q: 'Can a Cigna member get ABA at the same time as speech or OT?', a: 'No. EN0499 says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Schedule the therapies back to back, not overlapping.' },
     ],
   },
 
@@ -1366,12 +1550,13 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published as a coverage condition. Optum gates ABA on prior authorization — "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)" — delivered as a two-step assessment-then-treatment workflow on Provider Express, with a valid diagnosis rather than a referral as the clinical trigger. What the criteria do require is coordination: documentation of communication with day care, preschool, school, early intervention and allied health providers to avoid duplication.',
-        status: 'unverified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum via Provider Express and the member\'s benefit document — referral requirements, where they exist, are a plan-design feature.',
-        blocker: 'per-case',
+          'No UnitedHealthcare referral, but the state mandate wants an order. UnitedHealthcare\'s 2026 administrative guide lists "Mental health/substance use disorder services with network behavioral health clinicians" among the services a member on a referral-required plan may get without a PCP referral. Optum gates ABA on prior authorization, assessment first and treatment second. Nebraska\'s mandate defines covered treatment as care "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist" (Neb. Rev. Stat. § 44-7,106(1)(i)). Keep that physician\'s or psychologist\'s order on file for any plan the statute reaches. The statute exempts non-grandfathered ACA individual and small-group plans, and self-funded ERISA plans only to the extent federal law preempts it. Neither UnitedHealthcare nor Optum publishes an order form or a validity period for one.',
+        status: 'verified',
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
+        ],
       },
       telehealth: {
         value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth, and neither is the 97151 assessment or the technician-assisted 97152: plan the assessment in person. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” Nebraska’s statute also contemplates remote delivery: § 44-7,106 requires that ABA be “provided or supervised by a nationally certified behavior analyst or licensed psychologist” and says so expressly of care delivered “in person or by telehealth.”',
@@ -1466,6 +1651,40 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Provider Bulletin 25-14 — ABA Rates (July 1, 2025)', url: 'https://dhhs.ne.gov/Medicaid%20Provider%20Bulletins/Provider%20Bulletin%2025-14.pdf' },
         ],
       },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean ABA claim in Nebraska?',
+        body: [
+          'Nebraska’s Health Care Prompt Payment Act requires an insurer to pay, deny or settle a clean claim "within thirty calendar days after receipt by the insurer if submitted electronically and within forty-five calendar days after receipt if submitted in a form other than electronically" (§ 44-8004). The clock tolls while requested information is outstanding. The Act covers insurers and HMOs but not the Medicaid program or a self-insured employer plan (§ 44-8002).',
+          'UnitedHealthcare’s 2026 administrative guide publishes no single timely-filing number ("Timely filing limits vary based on state requirements and contracts"; check your agreement). It requires "a valid billing NPI, rendering NPI and relevant taxonomy code(s) on all claims," and encourages, but does not require, the referring provider’s NPI. Most claims are adjudicated within 15 days, up to 45. Claim reconsiderations and appeals are due within 12 months of the original EOB or PRA.',
+        ],
+        cites: [
+          { title: 'Neb. Rev. Stat. § 44-8004 — Health Care Prompt Payment Act, clean-claim deadlines', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8004' },
+          { title: 'Neb. Rev. Stat. § 44-8002 — Health Care Prompt Payment Act, definitions', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8002' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): timely filing, NPI/taxonomy, claim reconsideration and appeals', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Neither UnitedHealthcare\'s 2026 commercial administrative guide nor Optum\'s commercial ABA reimbursement policy sets a referring-provider requirement for ABA claims. On plans that do require PCP referrals, the administrative guide lists "Mental health/substance use disorder services with network behavioral health clinicians" among the services members can get without one, and Optum manages the ABA benefit through its own two-step authorization.',
+          'So box 17 is not a published condition of a UnitedHealthcare ABA claim in Nebraska; the authorization is. Enter a referring provider only when one exists.',
+        ],
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under UnitedHealthcare (Optum)?',
+        body: [
+          'Optum\'s criteria publish no clock-time rule for ABA against speech, OT or PT, but they do rule out duplication. The Supplemental Clinical Criteria state that "ABA services do not duplicate the services provided to or available to the individual by other medical or behavioral services." They require coordination with "speech/occupational therapists and others," and they size intensity on "The individual\'s ability to participate in ABA, given participation in other therapies and engagements."',
+          'In practice, list the child\'s other therapies, with their schedule, in the treatment plan, and show the ABA hours fit around them. Optum\'s own same-time rules cover ABA codes only: 97153 or 97154 with 97155 concurrently, but never by a single QHP.',
+        ],
+        cites: [
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Large-group/grandfathered state-regulated (mandate applies) vs. small-group/individual ACA or self-funded ERISA (exempt) — it decides which rulebook governs.' },
@@ -1485,6 +1704,7 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
     ],
     faq: [
       { q: 'Does UnitedHealthcare cover ABA therapy in Nebraska?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Nebraska\'s mandate (Neb. Rev. Stat. § 44-7,106) for state-regulated plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
@@ -1494,6 +1714,10 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On plans the Nebraska mandate reaches, the insurer may review treatment at most once every 6 months, at its own cost.' },
       { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
       { q: 'Can the ABA assessment be done by telehealth with UnitedHealthcare?', a: 'No, not on commercial plans. Optum\'s telehealth billing guide allows only 97155, 97156 and 97157 by telehealth for ABA, so 97151 and 97152 are delivered in person. Supervision (97155) and caregiver training can be remote once the provider has completed Optum\'s virtual-visits attestation.' },
+      { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Nebraska?', a: 'Thirty calendar days for an electronic clean claim, 45 for paper (Neb. Rev. Stat. § 44-8004). The Act does not reach self-insured employer plans.' },
+      { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Nebraska?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },
+      { q: 'Does UnitedHealthcare require a referring provider NPI on ABA claims?', a: 'No published rule requires one. UnitedHealthcare exempts network mental health services from PCP referral requirements, and Optum gates ABA on prior authorization instead.' },
+      { q: 'Can ABA overlap with speech therapy under UnitedHealthcare?', a: 'Optum publishes no clock-time rule, but its criteria say ABA must not duplicate other medical or behavioral services, and they weigh participation in other therapies when setting hours. Document the other therapies and schedule around them.' },
     ],
   },
   'bcbs-nebraska': {
@@ -1591,10 +1815,14 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'I.178 states no referral requirement. On plans the Nebraska mandate reaches, covered "Treatment" is care "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist," so keep that order on file.',
+          'BCBSNE publishes no referral requirement for ABA. Medical Policy I.178 states none, and BCBSNE\'s preauthorization policy (GP-X-014) makes MedPolicy Blue criteria and NaviNet preauthorization the gate, with authorizations effective for 12 months from the decision date. Nebraska\'s mandate defines covered treatment as care "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or a licensed psychologist" (Neb. Rev. Stat. § 44-7,106(1)(i)). Keep that physician\'s or psychologist\'s order on file for any plan the statute reaches. The statute exempts non-grandfathered ACA individual and small-group plans, and self-funded ERISA plans only to the extent federal law preempts it. BCBSNE publishes no order form and sets no validity period for one.',
         status: 'plan-dependent',
-        cites: [{ title: 'BCBSNE Medical Policy I.178 — Autism Spectrum Disorders (MedPolicy Blue; last review 02-04-2026)', url: 'https://medicalpolicy.nebraskablue.com/Policy/32/19' }, { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' }],
-        verifyVia: 'NaviNet benefits for the member\'s group — ask whether the plan requires a referral for behavioral health.',
+        cites: [
+          { title: 'BCBSNE Medical Policy I.178 — Autism Spectrum Disorders (MedPolicy Blue)', url: 'https://medicalpolicy.nebraskablue.com/Policy/32/19' },
+          { title: 'BCBSNE Policy GP-X-014 — Preauthorization and Precertification (last updated Jan. 1, 2026)', url: 'https://www.nebraskablue.com/Providers/Policies-and-Procedures/General/Preauthorization-and-Precertification' },
+          { title: 'Neb. Rev. Stat. § 44-7,106 (full text)', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-7,106' },
+        ],
+        verifyVia: 'NaviNet eligibility and benefits for the member\'s group: confirm whether the plan design requires a PCP referral for behavioral health and whether § 44-7,106 reaches the plan (fully insured or state-employee plan vs. ERISA self-funded; non-grandfathered ACA individual and small-group plans are exempt).',
         blocker: 'per-case',
       },
       telehealth: {
@@ -1676,6 +1904,29 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
           { title: 'SFY27 Mental Health & Substance Use Fee Schedule (REVISED edition, republished Sept. 2026)', url: 'https://dhhs.ne.gov/Medicaid%20Practitioner%20Fee%20Schedules/REVISED%20MHSUD%20SFY27%20Fee%20Schedule.xlsx' },
         ],
       },
+      {
+        h2: 'How fast must Blue Cross and Blue Shield of Nebraska pay a clean ABA claim in Nebraska?',
+        body: [
+          'Nebraska’s Health Care Prompt Payment Act requires an insurer to pay, deny or settle a clean claim "within thirty calendar days after receipt by the insurer if submitted electronically and within forty-five calendar days after receipt if submitted in a form other than electronically" (§ 44-8004). The clock tolls while requested information is outstanding. The Act covers insurers and HMOs but not the Medicaid program or a self-insured employer plan (§ 44-8002).',
+        ],
+        cites: [
+          { title: 'Neb. Rev. Stat. § 44-8004 — Health Care Prompt Payment Act, clean-claim deadlines', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8004' },
+          { title: 'Neb. Rev. Stat. § 44-8002 — Health Care Prompt Payment Act, definitions', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8002' },
+        ],
+      },
+      {
+        h2: 'BlueCard: out-of-state Blue members, and where the claim goes',
+        body: [
+          'BCBSNE is the local Blue plan for Nebraska providers. "Whenever a member of another Blue Plan receives services from you, file the claim with the local Blue Plan. Typically, your local Blue Plan is Blue Cross and Blue Shield of Nebraska (BCBSNE)." BCBSNE pays you under your provider agreement, but "Benefits are determined by the member\'s Blue Plan" (GP-X-086). The member ID prefix routes the claim: copy the full ID, including its three-character prefix, exactly as printed (GP-X-078).',
+          'The home plan\'s ABA rules apply, not I.178. "All medical policy criteria and preauthorization requirements applicable to out-of-state Blue Cross and/or Blue Shield patients are dictated by the Blue Plan that insures the member." Look them up under "Medical Policy and Pre-cert Lists for all Blue Plans" (GP-X-014). Border practices are different: a provider in a county contiguous with Nebraska that holds PPO contracts with both plans files according to where the member lives and works (GP-X-087), and the contiguous-county rules do not apply to FEP.',
+        ],
+        cites: [
+          { title: 'BCBSNE Policy GP-X-086 — Claim Filing for BlueCard Members', url: 'https://www.nebraskablue.com/en/Providers/Policies-and-Procedures/General/Claim-Filing-for-BlueCard-Members' },
+          { title: 'BCBSNE Policy GP-X-078 — How the BlueCard Program Works (member ID prefix)', url: 'https://www.nebraskablue.com/en/Providers/Policies-and-Procedures/General/How-the-BlueCard-Program-Works' },
+          { title: 'BCBSNE Policy GP-X-014 — Preauthorization and Precertification (last updated Jan. 1, 2026)', url: 'https://www.nebraskablue.com/Providers/Policies-and-Procedures/General/Preauthorization-and-Precertification' },
+          { title: 'BCBSNE Policy GP-X-087 — Contiguous Area Claim Filing', url: 'https://www.nebraskablue.com/en/Providers/Policies-and-Procedures/General/Contiguous-Area-Claim-Filing' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'State-regulated large-group or grandfathered (mandate applies), ACA individual/small-group (mandate does not apply), or self-funded (plan document governs). I.178 covers ABA only where a mandate or the plan does.' },
@@ -1696,12 +1947,15 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { title: 'Nebraska LB 77 (2025) — Ensuring Transparency in Prior Authorization Act, slip law', url: 'https://nebraskalegislature.gov/FloorDocs/109/PDF/Slip/LB77.pdf' },
       { title: '210 NAC 39 — Nebraska Coordination of Benefits Regulation', url: 'https://doi.nebraska.gov/sites/default/files/doc/Chapter%2039.pdf' },
       { title: 'NE DHHS Licensure — Behavior Analyst', url: 'https://dhhs.ne.gov/licensure/Pages/Behavior-Analyst.aspx' },
+      { title: 'BCBSNE Policy GP-X-086 — Claim Filing for BlueCard Members', url: 'https://www.nebraskablue.com/en/Providers/Policies-and-Procedures/General/Claim-Filing-for-BlueCard-Members' },
     ],
     faq: [
       { q: 'Does Blue Cross Blue Shield of Nebraska cover ABA therapy?', a: 'Under BCBSNE Medical Policy I.178, ABA is covered when the Nebraska autism mandate applies or the member\'s benefit plan explicitly covers ABA, with preauthorization. The mandate reaches state-regulated plans for children under 21 but not ACA individual or small-group plans, and self-funded groups follow their plan documents — so check the plan first.' },
       { q: 'Does BCBS Nebraska allow ABA by telehealth?', a: 'Only for 97151, 97155 and 97156, billed with POS 02 or 10 and modifier 95. BCBSNE considers all other codes, including 97153, not appropriate for telehealth. I.178 limits ABA to an office setting or telehealth.' },
       { q: 'Does the 25-hour cap apply to every BCBS Nebraska member?', a: 'No. It comes from the state mandate, which covers state-regulated plans. ACA individual and small-group plans are outside the mandate, and self-funded groups follow their plan documents. I.178 itself caps treatment plans at 40 hours a week.' },
       { q: 'Does this guide cover Nebraska Medicaid members?', a: 'No. Nebraska Medicaid ABA runs through the Heritage Health MCOs and has its own guides in this directory, with different criteria and rates.' },
+      { q: 'What is Blue Cross and Blue Shield of Nebraska’s clean-claim payment turnaround in Nebraska?', a: 'Thirty calendar days for an electronic clean claim, 45 for paper (Neb. Rev. Stat. § 44-8004). The Act does not reach self-insured employer plans.' },
+      { q: 'Can I see an out-of-state Blue member for ABA in Nebraska?', a: 'Yes, through BlueCard. File the claim with BCBSNE, the local plan, and follow the member\'s home Blue plan\'s medical policy and preauthorization rules. BCBSNE says those "are dictated by the Blue Plan that insures the member," so check them by prefix before starting the assessment.' },
     ],
   },
 
@@ -1872,6 +2126,36 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
           { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Nebraska copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Nebraska/ambetter/policies/clinical-policies/CP.BH.104.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Ambetter from Nebraska Total Care pay a clean ABA claim in Nebraska?',
+        body: [
+          'Nebraska’s Health Care Prompt Payment Act requires an insurer to pay, deny or settle a clean claim "within thirty calendar days after receipt by the insurer if submitted electronically and within forty-five calendar days after receipt if submitted in a form other than electronically" (§ 44-8004). The clock tolls while requested information is outstanding. The Act covers insurers and HMOs but not the Medicaid program or a self-insured employer plan (§ 44-8002).',
+        ],
+        cites: [
+          { title: 'Neb. Rev. Stat. § 44-8004 — Health Care Prompt Payment Act, clean-claim deadlines', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8004' },
+          { title: 'Neb. Rev. Stat. § 44-8002 — Health Care Prompt Payment Act, definitions', url: 'https://nebraskalegislature.gov/laws/statutes.php?statute=44-8002' },
+        ],
+      },
+      {
+        h2: 'Does Ambetter require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'No. The 2026 Ambetter Nebraska Provider and Billing Manual marks CMS-1500 field 17 (name of referring provider) "Not Required" and 17a/17b "Conditional," and its electronic-claim notes say: "Ambetter Health has no specific requirements for Referring Provider information."',
+          'Ambetter\'s own gate sits earlier. Its Evidence of Coverage covers autism services "when prescribed by a physician or behavioral health practitioner," and CP.BH.104 requires a recommendation for ABA. Keep that prescription in the chart even though the claim does not ask for it.',
+        ],
+        cites: [
+          { title: 'Ambetter Health (Nebraska) — 2026 Provider and Billing Manual: CMS-1500 field table; Referring Provider', url: 'https://www.ambetterhealth.com/content/dam/centene/Nebraska/ambetter/pdf/2026-ne-provider-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'Timely filing and telehealth claim coding with Ambetter',
+        body: [
+          'Ambetter Nebraska\'s 2026 Provider and Billing Manual sets the filing windows in calendar days. Initial claims: 180 days participating, 90 days non-participating, counted "from the Date of Service (DOS) to the date received by Ambetter Health." Claim disputes and appeals: 180 days participating, 90 days non-participating, counted from Ambetter\'s Explanation of Payment. Coordination-of-benefits claims: 365 days from the primary payer\'s EOP date. Corrected claims, reconsiderations and disputes "must be received within 180 days from the date of the original explanation of payment or denial."',
+          'For telehealth, the manual says distant-site providers "MUST utilize the appropriate modifier to identify the service was provided via telemedicine," the location "must be billed with 02 or 10," and services billed with POS 02 or 10 "will be reimbursed at the facility rate unless otherwise required per state guidelines." It does not name the modifier (95 or GT) for ABA codes, so confirm it with Ambetter before billing remote 97155 or 97156.',
+        ],
+        cites: [
+          { title: 'Ambetter Health (Nebraska) — 2026 Provider and Billing Manual: CMS-1500 field table; Referring Provider', url: 'https://www.ambetterhealth.com/content/dam/centene/Nebraska/ambetter/pdf/2026-ne-provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Ambetter or Heritage Health Medicaid', desc: 'Same operator name, different products — this decides which rulebook, network and authorization route apply.' },
@@ -1895,6 +2179,9 @@ export const nebraskaPayers: Record<string, PayerConfig> = {
       { q: 'Does the Nebraska 25-hour cap apply to Ambetter?', a: 'No. The Nebraska autism mandate excludes non-grandfathered individual and small-group plans that must include essential health benefits, which covers Marketplace plans. Ambetter\'s own criteria (CP.BH.104) look for 6 hours a day and 30 hours a week or less unless more is clinically justified.' },
       { q: 'Is this the same as Nebraska Total Care Medicaid?', a: 'No. Nebraska Total Care operates the Heritage Health Medicaid plan, while Ambetter is a Marketplace product underwritten by Celtic Insurance Company, with its own benefits, network, prior-authorization route and cost sharing. This directory has a separate guide for the Medicaid plan.' },
       { q: 'Which ABA codes need prior authorization on Ambetter Nebraska?', a: 'All of them: Ambetter\'s Pre-Auth Needed tool returns "Pre-authorization is required for all providers" for 97151 through 97158, 0362T and 0373T.' },
+      { q: 'What is Ambetter from Nebraska Total Care’s clean-claim payment turnaround in Nebraska?', a: 'Thirty calendar days for an electronic clean claim, 45 for paper (Neb. Rev. Stat. § 44-8004). The Act does not reach self-insured employer plans.' },
+      { q: 'Does Ambetter Nebraska require a referring provider on ABA claims?', a: 'No. Field 17 is "Not Required" in its 2026 billing manual, and "Ambetter Health has no specific requirements for Referring Provider information."' },
+      { q: 'What is Ambetter Nebraska\'s timely filing limit?', a: '180 calendar days from the date of service for participating providers and 90 days for non-participating providers. COB claims get 365 days from the primary payer\'s EOP date.' },
     ],
   },
 };

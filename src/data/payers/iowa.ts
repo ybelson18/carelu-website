@@ -157,6 +157,15 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Iowa Total Care CP.BH.104 — Applied Behavior Analysis (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.104.pdf' },
         ],
       },
+      {
+        h2: 'What is Iowa Medicaid’s timely filing limit?',
+        body: [
+          'For claims paid by Iowa Medicaid itself, 365 days: no payment is made when more than 365 days have passed between the date of service and the date the initial claim is received, except for retroactive eligibility (365 days from the first notice of eligibility) or third-party collection delays. Adjustments and resubmissions must arrive within 365 days of the claim’s last adjudication, and no claim is paid more than two years after the date of service (441 IAC 80.3). Members enrolled in an IA Health Link MCO follow that plan’s own filing limit (see the plan guides).',
+        ],
+        cites: [
+          { title: 'Iowa Admin. Code 441—80.3 — Time limit for submission of claims (eff. 7/1/26)', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.80.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which payer actually owns this child', desc: 'Commercial mandate, Medicaid, or the Autism Support Program. Iowa\'s three tiers have different front doors, and the ASP one closes at age 14.' },
@@ -183,6 +192,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: '42 CFR 433.139 — Medicaid third-party liability (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'Iowa Total Care CP.BH.104 — Applied Behavior Analysis (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.104.pdf' },
       { title: 'Molina Clinical Policy 482 — Applied Behavioral Analysis for ASD (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
+      { title: 'Iowa Admin. Code 441—80.3 — Time limit for submission of claims (eff. 7/1/26)', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.80.pdf' },
+      { title: 'Iowa HHS — Behavioral Health Intervention Services Provider Manual, Ch. III (rev. 10/22/2021)', url: 'https://hhs.iowa.gov/media/4311/download' },
     ],
     deliveryRules: {
       supervision: {
@@ -333,6 +344,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'What if a child has no ABA coverage at all in Iowa?', a: 'The state Autism Support Program funds ABA for children under 14 with an autism diagnosis made within the previous 24 months by a child psychiatrist, developmental pediatrician, or clinical psychologist, whose household income is at or below 500% of the federal poverty level and who are not eligible for ABA through Medicaid or private insurance. It pays up to $36,000 a year for up to 24 months.' },
       { q: 'Does Iowa Medicaid require ABA goals to be organized by DSM-5 criteria?', a: 'Not in the state rules or ABA code letter we could read. The member\'s MCO sets the format. Iowa Total Care (CP.BH.104) wants skill-acquisition and behavior-reduction goals with baseline data and mastery criteria. Molina (Clinical Policy 482) wants measurable goals tied to the ASD diagnosis and functional deficits. Neither policy asks for goals to be grouped by DSM-5 criteria.' },
       { q: 'Does Iowa Medicaid require a set number of parent training hours?', a: 'No state minimum or cap was found. 97156 and 97157 are covered codes (IL 2431-MC-FFS). Iowa Total Care expects a caregiver-training plan "ideally for a minimum of two hours per month"; other plans set hours on the authorization.' },
+      { q: 'What is Iowa Medicaid’s timely filing limit?', a: '365 days from the date of service for claims Iowa Medicaid pays directly, with resubmissions due within 365 days of the last adjudication and an outside limit of two years (441 IAC 80.3). The MCOs set their own limits.' },
+      { q: 'Which codes does Iowa Medicaid use for ABA — is H2019 an ABA code?', a: 'ABA is billed on CPT 97151–97158 plus G9012, in 15-minute units. The credential modifiers are HN (technician, BCaBA or non-certified support staff), HO (master\'s-level BCBA) and HP (doctoral BCBA), per Informational Letter 2431-MC-FFS (eff. 4/1/2023), which applies to fee-for-service and the MCOs. H2019 is the Behavioral Health Intervention Services (BHIS) skills-training code: HA for individual child, HQ for group, HR for family, per 15 minutes. That is a separate benefit with its own provider manual.' },
     ],
   },
 
@@ -451,6 +464,30 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Iowa Total Care CP.BH.105 — ABA Documentation Requirements (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.105.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing limit, payment turnaround and disputes',
+        body: [
+          'Iowa Total Care requires initial claims “within 180 calendar days of the date of service” (out-of-network providers get 12 months); claims after retroactive eligibility within 365 days of the notice, secondary claims within 365 days of the primary payer’s final determination, and corrected claims within 365 days of the last adjudication but no later than two years after the date of service. First-time clean claims are finalized “90% within 30 calendar days of receipt,” 95% within 45 and 99% within 90. A first-level dispute or appeal is due 180 days from the EOB and a second-level appeal 30 days from the first-level decision. The rendering NPI belongs in box 24J; the plan encourages the taxonomy in 24Ja, and claims missing required data are rejected as not clean.',
+        ],
+        cites: [
+          { title: 'Iowa Total Care Provider Manual (Rev. 03/2026) — Billing and Claims', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/PDF/2025_ITC_ProviderManual_FINAL_OB11849_031826_508.pdf' },
+        ],
+      },
+      {
+        h2: 'Weekly units, H2019, and what Iowa Total Care actually authorizes',
+        body: [
+          'Iowa Total Care does not publish a weekly-unit authorization rule for ABA. What it publishes is a weekly sizing standard and a six-month authorization period. CP.BH.104 sizes the request in hours: treatment should "not exceed six hours per day up to a total of 30 hours per week" unless documentation justifies more, and "the health plan may authorize services at a lower intensity, frequency, or duration than requested." CP.BH.105 then audits billing across the whole period: "All 97153/97154 units billed for the member/enrollee for the entire six-month authorization period that are not supported by the requirements for protocol modification ... are subject to denial of payment or recoupment," and "Billed units not fully supported by documentation may be subject to payment denial or recoupment."',
+          'On billing beyond what was approved, the provider manual says: "Request an authorization for the services you plan on performing and billing. Claims billed with codes not requested as part of the authorization request will deny if a prior authorization is required," and "Failure to obtain the required prior authorization for a service may result in claim denial(s)." Units above what the authorization approved are not covered by it, so request a modification before you deliver them. Whether ITC\'s claim system checks units week by week, or only against the total for the authorization period, is not published. The approval letter and the Secure Provider Portal show the approved units and span. Provider Services (1-833-404-1061) can confirm how they are enforced.',
+          'On codes: Iowa Medicaid ABA is billed on CPT 97151–97158 plus G9012 (case management), with credential modifiers HN (technician, BCaBA or other non-certified staff), HO (master\'s-level BCBA) and HP (doctoral BCBA) (Informational Letter 2431-MC-FFS). H2019 is not an Iowa ABA code. In Iowa it is the Behavioral Health Intervention Services (BHIS) skills-training code, billed per 15 minutes with HA (individual, child), HQ (group) or HR (family) (BHIS Provider Manual). Centene\'s CP.BH.105 lists H2019, H2014 and H0032 among the HCPCS codes its plans may use, but in Iowa BHIS and ABA are separate benefits. ITC\'s manual sends BHIS coding to Iowa HHS guidance and says "Modifiers are required for BHIS services." So an H2019 unit question is a BHIS authorization question, not an ABA one.',
+        ],
+        cites: [
+          { title: 'Iowa Total Care CP.BH.104 — Applied Behavior Analysis (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Iowa Total Care CP.BH.105 — ABA Documentation Requirements (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.105.pdf' },
+          { title: 'Iowa Total Care Provider Manual (Rev. 03/2026) — Prior Authorization; Billing', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/PDF/2025_ITC_ProviderManual_FINAL_OB11849_031826_508.pdf' },
+          { title: 'Iowa Medicaid Informational Letter 2431-MC-FFS — ABA Code Update (eff. 4/1/2023)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/ViewDocument.aspx?viewdocument=497e2fa3-f199-4f95-bdad-461a28ff9d83' },
+          { title: 'Iowa HHS — Behavioral Health Intervention Services Provider Manual, Ch. III (rev. 10/22/2021)', url: 'https://hhs.iowa.gov/media/4311/download' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medicaid line vs. Hawki', desc: 'ABA is not a Hawki benefit. The line decides coverage before anything else does.' },
@@ -467,6 +504,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Iowa Total Care — Prior Authorization Check Tool', url: 'https://www.iowatotalcare.com/providers/preauth-check.html' },
       { title: 'Iowa Total Care — Provider Manual Update for BHIS and ABA (Hawki correction)', url: 'https://www.iowatotalcare.com/providers/provider-alerts/2022provider-manual-update-bhis-aba.html' },
       { title: 'Iowa Admin. Code r. 441—77.31 — Behavioral health services providers', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.77.pdf' },
+      { title: 'Iowa Medicaid Informational Letter 2431-MC-FFS — ABA Code Update (eff. 4/1/2023)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/ViewDocument.aspx?viewdocument=497e2fa3-f199-4f95-bdad-461a28ff9d83' },
+      { title: 'Iowa HHS — Behavioral Health Intervention Services Provider Manual, Ch. III (rev. 10/22/2021)', url: 'https://hhs.iowa.gov/media/4311/download' },
     ],
     deliveryRules: {
       supervision: {
@@ -491,11 +530,12 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'A clinical ceiling plus the national unit edits. CP.BH.104: treatment hours should "not exceed six hours per day up to a total of 30 hours per week" unless documentation of severity, escalating behavior, severe stereotypy or limited functional communication justifies more, and hours should be "less than 20 hours per week if attending school full-time." For per-code units, CP.BH.105 points outward: "Providers should reference the most recent version of ABA Coding Coalition for information on Medically Unlikely Edits (MUEs)," and CMS guidelines "should be used to determine the maximum units of service a provider can report ... during a single date of service."',
+          'A clinical ceiling plus the national unit edits. CP.BH.104: treatment hours should "not exceed six hours per day up to a total of 30 hours per week" unless documentation of severity, escalating behavior, severe stereotypy or limited functional communication justifies more, and hours should be "less than 20 hours per week if attending school full-time." For per-code units, CP.BH.105 points outward: "Providers should reference the most recent version of ABA Coding Coalition for information on Medically Unlikely Edits (MUEs)," and CMS guidelines "should be used to determine the maximum units of service a provider can report ... during a single date of service." ITC publishes no weekly-unit authorization rule. Approvals cover six-month periods, and CP.BH.105 tests 97153/97154 units against "the entire six-month authorization period." The provider manual warns that codes not on the authorization deny. Whether units above the approval are enforced week by week or against the period total is not published, so confirm it with Provider Services.',
         status: 'verified',
         cites: [
           { title: 'Iowa Total Care CP.BH.104 — Applied Behavior Analysis (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.104.pdf' },
           { title: 'Iowa Total Care CP.BH.105 — ABA Documentation Requirements (rev. 02/26)', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/policies/clinical-policies/CP.BH.105.pdf' },
+          { title: 'Iowa Total Care Provider Manual (Rev. 03/2026) — Prior Authorization', url: 'https://www.iowatotalcare.com/content/dam/centene/iowa-total-care/PDF/2025_ITC_ProviderManual_FINAL_OB11849_031826_508.pdf' },
         ],
       },
       noteSignature: {
@@ -606,6 +646,10 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'How do I submit an ABA authorization to Iowa Total Care?', a: 'Through the Secure Provider Web Portal or Availity, or by fax to Behavioral Health at 1-844-908-1170 on the state\'s uniform form 470-5595. Standard decisions come within 7 calendar days.' },
       { q: 'Does Iowa Total Care require ABA goals to be organized by DSM-5 criteria?', a: 'No. CP.BH.104 requires measurable, individualized goals with timelines, split into skill-acquisition goals (baseline and mastery criteria) and behavior-reduction goals (baseline, operational definition, strategies, graphs), plus 2–4 caregiver goals. DSM-5 governs the diagnosis, not how goals are grouped.' },
       { q: 'How many parent training hours does Iowa Total Care expect?', a: '"Ideally for a minimum of two hours per month," with 2–4 measurable caregiver goals in the plan. If you plan fewer hours, document the clinical reason or your attempts to engage caregivers (CP.BH.104).' },
+      { q: 'What is Iowa Total Care’s timely filing limit?', a: '180 calendar days from the date of service for in-network initial claims (12 months out of network), 365 days for corrected claims from the last adjudication, and 180 days from the EOB for a first-level dispute.' },
+      { q: 'How fast does Iowa Total Care pay a clean claim?', a: 'Its provider manual commits to finalizing 90% of first-time clean claims within 30 calendar days of receipt, 95% within 45 days and 99% within 90 days.' },
+      { q: 'Does Iowa Total Care approve ABA in weekly units?', a: 'Not as a published rule. CP.BH.104 sizes the request in hours per day and per week: up to 6 hours a day and 30 a week without extra justification, and the plan may approve less than requested. Approvals run for six-month periods, and CP.BH.105 audits 97153/97154 units across "the entire six-month authorization period." Check the approval letter or the portal for the approved units. Ask Provider Services (1-833-404-1061) whether the units are enforced weekly or against the period total.' },
+      { q: 'Can you bill over the weekly H2019 units for Iowa Total Care?', a: 'H2019 is not an Iowa ABA code. In Iowa it is the BHIS skills-training code (HA, HQ or HR modifier). Iowa ABA is billed on CPT 97151–97158 plus G9012 with HN, HO or HP modifiers. For either benefit, ITC\'s manual says to authorize what you plan to bill. Codes not on the authorization deny, and units without the required PA may deny. Get the authorization modified before going over the approved units rather than billing them and appealing.' },
     ],
   },
 
@@ -702,6 +746,15 @@ export const iowaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Wellpoint Iowa IA Health Link and Hawki Provider Manual (Sept. 1, 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/IA_WLP_CAID_ProviderManual.pdf?v=202608101953' },
           { title: 'Iowa Medicaid Informational Letter 2431-MC-FFS — ABA Code Update (eff. 4/1/2023)', url: 'https://secureapp.dhs.state.ia.us/IMPA/Information/ViewDocument.aspx?viewdocument=497e2fa3-f199-4f95-bdad-461a28ff9d83' },
+        ],
+      },
+      {
+        h2: 'Claims: filing limit, payment and disputes',
+        body: [
+          'Wellpoint’s filing limit is 180 days from the last date of service to Wellpoint’s receipt when it is the primary payer; as secondary it is 180 days in network (365 out of network), starting when the provider learns of the primary payer’s responsibility. After an electronic claim, providers “should generally receive a response from Wellpoint within 30 business days.” Payment disputes run in two steps: a reconsideration within 180 calendar days of the Explanation of Payment, then a claim payment appeal within 30 business days of the reconsideration decision; Wellpoint aims to resolve each within 30 business days.',
+        ],
+        cites: [
+          { title: 'Wellpoint Iowa Medicaid Provider Manual (IAWP-CD-PM-096716-25, Sept. 1, 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/IA_WLP_CAID_ProviderManual.pdf?v=202608101953' },
         ],
       },
     ],
@@ -835,6 +888,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'Where do ABA authorizations go for Wellpoint Iowa?', a: 'By phone, by fax to the Medicaid behavioral health outpatient line 1-844-451-2826, or through Interactive Care Reviewer in Availity. Check PLUTO for which codes need authorization.' },
       { q: 'Does Wellpoint Iowa require ABA goals to be organized by DSM-5 criteria?', a: 'Wellpoint has published no ABA criteria or treatment-plan template for Iowa. Ask Provider Services (833-731-2143) which criteria the reviewer applies.' },
       { q: 'Does Wellpoint Iowa set required parent training hours?', a: 'None published. 97156/97157 are covered codes under Iowa Medicaid; the hours are set on the authorization.' },
+      { q: 'What is Wellpoint Iowa’s timely filing limit?', a: '180 days from the last date of service when Wellpoint is primary (secondary: 180 days in network, 365 out of network). Reconsiderations are due within 180 days of the Explanation of Payment.' },
     ],
   },
 
@@ -1082,9 +1136,12 @@ export const iowaPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Iowa\'s Blue plan; ABA policy and auth list are behind a provider login, so the Iowa mandate (no age or dollar caps since 2026) is the public floor.',
     assessmentPA: {
-      value: 'Not confirmed — Wellmark publishes pre-service review requirements by code in its Authorization Table, which we could not query for 97151/97152',
+      value: 'Not confirmed — Wellmark\'s public Medical Authorization Table (now served at authorization.wellmark.com/authtable/) has no row for 97151 or 97152, nor for any other ABA or behavioral-health code (searched 2026-10-11: 97151–97158, 0362T, 0373T, H2019, 90791 all return nothing), so it does not answer ABA pre-service review; that sits in the login-only Behavioral Health and Chemical Dependency section of the Provider Guide',
       status: 'unverified',
-      verifyVia: 'Wellmark Authorization Table (wellmark.com/authtable) — search 97151 and 97152; or Wellmark Provider Services at the number on the member ID card.',
+      cites: [
+        { title: 'Wellmark — Medical Authorization Table', url: 'https://authorization.wellmark.com/authtable/' },
+      ],
+      verifyVia: 'Wellmark Behavioral Health and Chemical Dependency Provider Guide section (Aug. 2026, provider login), or Wellmark Provider Services at the number on the member ID card — ask whether 97151/97152 need pre-service review on this member\'s plan.',
       blocker: 'document',
     },
     treatmentPA: {
@@ -1093,7 +1150,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       cites: [
         { title: 'Iowa Code § 514C.31 — Applied behavior analysis for treatment of autism spectrum disorder', url: 'https://www.legis.iowa.gov/docs/code/514C.31.pdf' },
       ],
-      verifyVia: 'Wellmark Authorization Table (wellmark.com/authtable) for 97153/97155/97156, and the Behavioral Health and Chemical Dependency Provider Guide section (Aug. 2026) on Wellmark\'s provider site (login required).',
+      verifyVia: 'The Behavioral Health and Chemical Dependency Provider Guide section (Aug. 2026) on Wellmark\'s provider site (login required), or Wellmark Provider Services. The public Medical Authorization Table (authorization.wellmark.com/authtable/) lists no ABA codes (97153/97155/97156 searched 2026-10-11), so it cannot settle this.',
       blocker: 'document',
     },
     dxRequired: {
@@ -1113,7 +1170,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
     metaDescription:
       'How Wellmark Blue Cross and Blue Shield covers ABA for Iowa families: the Iowa autism mandate after H.F. 330 (no age limit and no dollar cap for plans issued or renewed from 1/1/2026), which Wellmark plans it reaches, Iowa\'s prior-authorization deadlines, behavior-analyst licensure, and what intake must verify because Wellmark\'s ABA policy sits behind a provider login.',
     intro: [
-      'Wellmark Blue Cross and Blue Shield is Iowa\'s dominant commercial carrier, and for ABA it is also the least transparent one: its behavioral health provider guide and code-level authorization table are behind a provider login or a search form we could not query, and its public medical-policy index lists no ABA policy. So the public floor for a Wellmark family is the Iowa mandate itself, which changed on January 1, 2026: H.F. 330 (2025 Iowa Acts ch. 162) struck the mandate\'s age limits and dollar caps for large-group and public-employee plans issued or renewed on or after that date. The first intake question on every Wellmark card is therefore which kind of plan it is.',
+      'Wellmark Blue Cross and Blue Shield is Iowa\'s dominant commercial carrier, and for ABA it is also the least transparent one: its behavioral health provider guide is behind a provider login, its public code-level Medical Authorization Table lists no ABA or behavioral-health codes at all, and its public medical-policy index lists no ABA policy. So the public floor for a Wellmark family is the Iowa mandate itself, which changed on January 1, 2026: H.F. 330 (2025 Iowa Acts ch. 162) struck the mandate\'s age limits and dollar caps for large-group and public-employee plans issued or renewed on or after that date. The first intake question on every Wellmark card is therefore which kind of plan it is.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Mandated on large-group and public-employee plans; other plans per the plan document — verify per member' },
@@ -1140,12 +1197,12 @@ export const iowaPayers: Record<string, PayerConfig> = {
       {
         h2: 'What Wellmark publishes, and what it does not',
         body: [
-          'Wellmark\'s public medical-policy index is an alphabetical list of medical policies; it contains no ABA policy. The page says InterQual criteria are used "to evaluate whether a medical procedure or equipment is medically necessary," and points to the Authorization Table as "your first stop in learning whether an authorization is required." Behavioral health rules live in the Behavioral Health and Chemical Dependency section of the Wellmark Provider Guide, updated August 2026, which is served from a provider-only location and returned no public copy. We therefore do not state Wellmark\'s ABA criteria, unit limits or telehealth rules on this page. Treat every clinical-policy question as a verification call, and cite the mandate when a plan subject to it applies an age or dollar limit.',
+          'Wellmark\'s public medical-policy index is an alphabetical list of medical policies; it contains no ABA policy. The page says InterQual criteria are used "to evaluate whether a medical procedure or equipment is medically necessary," and points to the Authorization Table as "your first stop in learning whether an authorization is required." That table carries no ABA rows: searched on 2026-10-11, 97151 through 97158, 0362T, 0373T, H2019 and even 90791 return nothing, so it cannot tell you whether ABA needs review. Behavioral health rules live in the Behavioral Health and Chemical Dependency section of the Wellmark Provider Guide, updated August 2026, which is served from a provider-only location and returned no public copy. We therefore do not state Wellmark\'s ABA criteria, unit limits or telehealth rules on this page. Treat every clinical-policy question as a verification call, and cite the mandate when a plan subject to it applies an age or dollar limit.',
         ],
         cites: [
           { title: 'Wellmark — Medical policies for providers', url: 'https://www.wellmark.com/provider/medical-policies-authorizations/medical-policies' },
           { title: 'Wellmark — Provider Guide (section list and update dates)', url: 'https://www.wellmark.com/provider/resources/wellmark-provider-guide' },
-          { title: 'Wellmark — Medical Authorization Table', url: 'https://www.wellmark.com/authtable/' },
+          { title: 'Wellmark — Medical Authorization Table', url: 'https://authorization.wellmark.com/authtable/' },
         ],
       },
       {
@@ -1179,6 +1236,27 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Wellmark — Provider Guide (section list and update dates)', url: 'https://www.wellmark.com/provider/resources/wellmark-provider-guide' },
         ],
       },
+      {
+        h2: 'How fast must Wellmark Blue Cross and Blue Shield pay a clean claim in Iowa?',
+        body: [
+          'Iowa requires insurers and HMOs to “either accept and pay or deny a clean claim” (Iowa Code § 507B.4A), and the Insurance Division’s rule sets the clock: within 30 days after the insurer receives the claim, with any request for information needed to make it clean due within the same 30 days (191 IAC 15.32(2)). A clean claim not paid within 30 days carries 10% annual interest from the thirty-first day. The rule applies to policies issued, delivered or renewed in Iowa. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
+          { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
+        ],
+      },
+      {
+        h2: 'BlueCard: Wellmark members treated out of state, and other Blues\' members treated in Iowa',
+        body: [
+          'Wellmark says BlueCard "typically applies when a provider contracted with Wellmark is servicing a member of another BCBS Plan." Claims go through the treating provider\'s local plan. A Wellmark provider "submits the claim to Wellmark," and Wellmark "recognizes the BlueCard member and transmits the claim to the member\'s BCBS Plan," which "adjudicates the claim according to member\'s benefit Plan." Wellmark then reimburses the provider. Its filing tips: "File the claim to the provider\'s local BCBS Plan," and "Verify BlueCard member benefits, check applicable medical policies and initiate an out-of-area member authorization." Network status follows the ID card. A PPO-lettered suitcase means the provider "will be reimbursed for covered services in accordance with the provider\'s PPO contract with the local BCBS Plan." A blank suitcase marks HMO or POS coverage, where "Out-of-network benefits may be available." No suitcase means no BlueCard coverage.',
+          'When a Wellmark member is treated outside Iowa and South Dakota, the provider checks eligibility "through your local BCBS Plan\'s website," using the first three characters of the Wellmark ID, or calls 800-676-2583. For pre-service review, "Providers outside Iowa and South Dakota should log in to their home plan website and navigate to the out-of-state pre-service review information page." Non-Wellmark providers can instead "call the number on the member\'s ID card." Wellmark warns that for services on its Authorization Table, "If the prior approval is not approved or not completed prior to the service being provided, the claim will be denied." Whether ABA codes are on that table for a given member is the open question this guide records under prior authorization.',
+        ],
+        cites: [
+          { title: 'Wellmark — BlueCard Program for Blue Cross Blue Shield members (provider page)', url: 'https://www.wellmark.com/provider/resources/bluecard-program' },
+          { title: 'Wellmark — Types of medical and drug authorizations', url: 'https://www.wellmark.com/provider/medical-policies-authorizations/manage-authorizations/types-of-authorizations' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Large group (more than 50 FTEs) or public employer: the mandate applies. Individual, small group or self-funded: the plan document decides.' },
@@ -1196,6 +1274,10 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Iowa Admin. Code 191—38 — Coordination of benefits', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.38.pdf' },
       { title: 'Wellmark — Medical policies for providers', url: 'https://www.wellmark.com/provider/medical-policies-authorizations/medical-policies' },
       { title: 'Wellmark — Provider Guide', url: 'https://www.wellmark.com/provider/resources/wellmark-provider-guide' },
+      { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
+      { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
+      { title: 'Wellmark — BlueCard Program for Blue Cross Blue Shield members (provider page)', url: 'https://www.wellmark.com/provider/resources/bluecard-program' },
+      { title: 'Wellmark — Types of medical and drug authorizations', url: 'https://www.wellmark.com/provider/medical-policies-authorizations/manage-authorizations/types-of-authorizations' },
     ],
     deliveryRules: {
       supervision: {
@@ -1294,7 +1376,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'The mandate requires a treatment plan developed by a licensed physician or licensed psychologist "after a comprehensive evaluation or reevaluation" (§ 514C.31), which functions as the order. Whether Wellmark also requires a separate referral is not public.',
+          'The mandate requires a treatment plan developed by a licensed physician or licensed psychologist "after a comprehensive evaluation or reevaluation" (§ 514C.31), which functions as the order. Whether Wellmark also requires a separate referral is not public. The statute defines "treatment plan" as one "developed by a licensed physician or licensed psychologist after a comprehensive evaluation or reevaluation performed in a manner consistent with the most recent clinical report or recommendations of the American academy of pediatrics." It sets no expiry on the plan, but caps how often the carrier may review it: "not more than once every three months during the first year of the treatment plan and not more than once every six months during every year thereafter," unless the plan and the treating physician or psychologist agree otherwise.',
         status: 'plan-dependent',
         cites: [
           { title: 'Iowa Code § 514C.31', url: 'https://www.legis.iowa.gov/docs/code/514C.31.pdf' },
@@ -1338,6 +1420,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'How fast must Wellmark decide an ABA prior authorization?', a: 'For fully insured plans, Iowa Code 514F.8 requires 48 hours for urgent and 10 calendar days for non-urgent requests (15 for complex cases), and an approval lasts at least 90 days. Self-funded plans follow ERISA: 15 days, or 72 hours if urgent.' },
       { q: 'Does Wellmark require ABA goals to be organized by DSM-5 criteria?', a: 'Wellmark publishes no ABA policy or treatment-plan template. Its behavioral health rules are in a provider-only Provider Guide section, so confirm the format with Wellmark.' },
       { q: 'Does Wellmark set required parent training hours?', a: 'None published. Confirm with Wellmark whether 97156/97157 are authorized and in what amount.' },
+      { q: 'How fast must Wellmark Blue Cross and Blue Shield pay a clean ABA claim in Iowa?', a: 'Iowa law (Iowa Code § 507B.4A; 191 IAC 15.32) requires a fully insured plan to pay or deny a clean claim within 30 days of receipt, with 10% annual interest after that. Self-funded employer plans are not bound by the statute.' },
+      { q: 'How does BlueCard work for a Wellmark member treated outside Iowa?', a: 'The out-of-state provider files the claim with its own local Blue plan, which sends it to Wellmark to adjudicate on the member\'s benefits. Check eligibility through your local Blue\'s website with the Wellmark prefix, or call 800-676-2583. Find Wellmark\'s pre-service review requirements through your home plan\'s out-of-state pre-service review page, or call the number on the member\'s card. Wellmark denies claims for listed services when prior approval was not obtained first.' },
     ],
   },
 
@@ -1435,6 +1519,25 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean claim in Iowa?',
+        body: [
+          'Iowa requires insurers and HMOs to “either accept and pay or deny a clean claim” (Iowa Code § 507B.4A), and the Insurance Division’s rule sets the clock: within 30 days after the insurer receives the claim, with any request for information needed to make it clean due within the same 30 days (191 IAC 15.32(2)). A clean claim not paid within 30 days carries 10% annual interest from the thirty-first day. The rule applies to policies issued, delivered or renewed in Iowa. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
+          { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Large group or public employer: the Iowa mandate applies. Individual, small group or self-funded: the plan document decides.' },
@@ -1455,6 +1558,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Aetna — Telemedicine and Direct Patient Contact Payment Policy (ABA code table: Commercial vs. Medicare columns; posted policy shows last review June 2021)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pdf/telemedicine.pdf' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders (last review 10/02/2025)', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
+      { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1536,7 +1641,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Aetna states no referral requirement. Where Iowa\'s mandate applies, the ABA must follow a treatment plan developed by a licensed physician or licensed psychologist after a comprehensive evaluation (§ 514C.31).',
+          'Aetna states no referral requirement. Where Iowa\'s mandate applies, the ABA must follow a treatment plan developed by a licensed physician or licensed psychologist after a comprehensive evaluation (§ 514C.31). The statute defines "treatment plan" as one "developed by a licensed physician or licensed psychologist after a comprehensive evaluation or reevaluation performed in a manner consistent with the most recent clinical report or recommendations of the American academy of pediatrics." It sets no expiry on the plan, but caps how often the carrier may review it: "not more than once every three months during the first year of the treatment plan and not more than once every six months during every year thereafter," unless the plan and the treating physician or psychologist agree otherwise.',
         status: 'plan-dependent',
         cites: [
           { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
@@ -1585,6 +1690,9 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment (97151) be done by telehealth with Aetna?', a: 'On commercial plans, yes: Aetna\'s telemedicine payment policy lists 97151, 97153, 97155, 97156 and 97157 with modifier GT, 95 or FR. 97152, 97154 and 97158 are listed for Medicare Advantage only. Confirm the policy is current and that the plan has a telehealth benefit.' },
       { q: 'Does Aetna require ABA goals to be organized by DSM-5 criteria in Iowa?', a: 'No DSM-5 grouping is asked for. Aetna wants a DSM-5 ASD diagnosis and a plan with clearly defined target behaviors, baseline data and quantifiable progress criteria; GR-69017-4 asks for baseline, interim and current data for all goals.' },
       { q: 'Does Aetna set required parent training hours in Iowa?', a: 'No published minimum or cap. Parent commitment to participate is a medical-necessity criterion; request 97156/97157 in hours per week on GR-69017-4 and show measurable caregiver goals — the authorization sets the hours.' },
+      { q: 'What is Aetna’s timely filing limit in Iowa?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
+      { q: 'How fast must Aetna pay a clean ABA claim in Iowa?', a: 'Iowa law (Iowa Code § 507B.4A; 191 IAC 15.32) requires a fully insured plan to pay or deny a clean claim within 30 days of receipt, with 10% annual interest after that. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does Aetna need for an ABA authorization in Iowa?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
     ],
   },
 
@@ -1687,6 +1795,25 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth/Cigna Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean claim in Iowa?',
+        body: [
+          'Iowa requires insurers and HMOs to “either accept and pay or deny a clean claim” (Iowa Code § 507B.4A), and the Insurance Division’s rule sets the clock: within 30 days after the insurer receives the claim, with any request for information needed to make it clean due within the same 30 days (191 IAC 15.32(2)). A clean claim not paid within 30 days carries 10% annual interest from the thirty-first day. The rule applies to policies issued, delivered or renewed in Iowa. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
+          { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Large group or public employer: the Iowa mandate applies. Individual, small group or self-funded: the plan document decides.' },
@@ -1703,6 +1830,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: '2025 Iowa Acts ch. 162 (H.F. 330)', url: 'https://www.legis.iowa.gov/docs/acts/2025/CH0162.pdf' },
       { title: 'Iowa Code chapter 154D — Behavioral science', url: 'https://www.legis.iowa.gov/docs/code/154D.pdf' },
       { title: 'Iowa Code § 514F.8 — Prior authorizations', url: 'https://www.legis.iowa.gov/docs/code/514F.8.pdf' },
+      { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
+      { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1778,7 +1907,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'EN0499 states no referral requirement. Where Iowa\'s mandate applies, the ABA follows a treatment plan developed by a licensed physician or licensed psychologist after a comprehensive evaluation (§ 514C.31).',
+          'EN0499 states no referral requirement. Where Iowa\'s mandate applies, the ABA follows a treatment plan developed by a licensed physician or licensed psychologist after a comprehensive evaluation (§ 514C.31). The statute defines "treatment plan" as one "developed by a licensed physician or licensed psychologist after a comprehensive evaluation or reevaluation performed in a manner consistent with the most recent clinical report or recommendations of the American academy of pediatrics." It sets no expiry on the plan, but caps how often the carrier may review it: "not more than once every three months during the first year of the treatment plan and not more than once every six months during every year thereafter," unless the plan and the treating physician or psychologist agree otherwise.',
         status: 'plan-dependent',
         cites: [{ title: 'Iowa Code § 514C.31', url: 'https://www.legis.iowa.gov/docs/code/514C.31.pdf' }],
         verifyVia: 'Evernorth Autism Care Coordinator team 877.279.7603 and the member\'s benefit document.',
@@ -1826,6 +1955,9 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna credential RBTs?', a: 'No. "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider." EN0499 expects the direct work from an RBT or BCaBA under BCBA case supervision.' },
       { q: 'Does Cigna require ABA goals to follow DSM-5 criteria in Iowa?', a: 'EN0499 requires every treatment goal to be "directly related to" the ASD diagnosis and the DSM-5-TR symptoms (social communication/interaction; restricted, repetitive behavior), with measurable targets, baseline data and mastery criteria.' },
       { q: 'Does Cigna set required parent training hours in Iowa?', a: 'No hour figure is published. EN0499 requires measurable stakeholder (parent/caregiver) training goals with mastery criteria and progress data, delivered by a BCBA or licensed clinician; the hours are set on the authorization.' },
+      { q: 'What is Cigna’s timely filing limit in Iowa?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'How fast must Cigna pay a clean ABA claim in Iowa?', a: 'Iowa law (Iowa Code § 507B.4A; 191 IAC 15.32) requires a fully insured plan to pay or deny a clean claim within 30 days of receipt, with 10% annual interest after that. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does Cigna (Evernorth) need for ABA in Iowa?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
     ],
   },
 
@@ -1925,6 +2057,25 @@ export const iowaPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A; history entry February 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean claim in Iowa?',
+        body: [
+          'Iowa requires insurers and HMOs to “either accept and pay or deny a clean claim” (Iowa Code § 507B.4A), and the Insurance Division’s rule sets the clock: within 30 days after the insurer receives the claim, with any request for information needed to make it clean due within the same 30 days (191 IAC 15.32(2)). A clean claim not paid within 30 days carries 10% annual interest from the thirty-first day. The rule applies to policies issued, delivered or renewed in Iowa. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
+          { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding and group size', desc: 'Large group or public employer: the Iowa mandate applies. Individual, small group or self-funded: the plan document decides.' },
@@ -1945,6 +2096,8 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
       { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
       { title: 'Optum — Medical Records Documentation for Reviews of ABA Services (BH02325, 6/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/OBHS_ABA_Services_Documentation_Protocols.pdf' },
+      { title: 'Iowa Code § 507B.4A (2026) — Prompt payment of claims', url: 'https://www.legis.iowa.gov/docs/code/507B.4A.pdf' },
+      { title: 'Iowa Admin. Code 191—15.32 — Prompt payment of certain health claims', url: 'https://www.legis.iowa.gov/docs/iac/chapter/191.15.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2025,7 +2178,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Optum\'s criteria state no referral requirement. Where Iowa\'s mandate applies, the ABA follows a treatment plan developed by a licensed physician or licensed psychologist after a comprehensive evaluation (§ 514C.31).',
+          'Optum\'s criteria state no referral requirement. Where Iowa\'s mandate applies, the ABA follows a treatment plan developed by a licensed physician or licensed psychologist after a comprehensive evaluation (§ 514C.31). The statute defines "treatment plan" as one "developed by a licensed physician or licensed psychologist after a comprehensive evaluation or reevaluation performed in a manner consistent with the most recent clinical report or recommendations of the American academy of pediatrics." It sets no expiry on the plan, but caps how often the carrier may review it: "not more than once every three months during the first year of the treatment plan and not more than once every six months during every year thereafter," unless the plan and the treating physician or psychologist agree otherwise.',
         status: 'plan-dependent',
         cites: [{ title: 'Iowa Code § 514C.31', url: 'https://www.legis.iowa.gov/docs/code/514C.31.pdf' }],
         verifyVia: 'The member\'s benefit document; UnitedHealthcare plans that require referrals say so on the card.',
@@ -2073,6 +2226,9 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare (Optum) require RBT certification for ABA technicians?', a: 'Optum\'s ABA criteria say technicians "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate," working under BCBA or licensed-clinician supervision. They also advise against a parent serving as the RBT for their own child.' },
       { q: 'Does UnitedHealthcare require ABA goals to be organized by DSM-5 criteria in Iowa?', a: 'No DSM-5 grouping is asked for. Optum wants clearly stated, measurable goals with baseline data and timeframes, prioritized by safety and quality-of-life risk, with new goals based on targeted symptoms and behaviors.' },
       { q: 'Does UnitedHealthcare set required parent training hours in Iowa?', a: 'Optum says "Parent training is required" (97156/97157) but sets no minimum or maximum — "It is based on the treatment plan and goals provided." Commercial claims are capped at 16 units (4 hours) per day for each of 97156 and 97157.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit in Iowa?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
+      { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Iowa?', a: 'Iowa law (Iowa Code § 507B.4A; 191 IAC 15.32) requires a fully insured plan to pay or deny a clean claim within 30 days of receipt, with 10% annual interest after that. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Iowa?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
     ],
   },
 };

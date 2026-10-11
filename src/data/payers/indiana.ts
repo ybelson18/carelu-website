@@ -155,6 +155,29 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'IHCP — Prior Authorization module (published Sept. 29, 2026): Retroactive Prior Authorization', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing limit, taxonomy and appeals',
+        body: [
+          '180 days. “Providers must submit claims to the Indiana Health Coverage Programs (IHCP) within 180 calendar days of the date the service was rendered” (405 IAC 1-1-3). Claims past the limit are considered only with supporting documentation attached to each claim. This is the fee-for-service rule; managed care members’ claims follow their MCE’s filing limit.',
+          'Taxonomy. On the CMS-1500 the billing provider’s taxonomy goes in 33b with qualifier ZZ or PXC, and IHCP requires it when needed to establish a one-to-one match between the NPI and an IHCP Provider ID — for example a provider with several service locations. The rendering provider’s taxonomy in 24J is “optional unless required for a one-to-one NPI/Provider ID match.”',
+          'Appeals. A request for administrative review must be filed within 60 calendar days of notification of the claim payment or denial; Gainwell acknowledges it within 10 business days and answers within 45 calendar days. An adverse administrative review can be appealed within 15 calendar days of notification of the decision.',
+        ],
+        cites: [
+          { title: 'IHCP Provider Reference Module — Claim Submission and Processing (published Feb. 24, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-submission-and-processing.pdf' },
+          { title: 'IHCP Provider Reference Module — Claim Administrative Review and Appeals', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-administrative-review-and-appeals.pdf' },
+        ],
+      },
+      {
+        h2: 'Does the referring provider go on the ABA claim?',
+        body: [
+          'The IHCP\'s claim module sets the general rule: "When providing medical services or supplies resulting from an order, prescription or referral, federal regulations require providers to include the National Provider Identifier (NPI) of the ordering, prescribing or referring (OPR) provider on Medicaid claims. Reimbursement to the billing provider requires the OPR provider to be enrolled in Medicaid." The IHCP checks both: "Medical claims will be denied if an NPI for the OPR provider is not present on the claim or if the OPR provider is not enrolled as an IHCP provider." On a CMS-1500 the NPI goes in field 17b ("Referring Provider or Other Source NPI"). On an 837P it goes in loop 2310A (NM101 = P3 or DN). On the IHCP Portal it goes in the Referring Provider ID field.',
+          'ABA specialty 615 is not on the IHCP\'s list of specialties whose claims "will not adjudicate without" an OPR NPI (therapy clinics, PT, OT, speech, pharmacy, DME, labs and others). The module adds that "Claims from other specialties may also require an OPR NPI in certain circumstances, such as for specific services that always require physician\'s order." Indiana ABA rests on a referral: eligibility requires that "a physician has made a treatment referral recommending ABA therapy." So the safe practice is to report the referring practitioner\'s NPI in 17b and check before the first visit that this practitioner is enrolled in the IHCP, using the OPR Provider Search Tool. Search date by date, because the tool is specific to the date of service. MCE claims follow each plan\'s own editing, so confirm with the member\'s plan.',
+        ],
+        cites: [
+          { title: 'IHCP Provider Reference Module — Claim Submission and Processing, Section 8: Ordering, Prescribing or Referring Provider Requirements (v8.5, published 2/24/2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-submission-and-processing.pdf' },
+          { title: 'IHCP Provider Reference Module — Behavioral Health Services', url: 'https://www.in.gov/medicaid/providers/files/modules/behavioral-health-services.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID & managed-care plan', desc: 'Anthem, MHS, CareSource, or UHC (Hoosier Care Connect/PathWays) — the plan decides the PA process and forms. MDwise ended as an HIP/Hoosier Healthwise MCE 1/1/2026; former MDwise members now carry one of the other three.' },
@@ -189,6 +212,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
       { title: 'IHCP — Out-of-State Providers module (PROMOD00011, published May 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/out-of-state-providers.pdf' },
       { title: 'IHCP — School Corporation Services module (PROMOD00046, published Sept. 29, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/school-corporation-services.pdf' },
+      { title: 'IHCP Provider Reference Module — Claim Submission and Processing (published Feb. 24, 2026)', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-submission-and-processing.pdf' },
+      { title: 'IHCP Provider Reference Module — Claim Administrative Review and Appeals', url: 'https://www.in.gov/medicaid/providers/files/modules/claim-administrative-review-and-appeals.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -289,6 +314,11 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Indiana Medicaid members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. The IHCP enrolls some out-of-state providers, but out-of-state services generally need extra PA and some specialties are ineligible; check the Enrollment Matrix.' },
       { q: 'Can Indiana Medicaid ABA be authorized retroactively?', a: 'Only in IHCP’s listed cases, chiefly pending or retroactive eligibility (request within 12 months of the eligibility entry) or a provider who could not have known the child was eligible (request within 60 days of discovery). Managed care members follow their MCE’s rules.' },
       { q: 'What code does ABA under a child’s IEP fall under in Indiana Medicaid?', a: 'The same ABA CPT codes, billed by the school corporation with modifier TM. The IHCP School Corporation Services module (Sept. 29, 2026) lists ABA therapy among school-based Medicaid services and says “the TM modifier must be attached to the end of all billing codes” for services under an IEP, a 504 plan or another approved education plan; TL and TR are not used. The education plan serves as prior authorization, the school corporation’s NPI is both billing and rendering provider, and claims go to fee-for-service (Gainwell), never to the child’s MCE.' },
+      { q: 'What is Indiana Medicaid’s timely filing limit for ABA claims?', a: '180 calendar days from the date of service for fee-for-service claims (405 IAC 1-1-3). Managed care members’ claims follow their MCE’s own filing limit.' },
+      { q: 'Does Indiana Medicaid require taxonomy on the ABA claim?', a: 'Only when it is needed to match the NPI to a single IHCP Provider ID — for example a provider with several locations. The billing taxonomy then goes in box 33b with qualifier ZZ or PXC; the rendering taxonomy in 24J is optional unless needed for that match.' },
+      { q: 'What documents does Indiana Medicaid require at intake for ABA?', a: 'A comprehensive diagnostic evaluation (CDE) by an HSPP psychologist, physician, APRN or physician assistant trained in DSM autism criteria. It must include a physician\'s referral for autism-specific services, and member eligibility separately requires that "a physician has made a treatment referral recommending ABA therapy." The IHCP checklist also asks for documented current ASD symptoms within the past year and the history of prior treatment. Before ABA starts, the behavior assessment must carry three core instruments: the Vineland Comprehensive Parent Interview Form with the Maladaptive Behavior domain, the BASC PRQ (only BASC-4 is accepted after October 1, 2026), and a direct skills assessment. Submit full scoring reports with graphs, signed by the lead analyst and parent. The PA itself goes on the IHCP Universal Prior Authorization Form with codes, modifiers and units, plus a treatment plan with baselines and parent-training detail.' },
+      { q: 'How recent does the autism evaluation need to be for Indiana Medicaid ABA?', a: 'The CDE is good for one year at the start of ABA. If it is older, an updated statement of need carrying a referral from an HSPP, physician, APRN or PA is required (BT2026160). Members continuing without a gap do not need a new CDE but need a reassessment every six months. A new referral is required after a six-month gap in services. If another provider completed a behavior assessment within six months, obtain that one rather than re-testing.' },
+      { q: 'Does Indiana Medicaid require the referring provider on the ABA claim (box 17b)?', a: 'The IHCP requires the NPI of the ordering, prescribing or referring provider on claims for services that result from an order or referral, and denies claims without it or when that provider is not IHCP-enrolled. It goes in CMS-1500 field 17b (837P loop 2310A). ABA specialty 615 is not on the list of specialties where every claim hard-edits for it. But Indiana ABA is delivered on a physician\'s referral, so report the referring practitioner\'s NPI and check that they are enrolled in the IHCP (OPR Provider Search Tool) before services start.' },
     ],
   },
 
@@ -1202,11 +1232,12 @@ export const indianaPayers: Record<string, PayerConfig> = {
         h2: 'The Optum carve-out, in practice',
         body: [
           'Optum was selected by UHC Community Plan to build and manage the Indiana ABA network, which means ABA providers must be in the Optum network — credentialed separately from UHC\'s medical side — and enrolled with Indiana Medicaid before joining. Behavioral-health PA runs by phone at (877) 610-9785 (or the number on the member\'s card), through Provider Express ("Auth Request"), or by faxing the IHCP universal PA form to (844) 897-6514; ABA specifically uses Optum\'s ABA Treatment Request Form from the Provider Express Indiana Medicaid ABA Program page, which also hosts the provider orientation and quick-reference guide.',
-          'Decision timelines are set by Indiana law, not by UHC\'s older published figures. Since July 1, 2025, IC 27-1-37.5-23 binds Indiana\'s Medicaid risk-based managed care (IC 27-1-37.5-5(a)(3)), which includes Hoosier Care Connect: an urgent PA request gets an answer “not later than twenty-four (24) hours after receiving the request,” every other request “not later than forty-eight (48) hours,” and “The time frames set forth in this section do not include weekends and state and federal legal holidays.” If UHC misses the deadline, “the health care service subject to prior authorization shall be automatically deemed authorized” (IC 27-1-37.5-28). UHC\'s 2024 Hoosier Care Connect manual still prints slower pre-statute timelines (non-urgent pre-service “Within 5 calendar days,” urgent “Within 48 hours”), and the statute overrides them. The statute does not apply to “health care services provided under” the PathWays for Aging waiver (IC 27-1-37.5-1(c)); for those, the federal Medicaid managed-care ceiling of 7 calendar days (72 hours expedited) applies (42 CFR 438.210(d)). Denials appeal to UHC\'s National Appeals Team (fax (855) 312-1470, phone (866) 556-8166). New PA requirement lists took effect July 1, 2026 — re-check the UHC Indiana prior-auth page each quarter.',
+          'Decision timelines are set by Indiana law, not by UHC\'s older published figures. Since July 1, 2025, IC 27-1-37.5-23 binds Indiana\'s Medicaid risk-based managed care (IC 27-1-37.5-5(a)(3)), which includes Hoosier Care Connect: an urgent PA request gets an answer “not later than twenty-four (24) hours after receiving the request,” every other request “not later than forty-eight (48) hours,” and “The time frames set forth in this section do not include weekends and state and federal legal holidays.” If UHC misses the deadline, “the health care service subject to prior authorization shall be automatically deemed authorized” (IC 27-1-37.5-28). UHC\'s 2024 Hoosier Care Connect manual still prints slower pre-statute timelines (non-urgent pre-service “Within 5 calendar days,” urgent “Within 48 hours”), and the statute overrides them. The statute does not apply to “health care services provided under” the PathWays for Aging waiver (IC 27-1-37.5-1(c)); for those, the federal Medicaid managed-care ceiling of 7 calendar days (72 hours expedited) applies (42 CFR 438.210(d)). Denials appeal to UHC\'s National Appeals Team (fax (855) 312-1470, phone (866) 556-8166). The current Hoosier Care Connect and PathWays for Aging PA requirement lists took effect October 1, 2026 (page last updated October 5, 2026); their behavioral-health row is unchanged from the September list — “Prior authorization required. For specific codes requiring prior authorization, please call the” number on the member\'s ID card — so ABA codes are not itemised there. UHC reissues these lists most months; re-check the page before relying on a code-level answer.',
         ],
         cites: [
           { title: 'UHC Community Plan — IHCP Works 2024 Prior Authorization seminar deck', url: 'https://www.in.gov/medicaid/providers/files/IHCP-Works-2024-UHC-Prior-Authorization.pdf' },
           { title: 'UHC Community Plan of Indiana — prior authorization page', url: 'https://www.uhcprovider.com/en/health-plans-by-state/indiana-health-plans/in-comm-plan-home/in-cp-prior-auth.html' },
+          { title: 'UHC Community Plan — Prior Authorization Indiana Hoosier Care Connect, effective Oct 1, 2026', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/in/priorauth/IN-Hoosier-Connect-Effective-10-1-2026.pdf' },
           { title: 'FSSA — Indiana Medicaid managed care health plans (program-by-MCE roster)', url: 'https://www.in.gov/medicaid/partners/medicaid-partners/managed-care-health-plans/' },
           { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' },
           { title: 'Ind. Code 27-1-37.5-5 — “health plan” includes Medicaid risk-based managed care', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-5/' },
@@ -1472,6 +1503,25 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1493,6 +1543,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+      { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -1612,6 +1665,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'What does the Indiana autism mandate require?', a: 'Indiana’s mandate (2001) was the first autism insurance mandate in the country, and it remains one of the strongest: group accident and sickness policies must cover ASD treatment prescribed by the treating physician under a treatment plan, with no age limits and no dollar, visit, or hour caps — and cost-sharing no less favorable than for physical illness generally. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Indiana?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Indiana Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'Can an out-of-state BCBA treat Aetna members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
+      { q: 'What is Aetna’s timely filing limit in Indiana?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
+      { q: 'How fast must Aetna pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does Aetna need for an ABA authorization in Indiana?', a: 'Aetna\'s precertification form GR-69017-4 (7-26), which replaced its other ABA forms from August 1, 2026 (Maryland and Massachusetts excepted), lists them. It asks for the current DSM diagnosis code and the diagnosing provider\'s name and credentials, plus hours by code (assessment codes per authorization period, treatment codes per week) and any hours during class. Supporting documents: "Results of a standardized assessment (i.e. Vineland, ABAS, VB-MAPP) completed within the past 12 months," with the IQ if available. Add a time-limited treatment plan with baselines and measurable targets, FBA or skills-assessment results, data showing severity justifies the hours, measurable caregiver goals, titration and discharge criteria, and coordination with other providers. Start the request on Availity or by phone and attach the form and records.' },
     ],
   },
 
@@ -1710,6 +1766,25 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1728,6 +1803,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
       { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
     ],
     deliveryRules: {
       supervision: {
@@ -1838,6 +1915,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'What does the Indiana autism mandate require?', a: 'Indiana’s mandate (2001) was the first autism insurance mandate in the country, and it remains one of the strongest: group accident and sickness policies must cover ASD treatment prescribed by the treating physician under a treatment plan, with no age limits and no dollar, visit, or hour caps — and cost-sharing no less favorable than for physical illness generally. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Cigna pay for ABA in Indiana?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Indiana Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'Can an out-of-state BCBA treat Cigna members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
+      { q: 'What is Cigna’s timely filing limit in Indiana?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'How fast must Cigna pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does Cigna (Evernorth) need for ABA in Indiana?', a: 'EN0499 (effective 5/15/2026) requires a confirmed DSM-5-TR ASD diagnosis from an independently licensed clinician whose scope includes diagnosis. The record must give "the name, credentials, and type of licensure" of the diagnosing clinician and "the date on which the diagnosis was most recently made." A provisional or rule-out diagnosis, or an IDEA educational identification, does not count. For treatment, the BCBA\'s assessment must use a current-edition standardized instrument, completed in full and administered "within 60 days prior to the start of treatment," with score tables. The treatment plan\'s goals must match the deficits it found.' },
     ],
   },
 
@@ -1945,6 +2025,25 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1969,6 +2068,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
       { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
     ],
     deliveryRules: {
       supervision: {
@@ -2090,6 +2191,9 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'What does UnitedHealthcare pay for ABA in Indiana?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Indiana Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
+      { q: 'What is UnitedHealthcare’s timely filing limit in Indiana?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
+      { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+      { q: 'What documents does UnitedHealthcare (Optum) need for ABA in Indiana?', a: 'Optum\'s ABA Supplemental Clinical Criteria require a valid DSM-5-TR ASD diagnosis from a state-licensed physician, psychologist or other qualified licensed clinician. The diagnosing clinician confirms the diagnosis and severity level "using at least one clinically validated tool," such as the ADOS-2, ADI-R or CARS-2. The ABA provider then completes its own behavioral assessment with baseline measurement on at least one validated tool (for example the VB-MAPP, ABLLS-R, AFLS or Vineland) and builds the treatment plan from it. "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)." The criteria set no expiry on the diagnosis.' },
     ],
   },
 
@@ -2218,6 +2322,29 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Anthem — ABA Provider Resource Guide (multi-state incl. Georgia and Indiana, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Anthem Blue Cross and Blue Shield pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+        ],
+      },
+      {
+        h2: 'BlueCard: treating an Anthem Indiana member from another state\'s Blue network',
+        body: [
+          'BlueCard is the program that lets an Anthem Indiana member be treated by a Blue-contracted provider in another state. Anthem\'s BlueCard Provider Manual defines it as "a national program that enables members of one BCBS Plan to obtain healthcare service benefits while traveling or living in another BCBS Plan\'s service area." It works through each provider\'s own local plan: "The program lets you submit claims for patients from other BCBS Plans, domestic and international, to your local BCBS Plan. Your local BCBS Plan is your sole contact for claims payment, adjustments and issue resolution."',
+          'So for a practice contracted with another Blue, such as another state\'s Blue plan, treating an Anthem Indiana member, the claim goes to your local Blue, not to Anthem. The manual\'s worked example: "the provider ... files a claim locally," and the local plan "forwards the claim to [the member\'s plan] that adjudicates the claim according to the member\'s benefits and the provider\'s arrangement with" the local plan. Put the member\'s full ID, including the three-character prefix, on the claim. "Claims with incorrect or missing prefixes and member identification numbers cannot be processed." Network status comes from your contract with your local Blue, matched to the member\'s product. A PPO member must see a BlueCard PPO provider "if they want to access PPO in-network benefits."',
+          'Prior authorization stays with the home plan, Anthem. Anthem\'s out-of-area tool (anthem.com, Prior Authorization, "Medical Policy and Prior Authorization for Blue Plans," entered with the member\'s alpha prefix) shows its general precertification rules. The BlueCard manual gives the routes: Electronic Provider Access through your own local Blue\'s portal, which forwards you to the home plan\'s pre-service review tool; a HIPAA 278 transaction; or 1-800-676-BLUE (2583), asking for the utilization review area, which has a Behavioral Health option. ABA is on Anthem\'s commercial precertification list, so obtain it from Anthem before services start. The manual reminds providers that the member is technically "responsible for obtaining pre-certification/preauthorization for out-patient services from their BCBS Plan," and most practices get it for them. Anthem\'s Indiana provider manual adds that appeals of pre-certification decisions for BlueCard members are "the responsibility of the Blue Plan, insuring or administering benefits" (the home plan).',
+        ],
+        cites: [
+          { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Indiana provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00004.pdf' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Group or individual policy, and funding type', desc: 'Group plans must cover ABA; individual-policy insurers only have to offer it, so an individual plan may lawfully lack the benefit. Self-funded ERISA plans are outside the mandate entirely. This fork decides the whole conversation.' },
@@ -2245,6 +2372,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+      { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Indiana provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00004.pdf' },
+      { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -2356,6 +2487,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Does Indiana license behavior analysts?', a: 'Yes, since 2025. The Indiana Professional Licensing Agency\'s Behavior Analyst Licensing Board issues Licensed Behavior Analyst and Licensed Assistant Behavior Analyst credentials, applications went live on May 13, 2025, and practising applied behavior analysis without a licence is prohibited. Licensure requires current BACB certification plus a national background check. Indiana does not license RBTs — technicians work under a statutory exception while directed by a licensed analyst.' },
       { q: 'Which criteria does Anthem use for ABA in Indiana?', a: 'MCG B-806-T. Anthem notified Indiana commercial providers that effective June 1, 2024 it would transition from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and unpublished.' },
       { q: 'Can an out-of-state BCBA treat Anthem members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Anthem’s ABA guide accepts BCBAs and providers “licensed or authorized by the state in which they practice”; confirm the license question with Anthem credentialing.' },
+      { q: 'How fast must Anthem Blue Cross and Blue Shield pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+      { q: 'I am a provider contracted with another state\'s Blue plan. Can I treat an Anthem Indiana member under BlueCard?', a: 'Yes, if the member\'s product gives you network benefits through your local Blue contract. File the claim with your own local Blue plan, with the member\'s three-character prefix. Your local plan sends it to Anthem, which adjudicates it on the member\'s benefits and your local contract. Get ABA precertification from Anthem as the home plan, through Electronic Provider Access in your local Blue\'s portal or by calling 1-800-676-BLUE. Anthem\'s alpha-prefix router on anthem.com shows its general precertification rules. Precertification appeals go to Anthem, and claim questions go to your local Blue.' },
     ],
   },
 
@@ -2486,6 +2619,29 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Anthem — ABA Provider Resource Guide (multi-state incl. Georgia and Indiana, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
         ],
       },
+      {
+        h2: 'How fast must Anthem pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+        ],
+      },
+      {
+        h2: 'BlueCard: treating an Anthem Indiana member from another state\'s Blue network',
+        body: [
+          'BlueCard is the program that lets an Anthem Indiana member be treated by a Blue-contracted provider in another state. Anthem\'s BlueCard Provider Manual defines it as "a national program that enables members of one BCBS Plan to obtain healthcare service benefits while traveling or living in another BCBS Plan\'s service area." It works through each provider\'s own local plan: "The program lets you submit claims for patients from other BCBS Plans, domestic and international, to your local BCBS Plan. Your local BCBS Plan is your sole contact for claims payment, adjustments and issue resolution."',
+          'So for a practice contracted with another Blue, such as another state\'s Blue plan, treating an Anthem Indiana member, the claim goes to your local Blue, not to Anthem. The manual\'s worked example: "the provider ... files a claim locally," and the local plan "forwards the claim to [the member\'s plan] that adjudicates the claim according to the member\'s benefits and the provider\'s arrangement with" the local plan. Put the member\'s full ID, including the three-character prefix, on the claim. "Claims with incorrect or missing prefixes and member identification numbers cannot be processed." Network status comes from your contract with your local Blue, matched to the member\'s product. A PPO member must see a BlueCard PPO provider "if they want to access PPO in-network benefits."',
+          'Prior authorization stays with the home plan, Anthem. Anthem\'s out-of-area tool (anthem.com, Prior Authorization, "Medical Policy and Prior Authorization for Blue Plans," entered with the member\'s alpha prefix) shows its general precertification rules. The BlueCard manual gives the routes: Electronic Provider Access through your own local Blue\'s portal, which forwards you to the home plan\'s pre-service review tool; a HIPAA 278 transaction; or 1-800-676-BLUE (2583), asking for the utilization review area, which has a Behavioral Health option. ABA is on Anthem\'s commercial precertification list, so obtain it from Anthem before services start. The manual reminds providers that the member is technically "responsible for obtaining pre-certification/preauthorization for out-patient services from their BCBS Plan," and most practices get it for them. Anthem\'s Indiana provider manual adds that appeals of pre-certification decisions for BlueCard members are "the responsibility of the Blue Plan, insuring or administering benefits" (the home plan).',
+        ],
+        cites: [
+          { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Indiana provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00004.pdf' },
+          { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
+          { title: 'Anthem and CDHP products Precertification/Prior Authorization List — IN, KY, MO, OH, WI (updated January 1, 2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/Central_Blues_CDHP_PA_List.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Commercial or Medicaid', desc: 'Anthem runs both lines in Indiana and they follow different rulebooks. A Hoosier Healthwise, HIP, Hoosier Care Connect or PathWays card belongs in the Medicaid guide.' },
@@ -2512,6 +2668,10 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+      { title: 'Anthem — The BlueCard Program Provider Manual (eff. 1/1/2022; current edition in the Indiana provider manual library)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00004.pdf' },
+      { title: 'Anthem Blue Cross and Blue Shield — 2026 Indiana Commercial Provider Manual (eff. 8/1/2026)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_IN_00012.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2645,6 +2805,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'Which criteria does Anthem use?', a: 'MCG B-806-T since June 1, 2024, replacing CG-BEH-02 and MCG W0153. MCG criteria are licensed and not published, so ask the reviewer for the specific criterion when a request is denied.' },
       { q: 'Do technicians need an Indiana license?', a: 'No. Indiana licenses behavior analysts (LBA/LABA), not technicians. A direct-contact technician is exempt while acting under the direction of an Indiana-licensed analyst, and Anthem requires the supervising BCBA or QHP in box 31 of the claim.' },
       { q: 'Can an out-of-state BCBA treat Anthem members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. Anthem’s ABA guide accepts BCBAs and providers “licensed or authorized by the state in which they practice”; confirm the license question with Anthem credentialing.' },
+      { q: 'How fast must Anthem pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+      { q: 'I am a provider contracted with another state\'s Blue plan. Can I treat an Anthem Indiana member under BlueCard?', a: 'Yes, if the member\'s product gives you network benefits through your local Blue contract. File the claim with your own local Blue plan, with the member\'s three-character prefix. Your local plan sends it to Anthem, which adjudicates it on the member\'s benefits and your local contract. Get ABA precertification from Anthem as the home plan, through Electronic Provider Access in your local Blue\'s portal or by calling 1-800-676-BLUE. Anthem\'s alpha-prefix router on anthem.com shows its general precertification rules. Precertification appeals go to Anthem, and claim questions go to your local Blue.' },
     ],
   },
 
@@ -2738,6 +2900,16 @@ export const indianaPayers: Record<string, PayerConfig> = {
           { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
         ],
       },
+      {
+        h2: 'How fast must CareSource Marketplace pay a clean claim in Indiana?',
+        body: [
+          'Indiana’s prompt-pay statute for insurers, IC 27-8-5.7, requires an insurer to pay or deny each clean claim within thirty days after receipt if it was filed electronically and within forty-five days if filed on paper (§ 6). The insurer must tell the provider of any deficiency within the same thirty or forty-five days and describe how to fix it; if it does not, “the submitted claim” is established “as a clean claim” (§ 5). Interest on a late clean claim starts on day 31 (electronic) or day 46 (paper) and runs until payment. These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+          { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Marketplace or Medicaid', desc: 'Decides which CareSource rulebook applies. A Hoosier Healthwise or HIP card belongs in the caresource-indiana Medicaid guide.' },
@@ -2759,6 +2931,8 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'Ind. Code § 25-8.5-3-6 — license required to practice applied behavior analysis', url: 'https://codes.findlaw.com/in/title-25-professions-and-occupations/in-code-sect-25-8-5-3-6/' },
       { title: 'Indiana PLA — Telehealth (IC 25-1-9.5) definitions', url: 'https://www.in.gov/pla/resources/telehealth-home' },
       { title: 'Indiana PLA — Behavior Analyst licensing information (fees incl. reciprocity application)', url: 'https://www.in.gov/pla/professions/behavior-analyst/behavior-analyst-licensing-information' },
+      { title: 'IC 27-8-5.7-5 — Notice of claim deficiencies', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-5/' },
+      { title: 'IC 27-8-5.7-6 — Payment of clean claims; interest', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-5-7-6/' },
     ],
     deliveryRules: {
       supervision: {
@@ -2875,6 +3049,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { q: 'How long does an authorization last?', a: 'Medical necessity is reviewed at baseline and every 6 months; the initial treatment plan generally runs 26 weeks and continuation requests are due every 6 months.' },
       { q: 'Will the family owe cost sharing?', a: 'Yes, usually. The EOC applies the deductible, copayment and coinsurance from the Schedule of Benefits, no less favorable than for physical illness. Check deductible status before quoting.' },
       { q: 'Can an out-of-state BCBA treat CareSource Marketplace members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. We have not verified this plan’s own credentialing rule for out-of-state BCBAs; ask provider relations.' },
+      { q: 'How fast must CareSource Marketplace pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
     ],
   },
 };

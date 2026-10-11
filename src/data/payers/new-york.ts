@@ -93,7 +93,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         h2: 'Staffing & credentialing: who you can hire, and what they must clear',
         body: [
           'New York has no RBT mandate. The FFS manual defines the technician tier simply as an "unlicensed individual" — someone not licensed, certified, or registered by the state as an ABA provider — with no credential, training-hour, age, or education requirement attached. What the state regulates instead is scope: an LBA may not delegate any task within the ABA scope of practice, even under direct supervision, so technicians only execute the scripted treatment-plan activities the LBA wrote, record data without interpreting it, prepare the setting, and write factual session notes. The middle tier is unique to New York: the Certified Behavior Analyst Assistant (CBAA), a NYSED credential under Education Law Article 167 requiring a bachelor\'s degree (in ABA, or a related field plus ABA certificate coursework), 1,000 hours of supervised experience, and passage of both the NYCBAA and NY Autism exams. And if you staff with RBTs anyway — many agencies do — the BACB\'s own floor travels with the credential: 18+, high-school education, the 40-hour training and competency assessment, and a passed criminal background check plus abuse-registry check no more than 180 days before the certification application.',
-          'On background screening, the ABA Policy Manual itself imposes no employee-level background-check, fingerprinting, or registry requirement — the obligations arrive from adjacent rules, keyed to what your agency is. At provider enrollment, NY Medicaid screens applications at the federal limited/moderate/high risk tiers and collects the $750 federal application fee (2026) from certain provider types (waived if already paid to Medicare or another state\'s Medicaid/CHIP within 12 months); enrollment fingerprinting attaches only at the high-risk tier, so confirm your risk category with provider enrollment. Justice Center pre-employment checks — Staff Exclusion List check first, then a fingerprint-based criminal background check via IdentoGO, fully completed before the hire has regular unsupervised contact with recipients — bind programs under Justice Center jurisdiction (OMH- and OPWDD-operated/certified programs, OCFS residential programs for children), not a standalone LBA practice billing Medicaid FFS; but an agency that also runs OPWDD-certified services (e.g., community habilitation) carries the full four-check stack: SEL, CBC, an MHL 16.34 check, and the OCFS child-abuse SCR check. Every agency, whatever its settings, should screen staff against the three exclusion databases OMIG names — the NYS Medicaid exclusion list, the federal OIG LEIE, and SAM.gov; OMIG doesn\'t publish a check frequency, so set a recurring cadence in your compliance plan.',
+          'On background screening, the ABA Policy Manual itself imposes no employee-level background-check, fingerprinting, or registry requirement — the obligations arrive from adjacent rules, keyed to what your agency is. At provider enrollment, NY Medicaid screens applications at the federal limited/moderate/high risk tiers and collects the $750 federal application fee (2026) from certain provider types (waived if you are enrolled in Medicare or another state\'s Medicaid or CHIP program, or the fee has already been paid to Medicare; a hardship waiver can be requested); enrollment fingerprinting attaches only at the high-risk tier, so confirm your risk category with provider enrollment. Justice Center pre-employment checks — Staff Exclusion List check first, then a fingerprint-based criminal background check via IdentoGO, fully completed before the hire has regular unsupervised contact with recipients — bind programs under Justice Center jurisdiction (OMH- and OPWDD-operated/certified programs, OCFS residential programs for children), not a standalone LBA practice billing Medicaid FFS; but an agency that also runs OPWDD-certified services (e.g., community habilitation) carries the full four-check stack: SEL, CBC, an MHL 16.34 check, and the OCFS child-abuse SCR check. Every agency, whatever its settings, should screen staff against the three exclusion databases OMIG names — the NYS Medicaid exclusion list, the federal OIG LEIE, and SAM.gov; OMIG doesn\'t publish a check frequency, so set a recurring cadence in your compliance plan.',
           'The supervisor credential is the LBA, and New York is explicit that BCBA certification alone "is not sufficient" to practice — it\'s only a pathway to licensure, which requires a master\'s from a NYSED-registered ABA program (or substantial equivalent), the exam (BCBA satisfies it), supervised experience, good moral character, minimum age 21, NYSED-approved child-abuse-reporting coursework, and a $300 fee. The supervision math covered above — 5% of each technician\'s monthly service hours, two face-to-face contacts, the six-supervisee cap — is what turns those credentials into a staffing model. Plans then layer on their own stacks: Optum/UHC Community Plan requires network LBAs to hold active BCBA certification plus the NY license plus a NY Medicaid ID (CBAAs need their own Medicaid ID), along with professional liability insurance and a virtual-visits attestation for telehealth supervision; Healthfirst stretches record retention to 10 years for MMC providers (vs. the state\'s 6-year/age-22 floor). No NY Medicaid plan we checked requires RBT certification for technicians.',
         ],
         cites: [
@@ -124,6 +124,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'eMedNY ABA Provider Policy Manual (updated Oct 1, 2025)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: the 90-day rule, the two-year limit and EVV',
+        body: [
+          'eMedNY’s General Billing manual: "Medicaid regulations require that claims for payment of medical care, services, or supplies to eligible beneficiaries be initially submitted within 90 days of the date of service to be valid and enforceable, unless the claim is delayed due to circumstances outside the control of the provider"; a late claim with an allowed delay reason must be submitted within 30 days of the delay ending, with a numeric delay reason code, and every claim must be finally submitted and payable within two years of the date of service. Managed care members are billed to their plan, not eMedNY.',
+          'Electronic Visit Verification applies to Medicaid personal care and home health care services under the 21st Century Cures Act. The Department of Health’s list of EVV-applicable billing codes for fee-for-service and managed care contains no ABA code (97151–97158), so ABA sessions are not EVV-reported.',
+        ],
+        cites: [
+          { title: 'eMedNY Information for All Providers — General Billing (Version 2025-1)', url: 'https://www.emedny.org/ProviderManuals/AllProviders/PDFS/Information_for_All_Providers-General_Billing.pdf' },
+          { title: 'NYSDOH — NY Medicaid Electronic Visit Verification', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
@@ -261,6 +273,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment (97151/97152) be done by telehealth under NY Medicaid?', a: 'Yes, when every element of the code can be met remotely. The NYS Medicaid Telehealth Policy Manual (July 2026) includes NYSED-licensed ABA providers, says covered telehealth services include assessment, and lists no ABA restriction. Bill with modifier 95 or GT and POS 02, 10 or 11. Managed-care plans can be stricter, so check the plan.' },
       { q: 'Is NY Medicaid accepting new ABA providers?', a: 'For fee-for-service, an NYSED-licensed LBA can enroll through eMedNY; the ABA manual states no cap or moratorium. For managed care, each plan decides whether to contract, and eMedNY enrollment is required first.' },
       { q: 'If a family switches ABA agencies, does the NY Medicaid authorization transfer?', a: 'On fee-for-service there is no authorization; the referral (valid up to 2 years) is for ABA services, not a named provider, and the treatment plan must carry transition and coordination plans. For a managed-care member, ask the plan whether its authorization can move or a new request is needed.' },
+      { q: 'How many RBTs can a BCBA supervise in New York Medicaid (including NYC)?', a: 'Six at a time. Since October 1, 2025 the eMedNY ABA manual says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each unlicensed technician for at least 5% of their monthly service hours, and must hold at least two face-to-face, real-time contacts a month, observing service delivery in at least one. The supervisor must be a NYSED-licensed behavior analyst — BCBA certification alone is not a New York license — and Education Law § 8802 separately caps an LBA at six CBAAs for every payer.' },
+      { q: 'What is the timely filing limit for New York Medicaid ABA claims?', a: '90 days from the date of service for fee-for-service claims, unless delayed by circumstances outside the provider’s control (then within 30 days of the delay ending, with a delay reason code); all claims must be finally payable within two years. Does EVV apply to ABA in New York? No — ABA codes are not on the state’s EVV code list.' },
     ],
   },
 
@@ -328,6 +342,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Fidelis ABA Provider Tip Sheet (01/01/2026)', url: 'https://www.fideliscare.org/Portals/0/Providers/TipSheets/ABA-Provider-Tip-Sheet.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'Fidelis Care sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
@@ -445,6 +470,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does Fidelis Care cover ABA therapy?', a: 'Yes — for NY Medicaid members under 21 with ASD or Rett syndrome, under its own Centene-derived clinical policy: assessment completed first, treatment authorized with named instruments and graphed data, and 6-month reauthorization cycles.' },
       { q: 'How recent does the autism diagnosis need to be for Fidelis?', a: 'Initial requests need a DSM-5 diagnosis using a validated assessment tool administered within the past 60 months, and the supporting diagnostic evaluation must be within 2 years of the authorization request. Continuing services don\'t re-trigger the instrument rule.' },
       { q: 'Can ABA be delivered in schools for Fidelis members?', a: 'No — Fidelis stopped covering school-setting ABA September 1, 2023. For treatment during school hours, contact the local Committee on Special Education for an independent evaluation first.' },
+      { q: 'How many RBTs can a BCBA supervise for Fidelis Care Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for Fidelis Care Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -503,6 +530,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Optum ABA State Mandates BH 803ABA STM12026 (Jan 2026) — NY Medicaid/CHP entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
           { title: 'Optum NY Medicaid ABA Provider Orientation (BH00869, 01/30/2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/nyaba/NYabaPres.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'UnitedHealthcare Community Plan sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
@@ -617,6 +655,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'How do I get an ABA authorization from UHC Community Plan NY?', a: 'Submit the online ABA Assessment request on providerexpress.com for the assessment, then the treatment request through the portal or the Autism Care Advocate line with member info, diagnosis, and the treatment plan. Status is viewable online.' },
       { q: 'Can the ABA assessment or BCBA supervision be done by telehealth with UHC Community Plan NY?', a: 'Supervision (97155) and caregiver training (97156/97157), yes, once your practice is an approved Optum virtual-visits provider; bill POS 02. Optum\u2019s orientation does not name the 97151/97152 assessment as a virtual service, so get written approval first.' },
       { q: 'Are UHC\'s clinical criteria different from the state\'s?', a: 'No — Optum\'s New York Medicaid/CHP entry copies the state criteria (under 21, ASD/Rett, 2-year referral with DSM-5 checklist). What differs is process: everything is PA-gated, unlike fee-for-service.' },
+      { q: 'How many RBTs can a BCBA supervise for UnitedHealthcare Community Plan Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for UnitedHealthcare Community Plan Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -674,6 +714,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Anthem NY provider news — ABA Services FAQ (article 13424)', url: 'https://providernews.anthem.com/new-york/articles/applied-behavior-analysis-services-faq-for-providers-13424' },
+        ],
+      },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'Anthem HealthPlus sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
@@ -797,6 +848,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment need prior authorization at Anthem NY?', a: 'Yes. Anthem\u2019s ABA Services FAQ for New York providers says authorizations are required and marks 97151 and 97152, like every other ABA code, \u201cAuthorization required: Yes.\u201d' },
       { q: 'Does Anthem HealthPlus require RBT certification for technicians?', a: 'Anthem names no RBT requirement. Its NY ABA FAQ says services come from LBAs, CBAAs or other individuals allowed under Education Law Article 167, that \u201cunlicensed aides cannot enroll as a provider,\u201d and that LBAs bill for the staff they supervise.' },
       { q: 'Why was our Anthem ABA request returned?', a: 'Anthem returns incomplete Treatment Plan Request Forms rather than pending them. Complete every field — including BCBA/QHCP information and the Comprehensive/Focused classification — and attach clinical documentation up front.' },
+      { q: 'How many RBTs can a BCBA supervise for Anthem HealthPlus Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for Anthem HealthPlus Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -861,6 +914,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Healthfirst provider page — ABA supervision requirements', url: 'https://hfproviders.org/resource-posts/applied-behavior-analysis-supervision-requirements' },
           { title: 'eMedNY ABA Provider Policy Manual (state baseline)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'Healthfirst sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
@@ -988,16 +1052,18 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does Healthfirst cover ABA therapy?', a: 'Yes — it carries the NY Medicaid ABA carve-in on the state\'s clinical baseline (under 21, ASD/Rett, practitioner referral) and maintains its own ABA authorization policy, with PA submitted through Availity Essentials.' },
       { q: 'Does Healthfirst require prior authorization for the ABA assessment?', a: 'On its commercial group plans, yes — 97151–97158 all require PA. For the Medicaid line, the policy text was unavailable at review time; confirm the current policy via hfproviders.org or provider services (1-888-801-1660) before booking.' },
       { q: 'Do the state\'s new supervision rules apply at Healthfirst?', a: 'Yes — Healthfirst republished the state\'s October 2025 requirements (LBA supervision of at least 5% of technician hours, 2 monthly face-to-face contacts, max 6 supervisees) as applying to its plans.' },
+      { q: 'How many RBTs can a BCBA supervise for Healthfirst Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for Healthfirst Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
   'metroplus-health-new-york': {
     slug: 'metroplus-health-new-york',
-    cardDesc: 'NYC H+H plan; auth via email/fax to CSS; unique quirk: diagnosis must be re-validated annually.',
+    cardDesc: 'NYC H+H plan; ABA auth by fax, email or provider portal; unique quirk: diagnosis must be re-validated annually.',
     treatmentPA: {
-      value: 'Required — authorization requests and clinical information go to MetroPlus CSS by email or fax (per the 2023 benefit notice)',
+      value: 'Required. MetroPlus\'s 2026 BH/HCBS Provider PA Request Guide (v1.3, Medicaid, Partnership in Care and HARP sheet) marks "Applied Behavior Analysis Treatment (ABA)" In-Network Prior Authorization "Yes", submitted by "Fax - 212-908-5182", "Email - MetroPlusABA@Metroplus.org" or "Submission via Provider Portal - providers.metroplus.org". The guide lists ABA as one service line and does not break PA out by CPT code.',
       status: 'verified',
-      cites: [{ title: 'MetroPlusHealth notice — 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' }],
+      cites: [{ title: 'MetroPlusHealth — 2026 MH/BH/HCBS Provider PA Request Guide v1.3 (Medicaid/PIC/HARP sheet, ABA row; re-read 10/11/2026)', url: 'https://metroplus.org/wp-content/uploads/2026/09/2026_MH_BH_HCBS_Provider-PA-Request-Guide_-v1.3_C_FINAL-1.xlsx' }, { title: 'MetroPlusHealth notice — 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' }],
     },
     assessmentPA: {
       value: 'Not published \u2014 assessment-PA specifics, authorization periods and hour caps aren\u2019t in the materials we could verify; confirm with MetroPlus CSS per case',
@@ -1018,14 +1084,14 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     h1: 'MetroPlusHealth ABA coverage (NY Medicaid Managed Care).',
     metaTitle: 'MetroPlusHealth New York (Medicaid) ABA Coverage & Prior Auth | Carelu',
     metaDescription:
-      'How MetroPlusHealth — the NYC Health + Hospitals plan — handles NY Medicaid ABA: email/fax authorization to CSS, the annual diagnosis-validation requirement that\'s stricter than the state\'s 2-year rule, and the NYC-only footprint.',
+      'How MetroPlusHealth — the NYC Health + Hospitals plan — handles NY Medicaid ABA: authorization by fax, email or provider portal, the annual diagnosis-validation requirement that\'s stricter than the state\'s 2-year rule, and the NYC-only footprint.',
     intro: [
-      'MetroPlusHealth, the NYC Health + Hospitals plan, carries the NY Medicaid ABA carve-in with two plan-specific wrinkles worth designing intake around. First, the mechanics are old-school: ABA authorization requests and clinical information go to MetroPlus CSS by email or fax, not a slick portal workflow. Second — and unique among the plans we profile — MetroPlus requires the autism diagnosis to be authenticated and re-validated annually by the member\'s treatment team, a stricter cadence than the state\'s 2-year referral rule, and it holds that LBAs don\'t meet the practitioner level to validate the diagnosis themselves.',
+      'MetroPlusHealth, the NYC Health + Hospitals plan, carries the NY Medicaid ABA carve-in with two plan-specific wrinkles worth designing intake around. First, the mechanics: ABA authorization requests and clinical information go to MetroPlus by fax or email, and its 2026 BH/HCBS PA Request Guide now also lists the provider portal. Second — and unique among the plans we profile — MetroPlus requires the autism diagnosis to be authenticated and re-validated annually by the member\'s treatment team, a stricter cadence than the state\'s 2-year referral rule, and it holds that LBAs don\'t meet the practitioner level to validate the diagnosis themselves.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'Mainstream MMC (Metroplus Health Plan, Inc. — NYC Health + Hospitals)' },
       { label: 'Footprint', value: 'New York City only' },
-      { label: 'Authorization channel', value: 'Email or fax to MetroPlus CSS — requests + clinical information' },
+      { label: 'Authorization channel', value: 'Fax 212-908-5182, email MetroPlusABA@Metroplus.org, or the provider portal (providers.metroplus.org)' },
       { label: 'Diagnosis recency', value: 'Annual — diagnosis authenticated and re-validated every year (stricter than the state\'s 2-year referral)' },
       { label: 'Diagnostic evaluation', value: 'Comprehensive autism evaluation by a NYS-licensed clinician; LBAs can\'t validate the dx' },
       { label: 'Clinical criteria', value: 'State baseline (under 21, ASD/Rett) + MetroPlus overlays' },
@@ -1043,18 +1109,30 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       {
         h2: 'Mechanics and what to verify',
         body: [
-          'Per the plan\'s 2023 benefit notice, authorization requests and supporting clinical information are submitted to MetroPlus CSS by email or fax — build a submission template and a delivery-confirmation habit, since email/fax workflows lack a portal\'s status visibility. Assessment-PA specifics, authorization periods, hour caps, and rates aren\'t published in the materials we could verify; confirm current requirements with CSS or via the metroplus.org provider portal per case. The footprint is NYC-only, and the clinical baseline is the state\'s: under 21, ASD/Rett, practitioner referral.',
+          'Per the plan\'s 2023 benefit notice, authorization requests and supporting clinical information go to MetroPlus CSS by email or fax. The 2026 BH/HCBS Provider PA Request Guide (v1.3, posted September 2026) adds the provider portal: ABA requests go by fax to 212-908-5182, by email to MetroPlusABA@Metroplus.org, or through providers.metroplus.org. If you use email or fax, keep a submission template and confirm receipt. Assessment-PA specifics, authorization periods, hour caps, and rates aren\'t published in the materials we could verify; confirm current requirements with CSS or via the metroplus.org provider portal per case. The footprint is NYC-only, and the clinical baseline is the state\'s: under 21, ASD/Rett, practitioner referral.',
         ],
         cites: [
           { title: 'MetroPlusHealth notice — 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' },
           { title: 'eMedNY ABA Provider Policy Manual (state baseline)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
+          { title: 'MetroPlusHealth — 2026 MH/BH/HCBS Provider PA Request Guide v1.3 (Medicaid/PIC/HARP sheet, ABA row; re-read 10/11/2026)', url: 'https://metroplus.org/wp-content/uploads/2026/09/2026_MH_BH_HCBS_Provider-PA-Request-Guide_-v1.3_C_FINAL-1.xlsx' },
+        ],
+      },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'MetroPlusHealth sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
     collect: [
       { title: 'Comprehensive autism evaluation', desc: 'By a NYS-licensed clinician — it must accompany or precede the diagnosis, and an LBA\'s attestation doesn\'t count.' },
       { title: 'Annual revalidation plan', desc: 'Diary a yearly diagnosis-authentication task with the treatment team — MetroPlus\'s cadence is annual, not the state\'s 2 years.' },
-      { title: 'CSS submission package', desc: 'Auth request + clinical information by email or fax — use a template and confirm receipt.' },
+      { title: 'CSS submission package', desc: 'Auth request + clinical information by fax, email or the provider portal; for fax or email, use a template and confirm receipt.' },
       { title: 'Complete state referral packet', desc: 'The state baseline (under 21, ASD/Rett, referral with DSM-5 checklist) still applies.' },
     ],
     sources: [
@@ -1135,7 +1213,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Not published \u2014 MetroPlus states no authorization periods, unit ceilings or hour caps in the materials that could be verified. Treat the authorized units as the ceiling and get the authorization period in writing with each approval, since the email/fax workflow gives no portal status visibility.',
+          'Not published \u2014 MetroPlus states no authorization periods, unit ceilings or hour caps in the materials that could be verified. Treat the authorized units as the ceiling and get the authorization period in writing with each approval, and track email or fax submissions yourself.',
         status: 'unverified',
         cites: [{ title: 'MetroPlusHealth notice \u2014 2023 ABA benefit changes', url: 'https://metroplus.org/press/important-notice-to-our-applied-behavioral-analysis-aba-providers-regarding-2023-aba-benefit-changes/' }, { title: 'MetroPlus provider authorization page', url: 'https://metroplus.org/providers/provider-resources/provider-authorization/' }],
         verifyVia:
@@ -1167,9 +1245,11 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does MetroPlusHealth cover ABA therapy?', a: 'Yes — it carries the NY Medicaid ABA carve-in for NYC members under 21 with ASD/Rett, with authorization requests and clinical information submitted to MetroPlus CSS by email or fax.' },
+      { q: 'Does MetroPlusHealth cover ABA therapy?', a: 'Yes — it carries the NY Medicaid ABA carve-in for NYC members under 21 with ASD/Rett, with authorization requests and clinical information submitted by fax (212-908-5182), email (MetroPlusABA@Metroplus.org) or the provider portal, per its 2026 BH/HCBS PA Request Guide.' },
       { q: 'How often does the autism diagnosis need to be validated at MetroPlus?', a: 'Annually — MetroPlus requires the diagnosis be authenticated and re-validated every year by the member\'s treatment team, and holds that LBAs don\'t meet the practitioner level to do it. That\'s stricter than the state\'s 2-year referral rule.' },
       { q: 'Is MetroPlus available outside New York City?', a: 'No — it\'s the NYC Health + Hospitals plan, with a New York City-only footprint.' },
+      { q: 'How many RBTs can a BCBA supervise for MetroPlusHealth Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for MetroPlusHealth Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -1224,6 +1304,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'EmblemHealth — Medicaid ABA benefit page', url: 'https://www.emblemhealth.com/providers/resources/State-Sponsored-Programs/medicaid-applied-behavior-analysis-benefit-' },
           { title: 'eMedNY ABA Provider Policy Manual (state baseline)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'EmblemHealth sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
@@ -1341,6 +1432,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does EmblemHealth cover ABA therapy?', a: 'Yes — its Medicaid plans carry the NY ABA carve-in on the state criteria, restated verbatim in its published benefit content: under 21, ASD/Rett per DSM-5, with the state practitioner referral.' },
       { q: 'Does EmblemHealth require prior authorization for ABA?', a: 'The plan publishes no ABA-specific PA details — no distinct clinical policy was located. Verify the authorization workflow through the emblemhealth.com provider portal before booking, and get the answer in writing.' },
+      { q: 'How many RBTs can a BCBA supervise for EmblemHealth Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for EmblemHealth Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -1418,6 +1511,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'Molina NY provider notice \u2014 ABA prior authorization changes (eff. 10/1/2021)', url: 'https://www.molinahealthcare.com/providers/ny/medicaid/comm/-/media/Molina/PublicWebsite/PDF/Providers/ny/medicaid/Prior%20Authorization%20Update_Provider_Notice_for_ABA' },
           { title: 'Molina Clinical Policy MCP 482 \u2014 Applied Behavioral Analysis for Autism Spectrum Disorder (approved 6/10/2026)', url: 'https://www.molinaclinicalpolicy.com/molinaclinicalpolicy/-/media/Molina/PublicWebsite/PDF/Common/Molina-Clinical-Policy/Applied-Behavioral-Analysis-for-Autism-Spectrum-Disorder_R.ashx' },
           { title: 'eMedNY ABA Provider Policy Manual (state baseline)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'Molina Healthcare of New York sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
@@ -1540,6 +1644,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'What changed for Molina NY ABA on September 15, 2026?', a: 'Two things. Molina Clinical Policy MCP 482 became the medical-necessity standard, with a documentation package: a diagnosis using at least one validated tool (ADI-R, ADOS-2, CARS-2 or DISCO), a Vineland or ABAS baseline, measurable goals and reassessment at least every 6 months. And billing moved to weekly approved units, so claims above the approved weekly number are denied or adjusted. Existing authorizations and those crossing September 15 were not affected.' },
       { q: 'Do I submit Molina NY ABA requests through Beacon or eviCore?', a: 'Neither. Molina has administered all behavioral health for its Mainstream, HARP and Child Health Plus members in-house since January 1, 2022, when Beacon Health Options stopped managing it. Molina\'s 2021 move away from eviCore covered imaging, radiation therapy and sleep services, not ABA. Route requests through Molina\'s portal/Availity.' },
       { q: 'Is Molina the same as Affinity in New York?', a: 'Yes — Molina acquired Affinity, and most Affinity branding is legacy card art now covered by Molina. But note: Molina still actively operates a co-branded "Affinity by Molina Healthcare" Medicaid Managed Care product for downstate members, so "Affinity" can also be a currently-valid plan name, not only an old card — verify plan identity either way on any inquiry.' },
+      { q: 'How many RBTs can a BCBA supervise for Molina Healthcare of New York Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for Molina Healthcare of New York Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -1621,6 +1727,15 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'NYSED Office of the Professions — Article 167 (Ed. Law §§ 8800–8808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' },
+        ],
+      },
+      {
+        h2: 'Claims: what New York law guarantees on filing and payment',
+        body: [
+          'For Aetna plans issued in New York (insured products — self-funded ERISA plans are outside state law), Ins. Law § 3224-a sets the floor: "health care claims must be initially submitted by health care providers within one hundred twenty days after the date of service," unless the contract gives the provider more time; undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper; and a late payment carries interest at the greater of the corporate-tax rate or 12% per annum.',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
         ],
       },
     ],
@@ -1756,6 +1871,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna cover ABA therapy in New York?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
       { q: 'What does Aetna pay for ABA in New York?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the NY Medicaid fee schedule ($19.26/unit for most codes; $9.63 for 97153, current as of 10/1/2026) and treat rate-setting as part of contracting.' },
+      { q: 'How many RBTs can a BCBA supervise for Aetna commercial members in New York?', a: 'Aetna publishes no supervisee cap. New York’s licensure law caps a licensed behavior analyst at six certified behavior analyst assistants (Ed. Law § 8802) but sets no number for unlicensed technicians; the six-supervisee cap that counts technicians is a NY Medicaid rule and does not bind commercial plans. The supervisor must hold a NYSED LBA license for mandated ABA to be covered.' },
+      { q: 'What is Aetna’s timely filing limit for ABA claims in New York?', a: 'Check your participation agreement; for insured New York plans Ins. Law § 3224-a sets 120 days from the date of service as the floor unless the contract gives more time, and requires payment of undisputed claims within 30 days (electronic) or 45 days (paper).' },
     ],
   },
 
@@ -1825,6 +1942,15 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'NYSED Office of the Professions — Article 167 (Ed. Law §§ 8800–8808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' },
+        ],
+      },
+      {
+        h2: 'Claims: what New York law guarantees on filing and payment',
+        body: [
+          'For Cigna plans issued in New York (insured products — self-funded ERISA plans are outside state law), Ins. Law § 3224-a sets the floor: "health care claims must be initially submitted by health care providers within one hundred twenty days after the date of service," unless the contract gives the provider more time; undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper; and a late payment carries interest at the greater of the corporate-tax rate or 12% per annum.',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
         ],
       },
     ],
@@ -1944,6 +2070,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna cover ABA therapy in New York?', a: 'Yes — under national policy EN0499 (which applies fully in New York, with no state carve-out), layered on New York\'s autism mandate for fully-insured plans: no age limit, no ABA-only visit caps, LBA-delivered. Self-funded plans are exempt from the mandate, so verify plan funding type first.' },
       { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
       { q: 'Does the ABA assessment need prior authorization with Cigna in New York?', a: 'No — per EN0499, assessment codes 97151, 97152, and 0362T need no prior authorization. Treatment does, with the completed assessment and treatment plan on Cigna\'s ABA PA form.' },
+      { q: 'How many RBTs can a BCBA supervise for Cigna commercial members in New York?', a: 'Cigna publishes no supervisee cap. New York’s licensure law caps a licensed behavior analyst at six certified behavior analyst assistants (Ed. Law § 8802) but sets no number for unlicensed technicians; the six-supervisee cap that counts technicians is a NY Medicaid rule and does not bind commercial plans. The supervisor must hold a NYSED LBA license for mandated ABA to be covered.' },
+      { q: 'What is Cigna’s timely filing limit for ABA claims in New York?', a: 'Check your participation agreement; for insured New York plans Ins. Law § 3224-a sets 120 days from the date of service as the floor unless the contract gives more time, and requires payment of undisputed claims within 30 days (electronic) or 45 days (paper).' },
     ],
   },
 
@@ -2024,6 +2152,15 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'NYSED Office of the Professions — Article 167 (Ed. Law §§ 8800–8808)', url: 'https://www.op.nysed.gov/professions/licensed-behavior-analysts/laws-rules-regulations/article-167' },
+        ],
+      },
+      {
+        h2: 'Claims: what New York law guarantees on filing and payment',
+        body: [
+          'For UnitedHealthcare plans issued in New York (insured products — self-funded ERISA plans are outside state law), Ins. Law § 3224-a sets the floor: "health care claims must be initially submitted by health care providers within one hundred twenty days after the date of service," unless the contract gives the provider more time; undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper; and a late payment carries interest at the greater of the corporate-tax rate or 12% per annum.',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
         ],
       },
     ],
@@ -2159,6 +2296,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'What does the New York autism mandate require?', a: 'State-regulated plans must cover screening, diagnosis, and treatment of ASD including ABA, with no age limit; and no limits on visits may be applied solely to ASD treatment — the 680-hour cap was repealed effective 1/1/2020, and the older $45,000 dollar figure is not in current guidance either, and mandated ABA must be provided or supervised by NYSED-licensed LBAs/CBAAs.' },
       { q: 'What does UnitedHealthcare pay for ABA in New York?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the NY Medicaid fee schedule ($19.26/unit for most codes; $9.63 for 97153, current as of 10/1/2026) and treat rate-setting as part of contracting.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
+      { q: 'How many RBTs can a BCBA supervise for UnitedHealthcare commercial members in New York?', a: 'UnitedHealthcare publishes no supervisee cap. New York’s licensure law caps a licensed behavior analyst at six certified behavior analyst assistants (Ed. Law § 8802) but sets no number for unlicensed technicians; the six-supervisee cap that counts technicians is a NY Medicaid rule and does not bind commercial plans. The supervisor must hold a NYSED LBA license for mandated ABA to be covered.' },
+      { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims in New York?', a: 'Check your participation agreement; for insured New York plans Ins. Law § 3224-a sets 120 days from the date of service as the floor unless the contract gives more time, and requires payment of undisputed claims within 30 days (electronic) or 45 days (paper).' },
     ],
   },
 
@@ -2167,17 +2306,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Central/Western NY + Southern Tier; own named ABA medical policy (3.01.11) — but outpatient PA specifics sit behind the portal login.',
     assessmentPA: {
-      value: 'Not published for outpatient ABA \u2014 97151\u201397158 do not appear on Excellus\u2019s Clinical Review Preauthorization List (Aug 1, 2026 edition, and the posted Oct/Nov 2026 and Jan 2027 editions) in any column, Managed Medicaid, CHP and HARP included; but that list says it is \u201cNOT inclusive\u201d and that some services need preauthorization or notification without clinical review. Medical Policy 3.01.11 describes \u201cmedical necessity review\u2026 when applicable,\u201d and Excellus directs providers to check eMedNY for code coverage first; confirm with Provider Services',
+      value: 'Not published for outpatient ABA \u2014 97151\u201397158 do not appear on Excellus\u2019s Clinical Review Preauthorization List (the current October 1, 2026 edition, the posted November 1, 2026 and January 1, 2027 editions, and the August 1, 2026 edition before them; re-checked 10/11/2026) in any column, Managed Medicaid, CHP and HARP included; but that list says it is \u201cNOT inclusive\u201d and that some services need preauthorization or notification without clinical review. Medical Policy 3.01.11 describes \u201cmedical necessity review\u2026 when applicable,\u201d and Excellus directs providers to check eMedNY for code coverage first; confirm with Provider Services',
       status: 'unverified',
-      cites: [{ title: 'Excellus Medical Policy 3.01.11 — Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }, { title: 'Excellus — Prior Authorization', url: 'https://www.excellusbcbs.com/prior-authorization' }, { title: 'Excellus BCBS \u2014 Clinical Review Preauthorization List (eff. August 1, 2026)', url: 'https://www.excellusbcbs.com/documents/d/global/ex_8-1-26_master_2026_pa_pdf_versioncontrol_4-27-26' }],
+      cites: [{ title: 'Excellus Medical Policy 3.01.11 — Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }, { title: 'Excellus — Prior Authorization', url: 'https://www.excellusbcbs.com/prior-authorization' }, { title: 'Excellus BCBS \u2014 Clinical Review Preauthorization List (eff. October 1, 2026, the current edition)', url: 'https://www.excellusbcbs.com/documents/d/global/ex_10-1-26_master_2026_pa_pdf_versioncontrol_8-11-26' }],
       verifyVia:
         'Excellus Provider Services. Ask whether 97151 carries a code-level PA requirement for outpatient ABA and get it in writing; no Excellus-published outpatient ABA PA list or form was located, and the plan directs providers to check eMedNY code coverage first.',
       blocker: 'per-case',
     },
     treatmentPA: {
-      value: 'Not published \u2014 no standalone outpatient ABA PA form was located, no ABA code (97151\u201397158, 0362T, 0373T) appears on the Aug 1, 2026 Clinical Review Preauthorization List (which says it is not all-inclusive), and BH/ABA is not delegated to eviCore; BH requests for all lines go through Excellus\u2019s CareAdvance Provider portal, so confirm requirements and turnaround in writing before booking',
+      value: 'Not published \u2014 no standalone outpatient ABA PA form was located, no ABA code (97151\u201397158, 0362T, 0373T) appears on the current October 1, 2026 Clinical Review Preauthorization List or the posted November 2026 and January 2027 editions (each says it is not all-inclusive), and BH/ABA is not delegated to eviCore; BH requests for all lines go through Excellus\u2019s CareAdvance Provider portal, so confirm requirements and turnaround in writing before booking',
       status: 'unverified',
-      cites: [{ title: 'Excellus Medical Policy 3.01.11 — Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }, { title: 'Excellus — Prior Authorization', url: 'https://www.excellusbcbs.com/prior-authorization' }, { title: 'Excellus BCBS \u2014 Clinical Review Preauthorization List (eff. August 1, 2026)', url: 'https://www.excellusbcbs.com/documents/d/global/ex_8-1-26_master_2026_pa_pdf_versioncontrol_4-27-26' }],
+      cites: [{ title: 'Excellus Medical Policy 3.01.11 — Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' }, { title: 'Excellus — Prior Authorization', url: 'https://www.excellusbcbs.com/prior-authorization' }, { title: 'Excellus BCBS \u2014 Clinical Review Preauthorization List (eff. October 1, 2026, the current edition)', url: 'https://www.excellusbcbs.com/documents/d/global/ex_10-1-26_master_2026_pa_pdf_versioncontrol_8-11-26' }],
       verifyVia:
         'Excellus Provider Services — BH Care Management for Medicaid and HARP runs through Excellus directly, not eviCore. Confirm outpatient ABA PA requirements, turnaround times and the submission channel in writing before booking.',
       blocker: 'per-case',
@@ -2227,11 +2366,11 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       {
         h2: 'Prior authorization: what\'s published, and what to confirm',
         body: [
-          'Excellus\'s published Clinical Review Preauthorization List (effective August 1, 2026, with October 1 and November 1, 2026 and January 1, 2027 editions already posted) has columns for Managed Medicaid, Child Health Plus and HARP, and none of the ABA codes (97151\u201397158, 0362T, 0373T) appears on any edition. That is not proof ABA is PA-free: the list covers only services needing a clinical medical-necessity review, says "Certain services require preauthorization or notification without requiring clinical review," and calls itself "NOT inclusive of all insurance products and procedures requiring preauthorization." Behavioral health requests for all lines go through Excellus\'s CareAdvance Provider portal or 1-888-333-9036. Beyond that list, we found no Excellus-published document stating whether the assessment (97151) or the treatment codes require prior authorization for outpatient ABA specifically — the medical policy describes a "medical necessity review... when applicable" rather than a hard PA gate tied to each code. Excellus\'s general prior-authorization guidance for Medicaid Managed Care and HARP members instead directs providers to "review the eMedNY website for benefit coverage of specific codes prior to submitting a prior authorization request" — consistent with the Product Disclaimer above: check the state rule first, then Excellus\'s medical policy fills any gap. Behavioral health and ABA are not delegated to eviCore (Excellus\'s vendor for radiology, cardiology, musculoskeletal, oncology, and sleep) or to any other named UM vendor we could confirm — BH Care Management for Medicaid and HARP members runs through Excellus directly. An Inpatient Prior Authorization Form exists for institutional behavioral-health levels of care (partial hospitalization, psychiatric inpatient, SUD detox/rehab), submitted through Excellus\'s own SDS portal, but we located no equivalent standalone form for outpatient ABA. Treat outpatient ABA PA requirements, turnaround times, and the exact submission channel as open questions for Provider Services until the plan confirms them in writing.',
+          'Excellus\'s published Clinical Review Preauthorization List (the current edition is effective October 1, 2026; November 1, 2026 and January 1, 2027 editions are already posted; re-checked October 11, 2026) has columns for Managed Medicaid, Child Health Plus and the Health and Recovery Program (HARP), and none of the ABA codes (97151\u201397158, 0362T, 0373T) appears on any edition. That is not proof ABA is PA-free: the list covers only services needing a clinical medical-necessity review, says "Certain services require preauthorization or notification without requiring clinical review," and calls itself "NOT inclusive of all insurance products and procedures requiring preauthorization." Behavioral health requests for all lines go through Excellus\'s CareAdvance Provider portal (provider.excellusbcbs.com/authorizations/request-authorization); the list\'s phone line, 1-888-333-9036, is eviCore\'s, for the services Excellus delegates to eviCore. Beyond that list, we found no Excellus-published document stating whether the assessment (97151) or the treatment codes require prior authorization for outpatient ABA specifically — the medical policy describes a "medical necessity review... when applicable" rather than a hard PA gate tied to each code. Excellus\'s general prior-authorization guidance for Medicaid Managed Care and HARP members instead directs providers to "review the eMedNY website for benefit coverage of specific codes prior to submitting a prior authorization request" — consistent with the Product Disclaimer above: check the state rule first, then Excellus\'s medical policy fills any gap. Behavioral health and ABA are not delegated to eviCore (Excellus\'s vendor for radiology, cardiology, musculoskeletal, oncology, and sleep) or to any other named UM vendor we could confirm — BH Care Management for Medicaid and HARP members runs through Excellus directly. An Inpatient Prior Authorization Form exists for institutional behavioral-health levels of care (partial hospitalization, psychiatric inpatient, SUD detox/rehab), submitted through Excellus\'s own SDS portal, but we located no equivalent standalone form for outpatient ABA. Treat outpatient ABA PA requirements, turnaround times, and the exact submission channel as open questions for Provider Services until the plan confirms them in writing.',
         ],
         cites: [
           { title: 'Excellus — Prior Authorization', url: 'https://www.excellusbcbs.com/prior-authorization' },
-          { title: 'Excellus BCBS \u2014 Clinical Review Preauthorization List (eff. August 1, 2026)', url: 'https://www.excellusbcbs.com/documents/d/global/ex_8-1-26_master_2026_pa_pdf_versioncontrol_4-27-26' },
+          { title: 'Excellus BCBS \u2014 Clinical Review Preauthorization List (eff. October 1, 2026, the current edition)', url: 'https://www.excellusbcbs.com/documents/d/global/ex_10-1-26_master_2026_pa_pdf_versioncontrol_8-11-26' },
           { title: 'Excellus provider portal — SDS authorization portal', url: 'https://provider.excellusbcbs.com/authorizations/sds-portal' },
         ],
       },
@@ -2245,6 +2384,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'Excellus — "Navigating the Blues" Billing Orientation Guidebook (Oct 2025)', url: 'https://provider.excellusbcbs.com/documents/53971/224461/Navigating+the+Blues+Billing+Orientation+Guidebook.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'Excellus BCBS sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
+        ],
+      },
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'Under-21 ASD/Rett dx, referral with severity and DSM-5 checklist — the clinical baseline Excellus\'s medical policy sits on top of.' },
@@ -2256,7 +2406,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
     sources: [
       { title: 'Excellus Medical Policy 3.01.11 — Applied Behavior Analysis (eff. 6/18/2026)', url: 'https://www.excellusbcbs.com/documents/d/global/exc-prv-applied-behavior-analysis' },
       { title: 'Excellus — Prior Authorization', url: 'https://www.excellusbcbs.com/prior-authorization' },
-      { title: 'Excellus BCBS \u2014 Clinical Review Preauthorization List (eff. August 1, 2026)', url: 'https://www.excellusbcbs.com/documents/d/global/ex_8-1-26_master_2026_pa_pdf_versioncontrol_4-27-26' },
+      { title: 'Excellus BCBS \u2014 Clinical Review Preauthorization List (eff. October 1, 2026, the current edition)', url: 'https://www.excellusbcbs.com/documents/d/global/ex_10-1-26_master_2026_pa_pdf_versioncontrol_8-11-26' },
       { title: 'Excellus provider portal — SDS authorization portal', url: 'https://provider.excellusbcbs.com/authorizations/sds-portal' },
       { title: 'Excellus Telemedicine and Telehealth Corporate Medical Policy (#1.01.49)', url: 'https://provider.excellusbcbs.com/documents/20152/127460/EXC-PRV-Telehealth_Telemedicine+Corporate+Medical+Policy.pdf' },
       { title: 'Excellus — "Navigating the Blues" Billing Orientation Guidebook (Oct 2025)', url: 'https://provider.excellusbcbs.com/documents/53971/224461/Navigating+the+Blues+Billing+Orientation+Guidebook.pdf' },
@@ -2368,6 +2518,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does Excellus BlueCross BlueShield cover ABA therapy?', a: 'Yes — it carries the NY Medicaid ABA carve-in and publishes its own ABA Medical Policy (3.01.11) naming the covered codes (97151–97158, 0362T, 0373T) and documentation requirements, layered on the state\'s under-21 ASD/Rett baseline.' },
       { q: 'Does Excellus require prior authorization for ABA?', a: 'Not published for the specific codes — Excellus\'s guidance directs providers to check eMedNY for code-level Medicaid coverage first, then confirm any plan-level PA process with Provider Services; no standalone outpatient ABA PA form was found.' },
       { q: 'Does a BH vendor manage ABA for Excellus Medicaid members?', a: 'No vendor carve-out was found — eviCore manages only radiology, cardiology, musculoskeletal, oncology, and sleep for Excellus, and behavioral health/ABA runs through Excellus\'s own BH Care Management team.' },
+      { q: 'How many RBTs can a BCBA supervise for Excellus BCBS Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for Excellus BCBS Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -2457,6 +2609,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'MVP Applied Behavior Analysis Services Payment Policy (eff. 4/1/2026)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2026/april/mvp-payment-policies-effective-april-1-2026.pdf' },
           { title: 'MVP 2025 Provider Policies (Claims, Contacting MVP Health Care)', url: 'https://www.mvphealthcare.com/-/media/project/mvp/healthcare/documents/provider-policies-and-payment-policies/2025/january/mvp-provider-policies-effective-january-1-2025.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'MVP Health Care sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
@@ -2579,6 +2742,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'What does MVP pay for Medicaid ABA?', a: 'The NYS Medicaid fee schedule in effect on the date of service \u2014 MVP\'s payment policy defines its Medicaid Community Fee Schedule that way for Medicaid, CHP and HARP. That means $19.26 per unit for 97151/97152/97155/97156 and $9.63 for 97153 from October 1, 2026.' },
       { q: 'Does MVP require RBT certification for ABA technicians?', a: 'No. MVP\'s payment policy lets services be delivered by an LBA, a CBAA, an RBT \u201cor other unlicensed professionals\u201d under LBA supervision; technician-rendered services are covered only on 97152, 97153 and 97154 and are billed under the supervising LBA.' },
       { q: 'Does MVP cover ABA via telehealth?', a: 'Unclear as of this review — MVP\'s payment policy ties telehealth ABA reimbursement to a CMS waiver referencing a March 31, 2025 date without a subsequent update, so confirm current telehealth status with Provider Services before scheduling remote sessions.' },
+      { q: 'How many RBTs can a BCBA supervise for MVP Health Care Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for MVP Health Care Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -2652,6 +2817,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'CDPHP — American Telemedicine Association telemental health guidelines (hosted resource)', url: 'https://www.cdphp.com/-/media/files/providers/behavioral-health/hedis-toolkit-and-bh-guidelines/practice-guidelines-telemental-health.pdf' },
           { title: 'CDPHP Provider Office Administrative Manual, Section 9 — Claim Submission (rev. July 2024)', url: 'https://www.cdphp.com/-/media/files/providers/poam/section-9-claim-submission.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'CDPHP sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
@@ -2779,6 +2955,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does CDPHP cover ABA therapy?', a: 'Yes — CDPHP\'s Provider Office Administrative Manual names ABA (CPT 97151–97158) as a covered Medicaid–Select Plan and Medicaid–HARP benefit with no maximum benefit limit, provided or supervised by a NYS-licensed BCBA/BCBA-D.' },
       { q: 'Does CDPHP require prior authorization for ABA?', a: 'Not confirmed from public materials — CDPHP states that "certain" behavioral health services in its Medicaid lines require prior authorization via the Behavioral Health Access Center, but doesn\'t specify whether ABA codes are among them. Confirm per case at 518-641-3600 / 1-888-320-9584.' },
       { q: 'Is there a session or dollar cap on CDPHP\'s ABA benefit?', a: 'CDPHP\'s manual states the benefit "is not subject to a maximum benefit," but doesn\'t rule out per-authorization unit limits, which sit behind the secure-portal Prior Authorization Guideline — confirm before assuming unlimited units.' },
+      { q: 'How many RBTs can a BCBA supervise for CDPHP Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for CDPHP Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -2852,6 +3030,17 @@ export const newYorkPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Independent Health/Beacon Provider FAQ Tip Sheet (2016; general BH claims rules, unconfirmed as still current)', url: 'https://www.independenthealth.com/content/dam/independenthealth/provider/Policies-and-Guidelines/documents/IHBeaconProviderFAQTipSheet.pdf' },
           { title: 'Independent Health MediSource Member Handbook (2026)', url: 'https://www.independenthealth.com/content/dam/independenthealth/individuals-and-families/find-a-health-plan/documents/state/medisource-member-handbook.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'Independent Health sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
         ],
       },
     ],
@@ -2983,6 +3172,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does Independent Health cover ABA therapy?', a: 'Yes — its MediSource Medicaid plan covers ABA for members under 21 with ASD and/or Rett syndrome, delivered by an LBA or an LBA-supervised CBAA, per the current member handbook.' },
       { q: 'Does Carelon handle ABA authorizations for Independent Health?', a: 'Carelon manages general behavioral health for Independent Health\'s state products, but ABA appears to be administered by Independent Health directly based on how the member handbook separates the two benefits — not confirmed in one explicit sentence, so verify with Provider Services before routing a case.' },
       { q: 'Is Independent Health available in Rochester/Monroe County?', a: 'No — the state\'s Medicaid Managed Care enrollment tables list Independent Health only under Erie County (Buffalo), not Monroe County.' },
+      { q: 'How many RBTs can a BCBA supervise for Independent Health Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for Independent Health Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -3064,6 +3255,26 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           { title: 'Highmark WNY Billing FAQ Bulletin (May 2023)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_Training_FAQBilling.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing floor, payment clock and EVV',
+        body: [
+          'Highmark Western and Northeastern New York sets its own filing limit in its provider agreement and manual; New York law sets the floor. Ins. Law § 3224-a, which covers New York insurers, Article 43 corporations and Article 44 HMOs, requires claims to be submitted within 120 days of the date of service unless the contract is more favorable to the provider — and for Medicaid managed care contracts lets the parties agree on a different period "but in no event less than ninety days." Undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper, with interest at the greater of the corporate-tax rate or 12% per annum when paid late.',
+          'Electronic Visit Verification does not reach ABA: the Department of Health’s EVV list for fee-for-service and managed care Medicaid covers personal care and home health care codes (CDPAP, home care, HCBS habilitation and respite) and no ABA code (97151–97158).',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+          { title: 'NYSDOH — Electronic Visit Verification (EVV) Applicable Billing Codes (FFS and Managed Care, rev. March 2022)', url: 'https://www.health.ny.gov/health_care/medicaid/redesign/evv/repository/app_billing_codes.htm' },
+        ],
+      },
+      {
+        h2: 'Out-of-area Blue Medicaid members',
+        body: [
+          'Highmark’s provider manual (Chapter 2, Unit 6) covers members of another Blue plan’s Medicaid product treated in Highmark’s area, which includes New York. Eligibility and prior authorization use the same tools as BlueCard: BlueExchange, BlueCard Eligibility at 800-676-BLUE (2583), and Electronic Provider Access for pre-service review. Claims still go to Highmark as the local plan. But "Medicaid is not officially part of the BlueCard Program since there is no network reciprocity, and the locally negotiated rates do not apply to Medicaid claims": payment is limited to the Medicaid allowed amount set in the member’s home state, and the out-of-area care "generally ... requires authorization." Blue Medicaid ID cards carry no suitcase logo and must say on the back that out-of-area benefits are limited.',
+        ],
+        cites: [
+          { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
+        ],
+      },
     ],
     collect: [
       { title: 'Complete state referral packet', desc: 'Under-21 ASD/Rett dx, referral with severity and DSM-5 checklist — the clinical baseline underneath the plan\'s own PA process.' },
@@ -3079,6 +3290,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Highmark WNY Billing FAQ Bulletin (May 2023)', url: 'https://providerpublic.mybcbswny.com/docs/gpp/NYNY_NYW_Training_FAQBilling.pdf' },
       { title: 'NYS DOH Medicaid Managed Care Enrollment Report, July 2026', url: 'https://www.health.ny.gov/health_care/managed_care/reports/enrollment/monthly/2026/docs/en07_26.pdf' },
       { title: 'eMedNY ABA Provider Policy Manual (state baseline)', url: 'https://www.emedny.org/ProviderManuals/ABA/PDFS/ABA_Policy.pdf' },
+      { title: 'Highmark Provider Manual — Chapter 2, Unit 6: The BlueCard Program', url: 'https://providers.highmark.com/resources-and-education/highmark-provider-manual/chapter-2-product-information/unit-6-the-bluecard-program' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3186,6 +3398,8 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does the ABA assessment require prior authorization at Highmark WNY?', a: 'Yes — a standalone Autism Spectrum Disorder Testing authorization form gates the diagnostic workup and explicitly asks whether the request is meant to access ABA services, submitted via Availity Essentials or fax before services are rendered.' },
       { q: 'Who manages behavioral health for Highmark Western New York Medicaid?', a: 'Wellpoint Partnership Plan, LLC (formerly Amerigroup Partnership Plan) has managed the plan\'s Medicaid Managed Care, HARP, and CHPlus behavioral health since 2016, per the Provider Manual — though the same manual also references Carelon Behavioral Health in a vendor-disclosure footer without clarifying scope. Confirm with Provider Services which applies to your case.' },
       { q: 'Is Highmark Western New York available outside Western NY?', a: 'No — the Medicaid Managed Care/HARP/CHPlus product is limited to eight Western New York counties (Allegany, Cattaraugus, Chautauqua, Erie, Genesee, Niagara, Orleans, Wyoming), despite the plan\'s legal name including "Northeastern New York."' },
+      { q: 'How many RBTs can a BCBA supervise for Highmark Western and Northeastern New York Medicaid members in New York?', a: 'Six at a time. New York Medicaid, which applies the rule to fee-for-service and managed care alike, says an LBA "can supervise no more than six CBAAs/unlicensed individuals at a time," must supervise each for at least 5% of their monthly service hours, and must hold at least two face-to-face real-time contacts a month, observing service delivery in one. In New York the supervisor must be a NYSED-licensed behavior analyst; BCBA certification alone is not a license.' },
+      { q: 'What is the timely filing limit for Highmark Western and Northeastern New York Medicaid ABA claims?', a: 'Your contract sets it, but New York Ins. Law § 3224-a bars a Medicaid managed care contract from setting less than 90 days from the date of service (120 days is the default without a contract term). Clean electronic claims must be paid within 30 days, paper within 45.' },
     ],
   },
 
@@ -3294,6 +3508,26 @@ export const newYorkPayers: Record<string, PayerConfig> = {
           'Two more things to know. The criteria set changed: effective June 1, 2024 Anthem moved ABA reviews from CG-BEH-02 and MCG W0153 to MCG B-806-T, and MCG guidelines are proprietary and unpublished — so the form, not a public policy document, is your best guide to what a complete request looks like. And from January 1, 2026, Anthem reimburses ABA on weekly approved units rather than total authorized units, with units above the approved weekly limit ineligible and adjusted, which is the same per-week structure the form already reflects.',
         ],
       },
+      {
+        h2: 'Claims: what New York law guarantees on filing and payment',
+        body: [
+          'For Anthem Blue Cross and Blue Shield plans issued in New York (insured products — self-funded ERISA plans are outside state law), Ins. Law § 3224-a sets the floor: "health care claims must be initially submitted by health care providers within one hundred twenty days after the date of service," unless the contract gives the provider more time; undisputed claims must be paid within 30 days of receipt when submitted electronically and 45 days on paper; and a late payment carries interest at the greater of the corporate-tax rate or 12% per annum.',
+        ],
+        cites: [
+          { title: 'NY Insurance Law § 3224-a — Standards for prompt, fair and equitable settlement of claims (NY Senate, rev. 9/19/2025)', url: 'https://www.nysenate.gov/legislation/laws/ISC/3224-A' },
+        ],
+      },
+      {
+        h2: 'Out-of-state Blue members: BlueCard',
+        body: [
+          'A child whose card comes from another state’s Blue plan is a BlueCard member, and Anthem is the local plan. Anthem’s New York provider manual says that "If the Member’s home plan is not with Anthem, the applicable home plan will determine prior authorization requirements". Anthem’s prefix lookup tool identifies the home plan from the three-character prefix on the ID card. For medical policy and prior authorization rules, use Resources > Prior Authorization > "Medical Policy and Prior Authorization for Blue Plans" and enter the prefix. So an out-of-state child’s ABA assessment and treatment are authorized under the home plan’s ABA policy, not Anthem’s.',
+          'On utilization-management appeals the manual says decisions "involving Pre-certification/Pre-authorization are the responsibility of the Blue Plan, insuring or administering benefits for non-Anthem Members (the Member’s Home Plan)". It also says that "Technically, the Member, not the Provider or Facility, is responsible for obtaining the necessary authorization prior to the delivery of non-inpatient admission services". In practice the ABA provider requests it on the family’s behalf. A claim-denial appeal goes to the local Anthem plan as a Claim Payment Dispute.',
+          'The New York manual adds two claim rules. "Anthem is the sole contact for Claims payment, adjustments and issue resolution" for out-of-area Blue members. And if you contract with Anthem and another Blue plan for the same product type, you may file an out-of-area member’s claim with either one, "However, Anthem and Anthem-affiliate Member Claims must be sent to Anthem for processing."',
+        ],
+        cites: [
+          { title: 'Anthem Blue Cross and Blue Shield — New York Provider Manual (effective July 1, 2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/manuals/PM_NY_000016.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type, first', desc: 'Fully insured New York plan (the mandate and its no-cap rules apply) vs. self-funded ERISA (preempted; federal parity and the plan document govern). Nothing else on this page is reliable until you know which.' },
@@ -3317,6 +3551,7 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { title: 'Anthem ABA Provider Resource Guide — New York and 10 other states (June 2025)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/forms/aba-provider-resource-guide-abc-ny.pdf' },
       { title: 'Anthem — MCG care guidelines 27th edition update (New York, Commercial, Feb 1 2024)', url: 'https://providernews.anthem.com/new-york/articles/mcg-care-guidelines-27th-edition-update-17867-17867' },
       { title: 'Anthem New York — Streamlined ABA claim process starts January 1, 2026', url: 'https://providernews.anthem.com/new-york/articles/streamlined-aba-claim-process-starts-january-1-2026-27878' },
+      { title: 'Anthem Blue Cross and Blue Shield — New York Provider Manual (effective July 1, 2026)', url: 'https://www.anthembluecross.com/content/dam/digital/docs/anthembluecross/provider/commercial/manuals/PM_NY_000016.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -3424,6 +3659,9 @@ export const newYorkPayers: Record<string, PayerConfig> = {
       { q: 'Does Anthem cover all of New York State?', a: 'No — 28 counties, split between 17 southeastern counties trading as "Anthem Blue Cross and Blue Shield" and 11 northeastern counties trading as "Anthem Blue Cross." Elsewhere in the state the Blue plan is Excellus, Highmark, MVP, CDPHP or Independent Health.' },
       { q: 'Can a BCBA deliver covered ABA in New York?', a: 'Not on BACB certification alone. New York requires a NYSED Licensed Behavior Analyst, or a Certified Behavior Analyst Assistant supervised by one, and DFS has said that is what makes the services eligible for insurance coverage. NYSED also bars LBAs and CBAAs from diagnosing or from prescribing or ordering ABA — that has to come from a licensed physician or psychologist.' },
       { q: 'Which criteria does Anthem apply to ABA in New York?', a: 'MCG B-806-T. Anthem notified commercial providers that effective June 1, 2024 it would transition from CG-BEH-02 and MCG W0153 to MCG B-806-T for medical-necessity and clinical-appropriateness reviews. MCG guidelines are proprietary and not published, so build the request around Anthem\'s Treatment Plan Request Form for Autism Spectrum Disorders.' },
+      { q: 'How many RBTs can a BCBA supervise for Anthem Blue Cross and Blue Shield commercial members in New York?', a: 'Anthem Blue Cross and Blue Shield publishes no supervisee cap. New York’s licensure law caps a licensed behavior analyst at six certified behavior analyst assistants (Ed. Law § 8802) but sets no number for unlicensed technicians; the six-supervisee cap that counts technicians is a NY Medicaid rule and does not bind commercial plans. The supervisor must hold a NYSED LBA license for mandated ABA to be covered.' },
+      { q: 'What is Anthem Blue Cross and Blue Shield’s timely filing limit for ABA claims in New York?', a: 'Check your participation agreement; for insured New York plans Ins. Law § 3224-a sets 120 days from the date of service as the floor unless the contract gives more time, and requires payment of undisputed claims within 30 days (electronic) or 45 days (paper).' },
+      { q: 'I see a child in New York whose card is from another state’s Blue plan. Who authorizes ABA?', a: 'The child’s home plan. Anthem’s manual says that when the member’s home plan is not Anthem, "the applicable home plan will determine prior authorization requirements." Look the prefix up under Medical Policy and Prior Authorization for Blue Plans on Anthem’s provider site, request authorization from the home plan, and file the claim with Anthem as the local plan.' },
     ],
   },
 };

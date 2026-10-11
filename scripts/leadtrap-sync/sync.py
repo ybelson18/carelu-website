@@ -40,20 +40,35 @@ def segments(src):
     lines = src.split('\n')
     starts = [i for i, l in enumerate(lines)
               if TOP.match(l) or l.startswith(('import ', 'export {', 'export *'))]
-    starts.append(len(lines))
+
+    def comment_start(a):
+        # Walk up over the comments directly above line a. A /* ... */ block whose
+        # body lines are plain indented text is taken whole (2026-10-07: stopping at
+        # its closing */ left an orphaned */ in vob/tennessee.ts).
+        s = a
+        while s > 0:
+            prev = lines[s - 1]
+            if prev.strip().endswith('*/') and '/*' not in prev:
+                j = s - 1
+                while j > 0 and '/*' not in lines[j]:
+                    j -= 1
+                s = j
+            elif prev.startswith(('//', '/*')) or prev.strip().startswith('*'):
+                s -= 1
+            else:
+                break
+        return s
+
+    heads = [comment_start(a) for a in starts] + [len(lines)]
     out = {}
-    for a, b in zip(starts, starts[1:]):
+    for i, a in enumerate(starts):
         m = TOP.match(lines[a])
         if not m:
             continue
-        s = a
-        while s > 0 and (lines[s - 1].startswith(('//', '/*')) or lines[s - 1].strip().startswith(('*', '*/'))):
-            s -= 1
-        e = b
-        while e > a + 1 and (lines[e - 1].strip() == '' or lines[e - 1].startswith(('//', '/*'))
-                             or lines[e - 1].strip().startswith(('*', '*/'))):
+        e = max(heads[i + 1], a + 1)
+        while e > a + 1 and (lines[e - 1].strip() == '' or lines[e - 1].startswith('//')):
             e -= 1
-        out[m.group(1)] = '\n'.join(lines[s:e])
+        out[m.group(1)] = '\n'.join(lines[heads[i]:e])
     return out
 
 

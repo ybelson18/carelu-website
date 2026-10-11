@@ -868,9 +868,10 @@ const TRILLIUM_RATE_TABLE = src(
   'https://www.trilliumhealthresources.org/sites/default/files/docs/Billing-Codes-Rates/Trillium-Rate-Table-FY-26-27.pdf',
   'Trillium Health Resources — Rate Table FY 26-27 — 97151-97157 (marked "**" = unified rate across legacy LME/MCOs) at $30.56/$61.73/$20.81/$11.37/$32.22/$23.70/$11.51 per 15-min unit, matching Alliance’s posted figures exactly. The table’s own Effective/End Date columns for these rows read 1/1/2024-12/31/2099 (a validity window in the rate-engine sense, not a distinct effective date) rather than restating 10/1/2025 — flagged here rather than silently reconciled. No 97158, 0362T, or 0373T rows exist in the document.'
 );
-const TRILLIUM_CLAIMS_PROTOCOL = src(
+const TRILLIUM_CLAIMS_PROTOCOL = srcAt(
   'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Medicaid-Direct-Tailored-Plan-Claims-Submission-Protocol.pdf',
-  'Trillium — Tailored Plan & Medicaid Direct Claims Submission Protocol (rev. 9/23/2025) — states verbatim: Behavioral Health clearinghouse claims use Change Healthcare (payer ID 56089) or The SSI Group (payer ID 43071); Physical Health claims route to Carolina Complete Health via payer ID 68069 (a Centene delegation, confirmed separately on the Availity list). Retrieved and full-text extracted directly.'
+  '2026-10-07',
+  'Trillium — Claims Submission Guidelines, effective 10/01/2026 (reissued at the URL of the 9/23/2025 protocol; re-read 10/7/2026): Tailored Plan claims — iTransact portal, or Change Healthcare 43072, The SSI Group 43072, Availity 43072. Medicaid Direct and State Funded claims — Provider Direct portal, Change Healthcare 56089, SSI 43071, Availity 43071. A Tailored Plan claim sent to the Medicaid Direct system denies ("Please submit to MediTrac/iTransact for Trillium Tailored Plan claims processing"). Contact block: Provider Support Service Line 1-855-250-1539; Business & Administrative Matters 1-866-998-2597. (The 2025 edition routed BH claims to 56089/43071 and physical health to CCH 68069.)'
 );
 const TRILLIUM_BENEFIT_PLAN = srcAt(
   'https://www.trilliumhealthresources.org/sites/default/files/docs/Benefit-Plans-Services-Definitions/Trillium-Medicaid-Child-BH-Benefit-Plan.pdf',
@@ -1163,9 +1164,15 @@ const allianceRates: RateTable = {
 
 /* ==================== trillium-health-resources ==================== */
 
+const TRILLIUM_UCS_FAQ: SourceRef = {
+  url: 'https://www.trilliumhealthresources.org/sites/default/files/docs/Provider-documents/Claims/Trillium-Unified-Claims-Platform-Questions-Answer.pdf',
+  accessDate: '2026-10-07',
+  note: 'Trillium — Unified Claims System Provider FAQ (revised 9/30/2026): from 10/1/2026 all Trillium Tailored Plan claims (behavioral health included; Q33 "The Payer ID 43072 is designated for all Tailored Plan claims") go to the unified claims system — iTransact direct entry, SFTP, or clearinghouses Optum/Change Healthcare, The SSI Group and Availity, all under payer ID 43072; Medicaid Direct and State-funded claims keep Change Healthcare 56089 and SSI/Availity 43071 (Q21, Q42). Q47: providers can upload a 270 EDI file and receive a 271 in return.',
+};
+
 const trilliumEdi: EdiRouting = {
-  payerId: { pverify: 'unverified', availity: 'unverified', changeHealthcare: '56089' },
-  supports270271: 'unverified',
+  payerId: { pverify: 'unverified', availity: '43072', changeHealthcare: '43072' },
+  supports270271: true,
   supportsRealtime: 'unverified',
   bhCarveOut: {
     administrator: 'none',
@@ -1175,20 +1182,21 @@ const trilliumEdi: EdiRouting = {
   },
   fieldStatus: {
     'payerId.pverify': 'unverified',
-    'payerId.availity': 'unverified',
+    'payerId.availity': 'verified',
     'payerId.changeHealthcare': 'verified',
-    supports270271: 'unverified',
+    supports270271: 'verified',
     'bhCarveOut.administrator': 'inferred',
     'bhCarveOut.abaRidesOn': 'inferred',
     'bhCarveOut.twoHopRequired': 'inferred',
   },
   verifyVia: {
     'payerId.pverify': 'Trillium does not appear on pVerify’s national payer list under any name variant.',
-    'payerId.availity': 'Trillium does not appear on the Availity Essentials 837 payer list either.',
-    supports270271: 'Confirm 270/271 eligibility routing directly with Trillium — its own Claims Submission Protocol documents 837 claims routing (Change Healthcare 56089, The SSI Group 43071) but not eligibility-check routing specifically.',
+    'payerId.availity': 'Corrected 2026-10-07: Tailored Plan claims moved to Trillium\'s unified claims system on 10/1/2026 under payer ID 43072 at Change Healthcare, The SSI Group and Availity (Trillium FAQ rev. 9/30/2026; Claims Submission Guidelines eff. 10/1/2026). The old 56089 (Change Healthcare) / 43071 (SSI, Availity) IDs now apply only to NC Medicaid Direct and State-funded claims — a Tailored Plan claim sent there denies.',
+    'payerId.changeHealthcare': 'Was 56089 until 9/30/2026; 43072 for Tailored Plan dates of service processed from 10/1/2026. Use 56089 only for a member on NC Medicaid Direct.',
+    supports270271: 'Trillium FAQ Q47 (rev. 9/30/2026): providers can upload a 270 EDI file and receive a 271 in return; eligibility for Tailored Plan members also shows in iTransact. Real-time vs batch not stated.',
     'bhCarveOut.administrator': 'Trillium is itself the LME/MCO administering behavioral health (including RB-BHT) directly — inferred from its role as a Tailored Plan and from its own claims protocol routing BH claims in-house (not to a third-party administrator).',
   },
-  sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB, TRILLIUM_CLAIMS_PROTOCOL, TRILLIUM_BENEFIT_PLAN],
+  sources: [PVERIFY_PAYER_LIST_NCB, AVAILITY_PAYER_LIST_NCB, TRILLIUM_UCS_FAQ, TRILLIUM_CLAIMS_PROTOCOL, TRILLIUM_BENEFIT_PLAN],
 };
 
 function trilliumCodeGrid(): Record<string, CodeGridEntry> {
@@ -1822,9 +1830,9 @@ const trilliumContact: VobContact = {
   providerServicesPhone: '866-998-2597',
   ivrPath:
     'Listed as "Business & Administrative Matters" in the Claims Submission Protocol\'s Tailored Plan Medicaid contact block; "Member & Recipient Services" (877-685-2415) is the separate member-facing line — do not use it for provider calls.',
-  portal: { name: 'Trillium Provider Direct Portal', url: 'https://www.trilliumhealthresources.org' },
+  portal: { name: 'Trillium iTransact (Tailored Plan claims, authorizations and eligibility from 10/1/2026; Medicaid Direct stays on Provider Direct)', url: 'https://provider.trilliumitransact.com/' },
   scriptedQuestions: [
-    'Do you support real-time 270/271 eligibility checks, and what is your Availity/pVerify payer ID — neither is found on their national lists?',
+    'Is our iTransact access (system administrator, Vendor ID and access code from the onboarding email) active, and does a 270 sent to payer ID 43072 return RB-BHT benefit detail in real time or batch?',
     'What are Trillium\'s per-code unit caps for 97151-97157, beyond the 180-day TAR cycle?',
     'Is there a copay or coinsurance for RB-BHT, and if so is it per-visit or per-day?',
     'Does the deductible apply to RB-BHT, and is there an out-of-pocket max?',

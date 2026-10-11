@@ -182,6 +182,23 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'DHA — ABA Maximum Allowed Rates, effective May 1, 2026 (Autism Care Demonstration, by locality)', url: 'https://health.mil/Reference-Center/Publications/2026/04/01/ABA-Rates-2026' }, { title: 'DHA — Applied Behavior Analysis Maximum Allowed Amounts (all years)', url: 'https://health.mil/Military-Health-Topics/Access-Cost-Quality-and-Safety/TRICARE-Health-Plan/Rates-and-Reimbursement/ABA-Max-Allowed-Amounts' }],
       },
+      {
+        h2: 'Can 97156 parent training be billed in a daycare under TRICARE East?',
+        body: [
+          'The DHA rule is in TRICARE Operations Manual Ch. 18, Sec. 3 (Revision C-57). Daycare itself is an allowed setting for direct ABA: “The daycare setting is not considered an academic setting and therefore may be authorized per clinical necessity as determined by the contractor.” Parent training is not. The same chapter says “CPT code 97156 may be used only in a home or clinic/office-based setting. School settings are prohibited,” and “CPT code 97157 may only be used in a clinic/office-based setting.” So a daycare (POS 99) can host authorized 97153 or 97155 sessions that target core ASD symptoms, but a 97156 caregiver session held at the daycare is outside the rule. Hold it at home or in the clinic, or by telehealth after the first six-month authorization with a GT or 95 modifier.',
+          'Humana Military’s own ACD material adds nothing that widens this. Its progress-note rules list “daycare (non-preschool)” as a place of service the note must record, and its ABA FAQ lists 97156 among the adopted codes without a setting exception. If a family can only meet at the daycare, ask Humana Military in writing before you schedule it.',
+        ],
+        cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }, { title: 'Humana Military — ACD progress notes', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/progressnotes' }, { title: 'Humana Military — ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' }],
+      },
+      {
+        h2: 'Timely filing, payment time and appeals on TRICARE East ABA claims',
+        body: [
+          'Humana Military’s ABA FAQ: “All claims for benefits must be filed no later than one year after the date the services were provided,” and “Per the contract, claims can take up to 30 days to process.” Its 2026 East Region handbook asks network providers to “file TRICARE claims electronically within 90 days of the date care was provided.” ABA claims must go in electronically to PGBA, with EFT enrollment. The DHA standard behind the 30 days is TRICARE Operations Manual Ch. 1, Sec. 3: the contractor “shall process 98% retained and adjustment claims accurately and to completion within 30 calendar days from the date of receipt.”',
+          'What goes on the claim: the handbook says “Both billing NPIs and rendering provider NPIs, when applicable, are required,” and providers treating beneficiaries on a referral “should also include the referring provider’s NPI on transactions, if available.” The ACD chapter requires the rendering provider’s name and NPI on every claim line and the HIPAA taxonomy of each provider type: 103K00000X behavior analyst, 106E00000X assistant behavior analyst, 106S00000X behavior technician.',
+          'Disputes run on two 90-day clocks. An administrative review (allowed amount, coding, timely-filing denials, penalties for no authorization) “must be postmarked or received within 90 calendar days of the date of beneficiary’s EOB or the provider remittance.” An appeal covers only denials as not covered or not medically necessary, must be filed within 90 calendar days of the denial, and “Network providers are not a proper appealing party” unless they file for the family with a signed Appointment of representative form.',
+        ],
+        cites: [{ title: 'Humana Military — ABA provider FAQ (PDF)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/faqs/aba-provider-faq.pdf' }, { title: 'Humana Military — TRICARE Provider Handbook, East Region (2026)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/tricare-provider-handbook.pdf' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 1 Sec. 3 — TRICARE Processing Standards (Revision C-43, Jun 24, 2025)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C1S3' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
+      },
     ],
     collect: [
       { title: 'Sponsor status and plan', desc: 'Active duty vs. retiree vs. Guard/Reserve, and Prime vs. Select vs. USFHP — it drives both eligibility and the copay. Group A or B (sponsor’s service entry before or on/after Jan. 1, 2018) changes the Select amounts.' },
@@ -210,6 +227,8 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'Humana Military — TRICARE Provider Handbook, East Region (2026)', url: 'https://www.humanamilitary.com/content/dam/sites/humana-military-com/provider/tricare-provider-handbook.pdf' },
       { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 — Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
       { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+      { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 1 Sec. 3 — TRICARE Processing Standards (Revision C-43, Jun 24, 2025)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C1S3' },
+      { title: 'eCFR — 32 CFR 199.8, Double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
     ],
     intakeGates: {
       ageLimit: {
@@ -273,6 +292,10 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'Can one ABA agency do an assessment while another agency keeps treating the child under TRICARE East?', a: 'The assessment, yes; treatment, no. DHA allows a second-opinion authorization for 32 units of 97151 to overlap another approved authorization, but two ongoing treatment authorizations for direct services are not permitted. Humana Military approves only one authorized ABA supervisor to provide ABA for a child at a time. If the family moves to the new agency, the new treatment authorization cannot start until the old one ends.' },
       { q: 'Can an out-of-state BCBA provide ABA by telehealth to a TRICARE East family?', a: 'Only parent training (97156), only after the first six-month authorization, and only if the BCBA is licensed where the child is. Humana Military requires virtual-health providers to be licensed both where they practice and where the beneficiary is located at the time of service, and checks this in claims review. The assessment and direct ABA codes cannot be delivered by telehealth under the ACD at all.' },
       { q: 'What does TRICARE pay for ABA in the East Region?', a: 'DHA publishes the rates. The ABA Maximum Allowed Amounts file effective May 1, 2026 sets a per-15-minute maximum by locality and credential, for example Alabama: 97151 $31.56, 97153 by a behavior technician $16.82, 97155 by a BCBA $31.25. Look up the locality where care is delivered on health.mil.' },
+      { q: 'Can we bill 97156 in a daycare for a TRICARE East child?', a: 'No. DHA’s ACD rule says 97156 “may be used only in a home or clinic/office-based setting,” and 97157 only in a clinic or office. A daycare can be authorized for direct ABA (97153, 97155) when it is clinically necessary, but parent training belongs at home, in the clinic, or by telehealth after the first six-month authorization.' },
+      { q: 'What is the timely filing limit for TRICARE East ABA claims?', a: 'One year from the date of service, per Humana Military’s ABA FAQ. Its 2026 handbook asks network providers to file electronically within 90 days. Humana Military says claims can take up to 30 days to process under its contract.' },
+      { q: 'Does TRICARE East require the referring provider on ABA claims?', a: 'Humana Military’s 2026 handbook says providers treating beneficiaries on a referral “should also include the referring provider’s NPI on transactions, if available.” Billing and rendering NPIs are required, and the ACD requires the rendering provider’s NPI and taxonomy on every line.' },
+      { q: 'How long do we have to appeal a TRICARE East ABA claim?', a: '90 calendar days. Administrative reviews (payment amount, coding, timely filing, missing authorization) are due within 90 days of the EOB or remittance; appeals of not-covered or not-medically-necessary denials within 90 days of the denial. Network providers can appeal only on the family’s behalf with a signed Appointment of representative form.' },
     ],
     deliveryRules: {
       supervision: {
@@ -308,13 +331,10 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
       },
       placeOfService: {
-        value: 'The note must record the place of service as home, clinic/center, daycare (non-preschool), school, community or telemedicine — GPS coordinates do not satisfy this. ABA rendered by a behavior technician in a school is not covered; a BCBA may be authorized for focused, time-limited, contractor-approved goals after clinical necessity review. Community locations must be authorized before services are rendered. Educational, vocational and activities-of-daily-living goals are excluded in every setting.',
+        value:
+          'The note must record the place of service as home, clinic/center, daycare (non-preschool), school, community or telemedicine — GPS coordinates do not satisfy this. ABA rendered by a behavior technician in a school is not covered; a BCBA may be authorized for focused, time-limited, contractor-approved goals after clinical necessity review. Community locations must be authorized before services are rendered. Educational, vocational and activities-of-daily-living goals are excluded in every setting. Code-level limits come from TRICARE Operations Manual Ch. 18, Sec. 3: the daycare setting “is not considered an academic setting and therefore may be authorized per clinical necessity,” but 97156 “may be used only in a home or clinic/office-based setting” and 97157 “only in a clinic/office-based setting.”',
         status: 'verified',
-        cites: [
-          { title: 'TRICARE — Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' },
-          { title: 'Humana Military — ACD progress notes', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/progressnotes' },
-          { title: 'Humana Military — ACD exclusions', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/exclusions' },
-        ],
+        cites: [{ title: 'TRICARE — Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' }, { title: 'Humana Military — ACD progress notes', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/progressnotes' }, { title: 'Humana Military — ACD exclusions', url: 'https://www.humanamilitary.com/provider/managedcare/acoe/exclusions' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
       },
       billAsProvider: {
         value: 'Only authorized ABA supervisors or Autism Care Corporate Services Providers may bill. Claims must be submitted by the rendering practitioner and the rendering and billing providers must match — a mismatch is one of the documentation failures Humana Military calls out. HIPAA taxonomies: behavior analyst 103K00000X, assistant behavior analyst 106E00000X, behavior technician 106S00000X.',
@@ -502,6 +522,39 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'DHA — ABA Maximum Allowed Rates, effective May 1, 2026 (Autism Care Demonstration, by locality)', url: 'https://health.mil/Reference-Center/Publications/2026/04/01/ABA-Rates-2026' }, { title: 'DHA — Applied Behavior Analysis Maximum Allowed Amounts (all years)', url: 'https://health.mil/Military-Health-Topics/Access-Cost-Quality-and-Safety/TRICARE-Health-Plan/Rates-and-Reimbursement/ABA-Max-Allowed-Amounts' }],
       },
+      {
+        h2: 'Can 97156 parent training be billed in a daycare under TRICARE West?',
+        body: [
+          'TriWest answers this in its ACD provider guide. Daycare (non-preschool) is a listed setting, POS 99, open to “All ABA provider types that are authorized in the beneficiary’s treatment plan.” It is approved only “if therapy is actively addressing the core symptoms of ASD,” and the plan must explain “why a home or center setting can’t be used.” But the 97156 limit is separate: “CPT code 97156 (Family Adaptive Behavior Treatment Guidance) may only be rendered up to eight units (2 hours) per day and may only be used in a home or clinic-based setting.”',
+          'The DHA rule is in TRICARE Operations Manual Ch. 18, Sec. 3 (Revision C-57). Daycare itself is an allowed setting for direct ABA: “The daycare setting is not considered an academic setting and therefore may be authorized per clinical necessity as determined by the contractor.” Parent training is not. The same chapter says “CPT code 97156 may be used only in a home or clinic/office-based setting. School settings are prohibited,” and “CPT code 97157 may only be used in a clinic/office-based setting.” So in the West a daycare can host authorized 97153 or 97155 work, but 97156 cannot be billed there. Move the caregiver session home or to the clinic, or deliver it by telehealth (POS 02, GT or 95) once the first six-month treatment period is over.',
+        ],
+        cites: [{ title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
+      },
+      {
+        h2: 'How long does TriWest credentialing take for TRICARE West?',
+        body: [
+          'TriWest publishes the first step’s clock and not the rest. TRICARE certification: TriWest “will certify ABA providers for TRICARE within 10 business days from the receipt of a complete application,” and its ACD provider guide says certification “typically takes 10-15 days from receipt of a completed application packet.” Behavior technician certification “takes up to 10 days.” The DHA rule sets the same 10-business-day standard for technicians.',
+          'Credentialing for network status comes after that. Per the ACD guide, “Once certification is completed, any rosters with ABA supervisors will be sent to Credentialing for completion.” Only ABA supervisors (BCBA, BCBA-D, LBA or clinical psychologist) need credentialing; everyone else needs only certification. A certified supervisor can see families as a non-network participating provider, “however, these claims may not pay until the provider is fully credentialed,” and “A group’s contract is executed upon completion of credentialing all ABA supervisors listed on the initial roster.” To join the network you start with the Provider Contract Request form at JoinOurNetwork.TriWest.com.',
+          'Neither TriWest nor the DHA credentialing chapter (TRICARE Operations Manual Ch. 4, Sec. 1) states how long credentialing or contracting takes; TriWest says only that it follows URAC credentialing standards. Plan on the 10–15-day certification plus an open-ended credentialing step, submit every supervisor on the first roster, and check status with credentialing@triwest.com.',
+        ],
+        cites: [{ title: 'TriWest — Autism Care Demonstration (TRICARE West provider)', url: 'https://tricare.triwest.com/en/provider/autism-care-demonstration/' }, { title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'TriWest — Provider Certification and Credentialing (TRICARE West)', url: 'https://tricare.triwest.com/en/provider/intro-to-tricare/certification-and-credentialing/' }, { title: 'TriWest — Join Our Network (TRICARE West)', url: 'https://tricare.triwest.com/en/provider/join-our-network/' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 4 Sec. 1 — Provider Certification and Credentialing (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C4S1' }],
+      },
+      {
+        h2: 'Timely filing, payment time and appeals on TRICARE West ABA claims',
+        body: [
+          'TriWest: claims go to PGBA “No later than one year (365 days) after services are provided,” and “TriWest strongly recommends filing claims within 30 days of the date of service.” With other insurance, the claim goes to PGBA “within 90 calendar days from the date of the Other Health Insurance (OHI) adjudication.” On payment, the DHA standard in TRICARE Operations Manual Ch. 1, Sec. 3 is that the contractor “shall process 98% retained and adjustment claims accurately and to completion within 30 calendar days from the date of receipt.”',
+          'Every line needs the rendering provider: the ACD chapter requires paid claims to “identify the name of the rendering provider for each ABA service delivered, to include the NPI of the rendering provider per unique claim line,” and “All claims for ABS CPT codes must include the HIPAA taxonomy designation of each provider type.”',
+          'Disputes: a claim reconsideration (allowed amount, OHI, timely filing, no-authorization penalties, denial codes) “must be submitted no later than 90 days from the date of the remittance” on TriWest’s reconsideration form. Appeals cover policy-limitation and medical-necessity denials, must be in writing, and must be “received within 90 days of the date on the remittance advice.” The non-network participating provider may appeal; a network provider needs a written appointment from the family.',
+        ],
+        cites: [{ title: 'TriWest — Timeliness and EFT/ERA (TRICARE West claims guidelines)', url: 'https://tricare.triwest.com/en/provider/claims-guidelines/timeliness-and-eft-era/' }, { title: 'TriWest — Reconsiderations and Appeals (TRICARE West claims guidelines)', url: 'https://tricare.triwest.com/en/provider/claims-guidelines/reconsiderations-and-appeals/' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 1 Sec. 3 — TRICARE Processing Standards (Revision C-43, Jun 24, 2025)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C1S3' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
+      },
+      {
+        h2: 'Does TriWest require the referring provider on ABA claims?',
+        body: [
+          'Not as a claim field. TriWest\u2019s ACD provider guide lists what every ABA claim must carry: the HIPAA taxonomy for each provider type (103K00000X, 106E00000X, 106S00000X), \u201cthe provider\u2019s full name and National Provider Identifier (NPI) \u2026 for all providers authorized under the ACD,\u201d a TIN that matches the authorization, the rendering provider (\u201cthe ABA supervisor, assistant behavior analyst, or BT\u201d), session start and end times in military format on every line, one line per session, GT or 95 for remote parent sessions and 99 on outcome-measure units, and the place of service. A referring provider is not on that list. The referral does its work before the claim: the diagnosing provider\u2019s referral is what TriWest verifies before it authorizes the assessment, and it lasts two years.',
+        ],
+        cites: [{ title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'ZIP code, then region', desc: 'The East/West line is drawn by ZIP and six states moved on Jan. 1, 2025. Confirm West before you route anything to TriWest or Availity.' },
@@ -531,6 +584,14 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'TriWest — TRICARE Provider Telehealth/Telemedicine FAQs, West Region (June 26, 2025)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/tricare-provider-telehealth-telemedicine-faqs.pdf' },
       { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 — Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
       { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
+      { title: 'TriWest — Provider Certification and Credentialing (TRICARE West)', url: 'https://tricare.triwest.com/en/provider/intro-to-tricare/certification-and-credentialing/' },
+      { title: 'TriWest — Join Our Network (TRICARE West)', url: 'https://tricare.triwest.com/en/provider/join-our-network/' },
+      { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 4 Sec. 1 — Provider Certification and Credentialing (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C4S1' },
+      { title: 'TriWest — Timeliness and EFT/ERA (TRICARE West claims guidelines)', url: 'https://tricare.triwest.com/en/provider/claims-guidelines/timeliness-and-eft-era/' },
+      { title: 'TriWest — Reconsiderations and Appeals (TRICARE West claims guidelines)', url: 'https://tricare.triwest.com/en/provider/claims-guidelines/reconsiderations-and-appeals/' },
+      { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 1 Sec. 3 — TRICARE Processing Standards (Revision C-43, Jun 24, 2025)', url: 'https://manuals.dha.mil/View-Publication/TOT5/FileName/C1S3' },
+      { title: 'TriWest — TRICARE Provider Handbook: Claims Processing and Billing Information', url: 'https://tricare.triwest.com/en/provider/tricare-provider-handbook/claims-processing-and-billing-information/' },
+      { title: 'eCFR — 32 CFR 199.8, Double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
     ],
     intakeGates: {
       ageLimit: {
@@ -579,10 +640,11 @@ export const militaryPayers: Record<string, PayerConfig> = {
         value:
           '“For other beneficiary categories, TRICARE pays secondary to Medicare and other primary coverage. If TRICARE is the secondary payer, the provider is required to submit claims to the primary payer before billing TRICARE” (TRICARE is always primary for active-duty service members, and it pays before Medicaid, TRICARE supplements, IHS and state victims-of-crime programs). “If TRICARE receives claim before OHI processes it, the claim will be denied,” as will one without the other payer’s EOB or COB payment data; file with TRICARE within 90 calendar days of the OHI adjudication date. ABA is on TriWest’s list of services that “require a TRICARE pre-authorization regardless of OHI” — “Prior approval is needed for ABA services for all beneficiaries, even if they have other health insurance.” TRICARE will not pay what the other plan denied for failure to meet its requirements.',
         status: 'verified',
-        cites: [{ title: 'TriWest — TRICARE Provider Handbook: Claims Processing and Billing Information', url: 'https://tricare.triwest.com/en/provider/tricare-provider-handbook/claims-processing-and-billing-information/' }, { title: 'TriWest — TRICARE West Region Autism Care Demonstration Provider Guide', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'eCFR — 32 CFR 199.8, Double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' }],
+        cites: [{ title: 'TriWest — Timeliness and EFT/ERA (TRICARE West claims guidelines)', url: 'https://tricare.triwest.com/en/provider/claims-guidelines/timeliness-and-eft-era/' }, { title: 'TriWest — TRICARE Provider Handbook: Claims Processing and Billing Information', url: 'https://tricare.triwest.com/en/provider/tricare-provider-handbook/claims-processing-and-billing-information/' }, { title: 'TriWest — TRICARE West Region Autism Care Demonstration Provider Guide', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'eCFR — 32 CFR 199.8, Double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' }],
       },
     },
     faq: [
+      { q: 'Does TRICARE West (TriWest) require the referring provider on ABA claims?', a: 'TriWest\u2019s ACD provider guide does not list one among the claim requirements. It requires each provider\u2019s taxonomy, name and NPI, a TIN matching the authorization, the rendering provider, session times on every line, one line per session, the right modifiers and the place of service. The referral is checked when TriWest authorizes care, not on the claim.' },
       { q: 'Who administers TRICARE West now?', a: 'TriWest Healthcare Alliance, under contracts that began Jan. 1, 2025. Six states — Arkansas, Illinois, Louisiana, Oklahoma, Texas and Wisconsin — moved from the East Region to the West on that date. TRICARE resolves the boundary by ZIP code lookup.' },
       { q: 'Can ABA be delivered in a school in the West Region?', a: 'Yes, but narrowly. Only the authorized ABA supervisor may deliver, under CPT 97153, with a current IEP submitted alongside the treatment plan, specific school-setting goals targeting core ASD symptoms, a short expected duration and a planned fade. Providers may not duplicate IEP services or target academic goals.' },
       { q: 'What is the 97155 monthly rule?', a: 'At least one 97155 session per month must be performed by the authorized ABA supervisor and cannot be delegated to an assistant behavior analyst. If that is not met, TriWest applies a 10% penalty to all ABA claims for that beneficiary for the entire six-month authorization period.' },
@@ -595,6 +657,10 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'What is the process to get a TRICARE West authorization for an ABA assessment?', a: 'The diagnosing provider sends TriWest a complete referral: the diagnosis and its date, the DSM-5-TR checklist and a validated assessment tool, plus EFMP/ECHO for active duty families. Once the child is enrolled in the ACD, TriWest places a provider within 15 business days and issues the initial assessment authorization itself, 32 units of 97151. The assessment must start within 28 days of referral verification and be finished within 14 days of the first session. The treatment plan and outcome measures then go in through Availity.' },
       { q: 'Can an out-of-state BCBA provide ABA by telehealth to a TRICARE West family?', a: 'Only parent training (97156), only after the first six-month authorization, and only where the child’s state allows it. TriWest says cross-state telehealth requirements differ by state and providers must follow state-specific credentialing rules. The DHA manual requires compliance with licensing rules both where the provider practises and where the patient receives care. Assessment and direct ABA cannot be delivered by telehealth under the ACD.' },
       { q: 'What does TRICARE pay for ABA in the West Region?', a: 'DHA publishes the rates. The ABA Maximum Allowed Amounts file effective May 1, 2026 sets a per-15-minute maximum by locality and credential, for example Nebraska: 97151 $43.99, 97153 by a behavior technician $23.55, 97155 by a BCBA $31.25. Look up the locality where care is delivered on health.mil.' },
+      { q: 'Can we bill 97156 in a daycare for a TRICARE West child?', a: 'No. TriWest’s ACD guide says 97156 “may only be used in a home or clinic-based setting.” A non-preschool daycare (POS 99) can be approved for direct ABA that targets core ASD symptoms, but parent training has to happen at home, in the clinic, or by telehealth after the first six-month treatment period.' },
+      { q: 'How long does it take to credential with TriWest for TRICARE West ABA?', a: 'TriWest publishes only the certification clock: within 10 business days of a complete application on its ACD page, and “typically” 10–15 days in its provider guide. Credentialing of ABA supervisors follows, with no published timeframe. Claims may not pay until the supervisor is fully credentialed, and a group contract is executed once every supervisor on the initial roster is credentialed.' },
+      { q: 'What is TriWest’s timely filing limit for TRICARE West ABA claims?', a: 'One year (365 days) from the date of service, and TriWest recommends filing within 30 days. When other insurance pays first, file within 90 calendar days of the other plan’s adjudication.' },
+      { q: 'How long do we have to appeal a TRICARE West ABA claim?', a: '90 days from the remittance for both a claim reconsideration and an appeal. Appeals are limited to policy-limitation and medical-necessity denials and must be in writing.' },
     ],
     deliveryRules: {
       supervision: {
@@ -626,18 +692,16 @@ export const militaryPayers: Record<string, PayerConfig> = {
         ],
       },
       placeOfService: {
-        value: 'Home POS 12 and clinic/office POS 11 for all authorized provider types (clinic travel is not reimbursable). School POS 03: supervisor-only, CPT 97153, IEP required, short-term, no duplication of IEP services, homeschool ABA outside homeschooling hours. Daycare (non-preschool) POS 99: only where therapy actively addresses core ASD symptoms and the plan justifies why home or center will not work; the provider may not act as an aide or observer. Community POS 99: preauthorization required; medical appointments, sports participation, camps, daily-living and job-skills settings and vehicle travel are excluded. Telehealth POS 02: 97156 only, after the first six-month period, GT or 95 modifier, no audio-only. Educational, academic and vocational goals are excluded in every setting.',
+        value:
+          'Home POS 12 and clinic/office POS 11 for all authorized provider types (clinic travel is not reimbursable). School POS 03: supervisor-only, CPT 97153, IEP required, short-term, no duplication of IEP services, homeschool ABA outside homeschooling hours. Daycare (non-preschool) POS 99: only where therapy actively addresses core ASD symptoms and the plan justifies why home or center will not work; the provider may not act as an aide or observer. Community POS 99: preauthorization required; medical appointments, sports participation, camps, daily-living and job-skills settings and vehicle travel are excluded. Telehealth POS 02: 97156 only, after the first six-month period, GT or 95 modifier, no audio-only. Parent training is limited by code, whatever the setting: 97156 “may only be used in a home or clinic-based setting,” so it cannot be billed at a daycare, school or community site; DHA limits 97157 to a clinic/office. Educational, academic and vocational goals are excluded in every setting.',
         status: 'verified',
-        cites: [
-          { title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' },
-        ],
+        cites: [{ title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
       },
       billAsProvider: {
-        value: 'The rendering provider on each line is the ABA supervisor, assistant behavior analyst or behavior technician who actually delivered the service. Assistant behavior analysts and behavior technicians are not independent providers under TRICARE policy: they cannot be listed as the billing provider and cannot bill for any ABA service, and are compensated by their authorized ABA supervisors.',
+        value:
+          'The rendering provider on each line is the ABA supervisor, assistant behavior analyst or behavior technician who actually delivered the service. Assistant behavior analysts and behavior technicians are not independent providers under TRICARE policy: they cannot be listed as the billing provider and cannot bill for any ABA service, and are compensated by their authorized ABA supervisors. The DHA rule behind it: paid claims must “identify the name of the rendering provider for each ABA service delivered, to include the NPI of the rendering provider per unique claim line,” and every provider on the claim carries its HIPAA taxonomy (103K00000X behavior analyst, 106E00000X assistant behavior analyst, 106S00000X behavior technician).',
         status: 'verified',
-        cites: [
-          { title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' },
-        ],
+        cites: [{ title: 'TriWest — Autism Care Demonstration Provider Guide (PDF)', url: 'https://tricare.triwest.com/globalassets/tricare/provider/autism-care-demostration-provider-guide.pdf' }, { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }],
       },
     },
   },
@@ -655,17 +719,16 @@ export const militaryPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — ABA treatment is on CHAMPVA’s pre-authorization list; request it through CHAMPVA before treatment starts',
+      value:
+        'Required — ABA treatment is on CHAMPVA\u2019s pre-authorization list (the evaluation is not). The CHAMPVA Operational Policy Manual adds: \u201cPreauthorization for ABA services must include an ABA TP. Upon receipt of the ABA TP, preauthorization may be granted for one year of ABA services.\u201d',
       status: 'verified',
-      cites: [
-        { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
-      ],
+      cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
     },
     dxRequired: {
-      value: 'Not published — the Guidebook lists ABA as a covered benefit but does not publish diagnosis criteria; confirm what documentation CHAMPVA wants when you request pre-authorization',
-      status: 'unverified',
-      verifyVia: 'The CHAMPVA Operational Policy Manual (behavioral health chapter) at vha.cc.va.gov — a JavaScript portal that returns an empty shell to automated retrieval; the Jan. 1, 2025 Guidebook, which is fetchable, states no diagnosis criteria for ABA. Human retrieval via carelu.com/sources; interim answer from CHAMPVA on 800-733-8387 or VHAHAC.preauthorizationFM@va.gov.',
-      blocker: 'document',
+      value:
+        'Yes — \u201cThe beneficiary must be diagnosed with ASD using the current Diagnostic and Statistical Manual of Mental Disorders (DSM) criteria\u201d (CHAMPVA Operational Policy Manual Ch. 2 Sec. 18.6). ABA \u201cfor all other diagnoses that are not ASD\u201d is excluded, and so are \u201cDiagnoses and referrals from Nurse Practitioners (NPs), Physician Assistants (PAs), or other providers not having the qualifications listed in Operational Policy.\u201d',
+      status: 'verified',
+      cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
     },
     pill: 'Payer Guide · CHAMPVA',
     h1: 'CHAMPVA and ABA: what is actually published.',
@@ -674,7 +737,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       'CHAMPVA is a VA program, not TRICARE. What the CHAMPVA Guidebook actually says about ABA: pre-authorization for treatment only, 25% cost-share after a $50/$100 deductible, the $3,000 catastrophic cap, and what intake must verify directly.',
     intro: [
       'CHAMPVA is the Civilian Health and Medical Program of the Department of Veterans Affairs. It is not TRICARE, it is not administered by a TRICARE regional contractor, and none of the Autism Care Demonstration machinery applies to it. The VA says so directly: "CHAMPVA is a VA program, while TRICARE is a regionally managed health care program for active duty and retired members of the uniformed services." The two are mutually exclusive — if you are eligible for or enrolled in TRICARE, you cannot get CHAMPVA benefits.',
-      'This is a deliberately short page, because CHAMPVA publishes deliberately little. The Guidebook confirms that applied behavior analysis is a covered benefit, that treatment requires pre-authorization while the evaluation does not, and what the family pays. It does not publish an ABA clinical policy, a diagnosis standard, an authorization interval, a provider-qualification tier or a place-of-service rule. Writing those in from TRICARE would be wrong, so this guide tells you what is verified and where to call for the rest.',
+      'This is a deliberately short page, because CHAMPVA publishes deliberately little. The Guidebook confirms that applied behavior analysis is a covered benefit, that treatment requires pre-authorization while the evaluation does not, and what the family pays. The detailed ABA rules are in the CHAMPVA Operational Policy Manual (Ch. 2 Sec. 18.6): a DSM diagnosis of ASD, a treatment plan with every pre-authorization request, approval for up to a year, BCBA-level authorized providers who bill for their technicians, and no per-code unit caps. Writing in TRICARE\u2019s rules would be wrong, so this guide tells you what is verified and where to call for the rest.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes — listed as a covered benefit in the CHAMPVA Guidebook' },
@@ -707,6 +770,22 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'ABA appears twice in the current Guidebook, updated Jan. 1, 2025. It is listed among the services that require pre-authorization, as "Applied behavior analysis (ABA) for treatment only (not the evaluation)." And it has its own line in the Behavioral Health Services benefit table — "Autism – Applied Behavioral Analysis (ABA) requires pre-authorization for treatment only (not evaluation)" — with the cost-share shown alongside.',
           'That split is the operationally useful fact. The diagnostic evaluation does not need to be pre-authorized, so a family can be evaluated without waiting on CHAMPVA. Treatment does, and CHAMPVA takes pre-authorization requests directly: by phone on 800-733-8387, by email to VHAHAC.preauthorizationFM@va.gov, or by mail to VHA Office of Integrated Veteran Care, CHAMPVA Beneficiary Claims, P.O. Box 500, Spring City, PA 19475.',
           'Two exceptions to the pre-authorization requirement are published. Services listed as requiring pre-authorization do not require it when provided through CITI, the CHAMPVA In-house Treatment Initiative at a VA medical center — and CITI services are also exempt from beneficiary cost sharing. And where other health insurance has already authorized the service, CHAMPVA does not require its own pre-authorization; but if that other insurer denies for failure to follow its rules or for lack of medical necessity, CHAMPVA will deny as well.',
+        ],
+      },
+      {
+        h2: 'What the CHAMPVA Operational Policy Manual says about ABA',
+        cites: [
+          { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' },
+          { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.1, Treatment of Mental Disorders — Transmittal 153, 6/12/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009341/02-18-01-TREATMENT-OF-MENTAL-DISORDERS' },
+          { title: 'CHAMPVA Operational Policy Manual, Ch. 3 Sec. 1.1, Claims Processing — General (Transmittal 139)', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009404/03-01-01-CLAIMS-PROCESSING-GENERAL' },
+        ],
+        body: [
+          'The detailed rules sit in the CHAMPVA Operational Policy Manual, Chapter 2, Section 18.6 (Psychological Testing), last changed by Transmittal 152 in May 2025. The child \u201cmust be diagnosed with ASD using the current Diagnostic and Statistical Manual of Mental Disorders (DSM) criteria.\u201d Pre-authorization \u201cmust include an ABA TP,\u201d and once CHAMPVA has the plan, \u201cpreauthorization may be granted for one year of ABA services.\u201d',
+          'Who may provide it: BCBAs, BCBA-Ds or other qualified CHAMPVA-authorized independent providers with a master\u2019s degree or above and a current state licence (or BACB certification where the state does not license), who employ or contract with assistant behavior analysts (LABA, BCaBA, QASP) and technicians (RBT, ABAT, BCAT) and supervise them directly. \u201cOnly one authorized ABA provider is authorized to provide ABA services for each beneficiary at a time,\u201d and that provider \u201cis the sole provider authorized to bill for ABA services.\u201d',
+          'Unit caps: none per code. The manual sets no daily or weekly maximum for any ABA code; the limit is what the one-year pre-authorization approves. The mental-health section records that on \u201cMay 30, 2024, quantitative limits are removed for covered mental health and substance use disorder (SUD) care,\u201d with documentation available on request to support the level of care.',
+          'What is excluded: ABA for any diagnosis other than ASD; diagnoses and referrals from nurse practitioners or physician assistants; training of the technicians; billing for e-mails, driving, or office and therapeutic supplies; \u201cBilling for multiple providers\u2019 time during one ABA session with a child when more than one ABA provider is present\u201d; educational ABA and school tuition; restraints; custodial, personal and child care; group ABA with three or more children and one or two providers; and indirect supervision.',
+          'Claims: the claims chapter (Ch. 3 Sec. 1.1) asks for the provider\u2019s name and address, remittance address, the physical location where services were rendered, the individual provider\u2019s professional status, TIN and NPI. A referring provider and a taxonomy code are not on that list; the referring provider\u2019s name belongs in the assessment and treatment plan.',
+          'Licensure: \u201cIf a state requires licensure or certification, the ABA provider is required to possess that state licensure or certification to be a CHAMPVA-authorized provider,\u201d and where the state does not license, current BCBA or BCBA-D certification from the BACB qualifies.',
         ],
       },
       {
@@ -753,6 +832,15 @@ export const militaryPayers: Record<string, PayerConfig> = {
           'Plan on pre-authorization before the first treatment session. The Guidebook lists “Applied behavior analysis (ABA) for treatment only (not the evaluation)” among services that require pre-authorization and describes no back-dating route. The regulation has one narrow retrospective path: “CHAMPVA will perform a retrospective medical necessity review during the coordination of benefits process if: (1) It is determined that CHAMPVA is the responsible payer for services and supplies but CHAMPVA preauthorization was not obtained prior to delivery of the services or supplies; and, (2) The claim for payment is filed within the appropriate one-year period.” That is a review of a claim in the coordination-of-benefits process, not a way to authorize treatment after the fact. The Guidebook’s filing limit is one year after the date of service. Where other health insurance is primary and has authorized the service, CHAMPVA requires no pre-authorization of its own.',
         ],
       },
+      {
+        h2: 'Filing CHAMPVA ABA claims: deadline, where they go, and appeals',
+        body: [
+          'The filing limit is one year. The Guidebook: “You have one year after the date of service to file any claims,” claims filed late “will be denied,” and a timely-filing denial is challenged through the appeal process. Where CHAMPVA eligibility was granted retroactively, claims for dates on or after the effective date are due within 180 days of the first CHAMPVA card. With other insurance in front, file there first and send CHAMPVA that plan’s EOB.',
+          'VA’s CHAMPVA provider page gives the route: electronic 837 claims to payer ID 84146 through VA’s clearinghouse (Optum Insight), or paper claims to VHA Office of Integrated Veteran Care, CHAMPVA Claims, PO Box 30750, Tampa, FL 33630-3750. Its claim tips ask for the complete nine-digit EIN/TIN, both the billing address and the physical address where services were provided, and each service and date of service on its own line. The same page lists 833-930-0816 for preauthorization requests. VA publishes no ABA rule on whose NPI goes on the claim (see the billing field below).',
+          'Appeals: a decision review is available when CHAMPVA decided the claim within the last year, through a higher-level review, a supplemental claim with new evidence, or a Board of Veterans’ Appeals appeal. A denied pre-authorization has its own route: “you have one year from the date of the VA notification to submit in writing why you believe the decision is incorrect,” to CHAMPVA Appeals, P.O. Box 600, Spring City, PA 19475.',
+        ],
+        cites: [{ title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' }, { title: 'VA Community Care — CHAMPVA (provider eligibility, preauthorization and claims)', url: 'https://www.va.gov/COMMUNITYCARE/revenue-ops/FM-Care-Claims.asp' }],
+      },
     ],
     collect: [
       { title: 'CHAMPVA vs. TRICARE, settled', desc: 'Confirm the family is not eligible for or enrolled in TRICARE. The two are mutually exclusive, and a retiree or a spouse of a veteran killed in action is a TRICARE beneficiary.' },
@@ -769,55 +857,47 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'eCFR — 38 CFR 17.272, Benefits limitations/exclusions', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
       { title: 'eCFR — 38 CFR 17.273, Preauthorization', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/subject-group-ECFRd3f6f5d27d7b5ae/section-17.273' },
       { title: 'Federal Register — CHAMPVA Coverage of Audio-Only Telehealth, Mental Health Services, and Cost Sharing for Certain Contraceptive Services (final rule, Apr. 30, 2024)', url: 'https://www.govinfo.gov/content/pkg/FR-2024-04-30/html/2024-09072.htm' },
+      { title: 'VA Community Care — CHAMPVA (provider eligibility, preauthorization and claims)', url: 'https://www.va.gov/COMMUNITYCARE/revenue-ops/FM-Care-Claims.asp' },
+      { title: 'eCFR — 38 CFR 17.276, Claim filing deadline (§17.276(d): CHAMPVA is the last payer to OHI)', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/section-17.276' },
     ],
     deliveryRules: {
       concurrentBilling: {
         value:
-          'Not published. The CHAMPVA Guidebook lists ABA as a covered benefit with pre-authorization for treatment only, and says nothing about billing two ABA codes for the same clock time. Do not import TRICARE\u2019s ACD concurrent-billing matrix \u2014 CHAMPVA is a VA program under a different statute, and the two are mutually exclusive for any given beneficiary.',
-        status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+          'No overlapping provider time. The CHAMPVA Operational Policy Manual\u2019s ABA section (Ch. 2 Sec. 18.6) excludes \u201cBilling for multiple providers\u2019 time during one ABA session with a child when more than one ABA provider is present,\u201d so a BCBA\u2019s 97155 cannot be billed for the same session time as the technician\u2019s 97153. It also excludes \u201cIndirect supervision\u201d and \u201cGroup ABA services, which are defined as multiple beneficiaries with fewer providers, such as three or more children with one or two providers.\u201d Do not import TRICARE\u2019s ACD matrix \u2014 CHAMPVA is a separate VA program.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
       },
       dailyLimits: {
         value:
-          'Not published. No per-day unit ceiling, MUE table or hour band for ABA appears in the Guidebook. What is published is the money: CHAMPVA pays 75 percent of the allowable amount as primary, the patient pays a $50 individual / $100 family annual deductible plus a 25 percent cost-share, and beneficiary cost sharing is capped at $3,000 a year, after which CHAMPVA pays 100 percent of allowable costs for the rest of the year.',
-        status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+          'No per-code unit cap is published. The CHAMPVA Operational Policy Manual\u2019s ABA section (Ch. 2 Sec. 18.6, Transmittal 152, May 2025) sets no daily or weekly maximum for 97151\u201397158; it says pre-authorization \u201cmust include an ABA TP\u201d and \u201cmay be granted for one year of ABA services,\u201d so the ceiling is the weekly hours CHAMPVA approves on the treatment plan. The mental-health section (Ch. 2 Sec. 18.1) adds: \u201cMay 30, 2024, quantitative limits are removed for covered mental health and substance use disorder (SUD) care. Documentation may be requested to determine medical necessity and to support the level of care.\u201d Psychological testing is \u201cnot counted against the number of weekly hours allowed for ABA.\u201d Bill only the units on the approval letter.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.1, Treatment of Mental Disorders — Transmittal 153, 6/12/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009341/02-18-01-TREATMENT-OF-MENTAL-DISORDERS' }],
       },
       noteSignature: {
         value:
-          'Not published. The Guidebook states no session-note content or signature standard for ABA. With nothing published, the pre-authorization decision and your own contemporaneous record of the call are the operative documentation guidance.',
+          'No session-note signature rule is published. The CHAMPVA Operational Policy Manual\u2019s ABA section sets a signature rule for the treatment plan instead: \u201cThe TP and updates shall contain signatures by the authorized ABA supervisor and the parent/caregiver,\u201d and the assessment and TP must show the date they were completed and the name of the referring provider.',
         status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
+        verifyVia: 'CHAMPVA pre-authorization line, 800-733-8387: ask what session-note content and signatures CHAMPVA expects on a records request.',
+        blocker: 'per-case',
       },
       billAsProvider: {
         value:
-          'Not published. The Guidebook does not define who may render or supervise ABA, nor whose NPI a technician-delivered claim must carry. One structural fact does bear on it: CHAMPVA \u201cdoes not have a network of health care providers, so you can visit most authorized providers\u201d \u2014 so the gate is pre-authorization and provider authorization, not network status.',
-        status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+          'The authorized ABA provider bills. Under the CHAMPVA Operational Policy Manual (Ch. 2 Sec. 18.6), authorized ABA providers are BCBAs, BCBA-Ds \u201cor other qualified CHAMPVA-authorized independent providers\u201d who employ or contract with assistant behavior analysts and behavior technicians and \u201cserve as direct supervisors\u201d of them. \u201cOnly one authorized ABA provider is authorized to provide ABA services for each beneficiary at a time,\u201d and that primary provider \u201cis the sole provider authorized to bill for ABA services,\u201d even when it consults another. The general rule for employees (Ch. 2 Sec. 15.4) is the same: \u201cThe authorized provider must bill for the services rendered by the employees.\u201d The claims chapter asks for the provider\u2019s NPI, TIN, professional status and the physical location of service; it does not say whether a technician\u2019s own NPI also goes on the line.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 15.4, Services Rendered by Employees of Authorized Independent Professional Providers', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009010/02-15-04-SERVICES-RENDERED-BY-EMPLOYEES-OF-AUTHORIZED-INDEPENDENT-PROFESSIONAL-PROVIDERS' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 3 Sec. 1.1, Claims Processing — General (Transmittal 139)', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009404/03-01-01-CLAIMS-PROCESSING-GENERAL' }],
       },
       supervision: {
-        value: 'CHAMPVA does not publish supervision requirements, provider tiers or supervision ratios for ABA in the Guidebook. Do not assume TRICARE’s ACD tiers apply — CHAMPVA is a separate VA program.',
-        status: 'unverified',
-        cites: [
-          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
-        ],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook',
-        blocker: 'document',
+        value:
+          'Authorized ABA providers \u201cserve as direct supervisors of the assistant behavior analysts and BTs and ensure that the quality of the ABA services provided by assistant behavior analysts and BTs meets the minimum standards of recommendations and rules promulgated by the applicable certifying body\u201d (CHAMPVA Operational Policy Manual Ch. 2 Sec. 18.6). Qualified assistants are LABAs, BCaBAs and QASPs; technicians are high-school-level paraprofessionals such as RBTs, ABATs and BCATs. \u201cIndirect supervision\u201d is excluded, and so is \u201cTraining of the BTs.\u201d No CHAMPVA supervision ratio or percentage is set beyond the certifying body\u2019s.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
       },
       placeOfService: {
-        value: 'No place-of-service policy for ABA is published in the Guidebook. The one setting rule that is published is CITI: services delivered in a VA medical center under the CHAMPVA In-house Treatment Initiative are exempt from pre-authorization and from beneficiary cost sharing.',
+        value:
+          'No list of allowed settings is published. The CHAMPVA Operational Policy Manual\u2019s ABA section excludes \u201cEducational/academic and vocational rehabilitation,\u201d \u201cEducational ABA services,\u201d school tuition that includes ABA, and \u201cCustodial care, personal care, and/or child care.\u201d Services delivered in a VA medical center under CITI are exempt from pre-authorization and cost sharing (Guidebook).',
         status: 'unverified',
-        cites: [
-          { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' },
-        ],
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
         verifyVia: 'Confirm allowable settings in the pre-authorization decision before scheduling home, school or community sessions; CHAMPVA 800-733-8387',
         blocker: 'per-case',
       },
@@ -831,49 +911,47 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
       dxRecency: {
         value:
-          'Not published. The Guidebook states no ASD diagnosis requirement and no recency rule for the diagnostic evaluation. Capture the evaluation date and the diagnosing provider anyway and expect to send them with the treatment request \u2014 the evaluation itself does not need pre-authorization, so there is no reason to wait on CHAMPVA before getting one.',
+          'Not set. The CHAMPVA Operational Policy Manual\u2019s ABA section requires an ASD diagnosis \u201cusing the current Diagnostic and Statistical Manual of Mental Disorders (DSM) criteria\u201d but sets no maximum age for the diagnostic evaluation. Capture the evaluation date and the diagnosing provider anyway; the assessment and treatment plan must name the referring provider.',
         status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'per-case',
       },
       diagnosingProviders: {
         value:
-          'Not published. The Guidebook does not state who may make the ASD diagnosis for ABA purposes. Do not apply TRICARE\u2019s closed ACD diagnosing-provider list here \u2014 different department, different statute, different rules \u2014 and ask CHAMPVA which credentials it will recognise for the diagnosing, rendering and supervising roles on the same call as the pre-authorization.',
-        status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'VA \u2014 CHAMPVA', url: 'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/champva/' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+          'The CHAMPVA Operational Policy Manual\u2019s ABA section excludes \u201cDiagnoses and referrals from Nurse Practitioners (NPs), Physician Assistants (PAs), or other providers not having the qualifications listed in Operational Policy.\u201d It does not list the qualifying diagnosing credentials itself; the mental-health section lists the qualified mental-health providers as physicians (MD/DO), clinical psychologists, certified psychiatric nurse specialists, certified clinical social workers, certified marriage and family therapists, TRICARE-certified mental health counselors, and pastoral or mental health counselors under a physician\u2019s supervision. Do not apply TRICARE\u2019s ACD list.',
+        status: 'verified',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.1, Treatment of Mental Disorders — Transmittal 153, 6/12/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009341/02-18-01-TREATMENT-OF-MENTAL-DISORDERS' }],
       },
       diagnosticTools: {
         value:
-          'Not published. The Guidebook names no required assessment instruments and no outcome measures for ABA. None of the ACD\u2019s four-measure regime applies.',
+          'None required. The CHAMPVA Operational Policy Manual\u2019s ABA section requires a DSM diagnosis of ASD and names no required instrument. It defines the PDDBI (an informant rating scale for ages 2\u201318.5) in its descriptions but does not make it a condition of coverage, and none of the ACD\u2019s outcome-measure regime applies.',
         status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
+        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov. Ask when you request pre-authorization and get the answer in writing.',
+        blocker: 'per-case',
       },
       referral: {
         value:
-          'The split is the operationally useful fact, and it is published twice. ABA appears among the services requiring pre-authorization as \u201cApplied behavior analysis (ABA) for treatment only (not the evaluation),\u201d and again in the Behavioral Health Services benefit table as \u201cAutism \u2013 Applied Behavioral Analysis (ABA) requires pre-authorization for treatment only (not evaluation).\u201d So a family can be evaluated without waiting on CHAMPVA. Treatment requests go directly to CHAMPVA by phone on 800-733-8387, by email to VHAHAC.preauthorizationFM@va.gov, or by mail to the VHA Office of Integrated Veteran Care. Two published exceptions remove the requirement entirely: services provided through CITI, the CHAMPVA In-house Treatment Initiative at a VA medical center (also exempt from beneficiary cost sharing), and services another health insurer has already authorized \u2014 though if that insurer denies for failure to follow its rules or for lack of medical necessity, CHAMPVA will deny as well.',
+          'The split is the operationally useful fact, and it is published twice. ABA appears among the services requiring pre-authorization as \u201cApplied behavior analysis (ABA) for treatment only (not the evaluation),\u201d and again in the Behavioral Health Services benefit table as \u201cAutism \u2013 Applied Behavioral Analysis (ABA) requires pre-authorization for treatment only (not evaluation).\u201d So a family can be evaluated without waiting on CHAMPVA. Treatment requests go directly to CHAMPVA by phone on 800-733-8387, by email to VHAHAC.preauthorizationFM@va.gov, or by mail to the VHA Office of Integrated Veteran Care. Two published exceptions remove the requirement entirely: services provided through CITI, the CHAMPVA In-house Treatment Initiative at a VA medical center (also exempt from beneficiary cost sharing), and services another health insurer has already authorized \u2014 though if that insurer denies for failure to follow its rules or for lack of medical necessity, CHAMPVA will deny as well. There is no separate physician-order form; the referral travels inside the treatment plan. The CHAMPVA Operational Policy Manual requires the ABA assessment and treatment plan to show the \u201cDate the initial ABA assessment and initial TP was completed, and name of the referring provider,\u201d and excludes \u201cDiagnoses and referrals from Nurse Practitioners (NPs), Physician Assistants (PAs), or other providers not having the qualifications listed.\u201d No validity period for the referral is set.',
         status: 'verified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
+        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }],
       },
       telehealth: {
         value:
-          'Not published for ABA. The Guidebook states no telehealth policy, code list or modifier requirement for applied behavior analysis.',
+          'Not settled for ABA. The CHAMPVA Operational Policy Manual describes ABA specialized interventions as delivered \u201cduring one-on-one in-person (i.e., face to face) interactions with the beneficiary.\u201d The mental-health section says \u201cMental health services or advice provided as telehealth, including by audio-only telephone, are a covered benefit,\u201d and psychological testing by telehealth is covered. No ABA code list, modifier or POS is published, so ask before delivering any ABA code remotely.',
         status: 'unverified',
-        cites: [{ title: 'CHAMPVA Guidebook (updated Jan. 1, 2025) (PDF)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/programguides/CHAMPVA-Guide.pdf' }],
-        verifyVia: 'CHAMPVA customer service and pre-authorization line, 800-733-8387, or VHAHAC.preauthorizationFM@va.gov; detailed operating rules live in the CHAMPVA Operational Policy Manual rather than the Guidebook. Ask when you request pre-authorization and get the answer in writing.',
-        blocker: 'document',
+        cites: [{ title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.1, Treatment of Mental Disorders — Transmittal 153, 6/12/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009341/02-18-01-TREATMENT-OF-MENTAL-DISORDERS' }],
+        verifyVia: 'CHAMPVA pre-authorization line, 800-733-8387: name the codes and the delivery mode in the request and get the answer in writing.',
+        blocker: 'per-case',
       },
       authTurnaround: {
         value:
-          'CHAMPVA requires pre-authorization for “Applied behavior analysis (ABA) for treatment only (not the evaluation),” requested by phone, email or mail to the pre-authorization unit. Neither the CHAMPVA Guidebook nor the CHAMPVA regulation (38 CFR 17.273) states how long VA has to decide an ABA request, and no reauthorization lead time is published. One exception removes the clock entirely: when the child’s other insurance is primary and has authorized the service, CHAMPVA does not require its own pre-authorization.',
+          'CHAMPVA requires pre-authorization for \u201cApplied behavior analysis (ABA) for treatment only (not the evaluation).\u201d Once CHAMPVA has the treatment plan, \u201cpreauthorization may be granted for one year of ABA services\u201d (Operational Policy Manual Ch. 2 Sec. 18.6). Neither the manual, the Guidebook nor 38 CFR 17.273 states how long VA has to decide, and no reauthorization lead time is published. When the child\u2019s other insurance is primary and has authorized the service, CHAMPVA does not require its own pre-authorization.',
         status: 'unverified',
-        cites: [{ title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' }, { title: 'eCFR — 38 CFR 17.273, Preauthorization', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/subject-group-ECFRd3f6f5d27d7b5ae/section-17.273' }],
-        verifyVia: 'The CHAMPVA Operational Policy Manual, Chapter 2 (Benefits), Section 18 Mental Health — ABA article on vha.cc.va.gov, or the CHAMPVA pre-authorization line (833-930-0816) — ask the decision turnaround and how far ahead to submit each renewal.',
-        blocker: 'document',
+        cites: [{ title: 'VA — CHAMPVA Guidebook (March 2026 posting)', url: 'https://www.va.gov/files/2026-03/CHAMPVA-Guidebook_3-2026.pdf' }, { title: 'CHAMPVA Operational Policy Manual, Ch. 2 Sec. 18.6, Psychological Testing (ABA) — Transmittal 152, 5/22/2025', url: 'https://www.vha.cc.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001036/content/554400000009345/02-18-06-PSYCHOLOGICAL-TESTING' }, { title: 'eCFR — 38 CFR 17.273, Preauthorization', url: 'https://www.ecfr.gov/current/title-38/chapter-I/part-17/subject-group-ECFRd3f6f5d27d7b5ae/section-17.273' }],
+        verifyVia: 'CHAMPVA pre-authorization line (833-930-0816 / 800-733-8387): ask the decision turnaround and how far ahead to submit each renewal.',
+        blocker: 'per-case',
       },
       coordinationOfBenefits: {
         value:
@@ -883,13 +961,19 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does CHAMPVA require a taxonomy code on ABA claims?', a: 'CHAMPVA publishes no taxonomy rule. Its Operational Policy Manual claims chapter lists the provider information a claim needs (name and address, remittance address, physical location of service, professional status, TIN and NPI) and taxonomy is not among them. Ask the pre-authorization unit if a claim rejects.' },
       { q: 'Does CHAMPVA cover ABA therapy?', a: 'Yes. Applied behavior analysis appears in the CHAMPVA Guidebook as a covered behavioral health benefit, with pre-authorization required for treatment only, not for the evaluation.' },
       { q: 'Is CHAMPVA the same as TRICARE?', a: 'No. CHAMPVA is a VA program and TRICARE is the Department of Defense program. They are mutually exclusive: a person eligible for or enrolled in TRICARE cannot receive CHAMPVA benefits. None of the TRICARE Autism Care Demonstration rules apply to CHAMPVA.' },
       { q: 'What does a CHAMPVA family pay for ABA?', a: 'When CHAMPVA is the primary payer, the annual deductible of $50 per individual or $100 per family, then a 25% cost-share, with CHAMPVA paying 75% of the allowable amount. Beneficiary cost sharing is capped at $3,000 a year. When CHAMPVA is secondary or tertiary, the patient pays nothing in most cases.' },
       { q: 'Does CHAMPVA have a provider network?', a: 'No. The VA states that CHAMPVA does not have a network of health care providers and beneficiaries can visit most authorized providers. Pre-authorization, not network status, is the gate for ABA treatment.' },
-      { q: 'How long does a CHAMPVA ABA authorization last?', a: 'CHAMPVA does not publish an authorization interval for ABA in the Guidebook. Ask when you request pre-authorization on 800-733-8387 and get the period, the renewal requirements and any credential or setting limits in writing.' },
+      { q: 'How long does a CHAMPVA ABA authorization last?', a: 'Up to a year. The CHAMPVA Operational Policy Manual says pre-authorization for ABA "must include an ABA TP" and, once CHAMPVA has it, "may be granted for one year of ABA services." Ask on 800-733-8387 what the renewal needs.' },
+      { q: 'What are CHAMPVA\u2019s maximum unit caps for ABA?', a: 'CHAMPVA publishes no per-code daily or weekly unit cap. Its Operational Policy Manual approves ABA for up to a year on the treatment plan, so the cap is the weekly hours on the approval letter, and its mental-health section says quantitative limits were removed for covered mental health care from May 30, 2024. It does exclude billing two providers\u2019 time in the same session and group ABA with three or more children per one or two providers.' },
+      { q: 'Does CHAMPVA require the referring provider on ABA claims?', a: 'Not as a claim field. The CHAMPVA claims chapter lists the provider\u2019s name, address, service location, professional status, TIN and NPI, with no referring provider. The referring provider\u2019s name must appear in the ABA assessment and treatment plan instead, and CHAMPVA excludes diagnoses and referrals from nurse practitioners and physician assistants.' },
       { q: 'Can a BCBA licensed in another state provide ABA by telehealth to a CHAMPVA family?', a: 'CHAMPVA publishes no rule on it. Its test is that the provider is licensed or certified by a state (or nationally certified where the state does not license) and works within the scope of that licence. Whether the licence reaches a child in another state depends on the state laws involved. Name the delivery mode and licence state in the pre-authorization request and get CHAMPVA’s answer in writing.' },
       { q: 'Does CHAMPVA allow retroactive authorization for ABA?', a: 'Not as a routine. ABA treatment needs pre-authorization before it starts. The regulation allows a retrospective medical-necessity review only in coordination of benefits: when CHAMPVA turns out to be the responsible payer, pre-authorization was not obtained, and the claim is filed within one year.' },
+      { q: 'What is CHAMPVA’s timely filing limit for ABA claims?', a: 'One year after the date of service. Claims filed after that are denied, and a timely-filing denial goes through CHAMPVA’s appeal process. If eligibility was granted retroactively, there are 180 days from the first CHAMPVA card to file for the earlier dates.' },
+      { q: 'Does CHAMPVA want ABA claims billed under the supervising BCBA or the rendering technician?', a: 'Under the authorized ABA provider. CHAMPVA\u2019s Operational Policy Manual makes the BCBA, BCBA-D or other authorized independent provider the only one who may bill: technicians and assistants work under that provider, and the primary authorized ABA provider "is the sole provider authorized to bill for ABA services." The manual does not say whether a technician\u2019s own NPI also goes on the line, so ask the pre-authorization unit (833-930-0816) before the first claim.' },
+      { q: 'How do we appeal a CHAMPVA ABA denial?', a: 'For a claim decided in the last year, request a higher-level review, file a supplemental claim with new evidence, or appeal to the Board of Veterans’ Appeals. For a denied pre-authorization, write to CHAMPVA Appeals within one year of the VA notice with the denial letter and any new documentation.' },
     ],
   },
 
@@ -1024,31 +1108,28 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE — Compare Health Plan Costs', url: 'https://tricare.mil/Costs/Compare' },
       { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
       { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 — Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
+      { title: 'Johns Hopkins US Family Health Plan Provider Manual (2024)', url: 'https://www.hopkinsmedicine.org/-/media/johns-hopkins-health-plans/documents/usfhp/usfhp-provider-manual.pdf' },
+      { title: 'TRICARE Operations Manual 6010.59-M (2015 ed.), Ch. 18 Sec. 4 — Autism Care Demonstration (Change 139, Jun 10, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-06-10/AsOf/TO15/C18S4.html' },
+      { title: 'eCFR — 32 CFR 199.8, Double coverage', url: 'https://www.ecfr.gov/current/title-32/subtitle-A/chapter-VII/subchapter-M/part-199/section-199.8' },
     ],
     deliveryRules: {
       concurrentBilling: {
         value:
-          'Johns Hopkins publishes an ACD-ABA provider presentation and a USFHP provider manual, but both are served behind bot protection and could not be retrieved for this review, so the plan\u2019s concurrent-billing rules are not restated here. The DHA-level framework applies \u2014 the ACD excludes concurrent billing for its Category I codes outside narrow documented exceptions \u2014 but the plan administers the demonstration itself, so confirm against its material rather than another contractor\u2019s.',
-        status: 'unverified',
-        cites: [{ title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }, { title: 'TRICARE \u2014 Autism Care Demonstration', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD' }],
-        verifyVia: 'Johns Hopkins USFHP provider relations \u2014 request the current ACD-ABA training deck and the USFHP provider manual; plan line 800-808-7347.',
-        blocker: 'document',
+          'Excluded, with one exception, under the DHA rule. Johns Hopkins’ own ABA provider material could not be retrieved for this review, but TRICARE Operations Manual Ch. 18, Sec. 3 names USFHP designated providers among the contractors it binds. Concurrent billing is excluded for all ACD Category I codes “except when the family and the beneficiary are receiving separate services and the beneficiary is not present in the family session,” with documentation of two separate rendering providers and locations. If 97153 and 97155 are billed concurrently, the contractor “shall pay the higher rate and deny the other.” The manual’s pairing table allows 97151 with 97153, 97156, 97157 or 97158, and 97156 with 97153, 97155 or 97158; it bars 97155 with 97151 or 97153.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }, { title: 'Johns Hopkins Health Plans — USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
       },
       dailyLimits: {
         value:
-          'Not retrievable for this review. The per-day unit ceilings under the ACD live in TRICARE Operations Manual Ch. 18, Sec. 3 and in the authorization itself, and Johns Hopkins\u2019 own ABA provider material is served behind bot protection. Do not assume another region\u2019s published ceilings apply.',
-        status: 'unverified',
-        cites: [{ title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
-        verifyVia: 'The authorization letter itself, and Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 ask for the current ACD-ABA training deck and provider manual.',
-        blocker: 'document',
+          'Set by the DHA rule. Johns Hopkins’ own ABA provider material could not be retrieved for this review. The DHA rule applies to USFHP: TRICARE Operations Manual Ch. 18, Sec. 3 names USFHP designated providers among the contractors it binds and carves them out only of specific paragraphs (such as the navigator rules in 6.0–6.9). Ceilings: 97151 up to 32 units for the initial assessment and up to 24 units per later authorization, used within 14 calendar days of the first 97151 date of service; 97153 denied above “32 units (eight hours) per day or 160 units (40 hours) per week”; 97155 not authorized above eight units (two hours) a day; 97156 denied above eight units a day; 97157 and 97158 authorized at four to six units a day, with groups of no more than eight.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }, { title: 'Johns Hopkins Health Plans — USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
       },
       billAsProvider: {
         value:
-          'Not published where it could be verified for this review. What is established is the network fact that precedes it: USFHP members cannot use TRICARE network providers, so TRICARE certification is not enough \u2014 the ABA provider must be in the Hopkins USFHP network, and Johns Hopkins requires its ABA providers to attest that they have completed its ACD-ABA training and understand the ACD provider requirements, \u201ccorrect billing practices/claims filing, authorizations, exclusions, and medical records documentation for the ACD-ABA program.\u201d',
-        status: 'unverified',
-        cites: [{ title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }, { title: 'TRICARE \u2014 Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' }],
-        verifyVia: 'Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 request the ACD-ABA training deck and provider manual, and confirm the rendering-versus-billing NPI convention before the first claim.',
-        blocker: 'document',
+          'The rendering provider goes on every line, under the DHA rule. TRICARE Operations Manual Ch. 18, Sec. 3, which names USFHP designated providers among the contractors it binds, requires every ACD provider to have an NPI (“all claims must have the rendering provider’s name and NPI for processing”), requires paid claims to carry “the NPI of the rendering provider per unique claim line,” and requires the HIPAA taxonomy of each provider type: 103K00000X behavior analyst, 106E00000X assistant behavior analyst, 106S00000X behavior technician. Claims must be electronic. The network fact comes first: USFHP members cannot use TRICARE network providers, so the ABA provider must be in the Hopkins USFHP network, and Johns Hopkins requires an ACD-ABA training attestation covering “correct billing practices/claims filing.”',
+        status: 'verified',
+        cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }, { title: 'Johns Hopkins Health Plans — USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }, { title: 'TRICARE — Uniformed Services Family Health Plan', url: 'https://tricare.mil/Plans/HealthPlans/USFHP' }],
       },
       placeOfService: {
         value: 'DHA’s ACD rule applies to all TRICARE plans: ABA delivered by a behavior technician in a school setting is not covered. A BCBA may be authorized where the goal is clinically necessary, focused and time-limited, with pre-authorization and the contractor approving the goals. For community settings, families are generally expected to generalize mastered skills on their own; a BCBA may be authorized for certain community settings only after checking with the plan.',
@@ -1109,11 +1190,9 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Johns Hopkins\u2019 plan-specific ABA telehealth rules are published in provider material that is served behind bot protection and could not be retrieved for this review. The DHA-level setting rules do apply \u2014 technician-delivered school ABA is not covered, and a BCBA may be authorized only for a clinically necessary, focused and time-limited goal after review \u2014 but the telehealth code list is not stated at the DHA level in the sources cited here. Get the plan\u2019s written answer before scheduling remote hours rather than after.',
-        status: 'unverified',
-        cites: [{ title: 'TRICARE \u2014 Autism Care Demonstration Q&A', url: 'https://tricare.mil/Plans/SpecialPrograms/ACD/QandA' }, { title: 'Johns Hopkins Health Plans \u2014 USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
-        verifyVia: 'Johns Hopkins USFHP provider relations on 800-808-7347 \u2014 request the current ACD-ABA training deck and the USFHP provider manual, and confirm which ABA codes the plan pays by telehealth.',
-        blocker: 'document',
+          'One code, after six months. Johns Hopkins’ own ABA provider material could not be retrieved for this review, so the answer is the DHA rule. The DHA rule applies to USFHP: TRICARE Operations Manual Ch. 18, Sec. 3 names USFHP designated providers among the contractors it binds and carves them out only of specific paragraphs (such as the navigator rules in 6.0–6.9). It says 97151, 97153, 97155, 97157 and 97158 “may not be conducted via TH,” that 97156 parent/caregiver sessions “may be conducted via TH only after the first six-month authorization period per authorized provider,” that remote sessions “must include the GT or 95 modifier on claims,” and that “all services provided via TH must adhere to State laws governing TH services.” Asynchronous telehealth is excluded. Plan the first six months fully in person.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }, { title: 'Johns Hopkins Health Plans — USFHP Applied Behavioral Analysis Training', url: 'https://www.hopkinsmedicine.org/johns-hopkins-health-plans/providers-physicians/resources-guidelines/provider-education/aba-training' }],
       },
       authTurnaround: {
         value:
@@ -1136,6 +1215,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'Do USFHP families get an Autism Services Navigator?', a: 'No. DHA states that beneficiaries enrolled in USFHP, and those living overseas, do not have an ASN. The coordination the navigator normally provides falls to the plan and the ABA provider.' },
       { q: 'Can a BCBA licensed in another state provide ABA by telehealth to a Johns Hopkins USFHP member?', a: 'Only parent training (97156), only after the first six-month authorization, and only where the BCBA is licensed or otherwise authorized for the child\u2019s location. The DHA manuals the plan administers require compliance with licensing law where services are provided and received, and bar telehealth for the assessment and direct ABA codes. Authorizations are not back-dated: the ACD does not accept retroactive referrals.' },
       { q: 'What does a Johns Hopkins USFHP family pay for ABA?', a: 'TRICARE Prime rates, since USFHP has the same out-of-pocket costs as Prime. ABA is outpatient specialty care and one copay covers all ABA services on a single day: currently $0 for active duty family members and $39 for retirees and others on network specialty care. There is no annual or lifetime cap on ABA.' },
+      { q: 'Can 97156 parent training be billed in a daycare for a USFHP member?', a: 'Not under the DHA rule the plan administers. TRICARE Operations Manual Ch. 18, Sec. 3 says 97156 “may be used only in a home or clinic/office-based setting” (97157 only in a clinic or office). A daycare can be authorized for direct ABA when clinically necessary, but hold parent training at home, in the clinic, or by telehealth after the first six-month authorization. Confirm any daycare plan with the USFHP plan in writing.' },
     ],
   },
 
@@ -1282,6 +1362,9 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE — Compare Health Plan Costs', url: 'https://tricare.mil/Costs/Compare' },
       { title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' },
       { title: 'TRICARE Policy Manual 6010.63-M (2021 ed.), Ch. 7 Sec. 22.1 — Telehealth (Revision C-54, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TPT5/FileName/C7S22_1' },
+      { title: 'Martin’s Point — Authorizations and Referrals', url: 'https://www.martinspoint.org/For-Providers/Tools/Authorizations-and-Referrals' },
+      { title: 'TRICARE Operations Manual 6010.59-M (2015 ed.), Ch. 18 Sec. 4 — Autism Care Demonstration (Change 139, Jun 10, 2024)', url: 'https://manuals.health.mil/pages/DisplayManualHtmlFile/2024-06-10/AsOf/TO15/C18S4.html' },
+      { title: 'Martin’s Point Provider Manual — Claims (updated January 1, 2026)', url: 'https://www.martinspoint.org/For-Providers/Provider-Manual/Claims' },
     ],
     deliveryRules: {
       concurrentBilling: {
@@ -1292,11 +1375,9 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'Not published by the plan. Martin\u2019s Point sets cadence rather than ceilings: treatment plans updated every six months, reauthorizations submitted at least 30 days before the current authorization expires, and six parent/caregiver training sessions required every six months. Per-day unit ceilings under the ACD live in the TRICARE Operations Manual and in the authorization itself; do not carry another contractor\u2019s published ceilings over.',
-        status: 'unverified',
-        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
-        verifyVia: 'The authorization letter itself, or Martin\u2019s Point USFHP provider services on 888-241-4556.',
-        blocker: 'document',
+          'Set by the DHA rule. Martin’s Point’s ABA provider training administers the ACD “in accordance with TRICARE’s Program Manuals” and does not restate this rule. The DHA rule applies to USFHP: TRICARE Operations Manual Ch. 18, Sec. 3 names USFHP designated providers among the contractors it binds and carves them out only of specific paragraphs (such as the navigator rules in 6.0–6.9). Ceilings: 97151 up to 32 units for the initial assessment and up to 24 units per later authorization, used within 14 calendar days of the first 97151 date of service; 97153 denied above “32 units (eight hours) per day or 160 units (40 hours) per week”; 97155 not authorized above eight units (two hours) a day; 97156 denied above eight units a day; 97157 and 97158 authorized at four to six units a day, with groups of no more than eight.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }, { title: 'Martin’s Point — USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
       },
       noteSignature: {
         value:
@@ -1364,11 +1445,9 @@ export const militaryPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'Not addressed in Martin\u2019s Point\u2019s published ABA provider training. Its non-reimbursable list names behavior technician training, non-ABA services, travel time unless authorized, academic services and school-based ABA, services provided by family members, and services rendered by a non-authorized ABA provider \u2014 but says nothing about remote delivery. Because the plan administers the demonstration itself under contract with DHA, treat telehealth as a plan-level question and get the answer in writing before scheduling.',
-        status: 'unverified',
-        cites: [{ title: 'Martin\u2019s Point \u2014 USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
-        verifyVia: 'Martin\u2019s Point USFHP provider services, 888-241-4556 \u2014 ask which ABA codes the plan pays by telehealth, under which modifiers, and whether the authorization must say so.',
-        blocker: 'document',
+          'One code, after six months. Martin’s Point’s ABA provider training administers the ACD “in accordance with TRICARE’s Program Manuals” and does not restate this rule, so the answer is the DHA rule. The DHA rule applies to USFHP: TRICARE Operations Manual Ch. 18, Sec. 3 names USFHP designated providers among the contractors it binds and carves them out only of specific paragraphs (such as the navigator rules in 6.0–6.9). It says 97151, 97153, 97155, 97157 and 97158 “may not be conducted via TH,” that 97156 parent/caregiver sessions “may be conducted via TH only after the first six-month authorization period per authorized provider,” that remote sessions “must include the GT or 95 modifier on claims,” and that “all services provided via TH must adhere to State laws governing TH services.” Asynchronous telehealth is excluded. Plan the first six months fully in person.',
+        status: 'verified',
+        cites: [{ title: 'TRICARE Operations Manual 6010.62-M (2021 ed.), Ch. 18 Sec. 3 — Autism Care Demonstration (Revision C-57, Jun 24, 2026)', url: 'https://manuals.dha.mil/View-Publication/TOT5/Revision/66/FileName/C18S3' }, { title: 'Martin’s Point — USFHP Training for ABA Providers: TRICARE Autism Care Demonstration (PDF)', url: 'https://martinspoint.org/-/media/Files/Documents-and-Forms/Provider-and-Internal-Forms/Provider-Documents/Provider-Education/TRICARE-ACD-Provider-Training.ashx' }],
       },
       authTurnaround: {
         value:
@@ -1391,6 +1470,7 @@ export const militaryPayers: Record<string, PayerConfig> = {
       { q: 'What does the plan require before a provider can stop seeing a child?', a: 'At least 45 calendar days’ notice to the contractor before terminating services, for any reason. Discharge criteria are meeting the ABA goals or a lack of measurable progress across several assessments.' },
       { q: 'Can a BCBA licensed in another state provide ABA by telehealth to a Martin\u2019s Point USFHP member?', a: 'Only parent training (97156), only after the first six-month authorization, and only where the BCBA is licensed or otherwise authorized for the child\u2019s location. Martin\u2019s Point administers the ACD under the TRICARE manuals, which require compliance with licensing law where services are provided and received and bar telehealth for the assessment and direct ABA codes. The ACD does not accept retroactive referrals, so get the authorization first.' },
       { q: 'What does a Martin’s Point USFHP family pay for ABA?', a: 'TRICARE Prime amounts, since USFHP has the same out-of-pocket costs as Prime. ABA bills as outpatient specialty care and one copayment covers all ABA on a single day — currently $0 for active duty family members and $39 for retirees and others in network. There is no annual or lifetime cap on ABA.' },
+      { q: 'Can 97156 parent training be billed in a daycare for a USFHP member?', a: 'Not under the DHA rule the plan administers. TRICARE Operations Manual Ch. 18, Sec. 3 says 97156 “may be used only in a home or clinic/office-based setting” (97157 only in a clinic or office). A daycare can be authorized for direct ABA when clinically necessary, but hold parent training at home, in the clinic, or by telehealth after the first six-month authorization. Confirm any daycare plan with the USFHP plan in writing.' },
     ],
   },
 };

@@ -270,7 +270,7 @@ const ABA_CODES = ['97151', '97152', '97153', '97154', '97155', '97156', '97157'
 /* -------------------- Layer 4: rate tables -------------------- */
 
 const OHIO_MEDICAID_RATES: RateTable = {
-  source: 'ODM ABA fee appendix (Appendix A to draft rule 5160-34-03, package ERF188422B.pdf) — "CURRENT MAXIMUM PAYMENT AMOUNT," per 15-min unit, by practitioner tier. DRAFT (not-yet-filed) filing with a blank effective-date column; the only published ODM ABA fee document and the one ohio.ts prose already quotes. No billing-modifier column — priced by practitioner-tier descriptor.',
+  source: 'ODM ABA fee appendix (Appendix A to draft rule 5160-34-03, package ERF188422B.pdf) — "CURRENT MAXIMUM PAYMENT AMOUNT," per 15-min unit, by practitioner tier. DRAFT (not-yet-filed) filing with a blank effective-date column; the only published ODM ABA fee document and the one ohio.ts prose already quotes. No billing-modifier column — priced by practitioner-tier descriptor. Rechecked 2026-10-07: ODM’s Appendix DD to OAC 5160-1-60 (revised 1/1/2026) has no ABA rows and chapter 5160-34 is still absent from the OAC, so no in-force schedule replaces these draft figures.',
   effectiveDate: 'unverified — the ODM ABA fee appendix is a DRAFT (not-yet-filed) rule package; its effective-date column is blank',
   byCode: {
     '97151': { rate: 'Tiered — see modifierTiers (assessment)', unit: '15min', modifierTiers: { 'Independent (COBA/BCBA/BCBA-D)': '$30.49', BCaBA: '$22.67' } },

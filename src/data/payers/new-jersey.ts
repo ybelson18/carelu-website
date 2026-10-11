@@ -24,9 +24,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
     intakeGates: {
       ageLimit: {
         value:
-          'Two published numbers, and they differ in precision rather than in substance. The founding DMAHS newsletter sets the benefit for "any Medicaid eligible child, under the age of 21, who has been diagnosed with ASD as defined by ICD 10 diagnoses F84.0 through F84.9 by a qualified healthcare provider," delivered under EPSDT, which reaches "individuals under the age of twenty-one." Optum\'s New Jersey Medicaid entry adds the floor as well as the ceiling: "ABA services shall be made available to children 18 months to 21 years of age based on medical necessity," and its NJ FamilyCare provider orientation repeats it — "Must be 18 months – 21 years old," including in the specialized FamilyCare carve-out. No hour caps are attached to the age band.',
+          'Two published numbers, and they differ in precision rather than in substance. The founding DMAHS newsletter sets the benefit for "any Medicaid eligible child, under the age of 21, who has been diagnosed with ASD as defined by ICD 10 diagnoses F84.0 through F84.9 by a qualified healthcare provider," delivered under EPSDT, which reaches "individuals under the age of twenty-one." Optum\'s New Jersey Medicaid entry adds the floor as well as the ceiling: "ABA services shall be made available to children 18 months to 21 years of age based on medical necessity," and its NJ FamilyCare provider orientation repeats it — "Must be 18 months – 21 years old," including in the specialized FamilyCare carve-out. No hour caps are attached to the age band. The current managed care contract (01/2026) repeats it: “Services are limited to members between the ages of 18 months and 21 years of age. Eligibility ends the day the member reaches 21 years of age.”',
         status: 'verified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 — NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }],
       },
       dxRecency: {
         value:
@@ -66,7 +66,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       authTurnaround: {
         value:
-          'NJ FamilyCare ABA is authorized by the child\'s MCO, not the state: "Effective 4/1/2020, ABA providers shall contact the child\'s NJ FamilyCare MCO to receive authorization to provide services. For children who are pending assignment to an MCO, services shall be covered under NJ FamilyCare Fee-for-Service (FFS) and no prior authorization shall be required until a managed care plan has been assigned." So there is no state decision clock for ABA — the MCO\'s clock applies. Federal floor for every NJ FamilyCare MCO: standard decisions within 7 calendar days of the request for contract rating periods starting on or after January 1, 2026 (14 days before that), extendable by up to 14 calendar days at the member\'s or provider\'s request or when the plan justifies needing more information; expedited within 72 hours. What the five MCOs publish: Horizon NJ Health, Aetna Better Health and Fidelis Care state 7 calendar days standard and 24 hours (no later than 72) urgent; UnitedHealthcare Community Plan\'s 2025 manual and Wellpoint\'s June 2025 manual still print 14 calendar days for non-urgent requests.',
+          'NJ FamilyCare ABA is authorized by the child\'s MCO, not the state: "Effective 4/1/2020, ABA providers shall contact the child\'s NJ FamilyCare MCO to receive authorization to provide services. For children who are pending assignment to an MCO, services shall be covered under NJ FamilyCare Fee-for-Service (FFS) and no prior authorization shall be required until a managed care plan has been assigned." So there is no state decision clock for ABA — the MCO\'s clock applies. Federal floor for every NJ FamilyCare MCO: standard decisions within 7 calendar days of the request for contract rating periods starting on or after January 1, 2026 (14 days before that), extendable by up to 14 calendar days at the member\'s or provider\'s request or when the plan justifies needing more information; expedited within 72 hours. What the five MCOs publish: Horizon NJ Health, Aetna Better Health and Fidelis Care state 7 calendar days standard and 24 hours (no later than 72) urgent; UnitedHealthcare Community Plan\'s 2025 manual and Wellpoint\'s October 2026 manual still print 14 calendar days for non-urgent requests.',
         status: 'verified',
         cites: [
           { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
@@ -75,7 +75,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
           { title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
           { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
-          { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+          { title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
         ],
       },
       coordinationOfBenefits: {
@@ -88,7 +88,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
           { title: 'Horizon NJ Health — Provider Administrative Manual', url: 'https://www.horizonnjhealth.com/provider-admin-manual' },
           { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
-          { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+          { title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
           { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
           { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
         ],
@@ -111,9 +111,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission.',
+          'The current rule is the NJ FamilyCare managed care contract, not the 2020 newsletter. The contract’s ABA service description (Appendix B.4.4, 01/2026 edition) sets “Medically Unlikely Edit (MUE) Limits” per day, in 15-minute units: 97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16, 0373T 32. That is higher on three codes than the founding DMAHS newsletter’s April 2020 table (97152 8, 97154 12, 0362T 8), which the newsletter labelled “for guidance purposes only” and overridable “when medically necessary based on individual need” under EPSDT. Plan against the contract figures as the edits the MCOs run; a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission.',
         status: 'verified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
       },
       noteSignature: {
         value:
@@ -125,9 +125,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither.',
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. The NJ FamilyCare managed care contract (01/2026) now says: “Services may be provided in the home, provider office or community settings,” and “Covered services do not include services required to be provided in school as part of a child’s Individual Education Plan (IEP).” That carves out IEP services rather than every school building, so school stays a question for the plan.',
         status: 'plan-dependent',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Confirm school-setting delivery with the specific MCO before building a school-based program \u2014 the 2020 state prohibition and the 2026 Optum entry cannot both be operative.',
         blocker: 'per-case',
@@ -184,12 +184,13 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       {
         h2: 'Rates and the daily unit guide',
         body: [
-          'New Jersey publishes actual FFS rates per 15-minute unit: 97151 assessment at $25.00 (BCBA/BCBA-D), 97153 direct treatment at $15.00 (RBT/BCaBA) — raised from the launch rate of $11.20 effective February 1, 2022 using American Rescue Plan funds after Autism New Jersey\'s advocacy — 97155 protocol modification at $21.25, and 97156 family training at $25.00. The 97153/97155/97156 rates are confirmed current in the NJMMIS CY2026 Q2 listing; the 97151 rate hasn\'t been seen changed since launch but its current value is unverified. The full billable set also includes the Category III destructive-behavior/multi-tech codes 0362T ($25.00) and 0373T ($16.40). The founding newsletter attaches suggested daily unit limits — 97151 32u, 97152 8u, 97153 32u, 97154 12u, 97155 24u, 97156 16u, 97157 16u, 97158 16u, 0362T 8u, 0373T 32u — "for guidance purposes only," overridable when medically necessary under EPSDT; in practice the MCOs have adopted them as MUE claim edits. One caveat for revenue modeling: the FFS rates "are not required to be utilized" by the MCOs — though Aetna Better Health published an identical schedule.',
+          'New Jersey publishes actual FFS rates per 15-minute unit: 97151 assessment at $25.00 (BCBA/BCBA-D), 97153 direct treatment at $15.00 (RBT/BCaBA) — raised from the launch rate of $11.20 effective February 1, 2022 using American Rescue Plan funds after Autism New Jersey\'s advocacy — 97155 protocol modification at $21.25, and 97156 family training at $25.00. The 97153/97155/97156 rates are confirmed current in the NJMMIS CY2026 Q2 listing; the 97151 rate hasn\'t been seen changed since launch but its current value is unverified. The full billable set also includes the Category III destructive-behavior/multi-tech codes 0362T ($25.00) and 0373T ($16.40). The founding newsletter attaches suggested daily unit limits — 97151 32u, 97152 8u, 97153 32u, 97154 12u, 97155 24u, 97156 16u, 97157 16u, 97158 16u, 0362T 8u, 0373T 32u — "for guidance purposes only," overridable when medically necessary under EPSDT; in practice the MCOs have adopted them as MUE claim edits. The current NJ FamilyCare managed care contract (01/2026) replaces that table with MUE limits that raise 97152 to 16, 97154 to 18 and 0362T to 16 units a day, leaving the others unchanged. One caveat for revenue modeling: the FFS rates "are not required to be utilized" by the MCOs — though Aetna Better Health published an identical schedule.',
         ],
         cites: [
           { title: 'DMAHS Provider Newsletter Vol 30 No 06 — launch rates + suggested unit limits', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
           { title: 'Autism NJ — Medicaid rate increase for ABA ($11.20 → $15.00 eff 2/1/2022)', url: 'https://autismnj.org/news/autism-new-jerseys-advocacy-leads-to-medicaid-rate-increase-for-aba-services/' },
           { title: 'ProviderSpark NJ Medicaid rates (NJMMIS Procedure Master Listing CY2026 Q2)', url: 'https://www.providerspark.com/for-providers/medicaid-rates/new-jersey/' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
         ],
       },
       {
@@ -234,6 +235,20 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'N.J.A.C. 10:79-2.6 — Retroactive eligibility, NJ FamilyCare Plan A only (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-79-2-6' },
         ],
       },
+      {
+        h2: 'What are the timely filing and payment rules for NJ FamilyCare ABA claims?',
+        body: [
+          'Who you bill decides the filing clock. A child still in fee-for-service while waiting for an MCO is billed to the state’s fiscal agent, and N.J.A.C. 10:49-7.2 says a non-institutional claim must be “received by the New Jersey Medicaid Fiscal Agent within: i. One year of the date of service.” The same rule adds that for “Early and Periodic Screening, Diagnosis and Treatment (EPSDT) including pediatric HealthStart services, claims must be submitted to the Fiscal Agent within 30 days of the provision of services.” It does not say whether that 30-day EPSDT clock reaches ABA, so file fee-for-service ABA claims within 30 days to be safe. For a child in an MCO, the state contract writes the deadline into every provider contract: “The Provider/Subcontractor shall submit claims within 180 calendar days from the date of service,” corrected claims within 365 days, and coordination-of-benefits claims within 60 days of the primary insurer’s EOB or 180 days from the date of service, whichever is later.',
+          'How fast the MCO must pay. The contract requires each MCO to “process claims in accordance with N.J.S.A. 17B:30-48 et seq.,” the Health Claims Authorization, Processing and Payment Act. Under that Act a clean claim is paid within 30 days of receipt if filed electronically and 40 days on paper, and an overdue payment “shall bear simple interest at the rate of 12% per annum.” For “all Behavioral Health services (including ABA and DIR)” the contract sets a faster standard, enforced with liquidated damages: 90% of HIPAA-compliant electronic clean claims processed (paid or denied) within 15 calendar days of receipt, 90% of paper clean claims within 30 days, and 99.5% of all claims within 45 days. Each MCO’s own filing, payment and appeal rules are on its guide.',
+          'Electronic Visit Verification (EVV) is not an ABA requirement in the state contract. The federal EVV law covers “personal care services or home health care services requiring an in-home visit by a provider,” and the NJ FamilyCare contract tells each MCO to run EVV “to monitor member receipt and utilization of personal care services including at a minimum, personal care assistance, home based supportive care and in-home respite.” ABA is not on that list, and the contract’s ABA service description has no EVV step.',
+        ],
+        cites: [
+          { title: 'N.J.A.C. 10:49-7.2 — Timeliness of Medicaid claim submission (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-2' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+          { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+          { title: '42 U.S.C. 1396b(l) — Medicaid electronic visit verification (LII)', url: 'https://www.law.cornell.edu/uscode/text/42/1396b' },
+        ],
+      },
     ],
     collect: [
       { title: 'MCO — or pending-enrollment status', desc: 'Horizon, Aetna, Fidelis, UHC, or Wellpoint decides the portal and process; a member still pending MCO assignment can start FFS with NO prior authorization.' },
@@ -263,6 +278,10 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
       { title: 'N.J.A.C. 10:49-2.9 — Medicaid or NJ FamilyCare-Plan A retroactive eligibility (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-2-9' },
       { title: 'N.J.A.C. 10:79-2.6 — Retroactive eligibility, NJ FamilyCare Plan A only (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-79-2-6' },
+      { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+      { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+      { title: 'N.J.A.C. 10:49-7.2 — Timeliness of Medicaid claim submission (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-2' },
+      { title: '42 U.S.C. 1396b(l) — Medicaid electronic visit verification (LII)', url: 'https://www.law.cornell.edu/uscode/text/42/1396b' },
     ],
     faq: [
       { q: 'Does NJ FamilyCare cover ABA therapy?', a: 'Yes — under EPSDT for members with autism (roughly 18 months to 21), delivered and prior-authorized through the five NJ FamilyCare MCOs since April 1, 2020.' },
@@ -271,6 +290,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { q: 'Is a comprehensive diagnostic evaluation required for ABA in New Jersey?', a: 'No — per Optum\'s NJ Medicaid criteria, a plain ASD diagnosis (F84.0–F84.9) from a physician or psychologist suffices; a comprehensive diagnostic evaluation is not a prerequisite.' },
       { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
       { q: 'Does NJ FamilyCare pay for ABA delivered before the child was enrolled?', a: 'Only through retroactive eligibility. Medicaid and NJ FamilyCare Plan A can cover unpaid bills for up to three months before the application month if the family asks within six months of applying; Plans B, C and D have no retroactive coverage. Retroactive authorization once enrolled is up to the child\'s MCO.' },
+      { q: 'What is the timely filing limit for NJ FamilyCare ABA claims?', a: 'For a child in an MCO, 180 calendar days from the date of service (corrected claims 365 days; COB claims 60 days from the primary EOB or 180 days from service, whichever is later), per the state’s managed care contract. Fee-for-service claims to the fiscal agent have one year under N.J.A.C. 10:49-7.2, but the rule gives EPSDT claims 30 days, so file ABA quickly.' },
+      { q: 'How fast do NJ FamilyCare MCOs have to pay ABA claims?', a: 'The state contract holds MCOs to processing 90% of electronic clean behavioral health claims, ABA included, within 15 days and 90% of paper clean claims within 30 days. State prompt-pay law also applies: 30 days electronic, 40 days paper, with 12% yearly interest on late payments.' },
+      { q: 'Does NJ FamilyCare require EVV for ABA?', a: 'Not under the state contract. NJ FamilyCare’s EVV requirement covers personal care services (personal care assistance, home-based supportive care and in-home respite), and the contract’s ABA service description has no EVV step. Ask the MCO if it has added its own visit-verification rule.' },
     ],
   },
 
@@ -370,9 +392,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Horizon NJ Health publishes no daily table of its own, so the state guide is what to plan against.',
+          'The current rule is the NJ FamilyCare managed care contract, not the 2020 newsletter. The contract’s ABA service description (Appendix B.4.4, 01/2026 edition) sets “Medically Unlikely Edit (MUE) Limits” per day, in 15-minute units: 97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16, 0373T 32. That is higher on three codes than the founding DMAHS newsletter’s April 2020 table (97152 8, 97154 12, 0362T 8), which the newsletter labelled “for guidance purposes only” and overridable “when medically necessary based on individual need” under EPSDT. Plan against the contract figures as the edits the MCOs run; a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Horizon NJ Health publishes no daily table of its own, so the contract table is what to plan against.',
         status: 'verified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
         verifyVia:
           'Horizon NJ Health\u2019s provider manual / claim-edit list.',
       },
@@ -386,9 +408,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. Neither position is republished by Horizon NJ Health, so resolve it with the plan before scheduling school-based sessions.',
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. The NJ FamilyCare managed care contract (01/2026) now says: “Services may be provided in the home, provider office or community settings,” and “Covered services do not include services required to be provided in school as part of a child’s Individual Education Plan (IEP).” That carves out IEP services rather than every school building, so school stays a question for the plan. Neither position is republished by Horizon NJ Health, so resolve it with the plan before scheduling school-based sessions.',
         status: 'plan-dependent',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Horizon NJ Health provider services.',
         blocker: 'per-case',
@@ -449,6 +471,17 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Horizon NJ Health — Provider Administrative Manual', url: 'https://www.horizonnjhealth.com/provider-admin-manual' },
         ],
       },
+      {
+        h2: 'Does Horizon NJ Health require taxonomy on ABA claims, and what are its filing and payment rules?',
+        body: [
+          'Yes, taxonomy is required. Horizon NJ Health’s manual (approved July 14, 2026): “Taxonomy codes must be provided on all claims,” and “WITHOUT THIS CODE CLAIMS PAYMENT WILL BE DENIED.” On a CMS-1500 the code goes “in the shaded portion of box 24j for the rendering level and in box 33b preceded with the “ZZ” qualifier for the billing level,” and “Claims that do not contain these codes cannot be processed.” On an 837P it goes in segment PRV03, loop 2000A for the billing level and loop 2420A for the rendering level. The manual also asks you to register your NPI with your taxonomy and tax ID.',
+          'Filing and payment. Horizon NJ Health “must receive all claims within 180 calendar days from the initial date when services were rendered,” and it “shall pay all clean claims from hospitals, physicians and other health care professionals within 30 days of the date of receipt of EDI claims and within 40 days for paper claims.” The state contract holds MCOs to a faster standard for behavioral health claims, ABA included: 90% of electronic clean claims processed within 15 days and 90% of paper clean claims within 30 days. Claim appeals go on the DOBI Health Care Provider Application to Appeal a Claims Determination and “must be received by Horizon NJ Health within 90 calendar days following receipt by the physician, facility or health care professional of the payer’s claim determination.” EVV: the manual applies DMAHS’s EVV reporting to personal care assistance services and gives no EVV step for ABA.',
+        ],
+        cites: [
+          { title: 'Horizon NJ Health — Provider Administrative Manual (approved July 14, 2026)', url: 'https://www.horizonnjhealth.com/provider-admin-manual' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'ASD script + diagnosis', desc: 'The QHP\'s ASD script triggers the 32-unit/30-day assessment fast-track — collect it at first contact.' },
@@ -467,6 +500,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
       { title: 'Horizon NJ Health — Provider Administrative Manual', url: 'https://www.horizonnjhealth.com/provider-admin-manual' },
+      { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
     ],
     faq: [
       { q: 'Does Horizon NJ Health cover ABA therapy?', a: 'Yes — it administers the NJ FamilyCare ABA benefit under EPSDT, with its own medical policy and MCG-based review layered on the state code set. Both assessment and treatment require prior authorization via NaviNet.' },
@@ -474,6 +508,8 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { q: 'Is Horizon changing its ABA policy in 2026?', a: 'For NJ FamilyCare members, one change: H0032 is retired for ABA effective July 15, 2026 — use 97151–97158/0362T/0373T. Authorizations created through July 14, 2026 with H0032 are honored, and H0032 is still paid on authorized services rendered through January 14, 2027. Horizon\'s January 1, 2026 ABA medical-policy revision applies to its commercial and ASO plans, not to Horizon NJ Health Medicaid members.' },
       { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
       { q: 'Does Horizon NJ Health allow retro authorization for ABA?', a: 'Yes, narrowly. Its manual accepts retrospective review of outpatient behavioral health authorizations, ABA included, within six business days; submit through Availity as "Post Service." Horizon has up to 30 days to decide. Eligibility problems or a primary plan\'s exhausted benefit are reviewed case by case with documentation.' },
+      { q: 'Does Horizon NJ Health require taxonomy codes on ABA claims?', a: 'Yes. Its manual says taxonomy codes must be on all claims and claims without them are denied: billing-level taxonomy in box 33b (ZZ qualifier) and rendering-level taxonomy in the shaded part of box 24j, or PRV03 in loops 2000A and 2420A on an 837P.' },
+      { q: 'What is Horizon NJ Health’s timely filing limit and payment turnaround?', a: 'Claims must arrive within 180 calendar days of the date of service. Horizon NJ Health pays clean claims within 30 days for electronic claims and 40 days for paper; the state contract expects behavioral health claims, ABA included, to be processed within 15 days electronic and 30 days paper.' },
     ],
   },
 
@@ -573,9 +609,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Aetna Better Health of New Jersey publishes no daily table of its own, so the state guide is what to plan against.',
+          'The current rule is the NJ FamilyCare managed care contract, not the 2020 newsletter. The contract’s ABA service description (Appendix B.4.4, 01/2026 edition) sets “Medically Unlikely Edit (MUE) Limits” per day, in 15-minute units: 97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16, 0373T 32. That is higher on three codes than the founding DMAHS newsletter’s April 2020 table (97152 8, 97154 12, 0362T 8), which the newsletter labelled “for guidance purposes only” and overridable “when medically necessary based on individual need” under EPSDT. Plan against the contract figures as the edits the MCOs run; a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Aetna Better Health of New Jersey’s own ABA Program sheet (4/1/2020) still reprints the older newsletter numbers as its MUE limits; the contract table is the newer one, so confirm with the plan which edit it runs on 97152, 97154 and 0362T.',
         status: 'verified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
         verifyVia:
           'Aetna Better Health of New Jersey\u2019s provider manual / claim-edit list.',
       },
@@ -589,11 +625,20 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. Neither position is republished by Aetna Better Health of New Jersey, so resolve it with the plan before scheduling school-based sessions.',
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. The NJ FamilyCare managed care contract (01/2026) now says: “Services may be provided in the home, provider office or community settings,” and “Covered services do not include services required to be provided in school as part of a child’s Individual Education Plan (IEP).” That carves out IEP services rather than every school building, so school stays a question for the plan. Neither position is republished by Aetna Better Health of New Jersey, so resolve it with the plan before scheduling school-based sessions.',
         status: 'plan-dependent',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Aetna Better Health of New Jersey provider services.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value:
+          'Not published by the plan. Aetna Better Health of New Jersey’s provider manual (updated 5/26) asks for billing and rendering provider details in general but sets no ABA rule on whether technician-delivered 97153 goes out under the technician, the supervising BCBA or the group. The state sets who may render each code: 97152 and 97153 by an RBT or BCaBA; 97151, 97155, 97157 and 97158 by a BCBA or BCBA-D; 97156 by a BCBA-D, BCBA or BCaBA.',
+        status: 'unverified',
+        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }],
+        verifyVia:
+          'Aetna Better Health of New Jersey provider services (1-855-232-3596): ask which NPI goes in the rendering field (box 24J / loop 2310B) for technician-delivered ABA.',
         blocker: 'per-case',
       },
     },
@@ -654,6 +699,26 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
         ],
       },
+      {
+        h2: 'What are Aetna Better Health of New Jersey’s claim filing, payment and appeal rules?',
+        body: [
+          'Filing. The provider manual (updated 5/26): “Claims must be submitted within 180 calendar days from the date of services,” “Corrected claims must be submitted within 365 days from the date of service,” and COB claims within 60 days of the primary insurer’s EOB or 180 days from the date of service, whichever is later. For electronic claims the vendor’s Level Two report “is the only accepted proof of timely filing.”',
+          'Payment. The manual prints clean-claim payment timeframes only for MLTSS providers, so the state contract is the rule for ABA: it requires each MCO to process claims under N.J.S.A. 17B:30-48 et seq. (30 days electronic, 40 days paper, 12% yearly interest when late) and holds “all Behavioral Health services (including ABA and DIR)” to 90% of electronic clean claims processed within 15 days and 90% of paper clean claims within 30 days.',
+          'Appeals. “Participating and Non-Participating Providers have the right to appeal ABHNJ claims determination(s) within sixty (60) calendar days of receipt of the claim denial,” using the DOBI Health Care Provider Application to Appeal a Claims Determination, with a Stage Two external Alternative Dispute Resolution option after the internal appeal.',
+          'EVV. Under its home healthcare heading the manual says: “Providers delivering Personal Care Assistant Providers (PCAs), Skilled Nursing, or Therapies in the member’s home are responsible for verifying all of their visits using an electronic visit verification system,” through the state aggregator (HHAeXchange) or an integrated vendor. ABA is not named, and the state contract limits EVV to personal care services; ask the plan if it counts home-based ABA as a home “therapy” before you skip EVV.',
+        ],
+        cites: [
+          { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Aetna Better Health of New Jersey require a referring provider on ABA claims?',
+        body: [
+          'Aetna Better Health of New Jersey publishes no rule that every ABA claim must name a referring provider, but it has published what happens when one is named. From October 1, 2026 it enforces the NJ Medicaid (Gainwell) claim edits, including edit 1270: \u201cReferring NPI Same as Billing/Servicing NPI \u2013 The referring provider NPI cannot be the same as the billing and/or servicing provider NPI.\u201d Edits 1269 and 1271 do the same for attending and \u201cOther\u201d provider NPIs. Claims that break them are rejected at EDI or denied on paper, and providers \u201care not permitted to balance-bill the Medicaid beneficiary.\u201d So never put your own agency or BCBA NPI in box 17b; if you report a referring provider, it is the clinician who referred or diagnosed the child. The manual\u2019s prior authorization request list separately asks for the \u201cName, address, phone and fax number and signature, if applicable, of the referring provider.\u201d Claim-edit questions go to the Claims Inquiry/Claims Research department at 1-855-232-3596.',
+        ],
+        cites: [{ title: 'Aetna Better Health of New Jersey — Provider Notification: Upcoming Enforcement of NJ Medicaid Claim Edits (July 16, 2026; effective Oct. 1, 2026)', url: 'https://es.aetnabetterhealth.com/content/dam/aetna/medicaid/newjersey/providers/pdf/abhnj_Self_Referral_Claim_Edits_7-16-26.pdf' }, { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' }],
+      },
     ],
     collect: [
       { title: 'ASD diagnosis + QHP script', desc: 'The state baseline applies — diagnosis from a physician/psychologist opens the assessment authorization.' },
@@ -673,12 +738,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Aetna Better Health of New Jersey — Provider Manual', url: 'https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/new-jersey-medicaid/provider/pdf/aetna_provider_manual.pdf' },
     ],
     faq: [
+      { q: 'Can the referring provider on an Aetna Better Health of New Jersey ABA claim be our own BCBA or agency?', a: 'No. From October 1, 2026 Aetna Better Health of New Jersey enforces NJ Medicaid edit 1270: "The referring provider NPI cannot be the same as the billing and/or servicing provider NPI." EDI claims are rejected and paper claims denied. Use the referring or diagnosing clinician\u2019s NPI, or leave the field empty if no one referred.' },
       { q: 'Does Aetna Better Health of New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit closest to the state baseline of all five MCOs, with a published rate sheet and unit limits copied from the DMAHS schedule. PA is required, via Availity or the BH prior auth form.' },
       { q: 'What does Aetna Better Health NJ pay for ABA?', a: 'Its published 2020 sheet mirrors the state FFS schedule: $25.00 for 97151/97156, $21.25 for 97155, and $11.20 for 97153. The state raised 97153 to $15.00 in February 2022 — whether Aetna followed is unverified, so confirm in your contract.' },
       { q: 'How fast does Aetna Better Health NJ decide ABA authorizations?', a: 'Urgent requests within 24 hours; routine requests within 7 days. Progress reports go via Availity or fax (844) 404-3972.' },
       { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
       { q: 'Does Aetna Better Health NJ Medicaid allow retro auth for ABA?', a: 'Its manual lists a post-service review for services with no pre-service request, decided within 30 calendar days, but ABA still requires prior authorization and the manual sets no conditions for accepting a late request. If a commercial plan is primary and covers ABA, Aetna Better Health does not require its own prior authorization.' },
       { q: 'Does Aetna Better Health of New Jersey have specific document rules for ABA?', a: 'It has a required form, not a template. The BH prior authorization form\'s ABA section asks for request type, treatment setting, clinical symptoms and a discharge plan, with clinical data, progress, compliance and the treatment plan attached. It names no diagnostic instrument and no diagnosis age limit; technician notes need the licensed provider\'s countersignature under its medical-record standards.' },
+      { q: 'What is Aetna Better Health of New Jersey’s timely filing limit?', a: '180 calendar days from the date of service for initial claims, 365 days for corrected claims, and for COB claims 60 days from the primary insurer’s EOB or 180 days from service, whichever is later.' },
+      { q: 'Does Aetna Better Health of New Jersey bill ABA under the rendering technician or the supervising BCBA?', a: 'Its provider manual sets no ABA-specific rule on whose NPI goes on the claim. The state rule is a specialty table: RBTs or BCaBAs render 97152/97153, BCBAs render 97151, 97155, 97157 and 97158. Ask the plan’s provider services which NPI it wants in the rendering field.' },
     ],
   },
 
@@ -778,9 +846,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Fidelis Care New Jersey publishes no daily table of its own, so the state guide is what to plan against.',
+          'The current rule is the NJ FamilyCare managed care contract, not the 2020 newsletter. The contract’s ABA service description (Appendix B.4.4, 01/2026 edition) sets “Medically Unlikely Edit (MUE) Limits” per day, in 15-minute units: 97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16, 0373T 32. That is higher on three codes than the founding DMAHS newsletter’s April 2020 table (97152 8, 97154 12, 0362T 8), which the newsletter labelled “for guidance purposes only” and overridable “when medically necessary based on individual need” under EPSDT. Plan against the contract figures as the edits the MCOs run; a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Fidelis Care New Jersey publishes no daily table of its own, so the contract table is what to plan against.',
         status: 'verified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
         verifyVia:
           'Fidelis Care New Jersey\u2019s provider manual / claim-edit list.',
       },
@@ -794,9 +862,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. Neither position is republished by Fidelis Care New Jersey, so resolve it with the plan before scheduling school-based sessions.',
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. The NJ FamilyCare managed care contract (01/2026) now says: “Services may be provided in the home, provider office or community settings,” and “Covered services do not include services required to be provided in school as part of a child’s Individual Education Plan (IEP).” That carves out IEP services rather than every school building, so school stays a question for the plan. Neither position is republished by Fidelis Care New Jersey, so resolve it with the plan before scheduling school-based sessions.',
         status: 'plan-dependent',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Fidelis Care New Jersey provider services.',
         blocker: 'per-case',
@@ -849,6 +917,17 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
         ],
       },
+      {
+        h2: 'What are Fidelis Care New Jersey’s claim filing, taxonomy and payment rules?',
+        body: [
+          'Filing: “Unless otherwise stated in the Agreement, Provider must submit claims (initial and voided) within 180 calendar days from the date of service,” and corrected claims within 365 calendar days. Taxonomy: “Providers should submit claims with the correct taxonomy code consistent with Provider Demographic Information for the Covered Services being rendered in order to be reimbursed at the appropriate rate. Fidelis Care may pay the claim at the lower reimbursement rate if the taxonomy code is incorrect or omitted.” Fidelis also rejects claims without the tax ID and NPI.',
+          'Payment: “Fidelis Care will pay Clean Claims within 30 days after receipt when submitted electronically, or 40 days after receipt when submitted in a manner other than electronically,” under N.J.A.C. 11:22-1.1 et seq.; a clean claim sent to a clearinghouse is not received until Fidelis gets it. The state contract holds behavioral health claims, ABA included, to 90% processed within 15 days electronic and 30 days paper. Disputes: “Claim payment disputes must be submitted to Fidelis Care in writing within 90 calendar days of the date of denial on the EOP.” EVV: Fidelis applies EVV to the provider types CMS has brought into the mandate and does not name ABA; the state contract limits EVV to personal care services.',
+        ],
+        cites: [
+          { title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan identity on "WellCare" inquiries', desc: 'WellCare of NJ is now Fidelis Care — same plan, new name; verify the current card.' },
@@ -864,6 +943,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
       { title: 'Fidelis Care — 2026 NJ Medicaid/NJ FamilyCare Provider Manual (effective April 15, 2026)', url: 'https://www.fideliscarenj.com/content/dam/centene/wellcare/nj/pdfs/Prov/NJ_Medicaid_Provider_Manual_R.pdf' },
+      { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
     ],
     faq: [
       { q: 'Does Fidelis Care New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan). No plan-specific ABA policy is published, so the state baseline is the rulebook to plan against.' },
@@ -871,6 +951,8 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { q: 'What does Fidelis Care NJ pay for ABA?', a: 'Unverified — no fee schedule or ABA rate document is published. Your provider contract is the only source of truth; benchmark against the state FFS schedule ($15.00/unit 97153, $21.25 97155, $25.00 97151/97156).' },
       { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
       { q: 'Does Fidelis Care NJ accept retroactive ABA authorization requests?', a: 'Only when the member became eligible with Fidelis retroactively, or in an emergency where the payer was unknown. Fidelis then reviews the services against the same criteria it uses before services.' },
+      { q: 'What is Fidelis Care New Jersey’s timely filing limit?', a: '180 calendar days from the date of service unless your agreement says otherwise; corrected claims within 365 days. Payment disputes are due within 90 calendar days of the denial date on the EOP.' },
+      { q: 'Does Fidelis Care NJ require taxonomy on claims?', a: 'It asks for the correct taxonomy code on every claim and says it may pay at a lower rate if the taxonomy is wrong or missing.' },
     ],
   },
 
@@ -974,9 +1056,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. UnitedHealthcare Community Plan publishes no daily table of its own, so the state guide is what to plan against.',
+          'The current rule is the NJ FamilyCare managed care contract, not the 2020 newsletter. The contract’s ABA service description (Appendix B.4.4, 01/2026 edition) sets “Medically Unlikely Edit (MUE) Limits” per day, in 15-minute units: 97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16, 0373T 32. That is higher on three codes than the founding DMAHS newsletter’s April 2020 table (97152 8, 97154 12, 0362T 8), which the newsletter labelled “for guidance purposes only” and overridable “when medically necessary based on individual need” under EPSDT. Plan against the contract figures as the edits the MCOs run; a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. UnitedHealthcare Community Plan publishes no daily table of its own, so the contract table is what to plan against.',
         status: 'verified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
         verifyVia:
           'UnitedHealthcare Community Plan\u2019s provider manual / claim-edit list.',
       },
@@ -990,9 +1072,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. Optum adds one concrete billing instruction for the virtual half: ABA supervision and caregiver training delivered by telehealth are billed with the same code you would use in person \u2014 97155 or 97156 \u2014 plus place-of-service 02, and the practice must first be an approved Optum virtual-visits provider (attestation on Provider Express) and must flag virtual delivery to the Care Advocate at authorization.',
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. The NJ FamilyCare managed care contract (01/2026) now says: “Services may be provided in the home, provider office or community settings,” and “Covered services do not include services required to be provided in school as part of a child’s Individual Education Plan (IEP).” That carves out IEP services rather than every school building, so school stays a question for the plan. Optum adds one concrete billing instruction for the virtual half: ABA supervision and caregiver training delivered by telehealth are billed with the same code you would use in person \u2014 97155 or 97156 \u2014 plus place-of-service 02, and the practice must first be an approved Optum virtual-visits provider (attestation on Provider Express) and must flag virtual delivery to the Care Advocate at authorization.',
         status: 'plan-dependent',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Optum/UHC Community Plan \u2014 NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }, { title: 'Optum/UHC Community Plan \u2014 NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' }],
         verifyVia:
           'Optum Care Advocate, for whether school-setting delivery is authorized on a given member.',
         blocker: 'per-case',
@@ -1053,6 +1135,24 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Optum Behavioral Health — National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
+      {
+        h2: 'What are UnitedHealthcare Community Plan of New Jersey’s claim filing, taxonomy and appeal rules?',
+        body: [
+          'Filing: “Submit claims within 180 days from date of service/date of discharge,” send any requested information within 90 days, corrected claims within 365 days, and COB claims within 60 days of the primary insurer’s EOB or 180 days from the dates of service, whichever is later. Taxonomy: “All electronic and paper claims must include both the TIN, NPI and billing provider NUCC taxonomy code on institutional claims,” and the manual’s 837P map puts the billing provider taxonomy in loop 2000A PRV03 and the rendering provider taxonomy in loop 2310B PRV03.',
+          'Payment and appeals: the manual sets no clean-claim payment deadline of its own, so the state contract governs — claims processed under N.J.S.A. 17B:30-48 et seq. (30 days electronic, 40 days paper, 12% yearly interest when late), and 90% of electronic clean behavioral health claims, ABA included, processed within 15 days. A claim reconsideration or a formal appeal on the DOBI Health Care Provider Application to Appeal a Claims Determination is accepted within 90 calendar days of the PRA, EOB or letter date and decided in 30 calendar days; after a formal appeal you may ask for arbitration through the state’s Program for Independent Claims Payment Arbitration (PICPA) within 90 days of the decision.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare Community Plan of New Jersey require a referring provider on ABA claims?',
+        body: [
+          'UnitedHealthcare Community Plan of New Jersey\u2019s care provider manual (2025) carries the referring provider in its 837P layout (\u201cReferring Physician Primary Identifier NPI Loop 2310A\u201d) and names \u201cNo referring care provider ID or NPI number\u201d among the \u201cCommon reasons for rejected claims.\u201d It does not say which services need one, and nothing in it ties the requirement to ABA. If an ABA claim rejects for this reason, add the referring or diagnosing clinician\u2019s NPI and resubmit it as a new claim, which is what the manual says to do with a rejected claim.',
+        ],
+        cites: [{ title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025), Chapter 15: Billing and submission', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' }],
+      },
     ],
     collect: [
       { title: 'ASD diagnosis — any physician/psychologist', desc: 'No comprehensive evaluation needed; a plain dx opens the benefit. Don\'t queue families for a full workup first.' },
@@ -1069,12 +1169,16 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
       { title: 'Optum — UHC Community Plan of NJ Behavioral Health Provider Network Manual Addendum (2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/ourNetworkMain/welcomeNtwk/nj/njMedicaidManual.pdf' },
       { title: 'Optum Behavioral Health — National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+      { title: 'UnitedHealthcare Community Plan of New Jersey — Care Provider Manual (2025)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/NJ-Care-Provider-Manual.pdf' },
+      { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
     ],
     faq: [
+      { q: 'Does UnitedHealthcare Community Plan of New Jersey require a referring provider on ABA claims?', a: 'Its manual lists a missing referring care provider ID or NPI among the common reasons claims are rejected, but does not say ABA claims always need one. If an ABA claim rejects for it, add the referring or diagnosing clinician\u2019s NPI and resubmit.' },
       { q: 'Does UnitedHealthcare Community Plan of New Jersey cover ABA?', a: 'Yes — the NJ FamilyCare ABA benefit, administered by Optum Behavioral Health under Optum\'s criteria plus a dedicated NJ Medicaid entry (revised November 2025). Requests go through Provider Express\'s NJ ABA path.' },
       { q: 'Does UHC NJ Medicaid require a comprehensive diagnostic evaluation for ABA?', a: 'No — Optum\'s NJ entry says so explicitly. An ASD diagnosis (F84.0–F84.9) from any physician or psychologist opens the benefit for members 18 months to 21 years.' },
       { q: 'Can ABA be delivered in schools for UHC NJ members?', a: 'Yes, outside normal school hours — Optum\'s NJ entry permits school-setting services as long as they don\'t occur during the school day, a looser position than the state\'s original 2020 rule.' },
       { q: 'Does UHC Community Plan NJ allow retro authorization for ABA?', a: 'Only when emergent or unusual circumstances prevented prior authorization. Optum accepts a retrospective review request within 180 days of service, with the reason and the medical record, and decides within 30 days at its discretion.' },
+      { q: 'What is UnitedHealthcare Community Plan of New Jersey’s timely filing limit?', a: '180 days from the date of service; corrected claims within 365 days; COB claims 60 days from the primary EOB or 180 days from service, whichever is later. Reconsiderations and appeals are due within 90 calendar days of the denial.' },
     ],
   },
 
@@ -1135,19 +1239,20 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       telehealth: {
         value:
-          'The plan publishes no ABA telehealth rule of its own, so the state statute governs. N.J.S.A. 30:4D-6k (as amended by P.L.2021, c.310) requires the State Medicaid and NJ FamilyCare programs to "provide coverage and payment for health care services delivered to a benefits recipient through telemedicine or telehealth, on the same basis as" in person, for services otherwise covered in person, with payment to the practitioner or the employing agency. The programs may limit coverage to participating providers, but may not restrict the originating site (the child\'s home counts) or the distant site except to keep the in-person standard of care, may not restrict the platform (audio-only included) if it meets that standard and HIPAA, and may not require a member to use telehealth instead of in-person care. Coverage can still be limited to medically necessary services. No DMAHS ABA document names an ABA telehealth code list, POS or in-person supervision minimum, so the 97151 assessment and 97155 supervision are covered by telehealth on the same basis as in person when medically necessary, and billing details come from the MCO.',
+          'The plan publishes no ABA telehealth rule of its own, so the state statute governs. N.J.S.A. 30:4D-6k (as amended by P.L.2021, c.310) requires the State Medicaid and NJ FamilyCare programs to "provide coverage and payment for health care services delivered to a benefits recipient through telemedicine or telehealth, on the same basis as" in person, for services otherwise covered in person, with payment to the practitioner or the employing agency. The programs may limit coverage to participating providers, but may not restrict the originating site (the child\'s home counts) or the distant site except to keep the in-person standard of care, may not restrict the platform (audio-only included) if it meets that standard and HIPAA, and may not require a member to use telehealth instead of in-person care. Coverage can still be limited to medically necessary services. No DMAHS ABA document names an ABA telehealth code list, POS or in-person supervision minimum, so the 97151 assessment and 97155 supervision are covered by telehealth on the same basis as in person when medically necessary, and billing details come from the MCO. Wellpoint\u2019s October 2026 manual adds only that telemedicine and telehealth \u201care approved modes of delivering service under NJ FamilyCare\u201d for providers who meet all governing laws and rules; it publishes no ABA telehealth modifier or place-of-service rule.',
         status: 'verified',
         cites: [
           { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
           { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' },
+          { title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
         ],
       },
       authTurnaround: {
         value:
-          'Wellpoint New Jersey\'s manual (June 2025): "Prior authorization decisions for non-emergency services shall be made within 14 calendar days or sooner as required by the needs of the enrollee," with denials in writing under the Health Claims Authorization, Processing and Payment Act. Federal floor for every NJ FamilyCare MCO: standard decisions within 7 calendar days of the request for contract rating periods starting on or after January 1, 2026 (14 days before that), extendable by up to 14 calendar days at the member\'s or provider\'s request or when the plan justifies needing more information; expedited within 72 hours. Treat 7 calendar days as the ceiling for any contract year that began on or after January 1, 2026. An incomplete request is not approved — Wellpoint notifies you to send the missing documentation, so the file you submit sets the clock.',
+          'Wellpoint New Jersey\'s manual (October 2026 edition): "Prior authorization decisions for non-emergency services shall be made within 14 calendar days or sooner as required by the needs of the enrollee," with denials in writing under the Health Claims Authorization, Processing and Payment Act. Federal floor for every NJ FamilyCare MCO: standard decisions within 7 calendar days of the request for contract rating periods starting on or after January 1, 2026 (14 days before that), extendable by up to 14 calendar days at the member\'s or provider\'s request or when the plan justifies needing more information; expedited within 72 hours. Treat 7 calendar days as the ceiling for any contract year that began on or after January 1, 2026. An incomplete request is not approved — Wellpoint notifies you to send the missing documentation, so the file you submit sets the clock.',
         status: 'verified',
         cites: [
-          { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+          { title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
           { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
         ],
       },
@@ -1156,8 +1261,8 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Wellpoint\'s manual: "If you\'re aware of third-party coverage, you must submit a claim first to the appropriate third party before submitting a claim to us." COB claims are due "within 60 days from the date of the primary insurer\'s Explanation of Benefits (EOB) or 180 days from the dates of service, whichever is later," and Wellpoint pays its allowable minus the primary\'s payment. The rule that bites ABA: "If the third-party liability did not pay for a service because the member or provider did not follow the third-party payer\'s guidelines, the service will not be paid by Wellpoint" — so the commercial plan\'s authorization and network rules must be met. Wellpoint lists pay-first-and-recover exceptions including "preventive pediatric services (including EPSDT services)" and a child in DCP&P out-of-home placement. State rule underneath: NJ FamilyCare pays last: "All TPL, for example, health insurance, Medicare, CHAMPUS, prepaid health plans… shall, if available, be used first and to the fullest extent." Bill the commercial plan first; supplementation claims "shall not be filed with the program unless accompanied by a statement of payment, Explanation of Benefits (EOB), or denial from the other carrier." Two traps: "No program payments shall be made when the third-party payer requires a contracting or participating provider to accept that third-party payer\'s payment as payment in full," and when NJ FamilyCare is secondary it pays the lesser of its allowed amount minus other payments, or the patient liability. TRICARE and CHAMPVA both pay ahead of Medicaid: TRICARE rules state "Medicaid is not a double coverage plan. In any double coverage situation involving Medicaid, CHAMPUS is always the primary payer," and CHAMPVA "assumes primary payer status" over Medicaid.',
         status: 'verified',
         cites: [
-          { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
-          { title: 'Wellpoint New Jersey — Provider Quick Reference Guide', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_CAID_ProviderQRG.pdf' },
+          { title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+          { title: 'Wellpoint New Jersey — Medicaid Provider Quick Reference Guide (approved July 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_CAID_ProviderQRG.pdf' },
           { title: 'N.J.A.C. 10:49-7.3 — Third-party liability (TPL) benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-49-7-3' },
           { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' },
           { title: '38 CFR 17.272 — CHAMPVA benefit limitations; Medicaid exception (eCFR)', url: 'https://www.ecfr.gov/current/title-38/section-17.272' },
@@ -1175,9 +1280,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       dailyLimits: {
         value:
-          'New Jersey publishes its own table rather than adopting a CMS MUE regime, and labels it guidance: the limits \u201care for guidance purposes only and may be overridden when medically necessary based on individual need\u201d under EPSDT. Per day, in 15-minute units: 97151 32, 97152 8, 97153 32, 97154 12, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 8, 0373T 32. Treat them as soft ceilings the plans enforce as edits \u2014 a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Wellpoint New Jersey publishes no daily table of its own, so the state guide is what to plan against.',
+          'The current rule is the NJ FamilyCare managed care contract, not the 2020 newsletter. The contract’s ABA service description (Appendix B.4.4, 01/2026 edition) sets “Medically Unlikely Edit (MUE) Limits” per day, in 15-minute units: 97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156 16, 97157 16, 97158 16, 0362T 16, 0373T 32. That is higher on three codes than the founding DMAHS newsletter’s April 2020 table (97152 8, 97154 12, 0362T 8), which the newsletter labelled “for guidance purposes only” and overridable “when medically necessary based on individual need” under EPSDT. Plan against the contract figures as the edits the MCOs run; a request above them needs explicit EPSDT medical-necessity framing rather than a quiet resubmission. Wellpoint New Jersey publishes no daily table of its own, so the contract table is what to plan against.',
         status: 'verified',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
         verifyVia:
           'Wellpoint New Jersey\u2019s provider manual / claim-edit list.',
       },
@@ -1191,11 +1296,20 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. Neither position is republished by Wellpoint New Jersey, so resolve it with the plan before scheduling school-based sessions.',
+          'This one has moved and the two live sources disagree. The founding DMAHS newsletter is flat: \u201cABA services may be provided in the therapist\u2019s office, a community setting or the child\u2019s home. Services may not be provided within a school facility.\u201d Optum\u2019s ABA State Mandates document (annual review 7/2026), whose NJ Medicaid entry tracks the same state policy, now reads: \u201cServices may be provided in the school setting as long as services are not provided during normal school hours.\u201d Office, home and community are settled; school is plan-dependent and moving; group home is addressed by neither. The NJ FamilyCare managed care contract (01/2026) now says: “Services may be provided in the home, provider office or community settings,” and “Covered services do not include services required to be provided in school as part of a child’s Individual Education Plan (IEP).” That carves out IEP services rather than every school building, so school stays a question for the plan. Neither position is republished by Wellpoint New Jersey, so resolve it with the plan before scheduling school-based sessions.',
         status: 'plan-dependent',
-        cites: [{ title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
+        cites: [{ title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }, { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' }],
         verifyVia:
           'Wellpoint New Jersey provider services.',
+        blocker: 'per-case',
+      },
+      billAsProvider: {
+        value:
+          'Not stated for ABA. Wellpoint’s October 2026 manual says a clean claim must include the “Billing and rendering providers (name, address including ZIP code, telephone number) and NPI numbers,” and the “Name of referring physician or source NPI and other non-NPI identifier of the referring, ordering or supervising provider,” if applicable. It does not say whether technician-delivered 97153 carries the technician, the supervising BCBA or the group as rendering provider. The state sets who may render each code: 97152 and 97153 by an RBT or BCaBA; 97151, 97155, 97157 and 97158 by a BCBA or BCBA-D.',
+        status: 'unverified',
+        cites: [{ title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 \u2014 Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
+        verifyVia:
+          'Wellpoint provider services (833-731-2149) or Carelon Behavioral Health NJ provider relations: ask which NPI goes in the rendering field for technician-delivered ABA.',
         blocker: 'per-case',
       },
     },
@@ -1241,8 +1355,28 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           'Wellpoint\'s New Jersey provider manual publishes no retroactive-authorization process. A missing authorization leads to an "administrative denial," which it defines as one made "when a contractual requirement is not met, such as late notification of admissions, lack of prior authorization or failure by the provider to submit clinical when requested." An appeal "must address the reason for the denial such as why prior authorization was not obtained," and if Wellpoint overturns the administrative decision, "the case will be reviewed for medical necessity and if approved, the claim will be reprocessed."',
         ],
         cites: [
-          { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+          { title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
         ],
+      },
+      {
+        h2: 'What are Wellpoint New Jersey’s claim filing and payment rules for ABA?',
+        body: [
+          'Wellpoint’s October 2026 manual: “Timely filing is within 180 calendar days from the last date the service in the course of treatment,” COB claims within 60 days of the primary insurer’s EOB or 180 days from the date of service, whichever is later, and corrected claims within 365 days. If a member is enrolled retroactively, the filing clock starts on the date Wellpoint receives notice of the enrollment.',
+          'Payment: “We will adjudicate clean claims to a paid or denied status within 30 days of receipt for electronic claims and 40 days of receipt for paper claims. For MLTSS and behavioral health services, we will adjudicate clean claims to a paid or denied status within 15 days of receipt for electronic claims and 30 days of receipt for paper claims,” and Wellpoint pays interest as required by law when it misses those deadlines. A clean claim must carry the “Billing and rendering providers (name, address including ZIP code, telephone number) and NPI numbers,” the prior authorization number, and the referring, ordering or supervising provider where applicable.',
+          'EVV: Wellpoint\'s Medicaid quick reference guide (approved July 2026) says: “If you support Wellpoint members and provide skilled nursing, private duty nursing, home health or therapies, you must use CareBridge, Wellpoint\'s EVV Aggregator; HHAX, the State\'s EVV Aggregator; or a third party EVV vendor that is integrated with CareBridge.” ABA is not named, and the state contract limits EVV to personal care services, so ask Wellpoint whether it treats home-based ABA as a “therapy” before skipping EVV.',
+        ],
+        cites: [
+          { title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+          { title: 'Wellpoint New Jersey — Medicaid Provider Quick Reference Guide (approved July 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_CAID_ProviderQRG.pdf' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Wellpoint New Jersey require the referring provider on ABA claims?',
+        body: [
+          'Only \u201cif applicable,\u201d and Wellpoint publishes nothing that makes it applicable to ABA. The October 2026 manual\u2019s list of what a clean claim must include ends with the \u201cName of referring physician or source NPI and other non-NPI identifier of the referring, ordering or supervising provider or attending and operating provider name and tax ID, if applicable.\u201d Elsewhere it says \u201cWellpoint does not require a paper referral process,\u201d and that NJ FamilyCare benefits need no Wellpoint referral for \u201cEPSDT services from a Wellpoint provider.\u201d The state\u2019s ABA rule has no physician order in it either: once a qualified healthcare professional diagnoses ASD, \u201cthe MCO shall authorize a QHP to assess the child,\u201d and the managed care contract\u2019s ABA service description lists no referral or order. Wellpoint\u2019s claim edits are not public, so if an ABA claim rejects for a missing referring provider, report the diagnosing clinician in box 17/17b and ask Wellpoint provider services (833-731-2149) to confirm the rule in writing.',
+        ],
+        cites: [{ title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' }, { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' }, { title: 'DMAHS Provider Newsletter Vol 30 No 06 — Provision of ABA services (4/1/2020)', url: 'https://web.archive.org/web/2023/https://www.nj.gov/humanservices/dmahs/news/Provider_Newsletter_for_Applied_Behavior_Analysis_Therapy.pdf' }],
       },
     ],
     collect: [
@@ -1257,14 +1391,17 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'Optum ABA State Mandates BH803ABASTM12026 \u2014 NJ Medicaid entry', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum/UHC Community Plan — NJ FamilyCare ABA Provider Orientation (2022)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/njaba/NJ.FamilyCare.Medicaid.ABA.pdf' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
-      { title: 'Wellpoint New Jersey — Provider Manual (June 2025)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
+      { title: 'Wellpoint New Jersey — Provider Manual (October 2026)', url: 'https://www.provider.wellpoint.com/docs/gpp/NJ_WLP_Provider_Manual.pdf' },
     ],
     faq: [
+      { q: 'Does Wellpoint Medicaid of New Jersey require referring providers on ABA claims?', a: 'Wellpoint lists the referring provider among clean-claim elements only "if applicable," says it does not run a paper referral process, and needs no referral for EPSDT services from its own providers. NJ FamilyCare sets no physician order for ABA. No Wellpoint document makes box 17/17b mandatory for ABA; if a claim rejects for it, report the diagnosing clinician and confirm the rule with Wellpoint provider services (833-731-2149).' },
       { q: 'Does Wellpoint New Jersey cover ABA?', a: 'Yes — it administers the NJ FamilyCare ABA benefit on the state baseline (EPSDT, ASD diagnosis, MCO-authorized assessment and treatment plan), with authorization via Availity or (800) 454-3730. No plan-specific ABA criteria are published.' },
       { q: 'Is Wellpoint NJ the same as Amerigroup?', a: 'Yes — Amerigroup New Jersey rebranded to Wellpoint under Elevance. Cards and directories may still carry the old name.' },
       { q: 'How do I join Wellpoint NJ\'s ABA network?', a: 'Through Carelon Behavioral Health (provider.relations.NJ@carelon.com) — a separate contracting funnel from the Wellpoint medical plan. Being contracted for medical services doesn\'t put you in the ABA network.' },
       { q: 'Can NJ FamilyCare ABA be delivered by telehealth, including the 97151 assessment?', a: 'Yes. N.J.S.A. 30:4D-6k requires NJ FamilyCare to cover telehealth on the same basis as in-person care, with no originating-site restriction, so the child can be at home. That includes the 97151 assessment and 97155 supervision when medically necessary. No state ABA document sets a code list or POS, so confirm billing with the MCO.' },
       { q: 'Does Wellpoint NJ allow retroactive ABA authorization?', a: 'Its manual has no retro-authorization process. Services without prior authorization get an administrative denial; you can appeal by explaining why authorization was not obtained, and if Wellpoint overturns the denial it reviews medical necessity and may reprocess the claim.' },
+      { q: 'What is Wellpoint New Jersey’s timely filing limit and payment turnaround?', a: '180 calendar days from the last date of service (corrected claims 365 days). Wellpoint pays or denies clean behavioral health claims, which include ABA, within 15 days of receipt for electronic claims and 30 days for paper.' },
+      { q: 'Does Wellpoint of NJ bill ABA under the rendering or the supervising provider?', a: 'Wellpoint’s manual requires both billing and rendering provider NPIs on a clean claim but does not say whose NPI goes in the rendering field for technician-delivered ABA. Ask Wellpoint or Carelon before you submit.' },
     ],
   },
 
@@ -1319,12 +1456,15 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published. Aetna\'s ABA Medical Necessity Guide and its ABA clinical policy bulletin set a diagnosis requirement, a precertification requirement and a provider-licensure requirement, but state no referral or physician order as a condition of coverage. The gate that does exist is precertification itself — required for both the assessment and treatment.',
-        status: 'unverified',
-        cites: [{ title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
-        verifyVia:
-          'Aetna precertification/provider services at the number on the member\'s ID card, and the member\'s benefit document — ask whether the plan layers a referral requirement on behavioral health.',
-        blocker: 'per-case',
+          'No referral or physician order from Aetna. Aetna\u2019s ABA Medical Necessity Guide names no referral or order; what it requires is precertification, which its behavioral health precertification list applies to every ABA code, assessment and treatment alike, with form GR-69017-4 supplying the clinical information. The guide\u2019s only state exhibit is Maryland\u2019s, so no New Jersey-specific order requirement is layered on by Aetna. New Jersey adds a document rather than a referral on fully insured plans: P.L. 2009, c.115 covers ABA for children under 21 \u201cas prescribed through a treatment plan,\u201d and that plan must include \u201ca diagnosis; proposed treatment by type, frequency, and duration; the anticipated outcomes stated as goals; the frequency by which the treatment plan will be updated; and the treating physician\u2019s signature.\u201d The carrier \u201cmay only request an updated treatment plan once every six months from the treating physician,\u201d unless both agree more frequent review is needed. No state form exists; the plan is the provider\u2019s own document. Self-funded ERISA plans are outside the state mandate, so for them the carrier\u2019s own rule above is the whole answer.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026; Exhibit A covers Maryland only)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+          { title: 'Aetna — Participating provider behavioral health precertification list (eff. Aug. 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'P.L. 2009, c.115 — New Jersey autism and developmental disability coverage (enrolled law)', url: 'https://pub.njleg.state.nj.us/Bills/2008/PL09/115_.PDF' },
+          { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
+        ],
       },
       telehealth: {
         value:
@@ -1485,6 +1625,36 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
         ],
       },
+      {
+        h2: 'How fast does Aetna have to pay an ABA claim in New Jersey?',
+        body: [
+          'On a fully insured New Jersey plan, state law sets the clock. The Health Claims Authorization, Processing and Payment Act requires the insurer, HMO or health service corporation to “remit payment for every insured claim submitted by a covered person or health care provider, no later than the 30th calendar day following receipt of the claim” when it is filed electronically, and “no later than the 40th calendar day following receipt if the claim is submitted by other than electronic means,” as long as the provider and member were eligible on the date of service, the service is covered, the claim carries everything the payer asked for in advance, and there is no reason to suspect fraud. If the payer holds back for missing documentation, coding errors or a disputed amount, it must tell you within the same 30 or 40 days; for an electronic claim missing data it must ask “within seven days of that determination,” and it must acknowledge an electronic claim within two working days. “An overdue payment shall bear simple interest at the rate of 12% per annum.” You may appeal a claims determination internally “on or before the 90th calendar day” after receiving it; the payer must decide within 30 days, and an unresolved dispute can go to arbitration.',
+          'Self-funded employer plans are outside these rules: DOBI lists “self-insurance” and the State Health Benefits Program among the plans its prompt-pay rules do not cover, so ask the employer plan’s administrator for its payment terms. Aetna’s own provider manual (6/26) defines a clean claim (all CMS-1500 data elements, including the NPI, and no coordination of benefits involved) but publishes no payment deadline or timely filing limit; the filing limit is in your participation agreement.',
+        ],
+        cites: [
+          { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+          { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
+          { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Aetna require EVV for ABA in New Jersey?',
+        body: [
+          'Aetna publishes no commercial EVV requirement: its provider manual (6/26) has no electronic visit verification rule. EVV is a Medicaid mandate. The federal law behind it applies to “personal care services or home health care services requiring an in-home visit by a provider” paid under a state Medicaid plan, and New Jersey applies it to NJ FamilyCare personal care services — personal care assistance, home-based supportive care and in-home respite. Neither reaches ABA on an Aetna commercial plan. A family on Aetna Better Health of New Jersey (Medicaid) has its own guide.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: '42 U.S.C. 1396b(l) — Medicaid electronic visit verification (LII)', url: 'https://www.law.cornell.edu/uscode/text/42/1396b' },
+          { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Aetna (New Jersey) require a referring provider on ABA claims?',
+        body: [
+          'Not as a standing rule. Aetna\u2019s provider manual (June 2026) says a clean claim includes \u201cA corresponding referral (whether in paper or electronic format), if required for the applicable claim,\u201d along with \u201cAll the data elements of the UB-04 or CMS-1500.\u201d For behavioral health, which is where Aetna places ABA, \u201cMembers may access behavioral health care in three ways: Through direct access to the behavioral health provider; Through a recommendation from the primary care physician or other treatment provider; Through a referral from an employee assistance or student assistance program provider.\u201d So box 17 is needed only when the member\u2019s plan requires a referral for the service; in Aetna Open Access plans \u201creferrals also are not necessary.\u201d Where a PCP referral is required, it must be issued before the visit: \u201cReferrals should not be retroactive.\u201d',
+        ],
+        cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26): clean claims, referrals, behavioral health access', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1505,13 +1675,20 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
       { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+      { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+      { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
+      { title: '42 U.S.C. 1396b(l) — Medicaid electronic visit verification (LII)', url: 'https://www.law.cornell.edu/uscode/text/42/1396b' },
+      { title: 'NJ FamilyCare Managed Care Contract (01/2026) — Art. 7.16.5 timely payments; App. B.4.4 ABA service description', url: 'https://nj.gov/humanservices/dmahs/documents/providers-stakeholders/hmo-contract.pdf' },
     ],
     faq: [
+      { q: 'Does Aetna (New Jersey) require a referring provider on ABA claims?', a: 'Only when the member\u2019s plan requires a referral. Aetna\u2019s June 2026 provider manual counts a referral as part of a clean claim only "if required for the applicable claim," and members can reach behavioral health care by direct access. Open Access plans need no referral. Check the member\u2019s plan on the eligibility response.' },
       { q: 'Does Aetna cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national policy for ASD, layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA), since New Jersey treats autism as a biologically-based mental illness. In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
       { q: 'What does Aetna pay for ABA in New Jersey?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. NJ FamilyCare\'s fee-for-service schedule (see the New Jersey Medicaid guide) is the public benchmark.' },
       { q: 'Does Aetna require RBT certification for ABA technicians?', a: 'Aetna\'s network criteria do not require the RBT credential by name: technicians may be paraprofessionals supervised by a BCBA or licensed provider, with at least 1 hour of face-to-face supervision per 10 hours of ABA and the supervisor onsite with the child at least 1 hour a month. Technicians must meet any state requirement, so check the state\'s licensure or Medicaid rules too.' },
       { q: 'Does Aetna allow retro authorization for ABA in New Jersey?', a: 'Aetna publishes no retro-authorization rule; ABA needs precertification before services. On a fully insured NJ plan, state law bars a no-authorization denial if Aetna missed its decision deadline, and requires a new payer to honor an existing authorization.' },
+      { q: 'What is Aetna commercial’s payment turnaround for ABA claims in New Jersey?', a: 'On fully insured NJ plans, state law: clean claims paid within 30 days if filed electronically and 40 days on paper, with 12% yearly interest on late payments. Self-funded employer plans are not covered by the state rule.' },
+      { q: 'Does Aetna commercial in New Jersey require EVV for ABA?', a: 'No published rule. Aetna’s provider manual has no EVV requirement, and EVV is a Medicaid requirement for personal care and home health services, not ABA.' },
     ],
   },
 
@@ -1566,12 +1743,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published as a requirement. EN0499 gates coverage on a confirmed DSM-5-TR diagnosis, a qualifying assessment and a compliant treatment plan, and Evernorth\'s front door is famously open on the assessment side — no prior authorization on 97151, 97152 or 0362T. Neither document states a referral or physician order as a condition.',
-        status: 'unverified',
-        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'Evernorth Provider Services at 800.926.2273 and the member\'s benefit document — referral rules, where they exist, are a plan-design feature rather than a policy feature.',
-        blocker: 'per-case',
+          'No referral or physician order from Cigna. EN0499 requires none, and no prior authorization is needed on assessment codes 97151, 97152 and 0362T when there is an autism diagnosis on file and the provider is independently licensed or a BCBA. Treatment is the gated step: the completed assessment plus a treatment plan on Cigna\u2019s ABA prior authorization form. New Jersey adds a document rather than a referral on fully insured plans: P.L. 2009, c.115 covers ABA for children under 21 \u201cas prescribed through a treatment plan,\u201d and that plan must include \u201ca diagnosis; proposed treatment by type, frequency, and duration; the anticipated outcomes stated as goals; the frequency by which the treatment plan will be updated; and the treating physician\u2019s signature.\u201d The carrier \u201cmay only request an updated treatment plan once every six months from the treating physician,\u201d unless both agree more frequent review is needed. No state form exists; the plan is the provider\u2019s own document. Self-funded ERISA plans are outside the state mandate, so for them the carrier\u2019s own rule above is the whole answer.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'P.L. 2009, c.115 — New Jersey autism and developmental disability coverage (enrolled law)', url: 'https://pub.njleg.state.nj.us/Bills/2008/PL09/115_.PDF' },
+          { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
+        ],
       },
       telehealth: {
         value:
@@ -1615,9 +1794,9 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Yes \u2014 and Evernorth writes it as an explicit carve-out from its general rule: \u201cOnly one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).\u201d Both must be with the patient; analyst time away from the patient is not inside the exception.',
+          'Yes \u2014 and Evernorth writes it as an explicit carve-out from its general rule: \u201cOnly one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time).\u201d Both must be with the patient; analyst time away from the patient is not inside the exception. Overlap with other therapies is a separate exclusion in EN0499: \u201cProvision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy).\u201d',
         status: 'verified',
-        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [{ title: 'Evernorth \u2014 Autism Resource Guide for behavioral health providers (March 2025, PCOMM-2025-225)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
       },
       dailyLimits: {
         value:
@@ -1730,6 +1909,25 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
         ],
       },
+      {
+        h2: 'How fast does Cigna have to pay an ABA claim in New Jersey?',
+        body: [
+          'On a fully insured New Jersey plan, state law sets the clock. The Health Claims Authorization, Processing and Payment Act requires the insurer, HMO or health service corporation to “remit payment for every insured claim submitted by a covered person or health care provider, no later than the 30th calendar day following receipt of the claim” when it is filed electronically, and “no later than the 40th calendar day following receipt if the claim is submitted by other than electronic means,” as long as the provider and member were eligible on the date of service, the service is covered, the claim carries everything the payer asked for in advance, and there is no reason to suspect fraud. If the payer holds back for missing documentation, coding errors or a disputed amount, it must tell you within the same 30 or 40 days; for an electronic claim missing data it must ask “within seven days of that determination,” and it must acknowledge an electronic claim within two working days. “An overdue payment shall bear simple interest at the rate of 12% per annum.” You may appeal a claims determination internally “on or before the 90th calendar day” after receiving it; the payer must decide within 30 days, and an unresolved dispute can go to arbitration.',
+          'Self-funded employer plans are outside these rules: DOBI lists “self-insurance” and the State Health Benefits Program among the plans its prompt-pay rules do not cover, so ask the employer plan’s administrator for its payment terms. Evernorth writes the same rule into its contracts: its New Jersey Regulatory Addendum (Administrative Guidelines, September 2026) says fee-for-service amounts “shall be paid within thirty (30) calendar days following receipt of a claim” filed electronically and within 40 days on paper, with overdue payments bearing 12% simple interest, and that the addendum does “not apply with regard to Covered Services rendered to Participants covered under self-funded plans.” Filing limit: Evernorth will “only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement,” unless state law gives longer; where you bill under the member’s assignment of benefits, the New Jersey addendum says to file “within one hundred eighty (180) days of the last course of treatment,” under N.J.S.A. 45:1-10.1.',
+        ],
+        cites: [
+          { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+          { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Does Cigna (New Jersey) require a referring provider on ABA claims?',
+        body: [
+          'Not required. Evernorth\u2019s Behavioral Health Administrative Guidelines (September 2026), which govern Cigna behavioral claims including ABA, say for 837 claims: \u201cThe \u2018Billing Provider\u2019 Taxpayer Identification Number (TIN) and NPI are required. Any additional provider identification on the claim, such as the \u2018Rendering Provider\u2019 or \u2018Referring Provider,\u2019 must include the name and NPI when submitted.\u201d So box 17/17b is optional, but if you fill it in, give the referring clinician\u2019s name and NPI together.',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026) — NPI on 837 claims', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1746,13 +1944,18 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
       { title: 'Evernorth Behavioral Health Administrative Guidelines (PCOMM-2026-191, September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
       { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+      { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+      { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
     ],
     faq: [
+      { q: 'Does Cigna (New Jersey) require a referring provider on ABA claims?', a: 'No. Evernorth\u2019s September 2026 administrative guidelines require only the billing provider\u2019s TIN and NPI; a referring provider is optional, but if you report one it "must include the name and NPI."' },
       { q: 'Does Cigna cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national EN0499 policy for ASD (no PA on assessment codes 97151/97152/0362T), layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does EN0499 apply to New Jersey fully-insured plans?', a: 'Yes — unlike Virginia, New Jersey has no carve-out in the current EN0499. NJ fully-insured plans sit under the policy\'s generic state-mandate language, with P.L. 2009, c.115 controlling as the state mandate.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA). In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
       { q: 'What does Cigna pay for ABA in New Jersey?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. NJ FamilyCare\'s fee-for-service schedule (see the New Jersey Medicaid guide) is the public benchmark.' },
       { q: 'Does Cigna allow retro authorization for ABA?', a: 'Cigna accepts ABA authorization requests up to two weeks after services start (a later request may go to retrospective review, up to 30 days). Assessment codes need no authorization. Beyond that you need to document extenuating circumstances, such as wrong insurance information.' },
+      { q: 'What is Cigna’s timely filing limit for ABA in New Jersey?', a: 'Evernorth considers claims filed within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise. Its New Jersey addendum notes the 180-day limit of N.J.S.A. 45:1-10.1 when you file under an assignment of benefits.' },
+      { q: 'How fast does Cigna pay ABA claims in New Jersey?', a: 'For fully insured NJ plans, within 30 days for electronic clean claims and 40 days for paper, with 12% yearly interest if late, per state law and Evernorth’s New Jersey addendum. Self-funded plans are excluded.' },
     ],
   },
 
@@ -1813,12 +2016,14 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published as a coverage condition. Optum gates ABA on prior authorization — "Prior authorization is required for ABA (unless otherwise specified or mandated by contract or law)" — delivered as a two-step assessment-then-treatment workflow on Provider Express, with a valid diagnosis rather than a referral as the clinical trigger. What the criteria do require is coordination: documentation of communication with day care, preschool, school, early intervention and allied health providers to avoid duplication.',
-        status: 'unverified',
-        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
-        verifyVia:
-          'Optum via Provider Express and the member\'s benefit document — referral requirements, where they exist, are a plan-design feature.',
-        blocker: 'per-case',
+          'No referral or physician order from UnitedHealthcare. Optum\u2019s ABA Supplemental Clinical Criteria require none: prior authorization runs in two steps on Provider Express, the assessment first and then treatment based on what it produced. Optum\u2019s ABA State Mandates document carries a New Jersey entry only for Medicaid members, so the standard criteria govern commercial plans. New Jersey adds a document rather than a referral on fully insured plans: P.L. 2009, c.115 covers ABA for children under 21 \u201cas prescribed through a treatment plan,\u201d and that plan must include \u201ca diagnosis; proposed treatment by type, frequency, and duration; the anticipated outcomes stated as goals; the frequency by which the treatment plan will be updated; and the treating physician\u2019s signature.\u201d The carrier \u201cmay only request an updated treatment plan once every six months from the treating physician,\u201d unless both agree more frequent review is needed. No state form exists; the plan is the provider\u2019s own document. Self-funded ERISA plans are outside the state mandate, so for them the carrier\u2019s own rule above is the whole answer.',
+        status: 'verified',
+        cites: [
+          { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA State Mandates (BH 803ABA STM72026, effective July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
+          { title: 'P.L. 2009, c.115 — New Jersey autism and developmental disability coverage (enrolled law)', url: 'https://pub.njleg.state.nj.us/Bills/2008/PL09/115_.PDF' },
+          { title: 'NJ DOBI Bulletin 10-02 — Implementation of P.L. 2009, c.115', url: 'https://www.nj.gov/dobi/bulletins/blt10_02.pdf' },
+        ],
       },
       telehealth: {
         value: 'Three codes, after an attestation. Optum’s Telehealth Billing guide (updated September 2025) is explicit for commercial plans: “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157” — virtual supervision of technicians and family training — so technician-delivered 97153 is not payable by telehealth. The provider must first be “an approved Optum virtual visits provider who has attested” (the virtual-visits attestation on Provider Express) and must tell the ABA Care Advocate at authorization. Bill the in-person code with the member’s location as the place of service: POS 10 when the member is at home, POS 02 anywhere else (the older ABA CPT FAQ says POS 02; the 2025 guide requires one of the two on every behavioral-health telehealth claim, and POS 11 or a telehealth modifier alone is not paid). Optum’s criteria add that telehealth is “not intended to supplant in-person service.” Nothing in the New Jersey mandate or DOBI Bulletin 10-02 addresses telehealth delivery of ABA, so there is no state floor beyond Optum’s own rule. For a New Jersey fully insured plan, N.J.S.A. 26:2S-29 (as amended by P.L.2021, c.310) requires a carrier to cover telehealth "on the same basis as" in person for otherwise covered services, bars restrictions on the originating or distant site except to keep the in-person standard of care, and lets the carrier limit coverage to in-network providers; self-funded employer plans are outside it.',
@@ -1985,6 +2190,25 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
         ],
       },
+      {
+        h2: 'How fast does UnitedHealthcare have to pay an ABA claim in New Jersey?',
+        body: [
+          'On a fully insured New Jersey plan, state law sets the clock. The Health Claims Authorization, Processing and Payment Act requires the insurer, HMO or health service corporation to “remit payment for every insured claim submitted by a covered person or health care provider, no later than the 30th calendar day following receipt of the claim” when it is filed electronically, and “no later than the 40th calendar day following receipt if the claim is submitted by other than electronic means,” as long as the provider and member were eligible on the date of service, the service is covered, the claim carries everything the payer asked for in advance, and there is no reason to suspect fraud. If the payer holds back for missing documentation, coding errors or a disputed amount, it must tell you within the same 30 or 40 days; for an electronic claim missing data it must ask “within seven days of that determination,” and it must acknowledge an electronic claim within two working days. “An overdue payment shall bear simple interest at the rate of 12% per annum.” You may appeal a claims determination internally “on or before the 90th calendar day” after receiving it; the payer must decide within 30 days, and an unresolved dispute can go to arbitration.',
+          'Self-funded employer plans are outside these rules: DOBI lists “self-insurance” and the State Health Benefits Program among the plans its prompt-pay rules do not cover, so ask the employer plan’s administrator for its payment terms. UnitedHealthcare’s 2026 administrative guide does not print a single filing limit: “Timely filing limits vary based on state requirements and contracts. Refer to your Agreement for your specific timely filing requirements.”',
+        ],
+        cites: [
+          { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+          { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare (New Jersey) require a referring provider on ABA claims?',
+        body: [
+          'Not for ABA. Optum\u2019s National Network Manual (effective September 1, 2026), which governs UnitedHealthcare behavioral health claims including ABA, lists what a Form 1500 claim should carry: member and subscriber names and dates of birth, member ID, ICD diagnosis, dates of service, length of session, type and duration of service, and the clinician\u2019s name, credentials, tax ID and NPI. A referring provider is not on the list. UnitedHealthcare\u2019s 2026 Administrative Guide asks for a valid billing NPI, rendering NPI and taxonomy on all claims and adds \u201cwe encourage you to submit the referring health care provider\u2019s NPI\u201d; it makes the referring provider\u2019s name and NPI mandatory only on \u201claboratory, DME, imaging and home health claims.\u201d',
+        ],
+        cites: [{ title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026) — claim submission requirements', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide — Chapter 10, claims and NPI', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies, no dollar cap in practice) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2006,8 +2230,12 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
       { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
       { title: 'P.L. 2023, c.296 — Ensuring Transparency in Prior Authorization Act (N.J.S.A. 17B:30-55.1 et seq.)', url: 'https://www.nj.gov/treasury/pensions/documents/laws/ch296-2023.pdf' },
+      { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+      { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
     ],
     faq: [
+      { q: 'Does UnitedHealthcare (New Jersey) require a referring provider on ABA claims?', a: 'No. Optum\u2019s National Network Manual lists the required claim fields for behavioral health claims without a referring provider, and UnitedHealthcare\u2019s 2026 Administrative Guide only encourages the referring NPI. It is mandatory there only on lab, DME, imaging and home health claims.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in New Jersey?', a: 'Yes — under the carrier\'s national policy for ASD (Optum\'s two-step Provider Express authorization), layered on New Jersey\'s mandate (P.L. 2009, c.115) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Optum have New Jersey-specific ABA criteria?', a: 'Only for Medicaid — its State Mandates document carries a dedicated NJ FamilyCare entry (no comprehensive evaluation required, ages 18 months to 21). There is no NJ commercial entry, so commercial members follow the national Supplemental Clinical Criteria plus the state mandate.' },
       { q: 'Does the $36,000 ABA cap in New Jersey\'s mandate still apply?', a: 'Mostly not — DOBI Bulletin 10-02 held the cap cannot be applied to group plans subject to federal parity (MHPAEA). In practice, state-regulated plans cover medically necessary ABA without dollar caps; the cap survives mainly in nongroup policies.' },
@@ -2015,6 +2243,7 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { q: 'What does UnitedHealthcare pay for ABA in New Jersey?', a: 'UnitedHealthcare/Optum publishes no ABA rates. You are paid up to the Fee Maximum in your Optum agreement, and each line carries a credential modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) under Optum’s ABA reimbursement policy. Ask Optum network management for your rate sheet. NJ FamilyCare\'s fee-for-service schedule (see the New Jersey Medicaid guide) is the public benchmark.' },
       { q: 'Does UnitedHealthcare require RBT certification for ABA technicians?', a: 'For commercial plans, Optum\'s ABA reimbursement policy defines the technician line: the approved rendering provider for the HM modifier (less than a bachelor\'s degree) is "a Registered Behavior Technician (RBT)," and a BCaBA bills HN. The policy notes that state regulatory requirements "may supplement, modify or supersede" it. So plan on RBT-certified technicians for UHC commercial members.' },
       { q: 'Does UnitedHealthcare allow retro authorization for ABA?', a: 'Optum reviews services after the fact only when emergent or unusual circumstances prevented prior authorization, if asked within 180 days with the reason and records. On fully insured NJ plans, state law also bars a no-authorization denial if the payer missed its decision deadline.' },
+      { q: 'How fast does UnitedHealthcare pay ABA claims in New Jersey?', a: 'On fully insured NJ plans, state law requires payment of clean claims within 30 days if filed electronically and 40 days on paper, with 12% yearly interest on late payments. Self-funded plans follow their own terms.' },
     ],
   },
 
@@ -2093,21 +2322,20 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Not published. Horizon\'s ABA medical policy, reimbursement policy and form 40001 require a QHP diagnosis, a BCBA-signed treatment plan ("Signature of the ordering health care provider (i.e., BCBA)") and prior authorization, but state no PCP referral or physician order. Whether an HMO-type plan adds a referral is a plan-document question.',
-        status: 'unverified',
+          'No PCP referral or physician order in Horizon\u2019s own documents. Medical Policy 165, the reimbursement policy and form 40001 require a QHP diagnosis, a treatment plan signed by the BCBA (\u201cSignature of the ordering health care provider (i.e., BCBA)\u201d) and prior authorization. The New Jersey mandate Horizon applies to fully insured plans, P.L. 2009, c.115, covers ABA under 21 \u201cas prescribed through a treatment plan\u201d that must include \u201ca diagnosis; proposed treatment by type, frequency, and duration; the anticipated outcomes stated as goals; the frequency by which the treatment plan will be updated; and the treating physician\u2019s signature,\u201d and lets the carrier request an updated plan only once every six months. Horizon\u2019s form treats the BCBA as the ordering provider. Whether an HMO-type product adds a PCP referral is set in the member\u2019s plan document, not in the ABA policy.',
+        status: 'verified',
         cites: [
           { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
           { title: 'Horizon BCBSNJ — Applied Behavior Analysis Supplemental Information, form 40001 (05152026)', url: 'https://www.horizonblue.com/sites/default/files/2026-06/40001-aba-supplemental-info.pdf' },
+          { title: 'P.L. 2009, c.115 — New Jersey autism and developmental disability coverage (enrolled law)', url: 'https://pub.njleg.state.nj.us/Bills/2008/PL09/115_.PDF' },
         ],
-        verifyVia: 'Horizon Behavioral Health (1-800-626-2212) or the member\'s plan document: ask whether the member\'s product requires a PCP referral for behavioral health.',
-        blocker: 'per-case',
       },
       telehealth: {
         value:
-          'Covered as telemedicine, with prior approval. Horizon\'s Telemedicine and Telehealth Services reimbursement policy (revised 12/18/2025) lists 97151–97158 among its telemedicine codes and pays real-time audio-video services billed with modifier 95 or GT, POS 10 when the member is at home and POS 02 when the member is in an office or facility; "Any service requiring a medical necessity for a face-to-face visit also requires a medical necessity approval for services provided through telemedicine channels. Request and approval of the medical necessity must be obtained prior to rendering the services." Participating providers are paid "at the same rate as that of the existing Professional Agreement Allowances." The ABA medical policy adds that telehealth services are "held to the same medical necessity criteria as in-person care" and that "Clinical justification for services rendered via telehealth must be included within the treatment plan"; the December 2026 revision makes telehealth one of the treatment locations that needs a submitted clinical rationale. So 97151 assessment and 97155 supervision by telehealth are payable when authorized for telehealth. N.J.S.A. 26:2S-29 (P.L.2021, c.310) requires a carrier to cover telehealth on the same basis as in person.',
+          'Covered as telemedicine, with prior approval. Horizon\'s Telemedicine and Telehealth Services reimbursement policy (revised September 24, 2026) lists 97151–97158 among its telemedicine codes and pays real-time audio-video services billed with modifier 95 or GT, POS 10 when the member is at home and POS 02 when the member is in an office or facility; "Any service requiring a medical necessity for a face-to-face visit also requires a medical necessity approval for services provided through telemedicine channels. Request and approval of the medical necessity must be obtained prior to rendering the services." Participating providers are paid "at the same rate as that of the existing Professional Agreement Allowances." The ABA medical policy adds that telehealth services are "held to the same medical necessity criteria as in-person care" and that "Clinical justification for services rendered via telehealth must be included within the treatment plan"; the December 2026 revision makes telehealth one of the treatment locations that needs a submitted clinical rationale. So 97151 assessment and 97155 supervision by telehealth are payable when authorized for telehealth. N.J.S.A. 26:2S-29 (P.L.2021, c.310) requires a carrier to cover telehealth on the same basis as in person.',
         status: 'verified',
         cites: [
-          { title: 'Horizon BCBSNJ reimbursement policy — Telemedicine and Telehealth Services (revised 12/18/2025)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/telemedicine-and-telehealth-services' },
+          { title: 'Horizon BCBSNJ reimbursement policy — Telemedicine and Telehealth Services (revised 9/24/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/telemedicine-and-telehealth-services' },
           { title: 'Horizon BCBSNJ Medical Policy 165 — Applied Behavior Analysis in the Treatment of ASD (effective 7/15/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/medical-policies/detail/01240ce2-1507-c5e4-b8aa-52f103dbf80c' },
           { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
         ],
@@ -2283,6 +2511,34 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
           { title: 'Horizon: Medical Policy Changes — ABA (eff. 1/1/2026)', url: 'https://www.horizonnjhealth.com/for-providers/news/updates-and-announcements/medical-policy-changes-applied-behavior-analysis' },
         ],
       },
+      {
+        h2: 'How fast does Horizon BCBSNJ have to pay an ABA claim in New Jersey?',
+        body: [
+          'On a fully insured New Jersey plan, state law sets the clock. The Health Claims Authorization, Processing and Payment Act requires the insurer, HMO or health service corporation to “remit payment for every insured claim submitted by a covered person or health care provider, no later than the 30th calendar day following receipt of the claim” when it is filed electronically, and “no later than the 40th calendar day following receipt if the claim is submitted by other than electronic means,” as long as the provider and member were eligible on the date of service, the service is covered, the claim carries everything the payer asked for in advance, and there is no reason to suspect fraud. If the payer holds back for missing documentation, coding errors or a disputed amount, it must tell you within the same 30 or 40 days; for an electronic claim missing data it must ask “within seven days of that determination,” and it must acknowledge an electronic claim within two working days. “An overdue payment shall bear simple interest at the rate of 12% per annum.” You may appeal a claims determination internally “on or before the 90th calendar day” after receiving it; the payer must decide within 30 days, and an unresolved dispute can go to arbitration.',
+          'Self-funded employer plans are outside these rules: DOBI lists “self-insurance” and the State Health Benefits Program among the plans its prompt-pay rules do not cover, so ask the employer plan’s administrator for its payment terms. Horizon’s ABA reimbursement policy makes payment subject to “The terms of any applicable provider participation agreement” but sets no payment deadline of its own.',
+        ],
+        cites: [
+          { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+          { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
+        ],
+      },
+      {
+        h2: 'Can a Horizon BCBSNJ commercial plan still be billed with H0032 for ABA?',
+        body: [
+          'Not for services from July 15, 2026. Horizon’s ABA reimbursement policy (revised March 26, 2026) covers “All products/lines of business,” except coordination-of-benefits claims, Medicare Advantage plans (unless the benefit contract says otherwise) and products where Horizon is secondary to Medicare, so it reaches Horizon’s individual and employer commercial plans. Its history records: “Removed H0032 from policy effective 07/15/2026.” The policy now lists only 97151–97158, 0362T and 0373T, which it calls “the preferred codes to be used and recommended by the AMA,” and every one of them needs prior authorization. If an authorization issued before July 15 still shows H0032, ask Horizon Behavioral Health (1-800-626-2212) to reissue it on the CPT codes.',
+        ],
+        cites: [
+          { title: 'Horizon BCBSNJ reimbursement policy — Applied Behavior Analysis in the Treatment of Autism Spectrum Disorders (revised 3/26/2026)', url: 'https://www.horizonblue.com/providers/policies-procedures/policies/reimbursement-policies-guidelines/applied-behavior-analysis-treatment-autism-spectrum-disorders' },
+        ],
+      },
+      {
+        h2: 'Out-of-state Blue members in New Jersey: how does BlueCard work for ABA?',
+        body: [
+          'Members of other Blue plans who are treated in New Jersey are billed to Horizon through BlueCard. Horizon\u2019s Professional Provider Manual: \u201cHorizon is your one point of contact for claims or claims-related questions,\u201d and \u201cIf services are rendered in New Jersey and your office does not participate with the Plan through which the member is enrolled, submit claims to Horizon.\u201d The one exception is a practice that also contracts directly with the member\u2019s own Blue plan, which bills that plan. For ABA specifically: \u201cAll behavioral health and substance use disorder claim submissions and inquiries for your BlueCard\u00ae patients (those enrolled in another state\u2019s Blue Cross and/or Blue Shield Plan) must be handled through the BlueCard\u00ae program,\u201d electronically through Availity with payer ID 22099, or on paper to Horizon BCBSNJ BlueCard Claims, Three Penn Plaza East, Suite 1, Newark, NJ 07105-2248. Include the full member ID with its prefix.',
+          'Prior authorization stays with the member\u2019s home plan: patients \u201cwho have BlueCard\u00ae benefits, are responsible for obtaining prior authorizations,\u201d and \u201cYou may choose to contact the Blue Cross and/or Blue Shield Plan in which your patient is enrolled to obtain the prior authorization.\u201d Check eligibility through BlueCard Eligibility at 1-800-676-BLUE (2583), which connects you to the member\u2019s plan, or a 270 transaction to Horizon. Horizon routes the claim to the home plan, which approves it, and Horizon pays you and sends the EOP. \u201cBilling charges in excess of the allowance is not permitted.\u201d',
+        ],
+        cites: [{ title: 'Horizon BCBSNJ Professional Provider Manual — The BlueCard Program', url: 'https://www.horizonblue.com/providers/resources/working-us-information-education-resources/manuals-user-guides/professional-provider-manual/bluecard-program' }],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured, self-funded that opted into the NJ mandate, or self-funded that did not. It decides which rules apply. SHBP/SEHBP members use a separate phone line.' },
@@ -2307,13 +2563,18 @@ export const newJerseyPayers: Record<string, PayerConfig> = {
       { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
       { title: 'N.J.A.C. 11:4-28.6 — Rules for coordination of benefits (LII)', url: 'https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-11-4-28-6' },
       { title: 'P.L.2021, c.310 — amends N.J.S.A. 30:4D-6k (Medicaid/NJ FamilyCare telehealth coverage) and 26:2S-29 (carrier telehealth coverage)', url: 'https://nj.gov/treasury/pensions/documents/laws/ch310-2021.pdf' },
+      { title: 'P.L.2005, c.352 — Health Claims Authorization, Processing and Payment Act (N.J.S.A. 17B:30-48 et seq.; prompt pay in 17B:26-9.1, 17B:27-44.2, 17:48E-10.1, 26:2J-8.1)', url: 'https://pub.njleg.state.nj.us/Bills/2004/PL05/352_.PDF' },
+      { title: 'NJ DOBI — Prompt Pay Regulations FAQ (N.J.A.C. 11:22-1)', url: 'https://www.nj.gov/dobi/division_insurance/promptfaqs.htm' },
     ],
     faq: [
+      { q: 'How do I bill ABA for an out-of-state Blue Cross member I treat in New Jersey?', a: 'Through Horizon\u2019s BlueCard program. Horizon says all behavioral health claims for BlueCard patients must go through BlueCard: submit to Horizon on Availity (payer ID 22099) with the full member ID and prefix, unless your practice also contracts directly with the member\u2019s own Blue plan. Get the prior authorization from the member\u2019s home plan, which you can reach through 1-800-676-BLUE (2583).' },
       { q: 'Does Horizon BCBSNJ cover ABA therapy?', a: 'Yes, for autism spectrum disorder, under Horizon Medical Policy 165 and the New Jersey autism mandate for fully insured plans and self-funded groups that opted in. Every ABA code needs prior authorization.' },
       { q: 'Does Horizon NJ commercial have any restrictions on ABA in school?', a: 'Yes. Until November 30, 2026, Horizon pays ABA only outside the school setting; the school is responsible for ABA during the school day, and IEP or Early Intervention services are not covered. From December 1, 2026, school-based ABA may be approved during non-instructional periods (lunch, recess, transitions) if it is not duplicative of the IEP and you justify the setting. ABA during core instruction is generally not medically necessary.' },
       { q: 'Does Horizon allow retroactive authorization for ABA?', a: 'Not routinely. Its ABA reimbursement policy says a service without prior authorization gets a claim denial and then a medical-necessity review once records arrive. On fully insured plans, NJ law bars a no-authorization denial if Horizon missed its decision deadline, and a new payer must honor an existing authorization when a child switches plans.' },
       { q: 'Can ABA be delivered by telehealth with Horizon?', a: 'Yes, when authorized. Horizon\'s telemedicine policy lists 97151–97158; bill modifier 95 or GT with POS 10 (home) or 02, get medical-necessity approval before the service, and explain the telehealth use in the treatment plan.' },
       { q: 'Does Horizon require RBT certification?', a: 'Not by name in its published policies. ABA must be delivered by or under the direct supervision of a BCBA or BCBA-D, and the BCBA or NJ Licensed Behavior Analyst bills the claim. Form 40001 expects 1 hour of supervision for every 5 to 10 hours of technician treatment.' },
+      { q: 'What is Horizon BCBS of NJ’s payment turnaround for ABA claims?', a: 'For fully insured plans, state law: clean claims paid within 30 days if filed electronically and 40 days on paper, with 12% yearly interest on late payments. Self-funded plans are outside the state rule.' },
+      { q: 'Can I still bill H0032 for ABA on a Horizon commercial plan?', a: 'Not for dates of service from July 15, 2026. Horizon’s ABA reimbursement policy applies to all its lines of business, individual plans included, except COB claims, Medicare Advantage and Medicare-secondary products, and it removed H0032 effective 07/15/2026. Bill 97151–97158, 0362T or 0373T with prior authorization.' },
     ],
   },
 };

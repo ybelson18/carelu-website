@@ -142,6 +142,35 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline, payment, disputes, taxonomy and EVV',
+        body: [
+          'Six months to file, twelve to get it clean. A.R.S. § 36-2904(G) bars AHCCCS from paying a claim “initially submitted more than six months after the date of the service for which payment is claimed or after the date that eligibility is posted, whichever date is later,” or one not submitted as a clean claim within twelve months — and the same subsection applies the identical limits to the health plans that contract with AHCCCS, so the clock is the same in fee-for-service and in an ACC plan. The FFS billing manual restates it: a claim first received inside six months has until twelve months from the date of service to reach clean-claim status or be adjusted, after which “AHCCCS is not liable for payment.”',
+          'Payment. For fee-for-service claims AHCCCS “intends to process all clean claims in a timely manner, normally within 30 days” (FFS manual, Chapter 25) — a processing target, not a statutory deadline. The health plans set their own payment terms.',
+          'Disputes. AHCCCS requires claim disputes in writing within twelve months of the date of service, twelve months of the date eligibility is posted, or sixty days after the denial of a timely claim, whichever is later (A.R.S. § 36-2903.01(B)(4); A.A.C. R9-34-401 et seq.). Disputes for fee-for-service members go to AHCCCS’s Office of General Counsel (or through the AHCCCS Solutions Center); disputes for plan-enrolled members are filed with the member’s health plan. An unfavourable Notice of Decision can be taken to a state fair hearing within 30 days of receipt.',
+          'Taxonomy. AHCCCS’s CMS-1500 instructions put the rendering provider’s NPI in the unshaded part of box 24J (required) and its 10-character taxonomy in the shaded part with qualifier ZZ in 24I, and the billing provider’s taxonomy in 33b — the taxonomy entries marked “required if applicable.”',
+          'EVV. AMPM 540 (revised effective 08/06/26) applies Electronic Visit Verification to “personal care and home health services” under 42 U.S.C. 1396b(l), for ACC, DDD and fee-for-service alike, and AHCCCS’s EVV page names those services as attendant care, personal care, homemaker, habilitation, respite and in-home skilled nursing. ABA is not among them. A visit is subject to EVV only when the provider type, the service code and the place of service all match AHCCCS’s published list, so an agency that also bills habilitation in the home should check that list.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 25 — Claims Processing (rev. 03/25/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap25ClaimsProcessing.pdf' },
+          { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 5 — Billing on the CMS 1500', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap05.pdf' },
+          { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+          { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+        ],
+      },
+      {
+        h2: 'Does AHCCCS need a referring or ordering provider on the ABA claim?',
+        body: [
+          'Not for ABA under the fee-for-service billing rules. AHCCCS’s CMS-1500 chapter marks field 17, "Name of Referring Provider or Other Source," as "Required if applicable," with qualifiers DN (referring), DK (ordering) and DQ (supervising). The services that require an ordering provider are listed: laboratory, drugs (J-codes), radiology, temporary K and Q codes, medical and surgical supplies, orthotics, respiratory, DME, prosthetics, enteral and parenteral therapy, vision (V-codes), diabetes self-management and chiropractic services. Behavior analysis codes are not on that list.',
+          'When you do report a provider in field 17, the chapter makes 17b, the provider’s NPI, "Required." This chapter governs AHCCCS fee-for-service claims. Health plans (Mercy Care, UnitedHealthcare Community Plan, AzCH, BUFC, Health Choice, Molina and DDD) publish their own claim manuals, so check the member’s plan before assuming the same answer.',
+        ],
+        cites: [
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 5 — Billing on the CMS 1500 (rev. 5/31/2023): fields 17–17b', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap05.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'ACC plan vs. DDD enrollment', desc: 'The routing question — an ACC card and a DDD Health Plan card mean different payers, portals, and auth pathways.' },
@@ -178,6 +207,13 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+      { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+      { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+      { title: 'AHCCCS FFS Provider Billing Manual, Chapter 25 — Claims Processing (rev. 03/25/2026)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap25ClaimsProcessing.pdf' },
+      { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+      { title: 'AHCCCS FFS Provider Billing Manual, Chapter 5 — Billing on the CMS 1500', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap05.pdf' },
+      { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+      { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -314,6 +350,10 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Do AHCCCS health plans pay the AHCCCS fee-for-service ABA rates?', a: 'Not necessarily. AHCCCS says its fixed ABA rates apply only to fee-for-service programs (AIHP, Tribal ALTCS, DDD Tribal Health Program), and “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” For a plan member, the rate is in your plan contract.' },
       { q: 'Can an out-of-state BCBA treat AHCCCS members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'Can AHCCCS ABA be authorized retroactively?', a: 'For fee-for-service members, AHCCCS’s FFS manual (Chapter 8) says no PA is required for “Services provided prior to the posting of the member’s retroactive eligibility.” Health plan members follow their plan’s retrospective-review rules, which differ by plan (see each plan guide).' },
+      { q: 'What is AHCCCS’s timely filing limit for ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later) for the first submission, and twelve months to get the claim to clean-claim status. A.R.S. § 36-2904(G) applies the same limits to AHCCCS fee-for-service and to its contracted health plans.' },
+      { q: 'Does Arizona Medicaid require EVV for ABA?', a: 'Not as ABA. AMPM 540 limits EVV to personal care and home health services — AHCCCS names attendant care, personal care, homemaker, habilitation, respite and in-home skilled nursing — and a visit is covered only when provider type, service code and place of service all match AHCCCS’s list.' },
+      { q: 'How do I dispute a denied AHCCCS ABA claim?', a: 'In writing within twelve months of the date of service (or of eligibility posting), or sixty days after the denial of a timely claim, whichever is later. Fee-for-service disputes go to AHCCCS’s Office of General Counsel; plan members’ disputes go to their health plan. A state fair hearing can be requested within 30 days of an unfavourable decision.' },
+      { q: 'Does AHCCCS require a referring provider (box 17) on ABA claims?', a: 'Not under the fee-for-service CMS-1500 rules. Field 17 is "Required if applicable," and AHCCCS requires an ordering provider only for lab, drugs, radiology, supplies, DME and similar items, not behavior analysis. If you fill field 17, include the NPI in 17b. Health plans may set their own rules.' },
     ],
   },
 
@@ -399,6 +439,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline, disputes and EVV',
+        body: [
+          'Six months to file, twelve to get it clean. A.R.S. § 36-2904(G) bars AHCCCS from paying a claim “initially submitted more than six months after the date of the service for which payment is claimed or after the date that eligibility is posted, whichever date is later,” or one not submitted as a clean claim within twelve months — and the same subsection applies the identical limits to the health plans that contract with AHCCCS, so Mercy Care cannot pay a claim outside those windows either. The FFS billing manual restates it: a claim first received inside six months has until twelve months from the date of service to reach clean-claim status or be adjusted, after which “AHCCCS is not liable for payment.”',
+          'Disputes. AHCCCS requires claim disputes in writing within twelve months of the date of service, twelve months of the date eligibility is posted, or sixty days after the denial of a timely claim, whichever is later (A.R.S. § 36-2903.01(B)(4); A.A.C. R9-34-401 et seq.). Disputes for fee-for-service members go to AHCCCS’s Office of General Counsel (or through the AHCCCS Solutions Center); for Mercy Care members the dispute is filed with Mercy Care. An unfavourable Notice of Decision can be taken to a state fair hearing within 30 days of receipt.',
+          'EVV. AMPM 540 (revised effective 08/06/26) applies Electronic Visit Verification to “personal care and home health services” under 42 U.S.C. 1396b(l), for ACC, DDD and fee-for-service alike, and AHCCCS’s EVV page names those services as attendant care, personal care, homemaker, habilitation, respite and in-home skilled nursing. ABA is not among them. A visit is subject to EVV only when the provider type, the service code and the place of service all match AHCCCS’s published list, so an agency that also bills habilitation in the home should check that list.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+          { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+          { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+          { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Mercy Care book', desc: 'ACC, Mercy Care DD (DDD/ALTCS), or DCS CHP (foster care) — same payer, different funnel and care team.' },
@@ -420,6 +475,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+      { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+      { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+      { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+      { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -581,6 +641,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'How long do Mercy Care ABA authorizations last?', a: 'Six months, matching the state\'s 6-month progress-report cadence — build reauthorization requests from the AMPM 320-S progress report.' },
       { q: 'What is Mercy Care\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with Mercy Care; the AHCCCS fee-for-service schedule does not bind the plan.' },
       { q: 'Can an out-of-state BCBA treat Mercy Care members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
+      { q: 'What is Mercy Care’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, Mercy Care included; the plan’s payment terms are in its contract and provider manual.' },
     ],
   },
 
@@ -668,6 +729,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'UnitedHealthcare Community Plan of Arizona — Provider Manual (effective 07/09/2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/AZ-Provider-Manual.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline, disputes and EVV',
+        body: [
+          'Six months to file, twelve to get it clean. A.R.S. § 36-2904(G) bars AHCCCS from paying a claim “initially submitted more than six months after the date of the service for which payment is claimed or after the date that eligibility is posted, whichever date is later,” or one not submitted as a clean claim within twelve months — and the same subsection applies the identical limits to the health plans that contract with AHCCCS, so UnitedHealthcare Community Plan cannot pay a claim outside those windows either. The FFS billing manual restates it: a claim first received inside six months has until twelve months from the date of service to reach clean-claim status or be adjusted, after which “AHCCCS is not liable for payment.”',
+          'Disputes. AHCCCS requires claim disputes in writing within twelve months of the date of service, twelve months of the date eligibility is posted, or sixty days after the denial of a timely claim, whichever is later (A.R.S. § 36-2903.01(B)(4); A.A.C. R9-34-401 et seq.). Disputes for fee-for-service members go to AHCCCS’s Office of General Counsel (or through the AHCCCS Solutions Center); for UnitedHealthcare Community Plan members the dispute is filed with UnitedHealthcare Community Plan. An unfavourable Notice of Decision can be taken to a state fair hearing within 30 days of receipt.',
+          'EVV. AMPM 540 (revised effective 08/06/26) applies Electronic Visit Verification to “personal care and home health services” under 42 U.S.C. 1396b(l), for ACC, DDD and fee-for-service alike, and AHCCCS’s EVV page names those services as attendant care, personal care, homemaker, habilitation, respite and in-home skilled nursing. ABA is not among them. A visit is subject to EVV only when the provider type, the service code and the place of service all match AHCCCS’s published list, so an agency that also bills habilitation in the home should check that list.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+          { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+          { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+          { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+        ],
+      },
     ],
     collect: [
       { title: 'ACC vs. DD membership', desc: 'Check the card — Group AZDDD ("DDD Health Plan by UHCCP") vs. AZHCCCS routes the eligibility conversation.' },
@@ -686,6 +762,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+      { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+      { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+      { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+      { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+      { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -823,6 +904,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare Community Plan\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with UnitedHealthcare Community Plan; the AHCCCS fee-for-service schedule does not bind the plan.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'Can UnitedHealthcare Community Plan of Arizona authorize ABA retroactively?', a: 'Plan on no. UHC does not approve retroactive authorizations for therapy services (it names PT, OT and speech); ask whether it applies that to ABA before treating without approval.' },
+      { q: 'What is UnitedHealthcare Community Plan’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, UnitedHealthcare Community Plan included; the plan’s payment terms are in its contract and provider manual.' },
     ],
   },
 
@@ -920,6 +1002,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Arizona Complete Health — Provider Manual, Section 4 (4.5 Retrospective Review)', url: 'https://www.azcompletehealth.com/providers/resources/provider-manual/pm_section_4.html' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline, disputes and EVV',
+        body: [
+          'Six months to file, twelve to get it clean. A.R.S. § 36-2904(G) bars AHCCCS from paying a claim “initially submitted more than six months after the date of the service for which payment is claimed or after the date that eligibility is posted, whichever date is later,” or one not submitted as a clean claim within twelve months — and the same subsection applies the identical limits to the health plans that contract with AHCCCS, so Arizona Complete Health cannot pay a claim outside those windows either. The FFS billing manual restates it: a claim first received inside six months has until twelve months from the date of service to reach clean-claim status or be adjusted, after which “AHCCCS is not liable for payment.”',
+          'Disputes. AHCCCS requires claim disputes in writing within twelve months of the date of service, twelve months of the date eligibility is posted, or sixty days after the denial of a timely claim, whichever is later (A.R.S. § 36-2903.01(B)(4); A.A.C. R9-34-401 et seq.). Disputes for fee-for-service members go to AHCCCS’s Office of General Counsel (or through the AHCCCS Solutions Center); for Arizona Complete Health members the dispute is filed with Arizona Complete Health. An unfavourable Notice of Decision can be taken to a state fair hearing within 30 days of receipt.',
+          'EVV. AMPM 540 (revised effective 08/06/26) applies Electronic Visit Verification to “personal care and home health services” under 42 U.S.C. 1396b(l), for ACC, DDD and fee-for-service alike, and AHCCCS’s EVV page names those services as attendant care, personal care, homemaker, habilitation, respite and in-home skilled nursing. ABA is not among them. A visit is subject to EVV only when the provider type, the service code and the place of service all match AHCCCS’s published list, so an agency that also bills habilitation in the home should check that list.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+          { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+          { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+          { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Evaluation date', desc: 'CP.BH.104 wants the comprehensive diagnostic evaluation within 5 years — flag stale evals for re-evaluation early.' },
@@ -939,6 +1036,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+      { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+      { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+      { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+      { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1067,6 +1169,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What is Arizona Complete Health\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with Arizona Complete Health; the AHCCCS fee-for-service schedule does not bind the plan.' },
       { q: 'Can an out-of-state BCBA treat Arizona Complete Health members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'Can Arizona Complete Health authorize ABA retroactively?', a: 'Only in its listed cases; for outpatient care, when the request comes after treatment started but before the course is finished and completing it is needed for continuity of care.' },
+      { q: 'What is Arizona Complete Health’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, Arizona Complete Health included; the plan’s payment terms are in its contract and provider manual.' },
     ],
   },
 
@@ -1161,6 +1264,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Banner-University Family Care — 2026 Provider Manual (effective 07/09/2026)', url: 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/manuals-and-directories/manuals/prov-bufc-prov-manual_eff07092026_en.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline, disputes and EVV',
+        body: [
+          'Six months to file, twelve to get it clean. A.R.S. § 36-2904(G) bars AHCCCS from paying a claim “initially submitted more than six months after the date of the service for which payment is claimed or after the date that eligibility is posted, whichever date is later,” or one not submitted as a clean claim within twelve months — and the same subsection applies the identical limits to the health plans that contract with AHCCCS, so Banner–University Family Care cannot pay a claim outside those windows either. The FFS billing manual restates it: a claim first received inside six months has until twelve months from the date of service to reach clean-claim status or be adjusted, after which “AHCCCS is not liable for payment.”',
+          'Disputes. AHCCCS requires claim disputes in writing within twelve months of the date of service, twelve months of the date eligibility is posted, or sixty days after the denial of a timely claim, whichever is later (A.R.S. § 36-2903.01(B)(4); A.A.C. R9-34-401 et seq.). Disputes for fee-for-service members go to AHCCCS’s Office of General Counsel (or through the AHCCCS Solutions Center); for Banner–University Family Care members the dispute is filed with Banner–University Family Care. An unfavourable Notice of Decision can be taken to a state fair hearing within 30 days of receipt.',
+          'EVV. AMPM 540 (revised effective 08/06/26) applies Electronic Visit Verification to “personal care and home health services” under 42 U.S.C. 1396b(l), for ACC, DDD and fee-for-service alike, and AHCCCS’s EVV page names those services as attendant care, personal care, homemaker, habilitation, respite and in-home skilled nursing. ABA is not among them. A visit is subject to EVV only when the provider type, the service code and the place of service all match AHCCCS’s published list, so an agency that also bills habilitation in the home should check that list.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+          { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+          { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+          { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis (any qualifying)', desc: 'AMPM 320-S baseline — ASD or another diagnosis justified by medical necessity, with a BHP recommendation.' },
@@ -1181,6 +1299,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+      { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+      { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+      { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+      { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1339,6 +1462,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What does Banner pay for ABA?', a: 'Not published. Benchmark against the AHCCCS physician fee schedule (97153 at $17.91–$23.69 per 15-minute unit by credential tier); your contract is the source of truth.' },
       { q: 'Can an out-of-state BCBA treat Banner-University Family Care members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
       { q: 'Can Banner-University Family Care authorize ABA retroactively?', a: 'Only at its discretion for good cause: send the Retrospective Review Request Form with the claim, explaining why authorization was not obtained; decision within 30 days.' },
+      { q: 'What is Banner–University Family Care’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, Banner–University Family Care included; the plan’s payment terms are in its contract and provider manual.' },
     ],
   },
 
@@ -1430,6 +1554,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline, disputes and EVV',
+        body: [
+          'Six months to file, twelve to get it clean. A.R.S. § 36-2904(G) bars AHCCCS from paying a claim “initially submitted more than six months after the date of the service for which payment is claimed or after the date that eligibility is posted, whichever date is later,” or one not submitted as a clean claim within twelve months — and the same subsection applies the identical limits to the health plans that contract with AHCCCS, so Health Choice Arizona cannot pay a claim outside those windows either. The FFS billing manual restates it: a claim first received inside six months has until twelve months from the date of service to reach clean-claim status or be adjusted, after which “AHCCCS is not liable for payment.”',
+          'Disputes. AHCCCS requires claim disputes in writing within twelve months of the date of service, twelve months of the date eligibility is posted, or sixty days after the denial of a timely claim, whichever is later (A.R.S. § 36-2903.01(B)(4); A.A.C. R9-34-401 et seq.). Disputes for fee-for-service members go to AHCCCS’s Office of General Counsel (or through the AHCCCS Solutions Center); for Health Choice Arizona members the dispute is filed with Health Choice Arizona. An unfavourable Notice of Decision can be taken to a state fair hearing within 30 days of receipt.',
+          'EVV. AMPM 540 (revised effective 08/06/26) applies Electronic Visit Verification to “personal care and home health services” under 42 U.S.C. 1396b(l), for ACC, DDD and fee-for-service alike, and AHCCCS’s EVV page names those services as attendant care, personal care, homemaker, habilitation, respite and in-home skilled nursing. ABA is not among them. A visit is subject to EVV only when the provider type, the service code and the place of service all match AHCCCS’s published list, so an agency that also bills habilitation in the home should check that list.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+          { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+          { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+          { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis (any qualifying)', desc: 'AMPM 320-S baseline — ASD or another diagnosis justified by medical necessity.' },
@@ -1451,6 +1590,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+      { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+      { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+      { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+      { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1609,6 +1753,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Is Health Choice Arizona now Blue Cross Blue Shield of Arizona Health Choice?', a: 'Yes — AHCCCS\'s official health plan roster (revised 6/30/2026) lists it as "Blue Cross Blue Shield of Arizona Health Choice." It has been a BCBSAZ subsidiary since BCBSAZ acquired Steward Health Choice Arizona; the plan\'s AHCCCS contract, coverage, and mechanics are unchanged by the naming update.' },
       { q: 'What is BCBSAZ Health Choice\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with BCBSAZ Health Choice; the AHCCCS fee-for-service schedule does not bind the plan.' },
       { q: 'Can an out-of-state BCBA treat Health Choice members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
+      { q: 'What is Health Choice Arizona’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, Health Choice Arizona included; the plan’s payment terms are in its contract and provider manual.' },
     ],
   },
 
@@ -1689,6 +1834,21 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline, disputes and EVV',
+        body: [
+          'Six months to file, twelve to get it clean. A.R.S. § 36-2904(G) bars AHCCCS from paying a claim “initially submitted more than six months after the date of the service for which payment is claimed or after the date that eligibility is posted, whichever date is later,” or one not submitted as a clean claim within twelve months — and the same subsection applies the identical limits to the health plans that contract with AHCCCS, so Molina Healthcare of Arizona cannot pay a claim outside those windows either. The FFS billing manual restates it: a claim first received inside six months has until twelve months from the date of service to reach clean-claim status or be adjusted, after which “AHCCCS is not liable for payment.”',
+          'Disputes. AHCCCS requires claim disputes in writing within twelve months of the date of service, twelve months of the date eligibility is posted, or sixty days after the denial of a timely claim, whichever is later (A.R.S. § 36-2903.01(B)(4); A.A.C. R9-34-401 et seq.). Disputes for fee-for-service members go to AHCCCS’s Office of General Counsel (or through the AHCCCS Solutions Center); for Molina Healthcare of Arizona members the dispute is filed with Molina Healthcare of Arizona. An unfavourable Notice of Decision can be taken to a state fair hearing within 30 days of receipt.',
+          'EVV. AMPM 540 (revised effective 08/06/26) applies Electronic Visit Verification to “personal care and home health services” under 42 U.S.C. 1396b(l), for ACC, DDD and fee-for-service alike, and AHCCCS’s EVV page names those services as attendant care, personal care, homemaker, habilitation, respite and in-home skilled nursing. ABA is not among them. A visit is subject to EVV only when the provider type, the service code and the place of service all match AHCCCS’s published list, so an agency that also bills habilitation in the home should check that list.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+          { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+          { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+          { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+          { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis (any qualifying)', desc: 'AMPM 320-S baseline — ASD or another diagnosis justified by medical necessity.' },
@@ -1709,6 +1869,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'A.R.S. § 36-2904 — AHCCCS contracts; claim submission time limits (subsection G)', url: 'https://www.azleg.gov/ars/36/02904.htm' },
+      { title: 'AHCCCS FFS Provider Billing Manual, Chapter 4 — General Billing Rules (rev. 11/03/2025)', url: 'https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap04GeneralBillingRules.pdf' },
+      { title: 'AHCCCS — Provider Claim Disputes', url: 'https://www.azahcccs.gov/PlansProviders/RatesAndBilling/ManagedCare/claimdisputes.html' },
+      { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+      { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1865,6 +2030,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Molina require PA for ABA in Arizona?', a: 'Its code-level ABA PA rules aren\'t published as a standing rule — verify against the current Prior Auth Guide or call Healthcare Services at (844) 782-2678 before booking.' },
       { q: 'Where does Molina operate in Arizona?', a: 'Three counties: Maricopa, Gila, and Pinal — the smallest ACC footprint, centered on Phoenix metro.' },
       { q: 'Can an out-of-state BCBA treat Molina members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
+      { q: 'What is Molina Healthcare of Arizona’s timely filing limit for AHCCCS ABA claims?', a: 'Six months from the date of service (or from the date eligibility is posted, if later), and twelve months to reach clean-claim status. A.R.S. § 36-2904(G) sets those limits for every AHCCCS contracted health plan, Molina Healthcare of Arizona included; the plan’s payment terms are in its contract and provider manual.' },
     ],
   },
 
@@ -1953,6 +2119,16 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
         ],
       },
+      {
+        h2: 'Does EVV apply to ABA for DDD members?',
+        body: [
+          'EVV. AMPM 540 (revised effective 08/06/26) applies Electronic Visit Verification to “personal care and home health services” under 42 U.S.C. 1396b(l), for ACC, DDD and fee-for-service alike, and AHCCCS’s EVV page names those services as attendant care, personal care, homemaker, habilitation, respite and in-home skilled nursing. ABA is not among them. A visit is subject to EVV only when the provider type, the service code and the place of service all match AHCCCS’s published list, so an agency that also bills habilitation in the home should check that list.',
+        ],
+        cites: [
+          { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+          { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
+        ],
+      },
     ],
     collect: [
       { title: 'DDD enrollment + ALTCS status', desc: 'Enrolled DDD member, ALTCS application pending, or ACC-only — three different routes with different timelines.' },
@@ -1974,6 +2150,8 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'A.R.S. § 32-2091.14 — AHCCCS recognizes licensed behavior analysts as behavioral health professionals', url: 'https://www.azleg.gov/ars/32/02091-14.htm' },
+      { title: 'AMPM 540 — Electronic Visit Verification (effective 08/06/26)', url: 'https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/500/540.pdf' },
+      { title: 'AHCCCS — Electronic Visit Verification (What is EVV?, updated Oct. 22, 2025)', url: 'https://www.azahcccs.gov/AHCCCS/Initiatives/EVV/' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2135,6 +2313,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does county matter for DDD members?', a: 'No — both DDD Health Plans are statewide, unlike ACC plans, which are restricted to geographic service areas.' },
       { q: 'What is the DDD Health Plans\u2019s fee schedule for ABA?', a: 'There is no public plan fee schedule. AHCCCS says its fixed ABA rates (effective November 1, 2023) apply only to fee-for-service programs and have “no impact on the contracts that AHCCCS health plans negotiate with their providers”: “MCOs and providers may negotiate any contracted rate that is agreed to by both parties.” Your rate is in your contract with the DDD Health Plans; the AHCCCS fee-for-service schedule does not bind the plan.' },
       { q: 'Can an out-of-state BCBA treat DDD members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. AHCCCS defines a Behavior Analyst as one licensed under A.R.S. § 32-2091, so plan on an Arizona license for Medicaid work.' },
+      { q: 'Does DDD require EVV for ABA?', a: 'Not as ABA. AMPM 540, which names DES/DDD among the programs it binds, limits EVV to personal care and home health services (attendant care, personal care, homemaker, habilitation, respite, in-home skilled nursing). DDD habilitation delivered in the home is a different matter — check AHCCCS’s provider-type, service-code and place-of-service list.' },
     ],
   },
 
@@ -2153,15 +2332,14 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       cites: [{ title: 'Aetna — Participating provider behavioral health precertification list (eff. 8/1/2024)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }],
     },
     dxRequired: {
-      value: 'Yes — ASD only (F84.0–F84.9); ABA for other diagnoses considered experimental',
-      status: 'unverified',
+      value:
+        'Yes — a DSM-5 autism spectrum disorder diagnosis "(ICD-10/ F84.0; F84.3 - F84.9) obtained by an appropriate provider" per the ABA Medical Necessity Guide. That list leaves out F84.2 (Rett syndrome). CPB 0648\'s broader autism code list runs F84.0–F84.9, but the ABA guide is the narrower and controlling one for ABA. CPB 0554 calls ABA "experimental, investigational, or unproven" for Down syndrome without ASD and "for all other non-ASD indications."',
+      status: 'verified',
       cites: [
         { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
-        { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0554 — Applied Behavior Analysis (last review 11/26/2025)', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
+        { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
       ],
-      verifyVia:
-        'Aetna CPB 0554 / CPB 0648 and the ABA Medical Necessity Guide. The substantive rule — ASD only, ABA for other diagnoses considered experimental — is sourced, but the code range printed here is NOT: the Medical Necessity Guide states "(ICD-10/ F84.0; F84.3 - F84.9)", which omits F84.1 and F84.2. Confirm the governing code set with Aetna before relying on "F84.0-F84.9".',
-      blocker: 'document',
     },
     payer: 'Aetna in Arizona',
     state: 'AZ', kind: 'commercial',
@@ -2239,6 +2417,35 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Aetna’s national provider manual (edition 6/26) publishes no numeric filing limit: it defines a clean claim as one “received in a timely manner,” so the operative deadline is the one in your Aetna agreement. Claim disputes go through Availity — the claim must be in Finalized status, then “Dispute Claim” from the Claim Status transaction — and Aetna runs one level of provider appeal for payment decisions; medical-necessity appeals go through the member appeal process.',
+        ],
+        cites: [
+          { title: 'Aetna Provider Manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Aetna pay a clean claim in Arizona?',
+        body: [
+          'Arizona’s prompt-pay statute, A.R.S. § 20-3102, requires a health care insurer to adjudicate a clean claim “within thirty days after the health care insurer receives the clean claim or within the time period specified by contract,” and, absent a written contract setting a different period, to pay the approved portion within thirty days after adjudication; late payment carries interest at the legal rate. If the claim is not clean, the insurer must ask for the missing information in writing within thirty days and then adjudicate within thirty days of receiving it. Neither side may reopen a paid or denied claim more than one year after the insurer paid or denied it, except for fraud (§ 20-3102(J)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+        ],
+      },
+      {
+        h2: 'Does Aetna need a referring provider on the ABA claim?',
+        body: [
+          'Aetna publishes no requirement to report a referring or ordering provider on an ABA claim. Its office manual defines a clean claim as including “A corresponding referral (whether in paper or electronic format), if required for the applicable claim” plus “All the data elements of the UB-04 or CMS-1500 (or successor standard) forms (including but not limited to member identification number, National Provider Identifier (NPI), date(s) of service, and a complete and accurate breakdown of services).”',
+          'A referral matters only on plans that require PCP referrals for specialist care. Those referrals must be issued before the visit (“Referrals should not be retroactive”), and “In Aetna Open Access® plans, referrals also are not necessary.” Aetna’s behavioral health manual lists direct access as the first way into care: members may reach behavioral health “Through direct access to the behavioral health provider,” through a recommendation from their PCP or another treating provider, or through an EAP referral.',
+        ],
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): clean claims and referral policies', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna Behavioral Health Provider Manual (8/22): access to care', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -2261,6 +2468,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
       { title: 'Aetna — Provider and facility participation criteria (Network Participation Criteria, 8100606-01-01, 5/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/network-participation-criteria-document.pdf' },
+      { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2359,11 +2567,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not published in Aetna\'s ABA materials — no rule on who signs a session note or within what window.',
-        status: 'unverified',
-        verifyVia:
-          'The Aetna provider manual and your participation agreement\'s documentation clause.',
-        blocker: 'document',
+          'Aetna has a general rule, not an ABA-specific one. Its medical-record standards apply to "all participating practitioners," who "agree to maintain medical records in a current, detailed, organized, and comprehensive manner." The core components are: "All entries are dated," "All entries are legible to someone other than the writer," and "All entries in the record must contain the provider\'s signature/initials or electronic identifier." Aetna audits records against these at least every two years, with an 85% performance goal. Aetna\'s ABA documents do not say whether the technician, the supervising BCBA or both sign a session note, or how soon after the session it must be signed. Each person who writes an entry should sign or e-sign and date it.',
+        status: 'verified',
+        cites: [
+          { title: 'Aetna Health Care Professional Toolkit / office manual (2026): medical records — standards and criteria for documentation', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+          { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -2385,6 +2594,9 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'Does Arizona still cap ABA benefits at $50,000 a year?', a: 'No — SB 1590 (signed May 7, 2025) repealed the $50,000/$25,000 annual behavioral-therapy caps from all four Steven\'s Law sections. No annual dollar ceiling remains on any state-regulated group plan.' },
       { q: 'What does Aetna pay for ABA in Arizona?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the AHCCCS physician fee schedule and treat rate-setting as part of contracting.' },
       { q: 'Can an out-of-state BCBA treat Aetna members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. Aetna requires telehealth providers to meet the license requirements “for all states in which members to whom they are providing Telehealth services are located.”' },
+      { q: 'What is Aetna’s timely filing limit in Arizona?', a: 'Aetna’s national provider manual (6/26) does not publish a number — the filing limit is the one in your Aetna agreement.' },
+      { q: 'How fast must Aetna pay a clean ABA claim in Arizona?', a: 'Arizona law (A.R.S. § 20-3102) gives a fully insured plan 30 days from receipt to adjudicate a clean claim and, unless your contract says otherwise, 30 more days to pay the approved amount, with interest at the legal rate after that. Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
     ],
   },
 
@@ -2495,6 +2707,35 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth Behavioral Health — Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'Cigna’s behavioral benefits, ABA included, are administered by Evernorth Behavioral Health, whose administrative guidelines (revised September 2026) “will only consider claims submitted within 90 days of the date of service or as otherwise defined in your Provider Agreement” — a longer state-law limit overrides it, the clock resets to the date Cigna asks for more information, and Medicaid-secondary claims get three years. Appeals must be started in writing within 180 calendar days of the payment or denial decision. The guidelines’ Arizona regulatory addendum lets a provider ask for an appeal or adjustment of an underpaid claim within one year of payment on insured and non-Medicare HMO plans, and 180 days on self-insured plans.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (rev. Sept. 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must Cigna pay a clean claim in Arizona?',
+        body: [
+          'Arizona’s prompt-pay statute, A.R.S. § 20-3102, requires a health care insurer to adjudicate a clean claim “within thirty days after the health care insurer receives the clean claim or within the time period specified by contract,” and, absent a written contract setting a different period, to pay the approved portion within thirty days after adjudication; late payment carries interest at the legal rate. If the claim is not clean, the insurer must ask for the missing information in writing within thirty days and then adjudicate within thirty days of receiving it. Neither side may reopen a paid or denied claim more than one year after the insurer paid or denied it, except for fraud (§ 20-3102(J)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+        ],
+      },
+      {
+        h2: 'Does Cigna need a referring provider on the ABA claim?',
+        body: [
+          'No. Evernorth’s administrative guidelines (September 2026) define a complete CMS-1500 claim as the patient’s ID number, name, address and date of birth; the subscriber’s name and address; release of information and assignment of benefits; diagnosis codes and pointer; date and place of service; CPT/HCPCS code and modifier; billed charge, units, TIN and total charge; the “Rendering provider’s name, NPI, and license type”; and the “Billing provider’s name, address, and NPI.” No referring or ordering provider is on that list. If you do report one on an 837, “Any additional provider identification on the claim, such as the “Rendering Provider” or “Referring Provider,” must include the name and NPI when submitted.”',
+          'The ABA-specific paper-claim rules sit in the autism resource guide: use Form CMS-1500, “Print your name in box 31,” and “List only a BCBA or other licensed provider in box 33.” Evernorth does not credential non-licensed or non-certified staff, so their services are billed under the supervising provider.',
+        ],
+        cites: [
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191): complete-claim definition and 837 provider identifiers', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+          { title: 'Cigna / Evernorth autism resource guide (March 2025): paper-claim rules', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -2514,6 +2755,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
       { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2600,9 +2842,12 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       concurrentBilling: {
         value:
-          'Yes — and Evernorth writes it as an explicit carve-out from its general rule: "Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Both must be with the patient; analyst time away from the patient is not inside the exception.',
+          'Yes — and Evernorth writes it as an explicit carve-out from its general rule: "Only one provider can bill for a unit of time, with the exception of CPT codes 97153, 97154, and 97155 (direct supervision when the BCBA/qualified health care provider directs the technician and both are face-to-face with the patient at the same time)." Both must be with the patient; analyst time away from the patient is not inside the exception. Speech, OT and other therapies are a separate rule: EN0499 says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Schedule ABA and other therapies in separate time blocks. ABA built into a speech or OT session is not billable.',
         status: 'verified',
-        cites: [{ title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }],
+        cites: [
+          { title: 'Cigna autism resource guide', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
       dailyLimits: {
         value:
@@ -2615,12 +2860,11 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
       noteSignature: {
         value:
-          'Not published in the autism resource guide — no rule on who signs a session note or when. EN0499 does require the name and credentials of the supervising and stakeholder-training providers to be documented, and dates of administration on every assessment instrument.',
-        status: 'unverified',
-        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia:
-          'The Evernorth Behavioral Health provider administrative guide and your participation agreement.',
-        blocker: 'document',
+          'The person who delivered the service signs the note. EN0499\'s Documentation Expectations require "A separate written record ... for each individual receiving ABA intervention corresponding with each service noted through identified CPT® Code." Each record must include at least the start and end date and time, the location, the focus of service, a detailed description of the intervention, the individuals present, the specific service delivered (direct service, supervision, stakeholder training and so on), and the "Name, credential (if applicable), and signature of ABA provider who rendered the service." EN0499 sets no deadline for signing.',
+        status: 'verified',
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (effective 5/15/2026): Documentation Expectations', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
       },
       placeOfService: {
         value:
@@ -2647,6 +2891,9 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna\u2019s fee schedule for ABA in Arizona?', a: 'Evernorth (Cigna\u2019s behavioral health arm) publishes no ABA fee schedule. Its autism resource guide sends questions about credentialing, contracts or rates to your provider relations representative, so the rate is in your Evernorth contract.' },
       { q: 'How do I join Cigna\u2019s ABA network in Arizona?', a: 'Apply to Evernorth: individuals use the Evernorth Behavioral Provider Information Form and autism clinics the Screening Application for Autism Clinics. Allow up to 90 days for the application and another 60 to 90 days to credential each provider after the clinic contract. Technicians are not credentialed; their services bill under the supervising provider.' },
       { q: 'Can an out-of-state BCBA treat Cigna members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
+      { q: 'What is Cigna’s timely filing limit in Arizona?', a: 'Evernorth Behavioral Health, which administers Cigna’s ABA benefit, considers claims submitted within 90 days of the date of service unless your provider agreement or a longer state-law limit says otherwise.' },
+      { q: 'How fast must Cigna pay a clean ABA claim in Arizona?', a: 'Arizona law (A.R.S. § 20-3102) gives a fully insured plan 30 days from receipt to adjudicate a clean claim and, unless your contract says otherwise, 30 more days to pay the approved amount, with interest at the legal rate after that. Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
     ],
   },
 
@@ -2761,6 +3008,35 @@ export const arizonaPayers: Record<string, PayerConfig> = {
           { title: 'Optum Behavioral Health — National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
+      {
+        h2: 'Claims: filing deadline and disputes',
+        body: [
+          'UnitedHealthcare’s ABA benefit is managed by Optum Behavioral Health, whose National Network Manual (effective September 1, 2026) requires everything needed to process a claim to reach Optum “no more than 90 calendar days from the date of service, or as allowed by state or federal law or the member’s specific benefit plan,” with corrections within 90 days of first receipt. Clean, authorized claims are “generally” paid within 45 calendar days of receipt or as state or federal law requires. Disputes run in two steps — reconsideration, then appeal — with 12 months in total for both unless state law or your participation agreement sets a different deadline.',
+        ],
+        cites: [
+          { title: 'Optum Behavioral Health National Network Manual (published July 1, 2026; effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+        ],
+      },
+      {
+        h2: 'How fast must UnitedHealthcare pay a clean claim in Arizona?',
+        body: [
+          'Arizona’s prompt-pay statute, A.R.S. § 20-3102, requires a health care insurer to adjudicate a clean claim “within thirty days after the health care insurer receives the clean claim or within the time period specified by contract,” and, absent a written contract setting a different period, to pay the approved portion within thirty days after adjudication; late payment carries interest at the legal rate. If the claim is not clean, the insurer must ask for the missing information in writing within thirty days and then adjudicate within thirty days of receiving it. Neither side may reopen a paid or denied claim more than one year after the insurer paid or denied it, except for fraud (§ 20-3102(J)). These statutes bind fully insured plans issued in the state; a self-funded employer plan (ERISA) is not subject to them and follows its plan documents and your contract.',
+        ],
+        cites: [
+          { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
+        ],
+      },
+      {
+        h2: 'Does UnitedHealthcare need a referring provider on the ABA claim?',
+        body: [
+          'Not for ABA. Optum, which manages UnitedHealthcare’s behavioral benefit, says in its National Network Manual (effective September 1, 2026) that a claim must carry the coding (ICD diagnosis, CPT/HCPCS and modifiers), the member ID number, customary charges, and the provider’s TIN and NPI. Paper Form 1500 claims add the member and subscriber names and dates of birth, the length of session, the type and duration of service, and the clinician’s name, credentials, Tax ID and NPI. A referring provider is not on either list.',
+          'UnitedHealthcare’s 2026 administrative guide requires the referring provider’s name and NPI only on laboratory, DME, imaging and home health claims. For every other claim, it requires “a valid billing NPI, rendering NPI and relevant taxonomy code(s)” and says “we encourage you to submit the referring health care provider’s NPI.” In short, the referring NPI is optional on an ABA claim, and leaving it off is not a denial reason under either document.',
+        ],
+        cites: [
+          { title: 'Optum National Network Manual (BH02330, effective September 1, 2026): claims submission and Form 1500 required fields', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial), Chapter 10: complete claim and NPI requirements', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured group (mandate applies) vs. self-funded ERISA (exempt) vs. individual/small-group (EHB benchmark) — it decides which rulebook governs.' },
@@ -2785,6 +3061,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'A.R.S. § 32-2091.12 — unlicensed practice is a class 2 misdemeanor', url: 'https://www.azleg.gov/ars/32/02091-12.htm' },
       { title: 'A.R.S. § 36-3606 — interstate telehealth services; registration of out-of-state providers', url: 'https://www.azleg.gov/ars/36/03606.htm' },
       { title: 'A.R.S. § 36-3601 — telehealth definitions (“health care provider” includes Title 32, ch. 19.1 licensees)', url: 'https://www.azleg.gov/ars/36/03601.htm' },
+      { title: 'A.R.S. § 20-3102 — Timely payment of health care provider claims', url: 'https://www.azleg.gov/ars/20/03102.htm' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2914,6 +3191,9 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare\u2019s fee schedule for ABA in Arizona?', a: 'There is no public one. Optum tells participating providers to bill “the applicable CPT code(s) listed on their fee schedule,” meaning the schedule in your Optum agreement, with payment subject to the member\u2019s benefits and prior authorization. Ask Optum network management for rates.' },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Arizona, including by telehealth?', a: 'Arizona requires a license (A.R.S. § 32-2091.02) but lets an out-of-state provider deliver telehealth after registering under A.R.S. § 36-3606. Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
+      { q: 'What is UnitedHealthcare’s timely filing limit in Arizona?', a: 'Optum Behavioral Health, which manages UnitedHealthcare’s ABA benefit, requires claims within 90 calendar days of the date of service unless state or federal law or the member’s plan allows longer (National Network Manual, effective September 1, 2026).' },
+      { q: 'How fast must UnitedHealthcare pay a clean ABA claim in Arizona?', a: 'Arizona law (A.R.S. § 20-3102) gives a fully insured plan 30 days from receipt to adjudicate a clean claim and, unless your contract says otherwise, 30 more days to pay the approved amount, with interest at the legal rate after that. Self-funded employer plans are not bound by the statute.' },
+      { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
     ],
   },
 };

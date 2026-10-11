@@ -180,7 +180,7 @@ const BCBSTX_MEDICAID_NEWS = src(
   'https://www.bcbstx.com/provider/medicaid/education-and-reference/news/2024/05-10-2024-md-behavioral-health-aba-forms',
   'BCBSTX — Medicaid Behavioral Health / ABA Forms Update (5/10/2024) — announces "insourcing of Behavioral Health Services for Medicaid," ending the prior Magellan carve-out (last referenced in a 7/5/2023-dated PA summary).'
 );
-const BCBSTX_ABA_CHECKLIST = src('https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf', 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024) — routes ABA PA to BCBSTX\'s own BH intake fax (1-888-530-9809) or Availity Essentials, no Magellan reference.');
+const BCBSTX_ABA_CHECKLIST = src('https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-90710324-ABA-request-form.pdf', 'BCBSTX Medicaid — Autism Service Benefit Initial/Continued Treatment Plan Template (ABA request form, SKSCPB-9071, rev. 03/2024) — "After completing the form, please fax to: 1-888-530-9809"; no Magellan reference. Replaces the 4/26/2024 ABA PA Requirement Checklist, which 404s since October 2026.');
 const BCBSTX_PA_CODE_GRID = src(
   'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf',
   'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List — lists 97151,97153,97154,97155,97156,97158 each as "Applied Behavioral Health (Allowable only for members 20 years of age or younger)," PA-required, eff. 1/1/2024. No 0362T or 99366 row found.'
