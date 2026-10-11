@@ -728,8 +728,10 @@
       "state": "MA",
       "kind": "commercial",
       "priority": 2,
-      "status": "open",
-      "family": "bcbs"
+      "status": "shipped",
+      "family": "bcbs",
+      "shippedAt": "2026-10-11",
+      "shippedSlug": "blue-cross-blue-shield-massachusetts"
     },
     {
       "slug": "horizon-bcbs-new-jersey",
@@ -747,9 +749,10 @@
       "state": "FL",
       "kind": "commercial",
       "priority": 2,
-      "status": "open",
+      "status": "shipped",
       "family": "bcbs",
-      "note": "ABA administered through Lucet (formerly New Directions)."
+      "note": "ABA administered through Lucet (formerly New Directions).",
+      "shippedAt": "2026-10-11"
     },
     {
       "slug": "highmark-bcbs",
@@ -777,9 +780,11 @@
       "state": "MD",
       "kind": "commercial",
       "priority": 2,
-      "status": "open",
+      "status": "shipped",
       "family": "bcbs",
-      "note": "MD/DC/Northern VA."
+      "note": "MD/DC/Northern VA. Already live as carefirst-maryland (and carefirst-district-of-columbia, 2026-10-07); closed as stale on 2026-10-11.",
+      "shippedAt": "2026-09-25",
+      "shippedSlug": "carefirst-maryland, carefirst-district-of-columbia"
     },
     {
       "slug": "medical-mutual-ohio",
