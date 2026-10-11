@@ -331,10 +331,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — 97153, 97154, 97155, 97156, 97158, 99366 all on Superior\'s PA list; TMPPM 90/90/180 cadence',
+      value: 'Required — PA on individual (97153, 97155) and group (97154, 97158) treatment, parent/caregiver training (97156), the initial course of treatment and every re-certification; TMPPM 90/90/180 cadence. Interdisciplinary team meetings (99366) need no authorization of their own (Superior\'s September 2026 manual) but are payable only against an approved ABA evaluation or treatment PA (TMPPM).',
       status: 'verified',
       cites: [
         { title: 'Superior — New Medicaid Benefit for ABA Services, PA Required (eff. 2/1/2022)', url: 'https://www.superiorhealthplan.com/newsroom/effective-0201222-new-medicaid-benefit-for-aba-services-prior-auth-required.html' },
+        { title: 'Superior HealthPlan — Provider Manual (STAR, CHIP, STAR+PLUS, STAR Kids, STAR Health), Rev. 09/01/2026 (PDF)', url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf' },
         { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
       ],
     },
@@ -368,12 +369,13 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Superior runs the benefit',
         body: [
-          'Superior announced the ABA benefit at its February 2022 launch with prior authorization required on every service code — 97151 for the evaluation, then 97153, 97154, 97155, 97156, 97158, and 99366 for treatment and team meetings — and its notices defer to the TMPPM for medical-necessity criteria, so the state\'s 3-year diagnosis recency, 90/90/180 cadence, and 8-hour daily cap all apply unchanged. Requests go through Superior\'s provider portal, with the plan\'s Prior Authorization Requirements page as the code-level reference. And the PA posture is stable: Superior\'s January 1, 2026 PA-removal list touched no Medicaid ABA codes (the Medicaid removals were 36471, A6216, and A6218 only; its one ABA code, 97157, was dropped from PA for Ambetter Marketplace members, not Medicaid), so plan on full PA for the foreseeable future.',
+          'Superior announced the ABA benefit at its February 2022 launch with prior authorization required for all ABA services — 97151 for the evaluation, then 97153, 97154, 97155, 97156 and 97158 for treatment, with 99366 team meetings payable only against an approved ABA authorization (its September 2026 manual says interdisciplinary team meetings need no authorization of their own) — and its notices defer to the TMPPM for medical-necessity criteria, so the state\'s 3-year diagnosis recency, 90/90/180 cadence, and 8-hour daily cap all apply unchanged. Requests go through Superior\'s provider portal, with the plan\'s Prior Authorization Requirements page as the code-level reference. And the PA posture is stable: Superior\'s January 1, 2026 PA-removal list touched no Medicaid ABA codes (the Medicaid removals were 36471, A6216, and A6218 only; its one ABA code, 97157, was dropped from PA for Ambetter Marketplace members, not Medicaid), so plan on full PA for the foreseeable future.',
         ],
         cites: [
           { title: 'Superior — New Medicaid Benefit for ABA Services, PA Required (eff. 2/1/2022)', url: 'https://www.superiorhealthplan.com/newsroom/effective-0201222-new-medicaid-benefit-for-aba-services-prior-auth-required.html' },
           { title: 'Superior — Medicaid ABA Services for Children and Youth With Autism (2/24/2023)', url: 'https://www.superiorhealthplan.com/newsroom/medicaid-aba-services-02242023.html' },
           { title: 'Superior — Removal of PA Requirement for Certain Procedures (eff. 1/1/2026)', url: 'https://www.superiorhealthplan.com/newsroom/eff-01012026-removal-of-pa-req-for-certain-procedures-12012025.html' },
+          { title: 'Superior HealthPlan — Provider Manual (STAR, CHIP, STAR+PLUS, STAR Kids, STAR Health), Rev. 09/01/2026 (PDF)', url: 'https://www.superiorhealthplan.com/content/dam/centene/Superior/Provider/PDFs/medicaid-provider-manual.pdf' },
         ],
       },
       {
@@ -1142,7 +1144,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'HHSC Uniform Managed Care Manual, Chapter 2.0 — Uniform Managed Care Claims Manual (v2.14)', url: 'https://www.hhs.texas.gov/sites/default/files/documents/laws-regulations/handbooks/umcm/2-0.pdf' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.9.1 (Filing Deadlines) and 2.10 (MCO Appeals)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
-          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual, claims and reconsiderations', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Oct. 7, 2026), claims and reconsiderations', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
         ],
       },
     ],
@@ -1280,7 +1282,7 @@ export const texasPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'UnitedHealthcare Community Plan of Texas — Prior Authorization Timelines', url: 'https://www.uhcprovider.com/en/health-plans-by-state/texas-health-plans/tx-comm-plan-home/tx-cp-prior-auth/tx-pa-timelines.html' },
-          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Sept. 2, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Oct. 7, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
           { title: 'Tex. Gov\'t Code § 540.0303 — MCO PA determinations for nonhospitalized recipients (eff. 4/1/2025)', url: 'https://texas.public.law/statutes/tex._gov\'t_code_section_540.0303' },
           { title: '1 Tex. Admin. Code § 353.425 — MCO processing of incomplete PA requests', url: 'https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-353-425' },
         ],
@@ -1290,7 +1292,7 @@ export const texasPayers: Record<string, PayerConfig> = {
           '"UnitedHealthcare Community Plan is the payer of last resort. Other coverage should be billed as the primary carrier. When billing UnitedHealthcare Community Plan, submit the primary payer\'s Explanation of Benefits or remittance advice with the claim." The EOB must show the paid amount or denial reason. "The date on the other carrier\'s payment correspondence starts the timely filing period" for the Medicaid claim, and under the 110-day rule, if the other insurer "has not responded to or has delayed payment on a claim for more than 110 days from the date the claim was billed, we will consider the claim for reimbursement." The manual does not say whether the plan\'s own ABA authorization is still needed when it pays second — request it through Optum anyway.',
         status: 'verified',
         cites: [
-          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Sept. 2, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
+          { title: 'UnitedHealthcare Community Plan of Texas — 2026 Care Provider Manual (Oct. 7, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/TX-UHCCP-Care-Provider-Manual.pdf' },
           { title: 'TMPPM Vol. 1, Section 8: Third Party Liability (TPL)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_08_Third_Party_Liability/1_08_Third_Party_Liability.htm' },
         ],
       },
@@ -2099,7 +2101,7 @@ export const texasPayers: Record<string, PayerConfig> = {
 
   'driscoll-health-plan': {
     slug: 'driscoll-health-plan',
-    cardDesc: 'South Texas plan using the statewide TARF form; per-code PA checks via its lookup portal.',
+    cardDesc: 'South Texas plan with its own CCP PA request form for ABA; per-code PA checks via its lookup portal.',
     assessmentPA: {
       value: 'Required — verify per-code on the DHP Prior Authorization Portal (driscollhealthplan.com/priorauthcheck)',
       status: 'verified',
@@ -2108,10 +2110,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       ],
     },
     treatmentPA: {
-      value: 'Required — submit via the DHP portal or fax 1-866-741-5650 using the Texas Authorization Referral Form (TARF)',
+      value: 'Required — submit through the DHP provider portal or fax 1-866-741-5650 (phone 1-877-455-1053) on Driscoll\'s CCP Prior Authorization Request Form, which has its own ABA Evaluation, ABA Re-evaluation and ABA Treatment boxes and must be signed by the requesting physician or allowed practitioner',
       status: 'verified',
       cites: [
         { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
+        { title: 'Driscoll Health Plan — CCP Prior Authorization Request Form (ABA evaluation, re-evaluation and treatment), with instructions (PDF)', url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-CCP-Prior-Authorization-Request-Form-1.pdf' },
       ],
     },
     dxRequired: {
@@ -2127,15 +2130,15 @@ export const texasPayers: Record<string, PayerConfig> = {
     h1: 'Driscoll Health Plan ABA coverage (Texas Medicaid MCO).',
     metaTitle: 'Driscoll Health Plan (TX Medicaid) ABA Coverage & Prior Auth | Carelu',
     metaDescription:
-      'How Driscoll Health Plan administers Texas Medicaid ABA in South Texas — TMPPM criteria, the statewide Texas Authorization Referral Form (TARF), and the plan\'s per-code prior authorization lookup portal.',
+      'How Driscoll Health Plan administers Texas Medicaid ABA in South Texas — TMPPM criteria, Driscoll\'s CCP Prior Authorization Request Form for ABA, and the plan\'s per-code prior authorization lookup portal.',
     intro: [
-      'Driscoll Health Plan — the children\'s-hospital-affiliated plan serving STAR, STAR Kids, and CHIP across South Texas — administers the state ABA benefit with no distinct clinical policy: TMPPM criteria govern. Its operational profile is unusually low-friction for practices that already work statewide, because Driscoll uses the statewide Texas Authorization Referral Form (TARF) rather than a proprietary form, and it runs a public per-code PA lookup portal that answers "does this code need auth?" without a phone call.',
+      'Driscoll Health Plan — the children\'s-hospital-affiliated plan serving STAR, STAR Kids, and CHIP across South Texas — administers the state ABA benefit with no distinct clinical policy: TMPPM criteria govern. Its operational profile is unusually low-friction for practices that already work statewide, because its ABA request form is a Driscoll-branded copy of the Texas Medicaid CCP prior authorization form, and it runs a public per-code PA lookup portal that answers "does this code need auth?" without a phone call.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'Texas Medicaid MCO — STAR, STAR Kids, CHIP (South Texas)' },
       { label: 'Clinical rules', value: 'TMPPM Autism Services criteria (no distinct ABA policy)' },
       { label: 'Prior auth', value: 'Required — Autism (ABA) Services listed on the plan\'s PA portal' },
-      { label: 'Form', value: 'Statewide Texas Authorization Referral Form (TARF) — no proprietary form' },
+      { label: 'Form', value: 'DHP CCP Prior Authorization Request Form (ABA Evaluation / Re-evaluation / Treatment boxes)' },
       { label: 'Submission', value: 'DHP portal or fax 1-866-741-5650' },
       { label: 'Rates', value: 'Not published — contract-specific' },
     ],
@@ -2143,17 +2146,18 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'How Driscoll runs authorization',
         body: [
-          'Autism (ABA) Services appear on Driscoll\'s Prior Authorization Requirement Portal (driscollhealthplan.com/priorauthcheck) — the plan\'s own tool for verifying PA requirements code by code, which is the right first stop before any submission. Requests submit through the DHP portal or by fax to 1-866-741-5650 using the Texas Authorization Referral Form. Because the TARF is the statewide form, a practice already producing TARFs for other plans has no form-conversion work here — attach the state-baseline clinical package (signed prescriber referral, recency-checked ASD diagnosis, per-code units) and follow the TMPPM\'s 90/90/180 cadence.',
+          'Autism (ABA) Services appear on Driscoll\'s Prior Authorization Requirement Portal (driscollhealthplan.com/priorauthcheck) — the plan\'s own tool for verifying PA requirements code by code, which is the right first stop before any submission. Requests submit through the DHP provider portal (Driscoll says portal requests are decided faster, since faxes "must be scanned and data entered" first, which "can take up to 24 hours") or by fax to 1-866-741-5650 on Driscoll\'s CCP Prior Authorization Request Form. The form has its own ABA Evaluation, ABA Re-evaluation and ABA Treatment boxes; the requesting physician or allowed practitioner completes the diagnosis and medical-necessity section and signs the certification that the child is under 21, has an ASD diagnosis and that ABA "services are or may be clinically indicated" (CNM, CNS, NP and PA may sign for the physician when delegated; signature stamps are not accepted). Attach the state-baseline clinical package (signed prescriber referral, recency-checked ASD diagnosis, per-code units) and follow the TMPPM\'s 90/90/180 cadence.',
         ],
         cites: [
           { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
           { title: 'Driscoll Health Plan — For Providers', url: 'https://driscollhealthplan.com/for-providers/' },
+          { title: 'Driscoll Health Plan — CCP Prior Authorization Request Form (ABA evaluation, re-evaluation and treatment), with instructions (PDF)', url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-CCP-Prior-Authorization-Request-Form-1.pdf' },
         ],
       },
       {
         h2: 'The state rules travel with the member',
         body: [
-          'Everything on the Texas Medicaid guide applies unchanged: PA on the 97151 evaluation (24-unit cap), the April 2025 removal of the prescriber signature on 90-day extensions, the 3-year diagnosis recency rule, the 8-hour daily direct-treatment cap, credential modifiers, and the telehealth restrictions. Driscoll\'s only plan-specific wrinkle is workflow — verify the code on the portal, submit the TARF, track through the DHP portal.',
+          'Everything on the Texas Medicaid guide applies unchanged: PA on the 97151 evaluation (24-unit cap), the April 2025 removal of the prescriber signature on 90-day extensions, the 3-year diagnosis recency rule, the 8-hour daily direct-treatment cap, credential modifiers, and the telehealth restrictions. Driscoll\'s only plan-specific wrinkle is workflow — verify the code on the portal, submit the CCP PA request form, track through the DHP portal.',
         ],
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
@@ -2162,12 +2166,14 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'Switching providers or plans, and joining the network',
         body: [
-          'Follows the Texas Medicaid rule — Driscoll\'s own provider documents that we checked (October 2026) set no change-of-provider rule of their own. A family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
+          'Driscoll publishes its own change-of-provider rule (January 26, 2026 notice): when a member changes providers mid-authorization, "DHP must receive a Change of Provider letter along with either a new Texas Standard Prior Authorization Request Form (TARF)" or, for DME, a new physician order form, from the ordering provider. The letter "must be signed and dated by the member or their legally authorized representative (LAR)" and must name the previous provider, the new provider and the effective date of the change; Driscoll posts a sample Change of Provider Letter on its Forms and Checklists page. The Texas Medicaid rule sits underneath: a family that moves to a new ABA provider outside the current group needs a new authorization request with all the documentation of an initial evaluation, plus a change-of-therapy-provider letter signed by the responsible adult giving the date therapy ended (or the last date of service) and the names of both providers (TMPPM § 2.3.9). A move to another provider within the same group keeps the same evaluation, plan of care and authorization period. If the child changes health plans, "Health plan prior authorizations do not automatically transfer," but the new MCO must continue an existing authorization it is told about, at the same amount, duration and scope, until the earliest of 90 days, the end of the authorization, or its own new decision (Managed Care Handbook § 2.8).',
           'Joining the network: a provider must be enrolled in Texas Medicaid before an MCO can enroll it; "Individual MCOs and DMOs have their own guidelines for contracting providers," and Medicaid enrollment "does not guarantee that an MCO or DMO will contract enroll or credential a particular provider." All Medicaid MCOs credential through the Texas Association of Health Plans\' contracted credentialing verification organization (Handbook § 2.2.1). Driscoll does not publish whether its ABA network is open, so ask its provider relations team.',
         ],
         cites: [
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMPPM Medicaid Managed Care Handbook, §§ 2.2.1 (enrollment, contracting, credentialing), 2.6.3 (out-of-network) and 2.8 (authorizations when a client changes plans)', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_12_Medicaid_Managed_Care/2_12_Medicaid_Managed_Care.htm' },
+          { title: 'Driscoll Health Plan — Attention: Change of Provider Requests (1/26/2026, PDF)', url: 'https://driscollhealthplan.com/wp-content/uploads/1.26.2026-Authorization-Change-of-Provider-Requests.pdf' },
+          { title: 'Driscoll Health Plan — Forms and Checklists (Change of Provider Letter template, CCP PA Request Form)', url: 'https://driscollhealthplan.com/priorauthcheck/forms-and-checklists/' },
         ],
       },
       {
@@ -2186,7 +2192,7 @@ export const texasPayers: Record<string, PayerConfig> = {
     collect: [
       { title: 'Program line', desc: 'STAR / STAR Kids vs. CHIP — CHIP is excluded from the ABA benefit.' },
       { title: 'ASD dx + recency', desc: 'State baseline: qualified diagnoser, DSM severity, within 3 years.' },
-      { title: 'TARF ready', desc: 'Driscoll takes the statewide Texas Authorization Referral Form — reuse your existing template.' },
+      { title: 'CCP PA form', desc: 'Driscoll\'s CCP Prior Authorization Request Form, ABA box checked, signed by the referring physician or allowed practitioner (no signature stamps).' },
       { title: 'Portal check per code', desc: 'Run the codes through priorauthcheck before submitting — it\'s the plan\'s own source of truth.' },
     ],
     sources: [
@@ -2293,12 +2299,13 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
       referral: {
         value:
-          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Driscoll takes the statewide Texas Authorization Referral Form (TARF) rather than a proprietary form, submitted through the DHP portal or fax 1-866-741-5650.',
+          'Follows the Texas Medicaid (TMPPM) rule: a signed, dated prescriber referral for the evaluation, signed within 60 calendar days before or on the anticipated evaluation date; and for treatment a signed, dated referral from a physician or allowed practitioner (MD/DO, PA, NP, or CNS with delegated authority) stating frequency and duration, signed on or before the service start date and no more than 3 months old. Since 4/1/2025 the prescriber signature is no longer required on the CCP PA form for the 90-day extension. Driscoll\'s own form is its CCP Prior Authorization Request Form (ABA Evaluation / Re-evaluation / Treatment boxes): the requesting physician or allowed practitioner completes the diagnosis and medical-necessity section, certifies the child is under 21 with an ASD diagnosis, and signs and dates it — CNM, CNS, NP and PA may sign for the physician when delegated, chiropractors and PhDs may not, and signature or date stamps are not accepted. The original signed form stays in the prescriber\'s record, a copy in the requesting provider\'s, and it is subject to retrospective review. Submit through the DHP portal or fax 1-866-741-5650.',
         status: 'verified',
         cites: [
           { title: 'Driscoll Health Plan — Prior Authorization Requirement Portal (Autism/ABA Services)', url: 'https://webapps.driscollhealthplan.com/priorauthcheck/?s=Autism+(ABA)+Services' },
           { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
           { title: 'TMHP — Update to a PA Requirement for Autism Services (eff. 4/1/2025)', url: 'https://www.tmhp.com/news/2025-02-14-update-prior-authorization-requirement-autism-services-effective-april-1-2025' },
+          { title: 'Driscoll Health Plan — CCP Prior Authorization Request Form (ABA evaluation, re-evaluation and treatment), with instructions (PDF)', url: 'https://driscollhealthplan.com/wp-content/uploads/DHP-CCP-Prior-Authorization-Request-Form-1.pdf' },
         ],
       },
       telehealth: {
@@ -2331,8 +2338,8 @@ export const texasPayers: Record<string, PayerConfig> = {
     },
     faq: [
       { q: 'Does Driscoll Health Plan cover ABA?', a: 'Yes — the Texas Medicaid Autism Services benefit across its South Texas service areas, on TMPPM criteria, with PA required (Autism/ABA Services are listed on the plan\'s PA portal).' },
-      { q: 'What form does Driscoll use for ABA authorizations?', a: 'The statewide Texas Authorization Referral Form (TARF), submitted via the DHP portal or fax to 1-866-741-5650 — no proprietary plan form.' },
-      { q: 'Is Driscoll\'s ABA policy different from the state\'s?', a: 'No — it publishes no distinct ABA criteria. The TMPPM baseline governs; the plan-specific layer is the PA lookup portal and TARF workflow.' },
+      { q: 'What form does Driscoll use for ABA authorizations?', a: 'Driscoll\'s CCP Prior Authorization Request Form, with the ABA Evaluation, Re-evaluation or Treatment box checked and signed by the requesting physician or allowed practitioner, submitted through the DHP provider portal or by fax to 1-866-741-5650.' },
+      { q: 'Is Driscoll\'s ABA policy different from the state\'s?', a: 'No — it publishes no distinct ABA criteria. The TMPPM baseline governs; the plan-specific layer is the PA lookup portal, its CCP PA request form and its change-of-provider letter.' },
       { q: 'What happens to the ABA authorization if a family switches providers or plans?', a: 'A new ABA provider outside the current group must file a new authorization with initial-evaluation documentation and a change-of-provider letter signed by the responsible adult (TMPPM § 2.3.9). A new health plan must continue an existing authorization for up to 90 days, or until it ends or the new plan decides.' },
       { q: 'Is Driscoll\'s ABA network open to new providers?', a: 'It does not publish an open or closed status. Enroll in Texas Medicaid first, then apply to the plan; Medicaid enrollment does not guarantee an MCO contract. Ask provider relations.' },
       { q: 'What is the timely filing limit for Driscoll (Texas Medicaid)?', a: 'Ninety-five days from the date of service. HHSC’s Uniform Managed Care Claims Manual sets it for every Texas Medicaid MCO, and Driscoll’s own manual states the same deadline. Claim appeals get 120 days from the disposition date.' },
@@ -2605,19 +2612,20 @@ export const texasPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'STAR/STAR Kids in Travis; insourced BH from Magellan in 2024; PA code grid confirms 97151-97158.',
     assessmentPA: {
-      value: 'Required — per the statewide TMPPM benefit; submit via fax 1-888-530-9809 or the Availity provider portal',
+      value: 'Required — per the statewide TMPPM benefit; fax BCBSTX\'s ABA request form (Autism Service Benefit Initial/Continued Treatment Plan Template, "Initial assessment" box) to 1-888-530-9809. BCBSTX\'s behavioral health PA checklist also takes clinical documentation through its provider portal.',
       status: 'verified',
       cites: [
         { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
-        { title: 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf' },
+        { title: 'BCBSTX Medicaid — Autism Service Benefit Initial/Continued Treatment Plan Template (ABA request form, SKSCPB-9071, rev. 03/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-90710324-ABA-request-form.pdf' },
+        { title: 'BCBSTX Medicaid — Behavioral Health Prior Authorization Requirement Checklist (SKSCPB-9072, rev. 03/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-9072-0324-behavioral-health-PA-require-checklist.pdf' },
       ],
     },
     treatmentPA: {
-      value: 'Required — same fax/portal; BCBSTX brought behavioral health/ABA administration in-house in 2024, ending its Magellan carve-out',
+      value: 'Required — same form and fax ("90-day extension of initial ABA authorization" or "Continued ABA treatment request"); BCBSTX brought behavioral health/ABA administration in-house in 2024, ending its Magellan carve-out',
       status: 'verified',
       cites: [
         { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
-        { title: 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf' },
+        { title: 'BCBSTX Medicaid — Autism Service Benefit Initial/Continued Treatment Plan Template (ABA request form, SKSCPB-9071, rev. 03/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-90710324-ABA-request-form.pdf' },
       ],
     },
     dxRequired: {
@@ -2649,11 +2657,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       {
         h2: 'The 2024 end of the Magellan carve-out',
         body: [
-          'As late as a 7/5/2023-dated PA summary, BCBSTX directed providers to "contact Magellan for authorization requirements" for Texas Medicaid behavioral health — a classic BH carve-out. On May 10, 2024, BCBSTX announced the "insourcing of Behavioral Health Services for Medicaid," and every current-generation document we could find (the ABA PA Requirement Checklist, revised 4/26/2024, and a September 2024 UM provider training deck) makes no mention of Magellan and instead routes ABA authorization to BCBSTX\'s own behavioral-health intake fax, 1-888-530-9809, or the Availity Essentials portal. We found no document stating explicitly that the Magellan relationship has fully ended for every BH service line — if a legacy document you\'re working from still references Magellan, treat it as superseded and confirm current routing with BCBSTX\'s Medicaid Provider Network Representative before submitting.',
+          'As late as a 7/5/2023-dated PA summary, BCBSTX directed providers to "contact Magellan for authorization requirements" for Texas Medicaid behavioral health — a classic BH carve-out. On May 10, 2024, BCBSTX announced the "insourcing of Behavioral Health Services for Medicaid," and every current-generation document we could find (the ABA request form, revised 03/2024, and a September 2024 UM provider training deck) makes no mention of Magellan and instead routes ABA authorization to BCBSTX\'s own behavioral-health intake fax, 1-888-530-9809, or the Availity Essentials portal. (BCBSTX\'s separate ABA PA Requirement Checklist, revised 4/26/2024, is still linked from its Medicaid forms page but has returned a 404 since October 2026.) We found no document stating explicitly that the Magellan relationship has fully ended for every BH service line — if a legacy document you\'re working from still references Magellan, treat it as superseded and confirm current routing with BCBSTX\'s Medicaid Provider Network Representative before submitting.',
         ],
         cites: [
           { title: 'BCBSTX — Medicaid Behavioral Health / ABA Forms Update (news, 5/10/2024)', url: 'https://www.bcbstx.com/provider/medicaid/education-and-reference/news/2024/05-10-2024-md-behavioral-health-aba-forms' },
-          { title: 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf' },
+          { title: 'BCBSTX Medicaid — Autism Service Benefit Initial/Continued Treatment Plan Template (ABA request form, SKSCPB-9071, rev. 03/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-90710324-ABA-request-form.pdf' },
         ],
       },
       {
@@ -2698,7 +2706,7 @@ export const texasPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'BCBSTX — Medicaid Behavioral Health / ABA Forms Update (news, 5/10/2024)', url: 'https://www.bcbstx.com/provider/medicaid/education-and-reference/news/2024/05-10-2024-md-behavioral-health-aba-forms' },
-      { title: 'BCBSTX — Applied Behavioral Analysis PA Requirement Checklist (rev. 4/26/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/applied-behavioral-analysis-pa-requirement-checklist.pdf' },
+      { title: 'BCBSTX Medicaid — Autism Service Benefit Initial/Continued Treatment Plan Template (ABA request form, SKSCPB-9071, rev. 03/2024, PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/education/forms/behavioral-health/2024/SKSCPB-90710324-ABA-request-form.pdf' },
       { title: 'BCBSTX — Texas Medicaid Benefit Prior Authorization Procedure Code List (PDF)', url: 'https://www.bcbstx.com/docs/provider/tx/provider-medicaid/um/prior-auth-proc-code-grid-06012026.pdf' },
       { title: 'BCBSTX — Texas Medicaid STAR, CHIP, and STAR Kids Provider Manual (PDF)', url: 'https://www.bcbstx.com/content/dam/hcsc/docs/provider/tx/provider-medicaid/education/2067877-758408-0324-TX-Medicaid-STAR-CHIP-STARKids-Provider-Manual-Handbook.pdf' },
       { title: 'TMPPM Children\'s Services Handbook, § 2.3 Autism Services', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' },
