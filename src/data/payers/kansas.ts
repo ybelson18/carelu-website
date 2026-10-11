@@ -487,6 +487,16 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Sunflower Health Plan Provider Manual (KDHE approved February 27, 2026)', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
         ],
       },
+      {
+        h2: 'Does Sunflower require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Sunflower\'s 2026 provider manual says field 17 (name of referring physician or other source) is "Required for home health, therapy, pharmacy, laboratory, DME, hospice and radiology services." It sets a priority order where several clinicians are involved: referring, then ordering, then supervising provider, each with its qualifier (DN for referring). ABA is not named on that list.',
+          'Sunflower\'s own ABA packet already asks for a "doctor recommendation of services/prescription/order to treat." If you report that clinician in box 17, the manual warns that claims "missing or denied for Attending, Ordering, Referring or Prescribing Provider may not be corrected using Sunflower Health Plan\'s secure provider portal." They need an electronic or paper corrected claim.',
+        ],
+        cites: [
+          { title: 'Sunflower Health Plan Provider Manual (KDHE-approved Feb 27, 2026): claim corrections; CMS-1500 field 17', url: 'https://www.sunflowerhealthplan.com/content/dam/centene/sunflower/pdfs/Sunflower_ProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis date + diagnosing clinician', desc: 'KS.CP.01 says validated by an MD or licensed psychologist within the last 6 months; KMAP 26140 (eff. 11/1/2026) says no re-evaluation once a qualified diagnostician has diagnosed. Record the date and diagnostician, and ask Sunflower UM before ordering a refresh.' },
@@ -674,6 +684,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Can an out-of-state BCBA treat Sunflower members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
       { q: 'Can Sunflower authorize ABA retroactively?', a: 'Only for extenuating circumstances (such as a member who did not have the Sunflower card, or another payer later finding the member ineligible) or retroactive eligibility; decision within 30 days, no later than 180 days from the date of service.' },
       { q: 'What is Sunflower Health Plan’s timely filing limit for ABA claims?', a: '180 calendar days from the date of service for a first-time claim, and 365 days from the notification of payment for a corrected claim (Sunflower provider manual, February 2026).' },
+      { q: 'Does Sunflower require a referring provider on ABA claims?', a: 'Not by name. Its manual requires field 17 for home health, therapy, pharmacy, laboratory, DME, hospice and radiology, and ABA is not on that list. A missing or denied referring-provider field cannot be fixed in the portal, so send a corrected claim.' },
     ],
   },
 
@@ -763,6 +774,17 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'UnitedHealthcare Community Plan KanCare Care Provider Manual (2026)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf' },
         ],
       },
+      {
+        h2: 'Does the plan require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'UnitedHealthcare Community Plan\'s 2026 KanCare manual gives field 17 instructions only for hospice room-and-board claims, where the facility goes in field 17 and its NPI in 17b. It says "The referring care provider must be enrolled with KMAP." It publishes no referring-provider rule for ABA claims.',
+          'Optum\'s KanCare ABA program gates services on prior authorization, and the state requires "a recommendation be made by a physician or other licensed practitioner." Keep that recommendation on file, and if you report the recommending clinician as referring provider, use one who is enrolled with KMAP.',
+        ],
+        cites: [
+          { title: 'UnitedHealthcare Community Plan KanCare Care Provider Manual (2026), Chapter 11 Billing and submission', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf' },
+          { title: 'KMAP Bulletin 17129 — Additional State Plan Services (CCTS/IIS under EPSDT, eff. 1/1/2017)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-17129.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Diagnosis report + evaluator credentials', desc: 'Kansas BSRB-licensed clinical psychologist or qualified physician, comprehensive evaluation with DSM severity and a validated tool (ADOS/CARS) — the initial-auth gate. No recency clock: an older report from a qualified diagnostician still counts.' },
@@ -783,6 +805,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
       { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'UnitedHealthcare Community Plan KanCare Care Provider Manual (2026), Chapter 11 Billing and submission', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/KS-AdminGuide.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -921,6 +944,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Can ABA for this plan\'s KanCare members be delivered by telehealth?', a: 'Under the state rule, yes. KMAP Bulletin 21234 allows 97151, 97152, 97153, 97155 and 97156 with POS 10 (telehealth in the home), alongside POS 02 elsewhere; group codes 97154, 97157 and 97158 are not listed. The plan publishes no ABA telehealth rule of its own, so confirm the modality at authorization.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare Community Plan members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
       { q: 'What is UnitedHealthcare Community Plan of Kansas’s timely filing limit?', a: '180 days from the date of service, unless your participation agreement sets another; clean claims are turned around within 30 business days (2026 KanCare manual).' },
+      { q: 'Does UnitedHealthcare Community Plan of Kansas require a referring provider on ABA claims?', a: 'Its 2026 KanCare manual sets no referring-provider rule for ABA. Its only field 17 instruction is for hospice. Any referring care provider you do report must be enrolled with KMAP.' },
     ],
   },
 
@@ -1011,6 +1035,17 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Healthy Blue Kansas Medicaid Provider Manual (June 2026)', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
         ],
       },
+      {
+        h2: 'Does Healthy Blue require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Healthy Blue\'s June 2026 KanCare manual does not list ABA among services that need a referring provider. It does say its systems "validate billing, rendering, and referring provider information against Healthy Blue and KanCare files" and check "processing rules such as a requirement for referral, prior authorization, or NDC." So any referring provider you report must match an enrolled KanCare record.',
+          'The state\'s own gate is a recommendation "by a physician or other licensed practitioner" plus prior authorization, so keep the recommending clinician\'s name and NPI with the authorization packet.',
+        ],
+        cites: [
+          { title: 'Healthy Blue Kansas Medicaid Provider Manual (June 2026): Payment of Claims', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
+          { title: 'KMAP Bulletin 17129 — Additional State Plan Services (CCTS/IIS under EPSDT, eff. 1/1/2017)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-17129.html' },
+        ],
+      },
     ],
     collect: [
       { title: 'Prior-payer history', desc: 'Ex-Aetna Better Health families landed here 1/1/2025 — check for transition-honored auths and stale card details.' },
@@ -1033,6 +1068,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'K.S.A. 40-2,213 — Kansas telemedicine act coverage parity (applies to the Kansas medical assistance program)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_002_0213.html' },
       { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
       { title: 'eCFR — 42 CFR 438.602(b)(1): the state must screen and enroll all managed care network providers', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.602' },
+      { title: 'Healthy Blue Kansas Medicaid Provider Manual (June 2026): Payment of Claims', url: 'https://www.healthybluekansas.com/content/dam/digital/healthyblue/documents/provider/ks/general/KSHB-CD-PM-061368-24-EXPRESS-KanCare.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1178,6 +1214,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Can ABA for this plan\'s KanCare members be delivered by telehealth?', a: 'Under the state rule, yes. KMAP Bulletin 21234 allows 97151, 97152, 97153, 97155 and 97156 with POS 10 (telehealth in the home), alongside POS 02 elsewhere; group codes 97154, 97157 and 97158 are not listed. The plan publishes no ABA telehealth rule of its own, so confirm the modality at authorization.' },
       { q: 'Can an out-of-state BCBA treat Healthy Blue members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Confirm KMAP enrollment before treating KanCare members from another state.' },
       { q: 'What is Healthy Blue Kansas’s timely filing limit?', a: 'Generally 180 days from the date of service, and 365 days for corrected claims (June 2026 provider manual); your contract can set a different period.' },
+      { q: 'Does Healthy Blue Kansas require a referring provider on ABA claims?', a: 'Its manual names no ABA-specific rule, but it validates any referring provider you report against Healthy Blue and KanCare files, so the clinician must be enrolled.' },
     ],
   },
 
@@ -1304,6 +1341,37 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'K.S.A. 40-2442 — Kansas health care prompt payment act: claims procedures (Kansas Revisor of Statutes)', url: 'https://www.ksrevisor.gov/statutes/chapters/ch40/040_024_0042.html' },
         ],
       },
+      {
+        h2: 'Does Aetna require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Aetna publishes no ABA-specific referring-provider rule. Its provider manual defines a clean claim as including "A corresponding referral (whether in paper or electronic format), if required for the applicable claim" plus all CMS-1500 data elements, and it treats behavioral health as direct access: members "may access behavioral health care" "Through direct access to the behavioral health provider," through a PCP recommendation, or through an EAP referral. PCP referrals are a feature of plans "that require the issuance of referrals for specialist care," and even there they apply "other than for direct-access services."',
+          'So box 17 is not a published condition of an Aetna ABA claim in Kansas. If a plan design does require a referral, the eligibility-and-benefits response shows it; enter the referring provider only when one exists.',
+        ],
+        cites: [
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under Aetna?',
+        body: [
+          'Aetna publishes no rule on ABA delivered at the same clock time as speech, OT or PT. What it asks for is coordination. Precertification form GR-69017-4 (7-26) asks whether the member gets physical, occupational or speech therapy, mental health services or school services, and "Do you collaborate with all the providers above?" (if not, explain why). The Medical Necessity Guide expects "ongoing collaboration and coordination with existing providers and/or the school district."',
+          'Report the other therapies and their schedule on the precertification request, and ask Aetna\'s precertification line before billing ABA minutes that overlap another therapy.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'What goes in an Aetna ABA assessment (97151) precertification request?',
+        body: [
+          'Start on Availity with the Authorization (Precertification) Add transaction, or call the precertification department. Form GR-69017-4 (7-26) is not used to start a request. It supplies the clinicals when a case pends, attached on Availity or faxed to FaxHub 833-596-0339. Since August 1, 2026 it "replaces all other Applied Behavior Health Analysis (ABA) precertification information request documents and forms" (not for Maryland or Massachusetts plans).',
+          'For the assessment, request 97151, 97152 and 0362T in hours per authorization period. Treatment codes are requested in hours per week. The form also asks for the current DSM-5 diagnosis codes, the "Diagnosing Provider (name and credentials)," who will supervise, whether any hours fall during class, and the child\'s other services (PT, OT, speech, mental health, PCP, school). Supporting documents, "where applicable," include a standardized assessment (Vineland, ABAS, VB-MAPP) "completed within the past 12 months," the treatment plan with baseline data, caregiver goals, and titration and discharge criteria. Questions: 1-800-424-4047.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1328,6 +1396,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Kansas BSRB — LaBA/LBA application (June 2026)', url: 'https://www.ksbsrb.ks.gov/home/showpublisheddocument/64/639159023771900000' },
       { title: 'Aetna Health Care Professional Toolkit / provider manual (8102800-01-01, 6/26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
       { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1461,6 +1530,9 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'Is Aetna a KanCare (Medicaid) plan in Kansas?', a: 'Not anymore — Aetna Better Health of Kansas lost the KanCare 3.0 contract and its members moved to Healthy Blue Kansas on 1/1/2025. Aetna cards in Kansas today are commercial.' },
       { q: 'Will Aetna credential or pay an out-of-state BCBA for a Kansas member, including by telehealth?', a: 'Aetna publishes no Kansas-specific rule either way. Its provider manual requires network credentialing, BACB certification or a behavior-analyst license “in the state in which they practice,” and, for telehealth, “the proper licensure based on state requirements.” Kansas requires a BSRB license to “practice applied behavior analysis in this state” (K.S.A. 65-7503), the mandate pays only providers “licensed or exempt from licensure under the applied behavior analysis licensure act” (K.S.A. 40-2,194), and the telemedicine-parity law protects only BSRB-licensed providers. Aetna\'s Network Participation Criteria (5/26) go further for telehealth: providers must meet the license requirements "for all states in which members to whom they are providing Telehealth services are located." Get a Kansas LBA before treating a Kansas child remotely, then confirm with Aetna Credentialing Customer Service (1-800-353-1232) that the Kansas license is on your credentialing file.' },
       { q: 'What does Aetna pay for ABA in Kansas?', a: 'Aetna publishes no ABA rates. Its provider manual says payment follows “the rates and compensation under your agreement,” so the numbers are in your Aetna participation agreement. KanCare\'s 97153 rate ($16.25 per 15 minutes, KMAP Bulletin 24125) is the public benchmark.' },
+      { q: 'Does Aetna require a referring provider NPI on ABA claims?', a: 'No published rule requires one. Aetna treats behavioral health as direct access, and its clean-claim definition asks for a referral only "if required for the applicable claim." Precertification is the gate.' },
+      { q: 'Does Aetna allow ABA at the same time as speech or OT?', a: 'No published rule either way. Aetna\'s precertification form asks which PT, OT, speech and other services the child gets and whether you coordinate with them, so disclose them and confirm with precertification before overlapping sessions.' },
+      { q: 'Which form does Aetna use for an ABA assessment request?', a: 'Form GR-69017-4 (7-26), which since August 1, 2026 replaces all other Aetna ABA precertification forms (except in Maryland and Massachusetts). Start the request on Availity or by phone first, then attach the form if the case pends. Request 97151, 97152 and 0362T in hours per authorization period.' },
     ],
   },
 
@@ -1585,6 +1657,28 @@ export const kansasPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Cigna for Health Care Professionals — When to File (timely filing policy)', url: 'https://static.cigna.com/assets/chcp/resourceLibrary/clinicalReimbursementPayment/medicalClinicalReimburseWhenToFile.html' },
+        ],
+      },
+      {
+        h2: 'Does Cigna require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Cigna (Evernorth) publishes no referring-provider requirement for ABA. Its autism resource guide gives the ABA paper-claim instructions field by field and names only box 31 (your name), the claims mailing address and box 33 ("List only a BCBA or other licensed provider in box 33"); box 17 is not mentioned. The Evernorth administrative guidelines state for SureFit, Connect and HMO/POS plans alike that "Referrals are not required for behavioral health services."',
+          'Leave box 17 blank unless a referral actually exists for the service. Bill technician time under the supervising provider: "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider."',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under Cigna?',
+        body: [
+          'No. EN0499 (effective 5/15/2026): "Provision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." The policy defines that overlap as concurrent billing: "multiple providers bill for services rendered to the same patient when those services occur at the same time."',
+          'Schedule ABA hours around speech, OT and PT, and keep session start and stop times that show no overlap. The only same-time billing EN0499 and Cigna\'s autism resource guide allow is within ABA: 97153 or 97154 alongside 97155 when the BCBA directs the technician face-to-face.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
         ],
       },
     ],
@@ -1734,6 +1828,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'What does Cigna pay for ABA in Kansas?', a: 'Cigna publishes no ABA rates. Evernorth says your fee schedule and the list of reimbursable autism services are in Exhibit A of your Provider Agreement; call Evernorth Provider Services (800.926.2273) with fee questions. KanCare\'s 97153 rate ($16.25 per 15 minutes, KMAP Bulletin 24125) is the public benchmark.' },
       { q: 'Can an out-of-state BCBA treat Cigna members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Evernorth (Cigna) requires providers to “meet all state requirements to provide virtual behavioral services, including any licenses”; confirm with Evernorth before a remote start.' },
       { q: 'What is Cigna’s timely filing limit in Kansas?', a: '90 days from the date of service for a participating provider and 180 days out of network, unless your agreement or applicable law allows longer (Cigna’s When to File policy).' },
+      { q: 'Does Cigna require a referring provider NPI on ABA claims?', a: 'No. Cigna\'s ABA billing instructions cover boxes 31 and 33 only, and Evernorth states that referrals are not required for behavioral health services.' },
+      { q: 'Can a Cigna member get ABA at the same time as speech or OT?', a: 'No. EN0499 says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Schedule the therapies back to back, not overlapping.' },
     ],
   },
 
@@ -1863,6 +1959,28 @@ export const kansasPayers: Record<string, PayerConfig> = {
           { title: 'Optum Behavioral Health — National Provider Network Manual (published 7/1/2026, effective 9/1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
         ],
       },
+      {
+        h2: 'Does UnitedHealthcare require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Neither UnitedHealthcare\'s 2026 commercial administrative guide nor Optum\'s commercial ABA reimbursement policy sets a referring-provider requirement for ABA claims. On plans that do require PCP referrals, the administrative guide lists "Mental health/substance use disorder services with network behavioral health clinicians" among the services members can get without one, and Optum manages the ABA benefit through its own two-step authorization.',
+          'So box 17 is not a published condition of a UnitedHealthcare ABA claim in Kansas; the authorization is. Enter a referring provider only when one exists.',
+        ],
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under UnitedHealthcare (Optum)?',
+        body: [
+          'Optum\'s criteria publish no clock-time rule for ABA against speech, OT or PT, but they do rule out duplication. The Supplemental Clinical Criteria state that "ABA services do not duplicate the services provided to or available to the individual by other medical or behavioral services." They require coordination with "speech/occupational therapists and others," and they size intensity on "The individual\'s ability to participate in ABA, given participation in other therapies and engagements."',
+          'In practice, list the child\'s other therapies, with their schedule, in the treatment plan, and show the ABA hours fit around them. Optum\'s own same-time rules cover ABA codes only: 97153 or 97154 with 97155 concurrently, but never by a single QHP.',
+        ],
+        cites: [
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured large group (mandate applies) vs. self-funded ERISA (exempt) vs. small group (waiver-eligible) — it decides which rulebook governs.' },
@@ -1885,6 +2003,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
       { title: 'KMAP General Bulletin 24125 — Autism Codes: CCTS/IIS Coverage (97153 rate to $65/hr = $16.25/15-min unit, eff. 7/1/2024)', url: 'https://www.sunflowerhealthplan.com/newsroom/kmap-24125.html' },
       { title: 'K.S.A. 65-7503 — behavior analyst licensure required; exemptions', url: 'https://www.ksrevisor.gov/statutes/chapters/ch65/065_075_0003.html' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2015,6 +2134,8 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale.' },
       { q: 'Can an out-of-state BCBA treat UnitedHealthcare members in Kansas, including by telehealth?', a: 'Kansas requires a Kansas license to practice ABA “in this state” (K.S.A. 65-7503). Optum (UnitedHealthcare): “Providers offering telehealth visits must be licensed in the state where the member is located at the time of service.”' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Kansas?', a: '90 calendar days from the date of service under Optum’s National Provider Network Manual, unless state law, federal law or the member’s plan allows longer.' },
+      { q: 'Does UnitedHealthcare require a referring provider NPI on ABA claims?', a: 'No published rule requires one. UnitedHealthcare exempts network mental health services from PCP referral requirements, and Optum gates ABA on prior authorization instead.' },
+      { q: 'Can ABA overlap with speech therapy under UnitedHealthcare?', a: 'Optum publishes no clock-time rule, but its criteria say ABA must not duplicate other medical or behavioral services, and they weigh participation in other therapies when setting hours. Document the other therapies and schedule around them.' },
     ],
   },
 };

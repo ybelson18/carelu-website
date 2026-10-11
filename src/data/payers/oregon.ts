@@ -213,6 +213,17 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.oar1300, S.oar3565, S.oar1280, S.fee],
       },
+      {
+        h2: 'Does OHP require a referring provider on the ABA claim?',
+        body: [
+          'OHP ABA always has a referrer. OAR 410-172-0770 requires "A referral for ABA treatment with or without specification of hours or intensity" before services. OHA\'s enrollment rule (OAR 410-120-1260) treats ordering and referring providers as non-billing providers, "whose only relationship with the Authority is to order, refer, or prescribe services for Authority members." It "requires all non-billing and payable providers to be enrolled." Claims "must include an NPI for each provider subject to the NPI requirements," and "Rendering and referring providers may not have the same NPI listed on the claim or encounter."',
+          'So make sure the referring physician, psychologist, NP or PA is enrolled with OHA, and report a referring NPI different from the rendering one. OHA\'s ABA sources read for this guide do not restate a box 17 instruction, and each CCO runs its own claim edits.',
+        ],
+        cites: [
+          { title: 'OAR 410-172-0770 — Individual Eligibility for Applied Behavioral Analysis Treatment (OHA)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-172-0770' },
+          { title: 'OAR 410-120-1260 — Provider Enrollment (OHA; DMAP 34-2024, eff. 01/18/2024)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-120-1260' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which OHP coverage', desc: 'The CCO on the card (or open card). The CCO owns authorization, network and payment.' },
@@ -308,6 +319,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { q: 'Can OHP ABA be delivered by telehealth?', a: 'Yes. OAR 410-172-0850 covers behavioral health telemedicine "to the same extent" as in person, and OHA’s fee schedule allows modifier GT on every ABA code from 97151 to 97157.' },
       { q: 'What is the timely filing limit for OHP ABA claims?', a: 'Open card: 12 months from the date of service (OAR 410-120-1300). CCOs: 120 days from the date of service, or 365 days in listed exceptions such as other insurance (OAR 410-141-3565).' },
       { q: 'Does OHP cover ABA for teenagers?', a: 'Yes, case by case. Guideline Note 75 limits intensive ABA to ages 1–12, but OAR 410-172-0770(3) requires more when medically appropriate, including at 13 and older, and under 21 EPSDT bars age-group-wide denials.' },
+      { q: 'Does the referring provider for ABA need to be enrolled with OHP?', a: 'Yes. OAR 410-120-1260 requires ordering and referring providers to enroll with OHA as non-billing providers. Claims must carry an NPI for each provider subject to the NPI rules, and the referring and rendering NPIs may not be the same.' },
+      { title: 'OAR 410-120-1260 — Provider Enrollment (OHA; DMAP 34-2024, eff. 01/18/2024)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-120-1260' },
     ],
   },
 
@@ -2094,6 +2107,37 @@ export const oregonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.ors743B, S.ors743A, S.erisa, S.aetnaOM, S.fee],
       },
+      {
+        h2: 'Does Aetna require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Aetna publishes no ABA-specific referring-provider rule. Its provider manual defines a clean claim as including "A corresponding referral (whether in paper or electronic format), if required for the applicable claim" plus all CMS-1500 data elements, and it treats behavioral health as direct access: members "may access behavioral health care" "Through direct access to the behavioral health provider," through a PCP recommendation, or through an EAP referral. PCP referrals are a feature of plans "that require the issuance of referrals for specialist care," and even there they apply "other than for direct-access services."',
+          'So box 17 is not a published condition of an Aetna ABA claim in Oregon. If a plan design does require a referral, the eligibility-and-benefits response shows it; enter the referring provider only when one exists.',
+        ],
+        cites: [
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under Aetna?',
+        body: [
+          'Aetna publishes no rule on ABA delivered at the same clock time as speech, OT or PT. What it asks for is coordination. Precertification form GR-69017-4 (7-26) asks whether the member gets physical, occupational or speech therapy, mental health services or school services, and "Do you collaborate with all the providers above?" (if not, explain why). The Medical Necessity Guide expects "ongoing collaboration and coordination with existing providers and/or the school district."',
+          'Report the other therapies and their schedule on the precertification request, and ask Aetna\'s precertification line before billing ABA minutes that overlap another therapy.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'What goes in an Aetna ABA assessment (97151) precertification request?',
+        body: [
+          'Start on Availity with the Authorization (Precertification) Add transaction, or call the precertification department. Form GR-69017-4 (7-26) is not used to start a request. It supplies the clinicals when a case pends, attached on Availity or faxed to FaxHub 833-596-0339. Since August 1, 2026 it "replaces all other Applied Behavior Health Analysis (ABA) precertification information request documents and forms" (not for Maryland or Massachusetts plans).',
+          'For the assessment, request 97151, 97152 and 0362T in hours per authorization period. Treatment codes are requested in hours per week. The form also asks for the current DSM-5 diagnosis codes, the "Diagnosing Provider (name and credentials)," who will supervise, whether any hours fall during class, and the child\'s other services (PT, OT, speech, mental health, PCP, school). Supporting documents, "where applicable," include a standardized assessment (Vineland, ABAS, VB-MAPP) "completed within the past 12 months," the treatment plan with baseline data, caregiver goals, and titration and discharge criteria. Questions: 1-800-424-4047.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (Oregon law applies) vs. self-funded ERISA (plan document governs).' },
@@ -2195,6 +2239,12 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { q: 'How fast must an Oregon insurer decide an ABA prior authorization?', a: 'Within 30 calendar days under the ABA mandate (other utilization review decisions are due within 2 business days under ORS 743B.423). Self-funded ERISA plans have 15 days for pre-service claims.' },
       { q: 'How fast must Aetna pay a clean claim in Oregon?', a: 'ORS 743B.450 requires payment or denial of a clean claim within 30 days of receipt, with 12 percent annual interest on late payments under ORS 743B.452 (fully insured plans).' },
       { q: 'Can a BCBA licensed in another state treat an Aetna member in Oregon by telehealth?', a: 'Oregon licenses behavior analysts and its license rule has no telehealth or reciprocity exemption; the mandate and the telemedicine statute both key on Oregon licensure. Get an Oregon license first, and confirm Aetna credentialing.' },
+      { q: 'Does Aetna require a referring provider NPI on ABA claims?', a: 'No published rule requires one. Aetna treats behavioral health as direct access, and its clean-claim definition asks for a referral only "if required for the applicable claim." Precertification is the gate.' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { q: 'Does Aetna allow ABA at the same time as speech or OT?', a: 'No published rule either way. Aetna\'s precertification form asks which PT, OT, speech and other services the child gets and whether you coordinate with them, so disclose them and confirm with precertification before overlapping sessions.' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { q: 'Which form does Aetna use for an ABA assessment request?', a: 'Form GR-69017-4 (7-26), which since August 1, 2026 replaces all other Aetna ABA precertification forms (except in Maryland and Massachusetts). Start the request on Availity or by phone first, then attach the form if the case pends. Request 97151, 97152 and 0362T in hours per authorization period.' },
     ],
   },
 
@@ -2266,6 +2316,17 @@ export const oregonPayers: Record<string, PayerConfig> = {
           'Evernorth publishes no ABA rate table: its guidelines send providers to "Exhibit A in your Provider Agreement" for the fee schedule and eligible ABA codes. For a public benchmark, Oregon’s OHP fee-for-service schedule pays 97153 at $14.70 per 15 minutes.',
         ],
         cites: [S.ors743B, S.ors743A, S.erisa, S.ebhAdmin, S.fee],
+      },
+      {
+        h2: 'Does Cigna require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Cigna (Evernorth) publishes no referring-provider requirement for ABA. Its autism resource guide gives the ABA paper-claim instructions field by field and names only box 31 (your name), the claims mailing address and box 33 ("List only a BCBA or other licensed provider in box 33"); box 17 is not mentioned. The Evernorth administrative guidelines state for SureFit, Connect and HMO/POS plans alike that "Referrals are not required for behavioral health services."',
+          'Leave box 17 blank unless a referral actually exists for the service. Bill technician time under the supervising provider: "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider."',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
       },
     ],
     collect: [
@@ -2367,6 +2428,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { q: 'How long does Cigna/Evernorth take to credential an Oregon ABA provider?', a: 'Its Oregon addendum commits to a decision no later than 90 days after a complete application, averaging no more than 60 days.' },
       { q: 'Does Cigna require session notes to be signed?', a: 'Yes. EN0499 requires each session note to include the name, credential and signature of the ABA provider who rendered the service.' },
       { q: 'Can a BCBA licensed in another state treat a Cigna member in Oregon by telehealth?', a: 'Oregon licenses behavior analysts and its license rule has no telehealth or reciprocity exemption; get an Oregon license, then credential with Evernorth.' },
+      { q: 'Does Cigna require a referring provider NPI on ABA claims?', a: 'No. Cigna\'s ABA billing instructions cover boxes 31 and 33 only, and Evernorth states that referrals are not required for behavioral health services.' },
+      { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
     ],
   },
 
@@ -2435,6 +2499,28 @@ export const oregonPayers: Record<string, PayerConfig> = {
           'Optum’s commercial ABA Reimbursement Policy (updated June 2026) requires a credential modifier on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA or licensed clinician, HP for a BCBA-D or doctoral-level licensee; indirect work has no separate code and is bundled. It lists maximum units per day (97151 32, 97152 16, 97153 32, 97154 18, 97155 24, 97156–97158 16, 0362T 16, 0373T 32). Optum’s network manual defines the "Fee Maximum" as "The maximum amount a participating provider may be paid for a specific health care service," and says "Reimbursement to clinicians is based upon licensure rather than degree." For a public benchmark, Oregon’s OHP fee-for-service schedule pays 97153 at $14.70 per 15 minutes.',
         ],
         cites: [S.ors743B, S.ors743A, S.erisa, S.optumReimb, S.optumNNM, S.fee],
+      },
+      {
+        h2: 'Does UnitedHealthcare require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Neither UnitedHealthcare\'s 2026 commercial administrative guide nor Optum\'s commercial ABA reimbursement policy sets a referring-provider requirement for ABA claims. On plans that do require PCP referrals, the administrative guide lists "Mental health/substance use disorder services with network behavioral health clinicians" among the services members can get without one, and Optum manages the ABA benefit through its own two-step authorization.',
+          'So box 17 is not a published condition of a UnitedHealthcare ABA claim in Oregon; the authorization is. Enter a referring provider only when one exists.',
+        ],
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under UnitedHealthcare (Optum)?',
+        body: [
+          'Optum\'s criteria publish no clock-time rule for ABA against speech, OT or PT, but they do rule out duplication. The Supplemental Clinical Criteria state that "ABA services do not duplicate the services provided to or available to the individual by other medical or behavioral services." They require coordination with "speech/occupational therapists and others," and they size intensity on "The individual\'s ability to participate in ABA, given participation in other therapies and engagements."',
+          'In practice, list the child\'s other therapies, with their schedule, in the treatment plan, and show the ABA hours fit around them. Optum\'s own same-time rules cover ABA codes only: 97153 or 97154 with 97155 concurrently, but never by a single QHP.',
+        ],
+        cites: [
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
       },
     ],
     collect: [
@@ -2534,6 +2620,11 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { q: 'Can 97153 and 97155 be billed at the same time with UnitedHealthcare?', a: 'Yes, by different people: Optum allows 97153 or 97154 concurrently with 97155 when both code descriptors are met, but a single QHP may not report both for the same time.' },
       { q: 'Which ABA codes can be done by telehealth with UnitedHealthcare?', a: 'On commercial plans Optum allows only 97155, 97156 and 97157, billed with POS 02 or 10. Fully insured Oregon plans are also subject to ORS 743A.058.' },
       { q: 'Is UnitedHealthcare an Oregon Health Plan CCO?', a: 'No. OHP is delivered by coordinated care organizations such as Health Share, Trillium and PacificSource Community Solutions.' },
+      { q: 'Does UnitedHealthcare require a referring provider NPI on ABA claims?', a: 'No published rule requires one. UnitedHealthcare exempts network mental health services from PCP referral requirements, and Optum gates ABA on prior authorization instead.' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+      { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { q: 'Can ABA overlap with speech therapy under UnitedHealthcare?', a: 'Optum publishes no clock-time rule, but its criteria say ABA must not duplicate other medical or behavioral services, and they weigh participation in other therapies when setting hours. Document the other therapies and schedule around them.' },
+      { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
     ],
   },
 

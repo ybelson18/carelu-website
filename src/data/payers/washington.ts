@@ -206,6 +206,28 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.wac0150, S.abaBG, S.teleBG, S.wac526],
       },
+      {
+        h2: 'Does Apple Health require a referring or ordering provider on the ABA claim?',
+        body: [
+          'HCA\'s ProviderOne Billing and Resource Guide applies 42 CFR 455.410: "Any referring, ordering, or prescribing provider must be enrolled with HCA as a fee for service provider," and "The National Provider Identifier (NPI) number of any referring, ordering, or prescribing provider must be listed on any claims for services, supplies, tests, etc. ordered, referred, or prescribed by that provider." On a direct-data-entry claim, "If the service provided is the result of a referral from another provider, check Yes and enter the referring provider\'s NPI (taxonomy codes are not required for referring providers)."',
+          'Apple Health ABA starts from a Center of Excellence prescription: the COE writes "a prescription for ABA services" (WAC 182-531A-0500), and HCA\'s ABA billing guide calls it the COE "ordering ABA services." Read together, the COE is the ordering provider whose NPI the claim carries, and the COE must be enrolled with HCA. The ABA billing guide itself adds the authorization number, matching codes and units, and taxonomy 103K00000X in both the billing and servicing fields. It does not separately restate the referring-provider field, so confirm the MCO\'s edits for managed-care members.',
+        ],
+        cites: [
+          { title: 'HCA — ProviderOne Billing and Resource Guide (September 2025 edition, posted February 2026): Providers required to enroll; DDE claim questions', url: 'https://www.hca.wa.gov/assets/billers-and-providers/providerone-billing-and-resource-guide.pdf' },
+          { title: 'Chapter 182-531A WAC — Applied behavior analysis', url: 'https://app.leg.wa.gov/wac/default.aspx?cite=182-531A&full=true' },
+          { title: 'HCA — Washington Apple Health Applied Behavior Analysis (ABA) Program Billing Guide (January 1, 2026)', url: 'https://www.hca.wa.gov/assets/billers-and-providers/aba-services-bg-20260101.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under Apple Health?',
+        body: [
+          'HCA publishes no clock-time ban on ABA alongside speech, OT or PT in a community ABA program. Its rules work through the assessment instead. The LBAT\'s assessment must list "All services the client has previously received and/or is currently receiving (e.g. school, special education, speech therapy, occupational therapy, etc.)," with "The schedule or dosage of each service," their goals, and the rationale for how ABA will "Be provided in coordination with these services; and Not be redundant or in conflict with these services."',
+          'The bans HCA does publish are inside the ABA benefit: day treatment is not authorized "at the same time as adaptive behavior protocol (CPT® code 97153)," and 97153 may not be billed at the same time as H2020.',
+        ],
+        cites: [
+          { title: 'HCA — Washington Apple Health Applied Behavior Analysis (ABA) Program Billing Guide (January 1, 2026)', url: 'https://www.hca.wa.gov/assets/billers-and-providers/aba-services-bg-20260101.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Which Apple Health card', desc: 'CHPW, Coordinated Care (incl. Apple Health Core Connections foster care), Molina, UnitedHealthcare, Wellpoint, or fee-for-service/BHSO. Enrollment can change monthly.' },
@@ -299,6 +321,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { q: 'Can a BCBA licensed in another state treat an Apple Health client in Washington, including by telehealth?', a: 'Not on the out-of-state license alone. Washington requires a DOH license (or a 180-day temporary license for nonresidents licensed elsewhere) to practice ABA, and HCA pays telemedicine to a client located in Washington only if the practitioner is licensed in Washington or holds a recognized compact license. There is no behavior analyst compact on HCA’s list.' },
       { q: 'Which ABA codes can be billed by telehealth to Apple Health?', a: '97155, 97156, 97157, 99366 and 99368; 97151 for indirect activities only. 97153, 97154, 97158, 0362T and 0373T may not be delivered by telemedicine. Bill POS 02 or 10 with modifier 95 for a nonfacility distant site.' },
       { q: 'What is the timely filing limit for Apple Health ABA claims?', a: 'Fee-for-service: 365 calendar days from the date of service, with adjustments allowed within 24 months (WAC 182-502-0150). Each MCO sets its own limit in its contract; CHPW, for example, uses 12 months from the date of service.' },
+      { q: 'Does Apple Health require the referring or ordering provider NPI on ABA claims?', a: 'Yes, when the service was ordered or referred, which Apple Health ABA always is: HCA requires the NPI of "any referring, ordering, or prescribing provider" on claims for services they ordered, and that provider must be enrolled with HCA. For ABA that is the COE that prescribed it.' },
+      { title: 'HCA — ProviderOne Billing and Resource Guide (September 2025 edition, posted February 2026): Providers required to enroll; DDE claim questions', url: 'https://www.hca.wa.gov/assets/billers-and-providers/providerone-billing-and-resource-guide.pdf' },
+      { q: 'Can a child get ABA and speech therapy at the same time under Apple Health?', a: 'HCA sets no clock-time ban, but the ABA assessment must list every other therapy with its schedule and explain how ABA will be coordinated with it and "Not be redundant or in conflict" with it.' },
     ],
   },
 
@@ -1145,6 +1170,37 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaOM, S.abaFee],
       },
+      {
+        h2: 'Does Aetna require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Aetna publishes no ABA-specific referring-provider rule. Its provider manual defines a clean claim as including "A corresponding referral (whether in paper or electronic format), if required for the applicable claim" plus all CMS-1500 data elements, and it treats behavioral health as direct access: members "may access behavioral health care" "Through direct access to the behavioral health provider," through a PCP recommendation, or through an EAP referral. PCP referrals are a feature of plans "that require the issuance of referrals for specialist care," and even there they apply "other than for direct-access services."',
+          'So box 17 is not a published condition of an Aetna ABA claim in Washington. If a plan design does require a referral, the eligibility-and-benefits response shows it; enter the referring provider only when one exists.',
+        ],
+        cites: [
+          { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under Aetna?',
+        body: [
+          'Aetna publishes no rule on ABA delivered at the same clock time as speech, OT or PT. What it asks for is coordination. Precertification form GR-69017-4 (7-26) asks whether the member gets physical, occupational or speech therapy, mental health services or school services, and "Do you collaborate with all the providers above?" (if not, explain why). The Medical Necessity Guide expects "ongoing collaboration and coordination with existing providers and/or the school district."',
+          'Report the other therapies and their schedule on the precertification request, and ask Aetna\'s precertification line before billing ABA minutes that overlap another therapy.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+          { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'What goes in an Aetna ABA assessment (97151) precertification request?',
+        body: [
+          'Start on Availity with the Authorization (Precertification) Add transaction, or call the precertification department. Form GR-69017-4 (7-26) is not used to start a request. It supplies the clinicals when a case pends, attached on Availity or faxed to FaxHub 833-596-0339. Since August 1, 2026 it "replaces all other Applied Behavior Health Analysis (ABA) precertification information request documents and forms" (not for Maryland or Massachusetts plans).',
+          'For the assessment, request 97151, 97152 and 0362T in hours per authorization period. Treatment codes are requested in hours per week. The form also asks for the current DSM-5 diagnosis codes, the "Diagnosing Provider (name and credentials)," who will supervise, whether any hours fall during class, and the child\'s other services (PT, OT, speech, mental health, PCP, school). Supporting documents, "where applicable," include a standardized assessment (Vineland, ABAS, VB-MAPP) "completed within the past 12 months," the treatment plan with baseline data, caregiver goals, and titration and discharge criteria. Questions: 1-800-424-4047.',
+        ],
+        cites: [
+          { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured Washington plan (state parity law applies) vs. self-funded ERISA (plan document governs).' },
@@ -1246,6 +1302,12 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { q: 'Can a BCBA licensed in another state treat an Aetna member in Washington?', a: 'Only with Washington authorization. Washington requires a DOH license (or a 180-day temporary license for nonresidents licensed elsewhere, or reciprocity) to practice ABA, and its telehealth act lets an out-of-state practitioner treat a patient in Washington only with a Washington license, apart from consultations, assessments without treatment, and short continuity-of-care follow-up.' },
       { q: 'How fast must Aetna pay a clean claim in Washington?', a: 'For fully insured plans, Washington requires carriers to pay 95 percent of clean claims within 30 days and pay or deny 95 percent of all claims within 60 days, with 1 percent monthly interest on clean claims older than 61 days (WAC 284-170-431).' },
       { q: 'What does Aetna pay for ABA in Washington?', a: 'Aetna publishes no ABA rates; payment follows your participation agreement. The public benchmark is Apple Health’s fee-for-service schedule (97153 $12.40 per 15 minutes from July 1, 2026).' },
+      { q: 'Does Aetna require a referring provider NPI on ABA claims?', a: 'No published rule requires one. Aetna treats behavioral health as direct access, and its clean-claim definition asks for a referral only "if required for the applicable claim." Precertification is the gate.' },
+      { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' },
+      { q: 'Does Aetna allow ABA at the same time as speech or OT?', a: 'No published rule either way. Aetna\'s precertification form asks which PT, OT, speech and other services the child gets and whether you coordinate with them, so disclose them and confirm with precertification before overlapping sessions.' },
+      { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
+      { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+      { q: 'Which form does Aetna use for an ABA assessment request?', a: 'Form GR-69017-4 (7-26), which since August 1, 2026 replaces all other Aetna ABA precertification forms (except in Maryland and Massachusetts). Start the request on Availity or by phone first, then attach the form if the case pends. Request 97151, 97152 and 0362T in hours per authorization period.' },
     ],
   },
 
@@ -1316,6 +1378,28 @@ export const washingtonPayers: Record<string, PayerConfig> = {
           'Cigna publishes no ABA rate table. Evernorth’s Administrative Guidelines (September 2026) say the Provider Agreement terms "include the reimbursement rates applicable to covered services," and point ABA providers to "Exhibit A in your Provider Agreement" for the fee schedule and the list of reimbursable autism services. Fee questions go to Provider Services at 800.926.2273. Virtual services are billed with modifier 95, which "will not change the reimbursement." ' + WA_FEE_BENCHMARK,
         ],
         cites: [S.ebhAdmin, S.abaFee],
+      },
+      {
+        h2: 'Does Cigna require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Cigna (Evernorth) publishes no referring-provider requirement for ABA. Its autism resource guide gives the ABA paper-claim instructions field by field and names only box 31 (your name), the claims mailing address and box 33 ("List only a BCBA or other licensed provider in box 33"); box 17 is not mentioned. The Evernorth administrative guidelines state for SureFit, Connect and HMO/POS plans alike that "Referrals are not required for behavioral health services."',
+          'Leave box 17 blank unless a referral actually exists for the service. Bill technician time under the supervising provider: "Evernorth does not credential nonlicensed/noncertified staff. Services for these staff members must be billed under the supervising provider."',
+        ],
+        cites: [
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+          { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under Cigna?',
+        body: [
+          'No. EN0499 (effective 5/15/2026): "Provision of ABA treatment is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." The policy defines that overlap as concurrent billing: "multiple providers bill for services rendered to the same patient when those services occur at the same time."',
+          'Schedule ABA hours around speech, OT and PT, and keep session start and stop times that show no overlap. The only same-time billing EN0499 and Cigna\'s autism resource guide allow is within ABA: 97153 or 97154 alongside 97155 when the BCBA directs the technician face-to-face.',
+        ],
+        cites: [
+          { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+          { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1411,6 +1495,10 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { q: 'Does the Cigna ABA assessment need prior authorization in Washington?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Does a BCBA need a Washington license to bill Cigna?', a: 'Yes, to practice in Washington. Chapter 18.380 RCW requires a DOH license (or temporary license) to practice ABA in the state, whatever the payer.' },
       { q: 'What does Cigna pay for ABA in Washington?', a: 'Cigna publishes no ABA rates; your fee schedule is Exhibit A of your Evernorth Provider Agreement (questions: 800.926.2273). Apple Health’s 97153 rate ($12.40 per 15 minutes) is the public benchmark.' },
+      { q: 'Does Cigna require a referring provider NPI on ABA claims?', a: 'No. Cigna\'s ABA billing instructions cover boxes 31 and 33 only, and Evernorth states that referrals are not required for behavioral health services.' },
+      { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
+      { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
+      { q: 'Can a Cigna member get ABA at the same time as speech or OT?', a: 'No. EN0499 says ABA "is not covered or reimbursable when delivered to the same individual, at the same time as any other treatment modality (e.g., ABA and speech therapy, or ABA and occupational therapy)." Schedule the therapies back to back, not overlapping.' },
     ],
   },
 
@@ -1483,6 +1571,28 @@ export const washingtonPayers: Record<string, PayerConfig> = {
           'UnitedHealthcare publishes no ABA rate table; Optum pays from the contract. Optum’s National Network Manual (effective Sept. 1, 2026) defines the “Fee Maximum” as “The maximum amount a participating provider may be paid for a specific health care service provided to a member,” and says “Reimbursement to clinicians is based upon licensure rather than degree.” Optum’s commercial ABA Reimbursement Policy (2022RP501A) puts the credential level on every line: HM for an RBT, HN for a BCaBA, HO for a master’s-level BCBA, HP for a doctoral-level provider; the policy notes state requirements "may supplement, modify or supersede" it. ' + WA_FEE_BENCHMARK,
         ],
         cites: [S.optumNNM, S.optumReimb, S.abaFee],
+      },
+      {
+        h2: 'Does UnitedHealthcare require a referring provider on the ABA claim (box 17)?',
+        body: [
+          'Neither UnitedHealthcare\'s 2026 commercial administrative guide nor Optum\'s commercial ABA reimbursement policy sets a referring-provider requirement for ABA claims. On plans that do require PCP referrals, the administrative guide lists "Mental health/substance use disorder services with network behavioral health clinicians" among the services members can get without one, and Optum manages the ABA benefit through its own two-step authorization.',
+          'So box 17 is not a published condition of a UnitedHealthcare ABA claim in Washington; the authorization is. Enter a referring provider only when one exists.',
+        ],
+        cites: [
+          { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
+      },
+      {
+        h2: 'Can ABA overlap with speech, OT or PT under UnitedHealthcare (Optum)?',
+        body: [
+          'Optum\'s criteria publish no clock-time rule for ABA against speech, OT or PT, but they do rule out duplication. The Supplemental Clinical Criteria state that "ABA services do not duplicate the services provided to or available to the individual by other medical or behavioral services." They require coordination with "speech/occupational therapists and others," and they size intensity on "The individual\'s ability to participate in ABA, given participation in other therapies and engagements."',
+          'In practice, list the child\'s other therapies, with their schedule, in the treatment plan, and show the ABA hours fit around them. Optum\'s own same-time rules cover ABA codes only: 97153 or 97154 with 97155 concurrently, but never by a single QHP.',
+        ],
+        cites: [
+          { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
+          { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+        ],
       },
     ],
     collect: [
@@ -1581,6 +1691,11 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum have Washington-specific ABA criteria for commercial plans?', a: 'No. Washington is not in Optum’s July 2026 ABA State Mandates document. Optum’s Washington criteria apply to Apple Health members of UnitedHealthcare Community Plan.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare commercial in Washington?', a: 'Optum’s commercial telehealth guide allows only 97155, 97156 and 97157 by telehealth, billed POS 02 or 10. Fully insured Washington plans are also subject to RCW 48.43.735, so ask Optum how it applies the list to your member’s plan.' },
       { q: 'What does UnitedHealthcare pay for ABA in Washington?', a: 'UnitedHealthcare/Optum publishes no ABA rates: you are paid up to the Fee Maximum in your Optum agreement, with a credential modifier on each line. Apple Health’s 97153 rate ($12.40 per 15 minutes) is the public benchmark.' },
+      { q: 'Does UnitedHealthcare require a referring provider NPI on ABA claims?', a: 'No published rule requires one. UnitedHealthcare exempts network mental health services from PCP referral requirements, and Optum gates ABA on prior authorization instead.' },
+      { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },
+      { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
+      { q: 'Can ABA overlap with speech therapy under UnitedHealthcare?', a: 'Optum publishes no clock-time rule, but its criteria say ABA must not duplicate other medical or behavioral services, and they weigh participation in other therapies when setting hours. Document the other therapies and schedule around them.' },
+      { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
     ],
   },
 
@@ -1654,6 +1769,17 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         h2: 'Claims operations in Washington: prompt pay, prior-authorization clocks, appeals',
         body: [WA_CLAIMS_BODY],
         cites: [S.wac431, S.rcw43830, S.rcw43535],
+      },
+      {
+        h2: 'BlueCard: out-of-area Blue members, and where the claim goes',
+        body: [
+          'For eligibility, benefits, claims and payment on another Blue plan\'s member, Premera sends you to Availity: select "Other Blue Plans Premera BlueExchange (FEP, Shared Admin)" as the payer, with the member\'s plan prefix, ID number, name and date of birth. Premera\'s BlueCard claims line is 888-261-9562. The out-of-area member\'s medical policy, pre-certification and pre-authorization requirements are looked up, and pre-service reviews submitted, through Premera\'s "Medical policy & pre-service review" tool for out-of-area Blue Plan members, so check the home plan\'s ABA policy there rather than assuming Premera\'s 3.01.510 applies.',
+          'Premera pays these claims under your Premera contract: "All BlueCard claims processed by Premera are paid according to the terms of your contract with Premera Blue Cross." Put the complete ID, three-character prefix included, in box 1a. FEP is exempt from BlueCard. Providers practicing in Idaho and Oregon are the exception to filing with the "local" plan, because Premera\'s service area overlaps another Blue plan there. Use Premera\'s prefix list and county map to decide where to file.',
+        ],
+        cites: [
+          { title: 'Premera — BlueCard Resources (prefix list, out-of-area medical policy and pre-service review)', url: 'https://www.premera.com/wa/provider/bluecard-resources/' },
+          { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' },
+        ],
       },
     ],
     collect: [
@@ -1754,6 +1880,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { q: 'Do LABAs need to be credentialed with Premera?', a: 'No. LABA services are billed under the credentialed, supervising LBA’s name.' },
       { q: 'Can ABA be done at school with Premera?', a: 'Some direct treatment may take place at school when autism-related difficulties are evident there, but it must be entirely ABA treatment; acting as a classroom aide or providing IEP services is not covered, and some plans exclude school settings.' },
       { q: 'Can a BCBA licensed in another state treat a Premera member in Washington?', a: 'Only with Washington authorization: a DOH license, reciprocity, or a 180-day temporary license for nonresidents licensed elsewhere. Premera’s own policy requires state licensure where the state licenses behavior analysts.' },
+      { q: 'How do I handle an out-of-state Blue member for ABA with Premera?', a: 'Through BlueCard. Check eligibility and file through Availity under "Other Blue Plans Premera BlueExchange," look up the home plan\'s medical policy and pre-authorization rules with Premera\'s out-of-area tool, and expect payment on your Premera contract terms. BlueCard claims line: 888-261-9562.' },
+      { title: 'Premera — BlueCard Resources (prefix list, out-of-area medical policy and pre-service review)', url: 'https://www.premera.com/wa/provider/bluecard-resources/' },
+      { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' },
     ],
   },
 
